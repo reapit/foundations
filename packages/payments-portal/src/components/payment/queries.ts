@@ -30,6 +30,7 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
 
       return res.data
     },
+    refetchOnWindowFocus: false,
     onError: (err: AxiosError<any>) => {
       logger(err)
       error(err.message)
@@ -61,6 +62,7 @@ export const usePayment = (session: string | null, clientCode: string | null, pa
 
       return res.data
     },
+    refetchOnWindowFocus: false,
     onError: (err: AxiosError<any>) => {
       logger(err)
       error(err.message)
@@ -193,6 +195,7 @@ export const useMerchantKey = (session: string | null, clientCode: string | null
 
       return res.data
     },
+    refetchOnWindowFocus: false,
     onError: (err: AxiosError<any>) => {
       logger(err)
       error(err.message)

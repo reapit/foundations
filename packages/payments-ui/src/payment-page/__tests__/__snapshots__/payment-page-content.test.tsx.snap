@@ -37,6 +37,7 @@ Object {
         class="el-subtitle"
       >
         Payment Details
+        , Ref: PAY20000001
       </h2>
       <div
         class="el-mb11 el-grid"
@@ -45,102 +46,24 @@ Object {
           class="el-col"
         >
           <div
-            class="el-card-wrap"
+            class="el-flex-container"
           >
-            <div
-              class="el-card-list-main-wrap"
+            <span
+              class="el-mr4 el-intent-secondary el-icon-size-medium el-icon"
             >
-              <h5
-                class="el-card-list-heading"
+              <svg />
+            </span>
+            <div>
+              <h2
+                class="el-has-no-margin el-subtitle"
               >
-                Payment
-              </h5>
-              <h6
-                class="el-card-list-sub-heading"
+                Payment Amount
+              </h2>
+              <p
+                class="el-has-grey-text el-body-text"
               >
-                The value and reason this transaction was raised
-              </h6>
-            </div>
-            <div
-              class="el-card-list-item"
-            >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
-                  Name
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
-                  100.00
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item"
-            >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
-                  Description
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
-                  Tenancy Check Fee
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item"
-            >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
-                  Payment Ref
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
-                  PAY20000001
-                </div>
-              </div>
+                100.00
+              </p>
             </div>
           </div>
         </div>
@@ -148,129 +71,50 @@ Object {
           class="el-col"
         >
           <div
-            class="el-card-wrap"
+            class="el-flex-container"
           >
-            <div
-              class="el-card-list-main-wrap"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
-              <h5
-                class="el-card-list-heading"
+              <svg />
+            </span>
+            <div>
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Reason For Payment
+              </h2>
+              <p
+                class="el-has-grey-text el-body-text"
+              >
+                Tenancy Check Fee
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-col"
+        >
+          <div
+            class="el-flex-container"
+          >
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
+            >
+              <svg />
+            </span>
+            <div>
+              <h2
+                class="el-has-no-margin el-subtitle"
               >
                 Customer
-              </h5>
-              <h6
-                class="el-card-list-sub-heading"
+                , Ref: OXF12300101
+              </h2>
+              <p
+                class="el-has-grey-text el-body-text"
               >
-                The customer eg Applicant or Tennant to be charged for this transaction
-              </h6>
-            </div>
-            <div
-              class="el-card-list-item"
-            >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
-                  Name
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
-                  Mr John Smith
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item"
-            >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
-                  Address
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
-                  1 Test House Test Lane County of Test Test City A11 2BB
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item"
-            >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
-                  Email
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
-                  example@email.com
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item"
-            >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
-                  Customer Ref
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
-                  OXF12300101
-                </div>
-              </div>
+                Mr John Smith
+              </p>
             </div>
           </div>
         </div>
@@ -278,75 +122,79 @@ Object {
           class="el-col"
         >
           <div
-            class="el-card-wrap"
+            class="el-flex-container"
           >
-            <div
-              class="el-card-list-main-wrap"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
-              <h5
-                class="el-card-list-heading"
+              <svg />
+            </span>
+            <div>
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Customer Address
+              </h2>
+              <p
+                class="el-has-grey-text el-body-text"
+              >
+                1 Test House Test Lane County of Test Test City A11 2BB
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-col"
+        >
+          <div
+            class="el-flex-container"
+          >
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
+            >
+              <svg />
+            </span>
+            <div>
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Customer Email
+              </h2>
+              <p
+                class="el-has-grey-text el-body-text"
+              >
+                <a
+                  href="mailto:example@email.com"
+                >
+                  example@email.com
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-col"
+        >
+          <div
+            class="el-flex-container"
+          >
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
+            >
+              <svg />
+            </span>
+            <div>
+              <h2
+                class="el-has-no-margin el-subtitle"
               >
                 Property
-              </h5>
-              <h6
-                class="el-card-list-sub-heading"
+                , Ref: OXF200008
+              </h2>
+              <p
+                class="el-has-grey-text el-body-text"
               >
-                The property to which this transaction relates if relevant
-              </h6>
-            </div>
-            <div
-              class="el-card-list-item"
-            >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
-                  Address
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
-                  15 Example street Solihull West Midlands B91 2XX
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item"
-            >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
-                  Property Ref
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
-                  OXF200008
-                </div>
-              </div>
+                15 Example street Solihull West Midlands B91 2XX
+              </p>
             </div>
           </div>
         </div>
@@ -1750,7 +1598,7 @@ Object {
               <label
                 class="el-label"
               >
-                Status
+                Country
               </label>
             </div>
           </div>
@@ -1927,6 +1775,7 @@ Object {
       class="el-subtitle"
     >
       Payment Details
+      , Ref: PAY20000001
     </h2>
     <div
       class="el-mb11 el-grid"
@@ -1935,102 +1784,24 @@ Object {
         class="el-col"
       >
         <div
-          class="el-card-wrap"
+          class="el-flex-container"
         >
-          <div
-            class="el-card-list-main-wrap"
+          <span
+            class="el-mr4 el-intent-secondary el-icon-size-medium el-icon"
           >
-            <h5
-              class="el-card-list-heading"
+            <svg />
+          </span>
+          <div>
+            <h2
+              class="el-has-no-margin el-subtitle"
             >
-              Payment
-            </h5>
-            <h6
-              class="el-card-list-sub-heading"
+              Payment Amount
+            </h2>
+            <p
+              class="el-has-grey-text el-body-text"
             >
-              The value and reason this transaction was raised
-            </h6>
-          </div>
-          <div
-            class="el-card-list-item"
-          >
-            <div
-              class="el-card-list-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-list-item-text-wrap"
-            >
-              <div
-                class="el-card-list-item-text-primary"
-              >
-                Name
-              </div>
-              <div
-                class="el-card-list-item-text-secondary"
-              >
-                100.00
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-card-list-item"
-          >
-            <div
-              class="el-card-list-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-list-item-text-wrap"
-            >
-              <div
-                class="el-card-list-item-text-primary"
-              >
-                Description
-              </div>
-              <div
-                class="el-card-list-item-text-secondary"
-              >
-                Tenancy Check Fee
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-card-list-item"
-          >
-            <div
-              class="el-card-list-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-list-item-text-wrap"
-            >
-              <div
-                class="el-card-list-item-text-primary"
-              >
-                Payment Ref
-              </div>
-              <div
-                class="el-card-list-item-text-secondary"
-              >
-                PAY20000001
-              </div>
-            </div>
+              100.00
+            </p>
           </div>
         </div>
       </div>
@@ -2038,129 +1809,50 @@ Object {
         class="el-col"
       >
         <div
-          class="el-card-wrap"
+          class="el-flex-container"
         >
-          <div
-            class="el-card-list-main-wrap"
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
           >
-            <h5
-              class="el-card-list-heading"
+            <svg />
+          </span>
+          <div>
+            <h2
+              class="el-has-no-margin el-subtitle"
+            >
+              Reason For Payment
+            </h2>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              Tenancy Check Fee
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-col"
+      >
+        <div
+          class="el-flex-container"
+        >
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
+          >
+            <svg />
+          </span>
+          <div>
+            <h2
+              class="el-has-no-margin el-subtitle"
             >
               Customer
-            </h5>
-            <h6
-              class="el-card-list-sub-heading"
+              , Ref: OXF12300101
+            </h2>
+            <p
+              class="el-has-grey-text el-body-text"
             >
-              The customer eg Applicant or Tennant to be charged for this transaction
-            </h6>
-          </div>
-          <div
-            class="el-card-list-item"
-          >
-            <div
-              class="el-card-list-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-list-item-text-wrap"
-            >
-              <div
-                class="el-card-list-item-text-primary"
-              >
-                Name
-              </div>
-              <div
-                class="el-card-list-item-text-secondary"
-              >
-                Mr John Smith
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-card-list-item"
-          >
-            <div
-              class="el-card-list-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-list-item-text-wrap"
-            >
-              <div
-                class="el-card-list-item-text-primary"
-              >
-                Address
-              </div>
-              <div
-                class="el-card-list-item-text-secondary"
-              >
-                1 Test House Test Lane County of Test Test City A11 2BB
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-card-list-item"
-          >
-            <div
-              class="el-card-list-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-list-item-text-wrap"
-            >
-              <div
-                class="el-card-list-item-text-primary"
-              >
-                Email
-              </div>
-              <div
-                class="el-card-list-item-text-secondary"
-              >
-                example@email.com
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-card-list-item"
-          >
-            <div
-              class="el-card-list-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-list-item-text-wrap"
-            >
-              <div
-                class="el-card-list-item-text-primary"
-              >
-                Customer Ref
-              </div>
-              <div
-                class="el-card-list-item-text-secondary"
-              >
-                OXF12300101
-              </div>
-            </div>
+              Mr John Smith
+            </p>
           </div>
         </div>
       </div>
@@ -2168,75 +1860,79 @@ Object {
         class="el-col"
       >
         <div
-          class="el-card-wrap"
+          class="el-flex-container"
         >
-          <div
-            class="el-card-list-main-wrap"
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
           >
-            <h5
-              class="el-card-list-heading"
+            <svg />
+          </span>
+          <div>
+            <h2
+              class="el-has-no-margin el-subtitle"
+            >
+              Customer Address
+            </h2>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              1 Test House Test Lane County of Test Test City A11 2BB
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-col"
+      >
+        <div
+          class="el-flex-container"
+        >
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
+          >
+            <svg />
+          </span>
+          <div>
+            <h2
+              class="el-has-no-margin el-subtitle"
+            >
+              Customer Email
+            </h2>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              <a
+                href="mailto:example@email.com"
+              >
+                example@email.com
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-col"
+      >
+        <div
+          class="el-flex-container"
+        >
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
+          >
+            <svg />
+          </span>
+          <div>
+            <h2
+              class="el-has-no-margin el-subtitle"
             >
               Property
-            </h5>
-            <h6
-              class="el-card-list-sub-heading"
+              , Ref: OXF200008
+            </h2>
+            <p
+              class="el-has-grey-text el-body-text"
             >
-              The property to which this transaction relates if relevant
-            </h6>
-          </div>
-          <div
-            class="el-card-list-item"
-          >
-            <div
-              class="el-card-list-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-list-item-text-wrap"
-            >
-              <div
-                class="el-card-list-item-text-primary"
-              >
-                Address
-              </div>
-              <div
-                class="el-card-list-item-text-secondary"
-              >
-                15 Example street Solihull West Midlands B91 2XX
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-card-list-item"
-          >
-            <div
-              class="el-card-list-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-list-item-text-wrap"
-            >
-              <div
-                class="el-card-list-item-text-primary"
-              >
-                Property Ref
-              </div>
-              <div
-                class="el-card-list-item-text-secondary"
-              >
-                OXF200008
-              </div>
-            </div>
+              15 Example street Solihull West Midlands B91 2XX
+            </p>
           </div>
         </div>
       </div>
@@ -3640,7 +3336,7 @@ Object {
             <label
               class="el-label"
             >
-              Status
+              Country
             </label>
           </div>
         </div>

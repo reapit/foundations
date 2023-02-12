@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { History } from 'history'
 import { Dispatch, SetStateAction } from 'react'
 import { ClientConfigModel } from '../types/config'

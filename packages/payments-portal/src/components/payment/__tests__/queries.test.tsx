@@ -2,10 +2,11 @@ import React, { PropsWithChildren } from 'react'
 import { renderHook } from '@testing-library/react-hooks'
 import axios from 'axios'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { useClientConfig, usePayment, useReceipt, useStatusUpdate } from '../queries'
+import { useClientConfig, useMerchantKey, usePayment, useReceipt, useStatusUpdate, useTransaction } from '../queries'
 import { mockConfigModel } from '../../../tests/__mocks__/config'
 import { mockPaymentWithPropertyModel } from '../../../tests/__mocks__/payment'
-import { PaymentEmailReceipt, UpdateStatusBody } from '@reapit/payments-ui'
+import { CreateTransactionModel, PaymentEmailReceipt, UpdateStatusBody } from '@reapit/payments-ui'
+import { mockMerchantKey } from '../../../tests/__mocks__/opayo'
 
 jest.mock('axios', () => ({
   get: jest.fn(),
@@ -187,6 +188,84 @@ describe('useStatusUpdate', () => {
     expect(mockAxiosPatch).toHaveBeenCalledTimes(1)
 
     expect(returnedValue).toEqual(true)
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+})
+
+describe('useTransaction', () => {
+  it('should correctly send the update', async () => {
+    mockAxiosPost.mockReturnValue({
+      data: {},
+    })
+
+    const { result, waitForNextUpdate } = renderHook(() => useTransaction(mockSession, mockClientCode, mockPaymentId), {
+      wrapper: createWrapper(),
+    })
+
+    const returnedValue = await result.current.transactionSubmit({} as CreateTransactionModel)
+
+    await waitForNextUpdate()
+
+    expect(mockAxiosPost).toHaveBeenCalledWith(
+      'https://payments-service.reapit.cloud/opayo/public/transactions/' + mockPaymentId,
+      {},
+      {
+        headers: {
+          'X-Api-Key': 'MOCK_API_KEY',
+          'reapit-customer': 'MOCK_CLIENT_CODE',
+          'reapit-session': 'MOCK_SESSION',
+        },
+      },
+    )
+
+    expect(mockAxiosPost).toHaveBeenCalledTimes(1)
+
+    expect(returnedValue).toEqual({})
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+})
+
+describe('useMerchantKey', () => {
+  it('should correctly set loading, fetch data', async () => {
+    const mockData = mockMerchantKey
+    mockAxiosPost.mockReturnValue({
+      data: mockData,
+    })
+
+    const { result, waitForNextUpdate } = renderHook(() => useMerchantKey(mockSession, mockClientCode, mockPaymentId), {
+      wrapper: createWrapper(),
+    })
+    expect(result.current.merchantKey).toBeNull()
+    expect(result.current.merchantKeyLoading).toBe(true)
+
+    await waitForNextUpdate()
+
+    expect(mockAxiosPost).toHaveBeenCalledWith(
+      'https://payments-service.reapit.cloud/opayo/public/merchant-session-keys/MOCK_PAYMENT_ID',
+      undefined,
+      {
+        headers: {
+          'X-Api-Key': 'MOCK_API_KEY',
+          'reapit-customer': 'MOCK_CLIENT_CODE',
+          'reapit-session': 'MOCK_SESSION',
+        },
+      },
+    )
+
+    expect(mockAxiosPost).toHaveBeenCalledTimes(1)
+
+    expect(result.current.merchantKey).toEqual(mockData)
+    expect(result.current.merchantKeyLoading).toEqual(false)
+
+    result.current.refreshMerchantKey()
+
+    expect(mockAxiosPost).toHaveBeenCalledTimes(2)
   })
 
   afterEach(() => {

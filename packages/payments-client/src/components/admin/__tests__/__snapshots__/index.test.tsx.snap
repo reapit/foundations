@@ -76,7 +76,7 @@ Object {
           </div>
         </div>
         <div
-          class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"
@@ -91,7 +91,7 @@ Object {
           <div
             class="el-pn-content"
           >
-            Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+            Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
           </div>
         </div>
         <form>
@@ -100,25 +100,11 @@ Object {
           >
             Company Details
           </h2>
-          <div
-            class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          <p
+            class="el-has-grey-text el-body-text"
           >
-            <div
-              class="el-pn-icon"
-              data-testid="close-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-pn-content"
-            >
-              These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-            </div>
-          </div>
+            These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+          </p>
           <div
             class="el-form-layout-has-margin el-form-layout"
           >
@@ -168,30 +154,16 @@ Object {
           >
             Opayo Credientials
           </h2>
-          <div
-            class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          <p
+            class="el-has-grey-text el-body-text"
           >
-            <div
-              class="el-pn-icon"
-              data-testid="close-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-pn-content"
-            >
-              These details are required by Opayo to make payments in a live or test environment. 
-              <b>
-                Please note: 
-              </b>
-               
-              for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the front end. You can update your credentials at any time by entering new keys in the form below.
-            </div>
-          </div>
+            These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
+          </p>
+          <p
+            class="el-has-grey-text el-has-bold-text el-body-text"
+          >
+            Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
+          </p>
           <div
             class="el-form-layout-has-margin el-form-layout"
           >
@@ -297,7 +269,6 @@ Object {
                 id="test-static-id"
                 name="configId"
                 type="hidden"
-                value=""
               />
             </div>
           </div>
@@ -377,7 +348,7 @@ Object {
         </div>
       </div>
       <div
-        class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -392,7 +363,7 @@ Object {
         <div
           class="el-pn-content"
         >
-          Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+          Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
         </div>
       </div>
       <form>
@@ -401,25 +372,11 @@ Object {
         >
           Company Details
         </h2>
-        <div
-          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        <p
+          class="el-has-grey-text el-body-text"
         >
-          <div
-            class="el-pn-icon"
-            data-testid="close-icon"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </div>
-          <div
-            class="el-pn-content"
-          >
-            These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-          </div>
-        </div>
+          These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+        </p>
         <div
           class="el-form-layout-has-margin el-form-layout"
         >
@@ -469,30 +426,16 @@ Object {
         >
           Opayo Credientials
         </h2>
-        <div
-          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        <p
+          class="el-has-grey-text el-body-text"
         >
-          <div
-            class="el-pn-icon"
-            data-testid="close-icon"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </div>
-          <div
-            class="el-pn-content"
-          >
-            These details are required by Opayo to make payments in a live or test environment. 
-            <b>
-              Please note: 
-            </b>
-             
-            for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the front end. You can update your credentials at any time by entering new keys in the form below.
-          </div>
-        </div>
+          These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
+        </p>
+        <p
+          class="el-has-grey-text el-has-bold-text el-body-text"
+        >
+          Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
+        </p>
         <div
           class="el-form-layout-has-margin el-form-layout"
         >
@@ -598,7 +541,6 @@ Object {
               id="test-static-id"
               name="configId"
               type="hidden"
-              value=""
             />
           </div>
         </div>
@@ -735,7 +677,7 @@ Object {
           </div>
         </div>
         <div
-          class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"
@@ -750,7 +692,7 @@ Object {
           <div
             class="el-pn-content"
           >
-            Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+            Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
           </div>
         </div>
         <form>
@@ -759,25 +701,11 @@ Object {
           >
             Company Details
           </h2>
-          <div
-            class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          <p
+            class="el-has-grey-text el-body-text"
           >
-            <div
-              class="el-pn-icon"
-              data-testid="close-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-pn-content"
-            >
-              These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-            </div>
-          </div>
+            These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+          </p>
           <div
             class="el-form-layout-has-margin el-form-layout"
           >
@@ -827,30 +755,16 @@ Object {
           >
             Opayo Credientials
           </h2>
-          <div
-            class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          <p
+            class="el-has-grey-text el-body-text"
           >
-            <div
-              class="el-pn-icon"
-              data-testid="close-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-pn-content"
-            >
-              These details are required by Opayo to make payments in a live or test environment. 
-              <b>
-                Please note: 
-              </b>
-               
-              for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the front end. You can update your credentials at any time by entering new keys in the form below.
-            </div>
-          </div>
+            These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
+          </p>
+          <p
+            class="el-has-grey-text el-has-bold-text el-body-text"
+          >
+            Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
+          </p>
           <div
             class="el-form-layout-has-margin el-form-layout"
           >
@@ -956,7 +870,6 @@ Object {
                 id="test-static-id"
                 name="configId"
                 type="hidden"
-                value=""
               />
             </div>
           </div>
@@ -1036,7 +949,7 @@ Object {
         </div>
       </div>
       <div
-        class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -1051,7 +964,7 @@ Object {
         <div
           class="el-pn-content"
         >
-          Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+          Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
         </div>
       </div>
       <form>
@@ -1060,25 +973,11 @@ Object {
         >
           Company Details
         </h2>
-        <div
-          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        <p
+          class="el-has-grey-text el-body-text"
         >
-          <div
-            class="el-pn-icon"
-            data-testid="close-icon"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </div>
-          <div
-            class="el-pn-content"
-          >
-            These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-          </div>
-        </div>
+          These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+        </p>
         <div
           class="el-form-layout-has-margin el-form-layout"
         >
@@ -1128,30 +1027,16 @@ Object {
         >
           Opayo Credientials
         </h2>
-        <div
-          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        <p
+          class="el-has-grey-text el-body-text"
         >
-          <div
-            class="el-pn-icon"
-            data-testid="close-icon"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </div>
-          <div
-            class="el-pn-content"
-          >
-            These details are required by Opayo to make payments in a live or test environment. 
-            <b>
-              Please note: 
-            </b>
-             
-            for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the front end. You can update your credentials at any time by entering new keys in the form below.
-          </div>
-        </div>
+          These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
+        </p>
+        <p
+          class="el-has-grey-text el-has-bold-text el-body-text"
+        >
+          Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
+        </p>
         <div
           class="el-form-layout-has-margin el-form-layout"
         >
@@ -1257,7 +1142,6 @@ Object {
               id="test-static-id"
               name="configId"
               type="hidden"
-              value=""
             />
           </div>
         </div>
@@ -1394,7 +1278,7 @@ Object {
           </div>
         </div>
         <div
-          class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"
@@ -1409,7 +1293,7 @@ Object {
           <div
             class="el-pn-content"
           >
-            Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+            Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
           </div>
         </div>
         <form>
@@ -1418,25 +1302,11 @@ Object {
           >
             Company Details
           </h2>
-          <div
-            class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          <p
+            class="el-has-grey-text el-body-text"
           >
-            <div
-              class="el-pn-icon"
-              data-testid="close-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-pn-content"
-            >
-              These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-            </div>
-          </div>
+            These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+          </p>
           <div
             class="el-form-layout-has-margin el-form-layout"
           >
@@ -1486,30 +1356,16 @@ Object {
           >
             Opayo Credientials
           </h2>
-          <div
-            class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          <p
+            class="el-has-grey-text el-body-text"
           >
-            <div
-              class="el-pn-icon"
-              data-testid="close-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-pn-content"
-            >
-              These details are required by Opayo to make payments in a live or test environment. 
-              <b>
-                Please note: 
-              </b>
-               
-              for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the front end. You can update your credentials at any time by entering new keys in the form below.
-            </div>
-          </div>
+            These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
+          </p>
+          <p
+            class="el-has-grey-text el-has-bold-text el-body-text"
+          >
+            Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
+          </p>
           <div
             class="el-form-layout-has-margin el-form-layout"
           >
@@ -1615,7 +1471,6 @@ Object {
                 id="test-static-id"
                 name="configId"
                 type="hidden"
-                value=""
               />
             </div>
           </div>
@@ -1695,7 +1550,7 @@ Object {
         </div>
       </div>
       <div
-        class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -1710,7 +1565,7 @@ Object {
         <div
           class="el-pn-content"
         >
-          Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+          Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
         </div>
       </div>
       <form>
@@ -1719,25 +1574,11 @@ Object {
         >
           Company Details
         </h2>
-        <div
-          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        <p
+          class="el-has-grey-text el-body-text"
         >
-          <div
-            class="el-pn-icon"
-            data-testid="close-icon"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </div>
-          <div
-            class="el-pn-content"
-          >
-            These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-          </div>
-        </div>
+          These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+        </p>
         <div
           class="el-form-layout-has-margin el-form-layout"
         >
@@ -1787,30 +1628,16 @@ Object {
         >
           Opayo Credientials
         </h2>
-        <div
-          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        <p
+          class="el-has-grey-text el-body-text"
         >
-          <div
-            class="el-pn-icon"
-            data-testid="close-icon"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </div>
-          <div
-            class="el-pn-content"
-          >
-            These details are required by Opayo to make payments in a live or test environment. 
-            <b>
-              Please note: 
-            </b>
-             
-            for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the front end. You can update your credentials at any time by entering new keys in the form below.
-          </div>
-        </div>
+          These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
+        </p>
+        <p
+          class="el-has-grey-text el-has-bold-text el-body-text"
+        >
+          Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
+        </p>
         <div
           class="el-form-layout-has-margin el-form-layout"
         >
@@ -1916,7 +1743,6 @@ Object {
               id="test-static-id"
               name="configId"
               type="hidden"
-              value=""
             />
           </div>
         </div>

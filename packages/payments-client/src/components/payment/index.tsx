@@ -52,8 +52,8 @@ export const PaymentPage: FC = () => {
         <Button className={elMb3} intent="neutral" onClick={openNewPage('')}>
           View Docs
         </Button>
-        <Button intent="secondary" disabled={payment?.status === 'posted' || configNotConfigured} onClick={openModal}>
-          Request Payment
+        <Button intent="primary" disabled={payment?.status === 'posted' || configNotConfigured} onClick={openModal}>
+          Email Request
         </Button>
       </SecondaryNavContainer>
       <PageContainer>

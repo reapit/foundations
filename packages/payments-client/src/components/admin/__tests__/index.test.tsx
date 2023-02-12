@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '../../../tests/react-testing'
-import AdminPage, { handleCloseModal, handleResetForm } from '..'
+import AdminPage, { handleCloseModal, handleDelete, handleResetForm, sanitiseConfigPayload } from '..'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockConfigModel } from '../../../tests/__mocks__/config'
 
@@ -8,6 +8,8 @@ jest.mock('@reapit/use-reapit-data', () => ({
   ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, false]),
 }))
+
+jest.mock('../../../core/use-config-state')
 
 const mockUseReapitGet = useReapitGet as jest.Mock
 
@@ -54,5 +56,33 @@ describe('handleCloseModal', () => {
 
     expect(closeModal).toHaveBeenCalledTimes(1)
     expect(refreshConfig).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('sanitiseConfigPayload', () => {
+  it('should return a config', () => {
+    const config = mockConfigModel
+    const clientCode = 'SBOX'
+
+    const { companyName, configId, isLive, logoUri } = config
+
+    const result = sanitiseConfigPayload(config, clientCode)
+
+    expect(result).toEqual({ clientCode, companyName, configId, isLive, logoUri })
+  })
+})
+
+describe('handleDelete', () => {
+  it('should handle delete', () => {
+    const deleteSubmit = jest.fn()
+    const config = mockConfigModel
+    const clearConfigCache = jest.fn()
+
+    const curried = handleDelete(deleteSubmit, config, clearConfigCache)
+
+    curried()
+
+    expect(deleteSubmit).toHaveBeenCalledTimes(1)
+    expect(clearConfigCache).toHaveBeenCalledTimes(1)
   })
 })

@@ -178,25 +178,6 @@ Object {
           </div>
         </div>
         <div
-          class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-        >
-          <div
-            class="el-pn-icon"
-            data-testid="close-icon"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </div>
-          <div
-            class="el-pn-content"
-          >
-            The app cannnot currently process client payments. This is likely because your payment provider has not been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page in the main navigation.
-          </div>
-        </div>
-        <div
           class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
@@ -389,25 +370,6 @@ Object {
           <img
             src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
           />
-        </div>
-      </div>
-      <div
-        class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-      >
-        <div
-          class="el-pn-icon"
-          data-testid="close-icon"
-        >
-          <span
-            class="el-icon"
-          >
-            <svg />
-          </span>
-        </div>
-        <div
-          class="el-pn-content"
-        >
-          The app cannnot currently process client payments. This is likely because your payment provider has not been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page in the main navigation.
         </div>
       </div>
       <div
@@ -663,25 +625,6 @@ Object {
           </div>
         </div>
         <div
-          class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-        >
-          <div
-            class="el-pn-icon"
-            data-testid="close-icon"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </div>
-          <div
-            class="el-pn-content"
-          >
-            The app cannnot currently process client payments. This is likely because your payment provider has not been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page in the main navigation.
-          </div>
-        </div>
-        <div
           class="el-mb11 el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
@@ -859,18 +802,16 @@ Object {
                   >
                     <button
                       class="el-intent-primary el-button"
-                      disabled=""
                     >
-                      Take Payment
+                      Email Request
                       <div
                         class="el-button-loader"
                       />
                     </button>
                     <button
-                      class="el-intent-secondary el-button"
-                      disabled=""
+                      class="el-intent-critical el-button-has-right-chevron el-button"
                     >
-                      Request Payment
+                      Take Payment
                       <div
                         class="el-button-loader"
                       />
@@ -1094,25 +1035,6 @@ Object {
         </div>
       </div>
       <div
-        class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-      >
-        <div
-          class="el-pn-icon"
-          data-testid="close-icon"
-        >
-          <span
-            class="el-icon"
-          >
-            <svg />
-          </span>
-        </div>
-        <div
-          class="el-pn-content"
-        >
-          The app cannnot currently process client payments. This is likely because your payment provider has not been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page in the main navigation.
-        </div>
-      </div>
-      <div
         class="el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
@@ -1290,18 +1212,16 @@ Object {
                 >
                   <button
                     class="el-intent-primary el-button"
-                    disabled=""
                   >
-                    Take Payment
+                    Email Request
                     <div
                       class="el-button-loader"
                     />
                   </button>
                   <button
-                    class="el-intent-secondary el-button"
-                    disabled=""
+                    class="el-intent-critical el-button-has-right-chevron el-button"
                   >
-                    Request Payment
+                    Take Payment
                     <div
                       class="el-button-loader"
                     />
@@ -1582,25 +1502,6 @@ Object {
           </div>
         </div>
         <div
-          class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-        >
-          <div
-            class="el-pn-icon"
-            data-testid="close-icon"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </div>
-          <div
-            class="el-pn-content"
-          >
-            The app cannnot currently process client payments. This is likely because your payment provider has not been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page in the main navigation.
-          </div>
-        </div>
-        <div
           class="el-loader-container"
         >
           <div
@@ -1785,25 +1686,6 @@ Object {
           <img
             src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
           />
-        </div>
-      </div>
-      <div
-        class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-      >
-        <div
-          class="el-pn-icon"
-          data-testid="close-icon"
-        >
-          <span
-            class="el-icon"
-          >
-            <svg />
-          </span>
-        </div>
-        <div
-          class="el-pn-content"
-        >
-          The app cannnot currently process client payments. This is likely because your payment provider has not been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page in the main navigation.
         </div>
       </div>
       <div

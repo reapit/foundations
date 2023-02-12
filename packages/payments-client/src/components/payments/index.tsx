@@ -83,7 +83,7 @@ export const PaymentsPage: FC = () => {
     createdTo: dayjs().add(1, 'day').format(DATE_TIME_FORMAT.YYYY_MM_DD),
   })
   const { Modal, openModal, closeModal } = useModal()
-  const { config } = useConfigState()
+  const { config, configLoading } = useConfigState()
   const configNotConfigured = !config?.isConfigured
 
   const queryParams = objectToQuery({
@@ -135,7 +135,7 @@ export const PaymentsPage: FC = () => {
             <Title>Payments Dashboard</Title>
             <PaymentLogo />
           </FlexContainer>
-          {configNotConfigured && (
+          {configNotConfigured && !configLoading && (
             <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isFullWidth isInline isExpanded>
               The app cannnot currently process client payments. This is likely because your payment provider has not
               been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the
@@ -216,16 +216,17 @@ export const PaymentsPage: FC = () => {
                           <Button
                             intent="primary"
                             disabled={status === 'posted' || configNotConfigured}
+                            onClick={handleOpenModal(openModal, setSelectedPayment, payment)}
+                          >
+                            Email Request
+                          </Button>
+                          <Button
+                            intent="critical"
+                            chevronRight
+                            disabled={status === 'posted' || configNotConfigured}
                             onClick={navigate(history, `${Routes.PAYMENTS}/${id}`)}
                           >
                             Take Payment
-                          </Button>
-                          <Button
-                            intent="secondary"
-                            disabled={status === 'posted' || configNotConfigured}
-                            onClick={handleOpenModal(openModal, setSelectedPayment, payment)}
-                          >
-                            Request Payment
                           </Button>
                         </ButtonGroup>
                       ),
