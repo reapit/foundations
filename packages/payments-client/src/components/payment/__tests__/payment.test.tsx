@@ -1,21 +1,19 @@
 import React from 'react'
 import { render } from '../../../tests/react-testing'
-import { Payment } from '../payment'
+import { handleGetMerchantKey, Payment } from '../payment'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockConfigModel } from '../../../tests/__mocks__/config'
 import { mockPaymentModel } from '../../../tests/__mocks__/payment'
 import { mockPropertyModel } from '../../../tests/__mocks__/property'
+import { mockMerchantKey } from '../../../tests/__mocks__/opayo'
 
 jest.mock('@reapit/use-reapit-data', () => ({
   ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, false]),
+  useReapitUpdate: jest.fn(() => [false, mockMerchantKey, jest.fn()]),
 }))
 
-jest.mock('@reapit/payments-ui', () => ({
-  ...jest.requireActual('@reapit/payments-ui'),
-  useMerchantKey: jest.fn(() => ({ merchantKey: {}, merchantKeyLoading: false })),
-  useTransaction: jest.fn(() => ({ transactionSubmit: jest.fn() })),
-}))
+jest.mock('../../../core/use-config-state')
 
 const mockUseReapitGet = useReapitGet as jest.Mock
 
@@ -27,13 +25,13 @@ jest.mock('react-router', () => ({
   useLocation: jest.fn(),
 }))
 
-describe('PaymentPage', () => {
+describe('Payment', () => {
   it('should match a snapshot with no data', () => {
     expect(render(<Payment paymentRequest={[null, false, null, jest.fn(), false, jest.fn()]} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot with data', () => {
-    mockUseReapitGet.mockReturnValue([mockConfigModel, false]).mockReturnValue([mockPropertyModel, false])
+    mockUseReapitGet.mockReturnValue([mockPropertyModel, false])
 
     expect(
       render(<Payment paymentRequest={[mockPaymentModel, false, null, jest.fn(), false, jest.fn()]} />),
@@ -49,5 +47,19 @@ describe('PaymentPage', () => {
   it('should match a snapshot when loading', () => {
     mockUseReapitGet.mockReturnValueOnce([null, true])
     expect(render(<Payment paymentRequest={[null, true, null, jest.fn(), false, jest.fn()]} />)).toMatchSnapshot()
+  })
+})
+
+describe('handleGetMerchantKey', () => {
+  it('should get the merchant key', () => {
+    const getMerchantKey = jest.fn()
+    const idToken = 'MOCK_TOKEN'
+    const clientCode = 'SBOX'
+
+    const curried = handleGetMerchantKey(getMerchantKey, idToken, clientCode)
+
+    curried()
+
+    expect(getMerchantKey).toHaveBeenCalledTimes(1)
   })
 })

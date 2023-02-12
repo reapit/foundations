@@ -76,7 +76,7 @@ Object {
           </div>
         </div>
         <div
-          class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"
@@ -91,7 +91,7 @@ Object {
           <div
             class="el-pn-content"
           >
-            Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+            Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
           </div>
         </div>
         <form>
@@ -269,7 +269,6 @@ Object {
                 id="test-static-id"
                 name="configId"
                 type="hidden"
-                value=""
               />
             </div>
           </div>
@@ -349,7 +348,7 @@ Object {
         </div>
       </div>
       <div
-        class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -364,7 +363,7 @@ Object {
         <div
           class="el-pn-content"
         >
-          Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+          Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
         </div>
       </div>
       <form>
@@ -542,7 +541,6 @@ Object {
               id="test-static-id"
               name="configId"
               type="hidden"
-              value=""
             />
           </div>
         </div>
@@ -679,7 +677,7 @@ Object {
           </div>
         </div>
         <div
-          class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"
@@ -694,7 +692,7 @@ Object {
           <div
             class="el-pn-content"
           >
-            Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+            Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
           </div>
         </div>
         <form>
@@ -872,7 +870,6 @@ Object {
                 id="test-static-id"
                 name="configId"
                 type="hidden"
-                value=""
               />
             </div>
           </div>
@@ -952,7 +949,7 @@ Object {
         </div>
       </div>
       <div
-        class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -967,7 +964,7 @@ Object {
         <div
           class="el-pn-content"
         >
-          Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+          Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
         </div>
       </div>
       <form>
@@ -1145,7 +1142,6 @@ Object {
               id="test-static-id"
               name="configId"
               type="hidden"
-              value=""
             />
           </div>
         </div>
@@ -1282,7 +1278,7 @@ Object {
           </div>
         </div>
         <div
-          class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"
@@ -1297,7 +1293,7 @@ Object {
           <div
             class="el-pn-content"
           >
-            Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+            Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
           </div>
         </div>
         <form>
@@ -1475,7 +1471,6 @@ Object {
                 id="test-static-id"
                 name="configId"
                 type="hidden"
-                value=""
               />
             </div>
           </div>
@@ -1555,7 +1550,7 @@ Object {
         </div>
       </div>
       <div
-        class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -1570,7 +1565,7 @@ Object {
         <div
           class="el-pn-content"
         >
-          Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+          Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
         </div>
       </div>
       <form>
@@ -1748,7 +1743,6 @@ Object {
               id="test-static-id"
               name="configId"
               type="hidden"
-              value=""
             />
           </div>
         </div>

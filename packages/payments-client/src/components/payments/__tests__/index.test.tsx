@@ -10,6 +10,8 @@ jest.mock('@reapit/use-reapit-data', () => ({
   useReapitGet: jest.fn(() => [null, false]),
 }))
 
+jest.mock('../../../core/use-config-state')
+
 const mockUseReapitGet = useReapitGet as jest.Mock
 
 describe('PaymentsPage ', () => {

@@ -28,40 +28,14 @@ import {
   useModal,
 } from '@reapit/elements'
 import { ClientConfigCreateModel, ClientConfigDeleteModel, ClientConfigModel, PaymentLogo } from '@reapit/payments-ui'
-import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
+import { SendFunction, UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
 import { ErrorBoundary } from '@sentry/react'
 import { openNewPage } from '../../core/nav'
-import { bool, object, string } from 'yup'
 import { useForm, UseFormReset } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { hasSpecialChars, isValidHttpsUrl } from '@reapit/utils-common'
 import { useConfigState } from '../../core/use-config-state'
 import { cx } from '@linaria/core'
-
-const specialCharsTest = {
-  name: 'hasNoSpecialChars',
-  message: 'Special characters are not permitted',
-  test: (value?: string) => {
-    if (!value) return true
-    return !hasSpecialChars(value)
-  },
-}
-
-const validationSchema = object({
-  vendorName: string().test(specialCharsTest),
-  integrationKey: string().test(specialCharsTest),
-  passKey: string().test(specialCharsTest),
-  companyName: string().test(specialCharsTest),
-  logoUri: string().test({
-    name: 'isValidTermsAndConditionsUrl',
-    message: 'Must be a valid https url',
-    test: (value) => {
-      if (!value) return true
-      return isValidHttpsUrl(value)
-    },
-  }),
-  isLive: bool(),
-})
+import { validationSchema } from './validation-schema'
 
 export const handleResetForm =
   (config: ClientConfigModel | null, configNotConfigured: boolean, reset: UseFormReset<ClientConfigCreateModel>) =>
@@ -94,6 +68,17 @@ export const handleCloseModal = (closeModal: () => void, shouldClose: boolean, r
     refreshConfig && refreshConfig()
   }
 }
+
+export const handleDelete =
+  (
+    deleteSubmit: SendFunction<ClientConfigDeleteModel, boolean>,
+    config: ClientConfigModel | null,
+    clearConfigCache?: () => void,
+  ) =>
+  () => {
+    deleteSubmit({ configId: config?.configId })
+    clearConfigCache && clearConfigCache()
+  }
 
 export const sanitiseConfigPayload = (config: ClientConfigCreateModel, clientCode: string): ClientConfigCreateModel => {
   const { companyName, logoUri, isLive, configId, vendorName, integrationKey, passKey } = config
@@ -181,10 +166,7 @@ export const AdminPage: FC = () => {
 
   const submitAction = config ? updateSubmit : createSubmit
   const submitHandler = handleSubmit((configForm) => submitAction(sanitiseConfigPayload(configForm, clientCode)))
-  const deleteHandler = () => {
-    deleteSubmit({ configId: config?.configId })
-    clearConfigCache && clearConfigCache()
-  }
+
   const isLoading = createLoading || updateLoading || deleteLoading
 
   return (
@@ -318,7 +300,12 @@ export const AdminPage: FC = () => {
               <Button intent="low" onClick={closeDeleteModal}>
                 Cancel
               </Button>
-              <Button intent="danger" disabled={isLoading} loading={deleteLoading} onClick={deleteHandler}>
+              <Button
+                intent="danger"
+                disabled={isLoading}
+                loading={deleteLoading}
+                onClick={handleDelete(deleteSubmit, config, clearConfigCache)}
+              >
                 Confirm Delete
               </Button>
             </ButtonGroup>
