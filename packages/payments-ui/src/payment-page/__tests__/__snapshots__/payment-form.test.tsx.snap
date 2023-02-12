@@ -1407,7 +1407,7 @@ Object {
               <label
                 class="el-label"
               >
-                Status
+                Country
               </label>
             </div>
           </div>
@@ -2954,7 +2954,7 @@ Object {
             <label
               class="el-label"
             >
-              Status
+              Country
             </label>
           </div>
         </div>
@@ -4558,7 +4558,7 @@ Object {
               <label
                 class="el-label"
               >
-                Status
+                Country
               </label>
             </div>
           </div>
@@ -6105,7 +6105,7 @@ Object {
             <label
               class="el-label"
             >
-              Status
+              Country
             </label>
           </div>
         </div>
@@ -7869,7 +7869,7 @@ Object {
               <label
                 class="el-label"
               >
-                Status
+                Country
               </label>
             </div>
           </div>
@@ -9435,7 +9435,7 @@ Object {
             <label
               class="el-label"
             >
-              Status
+              Country
             </label>
           </div>
         </div>

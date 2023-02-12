@@ -159,7 +159,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
                     </option>
                   ))}
                 </Select>
-                <Label>Status</Label>
+                <Label>Country</Label>
               </InputGroup>
             </InputWrap>
           </FormLayout>

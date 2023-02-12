@@ -205,7 +205,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
     ],
   )
 
-  if (configNotConfigured) {
+  if (configNotConfigured && !configLoading) {
     return (
       <PersistentNotification intent="danger" isFullWidth isInline isExpanded>
         The app cannnot currently process client payments. This is likely because your payment provider has not been

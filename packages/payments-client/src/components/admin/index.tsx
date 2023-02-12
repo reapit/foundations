@@ -2,6 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import {
+  BodyText,
   Button,
   ButtonGroup,
   elFadeIn,
@@ -240,10 +241,10 @@ export const AdminPage: FC = () => {
           ) : null}
           <form>
             <Subtitle>Company Details</Subtitle>
-            <PersistentNotification className={elMb7} intent="secondary" isExpanded isFullWidth isInline>
+            <BodyText hasGreyText>
               These details are required to personalise emails sent to your customers, both receipts and requests for
               payment.
-            </PersistentNotification>
+            </BodyText>
             <FormLayout hasMargin>
               <InputWrap>
                 <InputGroup {...register('companyName')} type="email" label="Company Name" />
@@ -255,12 +256,14 @@ export const AdminPage: FC = () => {
               </InputWrapMed>
             </FormLayout>
             <Subtitle>Opayo Credientials</Subtitle>
-            <PersistentNotification className={elMb7} intent="secondary" isExpanded isFullWidth isInline>
-              These details are required by Opayo to make payments in a live or test environment. <b>Please note: </b>{' '}
-              for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and
-              never surfaced again in the front end. You can update your credentials at any time by entering new keys in
-              the form below.
-            </PersistentNotification>
+            <BodyText hasGreyText>
+              These details are required by Opayo to make payments in a live or test environment. You can update your
+              credentials at any time by entering new keys in the form below.
+            </BodyText>
+            <BodyText hasGreyText hasBoldText>
+              Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped
+              format and never surfaced again in the app.
+            </BodyText>
             <FormLayout hasMargin>
               <InputWrap>
                 <InputGroup {...register('vendorName')} type="email" label="Opayo Vendor Name" />
