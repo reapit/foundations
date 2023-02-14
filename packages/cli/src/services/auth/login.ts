@@ -15,17 +15,27 @@ import decode from 'jwt-decode'
 import ora from 'ora'
 import portastic from 'portastic'
 
+/**
+ * LoginService
+ * Used for obtaining a reapit connect session using a browser and redirect setup
+ */
 export class LoginService {
   private server
-  private readonly connectOAuthUrl: string = 'https://connect.dev.paas.reapit.cloud' // TODO Change dev to env
-  private readonly clientId: string = '2c8jt1gp2hb0tcc8s88m8lig3d'
+  private readonly connectOAuthUrl: string // TODO Change dev to env
+  private readonly clientId: string
   private readonly ports: number[] = [9000, 9001, 9002, 9003, 9004]
   protected currentPort?: number
-  private readonly connectUrl: string = `${this.connectOAuthUrl}/login`
+  private readonly connectUrl: string
   private readonly redirect = `http://localhost:${this.currentPort}`
   protected connectSession?: ReapitConnectSession
 
   static storageLocation: string = `${homeDir()}/.reapit-connect.json`
+
+  constructor(readonly devMode: boolean = true) {
+    this.clientId = devMode ? '2c8jt1gp2hb0tcc8s88m8lig3d' : ''
+    this.connectOAuthUrl = `https://connect.${devMode ? 'dev' : 'prod'}.paas.reapit.cloud`
+    this.connectUrl = `${this.connectOAuthUrl}/login`
+  }
 
   private oauthUrl = (authCode: string) =>
     `${this.connectOAuthUrl}/token?grant_type=authorization_code&client_id=${this.clientId}&code=${authCode}&redirect_uri=${this.redirect}`

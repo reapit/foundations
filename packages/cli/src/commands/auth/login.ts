@@ -1,5 +1,5 @@
 import { AbstractCommand } from '../../abstract.command'
-import { Command, Param } from '../../decorators'
+import { Command } from '../../decorators'
 import chalk from 'chalk'
 
 @Command({
@@ -7,15 +7,8 @@ import chalk from 'chalk'
   description: 'test command for logging in via reapit connect',
 })
 export class LoginCommand extends AbstractCommand {
-  async run(
-    @Param({
-      name: 'clientId',
-      description: 'clientId of your app',
-      required: true,
-    })
-    clientId: string,
-  ) {
-    const session = await this.loginService.getSession(clientId)
+  async run() {
+    const session = await this.loginService.getSession()
 
     this.writeLine(chalk.green('Logged in to reapit connect ✅'))
     this.writeLine('')
