@@ -39,7 +39,14 @@ export class LoginService {
         const code = new URLSearchParams(request.url?.split('?').pop()).get('code')
 
         response.statusCode = 200
-        response.end() // TODO to self close tab, might need a html response with JS to close tab
+        response.end(`
+          <html>
+            <head><title>Reapit Cli Login</title></head>
+            <body>
+              <script>window.close();</script>
+            </body>
+          </html>
+        `) // TODO to self close tab, might need a html response with JS to close tab
 
         this.server.close()
         spinner.stop()
