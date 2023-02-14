@@ -7,7 +7,6 @@ import chalk from 'chalk'
   description: 'test command for logging in via reapit connect',
 })
 export class LoginCommand extends AbstractCommand {
-
   async run(
     @Param({
       name: 'clientId',
@@ -23,7 +22,7 @@ export class LoginCommand extends AbstractCommand {
 
     this.writeLine(`Logged in as: ${chalk.blue(session.loginIdentity.name)}`)
     this.writeLine(`Your Organisation: ${chalk.blue(session.loginIdentity.orgName)}`)
-    this.writeLine(`Access groups:`)
-    session.loginIdentity.groups.forEach(group => this.writeLine(chalk.blue(`- ${group}`), 1))
+    this.writeLine('Access groups:')
+    session.loginIdentity.groups.forEach((group) => this.writeLine(chalk.blue(`- ${group}`), 1))
   }
 }

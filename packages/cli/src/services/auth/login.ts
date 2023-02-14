@@ -26,10 +26,9 @@ export class LoginService {
 
   private oauthUrl = (clientId: string, authCode: string) =>
     `${this.connectOAuthUrl}/token?grant_type=authorization_code&client_id=${clientId}&code=${authCode}&redirect_uri=${this.redirect}`
-  
+
   private refreshUrl = (clientId: string, refreshToken: string) =>
     `${this.connectOAuthUrl}/token?grant_type=refresh_token&client_id=${clientId}&refresh_token=${refreshToken}&redirect_uri=${this.redirect}`
-
 
   protected async obtainAuthCode(clientId: string): Promise<string> {
     const spinner = ora('Awaiting Response from Reapit Connect...')
@@ -145,7 +144,7 @@ export class LoginService {
    * @returns ReapitConnectSession | undefined
    */
   protected async getStoredSession(): Promise<ReapitConnectSession | undefined> {
-  if (!existsSync(LoginService.storageLocation)) return undefined
+    if (!existsSync(LoginService.storageLocation)) return undefined
 
     const session = await promises.readFile(LoginService.storageLocation, 'utf-8')
 
@@ -159,7 +158,7 @@ export class LoginService {
   /**
    * Obtain a ReapitConnectSession by logging in via the browser or using a refresh token with a stored session
    * @param clientId string - clientId of a reapit app
-   * 
+   *
    * @returns ReapitConnectSession
    */
   public async getSession(clientId: string): Promise<ReapitConnectSession | never> {

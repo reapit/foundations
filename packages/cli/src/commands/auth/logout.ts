@@ -1,8 +1,8 @@
-import { AbstractCommand } from "../../abstract.command";
-import { Command } from "../../decorators";
+import { AbstractCommand } from '../../abstract.command'
+import { Command } from '../../decorators'
 import { unlinkSync, existsSync } from 'fs'
-import { LoginService } from "../../services";
-import chalk from "chalk";
+import { LoginService } from '../../services'
+import chalk from 'chalk'
 
 @Command({
   name: 'logout',
