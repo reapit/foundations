@@ -1,6 +1,6 @@
 import { AbstractCommand } from "../../abstract.command";
 import { Command } from "../../decorators";
-import { unlinkSync } from 'fs'
+import { unlinkSync, existsSync } from 'fs'
 import { LoginService } from "../../services";
 import chalk from "chalk";
 
@@ -10,6 +10,11 @@ import chalk from "chalk";
 })
 export class LogoutCommand extends AbstractCommand {
   async run() {
+    if (!existsSync(LoginService.storageLocation)) {
+      this.writeLine(chalk.green('No session found, no need to logout'))
+      return
+    }
+
     unlinkSync(LoginService.storageLocation)
     this.writeLine(chalk.green('Successfully logged out ✅'))
   }
