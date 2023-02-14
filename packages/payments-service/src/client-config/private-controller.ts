@@ -9,7 +9,7 @@ export class ClientConfigPrivateController {
 
   @Get('/:clientCode')
   async getConfig(@Param() { clientCode }: ClientConfigParams): Promise<ClientConfigModel> {
-    return this.clientConfigProvider.get(clientCode)
+    return await this.clientConfigProvider.get(clientCode)
   }
 
   @Post('/:clientCode')
@@ -17,7 +17,7 @@ export class ClientConfigPrivateController {
     @Param() { clientCode }: ClientConfigParams,
     @Body() configModel: ClientConfigDto,
   ): Promise<ClientConfigModel> {
-    return this.clientConfigProvider.create(clientCode, configModel)
+    return await this.clientConfigProvider.create(clientCode, configModel)
   }
 
   @Patch('/:clientCode')
@@ -25,7 +25,7 @@ export class ClientConfigPrivateController {
     @Param() { clientCode }: ClientConfigParams,
     @Body() configModel: ClientConfigDto,
   ): Promise<ClientConfigModel> {
-    return this.clientConfigProvider.update(clientCode, configModel)
+    return await this.clientConfigProvider.update(clientCode, configModel)
   }
 
   @Delete('/:clientCode')
@@ -33,6 +33,6 @@ export class ClientConfigPrivateController {
     @Param() { clientCode }: ClientConfigParams,
     @Body() { configId }: ClientConfigDeleteDto,
   ): Promise<ClientConfigModel> {
-    return this.clientConfigProvider.delete(clientCode, configId)
+    return await this.clientConfigProvider.delete(clientCode, configId)
   }
 }

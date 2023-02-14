@@ -6,10 +6,29 @@ export interface CreateTransactionModel {
   currency: string
   description: string
   apply3DSecure: 'UseMSPSetting' | 'Force' | 'Disable' | 'ForceIgnoringRules'
+  applyAvsCvcCheck: 'UseMSPSetting' | 'Force' | 'Disable' | 'ForceIgnoringRules'
   customerFirstName: string
   customerLastName: string
   billingAddress: BillingAddress
   entryMethod: 'Ecommerce' | 'MailOrder' | 'TelephoneOrder'
+  strongCustomerAuthentication: {
+    notificationURL: string
+    website: string
+    browserAcceptHeader: string
+    browserJavascriptEnabled: boolean
+    browserJavaEnabled: boolean
+    browserLanguage: string
+    browserColorDepth: string
+    browserScreenHeight: string
+    browserScreenWidth: string
+    browserTZ: string
+    browserUserAgent: string
+    challengeWindowSize: string
+    threeDSRequestorChallengeInd: string
+    requestSCAExemption: boolean
+    transType: string
+    threeDSRequestorDecReqInd: string
+  }
 }
 
 export interface BillingAddress {
@@ -49,6 +68,17 @@ export interface Transaction {
   status: string
   avsCvcCheck: AvsCvcCheck
   '3DSecure': _3DSecure
+}
+
+export interface ThreeDSecureResponse {
+  acsTransId: string
+  acsUrl: string
+  cReq: string
+  dsTransId: string
+  status: string
+  statusCode: string
+  statusDetail: string
+  transactionId: string
 }
 
 export interface _3DSecure {

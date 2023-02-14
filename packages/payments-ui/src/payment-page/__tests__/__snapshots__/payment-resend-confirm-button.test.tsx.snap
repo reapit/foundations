@@ -8,30 +8,184 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <button
-        class="el-intent-primary el-button"
-        type="button"
-      >
-        Re-send Confirmation
+      <form>
         <div
-          class="el-button-loader"
-        />
-      </button>
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="customerFirstName"
+                placeholder="First name here"
+                type="text"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Customer First Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="customerLastName"
+                placeholder="Last name here"
+                type="text"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Customer Last Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="email"
+                placeholder="Email here"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Customer Email
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-mb7 el-button-group"
+        >
+          <div
+            class="el-button-group-inner"
+          >
+            <button
+              class="el-intent-primary el-button"
+              type="submit"
+            >
+              Re-send Confirmation
+              <div
+                class="el-button-loader"
+              />
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    <button
-      class="el-intent-primary el-button"
-      type="button"
-    >
-      Re-send Confirmation
+    <form>
       <div
-        class="el-button-loader"
-      />
-    </button>
+        class="el-form-layout-has-margin el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="customerFirstName"
+              placeholder="First name here"
+              type="text"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Customer First Name
+            </label>
+          </div>
+        </div>
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="customerLastName"
+              placeholder="Last name here"
+              type="text"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Customer Last Name
+            </label>
+          </div>
+        </div>
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="email"
+              placeholder="Email here"
+              type="email"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Customer Email
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-mb7 el-button-group"
+      >
+        <div
+          class="el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button"
+            type="submit"
+          >
+            Re-send Confirmation
+            <div
+              class="el-button-loader"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

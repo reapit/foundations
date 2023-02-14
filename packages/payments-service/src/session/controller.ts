@@ -9,6 +9,6 @@ export class SessionController {
 
   @Post('')
   async createSession(@Body() session: SessionDto): Promise<SessionModel> {
-    return this.sessionProvider.create(session)
+    return await this.sessionProvider.create(session)
   }
 }
