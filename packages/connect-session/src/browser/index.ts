@@ -216,7 +216,6 @@ export class ReapitConnectBrowserSession {
   public connectAuthorizeRedirect(redirectUri?: string): void {
     const authRedirectUri = redirectUri || this.connectLoginRedirectPath
     const params = new URLSearchParams(window.location.search)
-    console.log('HREF', window.location.href)
     params.delete('code')
     const search = params ? `?${params.toString()}` : ''
     const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${search}`)
