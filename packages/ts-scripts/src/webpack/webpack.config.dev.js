@@ -148,10 +148,6 @@ const webpackConfigDev = ({ appName }) => ({
           },
         ],
       },
-      {
-        test: /\.html$/i,
-        loader: 'html-loader',
-      },
     ],
   },
   resolve: {

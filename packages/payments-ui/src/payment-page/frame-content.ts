@@ -1,3 +1,4 @@
+export const frameContent = (acsUrl: string, cReq: string, threeDSSessionData: string) => `
 <style>
   div {
     font-family: 'PT Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -31,12 +32,13 @@
   }
 </style>
 
-<form action="{acsUrl}" method="post">
-  <input type="hidden" name="creq" value="{cReq}" />
-  <input type="hidden" name="threeDSSessionData" value="{threeDSSessionData}" />
+<form action="${acsUrl}" method="post">
+  <input type="hidden" name="creq" value="${cReq}" />
+  <input type="hidden" name="threeDSSessionData" value="${threeDSSessionData}" />
   <div>
     Your bank requires you to perform a 3D security check before completing this transaction. By clicking the below
     button you will be redirected to the 3D secure page and returned back to Reapit Payments on completion.
   </div>
   <button type="submit" value="Go">Perform Check</button>
 </form>
+`

@@ -113,10 +113,6 @@ const webpackConfigProd = ({ appName }) => {
             },
           ],
         },
-        {
-          test: /\.html$/i,
-          loader: 'html-loader',
-        },
       ],
     },
     resolve: {

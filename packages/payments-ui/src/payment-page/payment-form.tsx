@@ -25,9 +25,8 @@ import { COUNTRY_OPTIONS } from './payment-card-country-options'
 import { paymentValidationSchema } from './payment-validation-schema'
 import { PaymentProvider } from '../payment-provider'
 import { ThreeDSecureResponse } from '../types/opayo'
-// @ts-ignore
-import frame from './frame-content.html'
 import { ClientConfigModel } from '../types/config'
+import { frameContent } from './frame-content'
 
 export interface PaymentFormProps {
   paymentProvider: PaymentProvider
@@ -75,10 +74,7 @@ export const handleSetIframeContent =
       const iframeDoc = iframeRef.current.contentDocument
       const { acsUrl, cReq, transactionId } = cachedTransaction.transaction ?? {}
       const threeDSSessionData = window.btoa(`${config.clientCode}:${transactionId}`)
-      const frameString = frame
-        .replace('{acsUrl}', acsUrl)
-        .replace('{cReq}', cReq)
-        .replace('{threeDSSessionData}', threeDSSessionData)
+      const frameString = frameContent(acsUrl, cReq, threeDSSessionData)
 
       if (iframeDoc) {
         iframeDoc.open()

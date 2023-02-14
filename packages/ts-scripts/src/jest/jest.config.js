@@ -16,7 +16,7 @@ const jestGlobalConfig = {
   moduleNameMapper: {
     '^.+\\.svg$': path.join(__dirname, './svg-transform.js'),
     '@/(.*)': '<rootDir>/src/$1',
-    '^.+.(?=.*scss|sass|css|png|jpg|pdf|jpeg|html).*': path.join(__dirname, './css-stub.js'),
+    '^.+.(?=.*scss|sass|css|png|jpg|pdf|jpeg).*': path.join(__dirname, './css-stub.js'),
     'swagger-ui-react': path.join(__dirname, './swagger-stub.js'),
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql'],
