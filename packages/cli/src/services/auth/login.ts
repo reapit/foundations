@@ -12,6 +12,7 @@ import open from 'open'
 import { writeFileSync, promises, existsSync } from 'fs'
 import 'isomorphic-fetch'
 import decode from 'jwt-decode'
+import ora from 'ora'
 
 export class LoginService {
   private server
@@ -31,23 +32,31 @@ export class LoginService {
 
 
   protected async obtainAuthCode(clientId: string): Promise<string> {
-    return new Promise((resolve) => {
+    const spinner = ora('Awaiting Response from Reapit Connect...')
+
+    return new Promise(async (resolve) => {
+      const tab = await open(`${this.connectUrl}?response_type=code&client_id=${clientId}&redirect_uri=${this.redirect}`) // TODO can I close this on success?
+
       this.server = http.createServer((request, response) => {
         const code = new URLSearchParams(request.url?.split('?').pop()).get('code')
 
-        resolve(code as string) // TODO put token here
-        // TODO reject on typeof code !== string
-
         response.statusCode = 200
-        response.end()
+        response.end() // TODO to self close tab, might need a html response with JS to close tab
 
         this.server.close()
+        spinner.stop()
+        tab.kill()
+
+        // TODO reject on typeof code !== string
+        resolve(code as string)
       })
+
       this.server.listen(this.port, 'localhost', () => {
         console.log('Awaiting response from reapit-connect.')
         console.log('Please login to reapit-connect to continue.')
+        console.log('')
+        spinner.start()
       })
-      open(`${this.connectUrl}?response_type=code&client_id=${clientId}&redirect_uri=${this.redirect}`) // TODO can I close this on success?
     })
   }
 
