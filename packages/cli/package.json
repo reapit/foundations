@@ -4,6 +4,7 @@
   "description": "A cli tool for reapit cloud",
   "main": "dist/index.js",
   "dependencies": {
+    "@reapit/connect-session": "workspace:^",
     "adm-zip": "^0.5.9",
     "ansi-regex": "^6.0.1",
     "axios": "^0.27.2",
@@ -12,6 +13,8 @@
     "create-react-app": "^5.0.1",
     "figlet": "^1.5.2",
     "inquirer": "^8.2.4",
+    "isomorphic-fetch": "^3.0.0",
+    "jwt-decode": "^3.1.2",
     "latest-semver": "^3.0.0",
     "nestjs-typeorm-paginate": "^2.6.3",
     "ora": "^5.4.1",
