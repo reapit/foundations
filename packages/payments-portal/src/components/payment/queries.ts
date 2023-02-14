@@ -8,7 +8,7 @@ import {
   MerchantKey,
   PaymentEmailReceipt,
   PaymentWithPropertyModel,
-  Transaction,
+  ThreeDSecureResponse,
   UpdateStatusBody,
 } from '@reapit/payments-ui'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
@@ -155,7 +155,7 @@ export const useTransaction = (session: string | null, clientCode: string | null
 
   const { mutateAsync } = useMutation([url, clientCode, session, paymentId], {
     mutationFn: async (transaction: CreateTransactionModel) => {
-      const res = await axios.post<Transaction>(url, transaction, {
+      const res = await axios.post<ThreeDSecureResponse>(url, transaction, {
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
