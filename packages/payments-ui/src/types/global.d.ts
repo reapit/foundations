@@ -4,6 +4,8 @@ export type OpayoKeys = {
   vendorName: string
 }
 
+declare module '*.html'
+
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
   sentryDsn: string
@@ -22,6 +24,7 @@ export type Config = {
 
 declare global {
   interface Window {
+    ip: string
     reapit: {
       config: Config
     }

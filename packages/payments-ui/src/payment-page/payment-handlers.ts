@@ -1,15 +1,16 @@
 import { Dispatch, SetStateAction } from 'react'
-import { CardDetails } from './payment-form'
+import { CachedTransaction, CardDetails, PaymentStatusType } from './payment-form'
 import { v4 as uuid } from 'uuid'
 import { unformatCard, unformatCardExpires } from './payment-card-helpers'
 import { PaymentProvider } from '../payment-provider'
-import { UpdateStatusBody } from '../types/payment'
+import { ThreeDSecureResponse } from '../types/opayo'
 
 export const onUpdateStatus = async (
+  transactionStatus: PaymentStatusType,
   paymentProvider: PaymentProvider,
   cardDetails: CardDetails,
   setTransactionProcessing: Dispatch<SetStateAction<boolean>>,
-  updateStatusBody: UpdateStatusBody,
+  transactionId?: string,
 ) => {
   const { statusAction, receiptAction, payment } = paymentProvider
   const { customerFirstName, customerLastName, email } = cardDetails
@@ -21,16 +22,40 @@ export const onUpdateStatus = async (
     paymentCurrency: 'GBP',
   }
 
+  const updateStatusBody = {
+    status: transactionStatus,
+    externalReference: transactionStatus === 'posted' ? transactionId : transactionStatus,
+  }
+
   const statusUpdate = await statusAction.statusSubmit(updateStatusBody)
 
   if (!statusUpdate) {
     return setTransactionProcessing(false)
   }
 
-  await receiptAction.receiptSubmit(emailReceiptBody)
+  if (transactionStatus === 'posted') {
+    await receiptAction.receiptSubmit(emailReceiptBody)
+  }
 
   setTransactionProcessing(false)
   paymentProvider.refreshPayment()
+}
+
+export const handle3DSecure = async (
+  transaction: ThreeDSecureResponse,
+  paymentProvider: PaymentProvider,
+  cardDetails: CardDetails,
+  setTransactionProcessing: Dispatch<SetStateAction<boolean>>,
+  setThreeDSecureRes: Dispatch<SetStateAction<CachedTransaction | null>>,
+) => {
+  const { transactionId, status } = transaction
+  if (status === '3DAuth') {
+    setThreeDSecureRes({ transaction, cardDetails })
+  } else if (status === 'Ok') {
+    onUpdateStatus('posted', paymentProvider, cardDetails, setTransactionProcessing, transactionId)
+  } else {
+    onUpdateStatus('rejected', paymentProvider, cardDetails, setTransactionProcessing, transactionId)
+  }
 }
 
 export const handleCreateTransaction =
@@ -38,11 +63,17 @@ export const handleCreateTransaction =
     paymentProvider: PaymentProvider,
     cardDetails: CardDetails,
     setTransactionProcessing: Dispatch<SetStateAction<boolean>>,
+    setThreeDSecureRes: Dispatch<SetStateAction<CachedTransaction | null>>,
   ) =>
   async (result: any) => {
     const { payment, merchantKey, transactionSubmit } = paymentProvider
     const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
     const { amount, description, id } = payment
+    const localhost = 'http://localhost:8080'
+    const dev = 'https://payments.dev.paas.reapit.cloud'
+    const siteUrl = window.location.href.includes(localhost)
+      ? window.location.href.replace(localhost, dev)
+      : window.location.href
 
     if (result.success && id) {
       const transaction = await transactionSubmit({
@@ -58,7 +89,8 @@ export const handleCreateTransaction =
         amount: amount ? amount * 100 : 0,
         currency: 'GBP',
         description: description || '',
-        apply3DSecure: 'Disable',
+        apply3DSecure: 'UseMSPSetting',
+        applyAvsCvcCheck: 'UseMSPSetting',
         customerFirstName,
         customerLastName,
         billingAddress: {
@@ -68,22 +100,38 @@ export const handleCreateTransaction =
           country,
         },
         entryMethod: 'Ecommerce',
+        strongCustomerAuthentication: {
+          notificationURL: `${window.reapit.config.paymentsApiUrl}/opayo/private/notification`,
+          website: siteUrl,
+          browserAcceptHeader: 'text/html, application/json',
+          browserJavascriptEnabled: true,
+          browserJavaEnabled: false,
+          browserLanguage: window.navigator.language,
+          browserColorDepth: String(window.screen.colorDepth),
+          browserScreenHeight: String(window.screen.height),
+          browserScreenWidth: String(window.screen.width),
+          browserTZ: String(new Date().getTimezoneOffset()),
+          browserUserAgent: navigator.userAgent,
+          challengeWindowSize: 'Small',
+          threeDSRequestorChallengeInd: '03',
+          requestSCAExemption: false,
+          transType: 'GoodsAndServicePurchase',
+          threeDSRequestorDecReqInd: 'N',
+        },
       })
 
-      const status = transaction && transaction?.status?.toLowerCase() === 'ok' ? 'posted' : 'rejected'
-      const externalReference = transaction && transaction.transactionId ? transaction.transactionId : 'rejected'
-      const updateStatusBody = { status, externalReference: externalReference }
-
-      return onUpdateStatus(paymentProvider, cardDetails, setTransactionProcessing, updateStatusBody)
+      return handle3DSecure(transaction, paymentProvider, cardDetails, setTransactionProcessing, setThreeDSecureRes)
     }
 
-    const updateStatusBody = { status: 'rejected', externalReference: 'rejected' }
-
-    return onUpdateStatus(paymentProvider, cardDetails, setTransactionProcessing, updateStatusBody)
+    setTransactionProcessing(false)
   }
 
 export const handleTransaction =
-  (paymentProvider: PaymentProvider, setTransactionProcessing: Dispatch<SetStateAction<boolean>>) =>
+  (
+    paymentProvider: PaymentProvider,
+    setTransactionProcessing: Dispatch<SetStateAction<boolean>>,
+    setThreeDSecureRes: Dispatch<SetStateAction<CachedTransaction | null>>,
+  ) =>
   (cardDetails: CardDetails) => {
     const { merchantKey } = paymentProvider
     const { cardholderName, cardNumber, expiryDate, securityCode } = cardDetails
@@ -100,6 +148,11 @@ export const handleTransaction =
           expiryDate: unformatCardExpires(expiryDate),
           securityCode,
         },
-        onTokenised: handleCreateTransaction(paymentProvider, cardDetails, setTransactionProcessing),
+        onTokenised: handleCreateTransaction(
+          paymentProvider,
+          cardDetails,
+          setTransactionProcessing,
+          setThreeDSecureRes,
+        ),
       })
   }

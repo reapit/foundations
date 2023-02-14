@@ -10,13 +10,13 @@ describe('onUpdateStatus', () => {
     paymentAmount: mockPaymentProvider.payment?.amount,
     paymentCurrency: 'GBP',
   }
-  const stubBody = { status: 'posted', externalReference: '' }
+  const stubBody = { status: 'posted', externalReference: 'MOCK_ID' }
 
   it('it should call update session status and generate email correctly then refetch payment', async () => {
     const paymentProvider = mockPaymentProvider
     const setTransactionProcessing = jest.fn()
 
-    await Handlers.onUpdateStatus(paymentProvider, mockCardDetails, setTransactionProcessing, stubBody)
+    await Handlers.onUpdateStatus('posted', paymentProvider, mockCardDetails, setTransactionProcessing, 'MOCK_ID')
     expect(paymentProvider.statusAction.statusSubmit).toHaveBeenCalledWith(stubBody)
     expect(paymentProvider.receiptAction.receiptSubmit).toHaveBeenCalledWith(stubEmailBody)
     expect(setTransactionProcessing).toHaveBeenCalledWith(false)
@@ -27,7 +27,8 @@ describe('handleTransaction', () => {
   window.sagepayOwnForm = jest.fn().mockReturnValue({ tokeniseCardDetails: jest.fn() })
   const paymentProvider = mockPaymentProvider
   const setTransactionProcessing = jest.fn()
-  const curried = Handlers.handleTransaction(paymentProvider, setTransactionProcessing)
+  const setThreeDSecureRes = jest.fn()
+  const curried = Handlers.handleTransaction(paymentProvider, setTransactionProcessing, setThreeDSecureRes)
 
   it('should correctly call the opayo method', () => {
     curried(mockCardDetails)
@@ -43,8 +44,14 @@ describe('handleCreateTransaction', () => {
     // const updateStatusSpy = jest.spyOn(Handlers, 'onUpdateStatus')
     const paymentProvider = mockPaymentProvider
     const setTransactionProcessing = jest.fn()
+    const setThreeDSecureRes = jest.fn()
 
-    const onTokenised = Handlers.handleCreateTransaction(paymentProvider, mockCardDetails, setTransactionProcessing)
+    const onTokenised = Handlers.handleCreateTransaction(
+      paymentProvider,
+      mockCardDetails,
+      setTransactionProcessing,
+      setThreeDSecureRes,
+    )
     await onTokenised({ success: true })
     // expect(updateStatusSpy).toHaveBeenCalledTimes(1)
     // expect(updateStatusSpy).toHaveBeenCalledWith(1)
@@ -55,8 +62,14 @@ describe('handleCreateTransaction', () => {
     // const updateStatusSpy = jest.spyOn(Handlers, 'onUpdateStatus')
     const paymentProvider = mockPaymentProvider
     const setTransactionProcessing = jest.fn()
+    const setThreeDSecureRes = jest.fn()
 
-    const onTokenised = Handlers.handleCreateTransaction(paymentProvider, mockCardDetails, setTransactionProcessing)
+    const onTokenised = Handlers.handleCreateTransaction(
+      paymentProvider,
+      mockCardDetails,
+      setTransactionProcessing,
+      setThreeDSecureRes,
+    )
     await onTokenised({ success: false })
     // expect(updateStatusSpy).toHaveBeenCalledTimes(1)
     // expect(updateStatusSpy).toHaveBeenCalledWith(1)

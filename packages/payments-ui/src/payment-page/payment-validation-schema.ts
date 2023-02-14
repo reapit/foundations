@@ -1,16 +1,25 @@
 /* istanbul ignore file */
-import { emailRegex } from '@reapit/utils-common'
+import { emailRegex, hasSpecialChars } from '@reapit/utils-common'
 import { object, string } from 'yup'
 import { getCardType, validateCard, validateCardExpires, validateSecureCode } from './payment-card-helpers'
 
+export const specialCharsTest = {
+  name: 'hasNoSpecialChars',
+  message: 'Special characters are not permitted',
+  test: (value?: string) => {
+    if (!value) return true
+    return !hasSpecialChars(value)
+  },
+}
+
 export const paymentValidationSchema = object().shape({
-  customerFirstName: string().trim().required('Required'),
-  customerLastName: string().trim().required('Required'),
-  address1: string().trim().required('Required'),
-  city: string().trim().required('Required'),
-  postalCode: string().trim().required('Required'),
+  customerFirstName: string().trim().required('Required').test(specialCharsTest),
+  customerLastName: string().trim().required('Required').test(specialCharsTest),
+  address1: string().trim().required('Required').test(specialCharsTest),
+  city: string().trim().required('Required').test(specialCharsTest),
+  postalCode: string().trim().required('Required').test(specialCharsTest),
   country: string().trim().required('Required'),
-  cardholderName: string().trim().required('Required'),
+  cardholderName: string().trim().required('Required').test(specialCharsTest),
   cardNumber: string()
     .trim()
     .required('Required')
@@ -49,5 +58,11 @@ export const paymentValidationSchema = object().shape({
       })
     }),
   cardIdentifier: string(),
+  email: string().trim().required('Required').matches(emailRegex, 'Email is not in the correct format'),
+})
+
+export const resendConfirmationSchema = object().shape({
+  customerFirstName: string().trim().required('Required').test(specialCharsTest),
+  customerLastName: string().trim().required('Required').test(specialCharsTest),
   email: string().trim().required('Required').matches(emailRegex, 'Email is not in the correct format'),
 })

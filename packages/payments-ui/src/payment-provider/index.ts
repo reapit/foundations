@@ -1,6 +1,6 @@
 import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
 import { ClientConfigModel } from '../types/config'
-import { CreateTransactionModel, MerchantKey, Transaction } from '../types/opayo'
+import { CreateTransactionModel, MerchantKey, ThreeDSecureResponse } from '../types/opayo'
 import { PaymentEmailReceipt, UpdateStatusBody } from '../types/payment'
 
 export interface ReceiptAction {
@@ -20,7 +20,7 @@ export interface PaymentProviderInitialisers {
   merchantKey: MerchantKey
   receiptAction: ReceiptAction
   statusAction: StatusAction
-  transactionSubmit: (transaction: CreateTransactionModel) => Promise<Transaction>
+  transactionSubmit: (transaction: CreateTransactionModel) => Promise<ThreeDSecureResponse>
   refreshPayment: () => void
   isPortal: boolean
 }
@@ -32,7 +32,7 @@ export class PaymentProvider {
   merchantKey: MerchantKey
   receiptAction: ReceiptAction
   statusAction: StatusAction
-  transactionSubmit: (transaction: CreateTransactionModel) => Promise<Transaction>
+  transactionSubmit: (transaction: CreateTransactionModel) => Promise<ThreeDSecureResponse>
   refreshPayment: () => void
   isPortal: boolean
 

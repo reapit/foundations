@@ -12,6 +12,6 @@ export class ClientConfigPublicController {
   @Get('/:paymentId')
   async getConfig(@Headers() headers: ClientConfigPublicHeaders): Promise<ClientConfigModel> {
     const clientCode = headers['reapit-customer']
-    return this.clientConfigProvider.get(clientCode)
+    return await this.clientConfigProvider.get(clientCode)
   }
 }

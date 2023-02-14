@@ -11,6 +11,6 @@ export class PaymentReceiptPrivateController {
     @Headers() paymentReceiptHeaders: PaymentReceiptHeaders,
     @Body() paymentReceipt: PaymentReceiptDto,
   ): Promise<string> {
-    return this.paymentReceiptProvider.createReceipt(paymentReceiptHeaders, paymentReceipt)
+    return await this.paymentReceiptProvider.createReceipt(paymentReceiptHeaders, paymentReceipt)
   }
 }

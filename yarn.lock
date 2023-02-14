@@ -8850,6 +8850,7 @@ __metadata:
     file-loader: ^6.2.0
     fork-ts-checker-webpack-plugin: ^6.5.2
     friendly-errors-webpack-plugin: ^1.7.0
+    html-loader: ^4.2.0
     html-webpack-plugin: ^5.5.0
     husky: ^7.0.4
     isomorphic-fetch: ^3.0.0
