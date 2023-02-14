@@ -34,9 +34,7 @@ export class LoginService {
   protected async obtainAuthCode(clientId: string): Promise<string> {
     const spinner = ora('Awaiting Response from Reapit Connect...')
 
-    return new Promise(async (resolve) => {
-      const tab = await open(`${this.connectUrl}?response_type=code&client_id=${clientId}&redirect_uri=${this.redirect}`) // TODO can I close this on success?
-
+    return new Promise((resolve) => {
       this.server = http.createServer((request, response) => {
         const code = new URLSearchParams(request.url?.split('?').pop()).get('code')
 
@@ -45,7 +43,6 @@ export class LoginService {
 
         this.server.close()
         spinner.stop()
-        tab.kill()
 
         // TODO reject on typeof code !== string
         resolve(code as string)
@@ -57,6 +54,8 @@ export class LoginService {
         console.log('')
         spinner.start()
       })
+
+      open(`${this.connectUrl}?response_type=code&client_id=${clientId}&redirect_uri=${this.redirect}`)
     })
   }
 
