@@ -8493,6 +8493,7 @@ __metadata:
     latest-semver: ^3.0.0
     nestjs-typeorm-paginate: ^2.6.3
     ora: ^5.4.1
+    portastic: ^1.0.1
     process.argv: ^0.6.0
     pusher-js: ^7.4.0
     reflect-metadata: ^0.1.13
@@ -17027,6 +17028,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bluebird@npm:^2.9.34":
+  version: 2.11.0
+  resolution: "bluebird@npm:2.11.0"
+  checksum: f1c6cbec64100bca65c88e5de0d9ee9bbb435f7c74c68a16a9466a8b40daf64346805c2fe04af821564ce6d4199085e7855d2e272282a065eb723344815cc354
+  languageName: node
+  linkType: hard
+
 "bluebird@npm:^3.3.5, bluebird@npm:^3.5.5, bluebird@npm:^3.7.2":
   version: 3.7.2
   resolution: "bluebird@npm:3.7.2"
@@ -18912,7 +18920,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^2.11.0, commander@npm:^2.18.0, commander@npm:^2.19.0, commander@npm:^2.20.0, commander@npm:^2.20.3":
+"commander@npm:^2.11.0, commander@npm:^2.18.0, commander@npm:^2.19.0, commander@npm:^2.20.0, commander@npm:^2.20.3, commander@npm:^2.8.1":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: ab8c07884e42c3a8dbc5dd9592c606176c7eb5c1ca5ff274bcf907039b2c41de3626f684ea75ccf4d361ba004bbaff1f577d5384c155f3871e456bdf27becf9e
@@ -35527,6 +35535,19 @@ fsevents@^1.2.7:
   version: 1.16.1
   resolution: "popper.js@npm:1.16.1"
   checksum: c56ae5001ec50a77ee297a8061a0221d99d25c7348d2e6bcd3e45a0d0f32a1fd81bca29d46cb0d4bdf13efb77685bd6a0ce93f9eb3c608311a461f945fffedbe
+  languageName: node
+  linkType: hard
+
+"portastic@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "portastic@npm:1.0.1"
+  dependencies:
+    bluebird: ^2.9.34
+    commander: ^2.8.1
+    debug: ^2.2.0
+  bin:
+    portastic: ./bin/portastic
+  checksum: 5200851ab5e6a2123427ef4a83d85c86e5dcac3c35b82a8a10de8ef9fce4c5622411fb022deb60b544796e34db14557e5ea193f4eda0a1d88651e38201e407f2
   languageName: node
   linkType: hard
 
