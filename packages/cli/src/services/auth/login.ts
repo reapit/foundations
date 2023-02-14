@@ -21,7 +21,7 @@ export class LoginService {
   private readonly redirect = `http://localhost:${this.port}`
   protected connectSession?: ReapitConnectSession
 
-  protected storageLocation: string = `${homeDir()}/.reapit-connect.json`
+  static storageLocation: string = `${homeDir()}/.reapit-connect.json`
 
   private oauthUrl = (clientId: string, authCode: string) =>
     `${this.connectOAuthUrl}/token?grant_type=authorization_code&client_id=${clientId}&code=${authCode}&redirect_uri=${this.redirect}`
@@ -109,7 +109,7 @@ export class LoginService {
    */
   protected async storeCurrentSession(): Promise<void> {
     if (!this.connectSession) return
-    return writeFileSync(this.storageLocation, JSON.stringify(this.connectSession, null, 2), {
+    return writeFileSync(LoginService.storageLocation, JSON.stringify(this.connectSession, null, 2), {
       encoding: 'utf-8',
     })
   }
@@ -130,9 +130,9 @@ export class LoginService {
    * @returns ReapitConnectSession | undefined
    */
   protected async getStoredSession(): Promise<ReapitConnectSession | undefined> {
-  if (!existsSync(this.storageLocation)) return undefined
+  if (!existsSync(LoginService.storageLocation)) return undefined
 
-    const session = await promises.readFile(this.storageLocation, 'utf-8')
+    const session = await promises.readFile(LoginService.storageLocation, 'utf-8')
 
     if (!session) return undefined
 

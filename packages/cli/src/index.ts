@@ -13,6 +13,7 @@ import { resolveArgs } from './utils/resolveArgs'
 import { BootstrapCommand } from './commands/bootstrap'
 import { ReleaseCommand } from './commands/release'
 import { CheckVersionCommand } from './commands/check-version'
+import { AuthCommand } from './commands/auth'
 
 const checkVersion = async () => {
   const checkVersion = new CheckVersionCommand()
@@ -77,4 +78,10 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   }
 }
 
-boot(new IntroCommand(), [new ConfigCommand(), new PipelineCommand(), new BootstrapCommand(), new ReleaseCommand()])
+boot(new IntroCommand(), [
+  new AuthCommand(),
+  new ConfigCommand(),
+  new PipelineCommand(),
+  new BootstrapCommand(),
+  new ReleaseCommand(),
+])
