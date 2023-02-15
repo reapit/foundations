@@ -3,8 +3,9 @@ import { Command } from '../../decorators'
 import { unlinkSync, existsSync } from 'fs'
 import { LoginService } from '../../services'
 import chalk from 'chalk'
-import { inject } from 'tsyringe'
+import { inject, injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'logout',
   description: 'Deletes the current stored session',

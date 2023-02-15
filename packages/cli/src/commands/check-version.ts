@@ -4,7 +4,9 @@ import chalk from 'chalk'
 import semver from 'semver'
 import latestSemver from 'latest-semver'
 import { Command } from '../decorators'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'check-version',
   description: 'Used for checking the current version of @reapit/cli',

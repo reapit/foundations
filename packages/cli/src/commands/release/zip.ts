@@ -8,7 +8,9 @@ import ora, { Ora } from 'ora'
 import chalk from 'chalk'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'zip',
   description: 'Start a deployment from a zip (zipped from a local build)',

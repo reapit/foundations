@@ -7,7 +7,9 @@ import chalk from 'chalk'
 import inquirer from 'inquirer'
 import * as fs from 'fs'
 import axios from 'axios'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'delete',
   description: 'Deletes given pipeline',

@@ -3,7 +3,9 @@ import { AbstractCommand } from './abstract.command'
 import chalk from 'chalk'
 import figlet from 'figlet'
 import pack from './../package.json'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   default: true,
 })

@@ -9,7 +9,9 @@ import { resolve } from 'path'
 import git from 'simple-git'
 import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
 import { serialisePipeline } from '../../utils'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'create',
   description: 'Create a pipeline',

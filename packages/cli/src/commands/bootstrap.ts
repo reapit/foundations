@@ -4,6 +4,7 @@ import { spawn } from 'child_process'
 import ora, { Ora } from 'ora'
 import chalk from 'chalk'
 import fs from 'fs'
+import { injectable } from 'tsyringe'
 
 type ReapitConfig = {
   connectClientId: string
@@ -11,6 +12,7 @@ type ReapitConfig = {
   [s: string]: any
 }
 
+@injectable()
 @Command({
   name: 'bootstrap',
   description: 'Create application templates to start a new project',

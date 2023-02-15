@@ -3,6 +3,7 @@ import { Command } from './../decorators'
 import { resolveConfig, ReapitCliConfig, createConfig, homeDir } from './../utils'
 import inquirer from 'inquirer'
 import chalk from 'chalk'
+import { injectable } from 'tsyringe'
 
 const createConfigFromQuestions = async (config?: ReapitCliConfig): Promise<ReapitCliConfig> => {
   const values = await inquirer.prompt([
@@ -17,6 +18,7 @@ const createConfigFromQuestions = async (config?: ReapitCliConfig): Promise<Reap
   return values as ReapitCliConfig
 }
 
+@injectable()
 @Command({
   name: 'config',
   description: 'Setup your reapit cli command',

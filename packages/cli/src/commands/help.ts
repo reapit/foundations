@@ -1,10 +1,11 @@
 import { LoginService } from '../services'
-import { container, inject } from 'tsyringe'
+import { container, inject, injectable } from 'tsyringe'
 import { AbstractCommand } from './../abstract.command'
 import { ParentCommand } from './../parent.command'
 import { Command, CommandOptions, COMMAND_OPTIONS } from './../decorators'
 import { constructor } from 'tsyringe/dist/typings/types'
 
+@injectable()
 @Command({
   name: 'help',
   description: '',
