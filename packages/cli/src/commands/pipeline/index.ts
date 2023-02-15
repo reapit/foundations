@@ -22,3 +22,13 @@ export class PipelineCommand extends ParentCommand {
     PipelineParameterUpsertCommand,
   ]
 }
+
+export {
+  PipelineCreate,
+  PipelineEditCommand,
+  PipelineList,
+  LinkPipelineCommand,
+  DeletePipelineCommand,
+  PipelineParameterUpsertCommand,
+  PipelineParametersListCommand,
+}

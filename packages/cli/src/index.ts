@@ -5,27 +5,33 @@ import argv from 'process.argv'
 import { AbstractCommand } from './abstract.command'
 import { ConfigCommand } from './commands/config'
 import { CommandOptions, COMMAND_OPTIONS } from './decorators'
-import { IntroCommand } from './intro'
-import { HelpCommand } from './commands/help'
-import { ParentCommand } from './parent.command'
-import { PipelineCommand } from './commands/pipeline'
 import { resolveArgs } from './utils/resolveArgs'
-import { BootstrapCommand } from './commands/bootstrap'
-import { ReleaseCommand } from './commands/release'
-import { CheckVersionCommand } from './commands/check-version'
-import { AuthCommand } from './commands/auth'
 import { container } from 'tsyringe'
 import { constructor } from 'tsyringe/dist/typings/types'
 import { LoginService } from './services'
+import {
+  AuthCommand,
+  BootstrapCommand,
+  CheckVersionCommand,
+  HelpCommand,
+  PipelineCommand,
+  ReleaseCommand,
+} from './commands'
+import { ParentCommand } from './parent.command'
+import { IntroCommand } from './intro'
 
 const checkVersion = async () => {
   const checkVersion = container.resolve(CheckVersionCommand)
   await checkVersion.run()
 }
 
-const isCommandConfig = (config: CommandOptions | { default: true }): config is CommandOptions => config.hasOwnProperty('name')
+const isCommandConfig = (config: CommandOptions | { default: true }): config is CommandOptions =>
+  config.hasOwnProperty('name')
 
-const boot = async (defaultCommand: constructor<AbstractCommand>, commands: (constructor<AbstractCommand | ParentCommand>)[]) => {
+const boot = async (
+  defaultCommand: constructor<AbstractCommand>,
+  commands: constructor<AbstractCommand | ParentCommand>[],
+) => {
   const processArgv = argv(process.argv.slice(2))
   const commandsArgs = processArgv<any>({})
 
@@ -37,14 +43,9 @@ const boot = async (defaultCommand: constructor<AbstractCommand>, commands: (con
     useValue: commands,
   })
   container.register('devMode', {
-    useValue: Object.keys(options).includes('dev')
-  });
-
-  [
-    ...commands,
-    defaultCommand,
-    HelpCommand,
-  ].forEach(command => {
+    useValue: Object.keys(options).includes('dev'),
+  })
+  ;[...commands, defaultCommand, HelpCommand].forEach((command) => {
     const commandConfig: CommandOptions | { default: true } = Reflect.getOwnMetadata(COMMAND_OPTIONS, command)
 
     container.register(isCommandConfig(commandConfig) ? commandConfig.name : 'default', command)
@@ -98,10 +99,4 @@ const boot = async (defaultCommand: constructor<AbstractCommand>, commands: (con
   }
 }
 
-boot(IntroCommand, [
-  AuthCommand,
-  ConfigCommand,
-  PipelineCommand,
-  BootstrapCommand,
-  ReleaseCommand,
-])
+boot(IntroCommand, [AuthCommand, ConfigCommand, PipelineCommand, BootstrapCommand, ReleaseCommand])

@@ -1,5 +1,5 @@
 import chalk from 'chalk'
-import { container, inject } from 'tsyringe'
+import { container } from 'tsyringe'
 import { constructor } from 'tsyringe/dist/typings/types'
 import { AbstractCommand } from './abstract.command'
 import { CommandOptions, COMMAND_OPTIONS } from './decorators'
@@ -29,7 +29,7 @@ export abstract class ParentCommand extends AbstractCommand {
   }
 
   private getAllCommands(): AbstractCommand[] {
-    return this.commands.map(command => {
+    return this.commands.map((command) => {
       const config: CommandOptions = Reflect.getOwnMetadata(COMMAND_OPTIONS, command)
 
       return container.resolve<AbstractCommand>(config.name)
@@ -62,6 +62,8 @@ export abstract class ParentCommand extends AbstractCommand {
     this.writeLine(`${chalk.bold.green(this.commandOptions.name)}`, 1, '  ')
     this.writeLine(`${this.commandOptions.description}`, 1, '  ')
     this.writeLine('')
-    this.getAllCommands().sort(this.sortCommands).forEach((command) => command.printConfig({ parent: this }))
+    this.getAllCommands()
+      .sort(this.sortCommands)
+      .forEach((command) => command.printConfig({ parent: this }))
   }
 }

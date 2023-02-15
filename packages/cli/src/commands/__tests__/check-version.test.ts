@@ -24,7 +24,7 @@ describe('check-version', () => {
   let checkVersionCommand: CheckVersionCommand
 
   beforeAll(() => {
-    checkVersionCommand = new CheckVersionCommand(true, new LoginService)
+    checkVersionCommand = new CheckVersionCommand(true, new LoginService())
   })
 
   it('Can inform of newer version', async () => {

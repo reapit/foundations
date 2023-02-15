@@ -12,3 +12,5 @@ import { ZipCommand } from './zip'
 export class ReleaseCommand extends ParentCommand {
   commands = [ReleaseListCommand, VersionCommand, ZipCommand, RepoCommand]
 }
+
+export { ReleaseListCommand, RepoCommand, VersionCommand, ZipCommand }

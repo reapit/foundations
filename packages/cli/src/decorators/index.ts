@@ -42,14 +42,15 @@ export interface OptionInputInterface extends ArgsInputInterface {
   shortName?: string
 }
 
+export const isCommandConfig = (config: CommandOptions | { default: true }): config is CommandOptions =>
+  config.hasOwnProperty('name')
+
 export const Command =
   (options: CommandOptions | { default: true }): ClassDecorator =>
-  (target) =>
-    {
-      Reflect.defineMetadata(COMMAND_OPTIONS, options, target)
-      // @ts-ignore
-      container.register(options.hasOwnProperty('name') ? options.name : 'default', target as any)
-    }
+  (target) => {
+    Reflect.defineMetadata(COMMAND_OPTIONS, options, target)
+    container.register(isCommandConfig(options) ? options.name : 'default', target as any)
+  }
 
 export const Param =
   (options: ParameterInputInterface): ParameterDecorator =>

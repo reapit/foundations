@@ -14,17 +14,14 @@ export class HelpCommand extends AbstractCommand {
     @inject('commands')
     private readonly commands: constructor<AbstractCommand | ParentCommand>[],
     @inject('devMode')
-    devMode:boolean,
+    devMode: boolean,
     @inject(LoginService) loginService: LoginService,
   ) {
-    super(
-      devMode,
-      loginService,
-    )
+    super(devMode, loginService)
   }
 
   private getAllCommands(): AbstractCommand[] {
-    return this.commands.map(command => {
+    return this.commands.map((command) => {
       const config: CommandOptions = Reflect.getOwnMetadata(COMMAND_OPTIONS, command)
 
       return container.resolve<AbstractCommand>(config.name)
@@ -37,8 +34,10 @@ export class HelpCommand extends AbstractCommand {
 
   async run() {
     this.writeLine('')
-    this.getAllCommands().sort(this.sortCommands).forEach((command) => {
-      command.printConfig({})
-    })
+    this.getAllCommands()
+      .sort(this.sortCommands)
+      .forEach((command) => {
+        command.printConfig({})
+      })
   }
 }

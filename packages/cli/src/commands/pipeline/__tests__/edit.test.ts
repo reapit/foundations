@@ -55,7 +55,7 @@ describe('pipeline-edit', () => {
       },
     }))
 
-    const command = new PipelineEditCommand(true, new LoginService)
+    const command = new PipelineEditCommand(true, new LoginService())
 
     await command.run()
 

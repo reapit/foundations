@@ -78,7 +78,7 @@ describe('pipeline-create', () => {
       }),
     }
 
-    const command = new PipelineCreate(true, new LoginService)
+    const command = new PipelineCreate(true, new LoginService())
 
     await command.run()
 

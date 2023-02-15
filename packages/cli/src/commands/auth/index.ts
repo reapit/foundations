@@ -20,3 +20,5 @@ export class AuthCommand extends ParentCommand {
     super(devMode, loginService)
   }
 }
+
+export { LoginCommand, LogoutCommand }

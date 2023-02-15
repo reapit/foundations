@@ -79,7 +79,7 @@ describe('pipeline-delete', () => {
       status: 204,
     }))
 
-    const command = new DeletePipelineCommand(true, new LoginService)
+    const command = new DeletePipelineCommand(true, new LoginService())
 
     await command.run()
 

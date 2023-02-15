@@ -16,10 +16,7 @@ export interface Command {
 export abstract class AbstractCommand {
   protected baseUrl: string = 'https://deployments.prod.paas.reapit.cloud/api/'
 
-  constructor(
-    protected readonly devMode: boolean,
-    protected readonly loginService: LoginService,
-  ) {}
+  constructor(protected readonly devMode: boolean, protected readonly loginService: LoginService) {}
 
   get commandOptions(): CommandOptions {
     return Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
