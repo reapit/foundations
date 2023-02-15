@@ -24,7 +24,8 @@
     "reflect-metadata": "^0.1.13",
     "semver": "^7.3.8",
     "shleemy": "^1.2.2",
-    "simple-git": "^3.14.1"
+    "simple-git": "^3.14.1",
+    "tsyringe": "^4.7.0"
   },
   "bin": {
     "reapit": "./dist/cli/src/index.js"

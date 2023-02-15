@@ -1,11 +1,25 @@
+import { LoginService } from '../services'
+import { inject } from 'tsyringe'
 import { AbstractCommand } from './../abstract.command'
 import { ParentCommand } from './../parent.command'
+import { Command } from './../decorators'
 
+@Command({
+  name: 'help',
+  description: '',
+})
 export class HelpCommand extends AbstractCommand {
-  commands: (AbstractCommand | ParentCommand)[] = []
-
-  setCommands(commands: (AbstractCommand | ParentCommand)[]) {
-    this.commands = commands
+  constructor(
+    @inject('commands')
+    private readonly commands: (ParentCommand | AbstractCommand)[],
+    @inject('devMode')
+    devMode:boolean,
+    @inject(LoginService) loginService: LoginService,
+  ) {
+    super(
+      devMode,
+      loginService,
+    )
   }
 
   sortCommands(a: ParentCommand | AbstractCommand): number {

@@ -10,5 +10,5 @@ import { ZipCommand } from './zip'
   description: '(BETA) For viewing individual releases related to your project',
 })
 export class ReleaseCommand extends ParentCommand {
-  commands = [new ReleaseListCommand(), new VersionCommand(), new ZipCommand(), new RepoCommand()]
+  commands = [ReleaseListCommand, VersionCommand, ZipCommand, RepoCommand]
 }

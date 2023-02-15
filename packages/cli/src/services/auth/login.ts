@@ -14,16 +14,18 @@ import 'isomorphic-fetch'
 import decode from 'jwt-decode'
 import ora from 'ora'
 import portastic from 'portastic'
+import { inject, injectable } from 'tsyringe'
 
 /**
  * LoginService
  * Used for obtaining a reapit connect session using a browser and redirect setup
  */
+@injectable()
 export class LoginService {
   private server
   private readonly connectOAuthUrl: string // TODO Change dev to env
   private readonly clientId: string
-  private readonly ports: number[] = [9000, 9001, 9002, 9003, 9004]
+  private readonly ports: number[] = [8020, 8021, 8022, 8023, 8024]
   protected currentPort?: number
   private readonly connectUrl: string
   private readonly redirect = `http://localhost:${this.currentPort}`
@@ -31,7 +33,10 @@ export class LoginService {
 
   static storageLocation: string = `${homeDir()}/.reapit-connect.json`
 
-  constructor(readonly devMode: boolean = true) {
+  constructor(
+    @inject('devMode')
+    readonly devMode: boolean = true,
+  ) {
     this.clientId = devMode ? '2c8jt1gp2hb0tcc8s88m8lig3d' : ''
     this.connectOAuthUrl = `https://connect.${devMode ? 'dev' : 'prod'}.paas.reapit.cloud`
     this.connectUrl = `${this.connectOAuthUrl}/login`
@@ -45,10 +50,18 @@ export class LoginService {
 
   protected async obtainAuthCode(): Promise<string | never> {
     const spinner = ora('Awaiting Response from Reapit Connect...')
+    console.log('test', {
+      min: this.ports[0],
+      max: this.ports[this.ports.length - 1],
+      retrieve: 1,
+    })
     this.currentPort = await portastic.find({
       min: this.ports[0],
       max: this.ports[this.ports.length - 1],
+      retrieve: 1,
     })[0]
+
+    console.log('this.currentPort', this.currentPort)
 
     if (!this.currentPort) {
       throw new Error(

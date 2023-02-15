@@ -1,10 +1,12 @@
 import chalk from 'chalk'
+import { container, inject } from 'tsyringe'
+import { constructor } from 'tsyringe/dist/typings/types'
 import { AbstractCommand } from './abstract.command'
-import { COMMAND_OPTIONS } from './decorators'
+import { CommandOptions, COMMAND_OPTIONS } from './decorators'
 import { resolveArgs } from './utils/resolveArgs'
 
 export abstract class ParentCommand extends AbstractCommand {
-  abstract commands: AbstractCommand[]
+  abstract commands: constructor<AbstractCommand>[]
 
   run() {
     this.printConfig()
@@ -12,14 +14,26 @@ export abstract class ParentCommand extends AbstractCommand {
 
   isChildRunnable(params: string[]): boolean {
     return this.commands
-      .map<string>((command) => Reflect.getOwnMetadata(COMMAND_OPTIONS, command.constructor).name)
+      .map<string>((command) => Reflect.getOwnMetadata(COMMAND_OPTIONS, command).name)
       .includes(params[1])
   }
 
   private getCommand(params: string[]): AbstractCommand | undefined {
-    return this.commands.find(
-      (command) => Reflect.getOwnMetadata(COMMAND_OPTIONS, command.constructor).name === params[1],
-    )
+    const command = container.resolve<AbstractCommand>(params[1])
+
+    if (!command || !this.commands.includes(command.constructor as constructor<AbstractCommand>)) {
+      return undefined
+    }
+
+    return command
+  }
+
+  private getAllCommands(): AbstractCommand[] {
+    return this.commands.map(command => {
+      const config: CommandOptions = Reflect.getOwnMetadata(COMMAND_OPTIONS, command)
+
+      return container.resolve<AbstractCommand>(config.name)
+    })
   }
 
   runChildHelp(params: string[]): void {
@@ -48,6 +62,6 @@ export abstract class ParentCommand extends AbstractCommand {
     this.writeLine(`${chalk.bold.green(this.commandOptions.name)}`, 1, '  ')
     this.writeLine(`${this.commandOptions.description}`, 1, '  ')
     this.writeLine('')
-    this.commands.sort(this.sortCommands).forEach((command) => command.printConfig({ parent: this }))
+    this.getAllCommands().sort(this.sortCommands).forEach((command) => command.printConfig({ parent: this }))
   }
 }

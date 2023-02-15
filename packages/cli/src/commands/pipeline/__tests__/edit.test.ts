@@ -1,3 +1,4 @@
+import { LoginService } from '@/services'
 import axios from 'axios'
 import { PipelineEditCommand } from '../edit'
 
@@ -51,7 +52,7 @@ describe('pipeline-edit', () => {
       },
     }))
 
-    const command = new PipelineEditCommand()
+    const command = new PipelineEditCommand(true, new LoginService)
 
     await command.run()
 

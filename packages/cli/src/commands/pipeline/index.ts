@@ -13,12 +13,12 @@ import { PipelineParameterUpsertCommand, PipelineParametersListCommand } from '.
 })
 export class PipelineCommand extends ParentCommand {
   commands = [
-    new PipelineCreate(),
-    new PipelineList(),
-    new LinkPipelineCommand(),
-    new DeletePipelineCommand(),
-    new PipelineEditCommand(),
-    new PipelineParametersListCommand(),
-    new PipelineParameterUpsertCommand(),
+    PipelineCreate,
+    PipelineList,
+    LinkPipelineCommand,
+    DeletePipelineCommand,
+    PipelineEditCommand,
+    PipelineParametersListCommand,
+    PipelineParameterUpsertCommand,
   ]
 }

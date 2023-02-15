@@ -8,6 +8,7 @@ import * as fs from 'fs'
 import Pusher from 'pusher-js'
 import globalConfig from '../config.json'
 import { LoginService } from './services'
+import { inject } from 'tsyringe'
 
 export interface Command {
   run(): Promise<any> | any
@@ -15,7 +16,11 @@ export interface Command {
 
 export abstract class AbstractCommand {
   protected baseUrl: string = 'https://deployments.prod.paas.reapit.cloud/api/'
-  protected loginService: LoginService = new LoginService()
+
+  constructor(
+    protected readonly devMode: boolean,
+    protected readonly loginService: LoginService,
+  ) {}
 
   get commandOptions(): CommandOptions {
     return Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
