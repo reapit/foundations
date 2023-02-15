@@ -4,7 +4,7 @@ import 'reflect-metadata'
 import argv from 'process.argv'
 import { AbstractCommand } from './abstract.command'
 import { ConfigCommand } from './commands/config'
-import { CommandOptions, COMMAND_OPTIONS } from './decorators'
+import { CommandOptions, COMMAND_OPTIONS, isCommandConfig } from './decorators'
 import { resolveArgs } from './utils/resolveArgs'
 import { container } from 'tsyringe'
 import { constructor } from 'tsyringe/dist/typings/types'
@@ -24,9 +24,6 @@ const checkVersion = async () => {
   const checkVersion = container.resolve(CheckVersionCommand)
   await checkVersion.run()
 }
-
-const isCommandConfig = (config: CommandOptions | { default: true }): config is CommandOptions =>
-  config.hasOwnProperty('name')
 
 const boot = async (
   defaultCommand: constructor<AbstractCommand>,

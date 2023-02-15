@@ -43,7 +43,7 @@ export interface OptionInputInterface extends ArgsInputInterface {
 }
 
 export const isCommandConfig = (config: CommandOptions | { default: true }): config is CommandOptions =>
-  config.hasOwnProperty('name')
+  Object.prototype.hasOwnProperty.call(config, 'name')
 
 export const Command =
   (options: CommandOptions | { default: true }): ClassDecorator =>
