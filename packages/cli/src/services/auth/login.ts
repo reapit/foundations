@@ -64,7 +64,7 @@ export class LoginService {
       )
     }
 
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       this.server = http.createServer((request, response) => {
         const code = new URLSearchParams(request.url?.split('?').pop()).get('code')
 
@@ -82,8 +82,7 @@ export class LoginService {
         this.server.close()
         spinner.stop()
 
-        // TODO reject on typeof code !== string
-        resolve(code as string)
+        code ? resolve(code) : reject()
       })
 
       this.server.listen(this.currentPort, 'localhost', () => {
