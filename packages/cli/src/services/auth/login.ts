@@ -23,9 +23,9 @@ import fp from 'find-free-port'
 @injectable()
 export class LoginService {
   private server
-  private readonly connectOAuthUrl: string // TODO Change dev to env
+  private readonly connectOAuthUrl: string
   private readonly clientId: string
-  private readonly portRange: number[] = [9000, 9004]
+  private readonly portRange: number[] = [49147, 49151]
   protected currentPort?: number
   private readonly connectUrl: string
   protected connectSession?: ReapitConnectSession
@@ -36,7 +36,7 @@ export class LoginService {
     @inject('devMode')
     readonly devMode: boolean = true,
   ) {
-    this.clientId = devMode ? '2c8jt1gp2hb0tcc8s88m8lig3d' : ''
+    this.clientId = devMode ? '2c8jt1gp2hb0tcc8s88m8lig3d' : '' // TODO add prod clientId
     this.connectOAuthUrl = `https://connect.${devMode ? 'dev' : 'prod'}.paas.reapit.cloud`
     this.connectUrl = `${this.connectOAuthUrl}/login`
   }
@@ -204,6 +204,11 @@ export class LoginService {
    * @returns ReapitConnectSession
    */
   public async getSession(): Promise<ReapitConnectSession | never> {
+    if (!this.devMode) {
+      console.error('Reapit Connect Auth Login is not available for prod yet. Please use --dev for dev mode')
+      process.exit(2)
+    }
+
     const storedSession = await this.getStoredSession()
 
     if (!storedSession) await this.obtainSessionFromReapitConnect()
