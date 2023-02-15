@@ -1,10 +1,12 @@
 import 'reflect-metadata'
+import { container } from 'tsyringe'
 export const COMMAND_OPTIONS = 'COMMAND_OPTIONS'
 export const ARGUMENT_OPTIONS = 'PARAMETER_NAME'
 
 export type CommandOptions = {
   name: string
   description: string
+  show?: boolean
 }
 
 export interface ArgsType {
@@ -40,10 +42,15 @@ export interface OptionInputInterface extends ArgsInputInterface {
   shortName?: string
 }
 
+export const isCommandConfig = (config: CommandOptions | { default: true }): config is CommandOptions =>
+  Object.prototype.hasOwnProperty.call(config, 'name')
+
 export const Command =
   (options: CommandOptions | { default: true }): ClassDecorator =>
-  (target) =>
+  (target) => {
     Reflect.defineMetadata(COMMAND_OPTIONS, options, target)
+    container.register(isCommandConfig(options) ? options.name : 'default', target as any)
+  }
 
 export const Param =
   (options: ParameterInputInterface): ParameterDecorator =>

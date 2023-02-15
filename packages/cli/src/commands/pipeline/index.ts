@@ -6,19 +6,31 @@ import { LinkPipelineCommand } from './link'
 import { DeletePipelineCommand } from './delete'
 import { PipelineEditCommand } from './edit'
 import { PipelineParameterUpsertCommand, PipelineParametersListCommand } from './parameters'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'pipeline',
   description: '(BETA) For managing Pipeline deployments',
 })
 export class PipelineCommand extends ParentCommand {
   commands = [
-    new PipelineCreate(),
-    new PipelineList(),
-    new LinkPipelineCommand(),
-    new DeletePipelineCommand(),
-    new PipelineEditCommand(),
-    new PipelineParametersListCommand(),
-    new PipelineParameterUpsertCommand(),
+    PipelineCreate,
+    PipelineList,
+    LinkPipelineCommand,
+    DeletePipelineCommand,
+    PipelineEditCommand,
+    PipelineParametersListCommand,
+    PipelineParameterUpsertCommand,
   ]
+}
+
+export {
+  PipelineCreate,
+  PipelineEditCommand,
+  PipelineList,
+  LinkPipelineCommand,
+  DeletePipelineCommand,
+  PipelineParameterUpsertCommand,
+  PipelineParametersListCommand,
 }

@@ -4,29 +4,51 @@ import 'reflect-metadata'
 import argv from 'process.argv'
 import { AbstractCommand } from './abstract.command'
 import { ConfigCommand } from './commands/config'
-import { COMMAND_OPTIONS } from './decorators'
-import { IntroCommand } from './intro'
-import { HelpCommand } from './commands/help'
-import { ParentCommand } from './parent.command'
-import { PipelineCommand } from './commands/pipeline'
+import { CommandOptions, COMMAND_OPTIONS, isCommandConfig } from './decorators'
 import { resolveArgs } from './utils/resolveArgs'
-import { BootstrapCommand } from './commands/bootstrap'
-import { ReleaseCommand } from './commands/release'
-import { CheckVersionCommand } from './commands/check-version'
+import { container } from 'tsyringe'
+import { constructor } from 'tsyringe/dist/typings/types'
+import { LoginService } from './services'
+import {
+  AuthCommand,
+  BootstrapCommand,
+  CheckVersionCommand,
+  HelpCommand,
+  PipelineCommand,
+  ReleaseCommand,
+} from './commands'
+import { ParentCommand } from './parent.command'
+import { IntroCommand } from './intro'
 
 const checkVersion = async () => {
-  const checkVersion = new CheckVersionCommand()
+  const checkVersion = container.resolve(CheckVersionCommand)
   await checkVersion.run()
 }
 
-const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand | ParentCommand)[]) => {
+const boot = async (
+  defaultCommand: constructor<AbstractCommand>,
+  commands: constructor<AbstractCommand | ParentCommand>[],
+) => {
   const processArgv = argv(process.argv.slice(2))
   const commandsArgs = processArgv<any>({})
 
   const params = commandsArgs['--']
   const options = commandsArgs
-  const helpCommand = new HelpCommand()
-  helpCommand.setCommands(commands)
+
+  container.register(LoginService, LoginService)
+  container.register('commands', {
+    useValue: commands,
+  })
+  container.register('devMode', {
+    useValue: Object.keys(options).includes('dev'),
+  })
+  ;[...commands, defaultCommand, HelpCommand].forEach((command) => {
+    const commandConfig: CommandOptions | { default: true } = Reflect.getOwnMetadata(COMMAND_OPTIONS, command)
+
+    container.register(isCommandConfig(commandConfig) ? commandConfig.name : 'default', command)
+  })
+
+  const helpCommand = container.resolve<AbstractCommand>('help')
 
   let showHelpCommand = false
   if (!params && Object.keys(options).length === 0) {
@@ -36,7 +58,8 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   }
 
   if (showHelpCommand) {
-    defaultCommand.run(params, options)
+    const intro = container.resolve<AbstractCommand>('default')
+    intro.run(params, options)
     await checkVersion()
     helpCommand.run()
     return
@@ -44,11 +67,7 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
 
   await checkVersion()
 
-  const command = commands.find((command) => {
-    const commandConfig = Reflect.getOwnMetadata(COMMAND_OPTIONS, command.constructor)
-
-    return commandConfig && !commandConfig.default && commandConfig.name === params[0]
-  })
+  const command = container.resolve<AbstractCommand | ParentCommand>(params[0])
 
   if (!command) {
     console.log('Command not found, were you looking for one of these?')
@@ -77,4 +96,4 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   }
 }
 
-boot(new IntroCommand(), [new ConfigCommand(), new PipelineCommand(), new BootstrapCommand(), new ReleaseCommand()])
+boot(IntroCommand, [AuthCommand, ConfigCommand, PipelineCommand, BootstrapCommand, ReleaseCommand])

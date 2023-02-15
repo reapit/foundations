@@ -4,7 +4,9 @@ import { REAPIT_PIPELINE_CONFIG_FILE } from '../constants'
 import ora, { Ora } from 'ora'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import inquirer from 'inquirer'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'param-configure',
   description: 'Create or update an environment parameter',

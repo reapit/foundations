@@ -8,7 +8,9 @@ import * as fs from 'fs'
 import { resolve } from 'path'
 import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
 import { serialisePipeline } from '../../utils'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'edit',
   description: 'Edit a pipeline',

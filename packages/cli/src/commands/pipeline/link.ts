@@ -10,7 +10,9 @@ import inquirer from 'inquirer'
 import * as fs from 'fs'
 import { resolve } from 'path'
 import chalk from 'chalk'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'link',
   description: 'setup repo with pipeline/app',

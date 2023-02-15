@@ -4,7 +4,9 @@ import { Command } from '../../decorators'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import ora from 'ora'
 import { shleemy } from 'shleemy'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'list',
   description: 'List pipelines',

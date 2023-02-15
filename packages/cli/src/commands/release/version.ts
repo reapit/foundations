@@ -9,7 +9,9 @@ import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/fo
 import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
 import inquirer from 'inquirer'
 import { shleemy } from 'shleemy'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'version',
   description: 'Release a specific version previously deployed',

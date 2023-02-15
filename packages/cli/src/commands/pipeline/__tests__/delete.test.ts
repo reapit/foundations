@@ -1,8 +1,12 @@
+import { LoginService } from '../../../services'
 import axios from 'axios'
 import Pusher, { ConnectionManager } from 'pusher-js'
 import { DeletePipelineCommand } from '../delete'
 
+jest.mock('open', () => 9000)
+
 jest.mock('../../../utils/config', () => ({
+  ...jest.requireActual('../../../utils/config'),
   resolveConfig: jest.fn(() =>
     Promise.resolve({
       from: 'test',
@@ -75,7 +79,7 @@ describe('pipeline-delete', () => {
       status: 204,
     }))
 
-    const command = new DeletePipelineCommand()
+    const command = new DeletePipelineCommand(true, new LoginService())
 
     await command.run()
 

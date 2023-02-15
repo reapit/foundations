@@ -8,7 +8,9 @@ import ora from 'ora'
 import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
 import { Multispinner, SpinnerState } from '../../utils/multispinner'
 import chalk from 'chalk'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'repo',
   description: 'Starts a deployment pulled from the remote repository',

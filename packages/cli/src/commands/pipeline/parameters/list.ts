@@ -4,7 +4,9 @@ import { REAPIT_PIPELINE_CONFIG_FILE } from '../constants'
 import ora, { Ora } from 'ora'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import chalk from 'chalk'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'params',
   description: 'List existing environment parameter keys',

@@ -6,7 +6,9 @@ import chalk from 'chalk'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
 import { shleemy } from 'shleemy'
+import { injectable } from 'tsyringe'
 
+@injectable()
 @Command({
   name: 'list',
   description: 'List all releases',
