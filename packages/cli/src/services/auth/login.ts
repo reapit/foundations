@@ -30,6 +30,7 @@ export class LoginService {
   private readonly connectUrl: string
   protected connectSession?: ReapitConnectSession
 
+  // TODO change location based on devMode to avoid conflicts between dev + prod sessions
   static storageLocation: string = `${homeDir()}/.reapit-connect.json`
 
   constructor(
