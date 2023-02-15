@@ -1,11 +1,10 @@
 import { LoginService } from '../../services'
-import { inject, injectable } from 'tsyringe'
+import { inject } from 'tsyringe'
 import { Command } from '../../decorators'
 import { ParentCommand } from '../../parent.command'
 import { LoginCommand } from './login'
 import { LogoutCommand } from './logout'
 
-@injectable()
 @Command({
   name: 'auth',
   description: 'For managing authentication sessions with reapit connect',

@@ -52,10 +52,7 @@ const boot = async (defaultCommand: constructor<AbstractCommand>, commands: (con
     container.register(isCommandConfig(commandConfig) ? commandConfig.name : 'default', command)
   })
 
-  // console.log('test', container.resolve('help'))
-
-  // const helpCommand = container.resolve<AbstractCommand>('help')
-  // console.log('help command', helpCommand)
+  const helpCommand = container.resolve<AbstractCommand>('help')
 
   let showHelpCommand = false
   if (!params && Object.keys(options).length === 0) {
@@ -68,8 +65,7 @@ const boot = async (defaultCommand: constructor<AbstractCommand>, commands: (con
     const intro = container.resolve<AbstractCommand>('default')
     intro.run(params, options)
     await checkVersion()
-    // helpCommand.run()
-    console.log('help is fucked')
+    helpCommand.run()
     return
   }
 
@@ -80,7 +76,7 @@ const boot = async (defaultCommand: constructor<AbstractCommand>, commands: (con
   if (!command) {
     console.log('Command not found, were you looking for one of these?')
 
-    // helpCommand.run()
+    helpCommand.run()
   } else {
     if (command instanceof ParentCommand && command.isChildRunnable(params)) {
       if (options.help) {
@@ -110,6 +106,4 @@ boot(IntroCommand, [
   PipelineCommand,
   BootstrapCommand,
   ReleaseCommand,
-  LoginCommand,
-  LogoutCommand,
 ])

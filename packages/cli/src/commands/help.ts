@@ -1,8 +1,9 @@
 import { LoginService } from '../services'
-import { inject } from 'tsyringe'
+import { container, inject } from 'tsyringe'
 import { AbstractCommand } from './../abstract.command'
 import { ParentCommand } from './../parent.command'
-import { Command } from './../decorators'
+import { Command, CommandOptions, COMMAND_OPTIONS } from './../decorators'
+import { constructor } from 'tsyringe/dist/typings/types'
 
 @Command({
   name: 'help',
@@ -11,7 +12,7 @@ import { Command } from './../decorators'
 export class HelpCommand extends AbstractCommand {
   constructor(
     @inject('commands')
-    private readonly commands: (ParentCommand | AbstractCommand)[],
+    private readonly commands: constructor<AbstractCommand | ParentCommand>[],
     @inject('devMode')
     devMode:boolean,
     @inject(LoginService) loginService: LoginService,
@@ -22,13 +23,21 @@ export class HelpCommand extends AbstractCommand {
     )
   }
 
+  private getAllCommands(): AbstractCommand[] {
+    return this.commands.map(command => {
+      const config: CommandOptions = Reflect.getOwnMetadata(COMMAND_OPTIONS, command)
+
+      return container.resolve<AbstractCommand>(config.name)
+    })
+  }
+
   sortCommands(a: ParentCommand | AbstractCommand): number {
     return a instanceof ParentCommand ? 1 : -1
   }
 
   async run() {
     this.writeLine('')
-    this.commands.sort(this.sortCommands).forEach((command) => {
+    this.getAllCommands().sort(this.sortCommands).forEach((command) => {
       command.printConfig({})
     })
   }

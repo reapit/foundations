@@ -3,7 +3,13 @@ import packageInfo from './../../package.json'
 import chalk from 'chalk'
 import semver from 'semver'
 import latestSemver from 'latest-semver'
+import { Command } from '../decorators'
 
+@Command({
+  name: 'check-version',
+  description: 'Used for checking the current version of @reapit/cli',
+  show: false,
+})
 export class CheckVersionCommand extends AbstractCommand {
   async fetchTags(): Promise<string[] | false> {
     const npmInfo = await (

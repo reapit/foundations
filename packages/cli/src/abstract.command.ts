@@ -8,7 +8,6 @@ import * as fs from 'fs'
 import Pusher from 'pusher-js'
 import globalConfig from '../config.json'
 import { LoginService } from './services'
-import { inject } from 'tsyringe'
 
 export interface Command {
   run(): Promise<any> | any

@@ -1,10 +1,9 @@
 import { AbstractCommand } from '../../abstract.command'
 import { Command } from '../../decorators'
 import chalk from 'chalk'
-import { inject, injectable } from 'tsyringe'
+import { inject } from 'tsyringe'
 import { LoginService } from '../../services'
 
-@injectable()
 @Command({
   name: 'login',
   description: 'test command for logging in via reapit connect',
