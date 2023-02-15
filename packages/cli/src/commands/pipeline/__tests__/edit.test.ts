@@ -1,6 +1,8 @@
-import { LoginService } from '@/services'
+import { LoginService } from '../../../services'
 import axios from 'axios'
 import { PipelineEditCommand } from '../edit'
+
+jest.mock('open', () => 9000)
 
 jest.mock('fs', () => ({
   existsSync: () => true,
@@ -17,6 +19,7 @@ jest.mock('fs', () => ({
 }))
 
 jest.mock('../../../utils/config', () => ({
+  ...jest.requireActual('../../../utils/config'),
   resolveConfig: jest.fn(() =>
     Promise.resolve({
       from: 'test',

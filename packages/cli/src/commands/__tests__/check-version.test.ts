@@ -1,8 +1,9 @@
-import { LoginService } from '@/services'
+import { LoginService } from '../../services'
 import axios from 'axios'
 import { CheckVersionCommand } from '../check-version'
 
 jest.mock('../../utils/config', () => ({
+  ...jest.requireActual('../../utils/config'),
   resolveConfig: jest.fn(() =>
     Promise.resolve({
       from: 'test',
@@ -17,6 +18,7 @@ jest.mock('../../../package.json', () => ({
   version: '2.0.0',
 }))
 jest.mock('axios')
+jest.mock('open', () => 9000)
 
 describe('check-version', () => {
   let checkVersionCommand: CheckVersionCommand

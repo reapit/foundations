@@ -17,8 +17,6 @@ import { AuthCommand } from './commands/auth'
 import { container } from 'tsyringe'
 import { constructor } from 'tsyringe/dist/typings/types'
 import { LoginService } from './services'
-import { LoginCommand } from './commands/auth/login'
-import { LogoutCommand } from './commands/auth/logout'
 
 const checkVersion = async () => {
   const checkVersion = container.resolve(CheckVersionCommand)

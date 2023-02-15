@@ -1,9 +1,12 @@
-import { LoginService } from '@/services'
+import { LoginService } from '../../../services'
 import axios from 'axios'
 import Pusher, { ConnectionManager } from 'pusher-js'
 import { PipelineCreate } from '../create'
 
+jest.mock('open', () => 9000)
+
 jest.mock('../../../utils/config', () => ({
+  ...jest.requireActual('../../../utils/config'),
   resolveConfig: jest.fn(() =>
     Promise.resolve({
       from: 'test',
