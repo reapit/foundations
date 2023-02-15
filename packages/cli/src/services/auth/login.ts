@@ -82,7 +82,7 @@ export class LoginService {
         this.server.close()
         spinner.stop()
 
-        code ? resolve(code) : reject()
+        code ? resolve(code) : reject("Code was not returned from reapit connect")
       })
 
       this.server.listen(this.currentPort, 'localhost', () => {
