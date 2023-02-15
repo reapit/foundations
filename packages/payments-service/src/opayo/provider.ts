@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 import { BadRequestException, Injectable } from '@nestjs/common'
 import axios from 'axios'
-import { OpayoPrivateHeaders, TransactionDto } from './dto'
+import { Opayo3DSecureDto, OpayoPrivateHeaders, TransactionDto } from './dto'
 import { MerchantKey, OpayoCreds, Transaction } from '../types/opayo'
 import { getConfig } from '../client-config/config'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
@@ -45,15 +45,27 @@ export class OpayoProvider {
     }
   }
 
-  async createTransaction(opayoHeaders: OpayoPrivateHeaders, transaction: TransactionDto): Promise<Transaction> {
+  async createTransaction(
+    opayoHeaders: OpayoPrivateHeaders,
+    transaction: TransactionDto,
+    ip: string,
+  ): Promise<Transaction> {
     const clientCode = opayoHeaders['reapit-customer']
 
     if (!clientCode) throw new BadRequestException('No client code supplied')
 
     const { encodedKeys, opayoUrl } = await this.getOpayoCreds(clientCode)
 
+    const body = {
+      ...transaction,
+      strongCustomerAuthentication: {
+        ...transaction.strongCustomerAuthentication,
+        browserIP: String(ip),
+      },
+    }
+
     try {
-      const res = await axios.post<Transaction>(`${opayoUrl}${OPAYO_URLS.TRANSACTIONS}`, transaction, {
+      const res = await axios.post<Transaction>(`${opayoUrl}${OPAYO_URLS.TRANSACTIONS}`, body, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Basic ${encodedKeys}`,
@@ -88,6 +100,40 @@ export class OpayoProvider {
       return res.data
     } catch (e) {
       throw new BadRequestException(`Failed to fetch merchant keys ${e}`)
+    }
+  }
+
+  async transactionNotify(notification: Opayo3DSecureDto): Promise<string> {
+    const { cres, threeDSSessionData } = notification
+    const [clientCode, transactionId] = Buffer.from(threeDSSessionData, 'base64').toString().split(':')
+
+    try {
+      if (!clientCode) throw new BadRequestException('No client code supplied')
+      if (!transactionId) throw new BadRequestException('No transaction id supplied')
+      if (!cres) throw new BadRequestException('No cres supplied')
+
+      const { encodedKeys, opayoUrl } = await this.getOpayoCreds(clientCode)
+
+      const body = {
+        cRes: cres,
+      }
+
+      const res = await axios.post<Transaction>(
+        `${opayoUrl}${OPAYO_URLS.TRANSACTIONS}/${transactionId}/3d-secure-challenge`,
+        body,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Basic ${encodedKeys}`,
+          },
+        },
+      )
+
+      const message = res.data.status === 'Ok' ? 'success' : 'failure'
+
+      return `<script>window.top.postMessage('${message}', '*')</script>`
+    } catch (e) {
+      return "<script>window.top.postMessage('failure', '*')</script>"
     }
   }
 }

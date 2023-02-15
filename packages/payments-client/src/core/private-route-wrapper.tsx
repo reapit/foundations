@@ -36,12 +36,12 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
     return <Redirect to={`${Routes.PAYMENTS}/${window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode}`} />
   }
 
-  if (window.location.pathname === '/' || (window.location.pathname === Routes.ADMIN && !isAdmin)) {
-    return <Redirect to={Routes.PAYMENTS} />
-  }
-
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
     return <Redirect to={connectInternalRedirect} />
+  }
+
+  if (window.location.pathname === '/' || (window.location.pathname === Routes.ADMIN && !isAdmin)) {
+    return <Redirect to={Routes.PAYMENTS} />
   }
 
   return (

@@ -156,6 +156,8 @@ export const createStack = async () => {
     },
   ]
 
+  api.root.resourceForPath('/opayo/private/notification').addMethod('POST', new apigateway.LambdaIntegration(lambda))
+
   routes.forEach((route) => {
     api.root.resourceForPath(route.path).addMethod(route.method, new apigateway.LambdaIntegration(lambda), {
       authorizer: route.protected ? getAuthorizer(stack, config.CONNECT_USER_POOL) : undefined,

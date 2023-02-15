@@ -33,6 +33,11 @@ export class PaymentMethod {
   card: Card
 }
 
+export class StrongCustomerAuthentication {
+  notificationURL: string
+  website: string
+}
+
 export interface CreateTransactionModel {
   transactionType: TransactionType
   paymentMethod: PaymentMethod

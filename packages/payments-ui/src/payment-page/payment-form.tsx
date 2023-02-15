@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react'
+import React, { Dispatch, FC, RefObject, SetStateAction, useEffect, useRef, useState } from 'react'
 import { ResendConfirmButton } from './payment-resend-confirm-button'
-import { handleTransaction } from './payment-handlers'
+import { handleTransaction, onUpdateStatus } from './payment-handlers'
 import {
   Button,
   ButtonGroup,
@@ -15,6 +15,7 @@ import {
   PersistentNotification,
   Select,
   Subtitle,
+  useModal,
 } from '@reapit/elements'
 import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -23,9 +24,17 @@ import { FaCreditCard, FaCcVisa, FaCcMastercard, FaCcAmex } from 'react-icons/fa
 import { COUNTRY_OPTIONS } from './payment-card-country-options'
 import { paymentValidationSchema } from './payment-validation-schema'
 import { PaymentProvider } from '../payment-provider'
+import { ThreeDSecureResponse } from '../types/opayo'
+import { ClientConfigModel } from '../types/config'
+import { frameContent } from './frame-content'
 
 export interface PaymentFormProps {
   paymentProvider: PaymentProvider
+}
+
+export interface CachedTransaction {
+  transaction: ThreeDSecureResponse
+  cardDetails: CardDetails
 }
 
 export interface CardDetails {
@@ -45,9 +54,72 @@ export interface CardDetails {
 
 export type PaymentStatusType = 'pending' | 'rejected' | 'posted' | 'loading' | 'awaitingPosting'
 
+export const handleMessage =
+  (setThreeDSecureMessage: Dispatch<SetStateAction<string | null>>) => (event: MessageEvent<any>) => {
+    if (event.data && typeof event.data === 'string') {
+      setThreeDSecureMessage(event.data)
+    }
+  }
+
+export const handleSetIframeContent =
+  (
+    iframeRef: RefObject<HTMLIFrameElement>,
+    cachedTransaction: CachedTransaction | null,
+    config: ClientConfigModel,
+    modalIsOpen: boolean,
+    setThreeDSecureMessage: Dispatch<SetStateAction<string | null>>,
+  ) =>
+  () => {
+    if (iframeRef.current && cachedTransaction && config && modalIsOpen) {
+      const iframeDoc = iframeRef.current.contentDocument
+      const { acsUrl, cReq, transactionId } = cachedTransaction.transaction ?? {}
+      const threeDSSessionData = window.btoa(`${config.clientCode}:${transactionId}`)
+      const frameString = frameContent(acsUrl, cReq, threeDSSessionData)
+
+      if (iframeDoc) {
+        iframeDoc.open()
+        iframeDoc.write(frameString)
+        iframeDoc.close()
+        window.onmessage = handleMessage(setThreeDSecureMessage)
+      }
+    }
+  }
+
+export const handleThreeDSecureResponse =
+  (
+    threeDSecureMessage: string | null,
+    paymentProvider: PaymentProvider,
+    cachedTransaction: CachedTransaction | null,
+    modalIsOpen: boolean,
+    setCachedTransaction: React.Dispatch<React.SetStateAction<CachedTransaction | null>>,
+    setTransactionProcessing: React.Dispatch<React.SetStateAction<boolean>>,
+    closeModal: () => void,
+    openModal: () => void,
+  ) =>
+  () => {
+    const handleUpdateStatus = async (transaction: ThreeDSecureResponse, cardDetails: CardDetails) => {
+      const status = threeDSecureMessage === 'success' ? 'posted' : 'rejected'
+      const { transactionId } = transaction
+      await onUpdateStatus(status, paymentProvider, cardDetails, setTransactionProcessing, transactionId)
+    }
+
+    if (threeDSecureMessage && modalIsOpen && cachedTransaction) {
+      const { transaction, cardDetails } = cachedTransaction
+      handleUpdateStatus(transaction, cardDetails)
+      setCachedTransaction(null)
+      closeModal()
+    } else if (cachedTransaction && !modalIsOpen) {
+      openModal()
+    }
+  }
+
 export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
   const [transactionProcessing, setTransactionProcessing] = useState<boolean>(false)
-  const { payment } = paymentProvider
+  const [cachedTransaction, setCachedTransaction] = useState<CachedTransaction | null>(null)
+  const [threeDSecureMessage, setThreeDSecureMessage] = useState<string | null>(null)
+  const { openModal, closeModal, modalIsOpen, Modal } = useModal()
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+  const { payment, config } = paymentProvider
   const paymentStatus = payment.status
   const { forename = '', surname = '', email = '', primaryAddress } = payment?.customer ?? {}
 
@@ -86,8 +158,34 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
 
   const cardType = getCardType(watch().cardNumber)
 
+  useEffect(handleSetIframeContent(iframeRef, cachedTransaction, config, modalIsOpen, setThreeDSecureMessage), [
+    iframeRef,
+    cachedTransaction,
+    config,
+    modalIsOpen,
+  ])
+
+  useEffect(
+    handleThreeDSecureResponse(
+      threeDSecureMessage,
+      paymentProvider,
+      cachedTransaction,
+      modalIsOpen,
+      setCachedTransaction,
+      setTransactionProcessing,
+      closeModal,
+      openModal,
+    ),
+    [cachedTransaction, threeDSecureMessage, modalIsOpen],
+  )
+
   return (
     <>
+      {threeDSecureMessage === 'failure' && (
+        <PersistentNotification className={elMb7} intent="danger" isInline isExpanded isFullWidth>
+          Your bank has rejected the 3D Secure transaction. Please check your credentials and try again.
+        </PersistentNotification>
+      )}
       {paymentStatus === 'rejected' && (
         <PersistentNotification className={elMb7} intent="danger" isInline isExpanded isFullWidth>
           This payment has failed. Please check the details submitted are correct and try again.
@@ -95,22 +193,27 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
       )}
       {paymentStatus === 'posted' && (
         <>
-          <PersistentNotification className={elMb7} intent="secondary" isInline isExpanded isFullWidth>
+          <PersistentNotification className={elMb7} intent="success" isInline isExpanded isFullWidth>
             This payment has been successfully submitted and confirmation of payment has been emailed to the address
             supplied. If no email was received, you can send again by clicking the button below.
           </PersistentNotification>
-          <ButtonGroup className={elMb7}>
-            {payment && <ResendConfirmButton paymentFormValues={getValues()} paymentProvider={paymentProvider} />}
-          </ButtonGroup>
+          {payment && <ResendConfirmButton paymentFormValues={getValues()} paymentProvider={paymentProvider} />}
         </>
       )}
+
+      <Modal title="3D Secure Check Required">
+        <iframe ref={iframeRef} width="100%" height="300px" />
+      </Modal>
       {paymentStatus !== 'posted' && (
-        <form onSubmit={handleSubmit(handleTransaction(paymentProvider, setTransactionProcessing))}>
+        <form
+          onSubmit={handleSubmit(handleTransaction(paymentProvider, setTransactionProcessing, setCachedTransaction))}
+        >
           <Subtitle>Billing Details</Subtitle>
           <FormLayout hasMargin>
             <InputWrap>
               <InputGroup
                 {...register('customerFirstName')}
+                disabled={Boolean(cachedTransaction)}
                 type="text"
                 label="Customer First Name"
                 placeholder="First name here"
@@ -120,6 +223,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
             <InputWrap>
               <InputGroup
                 {...register('customerLastName')}
+                disabled={Boolean(cachedTransaction)}
                 type="text"
                 label="Customer Last Name"
                 placeholder="Last name here"
@@ -127,12 +231,19 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
               {errors.customerLastName?.message && <InputError message={errors.customerLastName.message} />}
             </InputWrap>
             <InputWrap>
-              <InputGroup {...register('email')} type="email" label="Customer Email" placeholder="Email here" />
+              <InputGroup
+                {...register('email')}
+                disabled={Boolean(cachedTransaction)}
+                type="email"
+                label="Customer Email"
+                placeholder="Email here"
+              />
               {errors.email?.message && <InputError message={errors.email.message} />}
             </InputWrap>
             <InputWrap>
               <InputGroup
                 {...register('address1')}
+                disabled={Boolean(cachedTransaction)}
                 type="text"
                 label="Address Line 1"
                 placeholder="Address First Line"
@@ -140,16 +251,28 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
               {errors.address1?.message && <InputError message={errors.address1.message} />}
             </InputWrap>
             <InputWrap>
-              <InputGroup {...register('city')} type="text" label="Town / City" placeholder="Town / City Name" />
+              <InputGroup
+                {...register('city')}
+                disabled={Boolean(cachedTransaction)}
+                type="text"
+                label="Town / City"
+                placeholder="Town / City Name"
+              />
               {errors.city?.message && <InputError message={errors.city.message} />}
             </InputWrap>
             <InputWrap>
-              <InputGroup {...register('postalCode')} type="text" label="Post Code" placeholder="Post Code" />
+              <InputGroup
+                {...register('postalCode')}
+                disabled={Boolean(cachedTransaction)}
+                type="text"
+                label="Post Code"
+                placeholder="Post Code"
+              />
               {errors.postalCode?.message && <InputError message={errors.postalCode.message} />}
             </InputWrap>
             <InputWrap>
               <InputGroup>
-                <Select {...register('country')}>
+                <Select {...register('country')} disabled={Boolean(cachedTransaction)}>
                   <option key="default-option" value="">
                     None selected
                   </option>
@@ -174,6 +297,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
                     <Input
                       id="cardNumber"
                       onChange={(event) => onChange(formatCardNumber(event.target.value))}
+                      disabled={Boolean(cachedTransaction)}
                       type="text"
                       inputMode="numeric"
                       autoComplete="cardNumber"
@@ -201,6 +325,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
             <InputWrap>
               <InputGroup
                 {...register('cardholderName')}
+                disabled={Boolean(cachedTransaction)}
                 type="text"
                 label="Card Holder Name"
                 placeholder="Name as appears on the card"
@@ -216,6 +341,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
                     <Input
                       id="expiryDate"
                       onChange={(event) => onChange(formatCardExpires(event.target.value))}
+                      disabled={Boolean(cachedTransaction)}
                       type="text"
                       inputMode="numeric"
                       autoComplete="expiryDate"
@@ -232,6 +358,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
             <InputWrap>
               <InputGroup
                 {...register('securityCode')}
+                disabled={Boolean(cachedTransaction)}
                 type="text"
                 label="Security Code"
                 placeholder="CSV on the back of card"
@@ -241,7 +368,12 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
             </InputWrap>
           </FormLayout>
           <ButtonGroup>
-            <Button intent="primary" type="submit" loading={transactionProcessing} disabled={transactionProcessing}>
+            <Button
+              intent="primary"
+              type="submit"
+              loading={transactionProcessing}
+              disabled={transactionProcessing || Boolean(cachedTransaction)}
+            >
               Make Payment
             </Button>
           </ButtonGroup>

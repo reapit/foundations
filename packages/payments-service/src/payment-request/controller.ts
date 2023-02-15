@@ -12,6 +12,6 @@ export class PaymentRequestController {
     @Param() { paymentId }: PaymentRequestParams,
     @Body() paymentRequest: PaymentRequestDto,
   ): Promise<string> {
-    return this.paymentRequestProvider.create(paymentRequestHeaders, paymentRequest, paymentId)
+    return await this.paymentRequestProvider.create(paymentRequestHeaders, paymentRequest, paymentId)
   }
 }

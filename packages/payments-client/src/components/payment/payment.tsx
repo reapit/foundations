@@ -11,7 +11,7 @@ import {
   PaymentPageContent,
   PaymentProvider,
   PaymentProviderInitialisers,
-  Transaction,
+  ThreeDSecureResponse,
   UpdateStatusBody,
 } from '@reapit/payments-ui'
 import {
@@ -157,7 +157,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
     },
   })
 
-  const [, , transactionSubmit] = useReapitUpdate<CreateTransactionModel, Transaction>({
+  const [, , transactionSubmit] = useReapitUpdate<CreateTransactionModel, ThreeDSecureResponse>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.submitOpayoTransaction],
     method: 'POST',
@@ -188,7 +188,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
         statusLoading,
         statusSubmit,
       },
-      transactionSubmit: transactionSubmit as SendFunction<CreateTransactionModel, Transaction>,
+      transactionSubmit: transactionSubmit as SendFunction<CreateTransactionModel, ThreeDSecureResponse>,
       refreshPayment,
       isPortal: false,
     }),

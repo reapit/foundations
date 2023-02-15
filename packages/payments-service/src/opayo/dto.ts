@@ -4,6 +4,7 @@ import {
   CreateTransactionModel,
   EntryMethodType,
   PaymentMethod,
+  StrongCustomerAuthentication,
   ThreeDSecureType,
   TransactionType,
 } from '../types/opayo'
@@ -52,12 +53,20 @@ export class TransactionDto implements CreateTransactionModel {
   @IsEnum(ThreeDSecureType)
   @IsNotEmpty()
   apply3DSecure: ThreeDSecureType
+
+  @IsObject()
+  @IsNotEmpty()
+  strongCustomerAuthentication: StrongCustomerAuthentication
 }
 
 export class OpayoPrivateHeaders {
   @IsString()
   @IsNotEmpty()
   'reapit-customer': string
+
+  @IsString()
+  @IsNotEmpty()
+  'x-forwarded-for': string
 }
 
 export class OpayoPublicHeaders {
@@ -68,4 +77,18 @@ export class OpayoPublicHeaders {
   @IsString()
   @IsNotEmpty()
   'reapit-session': string
+
+  @IsString()
+  @IsNotEmpty()
+  'x-forwarded-for': string
+}
+
+export class Opayo3DSecureDto {
+  @IsString()
+  @IsNotEmpty()
+  cres: string
+
+  @IsString()
+  @IsNotEmpty()
+  threeDSSessionData: string
 }

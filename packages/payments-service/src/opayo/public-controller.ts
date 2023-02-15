@@ -14,11 +14,12 @@ export class OpayoPublicController {
     @Headers() opayoHeaders: OpayoPublicHeaders,
     @Body() transaction: TransactionDto,
   ): Promise<Transaction> {
-    return this.opayoProvider.createTransaction(opayoHeaders, transaction)
+    const ip = opayoHeaders['x-forwarded-for']
+    return await this.opayoProvider.createTransaction(opayoHeaders, transaction, ip)
   }
 
   @Post('/merchant-session-keys/:paymentId')
   async createMerchantKeys(@Headers() opayoHeaders: OpayoPublicHeaders): Promise<MerchantKey> {
-    return this.opayoProvider.createMerchantKeys(opayoHeaders)
+    return await this.opayoProvider.createMerchantKeys(opayoHeaders)
   }
 }
