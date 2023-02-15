@@ -79,7 +79,12 @@ export const handleSetIframeContent =
       if (iframeDoc) {
         iframeDoc.open()
         iframeDoc.write(frameString)
+
         iframeDoc.close()
+        const form = iframeDoc.getElementById('three-d-secure-form') as HTMLFormElement
+        if (form) {
+          form.submit()
+        }
         window.onmessage = handleMessage(setThreeDSecureMessage)
       }
     }
@@ -95,12 +100,16 @@ export const handleThreeDSecureResponse =
     setTransactionProcessing: React.Dispatch<React.SetStateAction<boolean>>,
     closeModal: () => void,
     openModal: () => void,
+    getMerchantKey: () => void,
   ) =>
   () => {
     const handleUpdateStatus = async (transaction: ThreeDSecureResponse, cardDetails: CardDetails) => {
       const status = threeDSecureMessage === 'success' ? 'posted' : 'rejected'
       const { transactionId } = transaction
       await onUpdateStatus(status, paymentProvider, cardDetails, setTransactionProcessing, transactionId)
+      if (status === 'rejected') {
+        getMerchantKey()
+      }
     }
 
     if (threeDSecureMessage && modalIsOpen && cachedTransaction) {
@@ -119,7 +128,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
   const [threeDSecureMessage, setThreeDSecureMessage] = useState<string | null>(null)
   const { openModal, closeModal, modalIsOpen, Modal } = useModal()
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  const { payment, config } = paymentProvider
+  const { payment, config, getMerchantKey } = paymentProvider
   const paymentStatus = payment.status
   const { forename = '', surname = '', email = '', primaryAddress } = payment?.customer ?? {}
 
@@ -175,6 +184,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
       setTransactionProcessing,
       closeModal,
       openModal,
+      getMerchantKey,
     ),
     [cachedTransaction, threeDSecureMessage, modalIsOpen],
   )
@@ -201,7 +211,10 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
         </>
       )}
 
-      <Modal title="3D Secure Check Required">
+      <Modal
+        title="3D Secure Check Required"
+        onModalClose={() => null /**I don't want a user to dismiss the modal accidentally during the 3d secure flow */}
+      >
         <iframe ref={iframeRef} width="100%" height="300px" />
       </Modal>
       {paymentStatus !== 'posted' && (

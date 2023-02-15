@@ -71,9 +71,9 @@ export const handleCreateTransaction =
     const { amount, description, id } = payment
     const localhost = 'http://localhost:8080'
     const dev = 'https://payments.dev.paas.reapit.cloud'
-    const siteUrl = window.location.href.includes(localhost)
-      ? window.location.href.replace(localhost, dev)
-      : window.location.href
+    const siteUrl = window.location.origin.includes(localhost)
+      ? window.location.origin.replace(localhost, dev)
+      : window.location.origin
 
     if (result.success && id) {
       const transaction = await transactionSubmit({

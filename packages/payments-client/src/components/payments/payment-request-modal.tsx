@@ -5,7 +5,17 @@ import { object, string } from 'yup'
 import { useForm } from 'react-hook-form'
 import dayjs from 'dayjs'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { BodyText, Button, ButtonGroup, FormLayout, InputError, InputGroup, InputWrapFull } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  elMb7,
+  FormLayout,
+  InputError,
+  InputGroup,
+  InputWrapFull,
+  PersistentNotification,
+} from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import {
@@ -73,9 +83,12 @@ export const handlePaymentRequestSubmit =
     if (!sessionExpiresAt || !clientCode || !selectedPayment) return
 
     const formattedSessionExpires = dayjs(sessionExpiresAt).format(DATE_TIME_FORMAT.RFC3339)
-    const { id, _eTag, customer, description, amount } = selectedPayment
+    const { id, _eTag, customer } = selectedPayment
+    const description = selectedPayment.description ?? 'Unknown'
+    const recipientName = customer?.name ?? 'Unknown'
+    const amount = selectedPayment.amount ?? 0
 
-    if (!id || !customer?.name || !description || !amount || !_eTag) return
+    if (!id || !_eTag) return
 
     const sessionRes = (await generateSession({
       clientCode,
@@ -88,7 +101,7 @@ export const handlePaymentRequestSubmit =
     const emailRequest = await generatePaymentRequest(
       {
         receipientEmail,
-        recipientName: customer?.name,
+        recipientName,
         paymentReason: description,
         paymentAmount: amount,
         paymentCurrency: 'GBP',
@@ -171,6 +184,10 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
   })
 
   const isLoading = generatePaymentRequestLoading || updatePaymentLoading || generateSessionLoading
+  const hasDescription = Boolean(selectedPayment?.description)
+  const hasName = Boolean(selectedPayment?.customer?.name)
+  const hasAmount = Boolean(selectedPayment?.amount)
+  const infoNotAvailable = !hasDescription || !hasName || !hasAmount
 
   return (
     <form
@@ -187,6 +204,15 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
         }),
       )}
     >
+      {infoNotAvailable && (
+        <PersistentNotification className={elMb7} intent="secondary" isFullWidth isInline isExpanded>
+          Whilst we can make this payment request, we are missing some relevant information, you will likely wish to
+          complete before sending to your customer. Specifically, we do not currently hold{!hasName && ' Customer Name'}
+          {!hasAmount && ' Payment Amount'}
+          {!hasDescription && ' Description or Reason for this Payment request'}. You will need to add this information
+          to your transaction in AgencyCloud if required or relevant.
+        </PersistentNotification>
+      )}
       <BodyText hasGreyText>
         The below form will send an email request for payment to your customer with an embedded link to our card
         processing page. You should set an expiry for this payment request and an email address to receive the request.

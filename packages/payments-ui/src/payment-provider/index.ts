@@ -20,6 +20,7 @@ export interface PaymentProviderInitialisers {
   merchantKey: MerchantKey
   receiptAction: ReceiptAction
   statusAction: StatusAction
+  getMerchantKey: () => void
   transactionSubmit: (transaction: CreateTransactionModel) => Promise<ThreeDSecureResponse>
   refreshPayment: () => void
   isPortal: boolean
@@ -32,6 +33,7 @@ export class PaymentProvider {
   merchantKey: MerchantKey
   receiptAction: ReceiptAction
   statusAction: StatusAction
+  getMerchantKey: () => void
   transactionSubmit: (transaction: CreateTransactionModel) => Promise<ThreeDSecureResponse>
   refreshPayment: () => void
   isPortal: boolean
@@ -43,6 +45,7 @@ export class PaymentProvider {
     merchantKey,
     receiptAction,
     statusAction,
+    getMerchantKey,
     transactionSubmit,
     refreshPayment,
     isPortal,
@@ -53,6 +56,7 @@ export class PaymentProvider {
     this.merchantKey = merchantKey
     this.receiptAction = receiptAction
     this.statusAction = statusAction
+    this.getMerchantKey = getMerchantKey
     this.transactionSubmit = transactionSubmit
     this.refreshPayment = refreshPayment
     this.isPortal = isPortal
