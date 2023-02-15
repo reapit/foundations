@@ -13,8 +13,8 @@ import { writeFileSync, promises, existsSync } from 'fs'
 import 'isomorphic-fetch'
 import decode from 'jwt-decode'
 import ora from 'ora'
-import portastic from 'portastic'
 import { inject, injectable } from 'tsyringe'
+import fp from 'find-free-port'
 
 /**
  * LoginService
@@ -25,10 +25,9 @@ export class LoginService {
   private server
   private readonly connectOAuthUrl: string // TODO Change dev to env
   private readonly clientId: string
-  private readonly ports: number[] = [8020, 8021, 8022, 8023, 8024]
+  private readonly portRange: number[] = [9000, 9004]
   protected currentPort?: number
   private readonly connectUrl: string
-  private readonly redirect = `http://localhost:${this.currentPort}`
   protected connectSession?: ReapitConnectSession
 
   static storageLocation: string = `${homeDir()}/.reapit-connect.json`
@@ -42,6 +41,10 @@ export class LoginService {
     this.connectUrl = `${this.connectOAuthUrl}/login`
   }
 
+  private get redirect() {
+    return `http://localhost:${this.currentPort}`
+  }
+
   private oauthUrl = (authCode: string) =>
     `${this.connectOAuthUrl}/token?grant_type=authorization_code&client_id=${this.clientId}&code=${authCode}&redirect_uri=${this.redirect}`
 
@@ -50,23 +53,13 @@ export class LoginService {
 
   protected async obtainAuthCode(): Promise<string | never> {
     const spinner = ora('Awaiting Response from Reapit Connect...')
-    console.log('test', {
-      min: this.ports[0],
-      max: this.ports[this.ports.length - 1],
-      retrieve: 1,
-    })
-    this.currentPort = await portastic.find({
-      min: this.ports[0],
-      max: this.ports[this.ports.length - 1],
-      retrieve: 1,
-    })[0]
-
-    console.log('this.currentPort', this.currentPort)
+    const availablePorts = await fp(this.portRange[0], this.portRange[1])
+    this.currentPort = availablePorts[0]
 
     if (!this.currentPort) {
       throw new Error(
-        `Cannot find open port, Configurable ports are [${this.ports.join(
-          ', ',
+        `Cannot find open port, Configurable ports are [${this.portRange.join(
+          ':',
         )}] please make sure one of these ports are available`,
       )
     }
@@ -80,6 +73,7 @@ export class LoginService {
           <html>
             <head><title>Reapit Cli Login</title></head>
             <body>
+              You can close this tab now.
               <script>window.close();</script>
             </body>
           </html>
