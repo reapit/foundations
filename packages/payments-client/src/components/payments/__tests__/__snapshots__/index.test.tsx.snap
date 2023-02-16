@@ -178,7 +178,7 @@ Object {
           </div>
         </div>
         <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          class="el-fade-in el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"
@@ -373,7 +373,7 @@ Object {
         </div>
       </div>
       <div
-        class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="el-fade-in el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -625,7 +625,7 @@ Object {
           </div>
         </div>
         <div
-          class="el-mb11 el-table"
+          class="el-mb11 el-fade-in el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="7"
@@ -1035,7 +1035,7 @@ Object {
         </div>
       </div>
       <div
-        class="el-mb11 el-table"
+        class="el-mb11 el-fade-in el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="7"

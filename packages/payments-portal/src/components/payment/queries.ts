@@ -181,10 +181,11 @@ export const useTransaction = (session: string | null, clientCode: string | null
   }
 }
 
-export const useMerchantKey = (session: string | null, clientCode: string | null, paymentId: string | null) => {
+export const useMerchantKey = (session: string | null, config: ClientConfigModel | null, paymentId: string | null) => {
   const { error } = useSnack()
 
   const url = `${window.reapit.config.paymentsApiUrl}/opayo/public/merchant-session-keys/${paymentId}`
+  const { clientCode, isConfigured } = config ?? {}
 
   const { data, isLoading, refetch } = useQuery([url, clientCode, session, paymentId], {
     queryFn: async () => {
@@ -203,7 +204,7 @@ export const useMerchantKey = (session: string | null, clientCode: string | null
       logger(err)
       error(err.message)
     },
-    enabled: Boolean(session && clientCode && paymentId),
+    enabled: Boolean(session && clientCode && paymentId && isConfigured),
   })
 
   return {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FC, Dispatch, SetStateAction } from 'react'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
-import { Loader, PersistentNotification } from '@reapit/elements'
+import { elFadeIn, Loader, PersistentNotification } from '@reapit/elements'
 import {
   ClientConfigModel,
   handleLoadOpayoScript,
@@ -52,8 +52,14 @@ export const handleSetProvider =
   }
 
 export const handleMerchantKeyRefresh =
-  (merchantKey: MerchantKey | null, getMerchantKey: () => void, payment: PaymentModel | null) => () => {
-    if (!merchantKey) return
+  (
+    merchantKey: MerchantKey | null,
+    getMerchantKey: () => void,
+    payment: PaymentModel | null,
+    config: ClientConfigModel | null,
+  ) =>
+  () => {
+    if (!merchantKey || !config?.isConfigured) return
 
     const expiry = dayjs(merchantKey.expiry)
 
@@ -86,7 +92,7 @@ export const Payment: FC = () => {
 
   const { payment, paymentLoading, refreshPayment } = usePayment(session, clientCode, paymentId)
 
-  const { merchantKey, merchantKeyLoading, getMerchantKey } = useMerchantKey(session, clientCode, paymentId)
+  const { merchantKey, merchantKeyLoading, getMerchantKey } = useMerchantKey(session, config, paymentId)
 
   const { transactionSubmit } = useTransaction(session, clientCode, paymentId)
 
@@ -124,7 +130,7 @@ export const Payment: FC = () => {
     ],
   )
 
-  useEffect(handleMerchantKeyRefresh(merchantKey, getMerchantKey, payment), [merchantKey, payment])
+  useEffect(handleMerchantKeyRefresh(merchantKey, getMerchantKey, payment, config), [merchantKey, payment, config])
   useEffect(handleLoadOpayoScript(config, setConfigLoading), [config])
 
   if (!session || !paymentId || !clientCode) {
@@ -133,20 +139,20 @@ export const Payment: FC = () => {
 
   if (configError) {
     return (
-      <PersistentNotification intent="secondary" isFullWidth isInline isExpanded>
+      <PersistentNotification className={elFadeIn} intent="secondary" isFullWidth isInline isExpanded>
         This service is currently unavailable to take payments. Please try refreshing the page and if the problem
         persists, please contact the company that requested this payment.
       </PersistentNotification>
     )
   }
 
-  if (configLoading || paymentLoading || merchantKeyLoading) {
+  if ((configLoading || paymentLoading || merchantKeyLoading) && !paymentProvider) {
     return <Loader />
   }
 
   if (!payment) {
     return (
-      <PersistentNotification intent="secondary" isFullWidth isInline isExpanded>
+      <PersistentNotification className={elFadeIn} intent="secondary" isFullWidth isInline isExpanded>
         We do not have any information about this payment. Please try refreshing the page and if the problem persists,
         please contact the company that requested this payment.
       </PersistentNotification>
@@ -155,7 +161,7 @@ export const Payment: FC = () => {
 
   if (!paymentProvider) {
     return (
-      <PersistentNotification intent="secondary" isFullWidth isInline isExpanded>
+      <PersistentNotification className={elFadeIn} intent="secondary" isFullWidth isInline isExpanded>
         This service is currently unavailable to take payments. Please try refreshing the page and if the problem
         persists, please contact the company that requested this payment.{' '}
       </PersistentNotification>

@@ -72,7 +72,16 @@ describe('onHandleSubmit', () => {
   const userIds = 'id2,id3,id4'
   const originalUserIds = ['id1', 'id2', 'id3']
   const userGroupId = 'id1'
-  const onSubmit = onHandleSubmit(onComplete, refetchMembers, success, error, originalUserIds, userGroupId)
+  const organisationId = 'SOME_ID'
+  const onSubmit = onHandleSubmit(
+    onComplete,
+    refetchMembers,
+    success,
+    error,
+    originalUserIds,
+    userGroupId,
+    organisationId,
+  )
 
   it('should show notification success', async () => {
     await onSubmit({ userIds })

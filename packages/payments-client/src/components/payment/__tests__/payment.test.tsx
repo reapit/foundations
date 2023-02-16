@@ -54,9 +54,9 @@ describe('handleGetMerchantKey', () => {
   it('should get the merchant key', () => {
     const getMerchantKey = jest.fn()
     const idToken = 'MOCK_TOKEN'
-    const clientCode = 'SBOX'
+    const config = mockConfigModel
 
-    const curried = handleGetMerchantKey(getMerchantKey, idToken, clientCode)
+    const curried = handleGetMerchantKey(getMerchantKey, idToken, config)
 
     curried()
 

@@ -142,12 +142,11 @@ export const PaymentsPage: FC = () => {
               dedicated page in the main navigation.
             </PersistentNotification>
           )}
-          {paymentsLoading ? (
-            <Loader />
-          ) : payments?._embedded?.length ? (
+          {paymentsLoading && <Loader />}
+          {payments?._embedded?.length ? (
             <>
               <Table
-                className={elMb11}
+                className={cx(elMb11, elFadeIn)}
                 rows={payments?._embedded?.map((payment) => {
                   const { id, propertyId, amount, customer, description, clientAccountName, status, created } = payment
                   return {
@@ -240,11 +239,11 @@ export const PaymentsPage: FC = () => {
                 numberPages={Math.ceil((payments?.totalCount ?? 1) / 12)}
               />
             </>
-          ) : (
-            <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
+          ) : !paymentsLoading ? (
+            <PersistentNotification className={elFadeIn} intent="secondary" isExpanded isFullWidth isInline>
               No payments match your search criteria
             </PersistentNotification>
-          )}
+          ) : null}
           <Modal
             title={`Request Payment of £${selectedPayment?.amount ? selectedPayment?.amount.toFixed(2) : 0} for ${
               selectedPayment?.id

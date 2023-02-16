@@ -2,7 +2,7 @@ import React, { useState, useEffect, FC, Dispatch, SetStateAction } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
-import { Loader, PersistentNotification } from '@reapit/elements'
+import { elFadeIn, Loader, PersistentNotification } from '@reapit/elements'
 import {
   ClientConfigModel,
   CreateTransactionModel,
@@ -65,8 +65,9 @@ export const handleSetProvider =
   }
 
 export const handleGetMerchantKey =
-  (getMerchantKey: SendFunction<void, boolean | MerchantKey>, idToken: string, clientCode?: string | null) => () => {
-    if (idToken && clientCode) {
+  (getMerchantKey: SendFunction<void, boolean | MerchantKey>, idToken: string, config: ClientConfigModel | null) =>
+  () => {
+    if (idToken && config?.clientCode && config?.isConfigured) {
       getMerchantKey()
     }
   }
@@ -76,9 +77,10 @@ export const handleMerchantKeyRefresh =
     merchantKey: MerchantKey | undefined,
     getMerchantKey: SendFunction<void, boolean | MerchantKey>,
     payment: PaymentModel | null,
+    config: ClientConfigModel | null,
   ) =>
   () => {
-    if (!merchantKey) return
+    if (!merchantKey || !config?.isConfigured) return
 
     const expiry = dayjs(merchantKey.expiry)
 
@@ -175,9 +177,9 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
     },
   })
 
-  useEffect(handleGetMerchantKey(getMerchantKey, idToken, clientCode), [clientCode, idToken])
+  useEffect(handleGetMerchantKey(getMerchantKey, idToken, config), [config, idToken])
 
-  useEffect(handleMerchantKeyRefresh(merchantKey, getMerchantKey, payment), [merchantKey, payment])
+  useEffect(handleMerchantKeyRefresh(merchantKey, getMerchantKey, payment, config), [merchantKey, payment, config])
 
   useEffect(handleDeleteNomTran(), [])
 
@@ -217,7 +219,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
 
   if (configNotConfigured && !configLoading) {
     return (
-      <PersistentNotification intent="danger" isFullWidth isInline isExpanded>
+      <PersistentNotification className={elFadeIn} intent="danger" isFullWidth isInline isExpanded>
         The app cannnot currently process client payments. This is likely because your payment provider has not been
         configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page
         in the main navigation.
@@ -225,13 +227,13 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
     )
   }
 
-  if (configLoading || paymentLoading || propertyLoading || merchantKeyLoading) {
+  if ((configLoading || paymentLoading || propertyLoading || merchantKeyLoading) && !paymentProvider) {
     return <Loader />
   }
 
   if (!payment) {
     return (
-      <PersistentNotification intent="secondary" isFullWidth isInline isExpanded>
+      <PersistentNotification className={elFadeIn} intent="secondary" isFullWidth isInline isExpanded>
         We do not have any information about this payment.
       </PersistentNotification>
     )
@@ -239,7 +241,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
 
   if (!paymentProvider) {
     return (
-      <PersistentNotification intent="danger" isFullWidth isInline isExpanded>
+      <PersistentNotification className={elFadeIn} intent="danger" isFullWidth isInline isExpanded>
         Your payment solution has not been properly configured, please contact your Reapit Administrator if this problem
         persists.
       </PersistentNotification>

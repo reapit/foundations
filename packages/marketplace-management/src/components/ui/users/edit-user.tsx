@@ -47,7 +47,13 @@ export const sortAddRemoveGroups = (user: UserModel, groupIds: string) => {
 }
 
 export const onHandleSubmit =
-  (onComplete: () => void, user: UserModel, success: (message: string) => void, error: (message: string) => void) =>
+  (
+    onComplete: () => void,
+    user: UserModel,
+    success: (message: string) => void,
+    error: (message: string) => void,
+    organisationId: string,
+  ) =>
   async (params: UpdateUserModel) => {
     const { groupIds } = params
     const userId = user?.id
@@ -57,8 +63,8 @@ export const onHandleSubmit =
     const totalUpdates = removeIds.length + addIds.length
 
     const updateUserRes = await Promise.all([
-      ...removeIds.map((id) => removeMemberFromGroup({ id, userId })),
-      ...addIds.map((id) => addMemberToGroup({ id, userId })),
+      ...removeIds.map((id) => removeMemberFromGroup({ id, userId, organisationId })),
+      ...addIds.map((id) => addMemberToGroup({ id, userId, organisationId })),
     ])
 
     const positiveResponses = updateUserRes.filter((res) => Boolean(res))
@@ -79,7 +85,7 @@ export const EditUserForm: FC<EditUserFormProps> = ({ onComplete, user, orgId })
   )
   const userGroups = user.groups?.filter((group) => window.reapit.config.groupIdsWhitelist.includes(group))
   const { success, error } = useSnack()
-  const onSubmit = useCallback(onHandleSubmit(onComplete, user, success, error), [user])
+  const onSubmit = useCallback(onHandleSubmit(onComplete, user, success, error, orgId), [user, orgId])
 
   const {
     register,
