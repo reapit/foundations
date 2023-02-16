@@ -1488,10 +1488,12 @@ export interface Applicants {
   createdTo?: string
   modifiedFrom?: string
   modifiedTo?: string
+  hasLastCall?: boolean
   lastCallFrom?: string
   lastCallTo?: string
   nextCallFrom?: string
   nextCallTo?: string
+  hasNextCall?: boolean
   metadata?: string[]
 }
 /**
