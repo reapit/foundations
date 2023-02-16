@@ -25,11 +25,10 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
   const { payment, property, isPortal, config } = paymentProvider
   const { customer, amount, description, id } = payment ?? {}
   const { companyName } = config
-  const isDesktop = window['__REAPIT_MARKETPLACE_GLOBALS__']
 
   return (
     <>
-      {!isPortal && !isDesktop && (
+      {!isPortal && (
         <PaymentsBackButton onClick={navigate(history, '/payments')}>
           <Icon icon="backSolidSystem" intent="primary" />
         </PaymentsBackButton>
@@ -62,8 +61,8 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
           <FlexContainer>
             <Icon className={elMr4} icon="applicantInfographic" iconSize="medium" />
             <div>
-              <Subtitle hasNoMargin>Customer{customer?.id ? `, Ref: ${customer.id}` : '- None Found'}</Subtitle>
-              <BodyText hasGreyText>{customer?.name && `${customer.name}`}</BodyText>
+              <Subtitle hasNoMargin>Customer{customer?.id && `, Ref: ${customer.id}`}</Subtitle>
+              <BodyText hasGreyText>{customer?.name ? `${customer.name}` : 'Unknown'}</BodyText>
             </div>
           </FlexContainer>
         </Col>

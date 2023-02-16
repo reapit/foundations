@@ -34,7 +34,10 @@ export const handleSetProvider =
     const propertyFetched = !paymentHasProperty || (paymentHasProperty && property)
     const paymentHasChanged =
       paymentProvider?.payment?._eTag && payment?._eTag && paymentProvider.payment._eTag !== payment._eTag
-    const providerInvalid = !paymentProvider || (paymentProvider && paymentHasChanged)
+    const merchantKeyHasChanged =
+      paymentProvider?.merchantKey && merchantKey?.expiry && paymentProvider?.merchantKey.expiry !== merchantKey?.expiry
+    const providerInvalid =
+      !paymentProvider || (paymentProvider && paymentHasChanged) || (merchantKey && merchantKeyHasChanged)
 
     if (config && payment && propertyFetched && merchantKey && providerInvalid) {
       const paymentProvider = new PaymentProvider({
@@ -49,7 +52,7 @@ export const handleSetProvider =
   }
 
 export const handleMerchantKeyRefresh =
-  (merchantKey: MerchantKey | null, refreshMerchantKey: () => void, payment: PaymentModel | null) => () => {
+  (merchantKey: MerchantKey | null, getMerchantKey: () => void, payment: PaymentModel | null) => () => {
     if (!merchantKey) return
 
     const expiry = dayjs(merchantKey.expiry)
@@ -57,7 +60,7 @@ export const handleMerchantKeyRefresh =
     const timer = setInterval(() => {
       if (expiry.isBefore(dayjs().add(1, 'minute'))) {
         clearInterval(timer)
-        refreshMerchantKey()
+        getMerchantKey()
       }
     }, 45000)
 
@@ -83,7 +86,7 @@ export const Payment: FC = () => {
 
   const { payment, paymentLoading, refreshPayment } = usePayment(session, clientCode, paymentId)
 
-  const { merchantKey, merchantKeyLoading, refreshMerchantKey } = useMerchantKey(session, clientCode, paymentId)
+  const { merchantKey, merchantKeyLoading, getMerchantKey } = useMerchantKey(session, clientCode, paymentId)
 
   const { transactionSubmit } = useTransaction(session, clientCode, paymentId)
 
@@ -103,6 +106,7 @@ export const Payment: FC = () => {
       merchantKey,
       receiptAction,
       statusAction,
+      getMerchantKey,
       transactionSubmit,
       refreshPayment,
       isPortal: true,
@@ -120,7 +124,7 @@ export const Payment: FC = () => {
     ],
   )
 
-  useEffect(handleMerchantKeyRefresh(merchantKey, refreshMerchantKey, payment), [merchantKey, payment])
+  useEffect(handleMerchantKeyRefresh(merchantKey, getMerchantKey, payment), [merchantKey, payment])
   useEffect(handleLoadOpayoScript(config, setConfigLoading), [config])
 
   if (!session || !paymentId || !clientCode) {

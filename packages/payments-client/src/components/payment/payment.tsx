@@ -98,6 +98,13 @@ export const handleMerchantKeyRefresh =
     }
   }
 
+export const handleDeleteNomTran = () => () => {
+  const nomTranCode = window['__REAPIT_MARKETPLACE_GLOBALS__'] && window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode
+  if (nomTranCode) {
+    window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode = null
+  }
+}
+
 export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
   const [paymentProvider, setPaymentProvider] = useState<PaymentProvider | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
@@ -172,6 +179,8 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
 
   useEffect(handleMerchantKeyRefresh(merchantKey, getMerchantKey, payment), [merchantKey, payment])
 
+  useEffect(handleDeleteNomTran(), [])
+
   useEffect(
     handleSetProvider({
       paymentProvider,
@@ -180,6 +189,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
       payment,
       property,
       merchantKey,
+      getMerchantKey,
       receiptAction: {
         receiptLoading,
         receiptSubmit,
