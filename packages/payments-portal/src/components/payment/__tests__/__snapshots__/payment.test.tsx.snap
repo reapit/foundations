@@ -20,12 +20,22 @@ Object {
             <div
               class="el-flex-justify-between el-flex-container"
             >
-              <h1
-                class="el-title"
+              <div
+                class="el-flex-container"
               >
-                Card Payment
-                , requested by Reapit Ltd
-              </h1>
+                <img
+                  alt="logo"
+                  class="el-mr4"
+                  height="34"
+                  src="https://logo.png"
+                />
+                <h1
+                  class="el-title"
+                >
+                  Card Payment
+                  , requested by Reapit Ltd
+                </h1>
+              </div>
               <div
                 class="logo"
               >
@@ -1764,12 +1774,22 @@ Object {
           <div
             class="el-flex-justify-between el-flex-container"
           >
-            <h1
-              class="el-title"
+            <div
+              class="el-flex-container"
             >
-              Card Payment
-              , requested by Reapit Ltd
-            </h1>
+              <img
+                alt="logo"
+                class="el-mr4"
+                height="34"
+                src="https://logo.png"
+              />
+              <h1
+                class="el-title"
+              >
+                Card Payment
+                , requested by Reapit Ltd
+              </h1>
+            </div>
             <div
               class="logo"
             >
