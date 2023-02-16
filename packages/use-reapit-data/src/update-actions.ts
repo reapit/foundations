@@ -342,7 +342,6 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
   [UpdateActionNames.privatePaymentUpdate]: {
     api: ApiNames(appEnv).platform,
     path: PathNames.paymentById,
-    successMessage: 'Successfully updated payment request.',
     errorMessage: 'Failed to update payment request. This error has been logged',
   },
   [UpdateActionNames.paymentsSessionCreate]: {

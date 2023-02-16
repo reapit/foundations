@@ -39,15 +39,16 @@ describe('onHandleSubmit', () => {
     const currentGroupIds = ['ID_1', 'ID_2']
     const newGroupIds = 'ID_1,ID_3'
     const user = { groups: currentGroupIds, id: userId } as UserModel
-    const onSubmit = onHandleSubmit(onComplete, user, success, error)
+    const organisationId = 'ORG_ID'
+    const onSubmit = onHandleSubmit(onComplete, user, success, error, organisationId)
 
     await onSubmit({ groupIds: newGroupIds })
 
     expect(removeMemberFromGroup).toHaveBeenCalledTimes(1)
-    expect(removeMemberFromGroup).toHaveBeenCalledWith({ id: 'ID_2', userId })
+    expect(removeMemberFromGroup).toHaveBeenCalledWith({ id: 'ID_2', userId, organisationId })
 
     expect(addMemberToGroup).toHaveBeenCalledTimes(1)
-    expect(addMemberToGroup).toHaveBeenCalledWith({ userId, id: 'ID_3' })
+    expect(addMemberToGroup).toHaveBeenCalledWith({ userId, id: 'ID_3', organisationId })
   })
 
   it('should correctly show an error message if an API call fails', async () => {
@@ -59,15 +60,16 @@ describe('onHandleSubmit', () => {
     const currentGroupIds = ['ID_1', 'ID_2']
     const newGroupIds = 'ID_1,ID_3'
     const user = { groups: currentGroupIds, id: userId } as UserModel
-    const onSubmit = onHandleSubmit(onComplete, user, success, error)
+    const organisationId = 'ORG_ID'
+    const onSubmit = onHandleSubmit(onComplete, user, success, error, organisationId)
 
     await onSubmit({ groupIds: newGroupIds })
 
     expect(removeMemberFromGroup).toHaveBeenCalledTimes(1)
-    expect(removeMemberFromGroup).toHaveBeenCalledWith({ id: 'ID_2', userId })
+    expect(removeMemberFromGroup).toHaveBeenCalledWith({ id: 'ID_2', userId, organisationId })
 
     expect(addMemberToGroup).toHaveBeenCalledTimes(1)
-    expect(addMemberToGroup).toHaveBeenCalledWith({ userId, id: 'ID_3' })
+    expect(addMemberToGroup).toHaveBeenCalledWith({ userId, id: 'ID_3', organisationId })
   })
 
   afterEach(() => {

@@ -82,11 +82,14 @@ export const handleDelete =
 
 export const sanitiseConfigPayload = (config: ClientConfigCreateModel, clientCode: string): ClientConfigCreateModel => {
   const { companyName, logoUri, isLive, configId, vendorName, integrationKey, passKey } = config
+  const trimmedIntegrationKey = integrationKey?.trim()
+  const trimmedPassKey = passKey?.trim()
+  const trimmedVendorName = vendorName?.trim()
 
   const cleanConfigId = configId ? { configId } : {}
-  const cleanVendorName = vendorName ? { vendorName } : {}
-  const cleanIntegrationKey = integrationKey ? { integrationKey } : {}
-  const cleanPassKey = passKey ? { passKey } : {}
+  const cleanVendorName = trimmedVendorName ? { trimmedVendorName } : {}
+  const cleanIntegrationKey = trimmedIntegrationKey ? { integrationKey: trimmedIntegrationKey } : {}
+  const cleanPassKey = trimmedPassKey ? { passKey: trimmedPassKey } : {}
 
   return {
     clientCode,

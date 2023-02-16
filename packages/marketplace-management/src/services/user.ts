@@ -7,6 +7,7 @@ import { UserInfoModel } from '@reapit/foundations-ts-definitions'
 interface UpdateUserGroupParams {
   id: string
   userId: string
+  organisationId: string
 }
 
 export const addMemberToGroup = async (group: UpdateUserGroupParams): Promise<any | undefined> => {
@@ -32,16 +33,22 @@ export const addMemberToGroup = async (group: UpdateUserGroupParams): Promise<an
   }
 }
 
-export const removeMemberFromGroup = async (group: UpdateUserGroupParams): Promise<any | undefined> => {
+export const removeMemberFromGroup = async ({
+  id,
+  userId,
+  organisationId,
+}: UpdateUserGroupParams): Promise<any | undefined> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const response = await fetcher({
         api: window.reapit.config.platformApiUrl,
-        url: `${URLS.USERS_GROUPS}/${group.id}/members/${group.userId}`,
+        url: `${URLS.USERS_GROUPS}/${id}/members/${userId}`,
         method: 'DELETE',
         headers,
-        body: group,
+        body: {
+          organisationId,
+        },
       })
 
       if (response) {

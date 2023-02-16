@@ -28,7 +28,13 @@ describe('handleTransaction', () => {
   const paymentProvider = mockPaymentProvider
   const setTransactionProcessing = jest.fn()
   const setThreeDSecureRes = jest.fn()
-  const curried = Handlers.handleTransaction(paymentProvider, setTransactionProcessing, setThreeDSecureRes)
+  const setThreeDSecureMessage = jest.fn()
+  const curried = Handlers.handleTransaction(
+    paymentProvider,
+    setTransactionProcessing,
+    setThreeDSecureRes,
+    setThreeDSecureMessage,
+  )
 
   it('should correctly call the opayo method', () => {
     curried(mockCardDetails)

@@ -4,6 +4,7 @@ import { handleTransaction, onUpdateStatus } from './payment-handlers'
 import {
   Button,
   ButtonGroup,
+  elFadeIn,
   ElIcon,
   elMb7,
   FormLayout,
@@ -27,6 +28,7 @@ import { PaymentProvider } from '../payment-provider'
 import { ThreeDSecureResponse } from '../types/opayo'
 import { ClientConfigModel } from '../types/config'
 import { frameContent } from './frame-content'
+import { cx } from '@linaria/core'
 
 export interface PaymentFormProps {
   paymentProvider: PaymentProvider
@@ -79,7 +81,6 @@ export const handleSetIframeContent =
       if (iframeDoc) {
         iframeDoc.open()
         iframeDoc.write(frameString)
-
         iframeDoc.close()
         const form = iframeDoc.getElementById('three-d-secure-form') as HTMLFormElement
         if (form) {
@@ -192,18 +193,18 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
   return (
     <>
       {threeDSecureMessage === 'failure' && (
-        <PersistentNotification className={elMb7} intent="danger" isInline isExpanded isFullWidth>
+        <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isInline isExpanded isFullWidth>
           Your bank has rejected the 3D Secure transaction. Please check your credentials and try again.
         </PersistentNotification>
       )}
       {paymentStatus === 'rejected' && (
-        <PersistentNotification className={elMb7} intent="danger" isInline isExpanded isFullWidth>
+        <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isInline isExpanded isFullWidth>
           This payment has failed. Please check the details submitted are correct and try again.
         </PersistentNotification>
       )}
       {paymentStatus === 'posted' && (
         <>
-          <PersistentNotification className={elMb7} intent="success" isInline isExpanded isFullWidth>
+          <PersistentNotification className={cx(elMb7, elFadeIn)} intent="success" isInline isExpanded isFullWidth>
             This payment has been successfully submitted and confirmation of payment has been emailed to the address
             supplied. If no email was received, you can send again by clicking the button below.
           </PersistentNotification>
@@ -219,7 +220,10 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
       </Modal>
       {paymentStatus !== 'posted' && (
         <form
-          onSubmit={handleSubmit(handleTransaction(paymentProvider, setTransactionProcessing, setCachedTransaction))}
+          className={elFadeIn}
+          onSubmit={handleSubmit(
+            handleTransaction(paymentProvider, setTransactionProcessing, setCachedTransaction, setThreeDSecureMessage),
+          )}
         >
           <Subtitle>Billing Details</Subtitle>
           <FormLayout hasMargin>
