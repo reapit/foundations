@@ -34,7 +34,10 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
         </PaymentsBackButton>
       )}
       <FlexContainer isFlexJustifyBetween>
-        <Title>Card Payment{isPortal && companyName && `, requested by ${companyName}`}</Title>
+        <FlexContainer>
+          {isPortal && config.logoUri && <img className={elMr4} src={config.logoUri} alt="logo" height="34" />}
+          <Title>Card Payment{isPortal && companyName && `, requested by ${companyName}`}</Title>
+        </FlexContainer>
         <PaymentLogo />
       </FlexContainer>
       <Subtitle>Payment Details{id && `, Ref: ${id}`}</Subtitle>

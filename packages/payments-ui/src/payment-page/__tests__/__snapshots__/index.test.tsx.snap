@@ -23,11 +23,15 @@ Object {
         <div
           class="el-flex-justify-between el-flex-container"
         >
-          <h1
-            class="el-title"
+          <div
+            class="el-flex-container"
           >
-            Card Payment
-          </h1>
+            <h1
+              class="el-title"
+            >
+              Card Payment
+            </h1>
+          </div>
           <div
             class="logo"
           >
@@ -1767,11 +1771,15 @@ Object {
       <div
         class="el-flex-justify-between el-flex-container"
       >
-        <h1
-          class="el-title"
+        <div
+          class="el-flex-container"
         >
-          Card Payment
-        </h1>
+          <h1
+            class="el-title"
+          >
+            Card Payment
+          </h1>
+        </div>
         <div
           class="logo"
         >
@@ -3568,11 +3576,15 @@ Object {
         <div
           class="el-flex-justify-between el-flex-container"
         >
-          <h1
-            class="el-title"
+          <div
+            class="el-flex-container"
           >
-            Card Payment
-          </h1>
+            <h1
+              class="el-title"
+            >
+              Card Payment
+            </h1>
+          </div>
           <div
             class="logo"
           >
@@ -5312,11 +5324,15 @@ Object {
       <div
         class="el-flex-justify-between el-flex-container"
       >
-        <h1
-          class="el-title"
+        <div
+          class="el-flex-container"
         >
-          Card Payment
-        </h1>
+          <h1
+            class="el-title"
+          >
+            Card Payment
+          </h1>
+        </div>
         <div
           class="logo"
         >
