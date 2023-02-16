@@ -263,7 +263,7 @@ describe('useMerchantKey', () => {
     expect(result.current.merchantKey).toEqual(mockData)
     expect(result.current.merchantKeyLoading).toEqual(false)
 
-    result.current.refreshMerchantKey()
+    result.current.getMerchantKey()
 
     expect(mockAxiosPost).toHaveBeenCalledTimes(2)
   })

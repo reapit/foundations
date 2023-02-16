@@ -18,6 +18,7 @@ export const mockPaymentProvider = new PaymentProvider({
     statusLoading: false,
     statusSubmit: jest.fn(() => Promise.resolve(true)),
   },
+  getMerchantKey: jest.fn(() => Promise.resolve(mockMerchantKey)),
   transactionSubmit: jest.fn(() => Promise.resolve({} as unknown as Transaction)),
   refreshPayment: jest.fn(),
   isPortal: false,

@@ -78,7 +78,7 @@ export const usePayment = (session: string | null, clientCode: string | null, pa
 }
 
 export const useReceipt = (session: string | null, clientCode: string | null, paymentId?: string) => {
-  const { error } = useSnack()
+  const { error, success } = useSnack()
 
   const url = `${window.reapit.config.paymentsApiUrl}/receipt/public/${paymentId}`
 
@@ -95,6 +95,9 @@ export const useReceipt = (session: string | null, clientCode: string | null, pa
       })
 
       return Boolean(res.data)
+    },
+    onSuccess: () => {
+      success('Successfully sent receipt')
     },
     onError: (err: AxiosError<any>) => {
       logger(err)
@@ -206,6 +209,6 @@ export const useMerchantKey = (session: string | null, clientCode: string | null
   return {
     merchantKey: data ?? null,
     merchantKeyLoading: isLoading,
-    refreshMerchantKey: refetch,
+    getMerchantKey: refetch,
   }
 }
