@@ -87,7 +87,7 @@ export const sanitiseConfigPayload = (config: ClientConfigCreateModel, clientCod
   const trimmedVendorName = vendorName?.trim()
 
   const cleanConfigId = configId ? { configId } : {}
-  const cleanVendorName = trimmedVendorName ? { trimmedVendorName } : {}
+  const cleanVendorName = trimmedVendorName ? { vendorName: trimmedVendorName } : {}
   const cleanIntegrationKey = trimmedIntegrationKey ? { integrationKey: trimmedIntegrationKey } : {}
   const cleanPassKey = trimmedPassKey ? { passKey: trimmedPassKey } : {}
 
