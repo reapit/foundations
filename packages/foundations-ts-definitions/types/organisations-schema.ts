@@ -913,6 +913,12 @@ export interface PublicKeysModel {
    */
   keys?: PublicKeyModel[]
 }
+export interface RemoveGroupMembershipModel {
+  /**
+   * The organisation the group belongs too
+   */
+  organisationId?: string
+}
 /**
  * example:
  * [object Object]
