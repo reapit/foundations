@@ -5,14 +5,17 @@ import {
   BodyText,
   Button,
   ButtonGroup,
+  CreateImageUploadModel,
   elFadeIn,
   elMb3,
   elMb5,
   elMb7,
   ElToggleItem,
+  FileInput,
   FlexContainer,
   FormLayout,
   Icon,
+  ImageUploadModel,
   InputError,
   InputGroup,
   InputWrap,
@@ -28,7 +31,13 @@ import {
   useModal,
 } from '@reapit/elements'
 import { ClientConfigCreateModel, ClientConfigDeleteModel, ClientConfigModel, PaymentLogo } from '@reapit/payments-ui'
-import { SendFunction, UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
+import {
+  SendFunction,
+  UpdateActionNames,
+  updateActions,
+  UpdateReturnTypeEnum,
+  useReapitUpdate,
+} from '@reapit/use-reapit-data'
 import { ErrorBoundary } from '@sentry/react'
 import { openNewPage } from '../../core/nav'
 import { useForm, UseFormReset } from 'react-hook-form'
@@ -36,10 +45,10 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useConfigState } from '../../core/use-config-state'
 import { cx } from '@linaria/core'
 import { validationSchema } from './validation-schema'
+import { v4 as uuid } from 'uuid'
 
 export const handleResetForm =
-  (config: ClientConfigModel | null, configNotConfigured: boolean, reset: UseFormReset<ClientConfigCreateModel>) =>
-  () => {
+  (config: ClientConfigModel | null, hasUpdated: boolean, reset: UseFormReset<ClientConfigCreateModel>) => () => {
     if (config) {
       const { clientCode, companyName, logoUri, isLive, configId } = config
       reset({
@@ -48,8 +57,11 @@ export const handleResetForm =
         logoUri,
         isLive,
         configId,
+        vendorName: '',
+        integrationKey: '',
+        passKey: '',
       })
-    } else if (configNotConfigured) {
+    } else if (hasUpdated) {
       reset({
         companyName: '',
         logoUri: '',
@@ -107,7 +119,8 @@ export const AdminPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal: UpdateModal, openModal: openUpdateModal, closeModal: closeUpdateModal } = useModal()
   const { Modal: DeleteModal, openModal: openDeleteModal, closeModal: closeDeleteModal } = useModal()
-  const { config, refreshConfig, clearConfigCache } = useConfigState()
+  const { Modal: FilePreviewModal, openModal: openFilePreviewModal, closeModal: closeFilePreviewModal } = useModal()
+  const { config, refreshConfig, clearConfigCache, configLoading } = useConfigState()
   const configNotConfigured = !config?.isConfigured
 
   const clientCode = connectSession?.loginIdentity?.clientId ?? ''
@@ -117,6 +130,7 @@ export const AdminPage: FC = () => {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm<ClientConfigCreateModel>({
     resolver: yupResolver(validationSchema),
@@ -158,19 +172,23 @@ export const AdminPage: FC = () => {
     },
   })
 
-  const updateModalShouldClose = Boolean(createSubmitSuccess || updateSubmitSuccess)
+  const [, , uploadImage] = useReapitUpdate<CreateImageUploadModel, ImageUploadModel>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.fileUpload],
+    method: 'POST',
+    returnType: UpdateReturnTypeEnum.RESPONSE,
+  })
 
-  useEffect(handleResetForm(config, configNotConfigured, reset), [config, configNotConfigured])
-  useEffect(handleCloseModal(closeUpdateModal, updateModalShouldClose, refreshConfig), [
-    createSubmitSuccess,
-    updateSubmitSuccess,
-  ])
+  const hasUpdated = Boolean(createSubmitSuccess || updateSubmitSuccess)
+
+  useEffect(handleResetForm(config, hasUpdated, reset), [config, hasUpdated])
+  useEffect(handleCloseModal(closeUpdateModal, hasUpdated, refreshConfig), [createSubmitSuccess, updateSubmitSuccess])
   useEffect(handleCloseModal(closeDeleteModal, Boolean(deleteSubmitSuccess), refreshConfig), [deleteSubmitSuccess])
 
   const submitAction = config ? updateSubmit : createSubmit
   const submitHandler = handleSubmit((configForm) => submitAction(sanitiseConfigPayload(configForm, clientCode)))
-
   const isLoading = createLoading || updateLoading || deleteLoading
+  const logoUri = watch('logoUri')
 
   return (
     <>
@@ -235,10 +253,29 @@ export const AdminPage: FC = () => {
                 <InputGroup {...register('companyName')} type="email" label="Company Name" />
                 {errors.companyName?.message && <InputError message={errors.companyName.message} />}
               </InputWrap>
-              <InputWrapMed>
-                <InputGroup {...register('logoUri')} type="email" label="Email Logo Url" />
+              <InputWrap>
+                {!configLoading && (
+                  <FileInput
+                    {...register('logoUri')}
+                    defaultValue={logoUri}
+                    label="Email Logo Url"
+                    onFileUpload={uploadImage}
+                    onFileView={openFilePreviewModal}
+                    fileName={uuid()}
+                  />
+                )}
+                <FilePreviewModal title="Logo Preview">
+                  <FlexContainer className={elMb7} isFlexAlignCenter isFlexJustifyCenter>
+                    {logoUri && <img src={logoUri} />}
+                  </FlexContainer>
+                  <ButtonGroup alignment="center">
+                    <Button intent="low" onClick={closeFilePreviewModal}>
+                      Close
+                    </Button>
+                  </ButtonGroup>
+                </FilePreviewModal>
                 {errors.logoUri?.message && <InputError message={errors.logoUri.message} />}
-              </InputWrapMed>
+              </InputWrap>
             </FormLayout>
             <Subtitle>Opayo Credientials</Subtitle>
             <BodyText hasGreyText>

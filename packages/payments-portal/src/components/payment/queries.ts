@@ -14,8 +14,6 @@ import {
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 
 export const useClientConfig = (session: string | null, clientCode: string | null, paymentId?: string) => {
-  const { error } = useSnack()
-
   const url = `${window.reapit.config.paymentsApiUrl}/config/public/${paymentId}`
 
   const { data, error: configError } = useQuery([url, clientCode, session], {
@@ -33,7 +31,6 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
     refetchOnWindowFocus: false,
     onError: (err: AxiosError<any>) => {
       logger(err)
-      error(err?.response?.data?.message ?? err?.message)
     },
     enabled: Boolean(clientCode && session),
   })
@@ -45,8 +42,6 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
 }
 
 export const usePayment = (session: string | null, clientCode: string | null, paymentId?: string) => {
-  const { error } = useSnack()
-
   const url = `${window.reapit.config.paymentsApiUrl}/payments/${paymentId}`
 
   const { data, isLoading, refetch } = useQuery([url, clientCode, session, paymentId], {
@@ -65,7 +60,6 @@ export const usePayment = (session: string | null, clientCode: string | null, pa
     refetchOnWindowFocus: false,
     onError: (err: AxiosError<any>) => {
       logger(err)
-      error(err?.response?.data?.message ?? err?.message)
     },
     enabled: Boolean(clientCode && session && paymentId),
   })
@@ -179,8 +173,6 @@ export const useTransaction = (session: string | null, clientCode: string | null
 }
 
 export const useMerchantKey = (session: string | null, config: ClientConfigModel | null, paymentId: string | null) => {
-  const { error } = useSnack()
-
   const url = `${window.reapit.config.paymentsApiUrl}/opayo/public/merchant-session-keys/${paymentId}`
   const { clientCode, isConfigured } = config ?? {}
 
@@ -199,7 +191,6 @@ export const useMerchantKey = (session: string | null, config: ClientConfigModel
     refetchOnWindowFocus: false,
     onError: (err: AxiosError<any>) => {
       logger(err)
-      error(err?.response?.data?.message ?? err?.message)
     },
     enabled: Boolean(session && clientCode && paymentId && isConfigured),
   })

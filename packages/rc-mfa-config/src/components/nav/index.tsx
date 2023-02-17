@@ -44,21 +44,13 @@ export const Nav: FC = () => {
   }
 
   if (!connectIsDesktop) {
-    navOptions.push(
-      {
-        itemIndex: 3,
-        callback: () => (window.location.href = window.reapit.config.marketplaceUrl),
-        iconId: 'appsMenu',
-        text: 'Apps',
-      },
-      {
-        itemIndex: 4,
-        callback: connectLogoutRedirect,
-        isSecondary: true,
-        iconId: 'logoutMenu',
-        text: 'Logout',
-      },
-    )
+    navOptions.push({
+      itemIndex: 4,
+      callback: connectLogoutRedirect,
+      isSecondary: true,
+      iconId: 'logoutMenu',
+      text: 'Logout',
+    })
   }
 
   return <NavResponsive options={navOptions} defaultNavIndex={getDefaultNavIndex(window.location.pathname)} />

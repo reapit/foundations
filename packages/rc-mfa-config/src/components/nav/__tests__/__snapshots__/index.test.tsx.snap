@@ -38,16 +38,6 @@ Object {
           Configure
         </a>
         <a
-          class="el-nav-item"
-        >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
-          >
-            <svg />
-          </span>
-          Apps
-        </a>
-        <a
           class="el-nav-item-secondary el-nav-item"
         >
           <span
@@ -92,16 +82,6 @@ Object {
           <svg />
         </span>
         Configure
-      </a>
-      <a
-        class="el-nav-item"
-      >
-        <span
-          class="el-nav-item-icon el-icon-size-medium el-icon"
-        >
-          <svg />
-        </span>
-        Apps
       </a>
       <a
         class="el-nav-item-secondary el-nav-item"
