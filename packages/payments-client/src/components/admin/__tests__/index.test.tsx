@@ -40,7 +40,16 @@ describe('handleResetForm', () => {
 
     curried()
 
-    expect(reset).toHaveBeenCalledWith({ clientCode, companyName, configId, isLive, logoUri })
+    expect(reset).toHaveBeenCalledWith({
+      clientCode,
+      companyName,
+      configId,
+      isLive,
+      logoUri,
+      integrationKey: '',
+      passKey: '',
+      vendorName: '',
+    })
   })
 })
 

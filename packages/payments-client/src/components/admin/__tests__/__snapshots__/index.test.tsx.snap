@@ -129,23 +129,45 @@ Object {
               </div>
             </div>
             <div
-              class="el-input-wrap-med"
+              class="el-input-wrap"
             >
               <div
-                class="el-input-group"
+                class="el-file-input-wrap"
               >
-                <input
-                  class="el-input"
-                  id="test-static-id"
-                  name="logoUri"
-                  type="email"
-                />
                 <label
                   class="el-label"
-                  for="test-static-id"
                 >
                   Email Logo Url
                 </label>
+                <div
+                  class="el-flex-align-center el-flex-container"
+                >
+                  <button
+                    class="el-mr4 el-intent-low el-button"
+                    type="button"
+                  >
+                    Upload
+                    <div
+                      class="el-button-loader"
+                    />
+                  </button>
+                  <input
+                    class="el-file-input"
+                    data-testid="el-file-input"
+                    type="file"
+                  />
+                  <input
+                    class="el-file-input-hidden"
+                    id="test-static-id"
+                    name="logoUri"
+                    value="https://logo.png"
+                  />
+                  <p
+                    class="el-has-grey-text el-has-no-margin el-small-text"
+                  >
+                    Upload File
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -401,23 +423,45 @@ Object {
             </div>
           </div>
           <div
-            class="el-input-wrap-med"
+            class="el-input-wrap"
           >
             <div
-              class="el-input-group"
+              class="el-file-input-wrap"
             >
-              <input
-                class="el-input"
-                id="test-static-id"
-                name="logoUri"
-                type="email"
-              />
               <label
                 class="el-label"
-                for="test-static-id"
               >
                 Email Logo Url
               </label>
+              <div
+                class="el-flex-align-center el-flex-container"
+              >
+                <button
+                  class="el-mr4 el-intent-low el-button"
+                  type="button"
+                >
+                  Upload
+                  <div
+                    class="el-button-loader"
+                  />
+                </button>
+                <input
+                  class="el-file-input"
+                  data-testid="el-file-input"
+                  type="file"
+                />
+                <input
+                  class="el-file-input-hidden"
+                  id="test-static-id"
+                  name="logoUri"
+                  value="https://logo.png"
+                />
+                <p
+                  class="el-has-grey-text el-has-no-margin el-small-text"
+                >
+                  Upload File
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -730,23 +774,45 @@ Object {
               </div>
             </div>
             <div
-              class="el-input-wrap-med"
+              class="el-input-wrap"
             >
               <div
-                class="el-input-group"
+                class="el-file-input-wrap"
               >
-                <input
-                  class="el-input"
-                  id="test-static-id"
-                  name="logoUri"
-                  type="email"
-                />
                 <label
                   class="el-label"
-                  for="test-static-id"
                 >
                   Email Logo Url
                 </label>
+                <div
+                  class="el-flex-align-center el-flex-container"
+                >
+                  <button
+                    class="el-mr4 el-intent-low el-button"
+                    type="button"
+                  >
+                    Upload
+                    <div
+                      class="el-button-loader"
+                    />
+                  </button>
+                  <input
+                    class="el-file-input"
+                    data-testid="el-file-input"
+                    type="file"
+                  />
+                  <input
+                    class="el-file-input-hidden"
+                    id="test-static-id"
+                    name="logoUri"
+                    value="https://logo.png"
+                  />
+                  <p
+                    class="el-has-grey-text el-has-no-margin el-small-text"
+                  >
+                    Upload File
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1002,23 +1068,45 @@ Object {
             </div>
           </div>
           <div
-            class="el-input-wrap-med"
+            class="el-input-wrap"
           >
             <div
-              class="el-input-group"
+              class="el-file-input-wrap"
             >
-              <input
-                class="el-input"
-                id="test-static-id"
-                name="logoUri"
-                type="email"
-              />
               <label
                 class="el-label"
-                for="test-static-id"
               >
                 Email Logo Url
               </label>
+              <div
+                class="el-flex-align-center el-flex-container"
+              >
+                <button
+                  class="el-mr4 el-intent-low el-button"
+                  type="button"
+                >
+                  Upload
+                  <div
+                    class="el-button-loader"
+                  />
+                </button>
+                <input
+                  class="el-file-input"
+                  data-testid="el-file-input"
+                  type="file"
+                />
+                <input
+                  class="el-file-input-hidden"
+                  id="test-static-id"
+                  name="logoUri"
+                  value="https://logo.png"
+                />
+                <p
+                  class="el-has-grey-text el-has-no-margin el-small-text"
+                >
+                  Upload File
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -1331,23 +1419,45 @@ Object {
               </div>
             </div>
             <div
-              class="el-input-wrap-med"
+              class="el-input-wrap"
             >
               <div
-                class="el-input-group"
+                class="el-file-input-wrap"
               >
-                <input
-                  class="el-input"
-                  id="test-static-id"
-                  name="logoUri"
-                  type="email"
-                />
                 <label
                   class="el-label"
-                  for="test-static-id"
                 >
                   Email Logo Url
                 </label>
+                <div
+                  class="el-flex-align-center el-flex-container"
+                >
+                  <button
+                    class="el-mr4 el-intent-low el-button"
+                    type="button"
+                  >
+                    Upload
+                    <div
+                      class="el-button-loader"
+                    />
+                  </button>
+                  <input
+                    class="el-file-input"
+                    data-testid="el-file-input"
+                    type="file"
+                  />
+                  <input
+                    class="el-file-input-hidden"
+                    id="test-static-id"
+                    name="logoUri"
+                    value="https://logo.png"
+                  />
+                  <p
+                    class="el-has-grey-text el-has-no-margin el-small-text"
+                  >
+                    Upload File
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1603,23 +1713,45 @@ Object {
             </div>
           </div>
           <div
-            class="el-input-wrap-med"
+            class="el-input-wrap"
           >
             <div
-              class="el-input-group"
+              class="el-file-input-wrap"
             >
-              <input
-                class="el-input"
-                id="test-static-id"
-                name="logoUri"
-                type="email"
-              />
               <label
                 class="el-label"
-                for="test-static-id"
               >
                 Email Logo Url
               </label>
+              <div
+                class="el-flex-align-center el-flex-container"
+              >
+                <button
+                  class="el-mr4 el-intent-low el-button"
+                  type="button"
+                >
+                  Upload
+                  <div
+                    class="el-button-loader"
+                  />
+                </button>
+                <input
+                  class="el-file-input"
+                  data-testid="el-file-input"
+                  type="file"
+                />
+                <input
+                  class="el-file-input-hidden"
+                  id="test-static-id"
+                  name="logoUri"
+                  value="https://logo.png"
+                />
+                <p
+                  class="el-has-grey-text el-has-no-margin el-small-text"
+                >
+                  Upload File
+                </p>
+              </div>
             </div>
           </div>
         </div>
