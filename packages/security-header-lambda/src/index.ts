@@ -21,7 +21,7 @@ export const securityHeaderLambda = (
   const paymentsClients = [config.paymentsCfDistId, config.paymentsPortalCfDistId]
   const cfDistId = event.Records[0].cf.config.distributionId
   const isPayments = paymentsClients.includes(cfDistId)
-  const isPaymentsPortal = paymentsClients.includes(config.paymentsPortalCfDistId)
+  const isPaymentsPortal = cfDistId === config.paymentsPortalCfDistId
   // Support for cross origin iframes to allow for 3D Secure where we don't know the orginating bank
   const iframePolicy = isPayments ? "frame-src 'self' https://*" : frameContentSecurityPolicy
   const imagePolicy = isPaymentsPortal ? "img-src 'self' data: https://*" : imageContentSecurityPolicy
