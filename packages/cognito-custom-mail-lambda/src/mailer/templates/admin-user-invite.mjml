@@ -27,11 +27,11 @@
           Welcome to Reapit Connect
         </mj-text>
 
-        <mj-text mj-class="body-text">Hi {userName},</mj-text>
+        <mj-text mj-class="body-text">Hi {name},</mj-text>
         <mj-text mj-class="body-text">Welcome to Reapit Connect.</mj-text>
         <mj-text mj-class="body-text">Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd.</mj-text>
         <mj-text mj-class="body-text">Please see below your userName and temporary password. When you click the login link, you will be re-directed to a screen where you will be asked to change your password.</mj-text>
-        <mj-text mj-class="body-text"><strong>User Name: {userName}</strong></mj-text>
+        <mj-text mj-class="body-text"><strong>User Name: {username}</strong></mj-text>
         <mj-text mj-class="body-text"><strong>Password: {####}</strong></mj-text>
         <mj-button href={url}>login</mj-button>
         <mj-text mj-class="body-text">When you have successfully changed your password, you will then be presented with a list of products and services available to you.</mj-text>
