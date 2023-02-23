@@ -7,7 +7,7 @@ const confirmRegistrationUrl = `${process.env.MARKET_PLACE_URL}/login`
 const resetPasswordUrl = `${process.env.MARKET_PLACE_URL}/reset-password`
 
 const replaceAll = (str: string, find: string, replace: string): string => {
-  return str.replace(new RegExp(find, 'g'), replace);
+  return str.replace(new RegExp(find, 'g'), replace)
 }
 
 const format = (html: string, object: Object) => {
