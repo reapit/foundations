@@ -26,15 +26,14 @@ describe('handleUpdateAppointment', () => {
       due: '2021-01-01',
       notes: 'some notes',
     }
-    const getAppointmentEtag = jest.fn().mockResolvedValue('some-etag')
-    const curried = handleUpdateAppointment({ updateAppointment, getAppointmentEtag, appointment })
+    const curried = handleUpdateAppointment({ updateAppointment, appointment })
 
     await curried(mockFormData)
-    expect(getAppointmentEtag).toHaveBeenCalledWith(appointment.id)
+
     expect(updateAppointment).toHaveBeenCalledWith({
       variables: {
         id: appointment?.id,
-        _eTag: 'some-etag',
+        _eTag: appointment._eTag,
         followUp: { notes: mockFormData.notes },
         followUpOn: mockFormData.due,
       },
