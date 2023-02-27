@@ -5,7 +5,6 @@ import { ExtendedAppointmentModel } from '../../../types/global'
 import { BodyText, Button, elMb8, FlexContainer, InputGroup, Label, TextArea } from '@reapit/elements'
 import { AppointmentFollowUpModel } from '@reapit/foundations-ts-definitions'
 import { useForm } from 'react-hook-form'
-import { useGetAppointmentEtag } from '@/graphql/hooks/use-get-appointment-etag'
 
 export type FollowUpNotesModalProps = {
   appointment: ExtendedAppointmentModel
@@ -21,7 +20,6 @@ export type UpdateAppointmentParams = { variables: UpdateAppointmentVariables }
 export type HandleUpdateAppointmentParams = {
   updateAppointment: (params: UpdateAppointmentParams) => void
   appointment: ExtendedAppointmentModel
-  getAppointmentEtag: (id: string) => Promise<string>
 }
 
 export type UpdateAppointmentVariables = {
@@ -32,13 +30,12 @@ export type UpdateAppointmentVariables = {
 }
 
 export const handleUpdateAppointment =
-  ({ updateAppointment, getAppointmentEtag, appointment }: HandleUpdateAppointmentParams) =>
+  ({ updateAppointment, appointment }: HandleUpdateAppointmentParams) =>
   async (followUp: AppointmentFollowUpModel) => {
-    const { id } = appointment
-    if (!id) {
+    const { id, _eTag } = appointment
+    if (!id || !_eTag) {
       return null
     }
-    const _eTag = await getAppointmentEtag(id)
 
     const { due, ...rest } = followUp
 
@@ -55,14 +52,13 @@ export const FollowUpNotesModal: FC<FollowUpNotesModalProps> = ({ appointment, c
       onCompleted: closeModal,
     },
   )
-  const getAppointmentEtag = useGetAppointmentEtag()
 
   return (
     <>
       <div className={elMb8}>
         <BodyText>Record follow up notes on your appointment here, along with an optional follow up date.</BodyText>
       </div>
-      <form onSubmit={handleSubmit(handleUpdateAppointment({ updateAppointment, getAppointmentEtag, appointment }))}>
+      <form onSubmit={handleSubmit(handleUpdateAppointment({ updateAppointment, appointment }))}>
         <InputGroup
           className={elMb8}
           icon="calendarSystem"
