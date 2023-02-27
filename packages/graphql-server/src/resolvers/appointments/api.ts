@@ -87,13 +87,15 @@ export const callUpdateAppointmentAPI = async (
   const traceId = context.traceId
   try {
     const { _eTag, ...payload } = args
+    const appointment = await callGetAppointmentByIdAPI({ id: args.id }, context)
+    const eTag = appointment?._eTag ?? _eTag
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateAppointmentReturn>(
       `${URLS.appointments}/${args.id}`,
       payload,
       {
         headers: {
           Authorization: context.authorization,
-          'If-Match': _eTag,
+          'If-Match': eTag,
         },
       },
     )
