@@ -38,9 +38,8 @@ describe('AdminPage', () => {
 describe('handleInitialUserOrgSet', () => {
   it('should handle setting org id', () => {
     const setOrganisationId = jest.fn()
-    const hasMultiOrgs = false
     const orgId = 'MOCK_ID'
-    const curried = handleInitialUserOrgSet(setOrganisationId, hasMultiOrgs, orgId)
+    const curried = handleInitialUserOrgSet(setOrganisationId, orgId)
 
     curried()
 

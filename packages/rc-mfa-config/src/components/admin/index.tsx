@@ -51,8 +51,8 @@ export const handleSetAdminFilters =
   }
 
 export const handleInitialUserOrgSet =
-  (setOrganisationId: Dispatch<SetStateAction<string>>, hasMultiOrgs?: boolean, orgId?: string | null) => () => {
-    if (orgId && !hasMultiOrgs) {
+  (setOrganisationId: Dispatch<SetStateAction<string>>, orgId?: string | null) => () => {
+    if (orgId) {
       setOrganisationId(orgId)
     }
   }
@@ -78,7 +78,6 @@ export const AdminPage: FC = () => {
   const [organisationId, setOrganisationId] = useState<string>('')
   const { register, watch } = useForm<UserFilters>({ mode: 'all' })
   const email = connectSession?.loginIdentity.email
-  const orgId = connectSession?.loginIdentity.orgId
   const queryParams = { ...objectToQuery(userSearch), organisationId } as StringMap
 
   const [userInfo, userInfoLoading] = useReapitGet<UserInfoModel>({
@@ -97,10 +96,11 @@ export const AdminPage: FC = () => {
 
   const userOrgs = userInfo?.userOrganisations ?? []
   const adminOrgs = getAdminOrgs(userOrgs)
-  const hasMultiOrgs = !userInfo || adminOrgs.length > 1
+  const hasMultiOrgs = adminOrgs.length > 1
+  const orgId = adminOrgs.length === 1 ? adminOrgs[0].organisationId : null
 
   useEffect(handleSetAdminFilters(setUserSearch, watch), [])
-  useEffect(handleInitialUserOrgSet(setOrganisationId, hasMultiOrgs, orgId), [hasMultiOrgs, connectSession])
+  useEffect(handleInitialUserOrgSet(setOrganisationId, orgId), [orgId])
 
   return (
     <FlexContainer isFlexAuto>
