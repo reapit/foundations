@@ -280,15 +280,15 @@ exports[`Home should match a snapshot 1`] = `
         </button>
       </div>
       <div
-        class="__react_component_tooltip te3f902d1-f142-4095-b40a-d59a73bb0c91 place-bottom type-dark"
+        class="__react_component_tooltip tc382d252-4389-489d-96c5-5167e1b01ef5 place-bottom type-dark"
         data-id="tooltip"
-        id="te3f902d1-f142-4095-b40a-d59a73bb0c91"
+        id="tc382d252-4389-489d-96c5-5167e1b01ef5"
       >
         <style
           aria-hidden="true"
         >
           
-  	.te3f902d1-f142-4095-b40a-d59a73bb0c91 {
+  	.tc382d252-4389-489d-96c5-5167e1b01ef5 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
@@ -296,10 +296,10 @@ exports[`Home should match a snapshot 1`] = `
 	    padding: 8px 21px;
   	}
 
-  	.te3f902d1-f142-4095-b40a-d59a73bb0c91.place-top {
+  	.tc382d252-4389-489d-96c5-5167e1b01ef5.place-top {
         margin-top: -10px;
     }
-    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-top::before {
+    .tc382d252-4389-489d-96c5-5167e1b01ef5.place-top::before {
         content: "";
         background-color: inherit;
         position: absolute;
@@ -307,7 +307,7 @@ exports[`Home should match a snapshot 1`] = `
         width: 20px;
         height: 12px;
     }
-    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-top::after {
+    .tc382d252-4389-489d-96c5-5167e1b01ef5.place-top::after {
         content: "";
         position: absolute;
         width: 10px;
@@ -322,10 +322,10 @@ exports[`Home should match a snapshot 1`] = `
         transform: rotate(135deg);
     }
 
-    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-bottom {
+    .tc382d252-4389-489d-96c5-5167e1b01ef5.place-bottom {
         margin-top: 10px;
     }
-    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-bottom::before {
+    .tc382d252-4389-489d-96c5-5167e1b01ef5.place-bottom::before {
         content: "";
         background-color: inherit;
         position: absolute;
@@ -333,7 +333,7 @@ exports[`Home should match a snapshot 1`] = `
         width: 18px;
         height: 10px;
     }
-    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-bottom::after {
+    .tc382d252-4389-489d-96c5-5167e1b01ef5.place-bottom::after {
         content: "";
         position: absolute;
         width: 10px;
@@ -348,10 +348,10 @@ exports[`Home should match a snapshot 1`] = `
         transform: rotate(45deg);
     }
 
-    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-left {
+    .tc382d252-4389-489d-96c5-5167e1b01ef5.place-left {
         margin-left: -10px;
     }
-    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-left::before {
+    .tc382d252-4389-489d-96c5-5167e1b01ef5.place-left::before {
         content: "";
         background-color: inherit;
         position: absolute;
@@ -359,7 +359,7 @@ exports[`Home should match a snapshot 1`] = `
         width: 10px;
         height: 18px;
     }
-    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-left::after {
+    .tc382d252-4389-489d-96c5-5167e1b01ef5.place-left::after {
         content: "";
         position: absolute;
         width: 10px;
@@ -374,10 +374,10 @@ exports[`Home should match a snapshot 1`] = `
         transform: rotate(45deg);
     }
 
-    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-right {
+    .tc382d252-4389-489d-96c5-5167e1b01ef5.place-right {
         margin-left: 10px;
     }
-    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-right::before {
+    .tc382d252-4389-489d-96c5-5167e1b01ef5.place-right::before {
         content: "";
         background-color: inherit;
         position: absolute;
@@ -385,7 +385,7 @@ exports[`Home should match a snapshot 1`] = `
         width: 10px;
         height: 18px;
     }
-    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-right::after {
+    .tc382d252-4389-489d-96c5-5167e1b01ef5.place-right::after {
         content: "";
         position: absolute;
         width: 10px;
