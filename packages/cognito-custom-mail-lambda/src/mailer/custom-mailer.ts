@@ -39,13 +39,12 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
         break
 
       case 'CustomMessage_AdminCreateUser':
-        const html = format(adminUserInviteTemplate, {
+        event.response.emailSubject = 'Welcome to Reapit Connect'
+        event.response.emailMessage = `${format(adminUserInviteTemplate, {
           name: event.request.userAttributes.name,
           url: confirmRegistrationUrl,
           verificationCode: event.request.codeParameter as string,
-        })
-        event.response.emailSubject = 'Welcome to Reapit Connect'
-        event.response.emailMessage = `${html}`
+        })}`
         break
     }
   }
