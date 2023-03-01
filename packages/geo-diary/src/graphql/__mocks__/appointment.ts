@@ -35,7 +35,6 @@ export const appointment = {
   negotiatorIds: ['LJW', 'LXJ', 'LSB', 'JCW'],
   negotiators: [
     {
-      __typename: 'NegotiatorModel',
       _eTag: '"CB9E584CE62E60C463C142EDCB433608"',
       _embedded: {},
       _links: {
@@ -134,7 +133,6 @@ export const appointment = {
   officeIds: ['ALB'],
   offices: [
     {
-      __typename: 'OfficeModel',
       _eTag: '"9B4650E205A1B4DDB0E4A3CB98F4435F"',
       _embedded: {},
       _links: {
@@ -146,7 +144,6 @@ export const appointment = {
         },
       },
       address: {
-        __typename: 'OfficeModelAddress',
         buildingName: '',
         buildingNumber: '',
         countryId: '',
