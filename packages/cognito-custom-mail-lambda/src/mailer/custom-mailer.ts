@@ -6,9 +6,13 @@ import adminUserInviteTemplate from './templates/admin-user-invite.html'
 const confirmRegistrationUrl = `${process.env.MARKET_PLACE_URL}/login`
 const resetPasswordUrl = `${process.env.MARKET_PLACE_URL}/reset-password`
 
+const replaceAll = (str: string, find: string, replace: string): string => {
+  return str.replace(new RegExp(find, 'g'), replace)
+}
+
 const format = (html: string, object: Object) => {
   Object.entries(object).forEach(([key, value]) => {
-    html = html.replace(new RegExp(`{${key}}|{ ${key} }`), value)
+    html = replaceAll(html, `{${key}}|{ ${key} }`, value)
   })
   return html
 }
@@ -29,18 +33,18 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
       case 'CustomMessage_SignUp':
         event.response.emailSubject = 'Reapit Connect - Forgotten Password'
         event.response.emailMessage = format(confirmRegistrationTemplate, {
-          userName: event.request.userAttributes.name,
+          // userName: event.request.userAttributes.name,
           url: confirmRegistrationUrl,
         })
         break
 
       case 'CustomMessage_AdminCreateUser':
         event.response.emailSubject = 'Welcome to Reapit Connect'
-        event.response.emailMessage = format(adminUserInviteTemplate, {
-          userName: event.request.userAttributes.name,
+        event.response.emailMessage = `${format(adminUserInviteTemplate, {
+          name: event.request.userAttributes.name,
           url: confirmRegistrationUrl,
           verificationCode: event.request.codeParameter as string,
-        })
+        })}`
         break
     }
   }

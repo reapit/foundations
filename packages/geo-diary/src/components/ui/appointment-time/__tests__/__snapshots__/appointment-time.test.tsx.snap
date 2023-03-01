@@ -13,7 +13,7 @@ Object {
         class="appointment-time-container-expanded appointment-time-container"
       >
         <div
-          class="el-toggle-full-width el-toggle-radio-wrap"
+          class="el-mx-auto el-toggle-radio-wrap"
         >
           <input
             checked=""
@@ -24,7 +24,7 @@ Object {
             value="TODAY"
           />
           <label
-            class="el-toggle-full-width el-toggle-radio-label"
+            class="el-toggle-radio-label"
             for="today"
           >
             <span
@@ -41,7 +41,7 @@ Object {
             value="TOMORROW"
           />
           <label
-            class="el-toggle-full-width el-toggle-radio-label"
+            class="el-toggle-radio-label"
             for="tomorrow"
           >
             <span
@@ -58,7 +58,7 @@ Object {
             value="WEEK"
           />
           <label
-            class="el-toggle-full-width el-toggle-radio-label"
+            class="el-toggle-radio-label"
             for="week"
           >
             <span
@@ -80,7 +80,7 @@ Object {
       class="appointment-time-container-expanded appointment-time-container"
     >
       <div
-        class="el-toggle-full-width el-toggle-radio-wrap"
+        class="el-mx-auto el-toggle-radio-wrap"
       >
         <input
           checked=""
@@ -91,7 +91,7 @@ Object {
           value="TODAY"
         />
         <label
-          class="el-toggle-full-width el-toggle-radio-label"
+          class="el-toggle-radio-label"
           for="today"
         >
           <span
@@ -108,7 +108,7 @@ Object {
           value="TOMORROW"
         />
         <label
-          class="el-toggle-full-width el-toggle-radio-label"
+          class="el-toggle-radio-label"
           for="tomorrow"
         >
           <span
@@ -125,7 +125,7 @@ Object {
           value="WEEK"
         />
         <label
-          class="el-toggle-full-width el-toggle-radio-label"
+          class="el-toggle-radio-label"
           for="week"
         >
           <span

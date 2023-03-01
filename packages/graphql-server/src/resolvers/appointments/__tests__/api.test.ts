@@ -106,7 +106,7 @@ describe('callUpdateAppointmentAPI', () => {
     await callUpdateAppointmentAPI(mockUpdateAppointmentArgs, mockContext)
   })
   it('should catch error correctly', async () => {
-    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
+    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValue({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
     const result = await callUpdateAppointmentAPI(mockUpdateAppointmentArgs, mockContext)

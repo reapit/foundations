@@ -42,16 +42,16 @@
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
-    "@typescript-eslint/parser": "^5.40.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
     "babel-jest": "^28.1.3",
     "concurrently": "^6.5.1",
     "cross-env": "^7.0.3",
-    "eslint": "8.25.0",
+    "eslint": "8.35.0",
     "eslint-plugin-prettier": "^4.2.1",
     "jest": "^28.1.3",
     "jest-coverage-badges": "^1.1.2",
     "ts-jest": "^28.0.8",
-    "typescript": "^4.8.4"
+    "typescript": "^4.9.5"
   }
 }
