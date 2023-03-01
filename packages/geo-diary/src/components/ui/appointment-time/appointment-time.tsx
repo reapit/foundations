@@ -1,6 +1,6 @@
 import React, { ChangeEvent, Dispatch, memo, SetStateAction } from 'react'
 import { AppState, useAppState, AppTimeRange } from '../../../core/app-state'
-import { ToggleRadio } from '@reapit/elements'
+import { elMxAuto, ToggleRadio } from '@reapit/elements'
 import { cx } from '@linaria/core'
 import { AppointmentTimeContainer, appointmentTimeContainerExpanded } from './__styles__/index'
 
@@ -28,8 +28,8 @@ export const AppointmentTime = () => {
   return (
     <AppointmentTimeContainer className={cx(isExpanded && appointmentTimeContainerExpanded)}>
       <ToggleRadio
+        className={elMxAuto}
         name="appointment-time"
-        isFullWidth
         onChange={handleChangeTime({ setAppState })}
         options={[
           {

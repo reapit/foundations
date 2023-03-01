@@ -8,7 +8,9 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <form>
+      <form
+        class="el-fade-in"
+      >
         <h2
           class="el-subtitle"
         >
@@ -1555,7 +1557,9 @@ Object {
     <div
       class="el-snack-holder"
     />
-    <form>
+    <form
+      class="el-fade-in"
+    >
       <h2
         class="el-subtitle"
       >
@@ -3159,7 +3163,9 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <form>
+      <form
+        class="el-fade-in"
+      >
         <h2
           class="el-subtitle"
         >
@@ -4706,7 +4712,9 @@ Object {
     <div
       class="el-snack-holder"
     />
-    <form>
+    <form
+      class="el-fade-in"
+    >
       <h2
         class="el-subtitle"
       >
@@ -6311,7 +6319,7 @@ Object {
         class="el-snack-holder"
       />
       <div
-        class="el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="el-mb7 el-fade-in el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -6422,7 +6430,7 @@ Object {
       class="el-snack-holder"
     />
     <div
-      class="el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      class="el-mb7 el-fade-in el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
     >
       <div
         class="el-pn-icon"
@@ -6590,7 +6598,7 @@ Object {
         class="el-snack-holder"
       />
       <div
-        class="el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -6608,7 +6616,9 @@ Object {
           This payment has failed. Please check the details submitted are correct and try again.
         </div>
       </div>
-      <form>
+      <form
+        class="el-fade-in"
+      >
         <h2
           class="el-subtitle"
         >
@@ -8156,7 +8166,7 @@ Object {
       class="el-snack-holder"
     />
     <div
-      class="el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
     >
       <div
         class="el-pn-icon"
@@ -8174,7 +8184,9 @@ Object {
         This payment has failed. Please check the details submitted are correct and try again.
       </div>
     </div>
-    <form>
+    <form
+      class="el-fade-in"
+    >
       <h2
         class="el-subtitle"
       >

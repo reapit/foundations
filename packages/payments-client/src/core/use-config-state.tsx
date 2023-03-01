@@ -34,7 +34,7 @@ export const ConfigProvider: FC = ({ children }) => {
       clientCode,
     },
     onError: () => {
-      // Do nothing, suppress 404 if config not found
+      setConfigLoading(false)
     },
     fetchWhenTrue: [clientCode, idToken],
   })

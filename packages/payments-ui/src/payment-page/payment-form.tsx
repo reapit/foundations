@@ -4,6 +4,7 @@ import { handleTransaction, onUpdateStatus } from './payment-handlers'
 import {
   Button,
   ButtonGroup,
+  elFadeIn,
   ElIcon,
   elMb7,
   FormLayout,
@@ -27,6 +28,7 @@ import { PaymentProvider } from '../payment-provider'
 import { ThreeDSecureResponse } from '../types/opayo'
 import { ClientConfigModel } from '../types/config'
 import { frameContent } from './frame-content'
+import { cx } from '@linaria/core'
 
 export interface PaymentFormProps {
   paymentProvider: PaymentProvider
@@ -80,6 +82,10 @@ export const handleSetIframeContent =
         iframeDoc.open()
         iframeDoc.write(frameString)
         iframeDoc.close()
+        const form = iframeDoc.getElementById('three-d-secure-form') as HTMLFormElement
+        if (form) {
+          form.submit()
+        }
         window.onmessage = handleMessage(setThreeDSecureMessage)
       }
     }
@@ -95,12 +101,16 @@ export const handleThreeDSecureResponse =
     setTransactionProcessing: React.Dispatch<React.SetStateAction<boolean>>,
     closeModal: () => void,
     openModal: () => void,
+    getMerchantKey: () => void,
   ) =>
   () => {
     const handleUpdateStatus = async (transaction: ThreeDSecureResponse, cardDetails: CardDetails) => {
       const status = threeDSecureMessage === 'success' ? 'posted' : 'rejected'
       const { transactionId } = transaction
       await onUpdateStatus(status, paymentProvider, cardDetails, setTransactionProcessing, transactionId)
+      if (status === 'rejected') {
+        getMerchantKey()
+      }
     }
 
     if (threeDSecureMessage && modalIsOpen && cachedTransaction) {
@@ -119,7 +129,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
   const [threeDSecureMessage, setThreeDSecureMessage] = useState<string | null>(null)
   const { openModal, closeModal, modalIsOpen, Modal } = useModal()
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  const { payment, config } = paymentProvider
+  const { payment, config, getMerchantKey } = paymentProvider
   const paymentStatus = payment.status
   const { forename = '', surname = '', email = '', primaryAddress } = payment?.customer ?? {}
 
@@ -175,6 +185,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
       setTransactionProcessing,
       closeModal,
       openModal,
+      getMerchantKey,
     ),
     [cachedTransaction, threeDSecureMessage, modalIsOpen],
   )
@@ -182,18 +193,18 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
   return (
     <>
       {threeDSecureMessage === 'failure' && (
-        <PersistentNotification className={elMb7} intent="danger" isInline isExpanded isFullWidth>
+        <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isInline isExpanded isFullWidth>
           Your bank has rejected the 3D Secure transaction. Please check your credentials and try again.
         </PersistentNotification>
       )}
       {paymentStatus === 'rejected' && (
-        <PersistentNotification className={elMb7} intent="danger" isInline isExpanded isFullWidth>
+        <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isInline isExpanded isFullWidth>
           This payment has failed. Please check the details submitted are correct and try again.
         </PersistentNotification>
       )}
       {paymentStatus === 'posted' && (
         <>
-          <PersistentNotification className={elMb7} intent="success" isInline isExpanded isFullWidth>
+          <PersistentNotification className={cx(elMb7, elFadeIn)} intent="success" isInline isExpanded isFullWidth>
             This payment has been successfully submitted and confirmation of payment has been emailed to the address
             supplied. If no email was received, you can send again by clicking the button below.
           </PersistentNotification>
@@ -201,12 +212,18 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
         </>
       )}
 
-      <Modal title="3D Secure Check Required">
+      <Modal
+        title="3D Secure Check Required"
+        onModalClose={() => null /**I don't want a user to dismiss the modal accidentally during the 3d secure flow */}
+      >
         <iframe ref={iframeRef} width="100%" height="300px" />
       </Modal>
       {paymentStatus !== 'posted' && (
         <form
-          onSubmit={handleSubmit(handleTransaction(paymentProvider, setTransactionProcessing, setCachedTransaction))}
+          className={elFadeIn}
+          onSubmit={handleSubmit(
+            handleTransaction(paymentProvider, setTransactionProcessing, setCachedTransaction, setThreeDSecureMessage),
+          )}
         >
           <Subtitle>Billing Details</Subtitle>
           <FormLayout hasMargin>

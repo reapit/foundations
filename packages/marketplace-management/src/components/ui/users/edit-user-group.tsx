@@ -64,13 +64,13 @@ export const prepareGroupOptions = (data: GroupModel[]): MultiSelectOption[] =>
       return 0
     })
 
-const addUserToGroup = async (id: string, userId: string) => {
-  const addUserRes = await addMemberToGroup({ id, userId })
+const addUserToGroup = async (id: string, userId: string, organisationId: string) => {
+  const addUserRes = await addMemberToGroup({ id, userId, organisationId })
   return addUserRes
 }
 
-const removeUserFromGroup = async (id: string, userId: string) => {
-  const removeUserRes = await removeMemberFromGroup({ id, userId })
+const removeUserFromGroup = async (id: string, userId: string, organisationId: string) => {
+  const removeUserRes = await removeMemberFromGroup({ id, userId, organisationId })
   return removeUserRes
 }
 
@@ -110,6 +110,7 @@ export const onHandleSubmit =
     error: (message: string) => void,
     originalUserIds: string[],
     userGroupId: string,
+    organisationId: string,
   ) =>
   async ({ userIds }: UpdateUserGroupModel) => {
     const newUserIds = userIds.split(',').filter(Boolean)
@@ -117,14 +118,14 @@ export const onHandleSubmit =
     const idsToAdd = newUserIds.filter((id) => !originalUserIds.includes(id))
 
     for (const user of idsToAdd) {
-      const addUserRes = await addUserToGroup(userGroupId, user)
+      const addUserRes = await addUserToGroup(userGroupId, user, organisationId)
       if (!addUserRes) {
         return error(toastMessages.FAILED_TO_EDIT_USER_GROUP)
       }
     }
 
     for (const user of idsToRemmove) {
-      const removeUserRes = await removeUserFromGroup(userGroupId, user)
+      const removeUserRes = await removeUserFromGroup(userGroupId, user, organisationId)
       if (!removeUserRes) {
         return error(toastMessages.FAILED_TO_EDIT_USER_GROUP)
       }
@@ -172,7 +173,7 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
     },
   })
 
-  const onSubmit = onHandleSubmit(onComplete, refetchMembers, success, error, userIds, userGroup.id ?? '')
+  const onSubmit = onHandleSubmit(onComplete, refetchMembers, success, error, userIds, userGroup.id ?? '', orgId)
 
   useEffect(handleSetOptions(userIds, users, search, setOptions, getValues), [members, data, search])
 

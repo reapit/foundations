@@ -1,12 +1,13 @@
-import React, { Dispatch, FC, SetStateAction } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { statusOptions } from '../../constants/filter-options'
-import { useForm } from 'react-hook-form'
+import { useForm, UseFormWatch } from 'react-hook-form'
 import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
 import { cx } from '@linaria/core'
 import { elBorderRadius, elMb5, elWFull, InputGroup, Label, Select } from '@reapit/elements'
 import { DATE_TIME_FORMAT } from '@reapit/utils-common'
 import dayjs from 'dayjs'
 import { PaymentsFilters } from '.'
+import debounce from 'just-debounce-it'
 
 export interface PaymentsFilterProps {
   paymentsFilters: PaymentsFilters
@@ -14,12 +15,13 @@ export interface PaymentsFilterProps {
 }
 
 export const handleFormChange =
-  (setPaymentsFilters: Dispatch<SetStateAction<PaymentsFilters>>) => (values: PaymentsFilters) => {
-    setPaymentsFilters(values)
+  (setPaymentsFilters: Dispatch<SetStateAction<PaymentsFilters>>, watch: UseFormWatch<PaymentsFilters>) => () => {
+    const subscription = watch(debounce(setPaymentsFilters, 500))
+    return () => subscription.unsubscribe()
   }
 
 export const PaymentsFilterControls: FC<PaymentsFilterProps> = ({ paymentsFilters, setPaymentsFilters }) => {
-  const { register, handleSubmit } = useForm<PaymentsFilters>({
+  const { register, watch } = useForm<PaymentsFilters>({
     mode: 'onChange',
     defaultValues: {
       ...paymentsFilters,
@@ -27,9 +29,11 @@ export const PaymentsFilterControls: FC<PaymentsFilterProps> = ({ paymentsFilter
   })
   const { createdTo, createdFrom } = paymentsFilters
 
+  useEffect(handleFormChange(setPaymentsFilters, watch), [])
+
   return (
     <div className={cx(elBorderRadius, overflowHidden, elMb5)}>
-      <form onChange={handleSubmit(handleFormChange(setPaymentsFilters))}>
+      <form>
         <ControlsContainer>
           <InputGroup
             className={inputFullWidth}

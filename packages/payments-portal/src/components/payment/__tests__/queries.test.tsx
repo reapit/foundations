@@ -238,9 +238,12 @@ describe('useMerchantKey', () => {
       data: mockData,
     })
 
-    const { result, waitForNextUpdate } = renderHook(() => useMerchantKey(mockSession, mockClientCode, mockPaymentId), {
-      wrapper: createWrapper(),
-    })
+    const { result, waitForNextUpdate } = renderHook(
+      () => useMerchantKey(mockSession, mockConfigModel, mockPaymentId),
+      {
+        wrapper: createWrapper(),
+      },
+    )
     expect(result.current.merchantKey).toBeNull()
     expect(result.current.merchantKeyLoading).toBe(true)
 
@@ -252,7 +255,7 @@ describe('useMerchantKey', () => {
       {
         headers: {
           'X-Api-Key': 'MOCK_API_KEY',
-          'reapit-customer': 'MOCK_CLIENT_CODE',
+          'reapit-customer': 'SBOX',
           'reapit-session': 'MOCK_SESSION',
         },
       },
@@ -263,7 +266,7 @@ describe('useMerchantKey', () => {
     expect(result.current.merchantKey).toEqual(mockData)
     expect(result.current.merchantKeyLoading).toEqual(false)
 
-    result.current.refreshMerchantKey()
+    result.current.getMerchantKey()
 
     expect(mockAxiosPost).toHaveBeenCalledTimes(2)
   })

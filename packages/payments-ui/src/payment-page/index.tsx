@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction } from 'react'
 import { PaymentForm } from './payment-form'
 import { PaymentLogo } from './payment-logo'
 import { PaymentProvider } from '../payment-provider'
-import { BodyText, Col, elMb11, elMr4, FlexContainer, Grid, Icon, Subtitle, Title } from '@reapit/elements'
+import { BodyText, Col, elFadeIn, elMb11, elMr4, FlexContainer, Grid, Icon, Subtitle, Title } from '@reapit/elements'
 import { combineAddress } from '@reapit/utils-common'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { useHistory } from 'react-router'
@@ -25,17 +25,19 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
   const { payment, property, isPortal, config } = paymentProvider
   const { customer, amount, description, id } = payment ?? {}
   const { companyName } = config
-  const isDesktop = window['__REAPIT_MARKETPLACE_GLOBALS__']
 
   return (
-    <>
-      {!isPortal && !isDesktop && (
+    <div className={elFadeIn}>
+      {!isPortal && (
         <PaymentsBackButton onClick={navigate(history, '/payments')}>
           <Icon icon="backSolidSystem" intent="primary" />
         </PaymentsBackButton>
       )}
       <FlexContainer isFlexJustifyBetween>
-        <Title>Card Payment{isPortal && companyName && `, requested by ${companyName}`}</Title>
+        <FlexContainer>
+          {isPortal && config.logoUri && <img className={elMr4} src={config.logoUri} alt="logo" height="34" />}
+          <Title>Card Payment{isPortal && companyName && `, requested by ${companyName}`}</Title>
+        </FlexContainer>
         <PaymentLogo />
       </FlexContainer>
       <Subtitle>Payment Details{id && `, Ref: ${id}`}</Subtitle>
@@ -62,8 +64,8 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
           <FlexContainer>
             <Icon className={elMr4} icon="applicantInfographic" iconSize="medium" />
             <div>
-              <Subtitle hasNoMargin>Customer{customer?.id ? `, Ref: ${customer.id}` : '- None Found'}</Subtitle>
-              <BodyText hasGreyText>{customer?.name && `${customer.name}`}</BodyText>
+              <Subtitle hasNoMargin>Customer{customer?.id && `, Ref: ${customer.id}`}</Subtitle>
+              <BodyText hasGreyText>{customer?.name ? `${customer.name}` : 'Unknown'}</BodyText>
             </div>
           </FlexContainer>
         </Col>
@@ -100,6 +102,6 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
         </Col>
       </Grid>
       <PaymentForm paymentProvider={paymentProvider} />
-    </>
+    </div>
   )
 }

@@ -28,7 +28,13 @@ describe('handleTransaction', () => {
   const paymentProvider = mockPaymentProvider
   const setTransactionProcessing = jest.fn()
   const setThreeDSecureRes = jest.fn()
-  const curried = Handlers.handleTransaction(paymentProvider, setTransactionProcessing, setThreeDSecureRes)
+  const setThreeDSecureMessage = jest.fn()
+  const curried = Handlers.handleTransaction(
+    paymentProvider,
+    setTransactionProcessing,
+    setThreeDSecureRes,
+    setThreeDSecureMessage,
+  )
 
   it('should correctly call the opayo method', () => {
     curried(mockCardDetails)
@@ -39,6 +45,7 @@ describe('handleTransaction', () => {
 })
 
 describe('handleCreateTransaction', () => {
+  ;(window.location as any).origin = 'https://example.com'
   it('should correctly call update', async () => {
     // TODO - Need to work out why this spy is not being called - the functions are being called in the correct order!
     // const updateStatusSpy = jest.spyOn(Handlers, 'onUpdateStatus')

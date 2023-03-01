@@ -14,8 +14,6 @@ import {
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 
 export const useClientConfig = (session: string | null, clientCode: string | null, paymentId?: string) => {
-  const { error } = useSnack()
-
   const url = `${window.reapit.config.paymentsApiUrl}/config/public/${paymentId}`
 
   const { data, error: configError } = useQuery([url, clientCode, session], {
@@ -33,7 +31,6 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
     refetchOnWindowFocus: false,
     onError: (err: AxiosError<any>) => {
       logger(err)
-      error(err.message)
     },
     enabled: Boolean(clientCode && session),
   })
@@ -45,8 +42,6 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
 }
 
 export const usePayment = (session: string | null, clientCode: string | null, paymentId?: string) => {
-  const { error } = useSnack()
-
   const url = `${window.reapit.config.paymentsApiUrl}/payments/${paymentId}`
 
   const { data, isLoading, refetch } = useQuery([url, clientCode, session, paymentId], {
@@ -65,7 +60,6 @@ export const usePayment = (session: string | null, clientCode: string | null, pa
     refetchOnWindowFocus: false,
     onError: (err: AxiosError<any>) => {
       logger(err)
-      error(err.message)
     },
     enabled: Boolean(clientCode && session && paymentId),
   })
@@ -78,7 +72,7 @@ export const usePayment = (session: string | null, clientCode: string | null, pa
 }
 
 export const useReceipt = (session: string | null, clientCode: string | null, paymentId?: string) => {
-  const { error } = useSnack()
+  const { error, success } = useSnack()
 
   const url = `${window.reapit.config.paymentsApiUrl}/receipt/public/${paymentId}`
 
@@ -96,9 +90,12 @@ export const useReceipt = (session: string | null, clientCode: string | null, pa
 
       return Boolean(res.data)
     },
+    onSuccess: () => {
+      success('Successfully sent receipt')
+    },
     onError: (err: AxiosError<any>) => {
       logger(err)
-      error(err.message)
+      error(err?.response?.data?.message ?? err?.message)
     },
   })
 
@@ -136,7 +133,7 @@ export const useStatusUpdate = (session: string | null, clientCode: string | nul
     },
     onError: (err: AxiosError<any>) => {
       logger(err)
-      error(err.message)
+      error(err?.response?.data?.message ?? err?.message)
     },
   })
 
@@ -149,8 +146,6 @@ export const useStatusUpdate = (session: string | null, clientCode: string | nul
 }
 
 export const useTransaction = (session: string | null, clientCode: string | null, paymentId: string | null) => {
-  const { error } = useSnack()
-
   const url = `${window.reapit.config.paymentsApiUrl}/opayo/public/transactions/${paymentId}`
 
   const { mutateAsync } = useMutation([url, clientCode, session, paymentId], {
@@ -167,7 +162,6 @@ export const useTransaction = (session: string | null, clientCode: string | null
     },
     onError: (err: AxiosError<any>) => {
       logger(err)
-      error(err.message)
     },
   })
 
@@ -178,10 +172,9 @@ export const useTransaction = (session: string | null, clientCode: string | null
   }
 }
 
-export const useMerchantKey = (session: string | null, clientCode: string | null, paymentId: string | null) => {
-  const { error } = useSnack()
-
+export const useMerchantKey = (session: string | null, config: ClientConfigModel | null, paymentId: string | null) => {
   const url = `${window.reapit.config.paymentsApiUrl}/opayo/public/merchant-session-keys/${paymentId}`
+  const { clientCode, isConfigured } = config ?? {}
 
   const { data, isLoading, refetch } = useQuery([url, clientCode, session, paymentId], {
     queryFn: async () => {
@@ -198,14 +191,13 @@ export const useMerchantKey = (session: string | null, clientCode: string | null
     refetchOnWindowFocus: false,
     onError: (err: AxiosError<any>) => {
       logger(err)
-      error(err.message)
     },
-    enabled: Boolean(session && clientCode && paymentId),
+    enabled: Boolean(session && clientCode && paymentId && isConfigured),
   })
 
   return {
     merchantKey: data ?? null,
     merchantKeyLoading: isLoading,
-    refreshMerchantKey: refetch,
+    getMerchantKey: refetch,
   }
 }
