@@ -280,87 +280,124 @@ exports[`Home should match a snapshot 1`] = `
         </button>
       </div>
       <div
-        class="__react_component_tooltip tMOCK_UUID place-bottom type-dark"
+        class="__react_component_tooltip te3f902d1-f142-4095-b40a-d59a73bb0c91 place-bottom type-dark"
         data-id="tooltip"
-        id="tMOCK_UUID"
+        id="te3f902d1-f142-4095-b40a-d59a73bb0c91"
       >
         <style
           aria-hidden="true"
         >
           
-  	.tMOCK_UUID {
+  	.te3f902d1-f142-4095-b40a-d59a73bb0c91 {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
+	    border-radius: undefinedpx;
 	    padding: 8px 21px;
   	}
 
-  	.tMOCK_UUID.place-top {
+  	.te3f902d1-f142-4095-b40a-d59a73bb0c91.place-top {
         margin-top: -10px;
     }
-    .tMOCK_UUID.place-top::before {
-        border-top: 8px solid transparent;
+    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-top::before {
+        content: "";
+        background-color: inherit;
+        position: absolute;
+        z-index: 2;
+        width: 20px;
+        height: 12px;
     }
-    .tMOCK_UUID.place-top::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
+    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-top::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-top-right-radius: undefinedpx;
+        border: 1px solid transparent;
+        background-color: #222;
+        z-index: -2;
         bottom: -6px;
         left: 50%;
-        margin-left: -8px;
-        border-top-color: #222;
-        border-top-style: solid;
-        border-top-width: 6px;
+        margin-left: -6px;
+        transform: rotate(135deg);
     }
 
-    .tMOCK_UUID.place-bottom {
+    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-bottom {
         margin-top: 10px;
     }
-    .tMOCK_UUID.place-bottom::before {
-        border-bottom: 8px solid transparent;
+    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-bottom::before {
+        content: "";
+        background-color: inherit;
+        position: absolute;
+        z-index: -1;
+        width: 18px;
+        height: 10px;
     }
-    .tMOCK_UUID.place-bottom::after {
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
+    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-bottom::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-top-right-radius: undefinedpx;
+        border: 1px solid transparent;
+        background-color: #222;
+        z-index: -2;
         top: -6px;
         left: 50%;
-        margin-left: -8px;
-        border-bottom-color: #222;
-        border-bottom-style: solid;
-        border-bottom-width: 6px;
+        margin-left: -6px;
+        transform: rotate(45deg);
     }
 
-    .tMOCK_UUID.place-left {
+    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-left {
         margin-left: -10px;
     }
-    .tMOCK_UUID.place-left::before {
-        border-left: 8px solid transparent;
+    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-left::before {
+        content: "";
+        background-color: inherit;
+        position: absolute;
+        z-index: -1;
+        width: 10px;
+        height: 18px;
     }
-    .tMOCK_UUID.place-left::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
+    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-left::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-top-right-radius: undefinedpx;
+        border: 1px solid transparent;
+        background-color: #222;
+        z-index: -2;
         right: -6px;
         top: 50%;
-        margin-top: -4px;
-        border-left-color: #222;
-        border-left-style: solid;
-        border-left-width: 6px;
+        margin-top: -6px;
+        transform: rotate(45deg);
     }
 
-    .tMOCK_UUID.place-right {
+    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-right {
         margin-left: 10px;
     }
-    .tMOCK_UUID.place-right::before {
-        border-right: 8px solid transparent;
+    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-right::before {
+        content: "";
+        background-color: inherit;
+        position: absolute;
+        z-index: -1;
+        width: 10px;
+        height: 18px;
     }
-    .tMOCK_UUID.place-right::after {
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
+    .te3f902d1-f142-4095-b40a-d59a73bb0c91.place-right::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-top-right-radius: undefinedpx;
+        border: 1px solid transparent;
+        background-color: #222;
+        z-index: -2;
         left: -6px;
         top: 50%;
-        margin-top: -4px;
-        border-right-color: #222;
-        border-right-style: solid;
-        border-right-width: 6px;
+        margin-top: -6px;
+        transform: rotate(-135deg);
     }
   
         </style>
