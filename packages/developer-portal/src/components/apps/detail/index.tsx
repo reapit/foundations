@@ -22,6 +22,8 @@ import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { LinkChip, PermissionChip, textOverflow, textOverflowContainer } from './__styles__'
 import { ExternalPages, openNewPage } from '../../../utils/navigation'
+import { selectIsDeveloperAdmin } from '../../../utils/auth'
+import { useReapitConnect } from '@reapit/connect-session'
 
 export interface CopyState {
   externalId: string
@@ -75,21 +77,28 @@ export const getIntegrationType = ({ isDirectApi, authFlow, desktopIntegrationTy
     : 'You have a client side authenticated integration that will render within the AgencyCloud desktop CRM'
 }
 
+export const handleSetShouldFetchSecret = (setShouldFetchSecret: Dispatch<SetStateAction<boolean>>) => () => {
+  setShouldFetchSecret(true)
+}
+
 export const AppDetail: FC = () => {
   const { appsDataState, setAppId } = useAppState()
   const [copyState, setCopyState] = useState<CopyState>(defaultCopyState)
+  const [shouldFetchSecret, setShouldFetchSecret] = useState<boolean>(false)
   const { appId } = useParams<AppUriParams>()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const isAdmin = selectIsDeveloperAdmin(connectSession)
 
   useEffect(handleSetAppId(appId, setAppId), [appId])
 
   const { appDetail, appDetailLoading } = appsDataState
   const { id, name, externalId, authFlow, redirectUris, signoutUris, scopes } = appDetail ?? {}
 
-  const [appSecret] = useReapitGet<AppClientSecretModel>({
+  const [appSecret, appSecretLoading] = useReapitGet<AppClientSecretModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppSecret],
     uriParams: { appId },
-    fetchWhenTrue: [appId, authFlow === 'clientCredentials'],
+    fetchWhenTrue: [appId, authFlow === 'clientCredentials', shouldFetchSecret],
   })
 
   return appDetailLoading ? (
@@ -151,20 +160,35 @@ export const AppDetail: FC = () => {
             </CopyToClipboard>
           </Col>
         )}
-        {appSecret?.clientSecret && (
+        {authFlow === 'clientCredentials' && (
           <Col>
             <FlexContainer>
               <Icon className={elMr4} icon="doorLockInfographic" iconSize="medium" />
               <div className={textOverflowContainer}>
                 <Subtitle hasNoMargin>Authentication Client Secret</Subtitle>
                 <BodyText className={textOverflow} hasGreyText>
-                  {appSecret.clientSecret}
+                  {appSecret?.clientSecret && isAdmin
+                    ? '*********************************'
+                    : !isAdmin
+                    ? 'You need to be an admin to view this secret'
+                    : 'Click to load client secret'}
                 </BodyText>
               </div>
             </FlexContainer>
-            <CopyToClipboard text={appSecret.clientSecret} onCopy={handleCopyCode(setCopyState, 'clientSecret')}>
-              <Button intent="low">{copyState.clientSecret}</Button>
-            </CopyToClipboard>
+            {appSecret?.clientSecret ? (
+              <CopyToClipboard text={appSecret?.clientSecret} onCopy={handleCopyCode(setCopyState, 'clientSecret')}>
+                <Button intent="low">{copyState.clientSecret}</Button>
+              </CopyToClipboard>
+            ) : (
+              <Button
+                onClick={handleSetShouldFetchSecret(setShouldFetchSecret)}
+                intent="low"
+                disabled={appSecretLoading || !isAdmin}
+                loading={appDetailLoading}
+              >
+                Load Secret
+              </Button>
+            )}
           </Col>
         )}
         {id && (
