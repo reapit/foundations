@@ -95,41 +95,6 @@ Object {
             >
               <svg />
             </span>
-            <div
-              class="ttq29n6-text-overflow-container"
-            >
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-              >
-                Authentication Client Secret
-              </h2>
-              <p
-                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
-              >
-                MOCK_SECRET
-              </p>
-            </div>
-          </div>
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
-          >
-            Copy
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
-        >
-          <div
-            class="e2kmzjs-el-flex-container"
-          >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
-            >
-              <svg />
-            </span>
             <div>
               <h2
                 class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
@@ -334,18 +299,448 @@ Object {
           >
             <svg />
           </span>
-          <div
-            class="ttq29n6-text-overflow-container"
-          >
+          <div>
             <h2
               class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
             >
-              Authentication Client Secret
+              App Id
             </h2>
             <p
               class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
-              MOCK_SECRET
+              MOCK_APP_ID
+            </p>
+          </div>
+        </div>
+        <button
+          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+        >
+          Copy
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
+        </button>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <h2
+          class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+        >
+          Redirect Uri(s)
+        </h2>
+        <p
+          class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+        >
+          https://foo.bar
+        </p>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <h2
+          class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+        >
+          Sign Out Uri(s)
+        </h2>
+        <p
+          class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+        >
+          https://foo.bar
+        </p>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          >
+            Integration Type
+          </h2>
+          <p
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+          >
+            You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
+          </p>
+        </div>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          >
+            App Status
+          </h2>
+          <p
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+          >
+            Your app is live and public in the AppMarket with a pending revision under review
+          </p>
+        </div>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <h2
+          class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+        >
+          Permissions
+        </h2>
+        <div
+          class="p11sa0f-permission-chip"
+        >
+          Read applicants
+        </div>
+        <div
+          class="p11sa0f-permission-chip"
+        >
+          Read property images
+        </div>
+        <div
+          class="p11sa0f-permission-chip"
+        >
+          Read properties
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AppDetail should match snapshot when app is client credentials 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <h1
+        class="e1byern-el-title"
+      >
+        will-test-dev-co-voracious-person
+      </h1>
+      <h2
+        class="e15ggth7-el-subtitle"
+      >
+        Authenticating Your App
+      </h2>
+      <p
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+      >
+        Client-side Apps use our identity provider
+         
+        <a>
+          Reapit Connect
+        </a>
+         to authenticate against our API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn, re-direct back to your app with a code in the URL that you exchange for access and id JWTs, referred to as
+         
+        <a>
+          Authorization Code flow.
+        </a>
+         You will need the Client Id and Redirect Uris below to configure Reapit Connect.
+      </p>
+      <p
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
+      >
+        To make this process easier, we provide you with an authentication module for client-side apps,
+         
+        <a>
+          Connect Session
+        </a>
+        , which comes bundled with our
+         
+        <a>
+          Create React App Template
+        </a>
+         for quick start client-side development.
+      </p>
+      <div
+        class="e20pb60-el-grid"
+      >
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <div
+            class="e2kmzjs-el-flex-container"
+          >
+            <span
+              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            >
+              <svg />
+            </span>
+            <div>
+              <h2
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              >
+                Authentication Client Id
+              </h2>
+              <p
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              >
+                MOCK_EXTERNAL_ID
+              </p>
+            </div>
+          </div>
+          <button
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          >
+            Copy
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
+          </button>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <div
+            class="e2kmzjs-el-flex-container"
+          >
+            <span
+              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            >
+              <svg />
+            </span>
+            <div>
+              <h2
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              >
+                App Id
+              </h2>
+              <p
+                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              >
+                MOCK_APP_ID
+              </p>
+            </div>
+          </div>
+          <button
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          >
+            Copy
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
+          </button>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          >
+            Redirect Uri(s)
+          </h2>
+          <p
+            class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+          >
+            https://foo.bar
+          </p>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          >
+            Sign Out Uri(s)
+          </h2>
+          <p
+            class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+          >
+            https://foo.bar
+          </p>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <div
+            class="e14pp0yd-el-col"
+          >
+            <h2
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            >
+              Integration Type
+            </h2>
+            <p
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            >
+              You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
+            </p>
+          </div>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <div
+            class="e14pp0yd-el-col"
+          >
+            <h2
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            >
+              App Status
+            </h2>
+            <p
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            >
+              Your app is live and public in the AppMarket with a pending revision under review
+            </p>
+          </div>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          >
+            Permissions
+          </h2>
+          <div
+            class="p11sa0f-permission-chip"
+          >
+            Read applicants
+          </div>
+          <div
+            class="p11sa0f-permission-chip"
+          >
+            Read property images
+          </div>
+          <div
+            class="p11sa0f-permission-chip"
+          >
+            Read properties
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <h1
+      class="e1byern-el-title"
+    >
+      will-test-dev-co-voracious-person
+    </h1>
+    <h2
+      class="e15ggth7-el-subtitle"
+    >
+      Authenticating Your App
+    </h2>
+    <p
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+    >
+      Client-side Apps use our identity provider
+       
+      <a>
+        Reapit Connect
+      </a>
+       to authenticate against our API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn, re-direct back to your app with a code in the URL that you exchange for access and id JWTs, referred to as
+       
+      <a>
+        Authorization Code flow.
+      </a>
+       You will need the Client Id and Redirect Uris below to configure Reapit Connect.
+    </p>
+    <p
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
+    >
+      To make this process easier, we provide you with an authentication module for client-side apps,
+       
+      <a>
+        Connect Session
+      </a>
+      , which comes bundled with our
+       
+      <a>
+        Create React App Template
+      </a>
+       for quick start client-side development.
+    </p>
+    <div
+      class="e20pb60-el-grid"
+    >
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <div
+          class="e2kmzjs-el-flex-container"
+        >
+          <span
+            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          >
+            <svg />
+          </span>
+          <div>
+            <h2
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            >
+              Authentication Client Id
+            </h2>
+            <p
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            >
+              MOCK_EXTERNAL_ID
             </p>
           </div>
         </div>
