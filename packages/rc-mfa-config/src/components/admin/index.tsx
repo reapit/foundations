@@ -42,6 +42,7 @@ export interface UserFilters {
   email?: string
   name?: string
   mfaEnabled?: string
+  active?: string
 }
 
 export const handleSetAdminFilters =
@@ -178,6 +179,33 @@ export const AdminPage: FC = () => {
                       id: 'mfa-enabled-false',
                       value: 'false',
                       text: 'Not Configured',
+                      isChecked: false,
+                    },
+                  ]}
+                />
+              </InputWrap>
+              <InputWrap>
+                <Label>User Active</Label>
+                <ToggleRadio
+                  hasGreyBg
+                  {...register('active')}
+                  options={[
+                    {
+                      id: 'usr-active-all',
+                      value: '',
+                      text: 'All',
+                      isChecked: true,
+                    },
+                    {
+                      id: 'usr-active-true',
+                      value: 'true',
+                      text: 'Active',
+                      isChecked: false,
+                    },
+                    {
+                      id: 'usr-active-false',
+                      value: 'false',
+                      text: 'Inactive',
                       isChecked: false,
                     },
                   ]}

@@ -215,6 +215,71 @@ Object {
                   </label>
                 </div>
               </div>
+              <div
+                class="el-input-wrap"
+              >
+                <label
+                  class="el-label"
+                >
+                  User Active
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="el-toggle-radio"
+                    id="usr-active-all"
+                    name="active"
+                    type="radio"
+                    value=""
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="usr-active-all"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      All
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="usr-active-true"
+                    name="active"
+                    type="radio"
+                    value="true"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="usr-active-true"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Active
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="usr-active-false"
+                    name="active"
+                    type="radio"
+                    value="false"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="usr-active-false"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Inactive
+                    </span>
+                  </label>
+                </div>
+              </div>
             </div>
           </form>
           <div
@@ -588,6 +653,71 @@ Object {
                     class="el-toggle-radio-item"
                   >
                     Not Configured
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <label
+                class="el-label"
+              >
+                User Active
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="el-toggle-radio"
+                  id="usr-active-all"
+                  name="active"
+                  type="radio"
+                  value=""
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="usr-active-all"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    All
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="usr-active-true"
+                  name="active"
+                  type="radio"
+                  value="true"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="usr-active-true"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Active
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="usr-active-false"
+                  name="active"
+                  type="radio"
+                  value="false"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="usr-active-false"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Inactive
                   </span>
                 </label>
               </div>
@@ -979,6 +1109,71 @@ Object {
                   </label>
                 </div>
               </div>
+              <div
+                class="el-input-wrap"
+              >
+                <label
+                  class="el-label"
+                >
+                  User Active
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="el-toggle-radio"
+                    id="usr-active-all"
+                    name="active"
+                    type="radio"
+                    value=""
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="usr-active-all"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      All
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="usr-active-true"
+                    name="active"
+                    type="radio"
+                    value="true"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="usr-active-true"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Active
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="usr-active-false"
+                    name="active"
+                    type="radio"
+                    value="false"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="usr-active-false"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Inactive
+                    </span>
+                  </label>
+                </div>
+              </div>
             </div>
           </form>
           <div
@@ -1156,6 +1351,71 @@ Object {
                     class="el-toggle-radio-item"
                   >
                     Not Configured
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <label
+                class="el-label"
+              >
+                User Active
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="el-toggle-radio"
+                  id="usr-active-all"
+                  name="active"
+                  type="radio"
+                  value=""
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="usr-active-all"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    All
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="usr-active-true"
+                  name="active"
+                  type="radio"
+                  value="true"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="usr-active-true"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Active
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="usr-active-false"
+                  name="active"
+                  type="radio"
+                  value="false"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="usr-active-false"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Inactive
                   </span>
                 </label>
               </div>
@@ -1445,6 +1705,71 @@ Object {
                   </label>
                 </div>
               </div>
+              <div
+                class="el-input-wrap"
+              >
+                <label
+                  class="el-label"
+                >
+                  User Active
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="el-toggle-radio"
+                    id="usr-active-all"
+                    name="active"
+                    type="radio"
+                    value=""
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="usr-active-all"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      All
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="usr-active-true"
+                    name="active"
+                    type="radio"
+                    value="true"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="usr-active-true"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Active
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="usr-active-false"
+                    name="active"
+                    type="radio"
+                    value="false"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="usr-active-false"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Inactive
+                    </span>
+                  </label>
+                </div>
+              </div>
             </div>
           </form>
           <div
@@ -1677,6 +2002,71 @@ Object {
                     class="el-toggle-radio-item"
                   >
                     Not Configured
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <label
+                class="el-label"
+              >
+                User Active
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="el-toggle-radio"
+                  id="usr-active-all"
+                  name="active"
+                  type="radio"
+                  value=""
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="usr-active-all"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    All
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="usr-active-true"
+                  name="active"
+                  type="radio"
+                  value="true"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="usr-active-true"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Active
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="usr-active-false"
+                  name="active"
+                  type="radio"
+                  value="false"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="usr-active-false"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Inactive
                   </span>
                 </label>
               </div>
@@ -1923,6 +2313,71 @@ Object {
                       class="el-toggle-radio-item"
                     >
                       Not Configured
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="el-input-wrap"
+              >
+                <label
+                  class="el-label"
+                >
+                  User Active
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="el-toggle-radio"
+                    id="usr-active-all"
+                    name="active"
+                    type="radio"
+                    value=""
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="usr-active-all"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      All
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="usr-active-true"
+                    name="active"
+                    type="radio"
+                    value="true"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="usr-active-true"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Active
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="usr-active-false"
+                    name="active"
+                    type="radio"
+                    value="false"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="usr-active-false"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Inactive
                     </span>
                   </label>
                 </div>
@@ -2253,6 +2708,71 @@ Object {
                     class="el-toggle-radio-item"
                   >
                     Not Configured
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <label
+                class="el-label"
+              >
+                User Active
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="el-toggle-radio"
+                  id="usr-active-all"
+                  name="active"
+                  type="radio"
+                  value=""
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="usr-active-all"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    All
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="usr-active-true"
+                  name="active"
+                  type="radio"
+                  value="true"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="usr-active-true"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Active
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="usr-active-false"
+                  name="active"
+                  type="radio"
+                  value="false"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="usr-active-false"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Inactive
                   </span>
                 </label>
               </div>
