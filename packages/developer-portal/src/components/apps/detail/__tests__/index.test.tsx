@@ -2,7 +2,14 @@ import React from 'react'
 import { render } from '../../../../tests/react-testing'
 import { useAppState } from '../../state/use-app-state'
 import { mockAppState } from '../../state/__mocks__/use-app-state'
-import { AppDetail, defaultCopyState, getAppStatus, getIntegrationType, handleCopyCode } from '../index'
+import {
+  AppDetail,
+  defaultCopyState,
+  getAppStatus,
+  getIntegrationType,
+  handleCopyCode,
+  handleSetShouldFetchSecret,
+} from '../index'
 
 jest.mock('../../state/use-app-state')
 jest.mock('@reapit/utils-react', () => ({
@@ -14,6 +21,17 @@ const mockUseAppState = useAppState as jest.Mock
 
 describe('AppDetail', () => {
   it('should match snapshot', () => {
+    expect(render(<AppDetail />)).toMatchSnapshot()
+  })
+
+  it('should match snapshot when app is client credentials', () => {
+    mockUseAppState.mockReturnValue({
+      ...mockAppState,
+      appsDataState: {
+        ...mockAppState.appsDataState,
+        authFlow: 'clientCredentials',
+      },
+    })
     expect(render(<AppDetail />)).toMatchSnapshot()
   })
 
@@ -54,6 +72,18 @@ describe('handleCopyCode', () => {
     expect(setCopyState).toHaveBeenCalledTimes(2)
     expect(setCopyState).toHaveBeenCalledWith({ ...defaultCopyState, externalId: 'Copied' })
     expect(setCopyState.mock.calls[1][0]()).toEqual({ externalId: 'Copy' })
+  })
+})
+
+describe('handleSetShouldFetchSecret', () => {
+  it('should set fetch secret', () => {
+    const setShouldFetchSecret = jest.fn()
+
+    const curried = handleSetShouldFetchSecret(setShouldFetchSecret)
+
+    curried()
+
+    expect(setShouldFetchSecret).toHaveBeenCalledWith(true)
   })
 })
 
