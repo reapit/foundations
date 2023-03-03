@@ -8,6 +8,7 @@ import { Loader, MainContainer } from '@reapit/elements'
 import { HelperWidget, HelperWidgetApps } from '@reapit/utils-react'
 import { GlobalProvider } from './use-global-state'
 import { openChatbot } from '../scripts/chat-bot'
+import { FourOFour } from './router'
 
 const { Suspense } = React
 
@@ -34,8 +35,13 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
   const isRoot = connectInternalRedirect === '/' || window.location.pathname === '/'
+  const isAusUser = connectSession?.loginIdentity.orgProduct?.toLowerCase() === 'agentbox'
 
   useEffect(handleOpenChatbot(connectSession), [connectSession])
+
+  if (isAusUser) {
+    return <FourOFour />
+  }
 
   if (isRoot) {
     return <Redirect to={Routes.APPS} />
