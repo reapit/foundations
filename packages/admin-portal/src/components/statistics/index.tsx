@@ -7,6 +7,8 @@ import {
   DeveloperModelPagedResult,
   InstallationModel,
   InstallationModelPagedResult,
+  OfficeGroupModel,
+  OfficeGroupModelPagedResult,
   ServiceItemBillingV2Model,
   SubscriptionModel,
 } from '@reapit/foundations-ts-definitions'
@@ -15,19 +17,20 @@ import { ButtonGroup, Button, elMb11 } from '@reapit/elements'
 import { SubsWithAppName } from '../subscriptions'
 import { toLocalTime } from '@reapit/utils-common'
 
-export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS' | 'BILLING' | 'SUBSCRIPTIONS'
+export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS' | 'BILLING' | 'SUBSCRIPTIONS' | 'SERVICES' | 'OFFICE_GROUPS'
 export type PagedData =
   | AppSummaryModelPagedResult
   | DeveloperModelPagedResult
   | InstallationModelPagedResult
   | SubsWithAppName
-export type StatsDataType = PagedData | ServiceItemBillingV2Model[] | null
+export type StatsDataType = PagedData | ServiceItemBillingV2Model[] | OfficeGroupModelPagedResult | null
 
 export type CSVDataType =
   | AppSummaryModel[]
   | DeveloperModel[]
   | InstallationModel[]
   | ServiceItemBillingV2Model[]
+  | OfficeGroupModel[]
   | null
 
 export interface StatisticsProps {
@@ -169,6 +172,22 @@ export const handleDownloadCSV =
       handleSaveFile(csv, 'subscriptions.csv')
       return setPageSize && setPageSize(12)
     }
+
+    if (data && area === 'OFFICE_GROUPS') {
+      const officeGroups = data as OfficeGroupModel[]
+
+      const csv = Papa.unparse({
+        fields: ['Customer Id', 'Group Name', 'Office Ids', 'Status'],
+        data: officeGroups.map((item) => {
+          const { customerId, name, officeIds, status } = item
+
+          return [customerId, name, officeIds, status]
+        }),
+      })
+
+      handleSaveFile(csv, 'office-groups.csv')
+      return setPageSize && setPageSize(12)
+    }
   }
 
 export const handleDownloadCSVClick =
@@ -194,6 +213,14 @@ export const handleDataChange =
 
       if (pagedData.data && pagedData.pageSize === 9999) {
         setCsvData(pagedData.data)
+      }
+    }
+
+    if (data && area === 'OFFICE_GROUPS') {
+      const pagedData = data as OfficeGroupModelPagedResult
+
+      if (pagedData && pagedData.pageSize === 9999) {
+        setCsvData(pagedData._embedded ?? [])
       }
     }
   }
