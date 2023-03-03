@@ -56,11 +56,11 @@ export const handleSetAppNames =
 
     if (isCsvOutput && apps?.data?.length !== numberApps) return
 
-    if (apps && subscriptions) {
+    if (subscriptions) {
       const subscriptionsWithAppName = {
         ...subscriptions,
         data: subscriptions.data?.map((sub) => {
-          const appName = apps.data?.find((app) => app.id === sub.applicationId)?.name ?? ''
+          const appName = apps?.data?.find((app) => app.id === sub.applicationId)?.name ?? ''
 
           return {
             ...sub,
