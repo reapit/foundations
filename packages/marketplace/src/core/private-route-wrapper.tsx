@@ -3,7 +3,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { Nav } from '../components/nav/nav'
 import { reapitConnectBrowserSession } from './connect-session'
 import { useLocation, Redirect } from 'react-router'
-import { Loader, MainContainer, PageContainer } from '@reapit/elements'
+import { Loader, MainContainer, PageContainer, PersistentNotification } from '@reapit/elements'
 import { Routes } from '../constants/routes'
 import { AppsBrowseProvider } from './use-apps-browse-state'
 import { AnalyticsBanner } from './analytics-banner'
@@ -15,12 +15,25 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   const location = useLocation()
   const currentUri = `${location?.pathname}${location?.search}`
   const isRoot = connectInternalRedirect === '/?' || connectInternalRedirect === '/' || window.location.pathname === '/'
+  const isAusUser = connectSession?.loginIdentity.orgProduct?.toLowerCase() === 'agentbox'
 
   if (!connectSession) {
     return (
       <MainContainer>
         <PageContainer>
           <Loader fullPage />
+        </PageContainer>
+      </MainContainer>
+    )
+  }
+
+  if (isAusUser) {
+    return (
+      <MainContainer>
+        <PageContainer>
+          <PersistentNotification isFullWidth isInline isExpanded intent="danger">
+            Page not found
+          </PersistentNotification>
         </PageContainer>
       </MainContainer>
     )
