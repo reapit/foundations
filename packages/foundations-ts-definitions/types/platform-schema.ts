@@ -4546,7 +4546,7 @@ export interface CreateApplicantModel {
      */
     rentTo?: number // double
     /**
-     * The desired rent collection frequency specified by the applicant's budget (weekly/monthly/annually).
+     * The desired rent collection frequency specified by the applicant's budget (weekly/monthly/annually/fourWeekly).
      */
     rentFrequency?: string
     /**
@@ -4652,7 +4652,7 @@ export interface CreateApplicantRentingModel {
    */
   rentTo?: number // double
   /**
-   * The desired rent collection frequency specified by the applicant's budget (weekly/monthly/annually).
+   * The desired rent collection frequency specified by the applicant's budget (weekly/monthly/annually/fourWeekly).
    */
   rentFrequency?: string
   /**
