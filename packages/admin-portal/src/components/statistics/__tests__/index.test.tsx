@@ -8,6 +8,7 @@ import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 import { mockInstallationModelPagedResult } from '../../../tests/__stubs__/installations'
 import { mockDeveloperModelPagedResult } from '../../../tests/__stubs__/developers'
 import { mockSubscriptionModelPagedResult } from '../../../tests/__stubs__/subscriptions'
+import { mockOfficeGroupModelPagedResult } from '../../../tests/__stubs__/office-groups'
 
 jest.mock('file-saver', () => ({
   __esModule: true,
@@ -92,6 +93,16 @@ describe('handleDownloadCSV', () => {
   it('handleDownloadCSV should download a file for SUBSCRIPTIONS', () => {
     const setPageSize = jest.fn()
     const curried = handleDownloadCSV('SUBSCRIPTIONS', mockSubscriptionModelPagedResult.data ?? [], setPageSize)
+
+    curried()
+
+    expect(FileSaver.saveAs).toHaveBeenCalledTimes(1)
+    expect(Papa.unparse).toHaveBeenCalledTimes(1)
+  })
+
+  it('handleDownloadCSV should download a file for OFFICE_GROUPS', () => {
+    const setPageSize = jest.fn()
+    const curried = handleDownloadCSV('OFFICE_GROUPS', mockOfficeGroupModelPagedResult._embedded ?? [], setPageSize)
 
     curried()
 

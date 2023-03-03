@@ -17,6 +17,7 @@ import {
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import { fourColTable } from './__styles__'
+import { Statistics } from '../statistics'
 
 export interface OrgGroupsProps {
   orgId: string
@@ -24,12 +25,13 @@ export interface OrgGroupsProps {
 
 export const OrgGroupsTable: FC<OrgGroupsProps> = ({ orgId }) => {
   const [pageNumber, setPageNumber] = useState<number>(1)
+  const [pageSize, setPageSize] = useState<number>(12)
 
   const [orgGroups, orgGroupsLoading] = useReapitGet<OfficeGroupModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getGroupsByOrgId],
     queryParams: {
-      pageSize: 12,
+      pageSize,
       pageNumber,
     },
     uriParams: {
@@ -66,6 +68,7 @@ export const OrgGroupsTable: FC<OrgGroupsProps> = ({ orgId }) => {
             currentPage={pageNumber}
             numberPages={Math.ceil((orgGroups?.totalCount ?? 1) / 12)}
           />
+          <Statistics area="OFFICE_GROUPS" data={orgGroups} setPageSize={setPageSize} />
         </>
       ) : (
         <PersistentNotification className={elMt7} isInline isExpanded isFullWidth intent="secondary">
