@@ -4,7 +4,7 @@
   "dependencies": {
     "@nestjs/common": "^8.4.7",
     "@nestjs/config": "^2.3.1",
-    "@nestjs/core": "^8.4.7",
+    "@nestjs/core": "^9.0.5",
     "@nestjs/platform-express": "^8.4.7",
     "aws-lambda": "^1.0.7",
     "aws-sdk": "^2.1325.0",
