@@ -157,7 +157,7 @@ Object {
           class="el-mb11 el-table"
           data-has-call-to-action="true"
           data-has-expandable-action="false"
-          data-num-columns-excl-action-col="10"
+          data-num-columns-excl-action-col="9"
         >
           <div
             class="el-table-headers-row"
@@ -171,11 +171,6 @@ Object {
               class="el-table-header"
             >
               Summary
-            </div>
-            <div
-              class="el-table-header"
-            >
-              App Name
             </div>
             <div
               class="el-table-header"
@@ -238,14 +233,6 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="Summary"
-                />
-              </div>
-              <div
-                class="el-table-cell"
-              >
-                <div
-                  class="el-table-cell-content"
-                  data-narrow-label="App Name"
                 />
               </div>
               <div
@@ -510,7 +497,7 @@ Object {
         class="el-mb11 el-table"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
-        data-num-columns-excl-action-col="10"
+        data-num-columns-excl-action-col="9"
       >
         <div
           class="el-table-headers-row"
@@ -524,11 +511,6 @@ Object {
             class="el-table-header"
           >
             Summary
-          </div>
-          <div
-            class="el-table-header"
-          >
-            App Name
           </div>
           <div
             class="el-table-header"
@@ -591,14 +573,6 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="Summary"
-              />
-            </div>
-            <div
-              class="el-table-cell"
-            >
-              <div
-                class="el-table-cell-content"
-                data-narrow-label="App Name"
               />
             </div>
             <div
