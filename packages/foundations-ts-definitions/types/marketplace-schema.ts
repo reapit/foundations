@@ -1708,6 +1708,10 @@ export interface MemberModel {
    * A flag to determine whether an access token issued to this developer user will resolve to customer data (rather than sandbox)
    */
   useCustomerData?: boolean
+  /**
+   * A flag to determine if this member is the main contact for the developer
+   */
+  isMainContact?: boolean
 }
 /**
  * Model to handle paged data and information
