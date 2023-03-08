@@ -77,7 +77,10 @@ export class PipelineController {
       throw new BadRequestException('Invalid pipeline properties')
     }
 
-    if (!previousPipeline) {
+    if (
+      !previousPipeline ||
+      (previousPipeline.buildStatus && ['PRE_PROVISIONED', 'CREATED'].includes(previousPipeline.buildStatus))
+    ) {
       await this.eventDispatcher.triggerPipelineSetup(pipeline)
     } else {
       await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
