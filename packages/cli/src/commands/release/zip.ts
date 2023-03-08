@@ -131,7 +131,7 @@ export class ZipCommand extends AbstractCommand {
     }
 
     spinner.succeed('Successfully published to reapit')
-    const url = `https://${pipeline.subDomain}.dev.paas.reapit.cloud`
+    const url = `https://${pipeline.subDomain}.iaas.paas.reapit.cloud`
     console.log(`Check out your deployment: ${chalk.green(url)}`)
   }
 

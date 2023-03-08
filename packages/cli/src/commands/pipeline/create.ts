@@ -321,7 +321,7 @@ export class PipelineCreate extends AbstractCommand {
     this.writeLine("Now you're ready to deploy to your pipeline!")
     this.writeLine(`To do so, either use ${chalk.green('reapit release zip')} or ${chalk.green('reapit release repo')}`)
     this.writeLine('')
-    this.writeLine(`You can visit your domain here ${chalk.green(`https://${event.subDomain}.dev.paas.reapit.cloud`)}`)
+    this.writeLine(`You can visit your domain here ${chalk.green(`https://${event.subDomain}.iaas.paas.reapit.cloud`)}`)
     process.exit(0)
   }
 }

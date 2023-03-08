@@ -216,7 +216,7 @@ export class PipelineEditCommand extends AbstractCommand {
     this.writeLine('')
     this.writeLine('Or use commits from your repo')
     this.writeLine('')
-    this.writeLine(`You can visit your domain here ${chalk.green(`https://${event.subDomain}.dev.paas.reapit.cloud`)}`)
+    this.writeLine(`You can visit your domain here ${chalk.green(`https://${event.subDomain}.iaas.paas.reapit.cloud`)}`)
     process.exit(0)
   }
 }
