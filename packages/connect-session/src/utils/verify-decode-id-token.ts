@@ -28,16 +28,14 @@ export type DecodedToken<T extends any> = {
 
 export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
   token: string,
-  connectUserPoolId: string,
 ): Promise<LoginIdentity | undefined> => {
   try {
-    const cognitoIssuer = `https://cognito-idp.eu-west-2.amazonaws.com/${connectUserPoolId}`
-
     const decodedToken = decode<DecodedToken<any>>(token)
+    const aud: string | string[] = decodedToken.aud
 
     const verifier = new IdTokenVerifier({
-      issuer: cognitoIssuer,
-      audience: decodedToken.aud,
+      issuer: decodedToken.issuer,
+      audience: Array.isArray(aud) ? aud[0] : aud,
       leeway: 300,
     })
 
@@ -58,7 +56,6 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
     // Not ideal but prevents constant invalid id_token messages
     if (currentSeconds > claim.exp + 300 || currentSeconds + 300 < claim.auth_time)
       throw new Error('Id verification claim expired')
-    if (claim.iss !== cognitoIssuer) throw new Error('Id verification claim issuer is invalid')
     if (claim.token_use !== 'id') throw new Error('Id verification claim is not an id token')
 
     return {
@@ -83,9 +80,6 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
   }
 }
 
-export const connectSessionVerifyDecodeIdToken = async (
-  token: string,
-  connectUserPoolId: string,
-): Promise<LoginIdentity | undefined> => {
-  return connectSessionVerifyDecodeIdTokenWithPublicKeys(token, connectUserPoolId)
+export const connectSessionVerifyDecodeIdToken = async (token: string): Promise<LoginIdentity | undefined> => {
+  return connectSessionVerifyDecodeIdTokenWithPublicKeys(token)
 }
