@@ -138,10 +138,7 @@ export class ReapitConnectBrowserSession {
       if (!session || (session && session.error)) return this.handleError('Error fetching session from Reapit Connect ')
 
       // I need to verify the identity claims I have just received from the server dwdqd
-      const loginIdentity: LoginIdentity | undefined = await connectSessionVerifyDecodeIdToken(
-        session.id_token,
-        this.connectUserPoolId,
-      )
+      const loginIdentity: LoginIdentity | undefined = await connectSessionVerifyDecodeIdToken(session.id_token)
 
       // If the idToken is invalid, don't return the session
       if (!loginIdentity) return this.handleError('Login identity was not verified')

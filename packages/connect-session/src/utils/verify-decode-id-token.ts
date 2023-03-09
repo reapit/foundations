@@ -49,12 +49,15 @@ interface Claim {
 
 let cacheKeys: MapOfKidToPublicKey | undefined
 
-const getPublicKeys = async (connectUserPoolId: string): Promise<MapOfKidToPublicKey | undefined> => {
+const getPublicKeys = async (token: string): Promise<MapOfKidToPublicKey | undefined> => {
   if (cacheKeys) return cacheKeys
 
   try {
-    const cognitoIssuer = `https://cognito-idp.eu-west-2.amazonaws.com/${connectUserPoolId}/.well-known/jwks.json`
-    const res = await fetch(cognitoIssuer, {
+    const issuer = jsonwebtoken.decode(token, { json: true })?.iss
+    if (!issuer) {
+      throw new Error('Unable to get issuer from id token')
+    }
+    const res = await fetch(issuer, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     })
@@ -78,12 +81,10 @@ const getPublicKeys = async (connectUserPoolId: string): Promise<MapOfKidToPubli
 
 export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
   token: string,
-  connectUserPoolId: string,
   keys: MapOfKidToPublicKey,
 ): Promise<LoginIdentity | undefined> => {
   try {
     const tokenSections = token.split('.')
-    const cognitoIssuer = `https://cognito-idp.eu-west-2.amazonaws.com/${connectUserPoolId}`
 
     if (tokenSections.length < 2) throw new Error('Id token is invalid')
 
@@ -104,7 +105,6 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
     // Not ideal but prevents constant invalid id_token messages
     if (currentSeconds > claim.exp + 300 || currentSeconds + 300 < claim.auth_time)
       throw new Error('Id verification claim expired')
-    if (claim.iss !== cognitoIssuer) throw new Error('Id verification claim issuer is invalid')
     if (claim.token_use !== 'id') throw new Error('Id verification claim is not an id token')
 
     return {
@@ -127,18 +127,15 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
   }
 }
 
-export const connectSessionVerifyDecodeIdToken = async (
-  token: string,
-  connectUserPoolId: string,
-): Promise<LoginIdentity | undefined> => {
+export const connectSessionVerifyDecodeIdToken = async (token: string): Promise<LoginIdentity | undefined> => {
   let keys
   try {
-    keys = await getPublicKeys(connectUserPoolId)
+    keys = await getPublicKeys(token)
     if (!keys) {
       if (!keys) throw new Error('Error fetching public keys')
     }
   } catch (error) {
     console.error('Reapit Connect Session error:', error.message)
   }
-  return connectSessionVerifyDecodeIdTokenWithPublicKeys(token, connectUserPoolId, keys)
+  return connectSessionVerifyDecodeIdTokenWithPublicKeys(token, keys)
 }
