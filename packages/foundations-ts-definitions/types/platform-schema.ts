@@ -15121,6 +15121,8 @@ export interface Tenancies {
   negotiatorId?: string[]
   applicantId?: string[]
   propertyId?: string[]
+  name?: string
+  nameType?: string
   status?: ('offerPending' | 'offerWithdrawn' | 'offerRejected' | 'arranging' | 'current' | 'finished' | 'cancelled')[]
   email?: string[]
   createdFrom?: string
