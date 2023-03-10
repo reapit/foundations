@@ -1,6 +1,7 @@
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback, useEffect, useState } from 'react'
 import useSWR from 'swr'
 import {
+  GroupMembershipModel,
   GroupMembershipModelPagedResult,
   GroupModel,
   UserModel,
@@ -42,27 +43,18 @@ export interface EditUserGroupSchema {
   userIds: string
 }
 
-export const prepareGroupOptions = (data: GroupModel[]): MultiSelectOption[] =>
-  data
-    .map((userGroupGroup: UserModel) => {
-      const { id, name } = userGroupGroup
-
-      return {
-        value: id,
-        name: name,
-      } as MultiSelectOption
-    })
-    .sort((a, b) => {
-      const nameA = a.name?.toLowerCase()
-      const nameB = b.name?.toLowerCase()
-      if (nameA < nameB) {
-        return -1
-      }
-      if (nameA > nameB) {
-        return 1
-      }
-      return 0
-    })
+export const prepareGroupOptions = (data: MultiSelectOption[]): MultiSelectOption[] =>
+  data.sort((a, b) => {
+    const nameA = a.name?.toLowerCase()
+    const nameB = b.name?.toLowerCase()
+    if (nameA < nameB) {
+      return -1
+    }
+    if (nameA > nameB) {
+      return 1
+    }
+    return 0
+  })
 
 const addUserToGroup = async (id: string, userId: string, organisationId: string) => {
   const addUserRes = await addMemberToGroup({ id, userId, organisationId })
@@ -78,26 +70,22 @@ export const handleSetOptions =
   (
     defaultUserIds: string[],
     users: UserModel[],
-    search: string,
+    groupMembers: GroupMembershipModel[],
     setOptions: Dispatch<SetStateAction<MultiSelectOption[]>>,
     getValues: UseFormGetValues<EditUserGroupSchema>,
   ) =>
   () => {
     const userIds = getValues().userIds ?? defaultUserIds.join(',')
 
-    if ((userIds || search) && users) {
-      const options = users.filter((user) => {
-        const isSelectedUser = user.id && userIds.includes(user.id)
-        const isSearchedUser = search && user.name?.toLowerCase().includes(search.toLowerCase())
-
-        return isSelectedUser || isSearchedUser
-      })
+    if (userIds && users && groupMembers) {
+      const userOptions = users.map(({ id, name }) => ({ value: id, name }))
+      const groupOptions = groupMembers.map(({ id, name }) => ({ value: id, name }))
+      const options = [...userOptions, ...groupOptions]
 
       const uniqueOptions = [...new Set([...options.map((option) => JSON.stringify(option))])].map((jsonOption) =>
         JSON.parse(jsonOption),
       )
       const officeOptions = prepareGroupOptions(uniqueOptions)
-
       setOptions(officeOptions)
     }
   }
@@ -150,7 +138,7 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
   )
   const id = userGroup?.id
   const { data } = useSWR<UserModelPagedResult | undefined>(
-    !orgId ? null : `${URLS.USERS}?pageSize=999&organisationId=${orgId}`,
+    !orgId || !search ? null : `${URLS.USERS}?pageSize=999&organisationId=${orgId}&name=${search}`,
   )
 
   const { data: members, mutate: refetchMembers } = useSWR<GroupMembershipModelPagedResult | undefined>(
@@ -175,9 +163,9 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
 
   const onSubmit = onHandleSubmit(onComplete, refetchMembers, success, error, userIds, userGroup.id ?? '', orgId)
 
-  useEffect(handleSetOptions(userIds, users, search, setOptions, getValues), [members, data, search])
+  useEffect(handleSetOptions(userIds, users, groupMembers, setOptions, getValues), [members, data])
 
-  if (!members || !data) return <Loader label="Loading" />
+  if (!members) return <Loader />
 
   return (
     <form className={elP8} onSubmit={handleSubmit(onSubmit)}>
