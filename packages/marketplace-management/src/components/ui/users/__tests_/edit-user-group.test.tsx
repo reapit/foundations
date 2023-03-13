@@ -13,6 +13,7 @@ import { GroupModel, UserModel } from '@reapit/foundations-ts-definitions'
 import useSWR from 'swr'
 import { mockUsersList } from '../../../../services/__stubs__/users'
 import { UseFormGetValues } from 'react-hook-form'
+import { MultiSelectOption } from '@reapit/elements'
 
 jest.mock('../../../../core/connect-session')
 jest.mock('../../../../services/user')
@@ -48,19 +49,19 @@ describe('handleSetOptions', () => {
   it('should set options', () => {
     const userIds = ['aG9sbHlqb3lwaGlsbGlwcytkZXNrdG9wdXNlckBnbWFpbC5jb20']
     const users = mockUsersList._embedded as UserModel[]
-    const search = 'holly'
+    const members = []
     const setOptions = jest.fn()
     const getValues = jest.fn(() => ({
       userIds: userIds.join(','),
     })) as unknown as UseFormGetValues<EditUserGroupSchema>
 
-    const curried = handleSetOptions(userIds, users, search, setOptions, getValues)
+    const curried = handleSetOptions(userIds, users, members, setOptions, getValues)
 
     curried()
 
-    expect(setOptions).toHaveBeenCalledWith(
-      prepareGroupOptions([(mockUsersList._embedded as UserModel[])[0], (mockUsersList._embedded as UserModel[])[1]]),
-    )
+    const userOptions = users.map(({ id, name }) => ({ value: id, name })) as MultiSelectOption[]
+
+    expect(setOptions).toHaveBeenCalledWith(prepareGroupOptions(userOptions))
   })
 })
 
