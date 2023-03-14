@@ -9,7 +9,7 @@ const bootstrap = async () => {
     cwd: __dirname,
     stdio: 'inherit',
   })
-  execSync('yarn bundle --incremental', {
+  execSync('yarn bundle', {
     cwd: __dirname,
     stdio: 'inherit',
   })

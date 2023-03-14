@@ -172,6 +172,7 @@ export class PipelineRunnerController {
 
       return this.pipelineRunnerProvider.save(pipelineRunner)
     } catch (e) {
+      console.error(e)
       pipelineRunner.buildStatus = 'FAILED'
       if (pipelineRunner.pipeline) pipelineRunner.pipeline.buildStatus = 'FAILED'
 

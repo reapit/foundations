@@ -76,7 +76,7 @@ export class RepoCommand extends AbstractCommand {
         // Do nothing. continuing in progress
       } else if (event.buildStatus === 'SUCCEEDED') {
         console.log(chalk.green('Deployment successful'))
-        const url = `https://${event.subDomain}.dev.paas.reapit.cloud`
+        const url = `https://${event.subDomain}.iaas.paas.reapit.cloud`
         console.log(`Check out your deployment: ${chalk.green(url)}`)
         // wait before exiting?
         process.exit(0)

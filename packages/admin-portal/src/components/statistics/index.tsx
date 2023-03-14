@@ -11,10 +11,10 @@ import {
   OfficeGroupModelPagedResult,
   ServiceItemBillingV2Model,
   SubscriptionModel,
+  SubscriptionModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
 import FileSaver from 'file-saver'
 import { ButtonGroup, Button, elMb11 } from '@reapit/elements'
-import { SubsWithAppName } from '../subscriptions'
 import { toLocalTime } from '@reapit/utils-common'
 
 export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS' | 'BILLING' | 'SUBSCRIPTIONS' | 'SERVICES' | 'OFFICE_GROUPS'
@@ -22,7 +22,7 @@ export type PagedData =
   | AppSummaryModelPagedResult
   | DeveloperModelPagedResult
   | InstallationModelPagedResult
-  | SubsWithAppName
+  | SubscriptionModelPagedResult
 export type StatsDataType = PagedData | ServiceItemBillingV2Model[] | OfficeGroupModelPagedResult | null
 
 export type CSVDataType =
@@ -136,13 +136,12 @@ export const handleDownloadCSV =
     }
 
     if (data && area === 'SUBSCRIPTIONS') {
-      const apiCalls = data as (SubscriptionModel & { appName: string })[]
+      const apiCalls = data as SubscriptionModel[]
 
       const csv = Papa.unparse({
         fields: [
           'Subcription Type',
           'Summary',
-          'App Name',
           'Company Name',
           'User Email',
           'Start Date',
@@ -152,12 +151,11 @@ export const handleDownloadCSV =
           'Cancelled',
         ],
         data: apiCalls.map((item) => {
-          const { type, summary, appName, organisationName, user, created, renews, frequency, cost, cancelled } = item
+          const { type, summary, organisationName, user, created, renews, frequency, cost, cancelled } = item
 
           return [
             type,
             summary,
-            appName,
             organisationName,
             user,
             toLocalTime(created),
@@ -208,7 +206,7 @@ export const handleDownloadCSVClick =
 
 export const handleDataChange =
   (area: Area, data: StatsDataType, setCsvData: Dispatch<SetStateAction<CSVDataType | null>>) => () => {
-    if (data && area !== 'BILLING') {
+    if (data && area !== 'BILLING' && area !== 'OFFICE_GROUPS') {
       const pagedData = data as PagedData
 
       if (pagedData.data && pagedData.pageSize === 9999) {

@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import ErrorBoundary from '../error-boundary'
-import { isTruthy, toLocalTime } from '@reapit/utils-common'
+import { toLocalTime } from '@reapit/utils-common'
 import {
   PageContainer,
   Loader,
@@ -23,11 +23,7 @@ import {
   GetActionNames,
   getActions,
 } from '@reapit/use-reapit-data'
-import {
-  AppSummaryModelPagedResult,
-  SubscriptionModel,
-  SubscriptionModelPagedResult,
-} from '@reapit/foundations-ts-definitions'
+import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { FilterForm } from './filter-form'
 import { Statistics } from '../statistics'
@@ -39,39 +35,6 @@ export interface SubscriptionsFilters {
   userEmail?: string
   status?: string
 }
-
-export interface SubsWithAppName extends SubscriptionModelPagedResult {
-  data: (SubscriptionModel & { appName: string })[]
-}
-
-export const handleSetAppNames =
-  (
-    setInstallationsWithAppName: Dispatch<SetStateAction<SubsWithAppName | null>>,
-    subscriptions: SubscriptionModelPagedResult | null,
-    apps: AppSummaryModelPagedResult | null,
-    numberApps: number,
-  ) =>
-  () => {
-    const isCsvOutput = subscriptions?.pageSize === 9999
-
-    if (isCsvOutput && apps?.data?.length !== numberApps) return
-
-    if (subscriptions) {
-      const subscriptionsWithAppName = {
-        ...subscriptions,
-        data: subscriptions.data?.map((sub) => {
-          const appName = apps?.data?.find((app) => app.id === sub.applicationId)?.name ?? ''
-
-          return {
-            ...sub,
-            appName,
-          }
-        }),
-      } as SubsWithAppName
-
-      setInstallationsWithAppName(subscriptionsWithAppName)
-    }
-  }
 
 export const handleCancelSub =
   (cancelSub: SendFunction<void, boolean | null>, setCancelSubId: Dispatch<SetStateAction<string | null>>) => () => {
@@ -96,7 +59,6 @@ export const handleSetSubId =
 
 const Subscriptions: FC = () => {
   const [subscriptionsFilters, setSubscriptionsFilters] = useState<SubscriptionsFilters>({})
-  const [subsWithAppName, setSubsWithAppName] = useState<SubsWithAppName | null>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [pageSize, setPageSize] = useState<number>(12)
   const [cancelSubId, setCancelSubId] = useState<string | null>(null)
@@ -123,21 +85,6 @@ const Subscriptions: FC = () => {
     },
   })
 
-  const appIds = new Set(subscriptions?.data?.map((sub) => sub.applicationId).filter(isTruthy) ?? [])
-  const appIdArray = [...appIds]
-  const numberApps = appIdArray.length
-
-  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: {
-      id: appIdArray,
-      pageSize: 999,
-    },
-    fetchWhenTrue: [numberApps],
-  })
-
-  useEffect(handleSetAppNames(setSubsWithAppName, subscriptions, apps, numberApps), [apps, subscriptions, numberApps])
   useEffect(handleCancelSubSuccess(refetchSubs, closeModal, cancelSubSuccess), [cancelSubSuccess])
 
   return (
@@ -145,28 +92,16 @@ const Subscriptions: FC = () => {
       <PageContainer>
         <Title>Subscriptions</Title>
         <FilterForm setSubscriptionsFilters={setSubscriptionsFilters} />
-        <Statistics area="SUBSCRIPTIONS" data={subsWithAppName} setPageSize={setPageSize} />
+        <Statistics area="SUBSCRIPTIONS" data={subscriptions} setPageSize={setPageSize} />
         {subscriptionsLoading ? (
           <Loader />
         ) : (
           <>
             <Table
               className={elMb11}
-              numberColumns={11}
-              rows={subsWithAppName?.data?.map(
-                ({
-                  id,
-                  type,
-                  summary,
-                  organisationName,
-                  user,
-                  appName,
-                  created,
-                  renews,
-                  frequency,
-                  cost,
-                  cancelled,
-                }) => ({
+              numberColumns={10}
+              rows={subscriptions?.data?.map(
+                ({ id, type, summary, organisationName, user, created, renews, frequency, cost, cancelled }) => ({
                   cells: [
                     {
                       label: 'Subcription Type',
@@ -179,13 +114,6 @@ const Subscriptions: FC = () => {
                     {
                       label: 'Summary',
                       value: summary,
-                      narrowTable: {
-                        showLabel: true,
-                      },
-                    },
-                    {
-                      label: 'App Name',
-                      value: appName,
                       narrowTable: {
                         showLabel: true,
                       },

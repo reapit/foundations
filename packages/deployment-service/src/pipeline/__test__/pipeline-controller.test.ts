@@ -102,7 +102,10 @@ describe('PipelineController', () => {
     it('Can result in pusher action with existing pipeline', async () => {
       const pipelineController = app.get<PipelineController>(PipelineController)
 
-      mockPipelineProvider.findById.mockImplementationOnce(() => mockPipeline)
+      mockPipelineProvider.findById.mockImplementationOnce(() => ({
+        ...mockPipeline,
+        buildStatus: 'READY_FOR_DEPLOYMENT',
+      }))
       mockPipelineProvider.create.mockImplementationOnce((params) => {
         return {
           ...mockPipeline,
