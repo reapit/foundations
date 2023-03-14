@@ -8297,7 +8297,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/core@npm:^9.0.5":
+"@nestjs/core@npm:^9.3.9":
   version: 9.3.9
   resolution: "@nestjs/core@npm:9.3.9"
   dependencies:
@@ -36214,7 +36214,7 @@ fsevents@^1.2.7:
     "@aws/dynamodb-data-mapper-annotations": ^0.7.3
     "@nestjs/common": ^9.3.9
     "@nestjs/config": ^2.3.1
-    "@nestjs/core": ^9.0.5
+    "@nestjs/core": ^9.3.9
     "@nestjs/platform-express": ^8.4.7
     "@nestjs/testing": ^9.3.9
     "@reapit/config-manager": "workspace:packages/config-manager"
