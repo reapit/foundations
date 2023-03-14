@@ -4,9 +4,9 @@
     "@aws-sdk/client-cloudfront": "^3.281.0",
     "@aws-sdk/client-route-53": "^3.281.0",
     "@nestjs/axios": "^0.1.1",
-    "@nestjs/common": "^8.4.7",
+    "@nestjs/common": "^9.3.9",
     "@nestjs/config": "^2.3.1",
-    "@nestjs/core": "^8.4.7",
+    "@nestjs/core": "^9.0.5",
     "@nestjs/microservices": "^8.4.7",
     "@nestjs/passport": "^8.2.2",
     "@nestjs/platform-express": "^8.4.7",
@@ -58,7 +58,7 @@
     "migration:revert": "typeorm-ts-node-common-js -d orm-datasource.tstypeorm migration:revert"
   },
   "devDependencies": {
-    "@nestjs/testing": "^8.4.7",
+    "@nestjs/testing": "^9.3.9",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-bundler": "workspace:packages/ts-bundler",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
