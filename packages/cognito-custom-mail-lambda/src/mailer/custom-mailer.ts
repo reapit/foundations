@@ -2,9 +2,12 @@ import { CognitoUserPoolTriggerHandler } from 'aws-lambda'
 import forgotPasswordTemplate from './templates/forgot-password.html'
 import confirmRegistrationTemplate from './templates/confirm-registration.html'
 import adminUserInviteTemplate from './templates/admin-user-invite.html'
+import { UserModel } from '@reapit/foundations-ts-definitions'
 
 const confirmRegistrationUrl = `${process.env.MARKET_PLACE_URL}/login`
 const resetPasswordUrl = `${process.env.MARKET_PLACE_URL}/reset-password`
+const internalOrgServiceUrl = process.env.INTERNAL_ORG_SERVICE_URL
+const agentboxUrl = process.env.AGENTBOX_URL
 
 const replaceAll = (str: string, find: string, replace: string): string => {
   return str.replace(new RegExp(find, 'g'), replace)
@@ -15,6 +18,27 @@ const format = (html: string, object: Object) => {
     html = replaceAll(html, `{${key}}|{ ${key} }`, value)
   })
   return html
+}
+
+const getConfirmRegistrationUrl = async (emailAddress: string) => {
+  const userId = Buffer.from(emailAddress).toString('base64').replace('==', '')
+  console.log(userId)
+  const res = await fetch(`${internalOrgServiceUrl}/Users/${userId}`, {
+    headers: {
+      'api-version': '2020-01-31',
+    },
+  })
+  if (res.status === 404) {
+    throw new Error('user not found')
+  }
+  if (!res.ok) {
+    throw new Error('error getting user')
+  }
+  const user: UserModel = await res.json()
+  if (user.products.length === 1 && user.products[0].id === 'agentbox') {
+    return agentboxUrl
+  }
+  return confirmRegistrationUrl
 }
 
 export const customMailer: CognitoUserPoolTriggerHandler = async (event, _context, callback) => {
@@ -31,10 +55,9 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
         break
 
       case 'CustomMessage_SignUp':
-        event.response.emailSubject = 'Reapit Connect - Forgotten Password'
+        event.response.emailSubject = 'Welcome to Reapit Connect'
         event.response.emailMessage = format(confirmRegistrationTemplate, {
-          // userName: event.request.userAttributes.name,
-          url: confirmRegistrationUrl,
+          url: await getConfirmRegistrationUrl(event.request.userAttributes.email),
         })
         break
 
@@ -42,7 +65,7 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
         event.response.emailSubject = 'Welcome to Reapit Connect'
         event.response.emailMessage = `${format(adminUserInviteTemplate, {
           name: event.request.userAttributes.name,
-          url: confirmRegistrationUrl,
+          url: await getConfirmRegistrationUrl(event.request.userAttributes.email),
           verificationCode: event.request.codeParameter as string,
         })}`
         break
