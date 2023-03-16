@@ -13,22 +13,50 @@ custom:
     includeModules: true
     packager: 'yarn'
     packagerOptions:
-      noFrozenLockFile: false
+      noFrozenLockfile: false
     excludeFiles: src/**/*.test.ts
-    includeFiles: src/mailer/templates/**
     keepOutputDirectory: true
   logRetentionInDays: 30
 
 provider:
   name: aws
-  runtime: 'nodejs16.x'
+  runtime: 'nodejs18.x'
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   deploymentBucket:
     name: ${self:custom.s3CloudFormBucket}
+  vpc:
+    securityGroupIds:
+      - Fn::ImportValue:
+          Fn::Join:
+            - ""
+            -  - 'rpt-paas-'
+               - ${self:provider.stage}
+               - '-sg-LambdaSecurityGroup'
+    subnetIds:
+      - Fn::ImportValue:
+          Fn::Join:
+            - ""
+            -  - 'rpt-paas-'
+               - ${self:provider.stage}
+               - '-vpc-PrivateSubnet1'
+      - Fn::ImportValue:
+          Fn::Join:
+            - ""
+            -  - 'rpt-paas-'
+               - ${self:provider.stage}
+               - '-vpc-PrivateSubnet2'
+      - Fn::ImportValue:
+          Fn::Join:
+            - ""
+            -  - 'rpt-paas-'
+               - ${self:provider.stage}
+               - '-vpc-PrivateSubnet3'
   environment:
     COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}
     MARKET_PLACE_URL: ${self:custom.env.MARKET_PLACE_URL}
+    INTERNAL_ORG_SERVICE_URL: ${self:custom.env.INTERNAL_ORG_SERVICE_URL}
+    AGENTBOX_URL: ${self:custom.env.AGENTBOX_URL}
 
 package:
   include:
