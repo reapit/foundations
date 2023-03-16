@@ -421,7 +421,7 @@ export const PriceSection = styled.div`
     text-align: center;
   }
 
-  div {
+  > div {
     border-top: 1px solid var(--color-grey-medium);
     display: flex;
     margin: 0rem auto 1rem auto;
