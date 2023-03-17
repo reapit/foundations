@@ -13,10 +13,10 @@
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "echo '...skipping...'",
-    "build": "echo '...skipping...'",
+    "build": "tsc -p .",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
-    "release": "echo '...skipping...'",
+    "release": "yarn npm publish --access public",
     "deploy": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "conf": "echo '...skipping...'",
