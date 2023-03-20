@@ -29,10 +29,12 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
     },
   })
   if (res.status === 404) {
-    throw new Error('user not found')
+    console.error(new Error('user not found, assuming AC'))
+    return confirmRegistrationUrl
   }
   if (!res.ok) {
-    throw new Error('error getting user')
+    console.error(new Error('error getting user, assuming AC'))
+    return confirmRegistrationUrl
   }
   const user: UserModel = await res.json()
   if (user.products.length === 1 && user.products[0].id === 'agentbox') {
