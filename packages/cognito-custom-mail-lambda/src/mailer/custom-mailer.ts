@@ -21,7 +21,7 @@ const format = (html: string, object: Object) => {
 }
 
 const getConfirmRegistrationUrl = async (emailAddress: string) => {
-  const userId = Buffer.from(emailAddress).toString('base64').replace('==', '')
+  const userId = replaceAll(Buffer.from(emailAddress).toString('base64'), '=', '')
   console.log(userId)
   const res = await fetch(`${internalOrgServiceUrl}/Users/${userId}`, {
     headers: {
