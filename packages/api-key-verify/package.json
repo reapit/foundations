@@ -2,6 +2,7 @@
   "name": "@reapit/api-key-verify",
   "version": "0.0.1",
   "description": "Common Package for Reapit Foundation",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+git@github.com:reapit/foundations.git"
@@ -28,6 +29,7 @@
     "aws": "^0.0.3-2"
   },
   "devDependencies": {
+    "@nestjs/common": "^9.3.11",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@typescript-eslint/eslint-plugin": "^5.54.0",

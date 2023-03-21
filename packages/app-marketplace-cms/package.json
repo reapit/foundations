@@ -3,10 +3,10 @@
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
-    "@nestjs/common": "^8.4.7",
+    "@nestjs/common": "^9.3.11",
     "@nestjs/config": "^2.3.1",
-    "@nestjs/core": "^8.4.7",
-    "@nestjs/platform-express": "^8.4.7",
+    "@nestjs/core": "^9.3.11",
+    "@nestjs/platform-express": "^9.3.11",
     "@reapit/utils-nest": "workspace:packages/utils-nest",
     "aws-lambda": "^1.0.7",
     "aws-sdk": "^2.1325.0",
