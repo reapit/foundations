@@ -1,10 +1,22 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common'
+import { UnauthorizedException } from '@nestjs/common'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
+import { Request } from 'express'
+import { AuthProviderInterface } from './auth-provider-interface'
+import { CredAuthTokenProvider } from './guards'
 
-@Injectable()
-export class TokenProvider {
-  async resolve(authorization: string): Promise<LoginIdentity> {
+@CredAuthTokenProvider(1)
+export class TokenProvider implements AuthProviderInterface<any> {
+  applies() {
+    return true
+  }
+
+  type() {
+    return 'jwt'
+  }
+
+  async resolve(request: Request): Promise<LoginIdentity> {
     try {
+      const authorization = request.headers?.authorization as string
       const claim = await connectSessionVerifyDecodeIdTokenWithPublicKeys(authorization)
 
       if (!claim) {
