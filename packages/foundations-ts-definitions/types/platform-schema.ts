@@ -1775,6 +1775,10 @@ export interface AppointmentModel {
    */
   fromArchive?: boolean
   /**
+   * The unique identifier of the external company either carrying out or attending the appointment with the agent
+   */
+  otherAgentId?: string
+  /**
    * App specific metadata that has been set against the appointment
    */
   metadata?: {
@@ -1969,6 +1973,10 @@ export interface AppointmentModelPagedResult {
      * A flag determining whether or not the appointment is archived
      */
     fromArchive?: boolean
+    /**
+     * The unique identifier of the external company either carrying out or attending the appointment with the agent
+     */
+    otherAgentId?: string
     /**
      * App specific metadata that has been set against the appointment
      */
@@ -4751,6 +4759,10 @@ export interface CreateAppointmentModel {
    * The unique identifier of the property related to the appointment
    */
   propertyId?: string
+  /**
+   * The unique identifier of the external company either carrying out or attending the appointment with the agent
+   */
+  otherAgentId?: string
   /**
    * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
    */
@@ -18169,6 +18181,10 @@ export interface UpdateAppointmentModel {
    * The unique identifier of the property related to the appointment
    */
   propertyId?: string
+  /**
+   * The unique identifier of the external company either carrying out or attending the appointment with the agent
+   */
+  otherAgentId?: string
   /**
    * The unique identifier of the negotiator that organised the appointment
    */
