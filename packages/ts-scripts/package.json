@@ -1,6 +1,6 @@
 {
   "name": "@reapit/ts-scripts",
-  "version": "0.03",
+  "version": "0.0.3",
   "description": "TS build scripts",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
