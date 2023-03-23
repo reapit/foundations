@@ -1,6 +1,8 @@
 {
   "name": "@reapit/ts-bundler",
   "main": "src/ts-bundler.ts",
+  "type": "module",
+  "private": false,
   "dependencies": {
     "fast-glob": "^3.2.12",
     "fs-extra": "^10.1.0",
