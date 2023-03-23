@@ -1,6 +1,6 @@
 {
   "name": "@reapit/ts-scripts",
-  "version": "0.0.2",
+  "version": "0.03",
   "description": "TS build scripts",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -16,7 +16,6 @@
   "license": "MIT",
   "author": "wmcvay@reapit.com",
   "main": "./src/index.js",
-  "private": false,
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "echo '...skipping...'",
