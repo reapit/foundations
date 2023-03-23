@@ -11,6 +11,7 @@ export const elTabsItem = css`
   align-items: center;
   margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
 `
 
 export const elTabsFullWidth = css`
@@ -81,4 +82,8 @@ export const ElTabsFooter = styled.div`
   height: 1.125rem;
   background: linear-gradient(180deg, #f7f7f7 0%, rgba(242, 242, 242, 0) 50%);
   border-top: 1px solid var(--color-grey-medium);
+
+  &.${elTabsFullWidth} {
+    width: 100vw;
+  }
 `

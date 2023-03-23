@@ -40,6 +40,10 @@ export const ElInput = styled.input`
     }
   }
 
+  &[type='search']::-webkit-search-decoration {
+    display: none;
+  }
+
   &[type='checkbox'] {
     appearance: none;
     border: 1px solid var(--color-grey-medium);

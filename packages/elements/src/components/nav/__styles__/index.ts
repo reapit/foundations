@@ -3,7 +3,7 @@ import { styled } from '@linaria/react'
 import { colorBlueLight } from '../../../styles/globals'
 
 const chevronRight = (fill: string) =>
-  `data:image/svg+xml;utf8,<svg width="18" height="40" viewBox="0 0 18 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L8.8012 0C10.5501 0 13.0962 2.1362 12.6186 2.80527L17.6261 18.8053C17.8695 19.5832 17.8695 20.4168 17.6261 21.1947L12.6186 37.1947C12.0962 38.8638 10.5501 40 8.8012 40H0V0Z" fill="${encodeURIComponent(
+  `data:image/svg+xml;utf8,<svg width="18" height="25" viewBox="0 0 18 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L8.8012 0C10.5501 0 13.0962 2.1362 12.6186 2.80527L17.6261 18.8053C17.8695 19.5832 17.8695 20.4168 17.6261 21.1947L12.6186 37.1947C12.0962 38.8638 10.5501 40 8.8012 40H0V0Z" fill="${encodeURIComponent(
     fill,
   )}"/></svg>`
 
@@ -42,7 +42,7 @@ export const ElNavItem = styled.a`
   padding: 0 0.75rem;
   opacity: 0;
   cursor: pointer;
-  transition: height 0.3s linear, opacity 0.3s linear, padding-top 0.3s linear, padding-bottom 0.3s linear;
+  transition: height 0.15s linear, opacity 0.15s linear, padding-top 0.15s linear, padding-bottom 0.15s linear;
 
   svg {
     margin-right: 0.5rem;
@@ -166,7 +166,7 @@ export const elNavSubItemActive = css`
     background-repeat: no-repeat;
     background-image: linear-gradient(to right, var(--color-blue-light), var(--color-blue-light));
     outline-color: var(--nav-menu-background-dark);
-    background-size: calc(100% - 1rem);
+    background-size: calc(100% - 1rem) 100%;
     background-position-x: left;
     padding-right: 1.5rem;
     position: relative;
@@ -174,7 +174,7 @@ export const elNavSubItemActive = css`
     &::after {
       content: '';
       position: absolute;
-      height: 26px;
+      height: 25px;
       width: 100%;
       top: 0;
       right: 6px;
