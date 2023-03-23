@@ -36,7 +36,7 @@ export const Tabs: FC<TabsProps> = ({ className, isFullWidth, name, options, ...
           </Fragment>
         ))}
       </ElTabsOptionsWrap>
-      <ElTabsFooter />
+      <ElTabsFooter className={cx(isFullWidth && elTabsFullWidth)} />
     </ElTabsWrap>
   )
 }

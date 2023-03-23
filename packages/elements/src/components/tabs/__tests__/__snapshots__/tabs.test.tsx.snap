@@ -65,7 +65,7 @@ Object {
           </label>
         </div>
         <div
-          class="el-tabs-footer"
+          class="el-tabs-full-width el-tabs-footer"
         />
       </div>
     </div>
@@ -131,7 +131,7 @@ Object {
         </label>
       </div>
       <div
-        class="el-tabs-footer"
+        class="el-tabs-full-width el-tabs-footer"
       />
     </div>
   </div>,

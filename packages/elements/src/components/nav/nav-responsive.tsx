@@ -123,7 +123,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 {isMobile && subItems && (
                   <Icon
                     className={cx(elIntentNeutral, elMlAuto)}
-                    icon={navSubMenuIndex === itemIndex ? 'arrowUpSystem' : 'arrowDownSystem'}
+                    icon={navSubMenuIndex === itemIndex ? 'upSystem' : 'downSystem'}
                   />
                 )}
               </NavItem>
