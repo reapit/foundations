@@ -44,7 +44,7 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
   return confirmRegistrationUrl
 }
 
-const useOldTemplates = true
+const useOldTemplates = false
 
 export const customMailer: CognitoUserPoolTriggerHandler = async (event, _context, callback) => {
   if (event.userPoolId === process.env.COGNITO_USERPOOL_ID) {
