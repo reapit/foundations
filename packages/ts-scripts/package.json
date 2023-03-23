@@ -16,6 +16,7 @@
   "license": "MIT",
   "author": "wmcvay@reapit.com",
   "main": "./src/index.js",
+  "private": false,
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "echo '...skipping...'",
@@ -24,7 +25,7 @@
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
     "deploy": "echo '...skipping...'",
-    "publish": "yarn npm publish  --access restricted",
+    "publish": "yarn npm publish  --access public",
     "conf": "echo '...skipping...'",
     "commit": "yarn lint"
   },
