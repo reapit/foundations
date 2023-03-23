@@ -6427,6 +6427,12 @@ export interface CreatePropertyLettingModel {
    */
   availableTo?: string // date
   /**
+   * The date the letting agreement between the landlord and agent was signed
+   * example:
+   * 2019-08-14
+   */
+  agreementSigned?: string // date
+  /**
    * The rent being charged for the property
    */
   rent?: number // double
@@ -6434,6 +6440,10 @@ export interface CreatePropertyLettingModel {
    * The frequency at which rent will be collected (weekly/monthly/yearly)
    */
   rentFrequency?: string
+  /**
+   * Details of any bills that are included in the rent
+   */
+  rentIncludes?: string
   /**
    * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
    */
@@ -6947,6 +6957,12 @@ export interface CreatePropertyModel {
      */
     availableTo?: string // date
     /**
+     * The date the letting agreement between the landlord and agent was signed
+     * example:
+     * 2019-08-14
+     */
+    agreementSigned?: string // date
+    /**
      * The rent being charged for the property
      */
     rent?: number // double
@@ -6954,6 +6970,10 @@ export interface CreatePropertyModel {
      * The frequency at which rent will be collected (weekly/monthly/yearly)
      */
     rentFrequency?: string
+    /**
+     * Details of any bills that are included in the rent
+     */
+    rentIncludes?: string
     /**
      * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
      */
@@ -12267,6 +12287,12 @@ export interface PropertyLettingModel {
    */
   availableTo?: string // date
   /**
+   * The date the letting agreement between the landlord and agent was signed
+   * example:
+   * 2019-08-14
+   */
+  agreementSigned?: string // date
+  /**
    * The rent being charged for the property
    */
   rent?: number // double
@@ -12274,6 +12300,10 @@ export interface PropertyLettingModel {
    * The frequency at which rent will be collected (weekly/monthly/yearly)
    */
   rentFrequency?: string
+  /**
+   * Details of any bills that are included in the rent
+   */
+  rentIncludes?: string
   /**
    * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
    */
@@ -12931,6 +12961,12 @@ export interface PropertyModel {
      */
     availableTo?: string // date
     /**
+     * The date the letting agreement between the landlord and agent was signed
+     * example:
+     * 2019-08-14
+     */
+    agreementSigned?: string // date
+    /**
      * The rent being charged for the property
      */
     rent?: number // double
@@ -12938,6 +12974,10 @@ export interface PropertyModel {
      * The frequency at which rent will be collected (weekly/monthly/yearly)
      */
     rentFrequency?: string
+    /**
+     * Details of any bills that are included in the rent
+     */
+    rentIncludes?: string
     /**
      * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
      */
@@ -13747,6 +13787,12 @@ export interface PropertyModelPagedResult {
        */
       availableTo?: string // date
       /**
+       * The date the letting agreement between the landlord and agent was signed
+       * example:
+       * 2019-08-14
+       */
+      agreementSigned?: string // date
+      /**
        * The rent being charged for the property
        */
       rent?: number // double
@@ -13754,6 +13800,10 @@ export interface PropertyModelPagedResult {
        * The frequency at which rent will be collected (weekly/monthly/yearly)
        */
       rentFrequency?: string
+      /**
+       * Details of any bills that are included in the rent
+       */
+      rentIncludes?: string
       /**
        * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
        */
@@ -19621,6 +19671,12 @@ export interface UpdatePropertyLettingModel {
    */
   availableTo?: string // date
   /**
+   * The date the letting agreement between the landlord and agent was signed
+   * example:
+   * 2019-08-14
+   */
+  agreementSigned?: string // date
+  /**
    * The rent being charged for the property
    */
   rent?: number // double
@@ -19628,6 +19684,10 @@ export interface UpdatePropertyLettingModel {
    * The frequency at which rent will be collected (weekly/monthly/yearly)
    */
   rentFrequency?: string
+  /**
+   * Details of any bills that are included in the rent
+   */
+  rentIncludes?: string
   /**
    * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
    */
@@ -20132,6 +20192,12 @@ export interface UpdatePropertyModel {
      */
     availableTo?: string // date
     /**
+     * The date the letting agreement between the landlord and agent was signed
+     * example:
+     * 2019-08-14
+     */
+    agreementSigned?: string // date
+    /**
      * The rent being charged for the property
      */
     rent?: number // double
@@ -20139,6 +20205,10 @@ export interface UpdatePropertyModel {
      * The frequency at which rent will be collected (weekly/monthly/yearly)
      */
     rentFrequency?: string
+    /**
+     * Details of any bills that are included in the rent
+     */
+    rentIncludes?: string
     /**
      * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
      */
