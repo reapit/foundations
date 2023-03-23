@@ -1,7 +1,6 @@
 {
   "name": "@reapit/ts-bundler",
   "main": "src/ts-bundler.ts",
-  "private": false,
   "dependencies": {
     "fast-glob": "^3.2.12",
     "fs-extra": "^10.1.0",
@@ -23,5 +22,6 @@
     "publish": "yarn npm publish  --access public",
     "conf": "echo '...skipping...'"
   },
-  "bin": "./bin/index.js"
+  "bin": "./bin/index.js",
+  "version": "0.0.1"
 }
