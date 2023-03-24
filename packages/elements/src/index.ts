@@ -1,3 +1,4 @@
+export * from './styles/font'
 export * from './styles/globals'
 export * from './styles/spacing'
 export * from './styles/flexbox'
