@@ -14,8 +14,6 @@ export const colorBlueDark2 = '#31448f'
 export const colorAccentOrange = '#ffb71b'
 
 export const elGlobals = css`
-  @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
-
   :global() {
     /* Reset CSS */
     html,
