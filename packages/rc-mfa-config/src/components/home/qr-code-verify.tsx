@@ -48,9 +48,8 @@ export const handleDrawQrCode =
     qrCode?: CreateAuthenticatorReturnType,
   ) =>
   () => {
-    console.log(qrLabel)
     if (modalIsOpen && canvasRef?.current && qrCode) {
-      const code = `otpauth://totp/${qrLabel}?secret=${qrCode.secret}&issuer=Reapit`
+      const code = `otpauth://totp/${qrLabel}?secret=${qrCode.secret}&issuer=Reapit%20Connect`
       QRCode.toCanvas(canvasRef.current, code, (error) => {
         if (error) console.error(error)
       })
@@ -84,7 +83,7 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const email = connectSession?.loginIdentity.email
   const userId = email ? window.btoa(email.toLowerCase()).replace(/=/g, '') : null
-  const qrLabel = email ?? 'Reapit Connect'
+  const qrLabel = email ?? 'Reapit%20Connect'
 
   const {
     register,
@@ -107,7 +106,7 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
     },
   })
 
-  useEffect(handleDrawQrCode(modalIsOpen, canvasRef, qrLabel, qrCode), [canvasRef, qrCode, modalIsOpen])
+  useEffect(handleDrawQrCode(modalIsOpen, canvasRef, qrLabel, qrCode), [canvasRef, qrCode, modalIsOpen, connectSession])
   useEffect(handleOpenModal(openModal, qrCode), [qrCode])
   useEffect(handleRefresh(refreshAuthenticators, closeModal, setQrCode, hasVerified), [hasVerified])
 
