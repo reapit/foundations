@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react'
 import { isMobile, isTablet } from '../../../styles/media'
+import { elHFull } from '../../../styles/sizing'
 
 export const ElMainContainer = styled.main`
   display: flex;
@@ -26,6 +27,10 @@ export const ElPageContainer = styled.section`
 
   ${isTablet} {
     padding: 2rem 1.5rem;
+  }
+
+  &.${elHFull} {
+    height: 100%;
   }
 `
 
