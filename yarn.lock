@@ -10325,6 +10325,7 @@ __metadata:
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-nest": "workspace:^"
     "@typescript-eslint/eslint-plugin": ^5.54.0
     "@typescript-eslint/parser": ^5.54.0
     aws: ^0.0.3-2
@@ -10934,7 +10935,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/utils-nest@workspace:packages/utils-nest":
+"@reapit/utils-nest@workspace:^, @reapit/utils-nest@workspace:packages/utils-nest":
   version: 0.0.0-use.local
   resolution: "@reapit/utils-nest@workspace:packages/utils-nest"
   dependencies:
