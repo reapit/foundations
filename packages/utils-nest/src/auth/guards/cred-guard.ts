@@ -8,7 +8,7 @@ import { TOKEN_PROVIDER_INJECTABLE } from './token.provider.decorator'
 
 @Injectable()
 export class CredGuard implements CanActivate {
-  private authProviders: AuthProviderInterface<any>[] = []
+  protected authProviders: AuthProviderInterface<any>[] = []
 
   constructor(private readonly moduleContainer: ModulesContainer, private readonly moduleRef: ModuleRef) {}
 
@@ -53,6 +53,8 @@ export class CredGuard implements CanActivate {
 
     const providers = this.authProviders.filter((provider) => provider.applies(request))
     const priorityProvider = providers[0]
+    // TODO should tokenProvider be instanced here instead of through container? To avoid exceptions in cases where
+    // developer breaks usage and creates CredGuard provider without AuthModule
 
     const credentials = await priorityProvider.resolve(request)
 

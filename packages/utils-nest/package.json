@@ -12,7 +12,7 @@
   "main": "./src/index.ts",
   "scripts": {
     "start": "echo '...skipping...'",
-    "test": "echo '...skipping...'",
+    "test": "jest",
     "build": "tsc -p .",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
