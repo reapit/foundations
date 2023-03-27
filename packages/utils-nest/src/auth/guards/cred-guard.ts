@@ -1,10 +1,10 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common'
 import { Request } from 'express'
-import { CredsType } from './cred-types'
 import { AuthProviderInterface } from '../auth-provider-interface'
 import { ModuleRef, ModulesContainer } from '@nestjs/core'
 import { MODULE_METADATA } from '@nestjs/common/constants'
 import { TOKEN_PROVIDER_INJECTABLE } from './token.provider.decorator'
+import { CredsType } from './cred-types'
 
 @Injectable()
 export class CredGuard implements CanActivate {
@@ -49,7 +49,7 @@ export class CredGuard implements CanActivate {
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    const request = context.switchToHttp().getRequest<Request & { credentials?: { [s: string]: any, type: string } }>()
+    const request = context.switchToHttp().getRequest<Request & { credentials?: CredsType }>()
 
     const providers = this.authProviders.filter((provider) => provider.applies(request))
     const priorityProvider = providers[0]
