@@ -49,7 +49,7 @@ export class CredGuard implements CanActivate {
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    const request = context.switchToHttp().getRequest<Request & { credentials?: CredsType }>()
+    const request = context.switchToHttp().getRequest<Request & { credentials?: { [s: string]: any, type: string } }>()
 
     const providers = this.authProviders.filter((provider) => provider.applies(request))
     const priorityProvider = providers[0]
