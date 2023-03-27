@@ -77,7 +77,7 @@ describe('CredGuard', () => {
       }
 
       @Module({
-        providers: [TestCredGuard],
+        providers: [TestCredGuard, TokenProvider],
       })
       class AuthModule {}
 
@@ -121,8 +121,9 @@ describe('CredGuard', () => {
           }
         }
 
+        // DefaultProvider, TokenProvider required for import
         @CredAuthTokenProvider(1)
-        class DefaultProvider implements AuthProviderInterface<any> {
+        class TokenProvider implements AuthProviderInterface<any> {
           type() {
             return 'default'
           }
@@ -139,7 +140,7 @@ describe('CredGuard', () => {
         }
 
         module = await Test.createTestingModule({
-          providers: [TestCredGuard, DefaultProvider, TestProvider],
+          providers: [TestCredGuard, TokenProvider, TestProvider],
         }).compile()
 
         await module.init()
