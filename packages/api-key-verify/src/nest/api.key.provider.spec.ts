@@ -13,12 +13,15 @@ describe('ApiKeyProvider', () => {
 
   beforeAll(async () => {
     module = await Test.createTestingModule({
-      providers: [ApiKeyProvider, createApiKeyInvokeConfigProvide({
-        apiKeyInvoke: {
-          enabled: true,
-          invokeArn: '',
-        },
-      })],
+      providers: [
+        ApiKeyProvider,
+        createApiKeyInvokeConfigProvide({
+          apiKeyInvoke: {
+            enabled: true,
+            invokeArn: '',
+          },
+        }),
+      ],
     }).compile()
 
     await module.init()
@@ -27,7 +30,7 @@ describe('ApiKeyProvider', () => {
   it('Will call resolveApiKey', async () => {
     const provider = module.get(ApiKeyProvider)
 
-    await provider.resolve({ 'xapi-key': 'some-key'})
+    await provider.resolve({ 'xapi-key': 'some-key' })
 
     expect(resolveApiKey).toHaveBeenCalled()
   })
