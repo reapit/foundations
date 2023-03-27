@@ -10,7 +10,7 @@ import { TokenProvider } from '../token-provider'
 @Injectable()
 export class CredGuard implements CanActivate {
   protected authProviders: AuthProviderInterface<any>[] = []
-  protected tokenProvider: TokenProvider
+  protected tokenProvider: TokenProvider | undefined = undefined
 
   constructor(private readonly moduleContainer: ModulesContainer, private readonly moduleRef: ModuleRef) {}
 

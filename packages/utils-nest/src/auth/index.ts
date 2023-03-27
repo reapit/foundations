@@ -1,6 +1,5 @@
 export * from './module'
 export * from './ownership-provider'
 export * from './guards'
-export * from './api-key-invoke-config'
 export * from './helpers'
 export * from './auth-provider-interface'
