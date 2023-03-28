@@ -45,7 +45,7 @@ describe('CredGuard', () => {
       const provider = module.get(TestCredGuard)
 
       provider.getAuthProviders().forEach((inst) => {
-        ;['TestProvider', 'AnotherTestProvider', 'TokenProvider'].includes(inst.constructor.name)
+        expect(['TestProvider', 'AnotherTestProvider', 'TokenProvider'].includes(inst.constructor.name)).toBeTruthy()
       })
     })
 
