@@ -155,6 +155,8 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
     returnType: UpdateReturnTypeEnum.RESPONSE,
     headers: {
       Authorization: connectSession?.idToken as string,
+      'reapit-customer': clientCode as string,
+      'reapit-app-id': window.reapit.config.appId,
     },
   })
 
@@ -165,6 +167,7 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
     headers: {
       Authorization: connectSession?.idToken as string,
       'reapit-customer': clientCode as string,
+      'reapit-app-id': window.reapit.config.appId,
     },
     uriParams: {
       paymentId: selectedPayment?.id,

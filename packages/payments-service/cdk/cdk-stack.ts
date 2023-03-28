@@ -37,6 +37,7 @@ export const createStack = async () => {
     'api-version',
     'if-match',
     'reapit-customer',
+    'reapit-app-id',
     'reapit-session',
   ])
 
@@ -81,6 +82,13 @@ export const createStack = async () => {
         'secretsmanager:TagResource',
       ],
       resources: [`arn:${stack.partition}:secretsmanager:${stack.region}:${stack.account}:secret:${pattern}`],
+    }),
+  )
+
+  lambda.addToRolePolicy(
+    new PolicyStatement({
+      actions: ['sqs:SendMessage'],
+      resources: [`arn:aws:sqs:${config.DYNAMO_DB_REGION}:${stack.account}:Platform_Billing_HttpTrafficEvents`],
     }),
   )
 
@@ -169,7 +177,8 @@ export const createStack = async () => {
         'method.request.header.X-Api-Key': !route.protected ? true : false,
         'method.request.header.api-version': false,
         'method.request.header.if-match': false,
-        'method.request.header.reapit-customer': false,
+        'method.request.header.reapit-customer': true,
+        'method.request.header.reapit-app-id': true,
         'method.request.header.reapit-session': false,
       },
     })

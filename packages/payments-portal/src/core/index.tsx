@@ -19,6 +19,7 @@ window.reapit = {
     paymentsApiUrl: '',
     opayoApiUrl: '',
     apiKey: '',
+    appId: '',
   },
 }
 
