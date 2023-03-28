@@ -1,9 +1,9 @@
 import { registerAs } from '@nestjs/config'
-import { AuthModuleOptionsInterface } from '@reapit/utils-nest'
+import { ApiKeyVerifyModuleOptionsInterface } from '@reapit/api-key-verify'
 
 export default registerAs(
   'apiKeyInvokeArn',
-  (): AuthModuleOptionsInterface => ({
+  (): ApiKeyVerifyModuleOptionsInterface => ({
     apiKeyInvoke: {
       invokeArn: process.env.API_KEY_INVOKE_ARN as string,
       enabled: true,

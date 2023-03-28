@@ -15,8 +15,8 @@ import { BitbucketModule } from './bitbucket'
 import { AwsModule } from './aws'
 import { CodeBuildModule } from './codebuild'
 import { APP_INTERCEPTOR } from '@nestjs/core'
-import { CorsHeaderInterceptor, AuthModule, AuthModuleOptionsInterface } from '@reapit/utils-nest'
-import { ApiKeyModule } from '@reapit/api-key-verify'
+import { CorsHeaderInterceptor, AuthModule } from '@reapit/utils-nest'
+import { ApiKeyModule, ApiKeyVerifyModuleOptionsInterface } from '@reapit/api-key-verify'
 
 process.env = {
   ...process.env,
@@ -43,7 +43,7 @@ process.env = {
     }),
     ApiKeyModule.forRootAsync({
       useFactory: (config: ConfigService) => {
-        const invokeConfig = config.get<AuthModuleOptionsInterface>('apiKeyInvokeArn')
+        const invokeConfig = config.get<ApiKeyVerifyModuleOptionsInterface>('apiKeyInvokeArn')
 
         if (!invokeConfig) throw new Error('invalid invokeArn for authModule')
 

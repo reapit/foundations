@@ -1,7 +1,7 @@
 import { Module, DynamicModule } from '@nestjs/common'
 import {
   API_KEY_INVOKE_CONFIG_PROVIDE,
-  AuthModuleOptionsInterface,
+  ApiKeyVerifyModuleOptionsInterface,
   createApiKeyInvokeConfigProvide,
   FactoryArnProvide,
 } from './api.key.invoke.config'
@@ -20,7 +20,7 @@ export class ApiKeyModule {
     }
   }
 
-  static forRoot(options?: AuthModuleOptionsInterface): DynamicModule {
+  static forRoot(options?: ApiKeyVerifyModuleOptionsInterface): DynamicModule {
     return {
       module: ApiKeyModule,
       providers: [createApiKeyInvokeConfigProvide(options || { apiKeyInvoke: { enabled: false } }), ApiKeyProvider],

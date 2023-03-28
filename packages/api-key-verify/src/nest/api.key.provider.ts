@@ -1,7 +1,7 @@
 import { Inject, UnauthorizedException } from '@nestjs/common'
 import { AuthProviderInterface, CredAuthTokenProvider } from '@reapit/utils-nest'
 import { ApiKeyModel, resolveApiKey } from '..'
-import { API_KEY_INVOKE_CONFIG_PROVIDE, AuthModuleOptionsInterface } from './api.key.invoke.config'
+import { API_KEY_INVOKE_CONFIG_PROVIDE, ApiKeyVerifyModuleOptionsInterface } from './api.key.invoke.config'
 
 @CredAuthTokenProvider(2)
 export class ApiKeyProvider implements AuthProviderInterface<ApiKeyModel> {
@@ -13,7 +13,9 @@ export class ApiKeyProvider implements AuthProviderInterface<ApiKeyModel> {
     return 'api-key'
   }
 
-  constructor(@Inject(API_KEY_INVOKE_CONFIG_PROVIDE) private readonly authOptions: AuthModuleOptionsInterface) {}
+  constructor(
+    @Inject(API_KEY_INVOKE_CONFIG_PROVIDE) private readonly authOptions: ApiKeyVerifyModuleOptionsInterface,
+  ) {}
   async resolve(request: any): Promise<ApiKeyModel | never> {
     const apiKey = request.headers['x-api-key'] as string
 
