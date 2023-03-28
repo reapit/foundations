@@ -2,7 +2,7 @@ import { AuthProviderInterface } from '../../auth-provider-interface'
 import { TokenProvider } from '../../token-provider'
 import { Test, TestingModule } from '@nestjs/testing'
 import { CredGuard } from '../cred-guard'
-import { CredAuthTokenProvider } from '../token.provider.decorator'
+import { CredAuthTokenProvider } from '../../token.provider.decorator'
 import { Module } from '@nestjs/common'
 
 describe('CredGuard', () => {

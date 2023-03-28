@@ -2,7 +2,7 @@ import { UnauthorizedException } from '@nestjs/common'
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
 import { Request } from 'express'
 import { AuthProviderInterface } from './auth-provider-interface'
-import { CredAuthTokenProvider } from './guards'
+import { CredAuthTokenProvider } from './token.provider.decorator'
 
 @CredAuthTokenProvider(1)
 export class TokenProvider implements AuthProviderInterface<any> {

@@ -3,7 +3,7 @@ import { Request } from 'express'
 import { AuthProviderInterface } from '../auth-provider-interface'
 import { ModuleRef, ModulesContainer } from '@nestjs/core'
 import { MODULE_METADATA } from '@nestjs/common/constants'
-import { TOKEN_PROVIDER_INJECTABLE } from './token.provider.decorator'
+import { TOKEN_PROVIDER_INJECTABLE } from '../token.provider.decorator'
 import { CredsType } from './cred-types'
 import { TokenProvider } from '../token-provider'
 
