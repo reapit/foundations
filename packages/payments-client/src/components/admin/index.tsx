@@ -142,6 +142,8 @@ export const AdminPage: FC = () => {
     method: 'DELETE',
     headers: {
       Authorization: idToken,
+      'reapit-customer': clientCode,
+      'reapit-app-id': window.reapit.config.appId,
     },
     uriParams: {
       clientCode,
@@ -154,6 +156,8 @@ export const AdminPage: FC = () => {
     method: 'POST',
     headers: {
       Authorization: idToken,
+      'reapit-customer': clientCode,
+      'reapit-app-id': window.reapit.config.appId,
     },
     uriParams: {
       clientCode,
@@ -166,6 +170,8 @@ export const AdminPage: FC = () => {
     method: 'PATCH',
     headers: {
       Authorization: idToken,
+      'reapit-customer': clientCode,
+      'reapit-app-id': window.reapit.config.appId,
     },
     uriParams: {
       clientCode,

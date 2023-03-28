@@ -29,6 +29,8 @@ export const ConfigProvider: FC = ({ children }) => {
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getPaymentsClientConfig],
     headers: {
       Authorization: idToken,
+      'reapit-customer': clientCode as string,
+      'reapit-app-id': window.reapit.config.appId,
     },
     uriParams: {
       clientCode,

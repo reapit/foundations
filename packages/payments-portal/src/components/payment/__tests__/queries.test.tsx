@@ -16,6 +16,7 @@ jest.mock('axios', () => ({
 
 window.reapit.config.paymentsApiUrl = 'https://payments-service.reapit.cloud'
 window.reapit.config.apiKey = 'MOCK_API_KEY'
+window.reapit.config.appId = 'MOCK_APP_ID'
 
 const mockSuccess = jest.fn()
 const mockError = jest.fn()
@@ -61,7 +62,12 @@ describe('useClientConfig', () => {
     await waitForNextUpdate()
 
     expect(mockAxios).toHaveBeenCalledWith('https://payments-service.reapit.cloud/config/public/MOCK_PAYMENT_ID', {
-      headers: { 'X-Api-Key': 'MOCK_API_KEY', 'reapit-customer': 'MOCK_CLIENT_CODE', 'reapit-session': 'MOCK_SESSION' },
+      headers: {
+        'X-Api-Key': 'MOCK_API_KEY',
+        'reapit-customer': 'MOCK_CLIENT_CODE',
+        'reapit-session': 'MOCK_SESSION',
+        'reapit-app-id': 'MOCK_APP_ID',
+      },
     })
 
     expect(mockAxios).toHaveBeenCalledTimes(1)
@@ -95,6 +101,7 @@ describe('usePayment', () => {
         'X-Api-Key': 'MOCK_API_KEY',
         'reapit-customer': 'MOCK_CLIENT_CODE',
         'reapit-session': 'MOCK_SESSION',
+        'reapit-app-id': 'MOCK_APP_ID',
         'api-version': 'latest',
       },
     })
@@ -138,6 +145,7 @@ describe('useReceipt', () => {
           'X-Api-Key': 'MOCK_API_KEY',
           'reapit-customer': 'MOCK_CLIENT_CODE',
           'reapit-session': 'MOCK_SESSION',
+          'reapit-app-id': 'MOCK_APP_ID',
         },
       },
     )
@@ -179,6 +187,7 @@ describe('useStatusUpdate', () => {
           'X-Api-Key': 'MOCK_API_KEY',
           'reapit-customer': 'MOCK_CLIENT_CODE',
           'reapit-session': 'MOCK_SESSION',
+          'reapit-app-id': 'MOCK_APP_ID',
           'If-Match': mockPaymentWithPropertyModel._eTag,
           'api-version': 'latest',
         },
@@ -217,6 +226,7 @@ describe('useTransaction', () => {
           'X-Api-Key': 'MOCK_API_KEY',
           'reapit-customer': 'MOCK_CLIENT_CODE',
           'reapit-session': 'MOCK_SESSION',
+          'reapit-app-id': 'MOCK_APP_ID',
         },
       },
     )
@@ -257,6 +267,7 @@ describe('useMerchantKey', () => {
           'X-Api-Key': 'MOCK_API_KEY',
           'reapit-customer': 'SBOX',
           'reapit-session': 'MOCK_SESSION',
+          'reapit-app-id': 'MOCK_APP_ID',
         },
       },
     )

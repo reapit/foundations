@@ -22,6 +22,7 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
+          'reapit-app-id': window.reapit.config.appId,
           'X-Api-Key': window.reapit.config.apiKey,
         },
       })
@@ -50,6 +51,7 @@ export const usePayment = (session: string | null, clientCode: string | null, pa
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
+          'reapit-app-id': window.reapit.config.appId,
           'api-version': 'latest',
           'X-Api-Key': window.reapit.config.apiKey,
         },
@@ -84,6 +86,7 @@ export const useReceipt = (session: string | null, clientCode: string | null, pa
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
+          'reapit-app-id': window.reapit.config.appId,
           'X-Api-Key': window.reapit.config.apiKey,
         },
       })
@@ -123,6 +126,7 @@ export const useStatusUpdate = (session: string | null, clientCode: string | nul
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
+          'reapit-app-id': window.reapit.config.appId,
           'If-Match': eTag as string,
           'api-version': 'latest',
           'X-Api-Key': window.reapit.config.apiKey,
@@ -154,6 +158,7 @@ export const useTransaction = (session: string | null, clientCode: string | null
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
+          'reapit-app-id': window.reapit.config.appId,
           'X-Api-Key': window.reapit.config.apiKey,
         },
       })
@@ -182,6 +187,7 @@ export const useMerchantKey = (session: string | null, config: ClientConfigModel
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
+          'reapit-app-id': window.reapit.config.appId,
           'X-Api-Key': window.reapit.config.apiKey,
         },
       })
