@@ -137,6 +137,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
     headers: {
       Authorization: idToken,
       'reapit-customer': clientCode as string,
+      'reapit-app-id': window.reapit.config.appId,
     },
     uriParams: {
       paymentId,
@@ -163,6 +164,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
     headers: {
       Authorization: idToken,
       'reapit-customer': clientCode as string,
+      'reapit-app-id': window.reapit.config.appId,
     },
   })
 
@@ -174,6 +176,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
     headers: {
       Authorization: idToken,
       'reapit-customer': clientCode as string,
+      'reapit-app-id': window.reapit.config.appId,
     },
   })
 

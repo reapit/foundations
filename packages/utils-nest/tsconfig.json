@@ -17,6 +17,10 @@
     "strictPropertyInitialization": false,
     "outDir": "./dist"
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "../payments-service/src/core/billing-interceptor",
+    "../payments-service/src/core/billing-interceptor.ts"
+  ],
   "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage", "../connect-session/**/*"]
 }

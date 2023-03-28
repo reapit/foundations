@@ -10,6 +10,7 @@ import { Handler, APIGatewayEvent, Context } from 'aws-lambda'
 import { AppModule } from './app'
 import config from '../../config.json'
 import { CorsHeaderInterceptor } from './cors-header-interceptor'
+import { BillingInterceptor } from './billing-interceptor'
 
 export const bootstrapApplication = async (): Promise<[INestApplication, Express]> => {
   process.env = {
@@ -22,6 +23,7 @@ export const bootstrapApplication = async (): Promise<[INestApplication, Express
 
   app.useGlobalPipes(new ValidationPipe())
   app.useGlobalInterceptors(new CorsHeaderInterceptor())
+  app.useGlobalInterceptors(new BillingInterceptor())
 
   return [app, expressApp]
 }

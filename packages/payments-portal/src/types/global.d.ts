@@ -9,6 +9,7 @@ export type Config = {
   paymentsApiUrl: string
   marketplaceUrl: string
   apiKey: string
+  appId: string
 }
 
 declare global {
