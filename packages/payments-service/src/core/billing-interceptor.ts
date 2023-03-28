@@ -8,7 +8,7 @@ const sqs = new SQS()
 
 @Injectable()
 export class BillingInterceptor implements NestInterceptor {
-  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+  async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<any>> {
     const request = context.switchToHttp().getRequest<Request>()
     const { params, method, headers } = request
 
@@ -36,11 +36,21 @@ export class BillingInterceptor implements NestInterceptor {
       QueueUrl: `https://sqs.eu-west-2.amazonaws.com/${config.AWS_ACCOUNT_ID}/Platform_Billing_HttpTrafficEvents`,
     }
 
-    sqs.sendMessage(message, (err) => {
-      if (err) {
-        console.log('Error sending billing message', err)
-      }
-    })
+    const sendMessage = () =>
+      new Promise<void>((resolve, reject) => {
+        sqs.sendMessage(message, (err, data) => {
+          if (err) {
+            console.log('Error sending billing message', err)
+            reject(err)
+          }
+
+          if (data) {
+            resolve()
+          }
+        })
+      })
+
+    await sendMessage()
 
     return next.handle()
   }
