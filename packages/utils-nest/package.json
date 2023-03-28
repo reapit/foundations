@@ -1,7 +1,7 @@
 {
   "name": "@reapit/utils-nest",
-  "version": "0.0.2",
-  "private": false,
+  "version": "0.0.3",
+  "private": true,
   "description": "Common Package for Reapit Foundation for Nestjs",
   "repository": {
     "type": "git",
