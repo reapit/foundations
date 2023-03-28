@@ -5,9 +5,7 @@
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
-      "@/*": ["src/*"],
-      "@reapit/elements": ["../elements/src"],
-      "@reapit/connect-session": ["../connect-session/src"]
+      "@/*": ["src/*"]
     },
     "declaration": true,
     "declarationDir": "dist",

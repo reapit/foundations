@@ -1,40 +1,80 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common'
-import { ApiKeyProvider } from './../api-key-provider'
-import { TokenProvider } from './../token-provider'
 import { Request } from 'express'
+import { AuthProviderInterface } from '../auth-provider-interface'
+import { ModuleRef, ModulesContainer } from '@nestjs/core'
+import { MODULE_METADATA } from '@nestjs/common/constants'
+import { TOKEN_PROVIDER_INJECTABLE } from '../token.provider.decorator'
 import { CredsType } from './cred-types'
+import { TokenProvider } from '../token-provider'
 
 @Injectable()
 export class CredGuard implements CanActivate {
-  constructor(private readonly tokenProvider: TokenProvider, private readonly apiKeyProvider: ApiKeyProvider) {}
+  protected authProviders: AuthProviderInterface<any>[] = []
+  protected tokenProvider: TokenProvider | undefined = undefined
 
-  async canActivate(context: ExecutionContext) {
+  constructor(private readonly moduleContainer: ModulesContainer, private readonly moduleRef: ModuleRef) {}
+
+  onModuleInit() {
+    const unsortedProviders: { provider: AuthProviderInterface<any>; priority: number }[] = []
+
+    ;[...this.moduleContainer.values()].forEach(({ metatype }) => {
+      const metadata = Reflect.getMetadata(MODULE_METADATA.PROVIDERS, metatype)
+
+      if (!metadata) {
+        return
+      }
+
+      const providers = [...metadata.filter((metatype: any) => typeof metatype === 'function')]
+
+      providers.forEach((provider) => {
+        if (Reflect.hasOwnMetadata(TOKEN_PROVIDER_INJECTABLE, provider)) {
+          const injectable = this.moduleRef.get(provider, { strict: false })
+          if (injectable.constructor.name === TokenProvider.name) {
+            this.tokenProvider = injectable
+          }
+          if (
+            !unsortedProviders.find(
+              (unsortedProvider) => unsortedProvider.provider.constructor.name === injectable.constructor.name,
+            )
+          ) {
+            const priority = Reflect.getOwnMetadata(TOKEN_PROVIDER_INJECTABLE, provider)
+            unsortedProviders.push({
+              priority,
+              provider: injectable,
+            })
+            // Logger.log(`added [${injectable.constructor.name}] to CredGuard. Priority [${priority}]`, 'CredGuard')
+          }
+        }
+      })
+    })
+
+    if (!this.tokenProvider)
+      throw new Error(
+        '[TokenProvider] was not found by CredGuard. Please make sure TokenProvider is finable by CredGuard. Likely CredGuard provider is injected outside of AuthModule',
+      )
+
+    unsortedProviders.sort((a, b) => b.priority - a.priority)
+
+    this.authProviders = unsortedProviders.map((set) => set.provider)
+  }
+
+  async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest<Request & { credentials?: CredsType }>()
 
-    if (Object.keys(request.headers).includes('x-api-key')) {
-      const apiKeyCreds = await this.apiKeyProvider.resolve(request.headers['x-api-key'] as string)
+    const providers = this.authProviders.filter((provider) => provider.applies(request))
+    const priorityProvider = providers[0] || this.tokenProvider
+    // TODO should tokenProvider be instanced here instead of through container? To avoid exceptions in cases where
+    // developer breaks usage and creates CredGuard provider without AuthModule
 
-      if (apiKeyCreds) {
-        request.credentials = {
-          ...apiKeyCreds,
-          type: 'api-key',
-        }
-      }
+    const credentials = await priorityProvider.resolve(request)
 
-      return !!apiKeyCreds
-    }
-
-    const tokenCreds = await this.tokenProvider.resolve(request.headers?.authorization as string)
-
-    if (!tokenCreds || !tokenCreds.developerId) return false
-
-    if (tokenCreds) {
+    if (credentials) {
       request.credentials = {
-        ...tokenCreds,
-        type: 'jwt',
+        ...credentials,
+        type: priorityProvider.type(),
       }
     }
 
-    return !!tokenCreds
+    return !!credentials
   }
 }
