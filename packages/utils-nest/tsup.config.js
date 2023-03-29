@@ -12,10 +12,4 @@ export default defineConfig({
     opts.resolveExtensions = ['.ts', '.js']
   },
   noExternal: Object.keys(pkgJson.dependencies),
-  // external: [
-  //   '@nestjs/microservices',
-  //   'cache-manager',
-  //   '@nestjs/websockets',
-  //   '@reapit/utils-nest',
-  // ],
 })
