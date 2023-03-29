@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "author": "Reapit Ltd",
-  "main": "./src/index.ts",
+  "main": "./dist/utils-nest/src/index.js",
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "jest",
@@ -34,6 +34,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "@reapit/foundations-ts-definitions": "workspace:^",
     "jwt-decode": "^3.1.2"
   },
   "peerDependencies": {
