@@ -3,10 +3,10 @@ import { ReapitConnectSession } from '@reapit/connect-session'
 export const getIsAdmin = (connectSession: ReapitConnectSession | null): boolean => {
   const groups = connectSession?.loginIdentity.groups ?? []
   const isOrgAdmin = groups.includes('OrganisationAdmin')
-  const isReapitEmployee = groups.includes('ReapitEmployee')
-  const isReapitEmployeeAdmin = groups.includes('ReapitEmployeeFoundationsAdmin')
+  const isMarketplaceAdmin = groups.includes('MarketplaceAdmin')
+  const isUserAdmin = groups.includes('ReapitUserAdmin')
 
-  return isOrgAdmin || isReapitEmployee || isReapitEmployeeAdmin
+  return isOrgAdmin || isUserAdmin || isMarketplaceAdmin
 }
 
 export const getIsOrgAdmin = (connectSession: ReapitConnectSession | null): boolean => {
