@@ -1,5 +1,5 @@
 import { LoginIdentity } from '@reapit/connect-session'
-import { ApiKeyModel } from '@reapit/api-key-verify'
+import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 
 type LoginCredsType = {
   type: 'jwt'
@@ -7,6 +7,6 @@ type LoginCredsType = {
 
 type ApiKeyCredsType = {
   type: 'api-key'
-} & Omit<ApiKeyModel, 'expired'>
+} & ApiKeyInterface
 
 export type CredsType = LoginCredsType | ApiKeyCredsType
