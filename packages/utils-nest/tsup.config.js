@@ -6,7 +6,7 @@ const pkgJson = JSON.parse(fs.readFileSync(resolve(__dirname, 'package.json'), '
 
 export default defineConfig({
   entry: ['src/index.ts'],
-  target: 'node19',
+  target: 'node14',
   clean: true,
   esbuildOptions: (opts) => {
     opts.resolveExtensions = ['.ts', '.js']
