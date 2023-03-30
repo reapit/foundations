@@ -8,7 +8,8 @@
   },
   "license": "MIT",
   "author": "Reapit Ltd",
-  "main": "./dist/utils-nest/src/index.js",
+  "main": "./dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "jest",
