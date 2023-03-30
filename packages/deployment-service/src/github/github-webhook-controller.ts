@@ -13,7 +13,7 @@ import { App } from '@octokit/app'
 import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deployment-schema'
 import { EventDispatcher, PusherProvider } from '../events'
 import { Request } from 'express'
-import { PipelineEntity } from '@/entities/pipeline.entity'
+import { PipelineEntity } from '../entities/pipeline.entity'
 
 type GithubCommitEvent = {
   ref: string

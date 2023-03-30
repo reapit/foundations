@@ -6,7 +6,7 @@ import * as jwt from 'atlassian-jwt'
 import { HttpService } from '@nestjs/axios'
 import { firstValueFrom } from 'rxjs'
 import { PipelineProvider } from '../pipeline'
-import { PipelineEntity } from '@/entities/pipeline.entity'
+import { PipelineEntity } from '../entities/pipeline.entity'
 
 type PaginatedRepositories = {
   pagelen: number
