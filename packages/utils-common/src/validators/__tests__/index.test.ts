@@ -127,7 +127,7 @@ describe('hasSpecialChars', () => {
   })
 
   it('it should return false for a string with safe characters', () => {
-    expect(hasSpecialChars('1aA !@£$%^&*()_-+=\'";:~#.,')).toBe(false)
+    expect(hasSpecialChars('1aA !@£$%^&*()_-+=\'";:~#.,‘’')).toBe(false)
   })
 
   it('it should return true where a string has special characters', () => {
