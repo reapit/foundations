@@ -18798,6 +18798,12 @@ export interface UpdateContactModel {
   metadata?: {
     [name: string]: any
   }
+  /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    [name: string]: string
+  }
 }
 /**
  * Request body used to update the source of an existing contact
