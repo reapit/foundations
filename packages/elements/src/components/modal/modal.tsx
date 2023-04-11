@@ -37,8 +37,6 @@ export const ModalBody: FC<ModalBaseProps> = ({ className, children, ...rest }: 
 )
 
 export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, children, ...rest }) => {
-  if (!isOpen) return null
-
   useEffect(() => {
     const onKeyUp = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -53,6 +51,8 @@ export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, 
   }, [onModalClose])
 
   const modalCombinedClassname = cx(className, elIsActive)
+
+  if (!isOpen) return null
 
   return (
     <>
