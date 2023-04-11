@@ -1,5 +1,3 @@
-declare module '*.svg'
-
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
 }

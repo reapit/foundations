@@ -7,8 +7,8 @@
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
-      "@/*": ["src/*"],
-      "@reapit/*": ["../*"]
+      "@reapit/connect-sesssion": ["../connect-session"],
+      "@reapit/foundations-ts-definitions": ["../foundations-ts-definitions"]
     },
     "declaration": true,
     "declarationDir": "dist",
