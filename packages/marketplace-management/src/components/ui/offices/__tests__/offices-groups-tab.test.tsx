@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
 import OfficesGroupsTab, {
   getOfficeQueryFromGroups,
   mergeOfficesGroups,
+  onFilterChangeHandler,
   onPageChangeHandler,
 } from '../offices-groups-tab'
 import { createBrowserHistory, History } from 'history'
@@ -11,6 +11,7 @@ import { mockOfficeGroups } from '../../../../services/__stubs__/office-groups'
 import useSWR from 'swr'
 import { useOrgId } from '../../../../utils/use-org-id'
 import { mockOfficeGroupModels, mockOfficeModels } from '../__stubs__/merge-offices-stub'
+import { render } from '../../../../tests/react-testing'
 
 jest.mock('../../../../core/connect-session')
 jest.mock('react-router', () => ({
@@ -88,13 +89,25 @@ describe('getOfficeQueryFromGroups', () => {
 })
 
 describe('onPageChangeHandler', () => {
-  it('should return a function when executing', () => {
+  it('should handle page changes', () => {
+    const setOfficeGroupFilters = jest.fn()
+    const curried = onPageChangeHandler(setOfficeGroupFilters)
+
+    curried(2)
+
+    expect(setOfficeGroupFilters.mock.calls[0][0]()).toEqual({ pageNumber: '2' })
+  })
+})
+
+describe('onFilterChangeHandler', () => {
+  it('should handle filter changes', () => {
     const history: History<any> = createBrowserHistory()
     jest.spyOn(history, 'push')
-    const onPageChangeHandlerFn = onPageChangeHandler(history)
-    expect(onPageChangeHandlerFn).toBeDefined()
 
-    onPageChangeHandlerFn(2)
+    const curried = onFilterChangeHandler(history, { pageNumber: '2' })
+
+    curried()
+
     expect(history.push).toHaveBeenCalledWith(`${Routes.OFFICES_GROUPS}?pageNumber=2`)
   })
 })
