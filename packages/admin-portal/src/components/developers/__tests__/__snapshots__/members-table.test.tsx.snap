@@ -305,6 +305,16 @@ Object {
                         class="el-button-loader"
                       />
                     </button>
+                    <button
+                      class="el-intent-danger el-button"
+                      disabled=""
+                      type="button"
+                    >
+                      Delete Member
+                      <div
+                        class="el-button-loader"
+                      />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -556,6 +566,16 @@ Object {
                     class="el-intent-secondary el-button"
                   >
                     Get Login Info
+                    <div
+                      class="el-button-loader"
+                    />
+                  </button>
+                  <button
+                    class="el-intent-danger el-button"
+                    disabled=""
+                    type="button"
+                  >
+                    Delete Member
                     <div
                       class="el-button-loader"
                     />

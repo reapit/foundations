@@ -10,6 +10,9 @@ import {
   handleToggleDevEdition,
   DevelopersTable,
   handleDevIdSubs,
+  handleDevIdDelete,
+  handleDevIdInvite,
+  handleDeleteDev,
 } from '../developers-table'
 
 jest.mock('../../../core/use-permissions-state')
@@ -84,6 +87,53 @@ describe('handleDevIdSubs', () => {
     expect(setDevIdSubs).toHaveBeenCalledWith(devIdSubs)
     expect(setDevIdMembers).toHaveBeenCalledWith(null)
     expect(setDevIdApps).toHaveBeenCalledWith(null)
+  })
+})
+
+describe('handleDevIdDelete', () => {
+  it('handleDevIdDelete should correctly set the dev id', () => {
+    const setDevIdDelete = jest.fn()
+    const openDeleteConfirmModal = jest.fn()
+    const devIdDelete = 'MOCK_ID'
+    const curried = handleDevIdDelete(setDevIdDelete, openDeleteConfirmModal, devIdDelete)
+
+    curried()
+
+    expect(setDevIdDelete).toHaveBeenCalledWith(devIdDelete)
+    expect(openDeleteConfirmModal).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleDeleteDev', () => {
+  it('handleDeleteDev should correctly set the dev id', async () => {
+    const setDevIdDelete = jest.fn()
+    const closeDeleteConfirmModal = jest.fn()
+    const deleteDeveloper = jest.fn(() => Promise.resolve(true))
+    const refreshDevelopers = jest.fn()
+    const curried = handleDeleteDev(setDevIdDelete, closeDeleteConfirmModal, deleteDeveloper, refreshDevelopers)
+
+    await curried()
+
+    expect(setDevIdDelete).toHaveBeenCalledWith(null)
+    expect(deleteDeveloper).toHaveBeenCalledTimes(1)
+    expect(refreshDevelopers).toHaveBeenCalledTimes(1)
+    expect(closeDeleteConfirmModal).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleDevIdInvite', () => {
+  it('handleDevIdInvite should correctly set the dev id', () => {
+    const setDevIdInvite = jest.fn()
+    const setDevIdMembers = jest.fn()
+    const openInviteMemberModal = jest.fn()
+    const devIdInvite = 'MOCK_ID'
+    const curried = handleDevIdInvite(setDevIdInvite, setDevIdMembers, openInviteMemberModal, devIdInvite)
+
+    curried()
+
+    expect(setDevIdInvite).toHaveBeenCalledWith(devIdInvite)
+    expect(setDevIdMembers).toHaveBeenCalledWith(null)
+    expect(openInviteMemberModal).toHaveBeenCalledTimes(1)
   })
 })
 
