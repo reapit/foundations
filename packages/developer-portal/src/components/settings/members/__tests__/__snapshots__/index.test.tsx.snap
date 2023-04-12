@@ -32,7 +32,7 @@ Object {
         class="ec47sgk-el-mb11 ejadz4k-el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-action-col="4"
+        data-num-columns-excl-action-col="5"
       >
         <div
           class="e1ijk5il-el-table-headers-row"
@@ -56,6 +56,11 @@ Object {
             class="e1co3p83-el-table-header"
           >
             Role
+          </div>
+          <div
+            class="e1co3p83-el-table-header"
+          >
+            Main Contact
           </div>
           <div
             class="e1co3p83-el-table-header"
@@ -129,6 +134,20 @@ Object {
               </div>
             </div>
             <div
+              class="e4zpaja-el-table-cell"
+            >
+              <div
+                class="e1t8i3z1-el-table-cell-content"
+                data-narrow-label="Main Contact"
+              >
+                <span
+                  class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+                >
+                  <svg />
+                </span>
+              </div>
+            </div>
+            <div
               class="e1fmntjl-el-table-expandable-row-trigger-cell"
             >
               <span
@@ -171,6 +190,14 @@ Object {
                     class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
                   >
                     Disable
+                    <div
+                      class="e1q1vabn-el-button-loader"
+                    />
+                  </button>
+                  <button
+                    class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                  >
+                    Set As Main Contact
                     <div
                       class="e1q1vabn-el-button-loader"
                     />
@@ -255,7 +282,7 @@ Object {
       class="ec47sgk-el-mb11 ejadz4k-el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
-      data-num-columns-excl-action-col="4"
+      data-num-columns-excl-action-col="5"
     >
       <div
         class="e1ijk5il-el-table-headers-row"
@@ -279,6 +306,11 @@ Object {
           class="e1co3p83-el-table-header"
         >
           Role
+        </div>
+        <div
+          class="e1co3p83-el-table-header"
+        >
+          Main Contact
         </div>
         <div
           class="e1co3p83-el-table-header"
@@ -352,6 +384,20 @@ Object {
             </div>
           </div>
           <div
+            class="e4zpaja-el-table-cell"
+          >
+            <div
+              class="e1t8i3z1-el-table-cell-content"
+              data-narrow-label="Main Contact"
+            >
+              <span
+                class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+              >
+                <svg />
+              </span>
+            </div>
+          </div>
+          <div
             class="e1fmntjl-el-table-expandable-row-trigger-cell"
           >
             <span
@@ -394,6 +440,14 @@ Object {
                   class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
                 >
                   Disable
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
+                </button>
+                <button
+                  class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                >
+                  Set As Main Contact
                   <div
                     class="e1q1vabn-el-button-loader"
                   />
@@ -556,7 +610,7 @@ Object {
         class="ec47sgk-el-mb11 ejadz4k-el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-action-col="4"
+        data-num-columns-excl-action-col="5"
       >
         <div
           class="e1ijk5il-el-table-headers-row"
@@ -580,6 +634,11 @@ Object {
             class="e1co3p83-el-table-header"
           >
             Role
+          </div>
+          <div
+            class="e1co3p83-el-table-header"
+          >
+            Main Contact
           </div>
           <div
             class="e1co3p83-el-table-header"
@@ -653,6 +712,20 @@ Object {
               </div>
             </div>
             <div
+              class="e4zpaja-el-table-cell"
+            >
+              <div
+                class="e1t8i3z1-el-table-cell-content"
+                data-narrow-label="Main Contact"
+              >
+                <span
+                  class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+                >
+                  <svg />
+                </span>
+              </div>
+            </div>
+            <div
               class="e1fmntjl-el-table-expandable-row-trigger-cell"
             >
               <span
@@ -695,6 +768,14 @@ Object {
                     class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
                   >
                     Disable
+                    <div
+                      class="e1q1vabn-el-button-loader"
+                    />
+                  </button>
+                  <button
+                    class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                  >
+                    Set As Main Contact
                     <div
                       class="e1q1vabn-el-button-loader"
                     />
@@ -795,7 +876,7 @@ Object {
       class="ec47sgk-el-mb11 ejadz4k-el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
-      data-num-columns-excl-action-col="4"
+      data-num-columns-excl-action-col="5"
     >
       <div
         class="e1ijk5il-el-table-headers-row"
@@ -819,6 +900,11 @@ Object {
           class="e1co3p83-el-table-header"
         >
           Role
+        </div>
+        <div
+          class="e1co3p83-el-table-header"
+        >
+          Main Contact
         </div>
         <div
           class="e1co3p83-el-table-header"
@@ -892,6 +978,20 @@ Object {
             </div>
           </div>
           <div
+            class="e4zpaja-el-table-cell"
+          >
+            <div
+              class="e1t8i3z1-el-table-cell-content"
+              data-narrow-label="Main Contact"
+            >
+              <span
+                class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+              >
+                <svg />
+              </span>
+            </div>
+          </div>
+          <div
             class="e1fmntjl-el-table-expandable-row-trigger-cell"
           >
             <span
@@ -934,6 +1034,14 @@ Object {
                   class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
                 >
                   Disable
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
+                </button>
+                <button
+                  class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                >
+                  Set As Main Contact
                   <div
                     class="e1q1vabn-el-button-loader"
                   />

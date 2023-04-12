@@ -132,7 +132,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
       {!member.isMainContact && (
         <Button
           intent="secondary"
-          disabled={isDisabled}
+          disabled={isLoading}
           loading={isLoading}
           onClick={handleUpdateMember(updateMember, {
             ...member,
