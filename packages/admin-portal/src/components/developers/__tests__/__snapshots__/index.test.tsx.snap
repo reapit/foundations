@@ -799,6 +799,14 @@ Object {
                         />
                       </button>
                       <button
+                        class="el-intent-primary el-button"
+                      >
+                        Invite Member
+                        <div
+                          class="el-button-loader"
+                        />
+                      </button>
+                      <button
                         class="el-intent-secondary el-button"
                       >
                         Fetch Members
@@ -810,6 +818,15 @@ Object {
                         class="el-intent-secondary el-button"
                       >
                         Fetch Apps
+                        <div
+                          class="el-button-loader"
+                        />
+                      </button>
+                      <button
+                        class="el-intent-danger el-button"
+                        type="button"
+                      >
+                        Delete Developer
                         <div
                           class="el-button-loader"
                         />
@@ -1238,6 +1255,14 @@ Object {
                       />
                     </button>
                     <button
+                      class="el-intent-primary el-button"
+                    >
+                      Invite Member
+                      <div
+                        class="el-button-loader"
+                      />
+                    </button>
+                    <button
                       class="el-intent-secondary el-button"
                     >
                       Fetch Members
@@ -1249,6 +1274,15 @@ Object {
                       class="el-intent-secondary el-button"
                     >
                       Fetch Apps
+                      <div
+                        class="el-button-loader"
+                      />
+                    </button>
+                    <button
+                      class="el-intent-danger el-button"
+                      type="button"
+                    >
+                      Delete Developer
                       <div
                         class="el-button-loader"
                       />
