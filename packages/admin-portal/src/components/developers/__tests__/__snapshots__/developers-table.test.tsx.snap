@@ -202,6 +202,15 @@ Object {
                       />
                     </button>
                     <button
+                      class="el-intent-primary el-button"
+                      disabled=""
+                    >
+                      Invite Member
+                      <div
+                        class="el-button-loader"
+                      />
+                    </button>
+                    <button
                       class="el-intent-secondary el-button"
                     >
                       Fetch Members
@@ -213,6 +222,16 @@ Object {
                       class="el-intent-secondary el-button"
                     >
                       Fetch Apps
+                      <div
+                        class="el-button-loader"
+                      />
+                    </button>
+                    <button
+                      class="el-intent-danger el-button"
+                      disabled=""
+                      type="button"
+                    >
+                      Delete Developer
                       <div
                         class="el-button-loader"
                       />
@@ -424,6 +443,15 @@ Object {
                     />
                   </button>
                   <button
+                    class="el-intent-primary el-button"
+                    disabled=""
+                  >
+                    Invite Member
+                    <div
+                      class="el-button-loader"
+                    />
+                  </button>
+                  <button
                     class="el-intent-secondary el-button"
                   >
                     Fetch Members
@@ -435,6 +463,16 @@ Object {
                     class="el-intent-secondary el-button"
                   >
                     Fetch Apps
+                    <div
+                      class="el-button-loader"
+                    />
+                  </button>
+                  <button
+                    class="el-intent-danger el-button"
+                    disabled=""
+                    type="button"
+                  >
+                    Delete Developer
                     <div
                       class="el-button-loader"
                     />

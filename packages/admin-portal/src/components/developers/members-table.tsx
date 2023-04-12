@@ -17,6 +17,7 @@ import {
   Pagination,
   elMt5,
   SmallText,
+  useModal,
 } from '@reapit/elements'
 import { toLocalTime } from '@reapit/utils-common'
 import {
@@ -54,17 +55,44 @@ export const handleSetUpdateMember =
     setMemberUpdate(memberUpdate)
   }
 
-export const handleRefreshMembers = (refreshMembers: () => void, updateMemberSuccess?: boolean) => () => {
-  if (updateMemberSuccess) {
-    refreshMembers()
+export const handleRefreshMembers =
+  (refreshMembers: () => void, updateMemberSuccess?: boolean, deleteMemberSuccess?: boolean) => () => {
+    if (updateMemberSuccess || deleteMemberSuccess) {
+      refreshMembers()
+    }
   }
-}
+
+export const handleMemberDelete =
+  (setMemberDelete: Dispatch<SetStateAction<MemberModel | null>>, openModal: () => void, memberDelete: MemberModel) =>
+  () => {
+    if (memberDelete) {
+      setMemberDelete(memberDelete)
+      openModal()
+    }
+  }
+
+export const handleDeleteMember =
+  (
+    setMemberDelete: Dispatch<SetStateAction<MemberModel | null>>,
+    closeModal: () => void,
+    deleteMember: SendFunction<void, boolean>,
+  ) =>
+  async () => {
+    const deleted = await deleteMember()
+
+    if (deleted) {
+      closeModal()
+      setMemberDelete(null)
+    }
+  }
 
 export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
   const [memberUpdate, setMemberUpdate] = useState<MemberModel | null>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [memberEmail, setMemberEmail] = useState<string | null>(null)
+  const [memberDelete, setMemberDelete] = useState<MemberModel | null>(null)
   const { hasReadAccess } = usePermissionsState()
+  const { Modal, openModal, closeModal } = useModal()
 
   const [members, membersLoading, , refreshMembers] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
@@ -100,7 +128,17 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
     },
   })
 
-  useEffect(handleRefreshMembers(refreshMembers, updateMemberSuccess), [updateMemberSuccess])
+  const [, , deleteMember, deleteMemberSuccess] = useReapitUpdate<void, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteMember],
+    method: 'DELETE',
+    uriParams: { developerId: memberDelete?.developerId, memberId: memberDelete?.id },
+  })
+
+  useEffect(handleRefreshMembers(refreshMembers, updateMemberSuccess, deleteMemberSuccess), [
+    updateMemberSuccess,
+    deleteMemberSuccess,
+  ])
   useEffect(handleUpdateMember(updateMember, memberUpdate), [memberUpdate])
 
   const idpEvents = userInfo?.idpData?.authEvents ?? []
@@ -209,6 +247,14 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
                     >
                       Get Login Info
                     </Button>
+                    <Button
+                      type="button"
+                      intent="danger"
+                      disabled={hasReadAccess}
+                      onClick={handleMemberDelete(setMemberDelete, openModal, member)}
+                    >
+                      Delete Member
+                    </Button>
                   </ButtonGroup>
                   {userInfoLoading && <Loader className={elMt5} />}
                   {userInfo && memberEmail === email && idpEvents.length ? (
@@ -238,6 +284,17 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
         currentPage={pageNumber}
         numberPages={Math.ceil((members?.totalCount ?? 1) / 12)}
       />
+      <Modal title="Delete Member">
+        <BodyText hasGreyText>Are you sure you want to delete this member? This action cannot be undone.</BodyText>
+        <ButtonGroup alignment="center">
+          <Button intent="low" onClick={closeModal}>
+            Cancel
+          </Button>
+          <Button intent="danger" onClick={handleDeleteMember(setMemberDelete, closeModal, deleteMember)}>
+            Delete
+          </Button>
+        </ButtonGroup>
+      </Modal>
     </div>
   ) : (
     <PersistentNotification className={elMt5} isExpanded isFullWidth isInline intent="secondary">
