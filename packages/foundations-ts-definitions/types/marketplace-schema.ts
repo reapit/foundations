@@ -2139,4 +2139,8 @@ export interface UpdateMemberModel {
    * The status of the member (active/inactive/pending/rejected)
    */
   status?: string
+  /**
+   * A flag to determine if the member is the main contact
+   */
+  isMainContact?: boolean
 }

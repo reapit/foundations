@@ -40,6 +40,14 @@ Object {
             />
           </button>
           <button
+            class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+          >
+            Set As Main Contact
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
+          </button>
+          <button
             class="e1vxext9-el-intent-danger e1tqqdf9-el-button"
           >
             Delete
@@ -82,6 +90,14 @@ Object {
           class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
         >
           Disable
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
+        </button>
+        <button
+          class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+        >
+          Set As Main Contact
           <div
             class="e1q1vabn-el-button-loader"
           />

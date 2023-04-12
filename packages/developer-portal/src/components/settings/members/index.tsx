@@ -4,6 +4,7 @@ import {
   ButtonGroup,
   elMb11,
   FlexContainer,
+  Icon,
   Loader,
   Pagination,
   StatusIndicator,
@@ -121,6 +122,18 @@ export const SettingsMembersPage: FC = () => {
               label: 'Role',
               value: member.role ? `${member.role.charAt(0).toUpperCase()}${member.role.slice(1).toLowerCase()}` : '',
               cellHasDarkText: true,
+              narrowTable: {
+                showLabel: true,
+              },
+            },
+            {
+              label: 'Main Contact',
+              value: (
+                <Icon
+                  icon={member.isMainContact ? 'checkSystem' : 'closeSystem'}
+                  intent={member.isMainContact ? 'success' : 'danger'}
+                />
+              ),
               narrowTable: {
                 showLabel: true,
               },
