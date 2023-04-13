@@ -278,11 +278,6 @@ Object {
               <div
                 class="p11sa0f-permission-chip"
               >
-                Read property images
-              </div>
-              <div
-                class="p11sa0f-permission-chip"
-              >
                 Read properties
               </div>
             </div>
@@ -561,11 +556,6 @@ Object {
               class="p11sa0f-permission-chip"
             >
               Read applicants
-            </div>
-            <div
-              class="p11sa0f-permission-chip"
-            >
-              Read property images
             </div>
             <div
               class="p11sa0f-permission-chip"
