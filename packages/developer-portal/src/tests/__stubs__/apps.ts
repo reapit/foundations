@@ -75,10 +75,6 @@ export const mockAppDetailModel: AppDetailModel = {
       description: 'Read applicants',
     },
     {
-      name: 'agencyCloud/images.read',
-      description: 'Read property images',
-    },
-    {
       name: 'agencyCloud/properties.read',
       description: 'Read properties',
     },

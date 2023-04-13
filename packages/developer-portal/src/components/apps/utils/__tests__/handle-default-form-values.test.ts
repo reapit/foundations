@@ -28,7 +28,7 @@ describe('handleSetDefaultFormValues', () => {
       description: 'Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar',
       summary: 'Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar',
       developerId: 'MOCK_DEVELOPER_ID',
-      scopes: 'agencyCloud/applicants.read,agencyCloud/images.read,agencyCloud/properties.read',
+      scopes: 'agencyCloud/applicants.read,agencyCloud/properties.read',
       redirectUris: 'https://foo.bar',
       signoutUris: 'https://foo.bar',
       limitToClientIds: '',
