@@ -3,11 +3,12 @@
   "compilerOptions": {
     "baseUrl": "./",
     "sourceRoot": "/",
+    "typeRoots": ["../../node_modules/@types", "src/types"],
     "paths": {
       "@/*": ["src/*"],
       "@reapit/elements": ["../elements/src"],
       "@reapit/utils-common": ["../utils-common/src"],
-      "@reapit/utils-react": ["../utils-react/src"],
+      "@reapit/utils-react": ["../utils-react"],
       "@reapit/connect-session": ["../connect-session/src"]
     }
   },

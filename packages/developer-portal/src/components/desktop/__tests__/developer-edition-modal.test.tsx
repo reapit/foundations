@@ -119,7 +119,7 @@ describe('DeveloperEditionModal', () => {
 describe('handleDownload', () => {
   it('should open download link', () => {
     const downloadURL = 'downloadURL'
-    window.reapit.config.developerEditionDownloadUrl = downloadURL
+    process.env.developerEditionDownloadUrl = downloadURL
     window.open = jest.fn()
 
     handleDownload()

@@ -69,7 +69,7 @@ export const PermissionsOptionsContent: FC<PermissionsOptionsContentProps> = ({ 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [permissions, loading] = useReapitGet<ScopeModel[]>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppPermissions],
+    action: getActions(process.env.appEnv)[GetActionNames.getAppPermissions],
     fetchWhenTrue: [connectSession],
   })
   const [search, setSearch] = useState<string>('')

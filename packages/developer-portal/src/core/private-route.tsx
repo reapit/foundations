@@ -75,7 +75,7 @@ export const PrivateRoute = ({ component, ...rest }: PrivateRouteProps & RoutePr
 
   const [, , updateMember, updateMemberSuccess, updateMemberError] = useReapitUpdate<UpdateMemberModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateMember],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.updateMember],
     method: 'PUT',
     uriParams: {
       developerId: currentMember?.developerId,

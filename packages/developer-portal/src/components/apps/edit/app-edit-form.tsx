@@ -126,7 +126,7 @@ export const AppEditForm: FC = () => {
 
   const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createAppRevsion],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.createAppRevsion],
     method: 'POST',
     uriParams: {
       appId,
@@ -136,7 +136,7 @@ export const AppEditForm: FC = () => {
 
   const [, , createConsentEmails] = useReapitUpdate<CreateAppRevisionConsentsModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createConsentEmails],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.createConsentEmails],
     method: 'POST',
     uriParams: {
       appId,

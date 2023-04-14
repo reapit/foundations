@@ -162,7 +162,7 @@ export const WebhooksNew: FC = () => {
 
   const [webhookCreating, , createWebhook, createWebhookSuccess] = useReapitUpdate<CreateWebhookModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createWebhook],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.createWebhook],
     method: 'POST',
   })
 

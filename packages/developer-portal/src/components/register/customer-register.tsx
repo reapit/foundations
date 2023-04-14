@@ -40,7 +40,7 @@ export const handleCreateAccount =
       })
 
       if (developer) {
-        window.location.href = `${window.reapit.config.connectOAuthUrl}/authorize?response_type=code&client_id=${window.reapit.config.connectClientId}&redirect_uri=${window.location.origin}${Routes.APPS}&state=${Routes.SETTINGS_COMPANY}`
+        window.location.href = `${process.env.connectOAuthUrl}/authorize?response_type=code&client_id=${process.env.connectClientId}&redirect_uri=${window.location.origin}${Routes.APPS}&state=${Routes.SETTINGS_COMPANY}`
       }
     }
     registerCustomer()
@@ -63,7 +63,7 @@ export const CustomerRegister: FC = () => {
   const [updatingCustomer, , updateCustomer] = useReapitUpdate<UpdateCustomerModel, null>({
     method: 'PUT',
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateCustomer],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.updateCustomer],
     uriParams: {
       customerId: connectSession?.loginIdentity.orgId,
     },
@@ -72,7 +72,7 @@ export const CustomerRegister: FC = () => {
   const [creatingDeveloper, , createDeveloper] = useReapitUpdate<CreateDeveloperModel, null>({
     method: 'POST',
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createDeveloper],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.createDeveloper],
   })
 
   return (
@@ -147,7 +147,7 @@ export const CustomerRegister: FC = () => {
           alignment="center"
           className={elMb12}
         >
-          <Button onClick={openNewPage(window.reapit.config.marketplaceUrl)} intent="primary" size={3}>
+          <Button onClick={openNewPage(process.env.marketplaceUrl)} intent="primary" size={3}>
             Visit AppMarket
           </Button>
           {isCustomerAdmin && !hasDeveloperOrg && (

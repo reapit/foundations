@@ -26,7 +26,7 @@ jest.mock('@reapit/connect-session', () => ({
 }))
 
 describe('ProfileForm', () => {
-  window.reapit.config.swaggerWhitelist = [mockDeveloperModel.id as string]
+  process.env.swaggerWhitelist = [mockDeveloperModel.id as string]
 
   it('should match snapshot', () => {
     expect(render(<ProfileForm />)).toMatchSnapshot()

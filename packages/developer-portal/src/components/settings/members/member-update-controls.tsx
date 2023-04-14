@@ -59,7 +59,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
 
   const [, memberUpdating, updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateMember],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.updateMember],
     method: 'PUT',
     uriParams: {
       developerId: member.developerId,
@@ -69,7 +69,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
 
   const [, memberDeleting, deleteMember, deleteMemberSuccess] = useReapitUpdate<undefined, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateMember],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.updateMember],
     method: 'DELETE',
     uriParams: {
       developerId: member.developerId,
@@ -79,7 +79,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
 
   const [, memberReinviting, reinviteMember, reinviteMemberSuccess] = useReapitUpdate<InviteMemberModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.inviteMember],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.inviteMember],
     method: 'POST',
     uriParams: {
       developerId: member.developerId,

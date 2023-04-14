@@ -68,28 +68,28 @@ export const WebhooksProvider: FC = ({ children }) => {
 
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions(process.env.appEnv)[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 100 },
     fetchWhenTrue: [developerId],
   })
 
   const [allTopics] = useReapitGet<TopicModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getWebhookTopics],
+    action: getActions(process.env.appEnv)[GetActionNames.getWebhookTopics],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 999 },
     fetchWhenTrue: [developerId],
   })
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions(process.env.appEnv)[GetActionNames.getInstallations],
     queryParams: { pageSize: 999, isInstalled: true, developerId, appId: applicationId },
     fetchWhenTrue: [developerId, applicationId],
   })
 
   const [appDetail] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
+    action: getActions(process.env.appEnv)[GetActionNames.getAppById],
     uriParams: { appId: applicationId },
     fetchWhenTrue: [applicationId],
   })

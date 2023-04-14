@@ -1,3 +1,4 @@
+/* eslint-disable */
 const initChatlioBot = (loginIdentity) => {
   return new Promise((resolve) => {
     window._chatlio = window._chatlio || []
@@ -23,7 +24,7 @@ const initChatlioBot = (loginIdentity) => {
         (n.src = 'https://w.chatlio.com/w.chatlio-widget.js'),
         (n.async = !0),
         n.setAttribute('data-embed-version', '2.3')
-      n.setAttribute('data-widget-id', window.reapit.config.chatbotAppId)
+      n.setAttribute('data-widget-id', process.env.chatbotAppId)
       c.parentNode.insertBefore(n, c)
 
       if (loginIdentity) {
@@ -44,7 +45,7 @@ const initZendeskBot = (loginIdentity) => {
   const script = document.createElement('script')
   script.type = 'text/javascript'
   script.id = 'ze-snippet'
-  script.src = window.reapit.config.zendeskUri
+  script.src = process.env.zendeskUri
 
   head.appendChild(script)
 
@@ -59,7 +60,7 @@ const initZendeskBot = (loginIdentity) => {
 }
 
 const openChatbot = (loginIdentity) => {
-  const isLocal = window.reapit.config.appEnv === 'local'
+  const isLocal = process.env.appEnv === 'local'
 
   if (!isLocal) {
     if (!window.zE) {
@@ -68,4 +69,4 @@ const openChatbot = (loginIdentity) => {
   }
 }
 
-module.exports = { openChatbot, initChatlioBot, initZendeskBot }
+export { openChatbot, initChatlioBot, initZendeskBot }

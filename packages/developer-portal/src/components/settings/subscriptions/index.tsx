@@ -63,14 +63,14 @@ export const SettingsSubscriptionsPage: FC = () => {
 
   const [subscriptions, subscriptionsLoading, , refreshSubscriptions] = useReapitGet<SubscriptionModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getSubscriptions],
+    action: getActions(process.env.appEnv)[GetActionNames.getSubscriptions],
     queryParams: { pageSize: 12, pageNumber, developerId },
     fetchWhenTrue: [developerId],
   })
 
   const [, , deleteSubscription, deleteSubscriptionSuccess] = useReapitUpdate<undefined, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteSubscription],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.deleteSubscription],
     method: 'DELETE',
     uriParams: {
       subscriptionId,

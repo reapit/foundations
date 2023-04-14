@@ -112,7 +112,7 @@ export const ApiKeys: FC<ApiKeysProps> = ({ closeModal }) => {
 
   const [apiKeys, apiKeysLoading, , refreshApiKeys] = useReapitGet<ApiKeysResponse>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApiKeysByUserId],
+    action: getActions(process.env.appEnv)[GetActionNames.getApiKeysByUserId],
     uriParams: {
       email: currentDeveloper?.email,
     },
@@ -123,7 +123,7 @@ export const ApiKeys: FC<ApiKeysProps> = ({ closeModal }) => {
   })
 
   const [creatingApiKey, , createApiKey] = useReapitUpdate<Partial<ApiKeyInterface>, ApiKeyInterface>({
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createApiKeyByMember],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.createApiKeyByMember],
     reapitConnectBrowserSession,
     method: 'POST',
     headers: {
@@ -133,7 +133,7 @@ export const ApiKeys: FC<ApiKeysProps> = ({ closeModal }) => {
 
   const [deletingApiKey, , deleteApiKey] = useReapitUpdate<void, void>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.deleteApiKey],
+    action: getActions(process.env.appEnv)[GetActionNames.deleteApiKey],
     uriParams: {
       apiKeyId,
     },

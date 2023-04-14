@@ -50,7 +50,7 @@ export const WebhooksEditControls: FC<WebhooksEditControlsProps> = ({
 
   const [publicKeyResponse, fetchingPublicKey] = useReapitGet<WebhookPublicKeyResponse>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPublicWebhookKey],
+    action: getActions(process.env.appEnv)[GetActionNames.getPublicWebhookKey],
     queryParams: {
       applicationId: webhookModel.applicationId,
     },

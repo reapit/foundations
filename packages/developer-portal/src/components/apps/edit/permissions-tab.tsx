@@ -32,12 +32,12 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
 
   const [scopesList, scopesListLoading] = useReapitGet<ScopeModel[]>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppPermissions],
+    action: getActions(process.env.appEnv)[GetActionNames.getAppPermissions],
   })
 
   const [productsList, productListLoading] = useReapitGet<ProductModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getProducts],
+    action: getActions(process.env.appEnv)[GetActionNames.getProducts],
   })
 
   const isPrivateAppValue = useWatch({

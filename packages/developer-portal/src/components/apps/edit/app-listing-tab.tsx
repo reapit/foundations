@@ -72,13 +72,13 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
 
   const [categoriesResult, categoriesLoading] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
+    action: getActions(process.env.appEnv)[GetActionNames.getAppCategories],
     queryParams: { pageSize: 25 },
   })
 
   const [, , createImageUpload] = useReapitUpdate<CreateImageUploadModel, ImageUploadModel>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.fileUpload],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.fileUpload],
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })

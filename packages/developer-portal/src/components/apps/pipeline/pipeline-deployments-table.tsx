@@ -89,7 +89,7 @@ export const PipelineDeploymentTable: FC = () => {
 
   const [pipelineDeployments, loading, , refreshPipelineRunners] = useReapitGet<PipelineRunnerResponse>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPipelineDeployments],
+    action: getActions(process.env.appEnv)[GetActionNames.getPipelineDeployments],
     uriParams: {
       pipelineId: appPipeline?.id,
     },

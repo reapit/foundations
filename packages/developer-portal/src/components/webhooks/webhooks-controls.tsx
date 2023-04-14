@@ -16,12 +16,15 @@ import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
 import { cx } from '@linaria/core'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
-import { StringMap } from '@reapit/utils-common'
 import { useWebhooksState, WebhooksFilterState } from './state/use-webhooks-state'
 import { History } from 'history'
 import { useHistory } from 'react-router'
 import { ExternalPages, openNewPage } from '../../utils/navigation'
 import { TopicModel } from '../../types/webhooks'
+
+interface StringMap {
+  [key: string]: string
+}
 
 export type HandleSelectFilters = (
   setWebhookQueryParams: Dispatch<SetStateAction<WebhooksFilterState>>,

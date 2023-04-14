@@ -48,7 +48,7 @@ export const DownloadInstallationsCSV: FC = () => {
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions(process.env.appEnv)[GetActionNames.getInstallations],
     queryParams: {
       appId,
       isInstalled: true,

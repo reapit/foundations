@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { useHistory, useLocation } from 'react-router'
-import ErrorBoundary from '@/core/error-boundary'
-import Routes from '@/constants/routes'
-import { IFRAME_URLS } from '@/constants/iframe-urls'
+import ErrorBoundary from '../../core/error-boundary'
+import Routes from '../../constants/routes'
+import { IFRAME_URLS } from '../../constants/iframe-urls'
 import {
   SmallText,
   Button,
@@ -30,12 +30,12 @@ const DocsPage: FC = () => {
   const location = useLocation()
   const history = useHistory()
   const { pathname } = location
-  const isDevEnv = window.reapit.config.appEnv !== 'production' // Feature flagging until prod is ready
+  const isDevEnv = process.env.appEnv !== 'production' // Feature flagging until prod is ready
   const isDocsPage = pathname.includes(Routes.API_DOCS)
   const isSchemaPage = pathname.includes(Routes.ANALYTICS_SCHEMA_DOCS)
   const iframeUri = isDocsPage
     ? `${IFRAME_URLS.documentation}${parseIframeUrl(location.pathname, location.hash)}`
-    : window.reapit.config.analyticsSchemaDocsUrl
+    : process.env.analyticsSchemaDocsUrl
 
   return (
     <ErrorBoundary>
@@ -69,11 +69,7 @@ const DocsPage: FC = () => {
             </Button>
           )}
           {isSchemaPage && isDevEnv && (
-            <Button
-              className={elMb5}
-              intent="critical"
-              onClick={openNewPage(window.reapit.config.analyticsSchemaDocsUrl)}
-            >
+            <Button className={elMb5} intent="critical" onClick={openNewPage(process.env.analyticsSchemaDocsUrl)}>
               Open Schema
             </Button>
           )}

@@ -43,7 +43,7 @@ export const PipelineEnvUpdateTableRow = ({
 }) => {
   const [sending, , func] = useReapitUpdate<{ key: string; value: string }, void>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.upsertPipelineEnvironment],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.upsertPipelineEnvironment],
     uriParams: {
       pipelineId: appId,
     },

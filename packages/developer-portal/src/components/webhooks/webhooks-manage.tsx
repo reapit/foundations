@@ -100,7 +100,7 @@ export const WebhooksManage: FC = () => {
 
   const [subscriptions, subscriptionsLoading, , refreshSubscriptions] = useReapitGet<WebhookModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getWebhookSubscriptions],
+    action: getActions(process.env.appEnv)[GetActionNames.getWebhookSubscriptions],
     queryParams: { applicationId, pageSize: 12, pageNumber },
     fetchWhenTrue: [applicationId],
   })

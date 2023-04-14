@@ -27,7 +27,7 @@ export const AnalyticsCalls: FC = () => {
 
   const [trafficEvents, trafficEventsLoading] = useReapitGet<TrafficEventsModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getTrafficStats],
+    action: getActions(process.env.appEnv)[GetActionNames.getTrafficStats],
     queryParams: { dateFrom, dateTo, applicationId: appsQuery, ...customerQuery },
     fetchWhenTrue: [dateFrom, dateTo, appsQuery],
   })

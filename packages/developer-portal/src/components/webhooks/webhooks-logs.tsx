@@ -105,7 +105,7 @@ export const WebhooksLogs: FC = () => {
 
   const [logs, logsLoading] = useReapitGet<WebhookLogModel[]>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getWebhookLogs],
+    action: getActions(process.env.appEnv)[GetActionNames.getWebhookLogs],
     queryParams,
     fetchWhenTrue: [applicationId, from, to],
     onError: (err: string) => {

@@ -24,7 +24,7 @@ const mockCreateDevelperService = createDeveloperService as jest.Mock
 
 describe('Register', () => {
   it('should match a snapshot', () => {
-    window.reapit.config.appEnv = 'development'
+    process.env.appEnv = 'development'
     expect(render(<Register />)).toMatchSnapshot()
   })
 })

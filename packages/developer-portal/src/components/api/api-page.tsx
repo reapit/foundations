@@ -71,11 +71,11 @@ export const ApiPage: FC = () => {
 
   const [productsList] = useReapitGet<ProductModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getProducts],
+    action: getActions(process.env.appEnv)[GetActionNames.getProducts],
   })
 
   const { currentMember, currentDeveloper } = globalDataState
-  const hasProducts = window.reapit.config.swaggerWhitelist.includes(currentDeveloper?.id as string)
+  const hasProducts = process.env.swaggerWhitelist.includes(currentDeveloper?.id as string)
 
   useEffect(handleDefaultSwaggerDoc(setSwaggerUri, productsList, currentMember), [productsList, currentMember])
 
@@ -186,7 +186,7 @@ export const ApiPage: FC = () => {
               <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.graphQLDocs)}>
                 View Docs
               </Button>
-              <Button className={elMb5} intent="critical" onClick={openNewPage(window.reapit.config.graphQLUri)}>
+              <Button className={elMb5} intent="critical" onClick={openNewPage(process.env.graphQLUri)}>
                 Open Explorer
               </Button>
             </>

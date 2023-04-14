@@ -75,7 +75,7 @@ export const AppConsentsPage: FC = () => {
 
   const [appConsents, appConsentsLoading, , appConsentsRefresh] = useReapitGet<AppRevisionConsentModel[]>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getRevisionConsents],
+    action: getActions(process.env.appEnv)[GetActionNames.getRevisionConsents],
     uriParams: {
       appId,
       revisionId: latestRevision?.id,
@@ -85,7 +85,7 @@ export const AppConsentsPage: FC = () => {
 
   const [, , createConsentEmails] = useReapitUpdate<CreateAppRevisionConsentsModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createConsentEmails],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.createConsentEmails],
     method: 'POST',
     uriParams: {
       appId,
@@ -95,7 +95,7 @@ export const AppConsentsPage: FC = () => {
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions(process.env.appEnv)[GetActionNames.getInstallations],
     queryParams: {
       appId,
       pageNumber: 1,
@@ -108,7 +108,7 @@ export const AppConsentsPage: FC = () => {
 
   const [, , resendEmail] = useReapitUpdate<ResendAppRevisionConsentModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.resendConsentEmail],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.resendConsentEmail],
     method: 'POST',
     uriParams: {
       appId,

@@ -58,7 +58,7 @@ export const ServicesChart: FC = () => {
 
   const [billing, billingLoading] = useReapitGet<BillingOverviewForPeriodV2Model>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getBillingDataByPeriod],
+    action: getActions(process.env.appEnv)[GetActionNames.getBillingDataByPeriod],
     queryParams: { dateFrom: monthFrom, dateTo: monthTo, ...appsQuery, ...customerIdQuery, developerId },
     headers: {
       ['api-version']: '2',

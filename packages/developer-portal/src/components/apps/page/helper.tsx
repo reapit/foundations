@@ -109,7 +109,7 @@ export const Helper: FC = () => {
 
   const [, , cancelRevision, cancelRevisionSuccess] = useReapitUpdate<RejectRevisionModel, null>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.cancelRevision],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.cancelRevision],
     uriParams: {
       appId,
       revisionId,
@@ -251,11 +251,7 @@ export const Helper: FC = () => {
         <SmallText hasGreyText>
           Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
         </SmallText>
-        <Button
-          className={elMb3}
-          intent="primary"
-          onClick={openNewPage(`${window.reapit.config.marketplaceUrl}/${appId}`)}
-        >
+        <Button className={elMb3} intent="primary" onClick={openNewPage(`${process.env.marketplaceUrl}/${appId}`)}>
           Preview
         </Button>
       </div>

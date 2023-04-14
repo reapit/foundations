@@ -55,7 +55,7 @@ export const AppsPage: FC = () => {
 
   const hasPipelines =
     currentDeveloper?.id &&
-    window.reapit.config.pipelineWhitelist.includes(currentDeveloper.id) &&
+    process.env.pipelineWhitelist.includes(currentDeveloper.id) &&
     appDetail?.authFlow !== 'clientCredentials'
 
   const shouldRenderConsents = checkShouldRenderConsents(appDetail, appLatestRevision, appHasInstallations)

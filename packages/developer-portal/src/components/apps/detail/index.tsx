@@ -96,7 +96,7 @@ export const AppDetail: FC = () => {
 
   const [appSecret, appSecretLoading] = useReapitGet<AppClientSecretModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppSecret],
+    action: getActions(process.env.appEnv)[GetActionNames.getAppSecret],
     uriParams: { appId },
     fetchWhenTrue: [appId, authFlow === 'clientCredentials', shouldFetchSecret],
   })

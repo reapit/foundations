@@ -7,7 +7,7 @@ import { reapitConnectBrowserSession } from '../core/connect-session'
 import { Loader, MainContainer } from '@reapit/elements'
 import { HelperWidget, HelperWidgetApps } from '@reapit/utils-react'
 import { GlobalProvider } from './use-global-state'
-import { openChatbot } from '../scripts/chat-bot'
+import { openChatbot } from '../scripts/chat-bot.mjs'
 import { FourOFour } from './router'
 
 const { Suspense } = React
@@ -21,7 +21,7 @@ export type PrivateRouteWrapperProps = {
 export const handleOpenChatbot = (connectSession: ReapitConnectSession | null) => () => {
   if (
     connectSession?.loginIdentity.developerId &&
-    window.reapit.config.liveChatWhitelist.includes(connectSession.loginIdentity.developerId)
+    process.env.liveChatWhitelist.includes(connectSession.loginIdentity.developerId)
   ) {
     openChatbot(connectSession.loginIdentity)
   }
@@ -64,7 +64,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
       <MainContainer>
         {showMenu && location.pathname !== Routes.CUSTOMER_REGISTER && <Menu />}
         <Suspense fallback={<Loader fullPage />}>{children}</Suspense>
-        {window.reapit.config.appEnv !== 'production' && <HelperWidget appName={HelperWidgetApps.developerPortal} />}
+        {process.env.appEnv !== 'production' && <HelperWidget appName={HelperWidgetApps.developerPortal} />}
       </MainContainer>
     </GlobalProvider>
   )

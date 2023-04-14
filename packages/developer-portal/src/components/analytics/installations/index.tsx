@@ -25,7 +25,7 @@ export const AnalyticsInstallations: FC = () => {
 
   const [installations, installationsLoading] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions(process.env.appEnv)[GetActionNames.getInstallations],
     queryParams: {
       isInstalled: true,
       pageSize: 999,

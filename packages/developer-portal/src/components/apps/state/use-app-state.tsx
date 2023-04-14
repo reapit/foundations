@@ -110,14 +110,14 @@ export const AppProvider: FC = ({ children }) => {
 
   const [apps, appsLoading, , appsRefresh, appsRefreshing] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions(process.env.appEnv)[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 25, pageNumber: appsPageNumber },
     fetchWhenTrue: [developerId],
   })
 
   const [appDetail, appDetailLoading, , appsDetailRefresh, appDetailRefreshing] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
+    action: getActions(process.env.appEnv)[GetActionNames.getAppById],
     uriParams: { appId },
     fetchWhenTrue: [appId],
   })
@@ -125,7 +125,7 @@ export const AppProvider: FC = ({ children }) => {
   const [appRevisions, appRevisionsLoading, , appRefreshRevisions, appRevisionsRefreshing] =
     useReapitGet<AppRevisionModelPagedResult>({
       reapitConnectBrowserSession,
-      action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppRevisions],
+      action: getActions(process.env.appEnv)[GetActionNames.getAppRevisions],
       queryParams: { pageSize: 2 },
       uriParams: { appId },
       fetchWhenTrue: [appId],
@@ -133,7 +133,7 @@ export const AppProvider: FC = ({ children }) => {
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions(process.env.appEnv)[GetActionNames.getInstallations],
     queryParams: {
       appId,
       pageSize: 1,
@@ -145,7 +145,7 @@ export const AppProvider: FC = ({ children }) => {
 
   const [pipeline, appPipelineLoading, , appPipelineRefresh] = useReapitGet<PipelineModelInterface>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPipeline],
+    action: getActions(process.env.appEnv)[GetActionNames.getPipeline],
     uriParams: { appId },
     headers: {
       Authorization: connectSession?.idToken as string,

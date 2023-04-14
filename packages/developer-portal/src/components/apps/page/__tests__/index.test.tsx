@@ -13,7 +13,7 @@ jest.mock('../../utils/consents', () => ({
   checkShouldRenderConsents: jest.fn(() => true),
 }))
 jest.mock('../../../../core/use-global-state')
-window.reapit.config.pipelineWhitelist = ['MOCK_APP_ID']
+process.env.pipelineWhitelist = ['MOCK_APP_ID']
 
 const mockUseAppState = useAppState as jest.Mock
 
@@ -23,7 +23,7 @@ describe('AppsPage', () => {
   })
 
   it('should match a snapshot when I have the full menu', () => {
-    window.reapit.config.pipelineWhitelist = [mockDeveloperModel.id as string]
+    process.env.pipelineWhitelist = [mockDeveloperModel.id as string]
     history.push(`${Routes.APPS}/mock-id`)
 
     expect(

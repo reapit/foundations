@@ -52,7 +52,7 @@ export const SettingsMembersPage: FC = () => {
 
   const [members, membersLoading, , refreshMembers] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloperMembers],
+    action: getActions(process.env.appEnv)[GetActionNames.getDeveloperMembers],
     queryParams: { pageSize: 12, pageNumber },
     uriParams: { developerId },
     fetchWhenTrue: [developerId],

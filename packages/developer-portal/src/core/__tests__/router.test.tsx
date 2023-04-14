@@ -4,7 +4,7 @@ import Router, { FourOFour } from '../router'
 
 describe('Router', () => {
   it('should match a snapshot', () => {
-    window.reapit.config.appEnv = 'development'
+    process.env.appEnv = 'development'
     expect(render(<Router />)).toMatchSnapshot()
   })
 })

@@ -50,16 +50,16 @@ export const ProfileForm: FC = () => {
   const isUserOrUserAdmin = selectIsUserOrUserAdmin(connectSession)
   const { currentMember, currentDeveloper } = globalDataState
   const isClient = clientId && isUserOrUserAdmin
-  const hasProducts = window.reapit.config.swaggerWhitelist.includes(currentDeveloper?.id as string)
+  const hasProducts = process.env.swaggerWhitelist.includes(currentDeveloper?.id as string)
 
   const [sandboxes] = useReapitGet<SandboxModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getSandboxes],
+    action: getActions(process.env.appEnv)[GetActionNames.getSandboxes],
   })
 
   const [, memberUpdating, updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateMember],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.updateMember],
     method: 'PUT',
     uriParams: {
       developerId: currentMember?.developerId,

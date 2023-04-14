@@ -61,7 +61,7 @@ export const Controls: FC = () => {
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions(process.env.appEnv)[GetActionNames.getInstallations],
     queryParams: { developerId, pageSize: 999, isInstalled: true, ...appQuery },
     fetchWhenTrue: [developerId],
   })

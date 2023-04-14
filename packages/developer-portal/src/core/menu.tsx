@@ -12,7 +12,7 @@ import WeekTwoXmas from '../assets/images/xmas-logos/Week2.png'
 import WeekThreeXmas from '../assets/images/xmas-logos/Week3.png'
 import WeekFourXmas from '../assets/images/xmas-logos/Week4.png'
 import { styled } from '@linaria/react'
-import { selectIsCustomer, selectLoginIdentity } from '@/utils/auth'
+import { selectIsCustomer, selectLoginIdentity } from '../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
 
@@ -75,8 +75,7 @@ export const Menu: FC = () => {
   const loginIdentity = selectLoginIdentity(connectSession)
   const { pathname } = location
   const appId = pathname.includes('apps') ? pathname.split('/')[2] : ''
-  const hasPipelines =
-    loginIdentity?.developerId && window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId)
+  const hasPipelines = loginIdentity?.developerId && process.env.pipelineWhitelist.includes(loginIdentity.developerId)
   const isCustomer = selectIsCustomer(connectSession)
 
   if (pathname === Routes.INVITE) return null
@@ -189,7 +188,7 @@ export const Menu: FC = () => {
       text: 'UI',
     },
     loginIdentity?.developerId &&
-      window.reapit.config.pipelineWhitelist.includes(loginIdentity?.developerId) && {
+      process.env.pipelineWhitelist.includes(loginIdentity?.developerId) && {
         itemIndex: 5,
         callback: navigate(history, Routes.IAAS),
         iconId: 'dataMenu',
@@ -215,7 +214,7 @@ export const Menu: FC = () => {
     },
     {
       itemIndex: 7,
-      callback: () => (window.location.href = window.reapit.config.marketplaceUrl),
+      callback: () => (window.location.href = process.env.marketplaceUrl),
       iconId: 'marketplaceMenu',
       text: 'AppMarket',
     },

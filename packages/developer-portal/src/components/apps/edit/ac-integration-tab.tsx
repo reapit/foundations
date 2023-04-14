@@ -33,7 +33,7 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
   const [desktopIntegrationTypes, desktopIntegrationTypesLoading] =
     useReapitGet<DesktopIntegrationTypeModelPagedResult>({
       reapitConnectBrowserSession,
-      action: getActions(window.reapit.config.appEnv)[GetActionNames.getDesktopIntegrationTypes],
+      action: getActions(process.env.appEnv)[GetActionNames.getDesktopIntegrationTypes],
       fetchWhenTrue: [isAgencyCloudIntegratedValue],
     })
 

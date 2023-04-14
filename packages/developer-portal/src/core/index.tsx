@@ -2,33 +2,34 @@ import * as Sentry from '@sentry/react'
 import { BrowserTracing } from '@sentry/tracing'
 import React, { FC } from 'react'
 import { createRoot } from 'react-dom/client'
-import { Config } from '../types/global'
+// import { Config } from '../types/global'
 import { getMarketplaceGlobalsByKey, logger } from '@reapit/utils-react'
+import App from './app'
 
 // Init global config
-window.reapit = {
-  config: {
-    appEnv: 'production',
-    sentryDsn: '',
-    connectClientId: '',
-    connectOAuthUrl: '',
-    connectUserPoolId: '',
-    chatbotAppId: '',
-    marketplaceUrl: '',
-    platformApiUrl: '',
-    developerEditionDownloadUrl: '',
-    adobeSignApiKey: '',
-    liveChatWhitelist: [],
-    elementsUri: '',
-    graphQLUri: '',
-    analyticsSchemaDocsUrl: '',
-    swaggerUri: '',
-    PUSHER_KEY: '',
-    DEPLOYMENT_SERVICE_HOST: '',
-    pipelineWhitelist: [],
-    swaggerWhitelist: [],
-  },
-}
+// window.reapit = {
+//   config: {
+//     appEnv: 'production',
+//     sentryDsn: '',
+//     connectClientId: '',
+//     connectOAuthUrl: '',
+//     connectUserPoolId: '',
+//     chatbotAppId: '',
+//     marketplaceUrl: '',
+//     platformApiUrl: '',
+//     developerEditionDownloadUrl: '',
+//     adobeSignApiKey: '',
+//     liveChatWhitelist: [],
+//     elementsUri: '',
+//     graphQLUri: '',
+//     analyticsSchemaDocsUrl: '',
+//     swaggerUri: '',
+//     PUSHER_KEY: '',
+//     DEPLOYMENT_SERVICE_HOST: '',
+//     pipelineWhitelist: [],
+//     swaggerWhitelist: [],
+//   },
+// }
 
 export const renderApp = (Component: FC) => {
   const rootElement = document.querySelector('#root') as Element
@@ -47,38 +48,21 @@ export const renderApp = (Component: FC) => {
 
 const run = async () => {
   try {
-    const configName = process.env.NODE_ENV === 'production' ? `config.${process.env.APP_VERSION}.json` : 'config.json'
-    const configRes = await fetch(configName)
-    const config = (await configRes.json()) as Config
-
-    const isLocal = config.appEnv !== 'production'
-    if (!isLocal && config.sentryDsn) {
+    const isLocal = process.env.appEnv !== 'production'
+    if (!isLocal && process.env.sentryDsn) {
       Sentry.init({
         integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,
-        dsn: config.sentryDsn,
-        environment: config.appEnv,
+        dsn: process.env.sentryDsn,
+        environment: process.env.appEnv,
         tracesSampleRate: 1.0,
       })
     }
 
-    window.reapit.config = {
-      ...window.reapit.config,
-      ...config,
-    }
-
-    const { default: App } = await import('./app')
     renderApp(App)
   } catch (error: any) {
     logger(error)
   }
-}
-
-if (module['hot']) {
-  module['hot'].accept('./app', () => {
-    const NextApp = require('./app').default
-    renderApp(NextApp)
-  })
 }
 
 run()

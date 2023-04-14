@@ -89,7 +89,7 @@ export const AppInstallations: FC = () => {
 
   const [installations, installationsLoading, , refetchInstallations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions(process.env.appEnv)[GetActionNames.getInstallations],
     queryParams: {
       appId,
       pageNumber,
@@ -102,7 +102,7 @@ export const AppInstallations: FC = () => {
 
   const [, , uninstallApp, uninstallSuccess] = useReapitUpdate<TerminateInstallationModel, null>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.terminateInstallation],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.terminateInstallation],
     uriParams: {
       installationId,
     },

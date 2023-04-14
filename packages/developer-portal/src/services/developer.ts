@@ -6,7 +6,7 @@ export const createDeveloperService = async (developer: CreateDeveloperModel) =>
   try {
     const response = await fetcher({
       url: '/marketplace/developers',
-      api: window.reapit.config.platformApiUrl,
+      api: process.env.platformApiUrl,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ export const acceptInviteService = async (
   try {
     const response = await fetcher({
       url: `/marketplace/developers/${developerId}/members/${memberId}/accept`,
-      api: window.reapit.config.platformApiUrl,
+      api: process.env.platformApiUrl,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export const rejectInviteService = async (developerId: string, memberId: string)
   try {
     const response = await fetcher({
       url: `/marketplace/developers/${developerId}/members/${memberId}/reject`,
-      api: window.reapit.config.platformApiUrl,
+      api: process.env.platformApiUrl,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

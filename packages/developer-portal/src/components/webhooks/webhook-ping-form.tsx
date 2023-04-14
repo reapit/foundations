@@ -96,7 +96,7 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
 
   const [, pingingWebhook, pingWebhook, pingSuccess, pingError] = useReapitUpdate<PingEndpointModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.pingWebhook],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.pingWebhook],
     method: 'POST',
     uriParams: {
       subscriptionId: webhookModel.id,

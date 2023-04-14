@@ -25,7 +25,7 @@ const routes = [
 const history: History<any> = createBrowserHistory()
 
 describe('ApiPage', () => {
-  window.reapit.config.swaggerWhitelist = [mockDeveloperModel.id as string]
+  process.env.swaggerWhitelist = [mockDeveloperModel.id as string]
 
   routes.forEach((route) => {
     it(`should match a snapshot for the ${route} page`, () => {

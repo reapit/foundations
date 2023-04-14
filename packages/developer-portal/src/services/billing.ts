@@ -18,7 +18,7 @@ export const batchFetchBillingService = async (monthRequests: string[], query: s
       monthRequests.map(async (month) => {
         const response = await fetcher({
           url: `/trafficevents/billing/${month}?${query}&type=trafficEvents&type=dataWarehouseUsage&type=applicationListing&type=developerEdition&type=developerRegistration&type=dataWarehouse`,
-          api: window.reapit.config.platformApiUrl,
+          api: process.env.platformApiUrl,
           method: 'GET',
           headers,
         })
@@ -49,7 +49,7 @@ export const billingTransactionDownloadService = async (
     if (headers) {
       const blob = await fetcherWithBlob({
         url: `/trafficevents/billing/${month}/download?${query}`,
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         method: 'GET',
         headers,
       })

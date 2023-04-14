@@ -91,7 +91,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
   const [, developerUpdating, updateDeveloper, updateDeveloperSuccess] = useReapitUpdate<UpdateDeveloperModel, boolean>(
     {
       reapitConnectBrowserSession,
-      action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateDeveloper],
+      action: updateActions(process.env.appEnv)[UpdateActionNames.updateDeveloper],
       method: 'PUT',
       uriParams: {
         developerId: developer.id,

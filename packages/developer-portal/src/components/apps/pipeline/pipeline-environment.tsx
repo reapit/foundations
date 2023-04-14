@@ -58,7 +58,7 @@ export const PipelineEnvironment = () => {
 
   const [fetchedKeys, isFetching] = useReapitGet<string[]>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPipelineEnvironment],
+    action: getActions(process.env.appEnv)[GetActionNames.getPipelineEnvironment],
     uriParams: {
       pipelineId: appId,
     },
@@ -70,7 +70,7 @@ export const PipelineEnvironment = () => {
 
   const [sending, , func] = useReapitUpdate<{ key: string; value: string; existingKeys: string[] }, void>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.upsertPipelineEnvironment],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.upsertPipelineEnvironment],
     uriParams: {
       pipelineId: appId,
     },

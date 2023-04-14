@@ -164,14 +164,14 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
 
   const [, webhookUpdating, updateWebhook, updateWebhookSuccess] = useReapitUpdate<UpdateWebhookModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateWebhook],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.updateWebhook],
     method: 'PUT',
     uriParams: { webhookId: webhookModel.id },
   })
 
   const [, webhookDeleting, deleteWebhook, deleteWebhookSuccess] = useReapitUpdate<undefined, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteWebhook],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.deleteWebhook],
     method: 'DELETE',
     uriParams: { webhookId: webhookModel.id },
   })

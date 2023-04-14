@@ -64,7 +64,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
 
   const [members] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloperMembers],
+    action: getActions(process.env.appEnv)[GetActionNames.getDeveloperMembers],
     uriParams: {
       developerId: connectSession?.loginIdentity.developerId,
     },
@@ -81,7 +81,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
   >({
     method: 'PUT',
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateDeveloper],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.updateDeveloper],
     uriParams: {
       developerId: connectSession?.loginIdentity.developerId,
     },

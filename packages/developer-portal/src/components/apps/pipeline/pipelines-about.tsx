@@ -3,7 +3,7 @@ import { BodyText, Button, ColSplit, elMb10, Grid, Subtitle } from '@reapit/elem
 import { IconContainer } from '../../webhooks/__styles__'
 import { WebhooksAnimatedNewIcon } from '../../webhooks/webhooks-animated-new-icon'
 import { WebhooksAnimatedDocsIcon } from '../../webhooks/webhooks-animated-docs-icon'
-import { ExternalPages, navigate, openNewPage } from '@/utils/navigation'
+import { ExternalPages, navigate, openNewPage } from '../../../utils/navigation'
 import { useHistory } from 'react-router'
 import Routes from '../../../constants/routes'
 import { useAppState } from '../state/use-app-state'

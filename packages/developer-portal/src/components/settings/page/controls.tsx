@@ -53,7 +53,7 @@ export const Controls: FC = () => {
 
   const [, , inviteMember, inviteMemberSuccess] = useReapitUpdate<InviteMemberModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.inviteMember],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.inviteMember],
     method: 'POST',
     uriParams: {
       developerId: currentMember?.developerId,

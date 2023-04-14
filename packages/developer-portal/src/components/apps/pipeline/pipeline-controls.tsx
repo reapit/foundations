@@ -122,7 +122,7 @@ export const PipelineControls: FC = () => {
 
   const [deleteLoading, , deleteFunc] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deletePipeline],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.deletePipeline],
     uriParams: {
       appId: appPipeline?.id,
     },
@@ -134,7 +134,7 @@ export const PipelineControls: FC = () => {
 
   const [pipelineRunnerLoading, updatePipelineRunnerSuccess, updatePipelineRunner] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createPipelineDeployment],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.createPipelineDeployment],
     uriParams: {
       pipelineId: appPipeline?.id,
     },
@@ -147,7 +147,7 @@ export const PipelineControls: FC = () => {
   const [, , sendPipelineUpdate] = useReapitUpdate<PipelineModelInterface, PipelineModelInterface>({
     reapitConnectBrowserSession,
     method: 'PUT',
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updatePipeline],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.updatePipeline],
     uriParams: {
       pipelineId: appPipeline?.id,
     },
@@ -159,7 +159,7 @@ export const PipelineControls: FC = () => {
 
   const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createAppRevsion],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.createAppRevsion],
     method: 'POST',
     uriParams: {
       appId,

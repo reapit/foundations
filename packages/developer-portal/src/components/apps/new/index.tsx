@@ -203,7 +203,7 @@ export const AppsNewPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [appCreating, app, createApp] = useReapitUpdate<CreateAppModel, AppDetailModel>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createApp],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.createApp],
     method: 'POST',
     returnType: UpdateReturnTypeEnum.LOCATION,
   })

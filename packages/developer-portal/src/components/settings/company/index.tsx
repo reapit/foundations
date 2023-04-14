@@ -16,7 +16,7 @@ export const SettingsCompanyPage: FC = () => {
 
   const [developer, developerLoading, , refreshDeveloper] = useReapitGet<DeveloperModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloper],
+    action: getActions(process.env.appEnv)[GetActionNames.getDeveloper],
     uriParams: { developerId },
     fetchWhenTrue: [developerId],
   })

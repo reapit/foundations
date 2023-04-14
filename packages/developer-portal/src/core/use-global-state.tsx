@@ -51,7 +51,7 @@ export const GlobalProvider: FC = ({ children }) => {
 
   const [members, , , refreshMembers] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloperMembers],
+    action: getActions(process.env.appEnv)[GetActionNames.getDeveloperMembers],
     queryParams: { email: encodeURIComponent(email ?? ''), pageSize: 1 },
     uriParams: { developerId },
     fetchWhenTrue: [email, developerId],
@@ -60,7 +60,7 @@ export const GlobalProvider: FC = ({ children }) => {
 
   const [currentDeveloper, , , refreshCurrentDeveloper] = useReapitGet<DeveloperModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloper],
+    action: getActions(process.env.appEnv)[GetActionNames.getDeveloper],
     uriParams: { developerId },
     fetchWhenTrue: [developerId],
     onError: handlePermissionError(error, history),

@@ -47,7 +47,7 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
 
   const [, , deleteApp, appDeleted] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteApp],
+    action: updateActions(process.env.appEnv)[UpdateActionNames.deleteApp],
     method: 'DELETE',
     uriParams: {
       appId: id,
