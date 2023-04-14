@@ -1,6 +1,6 @@
 import { useState, useEffect, Dispatch, SetStateAction, useRef, useCallback, MutableRefObject } from 'react'
 import { ReapitConnectBrowserSession, ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { StringMap, logger } from '..'
+import { StringMap, logger } from '../index'
 import { getFetcher, GetAction } from '@reapit/utils-common'
 import { useAsyncState } from '../use-async-state/index'
 import { useSnack } from '@reapit/elements'

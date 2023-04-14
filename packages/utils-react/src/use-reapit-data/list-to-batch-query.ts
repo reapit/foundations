@@ -19,7 +19,9 @@
  * 
  */
 
-import { StringMap } from '@reapit/utils-common'
+interface StringMap {
+  [key: string]: string
+}
 
 export const listToBatchQuery = <ListType>(list: ListType[], listKey: keyof ListType, queryKey: string): string =>
   list.reduce((query: string, nextItem: ListType, index: number) => {

@@ -1,4 +1,4 @@
-import { cx } from '@linaria/utils'
+import { cx } from '@linaria/core'
 import React, { useState } from 'react'
 import { ElToolTipChild, elToolTipActive, ElToolTipContainer } from './__styles__'
 

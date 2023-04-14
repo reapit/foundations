@@ -1,4 +1,6 @@
-import { StringMap } from '..'
+interface StringMap {
+  [key: string]: string
+}
 
 export interface ReapitErrorField {
   field?: string

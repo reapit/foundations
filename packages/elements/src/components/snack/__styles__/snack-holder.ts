@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ElSnack } from '.'
+import { ElSnack } from './index'
 
 export const ElSnackHolder = styled.div`
   position: fixed;

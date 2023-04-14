@@ -34,7 +34,7 @@
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/utils-node": "workspace:packages/utils-node",
-    "@sentry/node": "^6.19.7",
+    "@sentry/node": "^7.48.0",
     "aws-lambda": "^1.0.7",
     "aws-sdk": "^2.1325.0",
     "aws-serverless-express": "^3.4.0",
