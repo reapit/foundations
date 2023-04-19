@@ -96,7 +96,7 @@ export const PipelineDeploymentTable: FC = () => {
     },
   })
 
-  useEvent<PipelineRunnerEvent>(
+  useEvent(
     appPipelinePusherChannel,
     'pipeline-runner-update',
     handleNewRunner(appPipeline, pipelineDeploymentsItems, setPipelineDeploymentItems, appId),

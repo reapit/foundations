@@ -1,131 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`IaaS should match snapshot when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           IaaS Pipelines
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-searchable-dropdown-container"
-              >
+            <mock-styled.div>
+              <mock-styled.div>
                 <input
                   id="developer-search-box"
                   readonly=""
                   style="display: none;"
                   value=""
                 />
-                <span
-                  class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </span>
-                <input
-                  class="el-searchable-dropdown-search-input el-input"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
                   data-testid="search-input"
                   name="developerId"
                   placeholder="Search developer organisations"
                   value=""
                 />
-              </div>
-            </div>
-          </div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
-        <div
-          class="el-loader-container"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         IaaS Pipelines
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-searchable-dropdown-container"
-            >
+          <mock-styled.div>
+            <mock-styled.div>
               <input
                 id="developer-search-box"
                 readonly=""
                 style="display: none;"
                 value=""
               />
-              <span
-                class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </span>
-              <input
-                class="el-searchable-dropdown-search-input el-input"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
                 data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </div>
-          </div>
-        </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="el-loader-container"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
-    </section>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -182,359 +156,303 @@ Object {
 `;
 
 exports[`IaaS should match snapshot with pipelines 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           IaaS Pipelines
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-searchable-dropdown-container"
-              >
+            <mock-styled.div>
+              <mock-styled.div>
                 <input
                   id="developer-search-box"
                   readonly=""
                   style="display: none;"
                   value=""
                 />
-                <span
-                  class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </span>
-                <input
-                  class="el-searchable-dropdown-search-input el-input"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
                   data-testid="search-input"
                   name="developerId"
                   placeholder="Search developer organisations"
                   value=""
                 />
-              </div>
-            </div>
-          </div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
-        <div
-          class="el-mb11 el-table"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           data-has-call-to-action="true"
           data-has-expandable-action="false"
           data-num-columns-excl-action-col="3"
         >
-          <div
-            class="el-table-headers-row"
-          >
-            <div
-              class="el-table-header"
-            >
+          <mock-styled.div>
+            <mock-styled.div>
               Name
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Build Status
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Repository
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Delete Pipeline
-            </div>
-          </div>
-          <div
-            class="el-table-row-container"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-row"
-            >
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <span
-                  class="el-intent-secondary el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-                <div
-                  class="el-table-cell-content"
+                </mock-styled.span>
+                <mock-styled.div
                   data-narrow-label="Name"
                 >
                   reapit-ltd-internal-thoughtless-cub
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Build Status"
                 >
-                  <span
-                    class="el-intent-critical el-status-indicator"
+                  <mock-styled.span
+                    classname="mock-css."
                   />
                   Pre Provisioned
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Repository"
                 />
-              </div>
-              <div
-                class="el-table-cta-cell"
-              >
-                <div
-                  class="el-table-cta-icon-container"
-                >
-                  <span
-                    class="el-intent-primary el-icon"
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname="mock-css."
                     style="font-size: 1.2rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-pagination-wrap"
-        >
-          <div
-            class="el-pagination-text"
-          >
-            <input
-              class="el-pagination-input"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               value="1"
             />
              of 
             6
-          </div>
-          <button
-            class="el-pagination-button"
+          </mock-styled.div>
+          <mock-styled.button
             data-testid="back-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-          <button
-            class="el-pagination-button"
+            </mock-styled.span>
+          </mock-styled.button>
+          <mock-styled.button
             data-testid="forward-button"
             type="button"
           >
-            <span
-              class="el-pagination-primary el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
             >
               <svg />
-            </span>
-          </button>
-        </div>
-      </section>
+            </mock-styled.span>
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         IaaS Pipelines
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-searchable-dropdown-container"
-            >
+          <mock-styled.div>
+            <mock-styled.div>
               <input
                 id="developer-search-box"
                 readonly=""
                 style="display: none;"
                 value=""
               />
-              <span
-                class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </span>
-              <input
-                class="el-searchable-dropdown-search-input el-input"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
                 data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </div>
-          </div>
-        </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="el-mb11 el-table"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="3"
       >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             Name
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Build Status
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Repository
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Delete Pipeline
-          </div>
-        </div>
-        <div
-          class="el-table-row-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Name"
               >
                 reapit-ltd-internal-thoughtless-cub
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Build Status"
               >
-                <span
-                  class="el-intent-critical el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                 Pre Provisioned
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Repository"
               />
-            </div>
-            <div
-              class="el-table-cta-cell"
-            >
-              <div
-                class="el-table-cta-icon-container"
-              >
-                <span
-                  class="el-intent-primary el-icon"
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-pagination-wrap"
-      >
-        <div
-          class="el-pagination-text"
-        >
-          <input
-            class="el-pagination-input"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           6
-        </div>
-        <button
-          class="el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="el-pagination-primary el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
           >
             <svg />
-          </span>
-        </button>
-      </div>
-    </section>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

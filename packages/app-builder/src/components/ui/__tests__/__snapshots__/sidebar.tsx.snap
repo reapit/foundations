@@ -2,35 +2,66 @@
 
 exports[`Sidebar should match a snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="transition bg-white sidebar-div"
-    style="--s1xt9yg4-0: 337px;"
+  <mock-styled.div
+    classname="mock-css.
+  transition: all 0.3s;
+ mock-css.
+  background: white;
+"
+    iscollapsed="false"
   >
     <div
-      class="el-flex el-flex-column overflow-auto"
+      class="mock-css.
+  display: flex;
+ mock-css.
+  flex-direction: column;
+ mock-css.
+  overflow: auto;
+"
       style="height: calc(100vh - 45px); flex: 1;"
     >
-      <div
-        class="el-flex el-flex-column sidebar-item-div"
+      <mock-styled.div
+        classname="mock-css.
+  display: flex;
+ mock-css.
+  flex-direction: column;
+"
+        expanded="true"
         height="100%"
-        style="--s1re9lvo-0: unset;"
       >
-        <div
-          class="cursor-pointer bg-white el-border-grey-b el-flex el-flex-align-center el-px3 header-div"
+        <mock-styled.div
+          classname="mock-css.
+  cursor: pointer;
+ mock-css.
+  background: white;
+ mock-css.
+  border-bottom: 1px solid var(--color-grey-light, '#dbdbdb');
+ mock-css.
+  display: flex;
+ mock-css.
+  align-items: center;
+ mock-css.
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+"
         >
           <div
-            class="el-flex el-flex1 el-flex-align-center"
+            class="mock-css.
+  display: flex;
+ mock-css.
+  flex: 1 1 0%;
+ mock-css.
+  align-items: center;
+"
           >
-            <h2
-              class="subtitle-bold"
+            <mock-styled.h2
               style="margin-bottom: 0px;"
             >
               Components
-            </h2>
+            </mock-styled.h2>
           </div>
-          <a
-            class="chevron"
-            style="--ckrrxc3-0: 180deg;"
+          <mock-styled.a
+            expanded="true"
           >
             <svg
               viewBox="0 0 10 6"
@@ -40,28 +71,49 @@ exports[`Sidebar should match a snapshot 1`] = `
                 d="M9.99,1.01A.9999.9999,0,0,0,8.28266.30327L5,3.58594,1.71734.30327A.9999.9999,0,1,0,.30327,1.71734L4.29266,5.69673a.99965.99965,0,0,0,1.41468,0L9.69673,1.71734A.99669.99669,0,0,0,9.99,1.01Z"
               />
             </svg>
-          </a>
-        </div>
+          </mock-styled.a>
+        </mock-styled.div>
         <div
-          class="el-wfull el-flex1 overflow-auto"
+          class="mock-css.
+  width: 100%;
+ mock-css.
+  flex: 1 1 0%;
+ mock-css.
+  overflow: auto;
+"
         >
-          <div
-            class="toolbox-div"
-          >
-            <span
-              class="category-title"
-            >
+          <mock-styled.div>
+            <mock-styled.span>
               Commonly used
-            </span>
+            </mock-styled.span>
             <div
-              class="transition el-w12 el-flex el-flex-row el-flex-wrap el-flex-align-start el-flex-justify-start"
+              class="mock-css.
+  transition: all 0.3s;
+ mock-css.
+  width: 100%;
+ mock-css.
+  display: flex;
+ mock-css.
+  flex-direction: row;
+ mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  align-items: flex-start;
+ mock-css.
+  justify-content: flex-start;
+"
             >
-              <div
-                class="item-container"
+              <mock-styled.div
                 draggable="true"
               >
-                <div
-                  class="el-m3 block cursor-move item"
+                <mock-styled.div
+                  classname="mock-css.
+  margin: 0.5rem;
+ mock-css.
+  display: block;
+ mock-css.
+  cursor: move;
+"
                 >
                   <svg
                     fill="none"
@@ -137,23 +189,24 @@ exports[`Sidebar should match a snapshot 1`] = `
                       fill="#23A4DE"
                     />
                   </svg>
-                </div>
-                <div
-                  class="item-name"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Text
-                </div>
-              </div>
-              <div
-                class="item-container"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
                 draggable="true"
               >
-                <div
-                  class="el-m3 block cursor-move item"
+                <mock-styled.div
+                  classname="mock-css.
+  margin: 0.5rem;
+ mock-css.
+  display: block;
+ mock-css.
+  cursor: move;
+"
                 >
-                  <div
-                    class="item"
-                  >
+                  <mock-styled.div>
                     <svg
                       fill="none"
                       height="43"
@@ -194,19 +247,17 @@ exports[`Sidebar should match a snapshot 1`] = `
                         fill-rule="evenodd"
                       />
                     </svg>
-                  </div>
-                </div>
-                <div
-                  class="item-name"
-                >
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
                   Link
-                </div>
-              </div>
+                </mock-styled.div>
+              </mock-styled.div>
             </div>
-          </div>
+          </mock-styled.div>
         </div>
-      </div>
+      </mock-styled.div>
     </div>
-  </div>
+  </mock-styled.div>
 </DocumentFragment>
 `;

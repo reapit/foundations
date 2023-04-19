@@ -2,16 +2,13 @@
 
 exports[`ToolbarRadio should match a snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="el-input-group"
-  >
-    <input
-      class="el-input"
+  <mock-styled.div>
+    <mock-styled.input
       id="test-static-id"
       name=""
       type="radio"
       value=""
     />
-  </div>
+  </mock-styled.div>
 </DocumentFragment>
 `;

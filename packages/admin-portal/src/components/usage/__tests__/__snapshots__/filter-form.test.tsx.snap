@@ -1,101 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FilterForm should render component with data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-input-wrap-full"
-          >
-            <h2
-              class="el-subtitle"
+          <mock-styled.div>
+            <mock-styled.h2
+              classname=""
             >
               Filters
-            </h2>
-            <p
-              class="el-has-grey-text el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
             >
               Apply a filter to get started. Developer and month are required by default.
-            </p>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Company
-            </label>
-            <div
-              class="el-searchable-dropdown-container"
-            >
+            </mock-styled.label>
+            <mock-styled.div>
               <input
                 id="developer-search-box"
                 readonly=""
                 style="display: none;"
                 value=""
               />
-              <span
-                class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </span>
-              <input
-                class="el-searchable-dropdown-search-input el-input"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
                 data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="month"
                 type="month"
-                value="2019-09"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Month
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               App
-            </label>
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-select"
-                disabled=""
+            </mock-styled.label>
+            <mock-styled.div>
+              <mock-styled.select
+                disabled="true"
                 name="appId"
               >
                 <option
@@ -108,23 +81,16 @@ Object {
                 >
                   Reapit Insights
                 </option>
-              </select>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Customer
-            </label>
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-select"
-                disabled=""
+            </mock-styled.label>
+            <mock-styled.div>
+              <mock-styled.select
+                disabled="true"
                 name="customerId"
               >
                 <option
@@ -140,105 +106,78 @@ Object {
                   SBOX
                   )
                 </option>
-              </select>
-            </div>
-          </div>
-        </div>
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-input-wrap-full"
-        >
-          <h2
-            class="el-subtitle"
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Filters
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             Apply a filter to get started. Developer and month are required by default.
-          </p>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <label
-            class="el-label"
-          >
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             Company
-          </label>
-          <div
-            class="el-searchable-dropdown-container"
-          >
+          </mock-styled.label>
+          <mock-styled.div>
             <input
               id="developer-search-box"
               readonly=""
               style="display: none;"
               value=""
             />
-            <span
-              class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-            >
-              <span
-                class="el-icon"
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
-            </span>
-            <input
-              class="el-searchable-dropdown-search-input el-input"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div
               data-testid="search-input"
               name="developerId"
               placeholder="Search developer organisations"
               value=""
             />
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="month"
               type="month"
-              value="2019-09"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Month
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <label
-            class="el-label"
-          >
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             App
-          </label>
-          <div
-            class="el-input-group"
-          >
-            <select
-              class="el-select"
-              disabled=""
+          </mock-styled.label>
+          <mock-styled.div>
+            <mock-styled.select
+              disabled="true"
               name="appId"
             >
               <option
@@ -251,23 +190,16 @@ Object {
               >
                 Reapit Insights
               </option>
-            </select>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <label
-            class="el-label"
-          >
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             Customer
-          </label>
-          <div
-            class="el-input-group"
-          >
-            <select
-              class="el-select"
-              disabled=""
+          </mock-styled.label>
+          <mock-styled.div>
+            <mock-styled.select
+              disabled="true"
               name="customerId"
             >
               <option
@@ -283,10 +215,10 @@ Object {
                 SBOX
                 )
               </option>
-            </select>
-          </div>
-        </div>
-      </div>
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],
@@ -344,101 +276,74 @@ Object {
 `;
 
 exports[`FilterForm should render component with no data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-input-wrap-full"
-          >
-            <h2
-              class="el-subtitle"
+          <mock-styled.div>
+            <mock-styled.h2
+              classname=""
             >
               Filters
-            </h2>
-            <p
-              class="el-has-grey-text el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
             >
               Apply a filter to get started. Developer and month are required by default.
-            </p>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Company
-            </label>
-            <div
-              class="el-searchable-dropdown-container"
-            >
+            </mock-styled.label>
+            <mock-styled.div>
               <input
                 id="developer-search-box"
                 readonly=""
                 style="display: none;"
                 value=""
               />
-              <span
-                class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </span>
-              <input
-                class="el-searchable-dropdown-search-input el-input"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
                 data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="month"
                 type="month"
-                value="2019-09"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Month
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               App
-            </label>
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-select"
-                disabled=""
+            </mock-styled.label>
+            <mock-styled.div>
+              <mock-styled.select
+                disabled="true"
                 name="appId"
               >
                 <option
@@ -446,23 +351,16 @@ Object {
                 >
                   Please Select
                 </option>
-              </select>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Customer
-            </label>
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-select"
-                disabled=""
+            </mock-styled.label>
+            <mock-styled.div>
+              <mock-styled.select
+                disabled="true"
                 name="customerId"
               >
                 <option
@@ -470,105 +368,78 @@ Object {
                 >
                   Please Select
                 </option>
-              </select>
-            </div>
-          </div>
-        </div>
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-input-wrap-full"
-        >
-          <h2
-            class="el-subtitle"
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Filters
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             Apply a filter to get started. Developer and month are required by default.
-          </p>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <label
-            class="el-label"
-          >
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             Company
-          </label>
-          <div
-            class="el-searchable-dropdown-container"
-          >
+          </mock-styled.label>
+          <mock-styled.div>
             <input
               id="developer-search-box"
               readonly=""
               style="display: none;"
               value=""
             />
-            <span
-              class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-            >
-              <span
-                class="el-icon"
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
-            </span>
-            <input
-              class="el-searchable-dropdown-search-input el-input"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div
               data-testid="search-input"
               name="developerId"
               placeholder="Search developer organisations"
               value=""
             />
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="month"
               type="month"
-              value="2019-09"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Month
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <label
-            class="el-label"
-          >
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             App
-          </label>
-          <div
-            class="el-input-group"
-          >
-            <select
-              class="el-select"
-              disabled=""
+          </mock-styled.label>
+          <mock-styled.div>
+            <mock-styled.select
+              disabled="true"
               name="appId"
             >
               <option
@@ -576,23 +447,16 @@ Object {
               >
                 Please Select
               </option>
-            </select>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <label
-            class="el-label"
-          >
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             Customer
-          </label>
-          <div
-            class="el-input-group"
-          >
-            <select
-              class="el-select"
-              disabled=""
+          </mock-styled.label>
+          <mock-styled.div>
+            <mock-styled.select
+              disabled="true"
               name="customerId"
             >
               <option
@@ -600,10 +464,10 @@ Object {
               >
                 Please Select
               </option>
-            </select>
-          </div>
-        </div>
-      </div>
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

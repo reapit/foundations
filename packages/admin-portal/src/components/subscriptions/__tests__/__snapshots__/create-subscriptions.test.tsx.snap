@@ -1,128 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CreateSubscriptions should match a snapshot with subscriptions and applicationListing 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-mt5 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-top: 0.75rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+          <mock-styled.div>
+            <mock-styled.label>
               Is Subscribed 
               Application Listing
-            </label>
-            <div
-              class="el-has-grey-bg el-toggle-radio-wrap"
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <input
-                class="el-toggle-radio"
+              <mock-styled.input
                 id="option-subscribed-true-MOCK_UUID"
                 name="isSubscribed"
                 type="radio"
                 value="SUBSCRIBED"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-subscribed-true-MOCK_UUID"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-subscribed-true-MOCK_UUID"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Subscribed
-                </span>
-              </label>
-              <input
-                checked=""
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-subscribed-false-MOCK_UUID"
                 name="isSubscribed"
                 type="radio"
                 value="NOT_SUBSCRIBED"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-subscribed-false-MOCK_UUID"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-subscribed-false-MOCK_UUID"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Not Subscribed
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-mt5 el-form-layout"
+      <mock-styled.div
+        classname="mock-css.
+  margin-top: 0.75rem;
+"
       >
-        <div
-          class="el-input-wrap"
-        >
-          <label
-            class="el-label"
-          >
+        <mock-styled.div>
+          <mock-styled.label>
             Is Subscribed 
             Application Listing
-          </label>
-          <div
-            class="el-has-grey-bg el-toggle-radio-wrap"
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <input
-              class="el-toggle-radio"
+            <mock-styled.input
               id="option-subscribed-true-MOCK_UUID"
               name="isSubscribed"
               type="radio"
               value="SUBSCRIBED"
             />
-            <label
-              class="el-has-grey-bg el-toggle-radio-label"
-              for="option-subscribed-true-MOCK_UUID"
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-subscribed-true-MOCK_UUID"
             >
-              <span
-                class="el-toggle-radio-item"
-              >
+              <mock-styled.span>
                 Subscribed
-              </span>
-            </label>
-            <input
-              checked=""
-              class="el-toggle-radio"
+              </mock-styled.span>
+            </mock-styled.label>
+            <mock-styled.input
               id="option-subscribed-false-MOCK_UUID"
               name="isSubscribed"
               type="radio"
               value="NOT_SUBSCRIBED"
             />
-            <label
-              class="el-has-grey-bg el-toggle-radio-label"
-              for="option-subscribed-false-MOCK_UUID"
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-subscribed-false-MOCK_UUID"
             >
-              <span
-                class="el-toggle-radio-item"
-              >
+              <mock-styled.span>
                 Not Subscribed
-              </span>
-            </label>
-          </div>
-        </div>
-      </div>
+              </mock-styled.span>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],
@@ -180,128 +158,106 @@ Object {
 `;
 
 exports[`CreateSubscriptions should match a snapshot with subscriptions and developerRegistration 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-mt5 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-top: 0.75rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+          <mock-styled.div>
+            <mock-styled.label>
               Is Subscribed 
               Developer Registration
-            </label>
-            <div
-              class="el-has-grey-bg el-toggle-radio-wrap"
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <input
-                checked=""
-                class="el-toggle-radio"
+              <mock-styled.input
                 id="option-subscribed-true-MOCK_UUID"
                 name="isSubscribed"
                 type="radio"
                 value="SUBSCRIBED"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-subscribed-true-MOCK_UUID"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-subscribed-true-MOCK_UUID"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Subscribed
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-subscribed-false-MOCK_UUID"
                 name="isSubscribed"
                 type="radio"
                 value="NOT_SUBSCRIBED"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-subscribed-false-MOCK_UUID"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-subscribed-false-MOCK_UUID"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Not Subscribed
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-mt5 el-form-layout"
+      <mock-styled.div
+        classname="mock-css.
+  margin-top: 0.75rem;
+"
       >
-        <div
-          class="el-input-wrap"
-        >
-          <label
-            class="el-label"
-          >
+        <mock-styled.div>
+          <mock-styled.label>
             Is Subscribed 
             Developer Registration
-          </label>
-          <div
-            class="el-has-grey-bg el-toggle-radio-wrap"
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <input
-              checked=""
-              class="el-toggle-radio"
+            <mock-styled.input
               id="option-subscribed-true-MOCK_UUID"
               name="isSubscribed"
               type="radio"
               value="SUBSCRIBED"
             />
-            <label
-              class="el-has-grey-bg el-toggle-radio-label"
-              for="option-subscribed-true-MOCK_UUID"
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-subscribed-true-MOCK_UUID"
             >
-              <span
-                class="el-toggle-radio-item"
-              >
+              <mock-styled.span>
                 Subscribed
-              </span>
-            </label>
-            <input
-              class="el-toggle-radio"
+              </mock-styled.span>
+            </mock-styled.label>
+            <mock-styled.input
               id="option-subscribed-false-MOCK_UUID"
               name="isSubscribed"
               type="radio"
               value="NOT_SUBSCRIBED"
             />
-            <label
-              class="el-has-grey-bg el-toggle-radio-label"
-              for="option-subscribed-false-MOCK_UUID"
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-subscribed-false-MOCK_UUID"
             >
-              <span
-                class="el-toggle-radio-item"
-              >
+              <mock-styled.span>
                 Not Subscribed
-              </span>
-            </label>
-          </div>
-        </div>
-      </div>
+              </mock-styled.span>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

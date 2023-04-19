@@ -1,15 +1,15 @@
 import React, { FC } from 'react'
 import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
-import { Routes } from '../../constants/routes'
-import { history } from '../../core/router'
-import { navigate } from '../../utils/navigation'
+import { RoutePaths } from '../../constants/routes'
+import { navigateRoute } from '../../utils/navigation'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { useNavigate } from 'react-router'
 
 export const getDefaultNavIndex = (pathname: string) => {
   switch (pathname) {
-    case Routes.HOME:
-    case Routes.APPS_BROWSE_MANAGER:
+    case RoutePaths.HOME:
+    case RoutePaths.APPS_BROWSE_MANAGER:
       return 1
     default:
       return 0
@@ -17,17 +17,18 @@ export const getDefaultNavIndex = (pathname: string) => {
 }
 
 export const Nav: FC = () => {
+  const navigate = useNavigate()
   const { connectIsDesktop, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const navOptions: NavResponsiveOption[] = [
     {
       itemIndex: 0,
-      callback: navigate(history, Routes.HOME),
+      callback: navigateRoute(navigate, RoutePaths.HOME),
     },
     {
       itemIndex: 1,
       text: 'Home',
       iconId: 'appsMenu',
-      callback: navigate(history, Routes.APPS_BROWSE_MANAGER),
+      callback: navigateRoute(navigate, RoutePaths.APPS_BROWSE_MANAGER),
     },
   ]
 

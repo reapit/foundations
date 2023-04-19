@@ -35,7 +35,7 @@ export const FilterForm: FC<FilterFormProps> = ({ setAppsFilters }) => {
 
   const [appsBrowseCategoriesCollection] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
+    action: getActions[GetActionNames.getAppCategories],
     queryParams: { pageSize: 50 },
   })
 

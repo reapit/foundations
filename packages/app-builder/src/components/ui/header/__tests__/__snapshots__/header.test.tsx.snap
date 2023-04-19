@@ -2,17 +2,34 @@
 
 exports[`Header should match a snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="el-flex-justify-center header el-flex-container"
+  <mock-styled.div
+    classname="mock-css.
+  justify-content: center;
+ mock-css.
+  background: #fff;
+  /* height: 52px; */
+  padding-top: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e3e3e3;
+"
   >
-    <div
-      class="el-flex-justify-end el-flex-align-center el-flex1 el-mt-auto el-mb-auto el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: flex-end;
+ mock-css.
+  align-items: center;
+ mock-css.
+  flex: 1 1 0%;
+ mock-css.
+  margin-top: auto;
+ mock-css.
+  margin-bottom: auto;
+"
       style="padding-left: 17px; padding-right: 17px;"
     >
-      <a
-        class="home"
-        href="/"
+      <mock-styled.div
         style="margin-right: 8px;"
+        to="/"
       >
         <svg
           fill="none"
@@ -41,30 +58,31 @@ exports[`Header should match a snapshot 1`] = `
             </clippath>
           </defs>
         </svg>
-      </a>
-      <div
-        class="app-name-container"
-      >
-        <span
-          class="developer-name"
-        >
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.span>
            /
-        </span>
+        </mock-styled.span>
          
-        <input
-          class="app-name-input"
-          value=""
-        />
-      </div>
+        <mock-styled.input />
+      </mock-styled.div>
       <div
-        class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
+        class="mock-css.
+  flex: 1 1 0%;
+ mock-css.
+  display: flex;
+ mock-css.
+  align-items: center;
+ mock-css.
+  justify-content: flex-start;
+"
       >
-        <div
-          class="toggle-container"
-        >
-          <button
-            class="el-m2 app-builder-icon-button-with-text app-builder-icon-button el-button"
-            style="--awfk8ev-0: #f2f2f2; --a1p3rkwf-0: black; --a1p3rkwf-1: #23A4DE; --a1p3rkwf-2: #EAF5FC;"
+        <mock-styled.div>
+          <mock-styled.mock-styled.div
+            classname="mock-css.
+  margin: 0.375rem;
+"
+            isactive="true"
           >
             <svg
               fill="none"
@@ -81,143 +99,20 @@ exports[`Header should match a snapshot 1`] = `
               />
             </svg>
             New Page
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
+          </mock-styled.mock-styled.div>
+        </mock-styled.div>
       </div>
-      <div
-        class="breakpoints"
-      >
-        <div
-          class="app-builder-toggle-radio el-toggle-full-width el-toggle-radio-wrap"
-        >
-          <input
-            class="el-toggle-radio"
-            id="1440"
-            name="responsive preview"
-            type="radio"
-            value="1440"
-          />
-          <label
-            class="el-toggle-full-width el-toggle-radio-label"
-            for="1440"
-          >
-            <span
-              class="el-toggle-radio-item"
-            >
-              <div
-                class="toggle-radio-container"
-              >
-                <svg
-                  fill="none"
-                  height="19"
-                  viewBox="0 0 20 19"
-                  width="20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M1.17043 0.0239258H18.8296C19.4641 0.0239258 19.984 0.549426 19.984 1.1921V11.1279H0.0165263V1.1921C0.0165263 0.550017 0.535869 0.0239258 1.17102 0.0239258H1.17043ZM4.49857 17.1169H6.90335L7.19147 15.1936H12.8072L13.096 17.1169H15.5008V18.0712H4.49786V17.1169H4.49857ZM19.984 12.0824V13.0714C19.984 13.7135 19.4646 14.2395 18.8295 14.2395H1.17036C0.535796 14.2395 0.0158691 13.714 0.0158691 13.0714V12.0824H19.984Z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-                 Desktop
-              </div>
-            </span>
-          </label>
-          <input
-            class="el-toggle-radio"
-            id="1024"
-            name="responsive preview"
-            type="radio"
-            value="1025"
-          />
-          <label
-            class="el-toggle-full-width el-toggle-radio-label"
-            for="1024"
-          >
-            <span
-              class="el-toggle-radio-item"
-            >
-              <div
-                class="toggle-radio-container"
-              >
-                <svg
-                  fill="none"
-                  height="17"
-                  viewBox="0 0 24 17"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M22.2949 0C23.2357 0 24 0.688477 24 1.53604V15.1596C24 16.0072 23.2357 16.6956 22.2949 16.6956H1.70508C0.764248 16.6956 0 16.0072 0 15.1596V1.53604C0 0.688477 0.764248 0 1.70508 0H22.2949ZM19.3043 7.30434C18.4399 7.30434 17.7391 8.00511 17.7391 8.86955C17.7391 9.734 18.4399 10.4348 19.3043 10.4348C20.1688 10.4348 20.8695 9.734 20.8695 8.86955C20.8695 8.00511 20.1688 7.30434 19.3043 7.30434Z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-                 Tablet
-              </div>
-            </span>
-          </label>
-          <input
-            class="el-toggle-radio"
-            id="768"
-            name="responsive preview"
-            type="radio"
-            value="767"
-          />
-          <label
-            class="el-toggle-full-width el-toggle-radio-label"
-            for="768"
-          >
-            <span
-              class="el-toggle-radio-item"
-            >
-              <div
-                class="toggle-radio-container"
-              >
-                <svg
-                  fill="none"
-                  height="20"
-                  viewBox="0 0 13 20"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g
-                    clip-path="url(#clip0_204_5115)"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M12.2222 1.6356C12.2222 0.733102 11.5185 0 10.6522 0H1.57001C0.703707 0 0 0.733102 0 1.6356V18.3644C0 19.2669 0.703707 20 1.57001 20H10.6522C11.5185 20 12.2222 19.2669 12.2222 18.3644V1.6356ZM4.44444 17.2222C4.44444 16.3017 5.19064 15.5556 6.11111 15.5556C7.03159 15.5556 7.77778 16.3017 7.77778 17.2222C7.77778 18.1427 7.03159 18.8889 6.11111 18.8889C5.19064 18.8889 4.44444 18.1427 4.44444 17.2222ZM4.44444 1.11111C3.83079 1.11111 3.33333 1.60857 3.33333 2.22222C3.33333 2.83587 3.83079 3.33333 4.44444 3.33333H7.77778C8.39143 3.33333 8.88889 2.83587 8.88889 2.22222C8.88889 1.60857 8.39143 1.11111 7.77778 1.11111H4.44444Z"
-                      fill-rule="evenodd"
-                    />
-                  </g>
-                  <defs>
-                    <clippath
-                      id="clip0_204_5115"
-                    >
-                      <rect
-                        fill="white"
-                        height="20"
-                        width="12.2222"
-                      />
-                    </clippath>
-                  </defs>
-                </svg>
-                 Mobile
-              </div>
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        class="select-or-input-small select-or-input-container"
-      >
-        <select
-          class="app-builder-select el-select"
+      <mock-styled.div>
+        <mock-styled.div
+          isfullwidth="true"
+          name="responsive preview"
+          options="[object Object],[object Object],[object Object]"
+        />
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
           style="max-width: 84px;"
+          value="1"
         >
           <option
             value="0.5"
@@ -234,16 +129,11 @@ exports[`Header should match a snapshot 1`] = `
           >
             150%
           </option>
-        </select>
-        <input
-          class="overlay-input"
-          data-form-type="other"
-          value="100%"
-        />
-      </div>
-      <button
-        class="app-builder-icon-button el-intent-primary el-button"
-        style="--awfk8ev-0: #23A4DE; margin-left: 21px; margin-right: 0px;"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        intent="primary"
+        style="margin-left: 21px; margin-right: 0px;"
       >
         <svg
           fill="none"
@@ -270,11 +160,8 @@ exports[`Header should match a snapshot 1`] = `
             </clippath>
           </defs>
         </svg>
-        <div
-          class="el-button-loader"
-        />
-      </button>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
     <div
       class="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-bottom type-dark"
       data-id="tooltip"
@@ -398,6 +285,6 @@ exports[`Header should match a snapshot 1`] = `
   
       </style>
     </div>
-  </div>
+  </mock-styled.div>
 </DocumentFragment>
 `;

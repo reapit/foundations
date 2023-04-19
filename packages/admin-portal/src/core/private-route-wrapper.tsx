@@ -1,23 +1,15 @@
-import React, { FC } from 'react'
+import React, { FC, PropsWithChildren, Suspense } from 'react'
 import Menu from '../components/menu/menu'
-import { useLocation, Redirect } from 'react-router'
-import Routes from '../constants/routes'
+import { useLocation, Navigate } from 'react-router'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Loader, MainContainer } from '@reapit/elements'
 import { PermissionsProvider } from './use-permissions-state'
-const { Suspense } = React
 
-export type PrivateRouteWrapperProps = {
-  path: string
-  showMenu?: boolean
-}
-
-export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children, showMenu = true }) => {
+export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
-  const isRoot = connectInternalRedirect === '/?' || connectInternalRedirect === '/' || window.location.pathname === '/'
 
   if (!connectSession) {
     return (
@@ -27,18 +19,14 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children, sh
     )
   }
 
-  if (isRoot) {
-    return <Redirect to={Routes.APPS} />
-  }
-
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
-    return <Redirect to={connectInternalRedirect} />
+    return <Navigate to={connectInternalRedirect} />
   }
 
   return (
     <PermissionsProvider>
       <MainContainer>
-        {showMenu && <Menu />}
+        <Menu />
         <Suspense fallback={<Loader />}>{children}</Suspense>
       </MainContainer>
     </PermissionsProvider>

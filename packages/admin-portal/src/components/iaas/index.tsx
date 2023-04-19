@@ -81,7 +81,7 @@ export const IaaS: FC = () => {
 
   const [pipelines, pipelinesLoading, , refreshPipelines] = useReapitGet<Pagination<PipelineModelInterface>>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.paginatePipeline],
+    action: getActions[GetActionNames.paginatePipeline],
     headers: {
       Authorization: connectSession?.idToken as string,
     },
@@ -94,7 +94,7 @@ export const IaaS: FC = () => {
 
   const [, , deletePipeline] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deletePipeline],
+    action: updateActions[UpdateActionNames.deletePipeline],
     method: 'DELETE',
     uriParams: {
       appId,

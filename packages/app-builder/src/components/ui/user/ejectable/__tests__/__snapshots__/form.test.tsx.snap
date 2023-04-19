@@ -2,44 +2,35 @@
 
 exports[`Form should match a snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="component-wrapper"
-    style="--c1uzxtdh-0: 0;"
+  <mock-styled.div />
+  <mock-styled.div
     width="0"
   >
     <div>
       No type selected, choose one from the sidebar.
     </div>
     <form>
-      <div
-        class="el-form-layout"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-loader-container"
+        <mock-styled.div
+          classname=""
         >
-          <p
-            class="el-loader-label"
-          >
+          <mock-styled.p>
             Loading
-          </p>
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-        <button
-          class="el-intent-primary el-button"
+          </mock-styled.p>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.button
+          classname="mock-css."
         >
           Save
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
     </form>
-  </div>
+  </mock-styled.div>
 </DocumentFragment>
 `;

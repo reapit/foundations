@@ -3,7 +3,16 @@ import {
   AppSummaryModelPagedResult,
   InstallationModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
-import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch, useEffect } from 'react'
+import React, {
+  FC,
+  createContext,
+  useContext,
+  useState,
+  SetStateAction,
+  Dispatch,
+  useEffect,
+  PropsWithChildren,
+} from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { useReapitGet } from '@reapit/use-reapit-data'
@@ -54,7 +63,7 @@ export const handleSetTopics =
     }
   }
 
-export const WebhooksProvider: FC = ({ children }) => {
+export const WebhooksProvider: FC<PropsWithChildren> = ({ children }) => {
   const [webhooksFilterState, setWebhooksFilterState] = useState<WebhooksFilterState>({
     ...defaultWebhooksFilterState,
     ...handleHistoryToQueryParams(),

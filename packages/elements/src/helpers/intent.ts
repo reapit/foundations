@@ -13,19 +13,19 @@ export type Intent = 'primary' | 'secondary' | 'critical' | 'success' | 'danger'
 export const getIntentClassName = (intent: Intent): string => {
   switch (intent) {
     case 'primary':
-      return elIntentPrimary ?? ''
+      return elIntentPrimary
     case 'secondary':
-      return elIntentSecondary ?? ''
+      return elIntentSecondary
     case 'critical':
-      return elIntentCritical ?? ''
+      return elIntentCritical
     case 'success':
-      return elIntentSuccess ?? ''
+      return elIntentSuccess
     case 'danger':
-      return elIntentDanger ?? ''
+      return elIntentDanger
     case 'low':
-      return elIntentLow ?? ''
+      return elIntentLow
     case 'neutral':
     default:
-      return elIntentNeutral ?? ''
+      return elIntentNeutral
   }
 }

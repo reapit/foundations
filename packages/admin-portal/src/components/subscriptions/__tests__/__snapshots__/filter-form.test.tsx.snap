@@ -1,69 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FilterForm should render component 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="organisationName"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Company Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="userEmail"
                 type="email"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 User Email
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Subscription Type
-            </label>
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-select"
+            </mock-styled.label>
+            <mock-styled.div>
+              <mock-styled.select
                 name="subscriptionType"
               >
                 <option
@@ -86,22 +65,15 @@ Object {
                 >
                   Developer Edition
                 </option>
-              </select>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Status
-            </label>
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-select"
+            </mock-styled.label>
+            <mock-styled.div>
+              <mock-styled.select
                 name="status"
               >
                 <option
@@ -119,73 +91,52 @@ Object {
                 >
                   Cancelled
                 </option>
-              </select>
-            </div>
-          </div>
-        </div>
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="organisationName"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Company Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="userEmail"
               type="email"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               User Email
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <label
-            class="el-label"
-          >
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             Subscription Type
-          </label>
-          <div
-            class="el-input-group"
-          >
-            <select
-              class="el-select"
+          </mock-styled.label>
+          <mock-styled.div>
+            <mock-styled.select
               name="subscriptionType"
             >
               <option
@@ -208,22 +159,15 @@ Object {
               >
                 Developer Edition
               </option>
-            </select>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <label
-            class="el-label"
-          >
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             Status
-          </label>
-          <div
-            class="el-input-group"
-          >
-            <select
-              class="el-select"
+          </mock-styled.label>
+          <mock-styled.div>
+            <mock-styled.select
               name="status"
             >
               <option
@@ -241,10 +185,10 @@ Object {
               >
                 Cancelled
               </option>
-            </select>
-          </div>
-        </div>
-      </div>
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

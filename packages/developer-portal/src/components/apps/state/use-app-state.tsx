@@ -7,7 +7,16 @@ import {
   PipelineModelInterface,
 } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/use-reapit-data'
-import React, { useState, Dispatch, SetStateAction, FC, createContext, useContext, useEffect } from 'react'
+import React, {
+  useState,
+  Dispatch,
+  SetStateAction,
+  FC,
+  createContext,
+  useContext,
+  useEffect,
+  PropsWithChildren,
+} from 'react'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { AppAuthFlow, AppNewStepId } from '../new/config'
@@ -89,7 +98,7 @@ export const AppStateContext = createContext<AppStateHook>({} as AppStateHook)
 
 const { Provider } = AppStateContext
 
-export const AppProvider: FC = ({ children }) => {
+export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
   const [appWizardState, setAppWizardState] = useState<AppWizardState>(defaultAppWizardState as AppWizardState)
   const [appPipeline, setAppPipeline] = useState<PipelineModelInterface | null>(null)
   const [appsPageNumber, appsSetPageNumber] = useState<number>(1)

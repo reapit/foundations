@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction } from 'react'
+import React, { Dispatch, FC, PropsWithChildren, SetStateAction } from 'react'
 import ErrorBoundary from '../../../core/error-boundary'
 import { useAppState } from '../state/use-app-state'
 import { useEvent } from '@harelpls/use-pusher'
@@ -38,20 +38,12 @@ export const handleRunnerEvent =
     setPipeline(event.pipeline)
   }
 
-export const PusherEventWrapper: FC = ({ children }) => {
+export const PusherEventWrapper: FC<PropsWithChildren> = ({ children }) => {
   const { appId, appPipelineState } = useAppState()
   const { appPipeline, setAppPipeline, appPipelinePusherChannel } = appPipelineState
 
-  useEvent<PipelineModelInterface>(
-    appPipelinePusherChannel,
-    'pipeline-update',
-    handlePipelineEvent(appPipeline, setAppPipeline, appId),
-  )
-  useEvent<PipelinePusherEvent>(
-    appPipelinePusherChannel,
-    'pipeline-runner-update',
-    handleRunnerEvent(appPipeline, setAppPipeline, appId),
-  )
+  useEvent(appPipelinePusherChannel, 'pipeline-update', handlePipelineEvent(appPipeline, setAppPipeline, appId))
+  useEvent(appPipelinePusherChannel, 'pipeline-runner-update', handleRunnerEvent(appPipeline, setAppPipeline, appId))
 
   return <ErrorBoundary>{children}</ErrorBoundary>
 }

@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { ReapitConnectBrowserSession, useReapitConnect } from '@reapit/connect-session'
-import { useLocation, Redirect } from 'react-router'
+import { useLocation, Navigate } from 'react-router'
 import { Loader, PageContainer } from '@reapit/elements'
 import { ConnectSessionProvider } from '@/components/hooks/connect-session'
 
 const { Suspense } = React
 
-export type PrivateRouteWrapperProps = {
+export type PrivateRouteWrapperProps = React.PropsWithChildren & {
   reapitConnectBrowserSession: ReapitConnectBrowserSession
 }
 
@@ -27,7 +27,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
-    return <Redirect to={connectInternalRedirect} />
+    return <Navigate to={connectInternalRedirect} />
   }
 
   return (

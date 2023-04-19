@@ -29,7 +29,7 @@ export const OrgGroupsTable: FC<OrgGroupsProps> = ({ orgId }) => {
 
   const [orgGroups, orgGroupsLoading] = useReapitGet<OfficeGroupModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getGroupsByOrgId],
+    action: getActions[GetActionNames.getGroupsByOrgId],
     queryParams: {
       pageSize,
       pageNumber,

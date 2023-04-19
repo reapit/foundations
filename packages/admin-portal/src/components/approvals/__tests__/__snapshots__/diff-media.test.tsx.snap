@@ -1,34 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DiffMedia should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="diff-media-container"
+        class="mock-css.
+  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-light);
+  border-radius: 3px;
+  padding: 10px;
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+"
       >
         <div
-          class="diff-block icon-block red-background"
+          class="mock-css.
+  border-radius: 4px;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ mock-css.
+  width: 90px;
+  height: 90px;
+ mock-css.
+  background-color: var(--intent-danger-light);
+"
         >
           <div
-            class="image icon-image"
+            class="mock-css.
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+ mock-css.
+  width: 80px;
+  height: 80px;
+"
             style="background-image: url(https://media.jpg);"
           />
         </div>
         <span
-          class="arrow"
+          class="mock-css.
+  font-size: 18px;
+  color: var(--color-grey-dark);
+"
         >
           →
         </span>
         <div
-          class="diff-block icon-block green-background"
+          class="mock-css.
+  border-radius: 4px;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ mock-css.
+  width: 90px;
+  height: 90px;
+ mock-css.
+  background-color: var(--intent-success-light);
+"
         >
           <div
-            class="image icon-image"
+            class="mock-css.
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+ mock-css.
+  width: 80px;
+  height: 80px;
+"
             style="background-image: url(https://media-changed.jpg);"
           />
         </div>
@@ -36,30 +84,78 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="diff-media-container"
+      class="mock-css.
+  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-light);
+  border-radius: 3px;
+  padding: 10px;
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+"
     >
       <div
-        class="diff-block icon-block red-background"
+        class="mock-css.
+  border-radius: 4px;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ mock-css.
+  width: 90px;
+  height: 90px;
+ mock-css.
+  background-color: var(--intent-danger-light);
+"
       >
         <div
-          class="image icon-image"
+          class="mock-css.
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+ mock-css.
+  width: 80px;
+  height: 80px;
+"
           style="background-image: url(https://media.jpg);"
         />
       </div>
       <span
-        class="arrow"
+        class="mock-css.
+  font-size: 18px;
+  color: var(--color-grey-dark);
+"
       >
         →
       </span>
       <div
-        class="diff-block icon-block green-background"
+        class="mock-css.
+  border-radius: 4px;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ mock-css.
+  width: 90px;
+  height: 90px;
+ mock-css.
+  background-color: var(--intent-success-light);
+"
       >
         <div
-          class="image icon-image"
+          class="mock-css.
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+ mock-css.
+  width: 80px;
+  height: 80px;
+"
           style="background-image: url(https://media-changed.jpg);"
         />
       </div>

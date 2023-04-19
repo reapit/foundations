@@ -2,17 +2,21 @@
 
 exports[`Table should match a snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="component-wrapper"
-    style="--c1uzxtdh-0: undefined;"
-  >
+  <mock-styled.div />
+  <mock-styled.div>
     <div
-      class="el-flex el-flex1 el-flex-column"
+      class="mock-css.
+  display: flex;
+ mock-css.
+  flex: 1 1 0%;
+, mock-css.
+  flex-direction: column;
+"
     >
       <div>
         Select a type from the sidebar.
       </div>
     </div>
-  </div>
+  </mock-styled.div>
 </DocumentFragment>
 `;

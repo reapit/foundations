@@ -1,5 +1,5 @@
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch } from 'react'
+import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch, PropsWithChildren } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { useReapitGet } from '@reapit/use-reapit-data'
@@ -29,7 +29,7 @@ export const AnalyticsStateContext = createContext<AnalyticsStateHook>({} as Ana
 
 const { Provider } = AnalyticsStateContext
 
-export const AnalyticsProvider: FC = ({ children }) => {
+export const AnalyticsProvider: FC<PropsWithChildren> = ({ children }) => {
   const [analyticsFilterState, setAnalyticsFilterState] = useState<AnalyticsFilterState>(defaultAnalyticsFilterState)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = connectSession?.loginIdentity.developerId

@@ -1,23 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DiffViewer should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="diff-viewer-container"
+        class="mock-css.
+  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-light);
+  border-radius: 3px;
+  padding: 10px;
+  color: var(--color-black);
+
+  span {
+    overflow-wrap: break-word;
+  }
+"
       >
         <span
-          class="red-background"
+          class="mock-css.
+  background-color: var(--intent-danger-light);
+"
         >
           hello world
         </span>
         <span
-          class="green-background"
+          class="mock-css.
+  background-color: var(--intent-success-light);
+"
         >
           hello galaxy
         </span>
@@ -25,19 +37,31 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="diff-viewer-container"
+      class="mock-css.
+  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-light);
+  border-radius: 3px;
+  padding: 10px;
+  color: var(--color-black);
+
+  span {
+    overflow-wrap: break-word;
+  }
+"
     >
       <span
-        class="red-background"
+        class="mock-css.
+  background-color: var(--intent-danger-light);
+"
       >
         hello world
       </span>
       <span
-        class="green-background"
+        class="mock-css.
+  background-color: var(--intent-success-light);
+"
       >
         hello galaxy
       </span>

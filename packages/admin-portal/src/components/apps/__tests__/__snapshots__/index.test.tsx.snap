@@ -1,1399 +1,1109 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppsPage should render a component when has data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           Apps Management
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="searchTerm"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   App or Developer Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="companyName"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Company Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="id"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   App Id
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="registeredFrom"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Registered From
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="registeredTo"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Registered To
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="publicListedDateFrom"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Publicly Listed From
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="publicListedDateTo"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Publicly Listed To
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <label
-                class="el-label"
-              >
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 In Public AppMarket
-              </label>
-              <div
-                class="el-has-grey-bg el-toggle-radio-wrap"
+              </mock-styled.label>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <input
-                  checked=""
-                  class="el-toggle-radio"
+                <mock-styled.input
                   id="option-public-all"
                   name="isPublic"
                   type="radio"
                   value=""
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-public-all"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-public-all"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     All
-                  </span>
-                </label>
-                <input
-                  class="el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="option-public-true"
                   name="isPublic"
                   type="radio"
                   value="true"
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-public-true"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-public-true"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     Public
-                  </span>
-                </label>
-                <input
-                  class="el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="option-public-false"
                   name="isPublic"
                   type="radio"
                   value="false"
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-public-false"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-public-false"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     Private
-                  </span>
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <label
-                class="el-label"
-              >
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Integration or AC Enabled
-              </label>
-              <div
-                class="el-has-grey-bg el-toggle-radio-wrap"
+              </mock-styled.label>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <input
-                  checked=""
-                  class="el-toggle-radio"
+                <mock-styled.input
                   id="option-integration-all"
                   name="isDirectApi"
                   type="radio"
                   value=""
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-integration-all"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-integration-all"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     All
-                  </span>
-                </label>
-                <input
-                  class="el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="option-integration-true"
                   name="isDirectApi"
                   type="radio"
                   value="true"
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-integration-true"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-integration-true"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     Integration
-                  </span>
-                </label>
-                <input
-                  class="el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="option-integration-false"
                   name="isDirectApi"
                   type="radio"
                   value="false"
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-integration-false"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-integration-false"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     AC App
-                  </span>
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <label
-                class="el-label"
-              >
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Publicly Listed
-              </label>
-              <div
-                class="el-has-grey-bg el-toggle-radio-wrap"
+              </mock-styled.label>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <input
-                  checked=""
-                  class="el-toggle-radio"
+                <mock-styled.input
                   id="option-listed-all"
                   name="isListed"
                   type="radio"
                   value=""
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-listed-all"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-listed-all"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     All
-                  </span>
-                </label>
-                <input
-                  class="el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="option-listed-true"
                   name="isListed"
                   type="radio"
                   value="true"
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-listed-true"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-listed-true"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     Listed
-                  </span>
-                </label>
-                <input
-                  class="el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="option-listed-false"
                   name="isListed"
                   type="radio"
                   value="false"
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-listed-false"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-listed-false"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     Development
-                  </span>
-                </label>
-              </div>
-            </div>
-          </div>
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
         <div
-          class="el-mb11"
+          class="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-button-group"
-          >
-            <div
-              class="el-button-group-inner"
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <button
-                class="el-intent-primary el-button"
+              <mock-styled.button
+                classname="mock-css."
                 type="button"
               >
                 Download CSV
-                <div
-                  class="el-button-loader"
-                />
-              </button>
-            </div>
-          </div>
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
         <div
-          class="el-mb11"
+          class="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <h2
-            class="el-subtitle"
+          <mock-styled.h2
+            classname=""
           >
             Total Apps
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             1
-          </p>
-          <div
-            class="el-table"
+          </mock-styled.p>
+          <mock-styled.div
             data-has-call-to-action="false"
             data-has-expandable-action="true"
             data-num-columns-excl-action-col="10"
           >
-            <div
-              class="el-table-headers-row"
-            >
-              <div
-                class="el-table-header"
-              >
+            <mock-styled.div>
+              <mock-styled.div>
                 App Name
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 AppId
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Summary
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Developer Name
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Listed
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Integration
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Featured
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Created
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Publicly Listed
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Public
-              </div>
-              <div
-                class="el-table-header"
-              >
-                <span
-                  class="el-icon"
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-            <div
-              class="el-table-row-container"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-row"
-              >
-                <div
-                  class="el-table-cell-has-dark-text el-table-cell"
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="App Name"
                   >
                     Reapit Insights
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="AppId"
                   >
                     f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Summary"
                   >
                     Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Developer Name"
                   >
                     Reapit Ltd Internal
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Listed"
                   >
-                    <span
-                      class="el-intent-success el-icon"
+                    <mock-styled.span
+                      classname="mock-css."
                     >
                       <svg />
-                    </span>
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Integration"
                   >
-                    <span
-                      class="el-intent-danger el-icon"
+                    <mock-styled.span
+                      classname="mock-css."
                     >
                       <svg />
-                    </span>
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Featured"
                   >
-                    <span
-                      class="el-intent-danger el-icon"
+                    <mock-styled.span
+                      classname="mock-css."
                     >
                       <svg />
-                    </span>
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Created"
                   >
                     04 Mar 2021 09:37
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Publicly Listed"
                   >
                     -
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Public"
                   >
-                    <span
-                      class="el-intent-danger el-icon"
+                    <mock-styled.span
+                      classname="mock-css."
                     >
                       <svg />
-                    </span>
-                  </div>
-                </div>
-                <div
-                  class="el-table-expandable-row-trigger-cell"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <span
-                    class="el-intent-secondary el-icon"
+                  <mock-styled.span
+                    classname="mock-css."
                   >
                     <svg />
-                  </span>
-                </div>
-              </div>
-              <div
-                class="el-table-expandable-row"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-expandable-container"
-                >
-                  <div
-                    class="el-button-group"
-                  >
-                    <div
-                      class="el-button-group-align-center el-button-group-inner"
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div
+                      classname="mock-css."
                     >
-                      <button
-                        class="el-intent-secondary el-button"
+                      <mock-styled.button
+                        classname="mock-css."
                       >
                         View in AppMarket
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                      <button
-                        class="el-intent-secondary el-button"
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
                       >
                         View in DevPortal
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
+                        disabled="false"
                       >
                         Check AWS Only
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                      <button
-                        class="el-intent-danger el-button"
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
                         type="button"
                       >
                         Delete
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
                       >
                         Toggle Subscription
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
                       >
                         Togggle Featured
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                        <mock-styled.div />
+                      </mock-styled.button>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
-        <div
-          class="el-pagination-wrap"
-        >
-          <div
-            class="el-pagination-text"
-          >
-            <input
-              class="el-pagination-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               value="1"
             />
              of 
             1
-          </div>
-          <button
-            class="el-pagination-button"
+          </mock-styled.div>
+          <mock-styled.button
             data-testid="back-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-          <button
-            class="el-pagination-button"
+            </mock-styled.span>
+          </mock-styled.button>
+          <mock-styled.button
             data-testid="forward-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-        </div>
-      </section>
+            </mock-styled.span>
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         Apps Management
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="searchTerm"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 App or Developer Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="companyName"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Company Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="id"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 App Id
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Registered From
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Registered To
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="publicListedDateFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Publicly Listed From
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="publicListedDateTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Publicly Listed To
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               In Public AppMarket
-            </label>
-            <div
-              class="el-has-grey-bg el-toggle-radio-wrap"
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <input
-                checked=""
-                class="el-toggle-radio"
+              <mock-styled.input
                 id="option-public-all"
                 name="isPublic"
                 type="radio"
                 value=""
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-public-all"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-public-all"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   All
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-public-true"
                 name="isPublic"
                 type="radio"
                 value="true"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-public-true"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-public-true"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Public
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-public-false"
                 name="isPublic"
                 type="radio"
                 value="false"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-public-false"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-public-false"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Private
-                </span>
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Integration or AC Enabled
-            </label>
-            <div
-              class="el-has-grey-bg el-toggle-radio-wrap"
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <input
-                checked=""
-                class="el-toggle-radio"
+              <mock-styled.input
                 id="option-integration-all"
                 name="isDirectApi"
                 type="radio"
                 value=""
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-integration-all"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-integration-all"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   All
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-integration-true"
                 name="isDirectApi"
                 type="radio"
                 value="true"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-integration-true"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-integration-true"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Integration
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-integration-false"
                 name="isDirectApi"
                 type="radio"
                 value="false"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-integration-false"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-integration-false"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   AC App
-                </span>
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Publicly Listed
-            </label>
-            <div
-              class="el-has-grey-bg el-toggle-radio-wrap"
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <input
-                checked=""
-                class="el-toggle-radio"
+              <mock-styled.input
                 id="option-listed-all"
                 name="isListed"
                 type="radio"
                 value=""
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-listed-all"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-listed-all"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   All
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-listed-true"
                 name="isListed"
                 type="radio"
                 value="true"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-listed-true"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-listed-true"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Listed
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-listed-false"
                 name="isListed"
                 type="radio"
                 value="false"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-listed-false"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-listed-false"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Development
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
       <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-inner"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Download CSV
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
       <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <h2
-          class="el-subtitle"
+        <mock-styled.h2
+          classname=""
         >
           Total Apps
-        </h2>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           1
-        </p>
-        <div
-          class="el-table"
+        </mock-styled.p>
+        <mock-styled.div
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="10"
         >
-          <div
-            class="el-table-headers-row"
-          >
-            <div
-              class="el-table-header"
-            >
+          <mock-styled.div>
+            <mock-styled.div>
               App Name
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               AppId
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Summary
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Developer Name
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Listed
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Integration
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Featured
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Created
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Publicly Listed
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Public
-            </div>
-            <div
-              class="el-table-header"
-            >
-              <span
-                class="el-icon"
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="el-table-row-container"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-row"
-            >
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="App Name"
                 >
                   Reapit Insights
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="AppId"
                 >
                   f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Summary"
                 >
                   Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Developer Name"
                 >
                   Reapit Ltd Internal
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Listed"
                 >
-                  <span
-                    class="el-intent-success el-icon"
+                  <mock-styled.span
+                    classname="mock-css."
                   >
                     <svg />
-                  </span>
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Integration"
                 >
-                  <span
-                    class="el-intent-danger el-icon"
+                  <mock-styled.span
+                    classname="mock-css."
                   >
                     <svg />
-                  </span>
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Featured"
                 >
-                  <span
-                    class="el-intent-danger el-icon"
+                  <mock-styled.span
+                    classname="mock-css."
                   >
                     <svg />
-                  </span>
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Created"
                 >
                   04 Mar 2021 09:37
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Publicly Listed"
                 >
                   -
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Public"
                 >
-                  <span
-                    class="el-intent-danger el-icon"
+                  <mock-styled.span
+                    classname="mock-css."
                   >
                     <svg />
-                  </span>
-                </div>
-              </div>
-              <div
-                class="el-table-expandable-row-trigger-cell"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <span
-                  class="el-intent-secondary el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-            <div
-              class="el-table-expandable-row"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-expandable-container"
-              >
-                <div
-                  class="el-button-group"
-                >
-                  <div
-                    class="el-button-group-align-center el-button-group-inner"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
                   >
-                    <button
-                      class="el-intent-secondary el-button"
+                    <mock-styled.button
+                      classname="mock-css."
                     >
                       View in AppMarket
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-secondary el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
                     >
                       View in DevPortal
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="false"
                     >
                       Check AWS Only
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-danger el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
                       type="button"
                     >
                       Delete
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
                     >
                       Toggle Subscription
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
                     >
                       Togggle Featured
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
-      <div
-        class="el-pagination-wrap"
-      >
-        <div
-          class="el-pagination-text"
-        >
-          <input
-            class="el-pagination-input"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           1
-        </div>
-        <button
-          class="el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-      </div>
-    </section>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1450,741 +1160,561 @@ Object {
 `;
 
 exports[`AppsPage should render a component when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           Apps Management
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="searchTerm"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   App or Developer Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="companyName"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Company Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="id"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   App Id
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="registeredFrom"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Registered From
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="registeredTo"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Registered To
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="publicListedDateFrom"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Publicly Listed From
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="publicListedDateTo"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Publicly Listed To
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <label
-                class="el-label"
-              >
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 In Public AppMarket
-              </label>
-              <div
-                class="el-has-grey-bg el-toggle-radio-wrap"
+              </mock-styled.label>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <input
-                  checked=""
-                  class="el-toggle-radio"
+                <mock-styled.input
                   id="option-public-all"
                   name="isPublic"
                   type="radio"
                   value=""
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-public-all"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-public-all"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     All
-                  </span>
-                </label>
-                <input
-                  class="el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="option-public-true"
                   name="isPublic"
                   type="radio"
                   value="true"
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-public-true"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-public-true"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     Public
-                  </span>
-                </label>
-                <input
-                  class="el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="option-public-false"
                   name="isPublic"
                   type="radio"
                   value="false"
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-public-false"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-public-false"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     Private
-                  </span>
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <label
-                class="el-label"
-              >
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Integration or AC Enabled
-              </label>
-              <div
-                class="el-has-grey-bg el-toggle-radio-wrap"
+              </mock-styled.label>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <input
-                  checked=""
-                  class="el-toggle-radio"
+                <mock-styled.input
                   id="option-integration-all"
                   name="isDirectApi"
                   type="radio"
                   value=""
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-integration-all"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-integration-all"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     All
-                  </span>
-                </label>
-                <input
-                  class="el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="option-integration-true"
                   name="isDirectApi"
                   type="radio"
                   value="true"
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-integration-true"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-integration-true"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     Integration
-                  </span>
-                </label>
-                <input
-                  class="el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="option-integration-false"
                   name="isDirectApi"
                   type="radio"
                   value="false"
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-integration-false"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-integration-false"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     AC App
-                  </span>
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <label
-                class="el-label"
-              >
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Publicly Listed
-              </label>
-              <div
-                class="el-has-grey-bg el-toggle-radio-wrap"
+              </mock-styled.label>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <input
-                  checked=""
-                  class="el-toggle-radio"
+                <mock-styled.input
                   id="option-listed-all"
                   name="isListed"
                   type="radio"
                   value=""
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-listed-all"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-listed-all"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     All
-                  </span>
-                </label>
-                <input
-                  class="el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="option-listed-true"
                   name="isListed"
                   type="radio"
                   value="true"
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-listed-true"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-listed-true"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     Listed
-                  </span>
-                </label>
-                <input
-                  class="el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="option-listed-false"
                   name="isListed"
                   type="radio"
                   value="false"
                 />
-                <label
-                  class="el-has-grey-bg el-toggle-radio-label"
-                  for="option-listed-false"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-listed-false"
                 >
-                  <span
-                    class="el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     Development
-                  </span>
-                </label>
-              </div>
-            </div>
-          </div>
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
-        <div
-          class="el-loader-container"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         Apps Management
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="searchTerm"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 App or Developer Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="companyName"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Company Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="id"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 App Id
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Registered From
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Registered To
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="publicListedDateFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Publicly Listed From
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="publicListedDateTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Publicly Listed To
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               In Public AppMarket
-            </label>
-            <div
-              class="el-has-grey-bg el-toggle-radio-wrap"
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <input
-                checked=""
-                class="el-toggle-radio"
+              <mock-styled.input
                 id="option-public-all"
                 name="isPublic"
                 type="radio"
                 value=""
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-public-all"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-public-all"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   All
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-public-true"
                 name="isPublic"
                 type="radio"
                 value="true"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-public-true"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-public-true"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Public
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-public-false"
                 name="isPublic"
                 type="radio"
                 value="false"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-public-false"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-public-false"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Private
-                </span>
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Integration or AC Enabled
-            </label>
-            <div
-              class="el-has-grey-bg el-toggle-radio-wrap"
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <input
-                checked=""
-                class="el-toggle-radio"
+              <mock-styled.input
                 id="option-integration-all"
                 name="isDirectApi"
                 type="radio"
                 value=""
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-integration-all"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-integration-all"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   All
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-integration-true"
                 name="isDirectApi"
                 type="radio"
                 value="true"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-integration-true"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-integration-true"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Integration
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-integration-false"
                 name="isDirectApi"
                 type="radio"
                 value="false"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-integration-false"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-integration-false"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   AC App
-                </span>
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Publicly Listed
-            </label>
-            <div
-              class="el-has-grey-bg el-toggle-radio-wrap"
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <input
-                checked=""
-                class="el-toggle-radio"
+              <mock-styled.input
                 id="option-listed-all"
                 name="isListed"
                 type="radio"
                 value=""
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-listed-all"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-listed-all"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   All
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-listed-true"
                 name="isListed"
                 type="radio"
                 value="true"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-listed-true"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-listed-true"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Listed
-                </span>
-              </label>
-              <input
-                class="el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-listed-false"
                 name="isListed"
                 type="radio"
                 value="false"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-listed-false"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-listed-false"
               >
-                <span
-                  class="el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Development
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="el-loader-container"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
-    </section>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

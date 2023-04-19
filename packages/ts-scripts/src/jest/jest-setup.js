@@ -13,7 +13,8 @@ jest.mock('uuid', () => ({
 
 jest.mock('@linaria/react', () => {
   const styled = (tag) => {
-    return jest.fn(() => `mock-styled.${tag}`)
+    const element = typeof tag === 'string' ? tag : 'div'
+    return jest.fn(() => `mock-styled.${element}`)
   }
   return {
     styled: new Proxy(styled, {

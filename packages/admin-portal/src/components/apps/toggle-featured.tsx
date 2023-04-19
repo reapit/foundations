@@ -47,7 +47,7 @@ export const ToggleFeatured: FC<ToggleFeaturedProps> = ({ appIdFeatured, apps, a
 
   const [, , featureApp, appFeatured] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.featureApp],
+    action: updateActions[UpdateActionNames.featureApp],
     method: 'PUT',
     uriParams: {
       appId: appIdFeatured,
@@ -56,7 +56,7 @@ export const ToggleFeatured: FC<ToggleFeaturedProps> = ({ appIdFeatured, apps, a
 
   const [, , unFeatureApp, appUnfeatured] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.unFeatureApp],
+    action: updateActions[UpdateActionNames.unFeatureApp],
     method: 'DELETE',
     uriParams: {
       appId: appIdFeatured,

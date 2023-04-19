@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { FrameContext } from 'react-frame-component'
 
-const isLocal = window.reapit.config.appEnv === 'local'
+const isLocal = process.env.appEnv === 'local'
 
 export const InjectFrameStyles = ({ children }: { children: React.ReactNode }) => {
   const { document: frame } = useContext(FrameContext)

@@ -5,6 +5,7 @@ const linaria = require('@linaria/vite').default
 const checker = require('vite-plugin-checker').default
 const { VitePWA } = require('vite-plugin-pwa')
 const { nodePolyfills } = require('vite-plugin-node-polyfills')
+const path = require('path')
 
 module.exports = (config, appName) =>
   defineConfig(({ mode }) => ({
@@ -13,7 +14,22 @@ module.exports = (config, appName) =>
       svgrPlugin(),
       linaria({
         babelOptions: {
-          presets: ['@babel/preset-typescript', '@babel/preset-react'],
+          presets: [
+            ['@babel/preset-env', { targets: { node: 'current' } }],
+            '@babel/preset-typescript',
+            ['@babel/preset-react', { runtime: 'automatic' }],
+          ],
+          plugins: [
+            '@babel/plugin-transform-runtime',
+            [
+              'module-resolver',
+              {
+                alias: {
+                  '@': './src',
+                },
+              },
+            ],
+          ],
         },
       }),
       mode === 'development' &&
@@ -67,6 +83,9 @@ module.exports = (config, appName) =>
       'process.env': {
         ...config,
       },
+    },
+    resolve: {
+      alias: [{ find: '@', replacement: `${path.resolve(process.cwd(), 'src')}/` }],
     },
     server: {
       host: true,

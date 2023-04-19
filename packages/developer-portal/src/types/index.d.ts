@@ -13,3 +13,5 @@ declare module '*.pdf'
 declare module '*.svg'
 
 declare module 'swagger-ui-react'
+declare module 'react-copy-to-clipboard'
+declare module '@harelpls/use-pusher'

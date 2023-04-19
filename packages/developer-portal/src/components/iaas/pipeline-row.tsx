@@ -30,7 +30,7 @@ export const PipelineRow: FC<PipelineRowProps> = ({ pipeline, connectSession }) 
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const channel = useChannel(`private-${connectSession?.loginIdentity.developerId}`)
-  useEvent<PipelineModelInterface>(
+  useEvent(
     channel,
     'pipeline-update',
     handlePipelineEvent(

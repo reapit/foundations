@@ -1,5 +1,5 @@
 import { DeveloperModel, MemberModel, MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
-import React, { FC, createContext, useContext, useState, Dispatch, SetStateAction } from 'react'
+import React, { FC, createContext, useContext, useState, Dispatch, SetStateAction, PropsWithChildren } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import { logger } from '@reapit/utils-react'
@@ -41,7 +41,7 @@ export const GlobalStateContext = createContext<GlobalStateHook>({} as GlobalSta
 
 const { Provider } = GlobalStateContext
 
-export const GlobalProvider: FC = ({ children }) => {
+export const GlobalProvider: FC<PropsWithChildren> = ({ children }) => {
   const membersRefresh = useState<boolean>(false)
   const navigate = useNavigate()
   const { error } = useSnack()

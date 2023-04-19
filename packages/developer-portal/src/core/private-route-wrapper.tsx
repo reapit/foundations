@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, Suspense, SetStateAction, useEffect, useState } from 'react'
+import React, { Dispatch, FC, Suspense, SetStateAction, useEffect, useState, PropsWithChildren } from 'react'
 import Menu from './menu'
 import { Navigate, NavigateFunction, useLocation, useNavigate } from 'react-router'
 import Routes from '../constants/routes'
@@ -74,7 +74,7 @@ export const handleMemberUpdated =
     }
   }
 
-export const PrivateRouteWrapper: FC = ({ children }) => {
+export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession, connectInternalRedirect, connectLoginRedirect } =
     useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()

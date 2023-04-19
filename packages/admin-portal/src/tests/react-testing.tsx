@@ -1,26 +1,28 @@
 /** See: https://testing-library.com/docs/react-testing-library/setup#custom-render
  */
 
-import React, { FC, ReactElement } from 'react'
+import React, { FC, PropsWithChildren, ReactElement } from 'react'
 import { queries, render, RenderOptions } from '@testing-library/react'
 import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
-import { Router } from 'react-router-dom'
-import { createBrowserHistory, History } from 'history'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
 
 const queryClient = new QueryClient()
 
-const CombinedProvider: FC = ({ children }) => {
-  const history: History<any> = createBrowserHistory()
+const CombinedProvider: FC<PropsWithChildren> = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router history={history}>
-        <SnackProvider>
-          <NavStateProvider>
-            <MediaStateProvider>{children}</MediaStateProvider>
-          </NavStateProvider>
-        </SnackProvider>
-      </Router>
+      <SnackProvider>
+        <NavStateProvider>
+          <MediaStateProvider>
+            <MemoryRouter>
+              <Routes>
+                <Route path="/" element={<>{children}</>} />
+              </Routes>
+            </MemoryRouter>
+          </MediaStateProvider>
+        </NavStateProvider>
+      </SnackProvider>
     </QueryClientProvider>
   )
 }

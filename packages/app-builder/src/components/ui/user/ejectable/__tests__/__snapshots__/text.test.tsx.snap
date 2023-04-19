@@ -2,14 +2,12 @@
 
 exports[`Text should match a snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="component-wrapper"
-    style="--c1uzxtdh-0: 12;"
+  <mock-styled.div
     width="12"
   >
     <p
       class="el-body-text"
     />
-  </div>
+  </mock-styled.div>
 </DocumentFragment>
 `;

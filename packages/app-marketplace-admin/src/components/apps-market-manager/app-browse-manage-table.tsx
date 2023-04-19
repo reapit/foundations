@@ -18,8 +18,14 @@ import {
   AppsBrowseConfigItemInterface,
   AppSummaryModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { SendFunction, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import {
+  SendFunction,
+  UpdateReturnTypeEnum,
+  useReapitGet,
+  useReapitUpdate,
+  GetActionNames,
+  getActions,
+} from '@reapit/use-reapit-data'
 import React, { FC, useState } from 'react'
 import { colorSquare, iconButton, ImageContainer, ElTagContainer, ElTag } from './app-browse.styles'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -114,13 +120,13 @@ export const ManageTableExpandableContent: FC<ManageTableExpandableContentProps>
   const { configItem, setSelectedItem, connectSession, deleteItem } = props
   const [selectedApps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', pageSize: 100, id: configItem?.filters?.id },
     fetchWhenTrue: [Array.isArray(configItem?.filters?.id), configItem?.filters?.id?.length],
   })
 
   const [deleteLoading, , send] = useReapitUpdate<AppsBrowseConfigItemInterface, AppsBrowseConfigItemInterface>({
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.postAppMarketAdmin],
+    action: getActions[GetActionNames.postAppMarketAdmin],
     reapitConnectBrowserSession,
     method: 'DELETE',
     headers: {
@@ -229,10 +235,7 @@ export const ManageTableExpandableContent: FC<ManageTableExpandableContentProps>
         </Col>
       </Grid>
       <ButtonGroup>
-        <Button
-          onClick={openNewPage(`${window.reapit.config.marketplaceUrl}/apps?previewId=${configItem.id}`)}
-          intent="low"
-        >
+        <Button onClick={openNewPage(`${process.env.marketplaceUrl}/apps?previewId=${configItem.id}`)} intent="low">
           Preview
         </Button>
         <Button
@@ -271,7 +274,7 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
     AppsBrowseConfigItemInterface[],
     AppsBrowseConfigItemInterface[]
   >({
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.postAppMarketAdmin],
+    action: getActions[GetActionNames.postAppMarketAdmin],
     reapitConnectBrowserSession,
     method: 'PUT',
     headers: {

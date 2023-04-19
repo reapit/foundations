@@ -2,9 +2,10 @@
 
 exports[`RenderNode should match a snapshot 1`] = `
 <DocumentFragment>
-  <section
-    class="root-container"
-    style="--r1b5p2h0-0: 80px 9fr;"
+  <mock-styled.div />
+  <mock-styled.section
+    expandnav="false"
+    shownav="true"
   />
 </DocumentFragment>
 `;

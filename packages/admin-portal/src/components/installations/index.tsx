@@ -75,7 +75,7 @@ export const Installations: FC = () => {
 
   const [installations, installationsLoading] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions[GetActionNames.getInstallations],
     queryParams: {
       ...formatFilters(installationsFilters),
       includeOfficeGroups: true,
@@ -101,7 +101,7 @@ export const Installations: FC = () => {
               nameKey="name"
               searchKey="appName"
               dataListKey="data"
-              action={getActions(window.reapit.config.appEnv)[GetActionNames.getApps]}
+              action={getActions[GetActionNames.getApps]}
               queryParams={{ pageSize: 100 }}
               noneSelectedLabel="No apps selected"
               {...register('appIds')}

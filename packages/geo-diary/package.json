@@ -23,7 +23,7 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "@apollo/client": "^3.7.9",
+    "@apollo/client": "^3.7.12",
     "@linaria/core": "^4.2.8",
     "@linaria/react": "^4.3.6",
     "@reapit/connect-session": "workspace:packages/connect-session",

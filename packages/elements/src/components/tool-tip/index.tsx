@@ -1,12 +1,12 @@
 import { cx } from '@linaria/core'
-import React, { useState } from 'react'
+import React, { FC, PropsWithChildren, useState } from 'react'
 import { ElToolTipChild, elToolTipActive, ElToolTipContainer } from './__styles__'
 
-interface ToolTipChildProps {
+interface ToolTipChildProps extends PropsWithChildren {
   active?: boolean
 }
 
-export const ToolTip: React.FC<{ tip: string }> = ({ children, tip }) => {
+export const ToolTip: FC<{ tip: string } & PropsWithChildren> = ({ children, tip }) => {
   const [active, setActive] = useState<boolean>(false)
 
   return (
@@ -17,6 +17,6 @@ export const ToolTip: React.FC<{ tip: string }> = ({ children, tip }) => {
   )
 }
 
-export const ToolTipChild: React.FC<ToolTipChildProps> = ({ children, active }) => {
+export const ToolTipChild: FC<ToolTipChildProps> = ({ children, active }) => {
   return <ElToolTipChild className={cx(active && elToolTipActive)}>{children}</ElToolTipChild>
 }
