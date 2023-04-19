@@ -1,73 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ClientServerSideContent should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1y7nq95-el-mr8 s16agsy2-step-option-item"
+      <mock-styled.div
+        classname="mock-css.
+  margin-right: 1.5rem;
+"
       >
-        <span
-          class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 1.5rem;
+"
           style="font-size: 2rem;"
         >
           <svg />
-        </span>
-        <div
-          class="se3ab8l-step-option-item-text"
-        >
+        </mock-styled.span>
+        <mock-styled.div>
           Client Side App
-        </div>
-      </div>
-      <div
-        class="s16agsy2-step-option-item"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <span
-          class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 1.5rem;
+"
           style="font-size: 2rem;"
         >
           <svg />
-        </span>
-        <div
-          class="se3ab8l-step-option-item-text"
-        >
+        </mock-styled.span>
+        <mock-styled.div>
           Server Side Integration
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1y7nq95-el-mr8 s16agsy2-step-option-item"
+    <mock-styled.div
+      classname="mock-css.
+  margin-right: 1.5rem;
+"
     >
-      <span
-        class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-right: 1.5rem;
+"
         style="font-size: 2rem;"
       >
         <svg />
-      </span>
-      <div
-        class="se3ab8l-step-option-item-text"
-      >
+      </mock-styled.span>
+      <mock-styled.div>
         Client Side App
-      </div>
-    </div>
-    <div
-      class="s16agsy2-step-option-item"
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <span
-        class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-right: 1.5rem;
+"
         style="font-size: 2rem;"
       >
         <svg />
-      </span>
-      <div
-        class="se3ab8l-step-option-item-text"
-      >
+      </mock-styled.span>
+      <mock-styled.div>
         Server Side Integration
-      </div>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

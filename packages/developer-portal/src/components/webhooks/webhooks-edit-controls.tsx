@@ -1,6 +1,6 @@
 import { Button, ButtonGroup, FlexContainer } from '@reapit/elements'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -50,7 +50,7 @@ export const WebhooksEditControls: FC<WebhooksEditControlsProps> = ({
 
   const [publicKeyResponse, fetchingPublicKey] = useReapitGet<WebhookPublicKeyResponse>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getPublicWebhookKey],
+    action: getActions[GetActionNames.getPublicWebhookKey],
     queryParams: {
       applicationId: webhookModel.applicationId,
     },

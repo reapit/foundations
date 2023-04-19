@@ -1,20 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnalyticsCalculator should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.div />
+      <mock-styled.h1
+        classname=""
       >
         Calculator
-      </h1>
-      <p
-        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+      </mock-styled.h1>
+      <mock-styled.p
+        classname="mock-css."
       >
         You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
          
@@ -25,24 +23,17 @@ Object {
         >
           here
         </a>
-      </p>
+      </mock-styled.p>
       <form>
-        <div
-          class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <label
-                class="e1nbkkrq-el-label"
-              >
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Endpoints Used
-              </label>
-              <select
-                class="e60u3kb-el-select"
+              </mock-styled.label>
+              <mock-styled.select
                 name="endpointsUsed"
               >
                 <option
@@ -85,70 +76,60 @@ Object {
                 >
                   50+
                 </option>
-              </select>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="apiCalls"
                 type="text"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 API Calls Used
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="ec47sgk-el-mb11 ebqwrow-el-button-group"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               clear
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-            <button
-              class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
               type="submit"
             >
               Calculate
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <h1
-      class="e1byern-el-title"
+    <mock-styled.div />
+    <mock-styled.h1
+      classname=""
     >
       Calculator
-    </h1>
-    <p
-      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+    </mock-styled.h1>
+    <mock-styled.p
+      classname="mock-css."
     >
       You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
        
@@ -159,24 +140,17 @@ Object {
       >
         here
       </a>
-    </p>
+    </mock-styled.p>
     <form>
-      <div
-        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <label
-              class="e1nbkkrq-el-label"
-            >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Endpoints Used
-            </label>
-            <select
-              class="e60u3kb-el-select"
+            </mock-styled.label>
+            <mock-styled.select
               name="endpointsUsed"
             >
               <option
@@ -219,56 +193,48 @@ Object {
               >
                 50+
               </option>
-            </select>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="apiCalls"
               type="text"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               API Calls Used
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ec47sgk-el-mb11 ebqwrow-el-button-group"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
             type="button"
           >
             clear
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-          <button
-            class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
             type="submit"
           >
             Calculate
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

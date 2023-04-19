@@ -1,99 +1,103 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Api should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="e93m1fg-el-secondary-nav-container"
-        >
-          <h1
-            class="e1byern-el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             API
-          </h1>
-          <div
-            class="e1w1lp2k-el-mb9 e125gftx-el-secondary-nav"
+          </mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2rem;
+"
           >
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
+            <mock-styled.div
+              classname=""
             >
               REST API
-            </div>
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Webhooks
-            </div>
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               GraphQL
-            </div>
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Desktop
-            </div>
-          </div>
-        </aside>
-        <section
-          class="e12d7zo5-el-hfull eukst9x-el-page-container"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         />
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="e93m1fg-el-secondary-nav-container"
-      >
-        <h1
-          class="e1byern-el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           API
-        </h1>
-        <div
-          class="e1w1lp2k-el-mb9 e125gftx-el-secondary-nav"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2rem;
+"
         >
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
+          <mock-styled.div
+            classname=""
           >
             REST API
-          </div>
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Webhooks
-          </div>
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             GraphQL
-          </div>
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Desktop
-          </div>
-        </div>
-      </aside>
-      <section
-        class="e12d7zo5-el-hfull eukst9x-el-page-container"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       />
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

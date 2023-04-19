@@ -1,365 +1,353 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppsList should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           My Apps
-        </h1>
-      </div>
-      <div
-        class="ec47sgk-el-mb11 e20pb60-el-grid"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="e14pp0yd-el-col"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e6p05ya-el-fade-in cbaewf6-card-cursor ertn4py-el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
           >
-            <div
-              class="ec7f1kt-el-card-context-menu-wrapper"
-            >
-              <div
-                class="ewpy0cr-el-card-context-menu-toggle"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="eh85zp4-el-card-context-menu-items"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="euknxbk-el-card-context-menu-item"
-                >
-                  <span
-                    class="ej9yrfo-el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="euknxbk-el-card-context-menu-item"
-                >
-                  <span
-                    class="ej9yrfo-el-icon"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="euknxbk-el-card-context-menu-item"
-                >
-                  <span
-                    class="ej9yrfo-el-icon"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              class="e1sw79q5-el-card-main-wrap"
-            >
-              <div
-                class="e1rjwng7-el-card-heading-wrap"
-              >
-                <h5
-                  class="e1n8fwu7-el-card-heading"
-                >
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   MOCK_APP_NAME
-                </h5>
-                <h6
-                  class="e160zim8-el-card-sub-heading"
-                />
-                <h6
-                  class="e1nfyxby-el-card-sub-heading-additional"
-                />
-              </div>
-            </div>
-            <div
-              class="em92f2t-el-card-body-wrap"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+                <mock-styled.h6 />
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </div>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e6p05ya-el-fade-in cbaewf6-card-cursor ertn4py-el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
           >
-            <div
-              class="ec7f1kt-el-card-context-menu-wrapper"
-            >
-              <div
-                class="ewpy0cr-el-card-context-menu-toggle"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="eh85zp4-el-card-context-menu-items"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="euknxbk-el-card-context-menu-item"
-                >
-                  <span
-                    class="ej9yrfo-el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="euknxbk-el-card-context-menu-item"
-                >
-                  <span
-                    class="ej9yrfo-el-icon"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="euknxbk-el-card-context-menu-item"
-                >
-                  <span
-                    class="ej9yrfo-el-icon"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              class="e1sw79q5-el-card-main-wrap"
-            >
-              <div
-                class="e1rjwng7-el-card-heading-wrap"
-              >
-                <h5
-                  class="e1n8fwu7-el-card-heading"
-                >
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   MOCK_APP_NAME_ANOTHER
-                </h5>
-                <h6
-                  class="e160zim8-el-card-sub-heading"
-                />
-                <h6
-                  class="e1nfyxby-el-card-sub-heading-additional"
-                />
-              </div>
-            </div>
-            <div
-              class="em92f2t-el-card-body-wrap"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+                <mock-styled.h6 />
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </div>
-          </div>
-        </div>
-      </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         My Apps
-      </h1>
-    </div>
-    <div
-      class="ec47sgk-el-mb11 e20pb60-el-grid"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="e14pp0yd-el-col"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e6p05ya-el-fade-in cbaewf6-card-cursor ertn4py-el-card-wrap"
+        <mock-styled.div
+          classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
         >
-          <div
-            class="ec7f1kt-el-card-context-menu-wrapper"
-          >
-            <div
-              class="ewpy0cr-el-card-context-menu-toggle"
-            >
-              <span
-                class="ej9yrfo-el-icon"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.25rem;"
               >
                 <svg />
-              </span>
-            </div>
-            <div
-              class="eh85zp4-el-card-context-menu-items"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="euknxbk-el-card-context-menu-item"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="euknxbk-el-card-context-menu-item"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="euknxbk-el-card-context-menu-item"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="e1sw79q5-el-card-main-wrap"
-          >
-            <div
-              class="e1rjwng7-el-card-heading-wrap"
-            >
-              <h5
-                class="e1n8fwu7-el-card-heading"
-              >
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.h5>
                 MOCK_APP_NAME
-              </h5>
-              <h6
-                class="e160zim8-el-card-sub-heading"
-              />
-              <h6
-                class="e1nfyxby-el-card-sub-heading-additional"
-              />
-            </div>
-          </div>
-          <div
-            class="em92f2t-el-card-body-wrap"
+              </mock-styled.h5>
+              <mock-styled.h6 />
+              <mock-styled.h6 />
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </div>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e6p05ya-el-fade-in cbaewf6-card-cursor ertn4py-el-card-wrap"
+        <mock-styled.div
+          classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
         >
-          <div
-            class="ec7f1kt-el-card-context-menu-wrapper"
-          >
-            <div
-              class="ewpy0cr-el-card-context-menu-toggle"
-            >
-              <span
-                class="ej9yrfo-el-icon"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.25rem;"
               >
                 <svg />
-              </span>
-            </div>
-            <div
-              class="eh85zp4-el-card-context-menu-items"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="euknxbk-el-card-context-menu-item"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="euknxbk-el-card-context-menu-item"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="euknxbk-el-card-context-menu-item"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="e1sw79q5-el-card-main-wrap"
-          >
-            <div
-              class="e1rjwng7-el-card-heading-wrap"
-            >
-              <h5
-                class="e1n8fwu7-el-card-heading"
-              >
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.h5>
                 MOCK_APP_NAME_ANOTHER
-              </h5>
-              <h6
-                class="e160zim8-el-card-sub-heading"
-              />
-              <h6
-                class="e1nfyxby-el-card-sub-heading-additional"
-              />
-            </div>
-          </div>
-          <div
-            class="em92f2t-el-card-body-wrap"
+              </mock-styled.h5>
+              <mock-styled.h6 />
+              <mock-styled.h6 />
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </div>
-        </div>
-      </div>
-    </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -416,7 +404,7 @@ Object {
 `;
 
 exports[`AppsList should match snapshot for mobile view 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -427,393 +415,373 @@ Object {
       <div />
     </div>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           My Apps
-        </h1>
-        <div
-          class="ebqwrow-el-button-group"
-        >
-          <div
-            class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+        </mock-styled.h1>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+            <mock-styled.button
+              classname="mock-css."
             >
               Controls
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ec47sgk-el-mb11 e20pb60-el-grid"
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="e14pp0yd-el-col"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e6p05ya-el-fade-in cbaewf6-card-cursor ertn4py-el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
           >
-            <div
-              class="ec7f1kt-el-card-context-menu-wrapper"
-            >
-              <div
-                class="ewpy0cr-el-card-context-menu-toggle"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="eh85zp4-el-card-context-menu-items"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="euknxbk-el-card-context-menu-item"
-                >
-                  <span
-                    class="ej9yrfo-el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="euknxbk-el-card-context-menu-item"
-                >
-                  <span
-                    class="ej9yrfo-el-icon"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="euknxbk-el-card-context-menu-item"
-                >
-                  <span
-                    class="ej9yrfo-el-icon"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              class="e1sw79q5-el-card-main-wrap"
-            >
-              <div
-                class="e1rjwng7-el-card-heading-wrap"
-              >
-                <h5
-                  class="e1n8fwu7-el-card-heading"
-                >
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   MOCK_APP_NAME
-                </h5>
-                <h6
-                  class="e160zim8-el-card-sub-heading"
-                />
-                <h6
-                  class="e1nfyxby-el-card-sub-heading-additional"
-                />
-              </div>
-            </div>
-            <div
-              class="em92f2t-el-card-body-wrap"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+                <mock-styled.h6 />
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </div>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e6p05ya-el-fade-in cbaewf6-card-cursor ertn4py-el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
           >
-            <div
-              class="ec7f1kt-el-card-context-menu-wrapper"
-            >
-              <div
-                class="ewpy0cr-el-card-context-menu-toggle"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="eh85zp4-el-card-context-menu-items"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="euknxbk-el-card-context-menu-item"
-                >
-                  <span
-                    class="ej9yrfo-el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="euknxbk-el-card-context-menu-item"
-                >
-                  <span
-                    class="ej9yrfo-el-icon"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="euknxbk-el-card-context-menu-item"
-                >
-                  <span
-                    class="ej9yrfo-el-icon"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              class="e1sw79q5-el-card-main-wrap"
-            >
-              <div
-                class="e1rjwng7-el-card-heading-wrap"
-              >
-                <h5
-                  class="e1n8fwu7-el-card-heading"
-                >
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   MOCK_APP_NAME_ANOTHER
-                </h5>
-                <h6
-                  class="e160zim8-el-card-sub-heading"
-                />
-                <h6
-                  class="e1nfyxby-el-card-sub-heading-additional"
-                />
-              </div>
-            </div>
-            <div
-              class="em92f2t-el-card-body-wrap"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+                <mock-styled.h6 />
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </div>
-          </div>
-        </div>
-      </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         My Apps
-      </h1>
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+      </mock-styled.h1>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
           >
             Controls
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      class="ec47sgk-el-mb11 e20pb60-el-grid"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="e14pp0yd-el-col"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e6p05ya-el-fade-in cbaewf6-card-cursor ertn4py-el-card-wrap"
+        <mock-styled.div
+          classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
         >
-          <div
-            class="ec7f1kt-el-card-context-menu-wrapper"
-          >
-            <div
-              class="ewpy0cr-el-card-context-menu-toggle"
-            >
-              <span
-                class="ej9yrfo-el-icon"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.25rem;"
               >
                 <svg />
-              </span>
-            </div>
-            <div
-              class="eh85zp4-el-card-context-menu-items"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="euknxbk-el-card-context-menu-item"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="euknxbk-el-card-context-menu-item"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="euknxbk-el-card-context-menu-item"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="e1sw79q5-el-card-main-wrap"
-          >
-            <div
-              class="e1rjwng7-el-card-heading-wrap"
-            >
-              <h5
-                class="e1n8fwu7-el-card-heading"
-              >
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.h5>
                 MOCK_APP_NAME
-              </h5>
-              <h6
-                class="e160zim8-el-card-sub-heading"
-              />
-              <h6
-                class="e1nfyxby-el-card-sub-heading-additional"
-              />
-            </div>
-          </div>
-          <div
-            class="em92f2t-el-card-body-wrap"
+              </mock-styled.h5>
+              <mock-styled.h6 />
+              <mock-styled.h6 />
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </div>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e6p05ya-el-fade-in cbaewf6-card-cursor ertn4py-el-card-wrap"
+        <mock-styled.div
+          classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
         >
-          <div
-            class="ec7f1kt-el-card-context-menu-wrapper"
-          >
-            <div
-              class="ewpy0cr-el-card-context-menu-toggle"
-            >
-              <span
-                class="ej9yrfo-el-icon"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.25rem;"
               >
                 <svg />
-              </span>
-            </div>
-            <div
-              class="eh85zp4-el-card-context-menu-items"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="euknxbk-el-card-context-menu-item"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="euknxbk-el-card-context-menu-item"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="euknxbk-el-card-context-menu-item"
-              >
-                <span
-                  class="ej9yrfo-el-icon"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="e1sw79q5-el-card-main-wrap"
-          >
-            <div
-              class="e1rjwng7-el-card-heading-wrap"
-            >
-              <h5
-                class="e1n8fwu7-el-card-heading"
-              >
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.h5>
                 MOCK_APP_NAME_ANOTHER
-              </h5>
-              <h6
-                class="e160zim8-el-card-sub-heading"
-              />
-              <h6
-                class="e1nfyxby-el-card-sub-heading-additional"
-              />
-            </div>
-          </div>
-          <div
-            class="em92f2t-el-card-body-wrap"
+              </mock-styled.h5>
+              <mock-styled.h6 />
+              <mock-styled.h6 />
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </div>
-        </div>
-      </div>
-    </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

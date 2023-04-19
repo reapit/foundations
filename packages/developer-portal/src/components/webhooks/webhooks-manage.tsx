@@ -4,8 +4,8 @@ import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { TopicModel, WebhookModel, WebhookModelPagedResult } from '../../types/webhooks'
 import { WebhooksEditControls } from './webhooks-edit-controls'
 import { useWebhooksState } from './state/use-webhooks-state'
-import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet } from '@reapit/use-reapit-data'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export enum ExpandableContentType {
@@ -100,7 +100,7 @@ export const WebhooksManage: FC = () => {
 
   const [subscriptions, subscriptionsLoading, , refreshSubscriptions] = useReapitGet<WebhookModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getWebhookSubscriptions],
+    action: getActions[GetActionNames.getWebhookSubscriptions],
     queryParams: { applicationId, pageSize: 12, pageNumber },
     fetchWhenTrue: [applicationId],
   })

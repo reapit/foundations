@@ -7,7 +7,8 @@ jest.mock('../../../../core/use-global-state')
 
 jest.useFakeTimers()
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [
     {
       items: [

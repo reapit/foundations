@@ -5,12 +5,11 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch, useEffect } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { defaultWebhooksFilterState } from './defaults'
 import { handleHistoryToQueryParams } from '../webhooks-controls'
-import { useHistory } from 'react-router'
 import { TopicModel, TopicModelPagedResult } from '../../../types/webhooks'
 
 export interface WebhooksDataState {
@@ -56,10 +55,9 @@ export const handleSetTopics =
   }
 
 export const WebhooksProvider: FC = ({ children }) => {
-  const history = useHistory()
   const [webhooksFilterState, setWebhooksFilterState] = useState<WebhooksFilterState>({
     ...defaultWebhooksFilterState,
-    ...handleHistoryToQueryParams(history),
+    ...handleHistoryToQueryParams(),
   })
   const [topics, setTopics] = useState<TopicModel[]>([])
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
@@ -68,28 +66,28 @@ export const WebhooksProvider: FC = ({ children }) => {
 
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 100 },
     fetchWhenTrue: [developerId],
   })
 
   const [allTopics] = useReapitGet<TopicModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getWebhookTopics],
+    action: getActions[GetActionNames.getWebhookTopics],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 999 },
     fetchWhenTrue: [developerId],
   })
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getInstallations],
+    action: getActions[GetActionNames.getInstallations],
     queryParams: { pageSize: 999, isInstalled: true, developerId, appId: applicationId },
     fetchWhenTrue: [developerId, applicationId],
   })
 
   const [appDetail] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getAppById],
+    action: getActions[GetActionNames.getAppById],
     uriParams: { appId: applicationId },
     fetchWhenTrue: [applicationId],
   })

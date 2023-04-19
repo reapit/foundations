@@ -1,130 +1,172 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pipelineinfo Should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       >
-        <div
-          class="egmnxi3-el-tabs-options-wrap"
-        >
-          <input
-            checked=""
-            class="enkj6b-el-tabs"
+        <mock-styled.div>
+          <mock-styled.input
             id="deployments"
             name="pipeline-tabs"
             type="radio"
             value="deployments"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="deployments"
+          <mock-styled.label
+            htmlfor="deployments"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Deployments
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="configure"
             name="pipeline-tabs"
             type="radio"
             value="configure"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="configure"
+          <mock-styled.label
+            htmlfor="configure"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Configure
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="environment"
             name="pipeline-tabs"
             type="radio"
             value="environment"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="environment"
+          <mock-styled.label
+            htmlfor="environment"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Environment Variables
             </span>
-          </label>
-        </div>
-        <div
-          class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
         />
-      </div>
-      <div
-        class="ec47sgk-el-mb11 e20pb60-el-grid"
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="e14pp0yd-el-col"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Status
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
-                <span
-                  class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                  
                 Failed
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Repository
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
-                <span
-                  class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                  
                 <a
@@ -134,29 +176,35 @@ Object {
                 >
                   https://github.com/bashleigh/reapit-react-test
                 </a>
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Location
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 <a
                   href="https://beautiful-land.iaas.paas.reapit.cloud"
@@ -165,39 +213,47 @@ Object {
                 >
                   https://beautiful-land.iaas.paas.reapit.cloud
                 </a>
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Github / Bitbucket App
-              </h2>
-              <div
-                class="e2kmzjs-el-flex-container"
+              </mock-styled.h2>
+              <mock-styled.div
+                classname=""
               >
                 <div
-                  class="e164f2tp-el-mr2"
+                  class="mock-css.
+  margin-right: 0.375rem;
+"
                 >
-                  <span
-                    class="e1iow709-el-intent-critical e1cp9zgf-el-status-indicator"
+                  <mock-styled.span
+                    classname="mock-css."
                   />
                 </div>
-                <p
-                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+                <mock-styled.p
+                  classname="mock-css. mock-css."
                 >
                   To deploy from repos, configure either the Reapit
                    
@@ -220,138 +276,182 @@ Object {
                   </a>
                    
                   app.
-                </p>
-              </div>
+                </mock-styled.p>
+              </mock-styled.div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ec47sgk-el-mb11 ejadz4k-el-table"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
     >
-      <div
-        class="egmnxi3-el-tabs-options-wrap"
-      >
-        <input
-          checked=""
-          class="enkj6b-el-tabs"
+      <mock-styled.div>
+        <mock-styled.input
           id="deployments"
           name="pipeline-tabs"
           type="radio"
           value="deployments"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="deployments"
+        <mock-styled.label
+          htmlfor="deployments"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Deployments
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="configure"
           name="pipeline-tabs"
           type="radio"
           value="configure"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="configure"
+        <mock-styled.label
+          htmlfor="configure"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Configure
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="environment"
           name="pipeline-tabs"
           type="radio"
           value="environment"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="environment"
+        <mock-styled.label
+          htmlfor="environment"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Environment Variables
           </span>
-        </label>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       />
-    </div>
-    <div
-      class="ec47sgk-el-mb11 e20pb60-el-grid"
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="e14pp0yd-el-col"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Status
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
-              <span
-                class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
+              <mock-styled.span
+                classname="mock-css."
               />
                
               Failed
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Repository
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
-              <span
-                class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+              <mock-styled.span
+                classname="mock-css."
               />
                
               <a
@@ -361,29 +461,35 @@ Object {
               >
                 https://github.com/bashleigh/reapit-react-test
               </a>
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Location
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               <a
                 href="https://beautiful-land.iaas.paas.reapit.cloud"
@@ -392,39 +498,47 @@ Object {
               >
                 https://beautiful-land.iaas.paas.reapit.cloud
               </a>
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Github / Bitbucket App
-            </h2>
-            <div
-              class="e2kmzjs-el-flex-container"
+            </mock-styled.h2>
+            <mock-styled.div
+              classname=""
             >
               <div
-                class="e164f2tp-el-mr2"
+                class="mock-css.
+  margin-right: 0.375rem;
+"
               >
-                <span
-                  class="e1iow709-el-intent-critical e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
               </div>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 To deploy from repos, configure either the Reapit
                  
@@ -447,14 +561,16 @@ Object {
                 </a>
                  
                 app.
-              </p>
-            </div>
+              </mock-styled.p>
+            </mock-styled.div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="ec47sgk-el-mb11 ejadz4k-el-table"
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     />
   </div>,
   "debug": [Function],

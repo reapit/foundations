@@ -2,7 +2,6 @@ import { ReapitConnectSession } from '@reapit/connect-session'
 import React, { KeyboardEvent } from 'react'
 import { AppsNewPage, handleNavigateOnSuccess, handleSubmitApp, preventReturnSubmit, stepIsValid } from '..'
 import { AppProvider } from '../../state/use-app-state'
-import { History } from 'history'
 import Routes from '../../../../constants/routes'
 import { AppNewStepId } from '../config'
 import { render, setViewport } from '../../../../tests/react-testing'
@@ -149,18 +148,16 @@ describe('AppsNew', () => {
     const appCreated = {
       id: 'SOME_ID',
     }
-    const history = {
-      push: jest.fn(),
-    } as unknown as History
+    const navigate = jest.fn()
     const appsRefresh = jest.fn()
     const appPipelineRefresh = jest.fn()
     const setAppWizardState = jest.fn()
 
-    const curried = handleNavigateOnSuccess(appCreated, history, appsRefresh, appPipelineRefresh, setAppWizardState)
+    const curried = handleNavigateOnSuccess(appCreated, navigate, appsRefresh, appPipelineRefresh, setAppWizardState)
 
     curried()
 
-    expect(history.push).toHaveBeenCalledWith(`${Routes.APPS}/${appCreated.id}`)
+    expect(navigate).toHaveBeenCalledWith(`${Routes.APPS}/${appCreated.id}`)
     expect(appsRefresh).toHaveBeenCalledTimes(1)
     expect(appPipelineRefresh).toHaveBeenCalledTimes(1)
     expect(setAppWizardState).toHaveBeenCalledWith(defaultAppWizardState)

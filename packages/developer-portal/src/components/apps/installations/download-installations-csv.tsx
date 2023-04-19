@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import FileSaver from 'file-saver'
 import Papa from 'papaparse'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -48,7 +48,7 @@ export const DownloadInstallationsCSV: FC = () => {
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getInstallations],
+    action: getActions[GetActionNames.getInstallations],
     queryParams: {
       appId,
       isInstalled: true,

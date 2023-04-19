@@ -3,8 +3,6 @@ import { AppsPage } from '../index'
 import { render } from '../../../../tests/react-testing'
 import { useAppState } from '../../state/use-app-state'
 import { mockAppState } from '../../state/__mocks__/use-app-state'
-import { Router } from 'react-router-dom'
-import { history } from '../../../../core/router'
 import Routes from '../../../../constants/routes'
 import { mockDeveloperModel } from '../../../../tests/__stubs__/developers'
 
@@ -24,15 +22,9 @@ describe('AppsPage', () => {
 
   it('should match a snapshot when I have the full menu', () => {
     process.env.pipelineWhitelist = [mockDeveloperModel.id as string]
-    history.push(`${Routes.APPS}/mock-id`)
+    window.location.pathname = `${Routes.APPS}/mock-id`
 
-    expect(
-      render(
-        <Router history={history}>
-          <AppsPage />
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    expect(render(<AppsPage />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when apps are loading', () => {

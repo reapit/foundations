@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
-import { useHistory, useLocation } from 'react-router'
+import { useNavigate, useLocation } from 'react-router'
 import Routes from '../constants/routes'
 import { Icon, NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { memo } from 'react'
-import { navigate } from '../utils/navigation'
+import { navigateRoute } from '../utils/navigation'
 // Comment out after Christmas
 import dayjs from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
@@ -70,7 +70,7 @@ export const getDefaultNavIndex = (pathname: string) => {
 
 export const Menu: FC = () => {
   const location = useLocation()
-  const history = useHistory()
+  const navigate = useNavigate()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const loginIdentity = selectLoginIdentity(connectSession)
   const { pathname } = location
@@ -83,131 +83,131 @@ export const Menu: FC = () => {
   const navOptions = [
     {
       itemIndex: 0,
-      callback: navigate(history, Routes.APPS),
+      callback: navigateRoute(navigate, Routes.APPS),
       icon: <XmasLogo />,
     },
     {
       itemIndex: 1,
-      callback: navigate(history, Routes.APPS),
+      callback: navigateRoute(navigate, Routes.APPS),
       iconId: 'appsMenu',
       text: 'Apps',
       subItems: [
         {
           itemIndex: 0,
-          callback: navigate(history, Routes.APPS),
+          callback: navigateRoute(navigate, Routes.APPS),
           text: 'My Apps',
         },
         appId && {
           itemIndex: 1,
-          callback: navigate(history, `${Routes.APPS}/${appId}`),
+          callback: navigateRoute(navigate, `${Routes.APPS}/${appId}`),
           text: 'App Details',
         },
         appId && {
           itemIndex: 2,
-          callback: navigate(history, `${Routes.APPS}/${appId}/edit/general`),
+          callback: navigateRoute(navigate, `${Routes.APPS}/${appId}/edit/general`),
           text: 'Edit App',
         },
         appId && {
           itemIndex: 3,
-          callback: navigate(history, `${Routes.APPS}/${appId}/installations`),
+          callback: navigateRoute(navigate, `${Routes.APPS}/${appId}/installations`),
           text: 'Installations',
         },
         appId &&
           hasPipelines && {
             itemIndex: 4,
-            callback: navigate(history, `${Routes.APPS}/${appId}/pipeline`),
+            callback: navigateRoute(navigate, `${Routes.APPS}/${appId}/pipeline`),
             text: 'Pipeline',
           },
         {
           itemIndex: 5,
-          callback: navigate(history, Routes.APPS_NEW),
+          callback: navigateRoute(navigate, Routes.APPS_NEW),
           text: 'New App',
         },
       ].filter(Boolean),
     },
     {
       itemIndex: 2,
-      callback: navigate(history, Routes.ANALYTICS_API_CALLS),
+      callback: navigateRoute(navigate, Routes.ANALYTICS_API_CALLS),
       iconId: 'analyticsMenu',
       text: 'Analytics',
       subItems: [
         {
           itemIndex: 6,
-          callback: navigate(history, Routes.ANALYTICS_API_CALLS),
+          callback: navigateRoute(navigate, Routes.ANALYTICS_API_CALLS),
           text: 'API Usage',
         },
         {
           itemIndex: 7,
-          callback: navigate(history, Routes.ANALYTICS_COSTS),
+          callback: navigateRoute(navigate, Routes.ANALYTICS_COSTS),
           text: 'Costs',
         },
         {
           itemIndex: 8,
-          callback: navigate(history, Routes.ANALYTICS_INSTALLATIONS),
+          callback: navigateRoute(navigate, Routes.ANALYTICS_INSTALLATIONS),
           text: 'Installations',
         },
         isCustomer && {
           itemIndex: 9,
-          callback: navigate(history, Routes.ANALYTICS_COST_CALCULATOR),
+          callback: navigateRoute(navigate, Routes.ANALYTICS_COST_CALCULATOR),
           text: 'Cost Calculator',
         },
       ].filter(Boolean),
     },
     {
       itemIndex: 3,
-      callback: navigate(history, Routes.SWAGGER),
+      callback: navigateRoute(navigate, Routes.SWAGGER),
       iconId: 'apiMenu',
       text: 'API',
       subItems: [
         {
           itemIndex: 10,
-          callback: navigate(history, Routes.SWAGGER),
+          callback: navigateRoute(navigate, Routes.SWAGGER),
           text: 'Foundations API',
         },
         {
           itemIndex: 11,
-          callback: navigate(history, Routes.WEBHOOKS_ABOUT),
+          callback: navigateRoute(navigate, Routes.WEBHOOKS_ABOUT),
           text: 'Webhooks',
         },
         {
           itemIndex: 12,
-          callback: navigate(history, Routes.GRAPHQL),
+          callback: navigateRoute(navigate, Routes.GRAPHQL),
           text: 'GraphQL',
         },
         {
           itemIndex: 13,
-          callback: navigate(history, Routes.DESKTOP),
+          callback: navigateRoute(navigate, Routes.DESKTOP),
           text: 'Desktop',
         },
       ],
     },
     {
       itemIndex: 4,
-      callback: navigate(history, Routes.ELEMENTS),
+      callback: navigateRoute(navigate, Routes.ELEMENTS),
       iconId: 'uiMenu',
       text: 'UI',
     },
     loginIdentity?.developerId &&
       process.env.pipelineWhitelist.includes(loginIdentity?.developerId) && {
         itemIndex: 5,
-        callback: navigate(history, Routes.IAAS),
+        callback: navigateRoute(navigate, Routes.IAAS),
         iconId: 'dataMenu',
         text: 'IaaS',
       },
     {
       itemIndex: 6,
-      callback: navigate(history, Routes.API_DOCS),
+      callback: navigateRoute(navigate, Routes.API_DOCS),
       iconId: 'docsMenu',
       text: 'Docs',
       subItems: [
         {
           itemIndex: 14,
-          callback: navigate(history, Routes.API_DOCS),
+          callback: navigateRoute(navigate, Routes.API_DOCS),
           text: 'APIs',
         },
         {
           itemIndex: 15,
-          callback: navigate(history, Routes.ANALYTICS_SCHEMA_DOCS),
+          callback: navigateRoute(navigate, Routes.ANALYTICS_SCHEMA_DOCS),
           text: 'Warehouse',
         },
       ],
@@ -220,34 +220,34 @@ export const Menu: FC = () => {
     },
     {
       itemIndex: 8,
-      callback: navigate(history, Routes.SETTINGS_PROFILE),
+      callback: navigateRoute(navigate, Routes.SETTINGS_PROFILE),
       iconId: 'myAccountMenu',
       text: 'Settings',
       isSecondary: true,
       subItems: [
         {
           itemIndex: 16,
-          callback: navigate(history, Routes.SETTINGS_PROFILE),
+          callback: navigateRoute(navigate, Routes.SETTINGS_PROFILE),
           text: 'Profile',
         },
         {
           itemIndex: 17,
-          callback: navigate(history, Routes.SETTINGS_PASSWORD),
+          callback: navigateRoute(navigate, Routes.SETTINGS_PASSWORD),
           text: 'Password',
         },
         {
           itemIndex: 18,
-          callback: navigate(history, Routes.SETTINGS_MEMBERS),
+          callback: navigateRoute(navigate, Routes.SETTINGS_MEMBERS),
           text: 'Members',
         },
         {
           itemIndex: 19,
-          callback: navigate(history, Routes.SETTINGS_COMPANY),
+          callback: navigateRoute(navigate, Routes.SETTINGS_COMPANY),
           text: 'Company',
         },
         {
           itemIndex: 20,
-          callback: navigate(history, Routes.SETTINGS_SUBSCRIPTIONS),
+          callback: navigateRoute(navigate, Routes.SETTINGS_SUBSCRIPTIONS),
           text: 'Subscriptions',
         },
       ],

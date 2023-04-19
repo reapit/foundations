@@ -11,6 +11,32 @@ jest.mock('uuid', () => ({
   v4: jest.fn(() => 'MOCK_UUID'),
 }))
 
+jest.mock('@linaria/react', () => {
+  const styled = (tag) => {
+    return jest.fn(() => `mock-styled.${tag}`)
+  }
+  return {
+    styled: new Proxy(styled, {
+      get(o, prop) {
+        return o(prop)
+      },
+    }),
+  }
+})
+
+jest.mock('@linaria/core', () => {
+  const css = (tag) => {
+    return `mock-css.${tag}`
+  }
+
+  const { cx } = jest.requireActual('@linaria/core')
+
+  return {
+    cx,
+    css,
+  }
+})
+
 /* tslint:disable */
 const createMockFuncsFromArray = (instance, names = []) => {
   names.forEach((name) => {

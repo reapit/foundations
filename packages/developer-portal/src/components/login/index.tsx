@@ -1,19 +1,19 @@
 import React, { FC, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { BodyText, Button, ButtonGroup, Subtitle, Title, FlexContainer, elMb12 } from '@reapit/elements'
 import Routes from '../../constants/routes'
 import reapitLogo from '../../assets/images/reapit-logo.svg'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { KeyAnimation } from '@reapit/utils-react'
 import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
-import { navigate } from '../../utils/navigation'
+import { navigateRoute } from '../../utils/navigation'
 
 export const onLoginButtonClick = () => () => {
   reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.APPS}`)
 }
 
 export const Login: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const [keyStep, setKeyStep] = useState<1 | 2 | 3>(1)
 
   return (
@@ -42,7 +42,7 @@ export const Login: FC = () => {
           <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
             Login With Reapit
           </Button>
-          <Button onClick={navigate(history, Routes.SELECT_ROLE)} intent="secondary" size={3}>
+          <Button onClick={navigateRoute(navigate, Routes.SELECT_ROLE)} intent="secondary" size={3}>
             Register
           </Button>
         </ButtonGroup>

@@ -6,7 +6,8 @@ import { mockDeveloperModel } from '../../../../tests/__stubs__/developers'
 
 jest.mock('../../../../core/use-global-state')
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockSandboxModelPagedResult, true]),
   useReapitUpdate: jest.fn(() => []),
 }))

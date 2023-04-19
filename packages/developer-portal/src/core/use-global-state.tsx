@@ -1,13 +1,12 @@
 import { DeveloperModel, MemberModel, MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
 import React, { FC, createContext, useContext, useState, Dispatch, SetStateAction } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { logger, useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
+import { logger } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from './connect-session'
 import { useSnack } from '@reapit/elements'
 import Routes from '../constants/routes'
-import { History } from 'history'
-import { useHistory } from 'react-router'
+import { NavigateFunction, useNavigate } from 'react-router'
 
 export const PERMISSION_ERROR =
   'The identity attached to this request does not have the required group membership interact with this endpoint'
@@ -28,14 +27,15 @@ export interface GlobalStateHook {
   globalRefreshCurrentDeveloper: () => void
 }
 
-export const handlePermissionError = (snack: (message: string) => void, history: History) => (error: string) => {
-  if (error.includes(PERMISSION_ERROR)) {
-    return history.push(Routes.CUSTOMER_REGISTER)
-  }
+export const handlePermissionError =
+  (snack: (message: string) => void, navigate: NavigateFunction) => (error: string) => {
+    if (error.includes(PERMISSION_ERROR)) {
+      return navigate(Routes.CUSTOMER_REGISTER)
+    }
 
-  logger(new Error(error))
-  snack(error)
-}
+    logger(new Error(error))
+    snack(error)
+  }
 
 export const GlobalStateContext = createContext<GlobalStateHook>({} as GlobalStateHook)
 
@@ -43,7 +43,7 @@ const { Provider } = GlobalStateContext
 
 export const GlobalProvider: FC = ({ children }) => {
   const membersRefresh = useState<boolean>(false)
-  const history = useHistory()
+  const navigate = useNavigate()
   const { error } = useSnack()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = connectSession?.loginIdentity.developerId
@@ -51,19 +51,19 @@ export const GlobalProvider: FC = ({ children }) => {
 
   const [members, , , refreshMembers] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getDeveloperMembers],
+    action: getActions[GetActionNames.getDeveloperMembers],
     queryParams: { email: encodeURIComponent(email ?? ''), pageSize: 1 },
     uriParams: { developerId },
     fetchWhenTrue: [email, developerId],
-    onError: handlePermissionError(error, history),
+    onError: handlePermissionError(error, navigate),
   })
 
   const [currentDeveloper, , , refreshCurrentDeveloper] = useReapitGet<DeveloperModel>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getDeveloper],
+    action: getActions[GetActionNames.getDeveloper],
     uriParams: { developerId },
     fetchWhenTrue: [developerId],
-    onError: handlePermissionError(error, history),
+    onError: handlePermissionError(error, navigate),
   })
 
   const globalDataState: GlobalDataState = {

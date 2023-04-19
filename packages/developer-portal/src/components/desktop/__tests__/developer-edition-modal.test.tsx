@@ -8,13 +8,14 @@ import {
 } from '../developer-edition-modal'
 import { render } from '../../../tests/react-testing'
 import { mockDeveloperModel } from '../../../tests/__stubs__/developers'
-import { useReapitUpdate } from '@reapit/utils-react'
+import { useReapitUpdate } from '@reapit/use-reapit-data'
 import { useReapitConnect } from '@reapit/connect-session'
 import { useGlobalState } from '../../../core/use-global-state'
 import { mockMemberModel } from '../../../tests/__stubs__/members'
 
 jest.mock('../../../core/use-global-state')
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitUpdate: jest.fn(() => []),
 }))
 jest.mock('@reapit/connect-session', () => ({

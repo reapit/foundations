@@ -1,544 +1,482 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProfileForm should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
         <div
-          class="ec47sgk-el-mb11"
+          class="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="ee6e7by-el-form-layout"
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <div
-                class="e1979rmu-el-input-group"
-              >
-                <input
-                  class="e1urjlvd-el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="name"
                   placeholder="Your full name here"
                 />
-                <label
-                  class="e1nbkkrq-el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <div
-                class="e1979rmu-el-input-group"
-              >
-                <input
-                  class="e1urjlvd-el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="jobTitle"
                   placeholder="What role do you have at your company"
                 />
-                <label
-                  class="e1nbkkrq-el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Job Title
-                </label>
-              </div>
-            </div>
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <div
-                class="e1979rmu-el-input-group"
-              >
-                <input
-                  class="e1urjlvd-el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="gitHubUsername"
                   placeholder="Github handles help us tracking issues"
                 />
-                <label
-                  class="e1nbkkrq-el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   GitHub Username
-                </label>
-              </div>
-            </div>
-          </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
         <div
-          class="ec47sgk-el-mb11"
+          class="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="ee6e7by-el-form-layout"
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.div>
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Company Name
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 MOCK_COMPANY
-              </p>
-            </div>
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              </mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Email Address
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 example@email.com
-              </p>
-            </div>
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              </mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Profile Settings
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 MOCK_CLIENT_ID
-              </p>
-            </div>
-          </div>
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
-        <h2
-          class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Customer Data
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle between which data you want to see available in the Developer Portal.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only associated to your developer profile.
-        </p>
-        <div
-          class="ez8nkuq-el-mb6 ee6e7by-el-form-layout"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 1rem;
+"
         >
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1ih6lkl-el-toggle-checkbox"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="useCustomerData"
                 name="useCustomerData"
                 type="checkbox"
               />
-              <label
-                class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-                for="useCustomerData"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="useCustomerData"
               >
-                <span
-                  class="e18omfqv-el-toggle-item"
-                >
+                <mock-styled.span>
                   Customer
-                </span>
-                <span
-                  class="e18omfqv-el-toggle-item"
-                >
+                </mock-styled.span>
+                <mock-styled.span>
                   Sandbox
-                </span>
-              </label>
-              <label
-                class="e1nbkkrq-el-label"
-              >
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.label>
                 Use 
                 MOCK_ORG_NAME
                  Customer or Sandbox data
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <div
-                class="ehi76vp-el-has-grey-bg ejhyjna-el-toggle-radio-wrap"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <input
-                  class="e1k4cmge-el-toggle-radio"
+                <mock-styled.input
                   id="AUS"
                   name="sandboxId"
                   type="radio"
                   value="AUS"
                 />
-                <label
-                  class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
-                  for="AUS"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="AUS"
                 >
-                  <span
-                    class="e1dq0rz5-el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     Australia Sandbox
-                  </span>
-                </label>
-                <input
-                  checked=""
-                  class="e1k4cmge-el-toggle-radio"
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
                   id="GBR"
                   name="sandboxId"
                   type="radio"
                   value="GBR"
                 />
-                <label
-                  class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
-                  for="GBR"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="GBR"
                 >
-                  <span
-                    class="e1dq0rz5-el-toggle-radio-item"
-                  >
+                  <mock-styled.span>
                     UK Sandbox
-                  </span>
-                </label>
-              </div>
-              <label
-                class="e1nbkkrq-el-label"
-              >
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+              <mock-styled.label>
                 Choose Sandbox
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="ec47sgk-el-mb11 epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="eta6kcl-el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="ej9yrfo-el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="e1geon40-el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             Please note, you will need to log out and log back in again to see this change take effect
           </div>
-        </div>
-        <div
-          class="ebqwrow-el-button-group"
-        >
-          <div
-            class="eh76izl-el-button-group-inner"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="submit"
             >
               Save Changes
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
       <div
-        class="ec47sgk-el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="ee6e7by-el-form-layout"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="name"
                 placeholder="Your full name here"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="jobTitle"
                 placeholder="What role do you have at your company"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Job Title
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="gitHubUsername"
                 placeholder="Github handles help us tracking issues"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 GitHub Username
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
       <div
-        class="ec47sgk-el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="ee6e7by-el-form-layout"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="mock-css."
             >
               Company Name
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               MOCK_COMPANY
-            </p>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="mock-css."
             >
               Email Address
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               example@email.com
-            </p>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="mock-css."
             >
               Profile Settings
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               MOCK_CLIENT_ID
-            </p>
-          </div>
-        </div>
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
-      <h2
-        class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+      <mock-styled.h2
+        classname="mock-css."
       >
         Customer Data
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle between which data you want to see available in the Developer Portal.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only associated to your developer profile.
-      </p>
-      <div
-        class="ez8nkuq-el-mb6 ee6e7by-el-form-layout"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 1rem;
+"
       >
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1ih6lkl-el-toggle-checkbox"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="useCustomerData"
               name="useCustomerData"
               type="checkbox"
             />
-            <label
-              class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-              for="useCustomerData"
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="useCustomerData"
             >
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
+              <mock-styled.span>
                 Customer
-              </span>
-              <span
-                class="e18omfqv-el-toggle-item"
-              >
+              </mock-styled.span>
+              <mock-styled.span>
                 Sandbox
-              </span>
-            </label>
-            <label
-              class="e1nbkkrq-el-label"
-            >
+              </mock-styled.span>
+            </mock-styled.label>
+            <mock-styled.label>
               Use 
               MOCK_ORG_NAME
                Customer or Sandbox data
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <div
-              class="ehi76vp-el-has-grey-bg ejhyjna-el-toggle-radio-wrap"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <input
-                class="e1k4cmge-el-toggle-radio"
+              <mock-styled.input
                 id="AUS"
                 name="sandboxId"
                 type="radio"
                 value="AUS"
               />
-              <label
-                class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
-                for="AUS"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="AUS"
               >
-                <span
-                  class="e1dq0rz5-el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Australia Sandbox
-                </span>
-              </label>
-              <input
-                checked=""
-                class="e1k4cmge-el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="GBR"
                 name="sandboxId"
                 type="radio"
                 value="GBR"
               />
-              <label
-                class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
-                for="GBR"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="GBR"
               >
-                <span
-                  class="e1dq0rz5-el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   UK Sandbox
-                </span>
-              </label>
-            </div>
-            <label
-              class="e1nbkkrq-el-label"
-            >
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+            <mock-styled.label>
               Choose Sandbox
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ec47sgk-el-mb11 epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css. mock-css. mock-css. mock-css."
       >
         <div
-          class="eta6kcl-el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="e1geon40-el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           Please note, you will need to log out and log back in again to see this change take effect
         </div>
-      </div>
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="eh76izl-el-button-group-inner"
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <button
-            class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
             type="submit"
           >
             Save Changes
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

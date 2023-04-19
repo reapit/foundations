@@ -1,683 +1,597 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="ec47sgk-el-mb11 ejadz4k-el-table"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="false"
         data-has-expandable-action="false"
       >
-        <div
-          class="e1ijk5il-el-table-headers-row"
-        >
-          <div
-            class="e1co3p83-el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             Number of API Calls
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Cost Per API Call
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Total Cost
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Number of API Calls"
               >
                 1000
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Cost Per API Call"
               >
                 0.02
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Total Cost"
               >
                 £20.00
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Number of API Calls"
               >
                 1500
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Cost Per API Call"
               >
                 0.016
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Total Cost"
               >
                 £24.00
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Number of API Calls"
               >
                 2500
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Cost Per API Call"
               >
                 0.012
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Total Cost"
               >
                 £30.00
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Number of API Calls"
               >
                 5000
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Cost Per API Call"
               >
                 0.01
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Total Cost"
               >
                 £50.00
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Number of API Calls"
               >
                 15000
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Cost Per API Call"
               >
                 0.008
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Total Cost"
               >
                 £120.00
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Number of API Calls"
               >
                 25000
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Cost Per API Call"
               >
                 0.005
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Total Cost"
               >
                 £125.00
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Number of API Calls"
               >
                 150000
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Cost Per API Call"
               >
                 0.002
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Total Cost"
               >
                 £300.00
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p
-        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.p
+        classname="mock-css."
       >
         Estimated total monthly cost: 
         £669.00
-      </p>
+      </mock-styled.p>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="ec47sgk-el-mb11 ejadz4k-el-table"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       data-has-call-to-action="false"
       data-has-expandable-action="false"
     >
-      <div
-        class="e1ijk5il-el-table-headers-row"
-      >
-        <div
-          class="e1co3p83-el-table-header"
-        >
+      <mock-styled.div>
+        <mock-styled.div>
           Number of API Calls
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Cost Per API Call
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Total Cost
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Number of API Calls"
             >
               1000
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Cost Per API Call"
             >
               0.02
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Total Cost"
             >
               £20.00
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Number of API Calls"
             >
               1500
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Cost Per API Call"
             >
               0.016
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Total Cost"
             >
               £24.00
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Number of API Calls"
             >
               2500
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Cost Per API Call"
             >
               0.012
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Total Cost"
             >
               £30.00
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Number of API Calls"
             >
               5000
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Cost Per API Call"
             >
               0.01
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Total Cost"
             >
               £50.00
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Number of API Calls"
             >
               15000
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Cost Per API Call"
             >
               0.008
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Total Cost"
             >
               £120.00
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Number of API Calls"
             >
               25000
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Cost Per API Call"
             >
               0.005
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Total Cost"
             >
               £125.00
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Number of API Calls"
             >
               150000
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Cost Per API Call"
             >
               0.002
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Total Cost"
             >
               £300.00
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p
-      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.p
+      classname="mock-css."
     >
       Estimated total monthly cost: 
       £669.00
-    </p>
+    </mock-styled.p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

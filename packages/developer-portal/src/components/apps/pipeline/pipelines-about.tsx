@@ -3,13 +3,13 @@ import { BodyText, Button, ColSplit, elMb10, Grid, Subtitle } from '@reapit/elem
 import { IconContainer } from '../../webhooks/__styles__'
 import { WebhooksAnimatedNewIcon } from '../../webhooks/webhooks-animated-new-icon'
 import { WebhooksAnimatedDocsIcon } from '../../webhooks/webhooks-animated-docs-icon'
-import { ExternalPages, navigate, openNewPage } from '../../../utils/navigation'
-import { useHistory } from 'react-router'
+import { ExternalPages, navigateRoute, openNewPage } from '../../../utils/navigation'
+import { useNavigate } from 'react-router'
 import Routes from '../../../constants/routes'
 import { useAppState } from '../state/use-app-state'
 
 export const PipelinesAbout = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { appId } = useAppState()
   const [newPipelineAnimated, setNewPipelineAnimated] = useState<boolean>(false)
   const [docsIsAnimated, setDocsIsAnimated] = useState<boolean>(false)
@@ -34,7 +34,7 @@ export const PipelinesAbout = () => {
         <Button
           intent="critical"
           chevronRight
-          onClick={navigate(history, Routes.APP_PIPELINE_NEW.replace(':appId', appId as string))}
+          onClick={navigateRoute(navigate, Routes.APP_PIPELINE_NEW.replace(':appId', appId as string))}
           onMouseOver={() => {
             setNewPipelineAnimated(true)
           }}

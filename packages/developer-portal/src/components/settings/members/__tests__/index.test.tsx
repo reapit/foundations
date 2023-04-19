@@ -5,7 +5,8 @@ import { mockMembersPagedResult } from '../../../../tests/__stubs__/members'
 
 jest.mock('../../../../core/use-global-state')
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockMembersPagedResult, true]),
   useReapitUpdate: jest.fn(() => []),
 }))

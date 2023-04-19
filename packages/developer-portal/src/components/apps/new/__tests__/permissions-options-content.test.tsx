@@ -1,8 +1,8 @@
-import { render } from '@testing-library/react'
 import React from 'react'
 import { DeepMap, FieldError, UseFormGetValues } from 'react-hook-form'
 import { CreateAppFormSchema } from '..'
 import { handleSetOptions, PermissionsOptionsContent, prepareOptions } from '../permissions-options-content'
+import { render } from '../../../../tests/react-testing'
 
 const mockSetAppWizardState = jest.fn()
 

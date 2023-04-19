@@ -7,7 +7,6 @@ import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/ele
 import { Router } from 'react-router-dom'
 import { createBrowserHistory, History } from 'history'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const queryClient = new QueryClient()
 
@@ -22,7 +21,6 @@ const CombinedProvider: FC = ({ children }) => {
           </NavStateProvider>
         </SnackProvider>
       </Router>
-      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )
 }

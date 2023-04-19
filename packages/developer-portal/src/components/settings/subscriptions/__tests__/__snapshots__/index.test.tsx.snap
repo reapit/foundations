@@ -1,425 +1,373 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SettingsSubscriptionsPage should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Subscriptions
-        </h1>
-      </div>
-      <div
-        class="ebhrnzh-el-loader-container"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eq1m1jz-el-loader"
-        >
-          <div
-            class="exikdu1-el-loader-moving-bar"
-          />
-        </div>
-      </div>
-      <div
-        class="ec47sgk-el-mb11 ejadz4k-el-table"
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="7"
       >
-        <div
-          class="e1ijk5il-el-table-headers-row"
-        >
-          <div
-            class="e1mqmoqy-el-span2 e1co3p83-el-table-header"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  grid-column-end: span 2;
+"
           >
             Type
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Start Date
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Renewal Date
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Frequency
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Cost
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Status
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Cancel Subscription
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e1mqmoqy-el-span2 e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  grid-column-end: span 2;
+ mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Type"
               >
                 Developer edition license for test@example.com
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Start Date"
               >
                 16 May 2021
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Renewal Date"
               >
                 01 Mar 2022
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Frequency"
               >
                 Monthly
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Cost"
               >
                 £300
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Status"
               >
-                <span
-                  class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                  
                 Cancelled
-              </div>
-            </div>
-            <div
-              class="es3tf1j-el-table-cta-cell"
-            >
-              <div
-                class="ewmoxzc-el-table-cta-icon-container"
-              >
-                <span
-                  class="ebee6r1-el-intent-primary ej9yrfo-el-icon"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="e1nnyshg-el-pagination-wrap"
-      >
-        <div
-          class="ex6bmfc-el-pagination-text"
-        >
-          <input
-            class="e1yynswi-el-pagination-input"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           10
-        </div>
-        <button
-          class="e1g9l338-el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="e1g9l338-el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="e11f9czk-el-pagination-primary ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
           >
             <svg />
-          </span>
-        </button>
-      </div>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         Subscriptions
-      </h1>
-    </div>
-    <div
-      class="ebhrnzh-el-loader-container"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eq1m1jz-el-loader"
-      >
-        <div
-          class="exikdu1-el-loader-moving-bar"
-        />
-      </div>
-    </div>
-    <div
-      class="ec47sgk-el-mb11 ejadz4k-el-table"
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="7"
     >
-      <div
-        class="e1ijk5il-el-table-headers-row"
-      >
-        <div
-          class="e1mqmoqy-el-span2 e1co3p83-el-table-header"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  grid-column-end: span 2;
+"
         >
           Type
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Start Date
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Renewal Date
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Frequency
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Cost
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Status
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Cancel Subscription
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e1mqmoqy-el-span2 e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  grid-column-end: span 2;
+ mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Type"
             >
               Developer edition license for test@example.com
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Start Date"
             >
               16 May 2021
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Renewal Date"
             >
               01 Mar 2022
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Frequency"
             >
               Monthly
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Cost"
             >
               £300
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Status"
             >
-              <span
-                class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
+              <mock-styled.span
+                classname="mock-css."
               />
                
               Cancelled
-            </div>
-          </div>
-          <div
-            class="es3tf1j-el-table-cta-cell"
-          >
-            <div
-              class="ewmoxzc-el-table-cta-icon-container"
-            >
-              <span
-                class="ebee6r1-el-intent-primary ej9yrfo-el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="e1nnyshg-el-pagination-wrap"
-    >
-      <div
-        class="ex6bmfc-el-pagination-text"
-      >
-        <input
-          class="e1yynswi-el-pagination-input"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.input
           value="1"
         />
          of 
         10
-      </div>
-      <button
-        class="e1g9l338-el-pagination-button"
+      </mock-styled.div>
+      <mock-styled.button
         data-testid="back-button"
         type="button"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </button>
-      <button
-        class="e1g9l338-el-pagination-button"
+        </mock-styled.span>
+      </mock-styled.button>
+      <mock-styled.button
         data-testid="forward-button"
         type="button"
       >
-        <span
-          class="e11f9czk-el-pagination-primary ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
         >
           <svg />
-        </span>
-      </button>
-    </div>
+        </mock-styled.span>
+      </mock-styled.button>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -476,7 +424,7 @@ Object {
 `;
 
 exports[`SettingsSubscriptionsPage should match snapshot for mobile view 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -485,453 +433,393 @@ Object {
       <div />
     </div>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Subscriptions
-        </h1>
-        <div
-          class="ebqwrow-el-button-group"
-        >
-          <div
-            class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+        </mock-styled.h1>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+            <mock-styled.button
+              classname="mock-css."
             >
               Controls
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ebhrnzh-el-loader-container"
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eq1m1jz-el-loader"
-        >
-          <div
-            class="exikdu1-el-loader-moving-bar"
-          />
-        </div>
-      </div>
-      <div
-        class="ec47sgk-el-mb11 ejadz4k-el-table"
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="7"
       >
-        <div
-          class="e1ijk5il-el-table-headers-row"
-        >
-          <div
-            class="e1mqmoqy-el-span2 e1co3p83-el-table-header"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  grid-column-end: span 2;
+"
           >
             Type
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Start Date
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Renewal Date
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Frequency
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Cost
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Status
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Cancel Subscription
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e1mqmoqy-el-span2 e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  grid-column-end: span 2;
+ mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Type"
               >
                 Developer edition license for test@example.com
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Start Date"
               >
                 16 May 2021
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Renewal Date"
               >
                 01 Mar 2022
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Frequency"
               >
                 Monthly
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Cost"
               >
                 £300
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Status"
               >
-                <span
-                  class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                  
                 Cancelled
-              </div>
-            </div>
-            <div
-              class="es3tf1j-el-table-cta-cell"
-            >
-              <div
-                class="ewmoxzc-el-table-cta-icon-container"
-              >
-                <span
-                  class="ebee6r1-el-intent-primary ej9yrfo-el-icon"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="e1nnyshg-el-pagination-wrap"
-      >
-        <div
-          class="ex6bmfc-el-pagination-text"
-        >
-          <input
-            class="e1yynswi-el-pagination-input"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           10
-        </div>
-        <button
-          class="e1g9l338-el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="e1g9l338-el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="e11f9czk-el-pagination-primary ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
           >
             <svg />
-          </span>
-        </button>
-      </div>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         Subscriptions
-      </h1>
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+      </mock-styled.h1>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
           >
             Controls
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      class="ebhrnzh-el-loader-container"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eq1m1jz-el-loader"
-      >
-        <div
-          class="exikdu1-el-loader-moving-bar"
-        />
-      </div>
-    </div>
-    <div
-      class="ec47sgk-el-mb11 ejadz4k-el-table"
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="7"
     >
-      <div
-        class="e1ijk5il-el-table-headers-row"
-      >
-        <div
-          class="e1mqmoqy-el-span2 e1co3p83-el-table-header"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  grid-column-end: span 2;
+"
         >
           Type
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Start Date
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Renewal Date
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Frequency
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Cost
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Status
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Cancel Subscription
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e1mqmoqy-el-span2 e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  grid-column-end: span 2;
+ mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Type"
             >
               Developer edition license for test@example.com
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Start Date"
             >
               16 May 2021
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Renewal Date"
             >
               01 Mar 2022
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Frequency"
             >
               Monthly
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Cost"
             >
               £300
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Status"
             >
-              <span
-                class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
+              <mock-styled.span
+                classname="mock-css."
               />
                
               Cancelled
-            </div>
-          </div>
-          <div
-            class="es3tf1j-el-table-cta-cell"
-          >
-            <div
-              class="ewmoxzc-el-table-cta-icon-container"
-            >
-              <span
-                class="ebee6r1-el-intent-primary ej9yrfo-el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="e1nnyshg-el-pagination-wrap"
-    >
-      <div
-        class="ex6bmfc-el-pagination-text"
-      >
-        <input
-          class="e1yynswi-el-pagination-input"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.input
           value="1"
         />
          of 
         10
-      </div>
-      <button
-        class="e1g9l338-el-pagination-button"
+      </mock-styled.div>
+      <mock-styled.button
         data-testid="back-button"
         type="button"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </button>
-      <button
-        class="e1g9l338-el-pagination-button"
+        </mock-styled.span>
+      </mock-styled.button>
+      <mock-styled.button
         data-testid="forward-button"
         type="button"
       >
-        <span
-          class="e11f9czk-el-pagination-primary ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
         >
           <svg />
-        </span>
-      </button>
-    </div>
+        </mock-styled.span>
+      </mock-styled.button>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

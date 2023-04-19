@@ -1,13 +1,13 @@
 import React, { FC, useState, Dispatch, SetStateAction } from 'react'
 import { Title, Subtitle, BodyText, Button, FlexContainer, ButtonGroup, elMb12 } from '@reapit/elements'
 import Routes from '../../constants/routes'
-import { KeyAnimation, SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { KeyAnimation } from '@reapit/utils-react'
 import reapitLogo from '../../assets/images/reapit-logo.svg'
 import { LoginContainer, LoginImageContainer, LoginContentWrapper } from '../login/__styles__'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { selectDeveloperId, selectIsCustomer, selectIsUserAdmin } from '../../utils/auth'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { UpdateActionNames, updateActions, SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { ExternalPages, openNewPage } from '../../utils/navigation'
 import { CreateDeveloperModel, UpdateCustomerModel } from '@reapit/foundations-ts-definitions'
 import TermsAndConditionsModal from './terms-and-conditions-modal'
@@ -63,7 +63,7 @@ export const CustomerRegister: FC = () => {
   const [updatingCustomer, , updateCustomer] = useReapitUpdate<UpdateCustomerModel, null>({
     method: 'PUT',
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.updateCustomer],
+    action: updateActions[UpdateActionNames.updateCustomer],
     uriParams: {
       customerId: connectSession?.loginIdentity.orgId,
     },
@@ -72,7 +72,7 @@ export const CustomerRegister: FC = () => {
   const [creatingDeveloper, , createDeveloper] = useReapitUpdate<CreateDeveloperModel, null>({
     method: 'POST',
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.createDeveloper],
+    action: updateActions[UpdateActionNames.createDeveloper],
   })
 
   return (

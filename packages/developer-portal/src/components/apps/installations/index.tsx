@@ -17,12 +17,20 @@ import {
   useModal,
 } from '@reapit/elements'
 import { useParams } from 'react-router-dom'
-import { AppUriParams, useAppState } from '../state/use-app-state'
+import { useAppState } from '../state/use-app-state'
 import { handleSetAppId } from '../utils/handle-set-app-id'
-import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import {
+  SendFunction,
+  useReapitGet,
+  useReapitUpdate,
+  GetActionNames,
+  getActions,
+  UpdateActionNames,
+  updateActions,
+} from '@reapit/use-reapit-data'
 import { InstallationModelPagedResult, TerminateInstallationModel } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { combineAddress, GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { combineAddress } from '@reapit/utils-common'
 import dayjs from 'dayjs'
 import { useReapitConnect } from '@reapit/connect-session'
 import { ExternalPages, openNewPage } from '../../../utils/navigation'
@@ -76,7 +84,7 @@ export const handleSetInstallationId =
   }
 
 export const AppInstallations: FC = () => {
-  const { appId } = useParams<AppUriParams>()
+  const { appId } = useParams<'appId'>()
   const { setAppId } = useAppState()
   const [installationId, setInstallationId] = useState<null | string>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
@@ -89,7 +97,7 @@ export const AppInstallations: FC = () => {
 
   const [installations, installationsLoading, , refetchInstallations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getInstallations],
+    action: getActions[GetActionNames.getInstallations],
     queryParams: {
       appId,
       pageNumber,
@@ -102,7 +110,7 @@ export const AppInstallations: FC = () => {
 
   const [, , uninstallApp, uninstallSuccess] = useReapitUpdate<TerminateInstallationModel, null>({
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.terminateInstallation],
+    action: updateActions[UpdateActionNames.terminateInstallation],
     uriParams: {
       installationId,
     },
@@ -122,7 +130,7 @@ export const AppInstallations: FC = () => {
     },
   })
 
-  useEffect(handleSetAppId(appId, setAppId), [appId])
+  useEffect(handleSetAppId(setAppId, appId), [appId])
 
   useEffect(handleUninstallSuccess(refetchInstallations, closeModal, uninstallSuccess), [uninstallSuccess])
 

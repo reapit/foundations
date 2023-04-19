@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { Button, ButtonGroup, FlexContainer, Loader, Subtitle, Title, useMediaQuery, useModal } from '@reapit/elements'
 import { useAnalyticsState } from '../state/use-analytics-state'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { ChartWrapper } from '../__styles__'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -25,7 +25,7 @@ export const AnalyticsInstallations: FC = () => {
 
   const [installations, installationsLoading] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getInstallations],
+    action: getActions[GetActionNames.getInstallations],
     queryParams: {
       isInstalled: true,
       pageSize: 999,

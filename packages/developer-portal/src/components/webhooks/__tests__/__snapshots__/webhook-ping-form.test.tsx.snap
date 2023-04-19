@@ -1,37 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WebhooksPingForm should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
       <form
-        class="el6khyg-el-p8"
+        class="mock-css.
+  padding: 1.5rem;
+"
       >
-        <h2
-          class="ek1d8t2-el-ml3 e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css.
+  margin-left: 0.5rem;
+"
         >
           Test Webhook Subscription
-        </h2>
-        <div
-          class="e20pb60-el-grid"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eb3z2eu-el-col-split"
+          <mock-styled.div
+            classname=""
           >
-            <label
-              class="ek1d8t2-el-ml3 e1nbkkrq-el-label"
+            <mock-styled.label
+              classname="mock-css.
+  margin-left: 0.5rem;
+"
             >
               Subscription topics
-            </label>
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <select
-                class="e60u3kb-el-select"
+            </mock-styled.label>
+            <mock-styled.div>
+              <mock-styled.select
                 name="topicId"
               >
                 <option
@@ -42,80 +43,146 @@ Object {
                 <option />
                 <option />
                 <option />
-              </select>
-            </div>
-          </div>
-          <div
-            class="eb3z2eu-el-col-split"
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <p
-              class="e1wasvgh-el-body-text"
+            <mock-styled.p
+              classname=""
             >
               To test your Webhook subscription, please select a subscription topic and an example payload for that topic will be sent to the configured URL. For more information, please
                
               <a>
                 click here
               </a>
-            </p>
-            <div
-              class="et0k7gk-el-ml-auto ebqwrow-el-button-group"
+            </mock-styled.p>
+            <mock-styled.div
+              classname="mock-css.
+  margin-left: auto;
+"
             >
-              <div
-                class="eh76izl-el-button-group-inner"
+              <mock-styled.div
+                classname=""
               >
-                <button
-                  class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                <mock-styled.button
+                  classname="mock-css."
                   type="button"
                 >
                   Cancel
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="ebee6r1-el-intent-primary eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
                   type="submit"
                 >
                   Test
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
     <form
-      class="el6khyg-el-p8"
+      class="mock-css.
+  padding: 1.5rem;
+"
     >
-      <h2
-        class="ek1d8t2-el-ml3 e15ggth7-el-subtitle"
+      <mock-styled.h2
+        classname="mock-css.
+  margin-left: 0.5rem;
+"
       >
         Test Webhook Subscription
-      </h2>
-      <div
-        class="e20pb60-el-grid"
+      </mock-styled.h2>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eb3z2eu-el-col-split"
+        <mock-styled.div
+          classname=""
         >
-          <label
-            class="ek1d8t2-el-ml3 e1nbkkrq-el-label"
+          <mock-styled.label
+            classname="mock-css.
+  margin-left: 0.5rem;
+"
           >
             Subscription topics
-          </label>
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <select
-              class="e60u3kb-el-select"
+          </mock-styled.label>
+          <mock-styled.div>
+            <mock-styled.select
               name="topicId"
             >
               <option
@@ -126,49 +193,114 @@ Object {
               <option />
               <option />
               <option />
-            </select>
-          </div>
-        </div>
-        <div
-          class="eb3z2eu-el-col-split"
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <p
-            class="e1wasvgh-el-body-text"
+          <mock-styled.p
+            classname=""
           >
             To test your Webhook subscription, please select a subscription topic and an example payload for that topic will be sent to the configured URL. For more information, please
              
             <a>
               click here
             </a>
-          </p>
-          <div
-            class="et0k7gk-el-ml-auto ebqwrow-el-button-group"
+          </mock-styled.p>
+          <mock-styled.div
+            classname="mock-css.
+  margin-left: auto;
+"
           >
-            <div
-              class="eh76izl-el-button-group-inner"
+            <mock-styled.div
+              classname=""
             >
-              <button
-                class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+              <mock-styled.button
+                classname="mock-css."
                 type="button"
               >
                 Cancel
-                <div
-                  class="e1q1vabn-el-button-loader"
-                />
-              </button>
-              <button
-                class="ebee6r1-el-intent-primary eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.button
+                classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
                 type="submit"
               >
                 Test
-                <div
-                  class="e1q1vabn-el-button-loader"
-                />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

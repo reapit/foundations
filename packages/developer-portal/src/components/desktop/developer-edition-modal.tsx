@@ -4,8 +4,8 @@ import { selectLoginIdentity } from '../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { SubscribingState } from '.'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
+import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { BodyText, Button, ButtonGroup, useModal } from '@reapit/elements'
 import { useGlobalState } from '../../core/use-global-state'
 import { Link } from 'react-router-dom'
@@ -135,7 +135,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
   const [, subscriptionCreating, createSubscription, createSubscriptionSuccess, createSubscriptionError] =
     useReapitUpdate<CreateSubscriptionModel, boolean>({
       reapitConnectBrowserSession,
-      action: updateActions(process.env.appEnv)[UpdateActionNames.createSubscription],
+      action: updateActions[UpdateActionNames.createSubscription],
       method: 'POST',
     })
 

@@ -8,7 +8,8 @@ const mockUpdateDeveloper = jest.fn()
 jest.mock('../../state/use-app-state')
 jest.mock('../../../../core/use-global-state')
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [
     {
       data: [

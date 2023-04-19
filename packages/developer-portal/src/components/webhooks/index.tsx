@@ -1,8 +1,7 @@
 import React, { FC, ChangeEvent } from 'react'
-import { Route, Switch, useHistory } from 'react-router-dom'
-import { History } from 'history'
+import { NavigateFunction, Route, Routes, useNavigate } from 'react-router-dom'
 import { Button, ButtonGroup, elMb5, FlexContainer, Tabs, Title, useMediaQuery, useModal } from '@reapit/elements'
-import Routes from '../../constants/routes'
+import RoutePaths from '../../constants/routes'
 import { openNewPage, ExternalPages } from '../../utils/navigation'
 import WebhooksAbout from './webhooks-about'
 import WebhooksManage from './webhooks-manage'
@@ -11,20 +10,20 @@ import WebhooksNew from './webhooks-new'
 import WebhooksControls from './webhooks-controls'
 import { useWebhooksState } from './state/use-webhooks-state'
 
-export const handleChangeTab = (history: History) => (event: ChangeEvent<HTMLInputElement>) => {
-  history.push(`${event.target.value}${history.location.search}`)
+export const handleChangeTab = (navigate: NavigateFunction) => (event: ChangeEvent<HTMLInputElement>) => {
+  navigate(`${event.target.value}${window.location.search}`)
 }
 
 export const WebhooksWrapper: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { webhooksDataState } = useWebhooksState()
   const { Modal, openModal, closeModal } = useModal()
   const { isMobile } = useMediaQuery()
   const { apps } = webhooksDataState
   const { pathname } = window.location
-  const isAboutPage = pathname === Routes.WEBHOOKS_ABOUT
-  const isManagePage = pathname === Routes.WEBHOOKS_MANAGE
-  const isLogsPage = pathname === Routes.WEBHOOKS_LOGS
+  const isAboutPage = pathname === RoutePaths.WEBHOOKS_ABOUT
+  const isManagePage = pathname === RoutePaths.WEBHOOKS_MANAGE
+  const isLogsPage = pathname === RoutePaths.WEBHOOKS_LOGS
   const isNewPage = !isAboutPage && !isLogsPage && !isManagePage
 
   return (
@@ -59,40 +58,40 @@ export const WebhooksWrapper: FC = () => {
       <Tabs
         name="webhook-tabs"
         isFullWidth
-        onChange={handleChangeTab(history)}
+        onChange={handleChangeTab(navigate)}
         options={[
           {
             id: 'webhook-tab-about',
-            value: Routes.WEBHOOKS_ABOUT,
+            value: RoutePaths.WEBHOOKS_ABOUT,
             text: 'About Webhooks',
             isChecked: isAboutPage,
           },
           {
             id: 'webhook-tab-new',
-            value: Routes.WEBHOOKS_NEW,
+            value: RoutePaths.WEBHOOKS_NEW,
             text: 'Add Webhook',
             isChecked: isNewPage,
           },
           {
             id: 'webhook-tab-manage',
-            value: Routes.WEBHOOKS_MANAGE,
+            value: RoutePaths.WEBHOOKS_MANAGE,
             text: 'Manage Webhooks',
             isChecked: isManagePage,
           },
           {
             id: 'webhook-tab-logs',
-            value: Routes.WEBHOOKS_LOGS,
+            value: RoutePaths.WEBHOOKS_LOGS,
             text: 'Transaction Logs',
             isChecked: isLogsPage,
           },
         ]}
       />
-      <Switch>
-        <Route path={Routes.WEBHOOKS_NEW} exact component={WebhooksNew} />
-        <Route path={Routes.WEBHOOKS_MANAGE} component={WebhooksManage} />
-        <Route path={Routes.WEBHOOKS_LOGS} exact component={WebhooksLogs} />
-        <Route path={Routes.WEBHOOKS_ABOUT} exact component={WebhooksAbout} />
-      </Switch>
+      <Routes>
+        <Route path={RoutePaths.WEBHOOKS_NEW.replace('/webhooks/', '')} element={<WebhooksNew />} />
+        <Route path={RoutePaths.WEBHOOKS_MANAGE.replace('/webhooks/', '')} element={<WebhooksManage />} />
+        <Route path={RoutePaths.WEBHOOKS_LOGS.replace('/webhooks/', '')} element={<WebhooksLogs />} />å
+        <Route path={RoutePaths.WEBHOOKS_ABOUT.replace('/webhooks/', '')} element={<WebhooksAbout />} />
+      </Routes>
     </>
   )
 }

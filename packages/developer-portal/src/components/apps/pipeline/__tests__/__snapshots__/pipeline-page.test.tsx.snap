@@ -1,139 +1,183 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PipelinePage should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           App Pipeline
-        </h1>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       >
-        <div
-          class="egmnxi3-el-tabs-options-wrap"
-        >
-          <input
-            checked=""
-            class="enkj6b-el-tabs"
+        <mock-styled.div>
+          <mock-styled.input
             id="deployments"
             name="pipeline-tabs"
             type="radio"
             value="deployments"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="deployments"
+          <mock-styled.label
+            htmlfor="deployments"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Deployments
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="configure"
             name="pipeline-tabs"
             type="radio"
             value="configure"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="configure"
+          <mock-styled.label
+            htmlfor="configure"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Configure
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="environment"
             name="pipeline-tabs"
             type="radio"
             value="environment"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="environment"
+          <mock-styled.label
+            htmlfor="environment"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Environment Variables
             </span>
-          </label>
-        </div>
-        <div
-          class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
         />
-      </div>
-      <div
-        class="ec47sgk-el-mb11 e20pb60-el-grid"
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="e14pp0yd-el-col"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Status
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
-                <span
-                  class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                  
                 Failed
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Repository
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
-                <span
-                  class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                  
                 <a
@@ -143,29 +187,35 @@ Object {
                 >
                   https://github.com/bashleigh/reapit-react-test
                 </a>
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Location
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 <a
                   href="https://beautiful-land.iaas.paas.reapit.cloud"
@@ -174,39 +224,47 @@ Object {
                 >
                   https://beautiful-land.iaas.paas.reapit.cloud
                 </a>
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Github / Bitbucket App
-              </h2>
-              <div
-                class="e2kmzjs-el-flex-container"
+              </mock-styled.h2>
+              <mock-styled.div
+                classname=""
               >
                 <div
-                  class="e164f2tp-el-mr2"
+                  class="mock-css.
+  margin-right: 0.375rem;
+"
                 >
-                  <span
-                    class="e1iow709-el-intent-critical e1cp9zgf-el-status-indicator"
+                  <mock-styled.span
+                    classname="mock-css."
                   />
                 </div>
-                <p
-                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+                <mock-styled.p
+                  classname="mock-css. mock-css."
                 >
                   To deploy from repos, configure either the Reapit
                    
@@ -229,147 +287,195 @@ Object {
                   </a>
                    
                   app.
-                </p>
-              </div>
+                </mock-styled.p>
+              </mock-styled.div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ec47sgk-el-mb11 ejadz4k-el-table"
-      />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         App Pipeline
-      </h1>
-    </div>
-    <div
-      class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
     >
-      <div
-        class="egmnxi3-el-tabs-options-wrap"
-      >
-        <input
-          checked=""
-          class="enkj6b-el-tabs"
+      <mock-styled.div>
+        <mock-styled.input
           id="deployments"
           name="pipeline-tabs"
           type="radio"
           value="deployments"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="deployments"
+        <mock-styled.label
+          htmlfor="deployments"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Deployments
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="configure"
           name="pipeline-tabs"
           type="radio"
           value="configure"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="configure"
+        <mock-styled.label
+          htmlfor="configure"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Configure
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="environment"
           name="pipeline-tabs"
           type="radio"
           value="environment"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="environment"
+        <mock-styled.label
+          htmlfor="environment"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Environment Variables
           </span>
-        </label>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       />
-    </div>
-    <div
-      class="ec47sgk-el-mb11 e20pb60-el-grid"
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="e14pp0yd-el-col"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Status
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
-              <span
-                class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
+              <mock-styled.span
+                classname="mock-css."
               />
                
               Failed
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Repository
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
-              <span
-                class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+              <mock-styled.span
+                classname="mock-css."
               />
                
               <a
@@ -379,29 +485,35 @@ Object {
               >
                 https://github.com/bashleigh/reapit-react-test
               </a>
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Location
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               <a
                 href="https://beautiful-land.iaas.paas.reapit.cloud"
@@ -410,39 +522,47 @@ Object {
               >
                 https://beautiful-land.iaas.paas.reapit.cloud
               </a>
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Github / Bitbucket App
-            </h2>
-            <div
-              class="e2kmzjs-el-flex-container"
+            </mock-styled.h2>
+            <mock-styled.div
+              classname=""
             >
               <div
-                class="e164f2tp-el-mr2"
+                class="mock-css.
+  margin-right: 0.375rem;
+"
               >
-                <span
-                  class="e1iow709-el-intent-critical e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
               </div>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 To deploy from repos, configure either the Reapit
                  
@@ -465,15 +585,19 @@ Object {
                 </a>
                  
                 app.
-              </p>
-            </div>
+              </mock-styled.p>
+            </mock-styled.div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="ec47sgk-el-mb11 ejadz4k-el-table"
-    />
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -530,7 +654,7 @@ Object {
 `;
 
 exports[`PipelinePage should match snapshot for mobile view 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -539,151 +663,191 @@ Object {
       <div />
     </div>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           App Pipeline
-        </h1>
-        <div
-          class="ebqwrow-el-button-group"
-        >
-          <div
-            class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+        </mock-styled.h1>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+            <mock-styled.button
+              classname="mock-css."
             >
               Controls
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       >
-        <div
-          class="egmnxi3-el-tabs-options-wrap"
-        >
-          <input
-            checked=""
-            class="enkj6b-el-tabs"
+        <mock-styled.div>
+          <mock-styled.input
             id="deployments"
             name="pipeline-tabs"
             type="radio"
             value="deployments"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="deployments"
+          <mock-styled.label
+            htmlfor="deployments"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Deployments
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="configure"
             name="pipeline-tabs"
             type="radio"
             value="configure"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="configure"
+          <mock-styled.label
+            htmlfor="configure"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Configure
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="environment"
             name="pipeline-tabs"
             type="radio"
             value="environment"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="environment"
+          <mock-styled.label
+            htmlfor="environment"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Environment Variables
             </span>
-          </label>
-        </div>
-        <div
-          class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
         />
-      </div>
-      <div
-        class="ec47sgk-el-mb11 e20pb60-el-grid"
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="e14pp0yd-el-col"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Status
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
-                <span
-                  class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                  
                 Failed
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Repository
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
-                <span
-                  class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                  
                 <a
@@ -693,29 +857,35 @@ Object {
                 >
                   https://github.com/bashleigh/reapit-react-test
                 </a>
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Location
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 <a
                   href="https://beautiful-land.iaas.paas.reapit.cloud"
@@ -724,39 +894,47 @@ Object {
                 >
                   https://beautiful-land.iaas.paas.reapit.cloud
                 </a>
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Github / Bitbucket App
-              </h2>
-              <div
-                class="e2kmzjs-el-flex-container"
+              </mock-styled.h2>
+              <mock-styled.div
+                classname=""
               >
                 <div
-                  class="e164f2tp-el-mr2"
+                  class="mock-css.
+  margin-right: 0.375rem;
+"
                 >
-                  <span
-                    class="e1iow709-el-intent-critical e1cp9zgf-el-status-indicator"
+                  <mock-styled.span
+                    classname="mock-css."
                   />
                 </div>
-                <p
-                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+                <mock-styled.p
+                  classname="mock-css. mock-css."
                 >
                   To deploy from repos, configure either the Reapit
                    
@@ -779,163 +957,207 @@ Object {
                   </a>
                    
                   app.
-                </p>
-              </div>
+                </mock-styled.p>
+              </mock-styled.div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ec47sgk-el-mb11 ejadz4k-el-table"
-      />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         App Pipeline
-      </h1>
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+      </mock-styled.h1>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
           >
             Controls
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
     >
-      <div
-        class="egmnxi3-el-tabs-options-wrap"
-      >
-        <input
-          checked=""
-          class="enkj6b-el-tabs"
+      <mock-styled.div>
+        <mock-styled.input
           id="deployments"
           name="pipeline-tabs"
           type="radio"
           value="deployments"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="deployments"
+        <mock-styled.label
+          htmlfor="deployments"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Deployments
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="configure"
           name="pipeline-tabs"
           type="radio"
           value="configure"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="configure"
+        <mock-styled.label
+          htmlfor="configure"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Configure
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="environment"
           name="pipeline-tabs"
           type="radio"
           value="environment"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="environment"
+        <mock-styled.label
+          htmlfor="environment"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Environment Variables
           </span>
-        </label>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       />
-    </div>
-    <div
-      class="ec47sgk-el-mb11 e20pb60-el-grid"
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="e14pp0yd-el-col"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Status
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
-              <span
-                class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
+              <mock-styled.span
+                classname="mock-css."
               />
                
               Failed
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Repository
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
-              <span
-                class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+              <mock-styled.span
+                classname="mock-css."
               />
                
               <a
@@ -945,29 +1167,35 @@ Object {
               >
                 https://github.com/bashleigh/reapit-react-test
               </a>
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Location
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               <a
                 href="https://beautiful-land.iaas.paas.reapit.cloud"
@@ -976,39 +1204,47 @@ Object {
               >
                 https://beautiful-land.iaas.paas.reapit.cloud
               </a>
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Github / Bitbucket App
-            </h2>
-            <div
-              class="e2kmzjs-el-flex-container"
+            </mock-styled.h2>
+            <mock-styled.div
+              classname=""
             >
               <div
-                class="e164f2tp-el-mr2"
+                class="mock-css.
+  margin-right: 0.375rem;
+"
               >
-                <span
-                  class="e1iow709-el-intent-critical e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
               </div>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 To deploy from repos, configure either the Reapit
                  
@@ -1031,15 +1267,19 @@ Object {
                 </a>
                  
                 app.
-              </p>
-            </div>
+              </mock-styled.p>
+            </mock-styled.div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="ec47sgk-el-mb11 ejadz4k-el-table"
-    />
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1096,59 +1336,51 @@ Object {
 `;
 
 exports[`PipelinePage should match snapshot where loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           App Pipeline
-        </h1>
-      </div>
-      <div
-        class="ebhrnzh-el-loader-container"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eq1m1jz-el-loader"
-        >
-          <div
-            class="exikdu1-el-loader-moving-bar"
-          />
-        </div>
-      </div>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         App Pipeline
-      </h1>
-    </div>
-    <div
-      class="ebhrnzh-el-loader-container"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eq1m1jz-el-loader"
-      >
-        <div
-          class="exikdu1-el-loader-moving-bar"
-        />
-      </div>
-    </div>
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1205,30 +1437,32 @@ Object {
 `;
 
 exports[`PipelinePage should match snapshot where no pipeline 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           App Pipeline
-        </h1>
-      </div>
-      <div
-        class="e20pb60-el-grid"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eb3z2eu-el-col-split"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1ffzzrg-el-mb10 i147akox-icon-container"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
             <svg
               class=""
@@ -1369,41 +1603,108 @@ Object {
                 />
               </g>
             </svg>
-          </div>
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Pipeline Deployments
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             Pipelines are configurations used to deploy applications to our infrastructure. Think of them like a CI / CD runner like Github Actions, Travis or CircleCI
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             A Pipeline can be created via the developer portal or via our CLI NPM package.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             When you have created a pipeline for your app, you can either deploy it from the command line from a zip file, or by pulling directly from a Github or Bitbucket repo. This will give you a link to your deployed service in the Reapit Platform Cloud.
-          </p>
-          <button
-            class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
           >
             Create Pipeline
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-        <div
-          class="eb3z2eu-el-col-split"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1ffzzrg-el-mb10 i147akox-icon-container"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
             <svg
               class=""
@@ -1598,7 +1899,7 @@ Object {
                   </g>
                   <g
                     id="webhooks-docs-svg-element-nine"
-                    style="offset-path: path(\\"M37.255498,23.852076L39.921657,34.649638\\"); offset-rotate: auto;"
+                    style="offset-path: path("M37.255498,23.852076L39.921657,34.649638"); offset-rotate: auto;"
                   >
                     <g
                       id="webhooks-docs-svg-element-ten"
@@ -1624,7 +1925,7 @@ Object {
                   </g>
                   <g
                     id="webhooks-docs-svg-element-twelve"
-                    style="offset-path: path(\\"M103.180305,18.127591L98.950013,25.52561\\"); offset-rotate: auto;"
+                    style="offset-path: path("M103.180305,18.127591L98.950013,25.52561"); offset-rotate: auto;"
                   >
                     <g
                       id="webhooks-docs-svg-element-thirteen"
@@ -1678,55 +1979,55 @@ Object {
                 </clippath>
               </g>
             </svg>
-          </div>
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Pipeline Documentation
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             For more on how to get started with Pipelines and deploying to Reapit infrastructure as a Service (IAAS), visit the doucmentation link below.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             Please note, this service is a public Alpha and there may be some reliabilty issues while we refine our processes. As such, for now you should only use our infra for internal testing, pre-production applications and non-mission critical services.
-          </p>
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css."
           >
             View Docs
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         App Pipeline
-      </h1>
-    </div>
-    <div
-      class="e20pb60-el-grid"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eb3z2eu-el-col-split"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1ffzzrg-el-mb10 i147akox-icon-container"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
           <svg
             class=""
@@ -1867,41 +2168,108 @@ Object {
               />
             </g>
           </svg>
-        </div>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Pipeline Deployments
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           Pipelines are configurations used to deploy applications to our infrastructure. Think of them like a CI / CD runner like Github Actions, Travis or CircleCI
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           A Pipeline can be created via the developer portal or via our CLI NPM package.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           When you have created a pipeline for your app, you can either deploy it from the command line from a zip file, or by pulling directly from a Github or Bitbucket repo. This will give you a link to your deployed service in the Reapit Platform Cloud.
-        </p>
-        <button
-          class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
         >
           Create Pipeline
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-      <div
-        class="eb3z2eu-el-col-split"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1ffzzrg-el-mb10 i147akox-icon-container"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
           <svg
             class=""
@@ -2096,7 +2464,7 @@ Object {
                 </g>
                 <g
                   id="webhooks-docs-svg-element-nine"
-                  style="offset-path: path(\\"M37.255498,23.852076L39.921657,34.649638\\"); offset-rotate: auto;"
+                  style="offset-path: path("M37.255498,23.852076L39.921657,34.649638"); offset-rotate: auto;"
                 >
                   <g
                     id="webhooks-docs-svg-element-ten"
@@ -2122,7 +2490,7 @@ Object {
                 </g>
                 <g
                   id="webhooks-docs-svg-element-twelve"
-                  style="offset-path: path(\\"M103.180305,18.127591L98.950013,25.52561\\"); offset-rotate: auto;"
+                  style="offset-path: path("M103.180305,18.127591L98.950013,25.52561"); offset-rotate: auto;"
                 >
                   <g
                     id="webhooks-docs-svg-element-thirteen"
@@ -2176,32 +2544,30 @@ Object {
               </clippath>
             </g>
           </svg>
-        </div>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Pipeline Documentation
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           For more on how to get started with Pipelines and deploying to Reapit infrastructure as a Service (IAAS), visit the doucmentation link below.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Please note, this service is a public Alpha and there may be some reliabilty issues while we refine our processes. As such, for now you should only use our infra for internal testing, pre-production applications and non-mission critical services.
-        </p>
-        <button
-          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -2258,75 +2624,105 @@ Object {
 `;
 
 exports[`PipelinePage should match snapshot where no pipeline or app 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           App Pipeline
-        </h1>
-      </div>
-      <div
-        class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css. mock-css. mock-css. mock-css."
       >
         <div
-          class="eta6kcl-el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="e1geon40-el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           No record of this app found, please select an app from the My Apps page.
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         App Pipeline
-      </h1>
-    </div>
-    <div
-      class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css. mock-css. mock-css. mock-css."
     >
       <div
-        class="eta6kcl-el-pn-icon"
+        class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
         data-testid="close-icon"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
+        </mock-styled.span>
       </div>
       <div
-        class="e1geon40-el-pn-content"
+        class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
       >
         No record of this app found, please select an app from the My Apps page.
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

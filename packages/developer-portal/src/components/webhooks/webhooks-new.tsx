@@ -9,15 +9,14 @@ import { WebhooksNewStatus } from './webhooks-new-status'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SchemaOf, boolean, object, string } from 'yup'
 import errorMessages from '../../constants/error-messages'
-import { httpsUrlRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { History } from 'history'
+import { httpsUrlRegex } from '@reapit/utils-common'
 import Routes from '../../constants/routes'
-import { useHistory } from 'react-router'
+import { NavigateFunction, useNavigate } from 'react-router'
 import { createCta } from './__styles__'
 import { cx } from '@linaria/core'
 import { useWebhooksState } from './state/use-webhooks-state'
 import { handleSelectFilters } from './webhooks-controls'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { CreateWebhookModel } from '../../types/webhooks'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
@@ -131,11 +130,12 @@ export const getStepContent = (
   ]
 }
 
-export const handleWebhookCreation = (applicationId: string, history: History, webhookCreated?: boolean) => () => {
-  if (webhookCreated) {
-    history.push(`${Routes.WEBHOOKS_MANAGE}?applicationId=${applicationId}`)
+export const handleWebhookCreation =
+  (applicationId: string, navigate: NavigateFunction, webhookCreated?: boolean) => () => {
+    if (webhookCreated) {
+      navigate(`${Routes.WEBHOOKS_MANAGE}?applicationId=${applicationId}`)
+    }
   }
-}
 
 export const WebhooksNew: FC = () => {
   const { webhooksFilterState, setWebhooksFilterState } = useWebhooksState()
@@ -151,7 +151,7 @@ export const WebhooksNew: FC = () => {
       applicationId: webhooksFilterState.applicationId,
     },
   })
-  const history = useHistory()
+  const navigate = useNavigate()
   const [selectedStep, setSelectedStep] = useState<string>('1')
   const steps = getStepContent(register, getValues, errors)
   const currentStep = steps.find((step) => step.item === selectedStep)
@@ -162,13 +162,13 @@ export const WebhooksNew: FC = () => {
 
   const [webhookCreating, , createWebhook, createWebhookSuccess] = useReapitUpdate<CreateWebhookModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.createWebhook],
+    action: updateActions[UpdateActionNames.createWebhook],
     method: 'POST',
   })
 
-  useEffect(handleWebhookCreation(applicationId, history, createWebhookSuccess), [createWebhookSuccess])
+  useEffect(handleWebhookCreation(applicationId, navigate, createWebhookSuccess), [createWebhookSuccess])
 
-  useEffect(() => handleSelectFilters(setWebhooksFilterState, history)(undefined, applicationId), [applicationId])
+  useEffect(() => handleSelectFilters(setWebhooksFilterState, navigate)(undefined, applicationId), [applicationId])
 
   useEffect(() => {
     if (webhooksFilterState.applicationId) {

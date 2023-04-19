@@ -1,93 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppPipeline Should match snapshot where connect session is present 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="epibvz0-el-intent-secondary evmehgn-el-is-active erhlo5n-el-persistent-notification"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css. mock-css. mock-css. mock-css."
       >
         <div
-          class="eta6kcl-el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="e1geon40-el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
-          Pipelines are in public beta and under active development. Please give us feeback and report bugs via
-           
-          <a
-            href="https://github.com/reapit/foundations/issues/new?assignees=&labels=bug%2C+needs-triage%2C+iaas%2C+front-end&template=bug_report.md&title="
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Github
-          </a>
-           
-          or
-           
-          <a
-            href="mailto:iaasbeta@reapitfoundations.zendesk.com?subject=IAAS%20Beta"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            email.
-          </a>
+          Something went wrong here, try refreshing your page.
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="epibvz0-el-intent-secondary evmehgn-el-is-active erhlo5n-el-persistent-notification"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css. mock-css. mock-css. mock-css."
     >
       <div
-        class="eta6kcl-el-pn-icon"
+        class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
         data-testid="close-icon"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
+        </mock-styled.span>
       </div>
       <div
-        class="e1geon40-el-pn-content"
+        class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
       >
-        Pipelines are in public beta and under active development. Please give us feeback and report bugs via
-         
-        <a
-          href="https://github.com/reapit/foundations/issues/new?assignees=&labels=bug%2C+needs-triage%2C+iaas%2C+front-end&template=bug_report.md&title="
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Github
-        </a>
-         
-        or
-         
-        <a
-          href="mailto:iaasbeta@reapitfoundations.zendesk.com?subject=IAAS%20Beta"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          email.
-        </a>
+        Something went wrong here, try refreshing your page.
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

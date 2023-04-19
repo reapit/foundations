@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
-import { AppSavingParams, AppUriParams, useAppState } from '../state/use-app-state'
+import { AppSavingParams, useAppState } from '../state/use-app-state'
 import { handleSetAppId } from '../utils/handle-set-app-id'
 import { useParams } from 'react-router-dom'
 import { AppEditTabs } from './edit-page-tabs'
@@ -7,13 +7,13 @@ import { AppEditFormSchema } from './form-schema/form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { appEditValidationSchema } from './form-schema/validation-schema'
 import { FieldNamesMarkedBoolean, useForm, UseFormHandleSubmit, UseFormReset, UseFormSetValue } from 'react-hook-form'
-import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/use-reapit-data'
 import {
   AppDetailModel,
   CreateAppRevisionConsentsModel,
   CreateAppRevisionModel,
 } from '@reapit/foundations-ts-definitions'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { formatFormValues } from '../utils/format-form-values'
 import { handleSetIncompletedFields } from '../utils/validate-schema'
@@ -108,7 +108,7 @@ export const handleSendConstents =
   }
 
 export const AppEditForm: FC = () => {
-  const { appId } = useParams<AppUriParams>()
+  const { appId } = useParams<'appId'>()
   const { appEditState, setAppId, appsDataState } = useAppState()
   const { globalDataState } = useGlobalState()
   const {
@@ -126,7 +126,7 @@ export const AppEditForm: FC = () => {
 
   const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.createAppRevsion],
+    action: updateActions[UpdateActionNames.createAppRevsion],
     method: 'POST',
     uriParams: {
       appId,
@@ -136,7 +136,7 @@ export const AppEditForm: FC = () => {
 
   const [, , createConsentEmails] = useReapitUpdate<CreateAppRevisionConsentsModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.createConsentEmails],
+    action: updateActions[UpdateActionNames.createConsentEmails],
     method: 'POST',
     uriParams: {
       appId,
@@ -164,7 +164,7 @@ export const AppEditForm: FC = () => {
 
   const numberDirtyFields = Object.keys(dirtyFields).length
 
-  useEffect(handleSetAppId(appId, setAppId), [appId])
+  useEffect(handleSetAppId(setAppId, appId), [appId])
 
   useEffect(handleUnsavedChanges(dirtyFields, setAppUnsavedFields), [numberDirtyFields])
 

@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Col component should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="c1vn66ty-col s1p23mho-span12"
+        class="mock-css. mock-css.
+  grid-column-end: span 12;
+"
       >
         <p>
           I am child
@@ -18,11 +18,11 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="c1vn66ty-col s1p23mho-span12"
+      class="mock-css. mock-css.
+  grid-column-end: span 12;
+"
     >
       <p>
         I am child
@@ -84,15 +84,15 @@ Object {
 `;
 
 exports[`Col component should render with the correct classNames when supplied span and offset props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="c1vn66ty-col s1p23mho-span12"
+        class="mock-css. mock-css.
+  grid-column-end: span 12;
+"
       >
         <p>
           I am child
@@ -101,11 +101,11 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="c1vn66ty-col s1p23mho-span12"
+      class="mock-css. mock-css.
+  grid-column-end: span 12;
+"
     >
       <p>
         I am child
@@ -167,15 +167,20 @@ Object {
 `;
 
 exports[`Grid component should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="gjb2sm5-grid r11dgevr-row-gap8 c1578f7i-col-gap6"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+ mock-css.
+  grid-row-gap: 2rem;
+ mock-css.
+  grid-column-gap: 1.5rem;
+"
       >
         <p>
           I am child
@@ -184,11 +189,16 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="gjb2sm5-grid r11dgevr-row-gap8 c1578f7i-col-gap6"
+      class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+ mock-css.
+  grid-row-gap: 2rem;
+ mock-css.
+  grid-column-gap: 1.5rem;
+"
     >
       <p>
         I am child

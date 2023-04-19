@@ -2,12 +2,12 @@ import React, { FC, useMemo } from 'react'
 import { elSpan2, PersistentNotification, RowProps, Table, useSnack } from '@reapit/elements'
 import dayjs from 'dayjs'
 import { saveAs } from 'file-saver'
-import { logger, useReapitGet } from '@reapit/utils-react'
+import { logger } from '@reapit/utils-react'
 import { Loader } from '@reapit/elements'
 import { TopicModel, WebhookLogModel } from '../../types/webhooks'
 import { useWebhooksState } from './state/use-webhooks-state'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 
 export interface WebhookLogsQuery {
   from: string
@@ -105,7 +105,7 @@ export const WebhooksLogs: FC = () => {
 
   const [logs, logsLoading] = useReapitGet<WebhookLogModel[]>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getWebhookLogs],
+    action: getActions[GetActionNames.getWebhookLogs],
     queryParams,
     fetchWhenTrue: [applicationId, from, to],
     onError: (err: string) => {

@@ -7,7 +7,6 @@ import {
   getDefaultValues,
 } from '../pipeline-configure'
 import { render } from '../../../../tests/react-testing'
-import { History } from 'history'
 import Routes from '../../../../constants/routes'
 import { mockPipelineModelInterface } from '../../../../tests/__stubs__/pipeline'
 import { mockAppDetailModel } from '../../../../tests/__stubs__/apps'
@@ -60,17 +59,15 @@ describe('handlePipelineUpdate', () => {
 
 describe('handleUpdateSuccess', () => {
   it('should handle update success', () => {
-    const history = {
-      push: jest.fn(),
-    } as unknown as History
+    const navigate = jest.fn()
     const appId = 'MOCK_ID'
     const updateSuccessful = true
 
-    const curried = handleUpdateSuccess(history, appId, updateSuccessful)
+    const curried = handleUpdateSuccess(navigate, appId, updateSuccessful)
 
     curried()
 
-    expect(history.push).toHaveBeenCalledWith(Routes.APP_PIPELINE.replace(':appId', appId))
+    expect(navigate).toHaveBeenCalledWith(Routes.APP_PIPELINE.replace(':appId', appId))
   })
 })
 

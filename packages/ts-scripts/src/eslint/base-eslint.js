@@ -67,6 +67,7 @@ module.exports = {
     'no-unexpected-multiline': 'error',
     // Disabling as conflicts with Prettier
     indent: 0,
+    'react/react-in-jsx-scope': 0,
     // Disabling as we are validating types with TypeScript not PropTypes
     'react/prop-types': 0,
     'react-hooks/rules-of-hooks': 0,

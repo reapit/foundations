@@ -17,18 +17,17 @@ import {
   PackageManagerEnum,
   PipelineModelInterface,
 } from '@reapit/foundations-ts-definitions'
-import { httpsUrlRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { useAppState } from '../state/use-app-state'
-import { useHistory, useLocation } from 'react-router'
-import { History } from 'history'
+import { NavigateFunction, useLocation, useNavigate } from 'react-router'
 import Routes from '../../../constants/routes'
 import { PipelineTabs } from './pipeline-tabs'
 import { specialCharsTest } from '../../../utils/yup'
+import { httpsUrlRegex } from '@reapit/utils-common'
 
 type PipelineModelSchema = Omit<
   PipelineModelInterface,
@@ -96,11 +95,12 @@ export const handlePipelineUpdate =
     }
   }
 
-export const handleUpdateSuccess = (history: History, appId: string | null, updateSuccessful?: boolean) => () => {
-  if (updateSuccessful && appId) {
-    history.push(Routes.APP_PIPELINE.replace(':appId', appId))
+export const handleUpdateSuccess =
+  (navigate: NavigateFunction, appId: string | null, updateSuccessful?: boolean) => () => {
+    if (updateSuccessful && appId) {
+      navigate(Routes.APP_PIPELINE.replace(':appId', appId))
+    }
   }
-}
 
 export const handleSavePipeline =
   (submitHandler: () => void, appPipelineSaving: boolean, setAppPipelineSaving: Dispatch<SetStateAction<boolean>>) =>
@@ -134,7 +134,7 @@ export const getDefaultValues = (appPipeline: PipelineModelInterface | null, app
 }
 
 export const PipelineConfigure: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState, appId, appsDataState } = useAppState()
@@ -155,9 +155,7 @@ export const PipelineConfigure: FC = () => {
     PipelineModelInterface
   >({
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[
-      appPipeline ? UpdateActionNames.updatePipeline : UpdateActionNames.createPipeline
-    ],
+    action: updateActions[appPipeline ? UpdateActionNames.updatePipeline : UpdateActionNames.createPipeline],
     method: appPipeline ? 'PUT' : 'POST',
     uriParams: {
       pipelineId: appId,
@@ -171,7 +169,7 @@ export const PipelineConfigure: FC = () => {
     handlePipelineUpdate(updatePipeline, setAppPipelineSaving, appPipelineRefresh, appId),
   )
 
-  useEffect(handleUpdateSuccess(history, appId, updateSuccessful), [updateSuccessful, appId])
+  useEffect(handleUpdateSuccess(navigate, appId, updateSuccessful), [updateSuccessful, appId])
 
   useEffect(handleSavePipeline(submitHandler, appPipelineSaving, setAppPipelineSaving), [appPipelineSaving])
 

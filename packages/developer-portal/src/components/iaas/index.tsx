@@ -18,8 +18,8 @@ import {
   elMb5,
 } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import React, { FC, useState } from 'react'
 import ErrorBoundary from '../../core/error-boundary'
 import { useGlobalState } from '../../core/use-global-state'
@@ -48,7 +48,7 @@ export const IaaS: FC = () => {
 
   const [pipelines, loading] = useReapitGet<Pagination<PipelineModelInterface>>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.paginatePipeline],
+    action: getActions[GetActionNames.paginatePipeline],
     headers: {
       Authorization: connectSession?.idToken as string,
     },

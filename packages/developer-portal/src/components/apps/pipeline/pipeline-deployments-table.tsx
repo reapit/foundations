@@ -2,14 +2,8 @@ import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { elMb11, Loader, Pagination, StatusIndicator, Table } from '@reapit/elements'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { useAppState } from '../state/use-app-state'
-import {
-  GetActionNames,
-  getActions,
-  buildStatusToIntent,
-  buildStatusToReadable,
-  runnerTypeToReadable,
-} from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { buildStatusToIntent, buildStatusToReadable, runnerTypeToReadable } from '@reapit/utils-common'
+import { useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { TaskList } from './pipeline-tasks-list'
 import { isoDateToHuman } from '../../../utils/date-time'
@@ -89,7 +83,7 @@ export const PipelineDeploymentTable: FC = () => {
 
   const [pipelineDeployments, loading, , refreshPipelineRunners] = useReapitGet<PipelineRunnerResponse>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getPipelineDeployments],
+    action: getActions[GetActionNames.getPipelineDeployments],
     uriParams: {
       pipelineId: appPipeline?.id,
     },

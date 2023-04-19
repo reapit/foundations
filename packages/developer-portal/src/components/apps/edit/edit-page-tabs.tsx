@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Control, DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
-import { Route, Switch } from 'react-router'
-import Routes from '../../../constants/routes'
+import { Route, Routes } from 'react-router'
+import RoutePaths from '../../../constants/routes'
 import { AcIntegrationTab } from './ac-integration-tab'
 import { AppListingTab } from './app-listing-tab'
 import { AuthenticationTab } from './authentication-tab'
@@ -26,32 +26,12 @@ export interface AppEditTabsProps {
 
 export const AppEditTabs: FC<AppEditTabsProps> = (props) => {
   return (
-    <Switch>
-      <Route
-        path={Routes.APPS_EDIT_AUTHENTICATION}
-        exact
-        render={(routerProps) => <AuthenticationTab {...routerProps} {...props} />}
-      />
-      <Route
-        path={Routes.APPS_EDIT_PERMISSIONS}
-        exact
-        render={(routerProps) => <PermissionsTab {...routerProps} {...props} />}
-      />
-      <Route
-        path={Routes.APPS_EDIT_APP_LISTING}
-        exact
-        render={(routerProps) => <AppListingTab {...routerProps} {...props} />}
-      />
-      <Route
-        path={Routes.APPS_EDIT_AC_INTEGRATION}
-        exact
-        render={(routerProps) => <AcIntegrationTab {...routerProps} {...props} />}
-      />
-      <Route
-        path={Routes.APPS_EDIT_GENERAL}
-        exact
-        render={(routerProps) => <GeneralTab {...routerProps} {...props} />}
-      />
-    </Switch>
+    <Routes>
+      <Route path={RoutePaths.APPS_EDIT_AUTHENTICATION.split('edit/')[1]} element={<AuthenticationTab {...props} />} />
+      <Route path={RoutePaths.APPS_EDIT_PERMISSIONS.split('edit/')[1]} element={<PermissionsTab {...props} />} />
+      <Route path={RoutePaths.APPS_EDIT_APP_LISTING.split('edit/')[1]} element={<AppListingTab {...props} />} />
+      <Route path={RoutePaths.APPS_EDIT_AC_INTEGRATION.split('edit/')[1]} element={<AcIntegrationTab {...props} />} />
+      <Route path={RoutePaths.APPS_EDIT_GENERAL.split('edit/')[1]} element={<GeneralTab {...props} />} />
+    </Routes>
   )
 }

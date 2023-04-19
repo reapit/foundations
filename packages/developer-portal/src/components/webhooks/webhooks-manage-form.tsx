@@ -24,7 +24,7 @@ import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useMemo, u
 import { yupResolver } from '@hookform/resolvers/yup'
 import Yup, { boolean, object, string } from 'yup'
 import errorMessages from '../../constants/error-messages'
-import { httpsUrlRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { httpsUrlRegex } from '@reapit/utils-common'
 import { useForm, UseFormGetValues } from 'react-hook-form'
 import { TopicModel, UpdateWebhookModel, WebhookModel } from '../../types/webhooks'
 import { searchMinWidth } from './__styles__'
@@ -32,7 +32,7 @@ import { handleInstallationsToOptions } from './webhooks-new-customers'
 import { cx } from '@linaria/core'
 import { ExpandableContentType } from './webhooks-manage'
 import { useWebhooksState } from './state/use-webhooks-state'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 interface WebhooksManageFormProps {
@@ -164,14 +164,14 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
 
   const [, webhookUpdating, updateWebhook, updateWebhookSuccess] = useReapitUpdate<UpdateWebhookModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.updateWebhook],
+    action: updateActions[UpdateActionNames.updateWebhook],
     method: 'PUT',
     uriParams: { webhookId: webhookModel.id },
   })
 
   const [, webhookDeleting, deleteWebhook, deleteWebhookSuccess] = useReapitUpdate<undefined, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.deleteWebhook],
+    action: updateActions[UpdateActionNames.deleteWebhook],
     method: 'DELETE',
     uriParams: { webhookId: webhookModel.id },
   })

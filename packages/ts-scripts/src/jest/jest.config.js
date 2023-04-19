@@ -2,6 +2,7 @@ const path = require('path')
 const { defaults } = require('jest-config')
 
 const jestGlobalConfig = {
+  preset: 'ts-jest',
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   setupFiles: [path.join(__dirname, './jest-setup')],
@@ -19,11 +20,10 @@ const jestGlobalConfig = {
     '^.+.(?=.*scss|sass|css|png|jpg|pdf|jpeg).*': path.join(__dirname, './css-stub.js'),
     'swagger-ui-react': path.join(__dirname, './swagger-stub.js'),
   },
-  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql'],
+  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql', 'mjs'],
   verbose: false,
   projects: ['<rootDir>/jest.config.js'],
   transform: {
-    '\\.[jt]sx?$': 'babel-jest',
     '\\.(gql|graphql)$': '@graphql-tools/jest-transform',
   },
   reporters: ['default', 'github-actions'],

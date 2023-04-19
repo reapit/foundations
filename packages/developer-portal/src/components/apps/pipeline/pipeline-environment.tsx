@@ -28,8 +28,8 @@ import {
 } from '@reapit/elements'
 import { useForm } from 'react-hook-form'
 import { cx } from '@linaria/core'
-import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { useReapitGet, useReapitUpdate } from '@reapit/use-reapit-data'
+import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { array, object, ref, SchemaOf, string } from 'yup'
 import { PipelineEnvUpdateTableRow } from './pipeline-environment-update-table-row'
@@ -58,7 +58,7 @@ export const PipelineEnvironment = () => {
 
   const [fetchedKeys, isFetching] = useReapitGet<string[]>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getPipelineEnvironment],
+    action: getActions[GetActionNames.getPipelineEnvironment],
     uriParams: {
       pipelineId: appId,
     },
@@ -70,7 +70,7 @@ export const PipelineEnvironment = () => {
 
   const [sending, , func] = useReapitUpdate<{ key: string; value: string; existingKeys: string[] }, void>({
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.upsertPipelineEnvironment],
+    action: updateActions[UpdateActionNames.upsertPipelineEnvironment],
     uriParams: {
       pipelineId: appId,
     },

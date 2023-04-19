@@ -16,8 +16,8 @@ import {
 } from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
 import { ProductModelPagedResult, ScopeModel } from '@reapit/foundations-ts-definitions'
-import { getActions, GetActionNames } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { getActions, GetActionNames } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useAppState } from '../state/use-app-state'
 import { formFields } from './form-schema/form-fields'
@@ -32,12 +32,12 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
 
   const [scopesList, scopesListLoading] = useReapitGet<ScopeModel[]>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getAppPermissions],
+    action: getActions[GetActionNames.getAppPermissions],
   })
 
   const [productsList, productListLoading] = useReapitGet<ProductModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getProducts],
+    action: getActions[GetActionNames.getProducts],
   })
 
   const isPrivateAppValue = useWatch({

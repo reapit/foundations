@@ -1,4 +1,4 @@
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import React from 'react'
 import { render } from '../../../../tests/react-testing'
 import { mockAppRevisionConsentModelResponse } from '../../../../tests/__stubs__/consents'
@@ -6,7 +6,8 @@ import { AppConsentsPage, handleResendEmail, handleSendConstents, handleSetConse
 
 jest.mock('../../state/use-app-state')
 jest.mock('../../../../core/use-global-state')
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockAppRevisionConsentModelResponse]),
   useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn()]),
 }))

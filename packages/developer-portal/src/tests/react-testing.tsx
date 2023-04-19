@@ -5,19 +5,26 @@
 import React, { FC, ReactElement } from 'react'
 import { queries, render, RenderOptions } from '@testing-library/react'
 import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
-import { Router } from 'react-router-dom'
-import { createBrowserHistory, History } from 'history'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 const CombinedProvider: FC = ({ children }) => {
-  const history: History<any> = createBrowserHistory()
   return (
-    <Router history={history}>
+    <QueryClientProvider client={queryClient}>
       <SnackProvider>
         <NavStateProvider>
-          <MediaStateProvider>{children}</MediaStateProvider>
+          <MediaStateProvider>
+            <MemoryRouter>
+              <Routes>
+                <Route path="/" element={<>{children}</>} />
+              </Routes>
+            </MemoryRouter>
+          </MediaStateProvider>
         </NavStateProvider>
       </SnackProvider>
-    </Router>
+    </QueryClientProvider>
   )
 }
 

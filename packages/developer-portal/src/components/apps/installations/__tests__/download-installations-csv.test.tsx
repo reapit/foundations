@@ -1,5 +1,5 @@
 import React from 'react'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockInstallationModelPagedResult } from '../../../../tests/__stubs__/installations'
 import { render } from '../../../../tests/react-testing'
 import { DownloadInstallationsCSV, downloadInstallationAction } from '../download-installations-csv'
@@ -7,7 +7,8 @@ import Papa from 'papaparse'
 import FileSaver from 'file-saver'
 
 jest.mock('../../state/use-app-state')
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [{ data: [] }]),
 }))
 

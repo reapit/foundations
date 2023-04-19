@@ -1,363 +1,255 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CompanyForm should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="company"
                 placeholder="This will be the display name of the company in our AppMarket"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Company Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="telephone"
                 placeholder="A number we can discuss your developer account on"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Telephone
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="website"
                 placeholder="Your company's corporate website"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Website Address
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
-                disabled=""
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="true"
                 id="test-static-id"
                 name="email"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Office Email
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="notificationsEmail"
                 placeholder="An email address we can send notifications about your developer account to"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Notifications Email
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="noTaxRegistration"
                 type="checkbox"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 No VAT Number
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="taxNumber"
                 placeholder="If VAT registered, your must supply your VAT Number"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 VAT Number
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="noregistrationNumber"
                 type="checkbox"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 No Company Reg Number
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="registrationNumber"
                 placeholder="If you have a formal company, your should supply the registration number"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Company Reg Number
-              </label>
-            </div>
-          </div>
-          <div
-            class="ep31he9-el-input-wrap-full"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <textarea
-                class="e16rclfx-el-text-area"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.textarea
                 name="about"
                 placeholder="Tell us about your company in a few words. This will appear on your AppMarket listing pages"
               />
-              <label
-                class="e1nbkkrq-el-label"
-              >
+              <mock-styled.label>
                 About Company
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="buildingName"
                 placeholder="The building of your corporate office"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Building Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="buildingNumber"
                 placeholder="The number of your corporate office"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Building Number
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="line1"
                 placeholder="Line one of the address for your office"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Address Line 1
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="line2"
                 placeholder="Line two of the address for your office"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Address Line 2
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="line3"
                 placeholder="Line three of the address for your office"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Address Line 3
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="line4"
                 placeholder="Line four of the address for your office"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Address Line 4
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="postcode"
                 placeholder="Your office postcode"
               />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Postcode
-              </label>
-            </div>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <div
-              class="e1979rmu-el-input-group"
-            >
-              <select
-                class="e60u3kb-el-select"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.select
                 name="countryId"
               >
                 <option
@@ -1605,389 +1497,275 @@ Object {
                 >
                   Zimbabwe
                 </option>
-              </select>
-              <label
-                class="e1nbkkrq-el-label"
-              >
+              </mock-styled.select>
+              <mock-styled.label>
                 Country
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="ebqwrow-el-button-group"
-        >
-          <div
-            class="eh76izl-el-button-group-inner"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="submit"
             >
               Save Changes
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="company"
               placeholder="This will be the display name of the company in our AppMarket"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Company Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="telephone"
               placeholder="A number we can discuss your developer account on"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Telephone
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="website"
               placeholder="Your company's corporate website"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Website Address
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
-              disabled=""
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              disabled="true"
               id="test-static-id"
               name="email"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Office Email
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="notificationsEmail"
               placeholder="An email address we can send notifications about your developer account to"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Notifications Email
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="noTaxRegistration"
               type="checkbox"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               No VAT Number
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              disabled="false"
               id="test-static-id"
               name="taxNumber"
               placeholder="If VAT registered, your must supply your VAT Number"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               VAT Number
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="noregistrationNumber"
               type="checkbox"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               No Company Reg Number
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              disabled="false"
               id="test-static-id"
               name="registrationNumber"
               placeholder="If you have a formal company, your should supply the registration number"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Company Reg Number
-            </label>
-          </div>
-        </div>
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <textarea
-              class="e16rclfx-el-text-area"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.textarea
               name="about"
               placeholder="Tell us about your company in a few words. This will appear on your AppMarket listing pages"
             />
-            <label
-              class="e1nbkkrq-el-label"
-            >
+            <mock-styled.label>
               About Company
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="buildingName"
               placeholder="The building of your corporate office"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Building Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="buildingNumber"
               placeholder="The number of your corporate office"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Building Number
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="line1"
               placeholder="Line one of the address for your office"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Address Line 1
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="line2"
               placeholder="Line two of the address for your office"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Address Line 2
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="line3"
               placeholder="Line three of the address for your office"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Address Line 3
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="line4"
               placeholder="Line four of the address for your office"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Address Line 4
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="postcode"
               placeholder="Your office postcode"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Postcode
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <select
-              class="e60u3kb-el-select"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select
               name="countryId"
             >
               <option
@@ -3235,32 +3013,26 @@ Object {
               >
                 Zimbabwe
               </option>
-            </select>
-            <label
-              class="e1nbkkrq-el-label"
-            >
+            </mock-styled.select>
+            <mock-styled.label>
               Country
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="eh76izl-el-button-group-inner"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <button
-            class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
             type="submit"
           >
             Save Changes
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

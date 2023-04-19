@@ -1,37 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DownloadInstallationsCSV should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
-        disabled=""
+      <mock-styled.div />
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+        disabled="true"
       >
         Download CSV
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <button
-      class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
-      disabled=""
+    <mock-styled.div />
+    <mock-styled.button
+      classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+      disabled="true"
     >
       Download CSV
-      <div
-        class="e1q1vabn-el-button-loader"
-      />
-    </button>
+      <mock-styled.div />
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

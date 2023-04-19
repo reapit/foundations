@@ -1,361 +1,305 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UsageTable should match a snapshot with billing 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1g28qe3-el-mb7 ejadz4k-el-table"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 1.25rem;
+"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="4"
       >
-        <div
-          class="e1ijk5il-el-table-headers-row"
-        >
-          <div
-            class="e1co3p83-el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             Entity Name
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Total Number Calls
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Total Number Endpoints
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Total Cost
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
-            <span
-              class="ej9yrfo-el-icon"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.2rem;"
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Entity Name"
               >
                 contacts
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Total Number Calls"
               >
                 157
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Total Number Endpoints"
               >
                 2
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Total Cost"
               >
                 £1.96
-              </div>
-            </div>
-            <div
-              class="e1fmntjl-el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="e3q521i-el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eygkx5t-el-table-expandable-container"
-            >
-              <div
-                class="ejadz4k-el-table"
-              >
-                <div
-                  class="t3vux4e-three-col-table e1ijk5il-el-table-headers-row"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  grid-template-columns: repeat(3, 1fr);
+"
                 >
-                  <div
-                    class="e1co3p83-el-table-header"
-                  >
+                  <mock-styled.div>
                     Endpoint Name
-                  </div>
-                  <div
-                    class="e1co3p83-el-table-header"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Endpoint Number Calls
-                  </div>
-                  <div
-                    class="e1co3p83-el-table-header"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Endpoint Cost
-                  </div>
-                </div>
-                <div
-                  class="e1gfmg2g-el-table-row-container"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="t3vux4e-three-col-table e1qy4g2u-el-table-row"
+                  <mock-styled.div
+                    classname="mock-css.
+  grid-template-columns: repeat(3, 1fr);
+"
                   >
-                    <div
-                      class="e4zpaja-el-table-cell"
+                    <mock-styled.div
+                      classname=""
                     >
-                      <div
-                        class="e1t8i3z1-el-table-cell-content"
-                      >
+                      <mock-styled.div>
                         contacts
-                      </div>
-                    </div>
-                    <div
-                      class="e4zpaja-el-table-cell"
+                      </mock-styled.div>
+                    </mock-styled.div>
+                    <mock-styled.div
+                      classname=""
                     >
-                      <div
-                        class="e1t8i3z1-el-table-cell-content"
-                      >
+                      <mock-styled.div>
                         638
-                      </div>
-                    </div>
-                    <div
-                      class="e4zpaja-el-table-cell"
+                      </mock-styled.div>
+                    </mock-styled.div>
+                    <mock-styled.div
+                      classname=""
                     >
-                      <div
-                        class="e1t8i3z1-el-table-cell-content"
-                      >
+                      <mock-styled.div>
                         £7.97
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                      </mock-styled.div>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1g28qe3-el-mb7 ejadz4k-el-table"
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 1.25rem;
+"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="4"
     >
-      <div
-        class="e1ijk5il-el-table-headers-row"
-      >
-        <div
-          class="e1co3p83-el-table-header"
-        >
+      <mock-styled.div>
+        <mock-styled.div>
           Entity Name
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Total Number Calls
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Total Number Endpoints
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Total Cost
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
-          <span
-            class="ej9yrfo-el-icon"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
             style="font-size: 1.2rem;"
           >
             <svg />
-          </span>
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Entity Name"
             >
               contacts
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Total Number Calls"
             >
               157
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Total Number Endpoints"
             >
               2
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Total Cost"
             >
               £1.96
-            </div>
-          </div>
-          <div
-            class="e1fmntjl-el-table-expandable-row-trigger-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="e3q521i-el-table-expandable-row"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eygkx5t-el-table-expandable-container"
-          >
-            <div
-              class="ejadz4k-el-table"
-            >
-              <div
-                class="t3vux4e-three-col-table e1ijk5il-el-table-headers-row"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  grid-template-columns: repeat(3, 1fr);
+"
               >
-                <div
-                  class="e1co3p83-el-table-header"
-                >
+                <mock-styled.div>
                   Endpoint Name
-                </div>
-                <div
-                  class="e1co3p83-el-table-header"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Endpoint Number Calls
-                </div>
-                <div
-                  class="e1co3p83-el-table-header"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Endpoint Cost
-                </div>
-              </div>
-              <div
-                class="e1gfmg2g-el-table-row-container"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="t3vux4e-three-col-table e1qy4g2u-el-table-row"
+                <mock-styled.div
+                  classname="mock-css.
+  grid-template-columns: repeat(3, 1fr);
+"
                 >
-                  <div
-                    class="e4zpaja-el-table-cell"
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       contacts
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       638
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       £7.97
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

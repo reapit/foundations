@@ -1,8 +1,8 @@
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { defaultAnalyticsFilterState } from './defaults'
 
@@ -36,7 +36,7 @@ export const AnalyticsProvider: FC = ({ children }) => {
 
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 100 },
     fetchWhenTrue: [developerId],
   })

@@ -8,7 +8,8 @@ import {
 import { render, setViewport } from '../../../../tests/react-testing'
 import { mockSubscriptionModelPagedResult } from '../../../../tests/__stubs__/subscriptions'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockSubscriptionModelPagedResult, true]),
   useReapitUpdate: jest.fn(() => []),
 }))

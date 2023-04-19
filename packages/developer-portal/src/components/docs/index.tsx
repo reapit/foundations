@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { useHistory, useLocation } from 'react-router'
+import { useNavigate, useLocation } from 'react-router'
 import ErrorBoundary from '../../core/error-boundary'
 import Routes from '../../constants/routes'
 import { IFRAME_URLS } from '../../constants/iframe-urls'
@@ -19,7 +19,7 @@ import {
   Title,
 } from '@reapit/elements'
 import { iframeWrapper } from './__styles__/index'
-import { openNewPage, ExternalPages, navigate } from '../../utils/navigation'
+import { openNewPage, ExternalPages, navigateRoute } from '../../utils/navigation'
 
 export const parseIframeUrl = (pathname: string, hash: string): string => {
   const documentPagePath = pathname.split(Routes.API_DOCS)[1]
@@ -28,7 +28,7 @@ export const parseIframeUrl = (pathname: string, hash: string): string => {
 
 const DocsPage: FC = () => {
   const location = useLocation()
-  const history = useHistory()
+  const navigate = useNavigate()
   const { pathname } = location
   const isDevEnv = process.env.appEnv !== 'production' // Feature flagging until prod is ready
   const isDocsPage = pathname.includes(Routes.API_DOCS)
@@ -43,10 +43,10 @@ const DocsPage: FC = () => {
         <SecondaryNavContainer>
           <Title>Docs</Title>
           <SecondaryNav className={elMb9}>
-            <SecondaryNavItem onClick={navigate(history, Routes.API_DOCS)} active={isDocsPage}>
+            <SecondaryNavItem onClick={navigateRoute(navigate, Routes.API_DOCS)} active={isDocsPage}>
               APIs
             </SecondaryNavItem>
-            <SecondaryNavItem onClick={navigate(history, Routes.ANALYTICS_SCHEMA_DOCS)} active={isSchemaPage}>
+            <SecondaryNavItem onClick={navigateRoute(navigate, Routes.ANALYTICS_SCHEMA_DOCS)} active={isSchemaPage}>
               Warehouse
             </SecondaryNavItem>
           </SecondaryNav>

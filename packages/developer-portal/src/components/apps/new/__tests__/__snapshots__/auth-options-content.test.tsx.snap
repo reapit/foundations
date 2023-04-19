@@ -1,105 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AuthOptionsContent should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Login Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080/login"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Logout Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-      </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="s1cum27r-step-form-container"
-    >
-      <div
-        class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.25rem;
+"
       >
-        <input
-          class="e1urjlvd-el-input"
+        <mock-styled.input
           id="test-static-id"
           type="text"
-          value="http://localhost:8080"
         />
-        <label
-          class="e1nbkkrq-el-label"
-          for="test-static-id"
+        <mock-styled.label
+          htmlfor="test-static-id"
         >
           Login Redirect URI
-        </label>
-        <span
-          class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+        </mock-styled.label>
+        <mock-styled.span
+          classname="mock-css."
         >
           Some error
-        </span>
-      </div>
-      <div
-        class="e1979rmu-el-input-group"
-      >
-        <input
-          class="e1urjlvd-el-input"
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.input
           id="test-static-id"
           type="text"
-          value="http://localhost:8080/login"
         />
-        <label
-          class="e1nbkkrq-el-label"
-          for="test-static-id"
+        <mock-styled.label
+          htmlfor="test-static-id"
         >
           Logout Redirect URI
-        </label>
-        <span
-          class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+        </mock-styled.label>
+        <mock-styled.span
+          classname="mock-css."
         >
           Some error
-        </span>
-      </div>
-    </div>
+        </mock-styled.span>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -9,7 +9,8 @@ jest.mock('react-hook-form', () => ({
   Controller: ({ children }) => <div>{children}</div>,
   useWatch: jest.fn(),
 }))
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [{ data: [{ name: 'MOCK_DESCRIPTION', id: 'MOCK_ID' }] }]),
   useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn()]),
   UpdateReturnTypeEnum: {

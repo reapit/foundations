@@ -1,7 +1,13 @@
 import { useReapitConnect } from '@reapit/connect-session'
 import { BodyText, InputGroup, ButtonGroup, Button, Table, elMb6 } from '@reapit/elements'
-import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import {
+  useReapitGet,
+  useReapitUpdate,
+  GetActionNames,
+  getActions,
+  UpdateActionNames,
+  updateActions,
+} from '@reapit/use-reapit-data'
 import React, { FC, useEffect } from 'react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { selectIsCustomer } from '../../../utils/auth'
@@ -64,7 +70,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
 
   const [members] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getDeveloperMembers],
+    action: getActions[GetActionNames.getDeveloperMembers],
     uriParams: {
       developerId: connectSession?.loginIdentity.developerId,
     },
@@ -81,7 +87,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
   >({
     method: 'PUT',
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.updateDeveloper],
+    action: updateActions[UpdateActionNames.updateDeveloper],
     uriParams: {
       developerId: connectSession?.loginIdentity.developerId,
     },

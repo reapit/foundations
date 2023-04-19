@@ -1,12 +1,11 @@
 import React, { FC, MouseEvent, useEffect } from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import Routes from '../../../constants/routes'
 import { BodyText, Button, ButtonGroup, Card, elFadeIn, useModal } from '@reapit/elements'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
-import { updateActions, UpdateActionNames } from '@reapit/utils-common'
+import { SendFunction, useReapitUpdate, updateActions, UpdateActionNames } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { navigate } from '../../../utils/navigation'
+import { navigateRoute } from '../../../utils/navigation'
 import defaultAppIcon from '../../../assets/images/default-app-icon.jpg'
 import { useAppState } from '../state/use-app-state'
 import { cx } from '@linaria/core'
@@ -36,7 +35,7 @@ export interface AppCardProps {
 }
 
 export const AppCard: FC<AppCardProps> = ({ app }) => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { appsDataState } = useAppState()
   const { Modal, openModal, closeModal } = useModal()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
@@ -47,7 +46,7 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
 
   const [, , deleteApp, appDeleted] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.deleteApp],
+    action: updateActions[UpdateActionNames.deleteApp],
     method: 'DELETE',
     uriParams: {
       appId: id,
@@ -60,12 +59,12 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
     <>
       <Card
         className={cx(elFadeIn, cardCursor)}
-        onClick={navigate(history, `${Routes.APPS}/${id}`)}
+        onClick={navigateRoute(navigate, `${Routes.APPS}/${id}`)}
         hasMainCard
         mainContextMenuItems={[
           {
             icon: 'editSystem',
-            onClick: navigate(history, `${Routes.APPS}/${id}/edit/general`),
+            onClick: navigateRoute(navigate, `${Routes.APPS}/${id}/edit/general`),
             intent: 'primary',
           },
           {

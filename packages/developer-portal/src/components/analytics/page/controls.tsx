@@ -14,8 +14,8 @@ import {
 import { ControlsContainer, inputFullWidth, overflowHidden, visiblyHidden } from './__styles__'
 import { cx } from '@linaria/core'
 import { AppSummaryModel, InstallationModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet } from '@reapit/use-reapit-data'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AnalyticsFilterState, useAnalyticsState } from '../state/use-analytics-state'
@@ -61,7 +61,7 @@ export const Controls: FC = () => {
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getInstallations],
+    action: getActions[GetActionNames.getInstallations],
     queryParams: { developerId, pageSize: 999, isInstalled: true, ...appQuery },
     fetchWhenTrue: [developerId],
   })

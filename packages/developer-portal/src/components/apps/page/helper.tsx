@@ -1,9 +1,9 @@
 import { Button, elFadeIn, elMb3, Icon, SmallText, Subtitle } from '@reapit/elements'
 import { AppRevisionModelPagedResult, RejectRevisionModel } from '@reapit/foundations-ts-definitions'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { openNewPage, ExternalPages } from '../../../utils/navigation'
 import { AppSavingParams, useAppState } from '../state/use-app-state'
 import { getCurrentPage } from '../utils/get-current-page'
@@ -109,7 +109,7 @@ export const Helper: FC = () => {
 
   const [, , cancelRevision, cancelRevisionSuccess] = useReapitUpdate<RejectRevisionModel, null>({
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.cancelRevision],
+    action: updateActions[UpdateActionNames.cancelRevision],
     uriParams: {
       appId,
       revisionId,

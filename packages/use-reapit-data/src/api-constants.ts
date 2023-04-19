@@ -1,20 +1,19 @@
 export type AppEnv = 'local' | 'development' | 'production'
 
-export const ApiNames = (appEnv: AppEnv) => {
-  return {
-    platform: appEnv !== 'production' ? 'https://platform.dev.paas.reapit.cloud' : 'https://platform.reapit.cloud',
-    pipeline:
-      appEnv !== 'production'
-        ? 'https://deployments.dev.paas.reapit.cloud'
-        : 'https://deployments.prod.paas.reapit.cloud',
-    apiKey:
-      appEnv !== 'production'
-        ? 'https://api-key.dev.paas.reapit.cloud/api-key'
-        : 'https://api-key.prod.paas.reapit.cloud/api-key',
-    iaas: `${appEnv !== 'production' ? '.dev' : 'prod'}.paas.reapit.cloud`,
-    appMarketCms: `https://marketplace-cms.${appEnv !== 'production' ? 'dev' : 'prod'}.paas.reapit.cloud`,
-    payments: `https://payments-service.${appEnv !== 'production' ? 'dev' : 'prod'}.paas.reapit.cloud`,
-  }
+export const ApiNames = {
+  platform:
+    process.env.appEnv !== 'production' ? 'https://platform.dev.paas.reapit.cloud' : 'https://platform.reapit.cloud',
+  pipeline:
+    process.env.appEnv !== 'production'
+      ? 'https://deployments.dev.paas.reapit.cloud'
+      : 'https://deployments.prod.paas.reapit.cloud',
+  apiKey:
+    process.env.appEnv !== 'production'
+      ? 'https://api-key.dev.paas.reapit.cloud/api-key'
+      : 'https://api-key.prod.paas.reapit.cloud/api-key',
+  iaas: `${process.env.appEnv !== 'production' ? '.dev' : 'prod'}.paas.reapit.cloud`,
+  appMarketCms: `https://marketplace-cms.${process.env.appEnv !== 'production' ? 'dev' : 'prod'}.paas.reapit.cloud`,
+  payments: `https://payments-service.${process.env.appEnv !== 'production' ? 'dev' : 'prod'}.paas.reapit.cloud`,
 }
 
 export enum PathNames {

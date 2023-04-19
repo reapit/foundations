@@ -1,4 +1,4 @@
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { useAppState } from '../../apps/state/use-app-state'
@@ -8,7 +8,8 @@ import { IaaS } from '../index'
 jest.mock('../../apps/state/use-app-state')
 jest.mock('../../../core/use-global-state')
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [
     {
       items: [],

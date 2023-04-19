@@ -1,8 +1,8 @@
 import { BodyText, ColSplit, Grid, PersistentNotification, elMb11, elMb10, Button, Subtitle } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import Routes from '../../constants/routes'
-import { ExternalPages, navigate, openNewPage } from '../../utils/navigation'
+import { ExternalPages, navigateRoute, openNewPage } from '../../utils/navigation'
 import { IconContainer } from './__styles__/index'
 import { WebhooksAnimatedDocsIcon } from './webhooks-animated-docs-icon'
 import { WebhooksAnimatedNewIcon } from './webhooks-animated-new-icon'
@@ -17,7 +17,7 @@ export const handleDocsMouseOver =
   }
 
 export const WebhooksAbout: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const [newIsAnimated, setNewIsAnimated] = useState<boolean>(false)
   const [docsIsAnimated, setDocsIsAnimated] = useState<boolean>(false)
 
@@ -43,7 +43,7 @@ export const WebhooksAbout: FC = () => {
             onMouseLeave={handleNewMouseOver(setNewIsAnimated, false)}
             chevronRight
             intent="critical"
-            onClick={navigate(history, Routes.WEBHOOKS_NEW)}
+            onClick={navigateRoute(navigate, Routes.WEBHOOKS_NEW)}
           >
             Add new webhook
           </Button>

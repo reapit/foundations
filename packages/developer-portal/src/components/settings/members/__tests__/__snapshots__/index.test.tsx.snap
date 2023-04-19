@@ -1,507 +1,427 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SettingsMembersPage should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Members
-        </h1>
-      </div>
-      <div
-        class="ebhrnzh-el-loader-container"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eq1m1jz-el-loader"
-        >
-          <div
-            class="exikdu1-el-loader-moving-bar"
-          />
-        </div>
-      </div>
-      <div
-        class="ec47sgk-el-mb11 ejadz4k-el-table"
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
       >
-        <div
-          class="e1ijk5il-el-table-headers-row"
-        >
-          <div
-            class="e1co3p83-el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             Name
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Status
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Email
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Role
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Main Contact
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
-            <span
-              class="ej9yrfo-el-icon"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.2rem;"
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Name"
               >
                 Joe Dev
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Status"
               >
-                <span
-                  class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                  
                 Active
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Email"
               >
                 example@email.com
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Role"
               >
                 Admin
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Main Contact"
               >
-                <span
-                  class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-            <div
-              class="e1fmntjl-el-table-expandable-row-trigger-cell"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="e3q521i-el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eygkx5t-el-table-expandable-container"
-            >
-              <div
-                class="ebqwrow-el-button-group"
-              >
-                <div
-                  class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
                 >
-                  <button
-                    class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="false"
                   >
                     Set As 
                     User
-                    <div
-                      class="e1q1vabn-el-button-loader"
-                    />
-                  </button>
-                  <button
-                    class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="false"
                   >
                     Invite Again
-                    <div
-                      class="e1q1vabn-el-button-loader"
-                    />
-                  </button>
-                  <button
-                    class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="false"
                   >
                     Disable
-                    <div
-                      class="e1q1vabn-el-button-loader"
-                    />
-                  </button>
-                  <button
-                    class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
                   >
                     Set As Main Contact
-                    <div
-                      class="e1q1vabn-el-button-loader"
-                    />
-                  </button>
-                  <button
-                    class="e1vxext9-el-intent-danger e1tqqdf9-el-button"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="false"
                   >
                     Delete
-                    <div
-                      class="e1q1vabn-el-button-loader"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="e1nnyshg-el-pagination-wrap"
-      >
-        <div
-          class="ex6bmfc-el-pagination-text"
-        >
-          <input
-            class="e1yynswi-el-pagination-input"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           1
-        </div>
-        <button
-          class="e1g9l338-el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="e1g9l338-el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-      </div>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         Members
-      </h1>
-    </div>
-    <div
-      class="ebhrnzh-el-loader-container"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eq1m1jz-el-loader"
-      >
-        <div
-          class="exikdu1-el-loader-moving-bar"
-        />
-      </div>
-    </div>
-    <div
-      class="ec47sgk-el-mb11 ejadz4k-el-table"
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
     >
-      <div
-        class="e1ijk5il-el-table-headers-row"
-      >
-        <div
-          class="e1co3p83-el-table-header"
-        >
+      <mock-styled.div>
+        <mock-styled.div>
           Name
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Status
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Email
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Role
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Main Contact
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
-          <span
-            class="ej9yrfo-el-icon"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
             style="font-size: 1.2rem;"
           >
             <svg />
-          </span>
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Name"
             >
               Joe Dev
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Status"
             >
-              <span
-                class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+              <mock-styled.span
+                classname="mock-css."
               />
                
               Active
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Email"
             >
               example@email.com
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Role"
             >
               Admin
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Main Contact"
             >
-              <span
-                class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="e1fmntjl-el-table-expandable-row-trigger-cell"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="e3q521i-el-table-expandable-row"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eygkx5t-el-table-expandable-container"
-          >
-            <div
-              class="ebqwrow-el-button-group"
-            >
-              <div
-                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <button
-                  class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+                <mock-styled.button
+                  classname="mock-css."
+                  disabled="false"
                 >
                   Set As 
                   User
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css."
+                  disabled="false"
                 >
                   Invite Again
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css."
+                  disabled="false"
                 >
                   Disable
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css."
                 >
                   Set As Main Contact
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="e1vxext9-el-intent-danger e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css."
+                  disabled="false"
                 >
                   Delete
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="e1nnyshg-el-pagination-wrap"
-    >
-      <div
-        class="ex6bmfc-el-pagination-text"
-      >
-        <input
-          class="e1yynswi-el-pagination-input"
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.input
           value="1"
         />
          of 
         1
-      </div>
-      <button
-        class="e1g9l338-el-pagination-button"
+      </mock-styled.div>
+      <mock-styled.button
         data-testid="back-button"
         type="button"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </button>
-      <button
-        class="e1g9l338-el-pagination-button"
+        </mock-styled.span>
+      </mock-styled.button>
+      <mock-styled.button
         data-testid="forward-button"
         type="button"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </button>
-    </div>
+        </mock-styled.span>
+      </mock-styled.button>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -558,7 +478,7 @@ Object {
 `;
 
 exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -567,535 +487,447 @@ Object {
       <div />
     </div>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Members
-        </h1>
-        <div
-          class="ebqwrow-el-button-group"
-        >
-          <div
-            class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+        </mock-styled.h1>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+            <mock-styled.button
+              classname="mock-css."
             >
               Controls
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ebhrnzh-el-loader-container"
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eq1m1jz-el-loader"
-        >
-          <div
-            class="exikdu1-el-loader-moving-bar"
-          />
-        </div>
-      </div>
-      <div
-        class="ec47sgk-el-mb11 ejadz4k-el-table"
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
       >
-        <div
-          class="e1ijk5il-el-table-headers-row"
-        >
-          <div
-            class="e1co3p83-el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             Name
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Status
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Email
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Role
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Main Contact
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
-            <span
-              class="ej9yrfo-el-icon"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.2rem;"
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Name"
               >
                 Joe Dev
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Status"
               >
-                <span
-                  class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                  
                 Active
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Email"
               >
                 example@email.com
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Role"
               >
                 Admin
-              </div>
-            </div>
-            <div
-              class="e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Main Contact"
               >
-                <span
-                  class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-            <div
-              class="e1fmntjl-el-table-expandable-row-trigger-cell"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="e3q521i-el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eygkx5t-el-table-expandable-container"
-            >
-              <div
-                class="ebqwrow-el-button-group"
-              >
-                <div
-                  class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
                 >
-                  <button
-                    class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="false"
                   >
                     Set As 
                     User
-                    <div
-                      class="e1q1vabn-el-button-loader"
-                    />
-                  </button>
-                  <button
-                    class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="false"
                   >
                     Invite Again
-                    <div
-                      class="e1q1vabn-el-button-loader"
-                    />
-                  </button>
-                  <button
-                    class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="false"
                   >
                     Disable
-                    <div
-                      class="e1q1vabn-el-button-loader"
-                    />
-                  </button>
-                  <button
-                    class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
                   >
                     Set As Main Contact
-                    <div
-                      class="e1q1vabn-el-button-loader"
-                    />
-                  </button>
-                  <button
-                    class="e1vxext9-el-intent-danger e1tqqdf9-el-button"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="false"
                   >
                     Delete
-                    <div
-                      class="e1q1vabn-el-button-loader"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="e1nnyshg-el-pagination-wrap"
-      >
-        <div
-          class="ex6bmfc-el-pagination-text"
-        >
-          <input
-            class="e1yynswi-el-pagination-input"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           1
-        </div>
-        <button
-          class="e1g9l338-el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="e1g9l338-el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-      </div>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         Members
-      </h1>
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+      </mock-styled.h1>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
           >
             Controls
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      class="ebhrnzh-el-loader-container"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eq1m1jz-el-loader"
-      >
-        <div
-          class="exikdu1-el-loader-moving-bar"
-        />
-      </div>
-    </div>
-    <div
-      class="ec47sgk-el-mb11 ejadz4k-el-table"
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
     >
-      <div
-        class="e1ijk5il-el-table-headers-row"
-      >
-        <div
-          class="e1co3p83-el-table-header"
-        >
+      <mock-styled.div>
+        <mock-styled.div>
           Name
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Status
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Email
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Role
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Main Contact
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
-          <span
-            class="ej9yrfo-el-icon"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
             style="font-size: 1.2rem;"
           >
             <svg />
-          </span>
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Name"
             >
               Joe Dev
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Status"
             >
-              <span
-                class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+              <mock-styled.span
+                classname="mock-css."
               />
                
               Active
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Email"
             >
               example@email.com
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Role"
             >
               Admin
-            </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Main Contact"
             >
-              <span
-                class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="e1fmntjl-el-table-expandable-row-trigger-cell"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="e3q521i-el-table-expandable-row"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eygkx5t-el-table-expandable-container"
-          >
-            <div
-              class="ebqwrow-el-button-group"
-            >
-              <div
-                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <button
-                  class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+                <mock-styled.button
+                  classname="mock-css."
+                  disabled="false"
                 >
                   Set As 
                   User
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css."
+                  disabled="false"
                 >
                   Invite Again
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css."
+                  disabled="false"
                 >
                   Disable
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css."
                 >
                   Set As Main Contact
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="e1vxext9-el-intent-danger e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css."
+                  disabled="false"
                 >
                   Delete
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="e1nnyshg-el-pagination-wrap"
-    >
-      <div
-        class="ex6bmfc-el-pagination-text"
-      >
-        <input
-          class="e1yynswi-el-pagination-input"
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.input
           value="1"
         />
          of 
         1
-      </div>
-      <button
-        class="e1g9l338-el-pagination-button"
+      </mock-styled.div>
+      <mock-styled.button
         data-testid="back-button"
         type="button"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </button>
-      <button
-        class="e1g9l338-el-pagination-button"
+        </mock-styled.span>
+      </mock-styled.button>
+      <mock-styled.button
         data-testid="forward-button"
         type="button"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </button>
-    </div>
+        </mock-styled.span>
+      </mock-styled.button>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -1,12 +1,13 @@
 import React from 'react'
 import { Control, DeepMap, FieldError } from 'react-hook-form'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { render } from '../../../../tests/react-testing'
 import { AcIntegrationTab } from '../ac-integration-tab'
 import { AppEditFormSchema } from '../form-schema/form-fields'
 
 jest.mock('../../state/use-app-state')
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [{ data: [{ name: 'MOCK_NAME', id: 'MOCK_ID' }] }]),
 }))
 jest.mock('react-hook-form', () => ({

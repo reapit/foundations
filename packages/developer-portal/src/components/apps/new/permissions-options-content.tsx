@@ -5,8 +5,7 @@ import { AppWizardState, useAppState } from '../state/use-app-state'
 import { appWizardSteps } from './config'
 import { useReapitConnect } from '@reapit/connect-session'
 import { ScopeModel } from '@reapit/foundations-ts-definitions'
-import { getActions, GetActionNames } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet, getActions, GetActionNames } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { UseFormRegister, UseFormGetValues, DeepMap, FieldError } from 'react-hook-form'
 import { CreateAppFormSchema } from '.'
@@ -69,7 +68,7 @@ export const PermissionsOptionsContent: FC<PermissionsOptionsContentProps> = ({ 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [permissions, loading] = useReapitGet<ScopeModel[]>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getAppPermissions],
+    action: getActions[GetActionNames.getAppPermissions],
     fetchWhenTrue: [connectSession],
   })
   const [search, setSearch] = useState<string>('')

@@ -1,230 +1,328 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppEditPage should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           will-test-dev-co-voracious-person
-        </h1>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       >
-        <div
-          class="egmnxi3-el-tabs-options-wrap"
-        >
-          <input
-            class="enkj6b-el-tabs"
+        <mock-styled.div>
+          <mock-styled.input
             id="general"
             name="app-edit-tabs"
             type="radio"
             value="general"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="general"
+          <mock-styled.label
+            htmlfor="general"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               About Listings
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="app-listing"
             name="app-edit-tabs"
             type="radio"
             value="app-listing"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="app-listing"
+          <mock-styled.label
+            htmlfor="app-listing"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               AppMarket Listing
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="authentication"
             name="app-edit-tabs"
             type="radio"
             value="authentication"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="authentication"
+          <mock-styled.label
+            htmlfor="authentication"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Authentication
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="permissions"
             name="app-edit-tabs"
             type="radio"
             value="permissions"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="permissions"
+          <mock-styled.label
+            htmlfor="permissions"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Permissions
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="ac-integration"
             name="app-edit-tabs"
             type="radio"
             value="ac-integration"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="ac-integration"
+          <mock-styled.label
+            htmlfor="ac-integration"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               AgencyCloud Integration
             </span>
-          </label>
-        </div>
-        <div
-          class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
         />
-      </div>
+      </mock-styled.div>
       <form />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         will-test-dev-co-voracious-person
-      </h1>
-    </div>
-    <div
-      class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
     >
-      <div
-        class="egmnxi3-el-tabs-options-wrap"
-      >
-        <input
-          class="enkj6b-el-tabs"
+      <mock-styled.div>
+        <mock-styled.input
           id="general"
           name="app-edit-tabs"
           type="radio"
           value="general"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="general"
+        <mock-styled.label
+          htmlfor="general"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             About Listings
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="app-listing"
           name="app-edit-tabs"
           type="radio"
           value="app-listing"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="app-listing"
+        <mock-styled.label
+          htmlfor="app-listing"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             AppMarket Listing
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="authentication"
           name="app-edit-tabs"
           type="radio"
           value="authentication"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="authentication"
+        <mock-styled.label
+          htmlfor="authentication"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Authentication
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="permissions"
           name="app-edit-tabs"
           type="radio"
           value="permissions"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="permissions"
+        <mock-styled.label
+          htmlfor="permissions"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Permissions
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="ac-integration"
           name="app-edit-tabs"
           type="radio"
           value="ac-integration"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="ac-integration"
+        <mock-styled.label
+          htmlfor="ac-integration"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             AgencyCloud Integration
           </span>
-        </label>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       />
-    </div>
+    </mock-styled.div>
     <form />
   </div>,
   "debug": [Function],
@@ -282,41 +380,29 @@ Object {
 `;
 
 exports[`AppEditPage should match snapshot where loading apps 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="ebhrnzh-el-loader-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eq1m1jz-el-loader"
-        >
-          <div
-            class="exikdu1-el-loader-moving-bar"
-          />
-        </div>
-      </div>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="ebhrnzh-el-loader-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eq1m1jz-el-loader"
-      >
-        <div
-          class="exikdu1-el-loader-moving-bar"
-        />
-      </div>
-    </div>
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -373,57 +459,83 @@ Object {
 `;
 
 exports[`AppEditPage should match snapshot where no app found 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css. mock-css. mock-css. mock-css."
       >
         <div
-          class="eta6kcl-el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="e1geon40-el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           No record of this app found
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css. mock-css. mock-css. mock-css."
     >
       <div
-        class="eta6kcl-el-pn-icon"
+        class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
         data-testid="close-icon"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
+        </mock-styled.span>
       </div>
       <div
-        class="e1geon40-el-pn-content"
+        class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
       >
         No record of this app found
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -480,44 +592,32 @@ Object {
 `;
 
 exports[`should match snapshot for mobile view 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
       id="root"
     />
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="ebhrnzh-el-loader-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eq1m1jz-el-loader"
-        >
-          <div
-            class="exikdu1-el-loader-moving-bar"
-          />
-        </div>
-      </div>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="ebhrnzh-el-loader-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eq1m1jz-el-loader"
-      >
-        <div
-          class="exikdu1-el-loader-moving-bar"
-        />
-      </div>
-    </div>
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

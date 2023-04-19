@@ -1,83 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`IaaS should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <aside
-        class="e93m1fg-el-secondary-nav-container"
-      >
-        <h1
-          class="e1byern-el-title"
+      <mock-styled.div />
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           IaaS
-        </h1>
-        <span
-          class="ehvkknk-el-mb5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        </mock-styled.span>
+        <mock-styled.p
+          classname="mock-css."
         >
           Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to simplify your development process
-        </p>
-        <button
-          class="e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="eukst9x-el-page-container"
-      >
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section>
         <div />
-      </section>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <aside
-      class="e93m1fg-el-secondary-nav-container"
-    >
-      <h1
-        class="e1byern-el-title"
+    <mock-styled.div />
+    <mock-styled.aside>
+      <mock-styled.h1
+        classname=""
       >
         IaaS
-      </h1>
-      <span
-        class="ehvkknk-el-mb5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      </mock-styled.h1>
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+      </mock-styled.span>
+      <mock-styled.p
+        classname="mock-css."
       >
         Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to simplify your development process
-      </p>
-      <button
-        class="e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css."
       >
         View Docs
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-    </aside>
-    <section
-      class="eukst9x-el-page-container"
-    >
+        <mock-styled.div />
+      </mock-styled.button>
+    </mock-styled.aside>
+    <mock-styled.section>
       <div />
-    </section>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

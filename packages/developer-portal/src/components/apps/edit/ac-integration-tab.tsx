@@ -15,10 +15,10 @@ import {
 } from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
 import { formFields } from './form-schema/form-fields'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { DesktopIntegrationTypeModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { useAppState } from '../state/use-app-state'
 import { ExternalPages, openNewPage } from '../../../utils/navigation'
 import { useWatch } from 'react-hook-form'
@@ -33,7 +33,7 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
   const [desktopIntegrationTypes, desktopIntegrationTypesLoading] =
     useReapitGet<DesktopIntegrationTypeModelPagedResult>({
       reapitConnectBrowserSession,
-      action: getActions(process.env.appEnv)[GetActionNames.getDesktopIntegrationTypes],
+      action: getActions[GetActionNames.getDesktopIntegrationTypes],
       fetchWhenTrue: [isAgencyCloudIntegratedValue],
     })
 

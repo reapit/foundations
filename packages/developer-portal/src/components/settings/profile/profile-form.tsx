@@ -19,10 +19,10 @@ import {
 } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { selectIsUserOrUserAdmin } from '../../../utils/auth'
-import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { useReapitGet, useReapitUpdate } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { SandboxModelPagedResult, UpdateMemberModel } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { useForm } from 'react-hook-form'
 import { useGlobalState } from '../../../core/use-global-state'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -54,12 +54,12 @@ export const ProfileForm: FC = () => {
 
   const [sandboxes] = useReapitGet<SandboxModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(process.env.appEnv)[GetActionNames.getSandboxes],
+    action: getActions[GetActionNames.getSandboxes],
   })
 
   const [, memberUpdating, updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(process.env.appEnv)[UpdateActionNames.updateMember],
+    action: updateActions[UpdateActionNames.updateMember],
     method: 'PUT',
     uriParams: {
       developerId: currentMember?.developerId,
