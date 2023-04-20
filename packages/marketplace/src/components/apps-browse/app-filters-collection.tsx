@@ -9,9 +9,9 @@ import { trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
 import { AppFilterCol, AppFilterSubtitle, AppFilterStrapline } from './__styles__'
-import { History } from 'history'
-import { Routes } from '../../constants/routes'
-import { useHistory } from 'react-router'
+import { NavigateFunction } from 'react-router'
+import { RoutePaths } from '../../constants/routes'
+import { useNavigate } from 'react-router'
 
 interface AppFiltersCollectionProps {
   configItem: AppsBrowseConfigItemInterface
@@ -21,7 +21,7 @@ export const handleSetFilters =
   (
     setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
     appsBrowseCategoriesState: CategoryModel[],
-    history: History,
+    navigate: NavigateFunction,
     configItem: AppsBrowseConfigItemInterface,
   ) =>
   () => {
@@ -36,7 +36,7 @@ export const handleSetFilters =
       })
 
       filters.category = categoryNames
-      history.push(`${Routes.APPS_BROWSE}?collectionId=${id}`)
+      navigate(`${RoutePaths.APPS_BROWSE}?collectionId=${id}`)
 
       trackEvent(TrackingEvent.ClickCollectionsTile, true, {
         filters,
@@ -56,13 +56,13 @@ export const handleIconSize = (mediaQuery: MediaType) => () => {
 
 export const AppFiltersCollection: FC<AppFiltersCollectionProps> = memo(({ configItem }) => {
   const { setAppsBrowseFilterState, appsBrowseCategoriesState } = useAppsBrowseState()
-  const history = useHistory()
+  const navigate = useNavigate()
   const mediaQuery = useMediaQuery()
   const iconSize = useMemo(handleIconSize(mediaQuery), [mediaQuery])
   const { content } = configItem
 
   const setFilters = useCallback(
-    handleSetFilters(setAppsBrowseFilterState, appsBrowseCategoriesState, history, configItem),
+    handleSetFilters(setAppsBrowseFilterState, appsBrowseCategoriesState, navigate, configItem),
     [configItem, appsBrowseCategoriesState],
   )
 

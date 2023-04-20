@@ -1,35 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FilteredAppsCollection should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <h2
-        class="browse-apps-subtitle el-subtitle"
-      >
+      <mock-styled.div />
+      <mock-styled.mock-styled.h2>
         New in AppMarket
-      </h2>
-      <div
-        class="el-grid"
+      </mock-styled.mock-styled.h2>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-col"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-fade-in card-cursor el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
           >
-            <div
-              class="el-card-main-wrap"
-            >
-              <div
-                class="el-card-image-wrap"
-              >
-                <div
-                  class="el-placeholder-image"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
                   style="font-size: 2.1875em; width: 56px; height: 56px;"
                 >
                   <svg
@@ -44,56 +51,65 @@ Object {
                       fill="#E3E3E3"
                     />
                   </svg>
-                </div>
-              </div>
-              <div
-                class="el-card-heading-wrap"
-              >
-                <h5
-                  class="el-card-heading"
-                >
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   MOCK_APP_NAME
-                </h5>
-                <h6
-                  class="el-card-sub-heading"
-                >
-                  <div
-                    class="el-flex-justify-between el-flex-align-center el-flex-container"
+                </mock-styled.h5>
+                <mock-styled.h6>
+                  <mock-styled.div
+                    classname="mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+"
                   >
                      
-                    <span
-                      class="el-ml5 is-free-notice"
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-left: 0.75rem;
+"
                     >
                       FREE
-                    </span>
-                  </div>
-                </h6>
-                <h6
-                  class="el-card-sub-heading-additional"
-                />
-              </div>
-            </div>
-            <div
-              class="el-card-body-wrap"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.h6>
+                <mock-styled.h6 />
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-fade-in card-cursor el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
           >
-            <div
-              class="el-card-main-wrap"
-            >
-              <div
-                class="el-card-image-wrap"
-              >
-                <div
-                  class="el-placeholder-image"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
                   style="font-size: 2.1875em; width: 56px; height: 56px;"
                 >
                   <svg
@@ -108,71 +124,76 @@ Object {
                       fill="#E3E3E3"
                     />
                   </svg>
-                </div>
-              </div>
-              <div
-                class="el-card-heading-wrap"
-              >
-                <h5
-                  class="el-card-heading"
-                >
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   MOCK_APP_NAME_ANOTHER
-                </h5>
-                <h6
-                  class="el-card-sub-heading"
-                >
-                  <div
-                    class="el-flex-justify-between el-flex-align-center el-flex-container"
+                </mock-styled.h5>
+                <mock-styled.h6>
+                  <mock-styled.div
+                    classname="mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+"
                   >
                      
-                    <span
-                      class="el-ml5 is-free-notice"
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-left: 0.75rem;
+"
                     >
                       FREE
-                    </span>
-                  </div>
-                </h6>
-                <h6
-                  class="el-card-sub-heading-additional"
-                />
-              </div>
-            </div>
-            <div
-              class="el-card-body-wrap"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.h6>
+                <mock-styled.h6 />
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </div>
-          </div>
-        </div>
-      </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h2
-      class="browse-apps-subtitle el-subtitle"
-    >
+    <mock-styled.div />
+    <mock-styled.mock-styled.h2>
       New in AppMarket
-    </h2>
-    <div
-      class="el-grid"
+    </mock-styled.mock-styled.h2>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-col"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-fade-in card-cursor el-card-wrap"
+        <mock-styled.div
+          classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
         >
-          <div
-            class="el-card-main-wrap"
-          >
-            <div
-              class="el-card-image-wrap"
-            >
-              <div
-                class="el-placeholder-image"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
                 style="font-size: 2.1875em; width: 56px; height: 56px;"
               >
                 <svg
@@ -187,56 +208,65 @@ Object {
                     fill="#E3E3E3"
                   />
                 </svg>
-              </div>
-            </div>
-            <div
-              class="el-card-heading-wrap"
-            >
-              <h5
-                class="el-card-heading"
-              >
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.h5>
                 MOCK_APP_NAME
-              </h5>
-              <h6
-                class="el-card-sub-heading"
-              >
-                <div
-                  class="el-flex-justify-between el-flex-align-center el-flex-container"
+              </mock-styled.h5>
+              <mock-styled.h6>
+                <mock-styled.div
+                  classname="mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+"
                 >
                    
-                  <span
-                    class="el-ml5 is-free-notice"
+                  <mock-styled.span
+                    classname="mock-css.
+  margin-left: 0.75rem;
+"
                   >
                     FREE
-                  </span>
-                </div>
-              </h6>
-              <h6
-                class="el-card-sub-heading-additional"
-              />
-            </div>
-          </div>
-          <div
-            class="el-card-body-wrap"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.h6>
+              <mock-styled.h6 />
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-fade-in card-cursor el-card-wrap"
+        <mock-styled.div
+          classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
         >
-          <div
-            class="el-card-main-wrap"
-          >
-            <div
-              class="el-card-image-wrap"
-            >
-              <div
-                class="el-placeholder-image"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
                 style="font-size: 2.1875em; width: 56px; height: 56px;"
               >
                 <svg
@@ -251,43 +281,41 @@ Object {
                     fill="#E3E3E3"
                   />
                 </svg>
-              </div>
-            </div>
-            <div
-              class="el-card-heading-wrap"
-            >
-              <h5
-                class="el-card-heading"
-              >
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.h5>
                 MOCK_APP_NAME_ANOTHER
-              </h5>
-              <h6
-                class="el-card-sub-heading"
-              >
-                <div
-                  class="el-flex-justify-between el-flex-align-center el-flex-container"
+              </mock-styled.h5>
+              <mock-styled.h6>
+                <mock-styled.div
+                  classname="mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+"
                 >
                    
-                  <span
-                    class="el-ml5 is-free-notice"
+                  <mock-styled.span
+                    classname="mock-css.
+  margin-left: 0.75rem;
+"
                   >
                     FREE
-                  </span>
-                </div>
-              </h6>
-              <h6
-                class="el-card-sub-heading-additional"
-              />
-            </div>
-          </div>
-          <div
-            class="el-card-body-wrap"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.h6>
+              <mock-styled.h6 />
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </div>
-        </div>
-      </div>
-    </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -344,41 +372,29 @@ Object {
 `;
 
 exports[`FilteredAppsCollection should match a snapshot when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-loader-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-loader-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-loader"
-      >
-        <div
-          class="el-loader-moving-bar"
-        />
-      </div>
-    </div>
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

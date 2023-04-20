@@ -1,219 +1,317 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppsBrowsePage should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <div
-          class="app-search-filters-wrap"
-        >
-          <h1
-            class="browse-apps-title el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.div>
+          <mock-styled.mock-styled.h1
+            classname=""
           >
             AppMarket
-          </h1>
-          <div
-            class="el-mb5 el-mt3 apps-search-mobile-controls el-flex-container"
+          </mock-styled.mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  margin-top: 0.5rem;
+ mock-css.
+  display: flex;
+
+  , {
+    display: none;
+  }
+"
           >
-            <span
-              class="apps-search-mobile-icon el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.5rem;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--color-grey-light);
+  border-radius: 0.25rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+"
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-            <span
-              class="apps-search-mobile-icon el-icon"
+            </mock-styled.span>
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.5rem;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--color-grey-light);
+  border-radius: 0.25rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+"
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="el-flex-column el-flex-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         />
-        <div
-          class="el-flex-justify-between el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
         >
-          <p
-            class="apps-search-desktop-controls el-has-bold-text el-body-text"
+          <mock-styled.p
+            classname="mock-css.
+  display: none;
+
+  , {
+    display: flex;
+  }
+ mock-css."
           >
             Browse By
-          </p>
-        </div>
-        <div
-          class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  width: 100%;
+  margin-bottom: 1.25rem;
+ mock-css.
+  display: none;
+
+  , {
+    display: flex;
+  }
+"
         >
-          <input
-            class="el-multi-select-checkbox"
+          <mock-styled.input
+            checked="false"
             id="9"
             name="Tools"
             type="checkbox"
             value="9"
           />
-          <label
-            class="el-has-grey-chips el-multi-select-label"
-            for="9"
+          <mock-styled.label
+            classname="mock-css."
+            htmlfor="9"
           >
             Tools
-          </label>
-          <input
-            class="el-multi-select-checkbox"
+          </mock-styled.label>
+          <mock-styled.input
+            checked="false"
             id="8"
             name="Social"
             type="checkbox"
             value="8"
           />
-          <label
-            class="el-has-grey-chips el-multi-select-label"
-            for="8"
+          <mock-styled.label
+            classname="mock-css."
+            htmlfor="8"
           >
             Social
-          </label>
-          <input
-            class="el-multi-select-checkbox"
+          </mock-styled.label>
+          <mock-styled.input
+            checked="false"
             id="7"
             name="Marketing"
             type="checkbox"
             value="7"
           />
-          <label
-            class="el-has-grey-chips el-multi-select-label"
-            for="7"
+          <mock-styled.label
+            classname="mock-css."
+            htmlfor="7"
           >
             Marketing
-          </label>
-          <input
-            class="el-multi-select-checkbox"
+          </mock-styled.label>
+          <mock-styled.input
+            checked="false"
             id="6"
             name="Communication"
             type="checkbox"
             value="6"
           />
-          <label
-            class="el-has-grey-chips el-multi-select-label"
-            for="6"
+          <mock-styled.label
+            classname="mock-css."
+            htmlfor="6"
           >
             Communication
-          </label>
-          <input
-            class="el-multi-select-checkbox"
+          </mock-styled.label>
+          <mock-styled.input
+            checked="false"
             id="5"
             name="Media"
             type="checkbox"
             value="5"
           />
-          <label
-            class="el-has-grey-chips el-multi-select-label"
-            for="5"
+          <mock-styled.label
+            classname="mock-css."
+            htmlfor="5"
           >
             Media
-          </label>
-          <input
-            class="el-multi-select-checkbox"
+          </mock-styled.label>
+          <mock-styled.input
+            checked="false"
             id="4"
             name="Events"
             type="checkbox"
             value="4"
           />
-          <label
-            class="el-has-grey-chips el-multi-select-label"
-            for="4"
+          <mock-styled.label
+            classname="mock-css."
+            htmlfor="4"
           >
             Events
-          </label>
-          <input
-            class="el-multi-select-checkbox"
+          </mock-styled.label>
+          <mock-styled.input
+            checked="false"
             id="3"
             name="Finance"
             type="checkbox"
             value="3"
           />
-          <label
-            class="el-has-grey-chips el-multi-select-label"
-            for="3"
+          <mock-styled.label
+            classname="mock-css."
+            htmlfor="3"
           >
             Finance
-          </label>
-          <input
-            class="el-multi-select-checkbox"
+          </mock-styled.label>
+          <mock-styled.input
+            checked="false"
             id="2"
             name="Productivity"
             type="checkbox"
             value="2"
           />
-          <label
-            class="el-has-grey-chips el-multi-select-label"
-            for="2"
+          <mock-styled.label
+            classname="mock-css."
+            htmlfor="2"
           >
             Productivity
-          </label>
-          <input
-            class="el-multi-select-checkbox"
+          </mock-styled.label>
+          <mock-styled.input
+            checked="false"
             id="1"
             name="Other"
             type="checkbox"
             value="1"
           />
-          <label
-            class="el-has-grey-chips el-multi-select-label"
-            for="1"
+          <mock-styled.label
+            classname="mock-css."
+            htmlfor="1"
           >
             Other
-          </label>
-        </div>
-        <div
-          class="apps-search-desktop-controls el-flex-container"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  display: none;
+
+  , {
+    display: flex;
+  }
+"
         >
-          <div
-            class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+ mock-css.
+  width: 100%;
+
+  , {
+    margin-bottom: 2.5rem;
+    width: 50%;
+  }
+
+  , {
+    width: 33.33%;
+  }
+
+  , {
+    width: 25%;
+  }
+ mock-css.
+  margin-right: 0.75rem;
+"
           >
-            <span
-              class="apps-search-input-icon el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  border-radius: 0.25rem 0 0 0.25rem;
+  padding: 0 0.5rem 0 1.25rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-grey-light);
+"
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-            <input
-              class="apps-search-input"
+            </mock-styled.span>
+            <mock-styled.input
               placeholder="Search by App or Developer"
               type="text"
             />
-          </div>
-        </div>
-        <div
-          class="featured-hero-apps-item"
-        >
-          <div
-            class="el-flex-column el-flex-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
           >
-            <h2
-              class="browse-apps-subtitle el-subtitle"
-            >
+            <mock-styled.mock-styled.h2>
               New in AppMarket
-            </h2>
-            <div
-              class="featured-hero-apps-container"
+            </mock-styled.mock-styled.h2>
+            <mock-styled.div
               style="background-color: rgba(0, 97, 168, 0.102);"
             >
-              <div
-                class="featured-hero-apps-flex-container"
-              >
-                <div
-                  class="featured-hero-apps-content-container"
-                >
-                  <div
-                    class="featured-hero-apps-inner-container"
-                  >
-                    <div
-                      class="el-mb7 el-placeholder-image"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div
+                      classname="mock-css.
+  margin-bottom: 1.25rem;
+"
                       style="font-size: 2.8125em; width: 72px; height: 72px;"
                     >
                       <svg
@@ -228,50 +326,57 @@ Object {
                           fill="#E3E3E3"
                         />
                       </svg>
-                    </div>
-                    <div
-                      class="featured-hero-apps-name-container"
-                    >
-                      <h2
-                        class="featured-hero-apps-subtitle el-subtitle"
-                      />
-                      <div
-                        class="hero-apps-chip-placeholder"
-                      />
-                    </div>
-                    <button
-                      class="featured-hero-apps-button-mob-tablet el-button"
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.mock-styled.h2 />
+                      <mock-styled.div />
+                    </mock-styled.div>
+                    <mock-styled.button
+                      classname="mock-css.
+  display: none;
+
+  , {
+    display: block;
+  }
+
+  , {
+    display: none;
+  }
+
+  , {
+    display: block;
+  }
+"
                       style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                     >
                       Find Out More
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                  </div>
-                  <p
-                    class="featured-hero-apps-strapline el-body-text"
-                  >
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                  <mock-styled.mock-styled.p>
                     Lorem ipsum dolor sit amet, consectetur adip
-                  </p>
-                  <button
-                    class="featured-hero-apps-button-desktop el-button"
+                  </mock-styled.mock-styled.p>
+                  <mock-styled.button
+                    classname="mock-css.
+  display: none;
+
+  , {
+    display: block;
+  }
+
+  , {
+    display: none;
+  }
+"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
                     Find Out More
-                    <div
-                      class="el-button-loader"
-                    />
-                  </button>
-                </div>
-                <div
-                  class="featured-hero-apps-image-container"
-                >
-                  <div
-                    class="el-placeholder-image-wrapper"
-                  >
-                    <div
-                      class="el-placeholder-image"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div
                       style="font-size: 7.8125em;"
                     >
                       <svg
@@ -321,46 +426,62 @@ Object {
                           fill="white"
                         />
                       </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="hero-apps-carousel-widescreen carousel-wrapper"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  , {
+    width: calc(50% - 0.625rem);
+    display: inline-block;
+  }
+"
         >
-          <div
-            class="carousel-grid"
-            style="--ckvo4up-0: 2; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
+          <mock-styled.div
+            numbercols="2"
+            numberitems="2"
+            percentagewidth="50.000"
           >
-            <div
-              class="carousel-col"
-            >
-              <div
-                class="hero-apps-container"
-              >
-                <h2
-                  class="browse-apps-subtitle el-subtitle"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.mock-styled.h2
+                  classname=""
                 >
                   Discover Amazing Apps
-                </h2>
-                <div
-                  class="hero-apps-inner-container"
+                </mock-styled.mock-styled.h2>
+                <mock-styled.div
                   style="background-color: rgba(0, 97, 168, 0.102);"
                 >
-                  <div
-                    class="el-hfull hero-apps-flex-toggle el-flex-container"
+                  <mock-styled.div
+                    classname="mock-css.
+  height: 100%;
+ mock-css.
+  flex-direction: column;
+
+  , {
+    flex-direction: row;
+  }
+
+  , {
+    flex-direction: column;
+  }
+
+  , {
+    flex-direction: row;
+  }
+
+  , {
+    flex-direction: column;
+  }
+"
                   >
-                    <div
-                      class="hero-apps-content-wrapper"
-                    >
-                      <div
-                        class="hero-apps-content-container"
-                      >
-                        <div
-                          class="el-placeholder-image"
+                    <mock-styled.div>
+                      <mock-styled.div>
+                        <mock-styled.div
                           style="font-size: 2.8125em; width: 72px; height: 72px;"
                         >
                           <svg
@@ -375,32 +496,19 @@ Object {
                               fill="#E3E3E3"
                             />
                           </svg>
-                        </div>
-                        <div
-                          class="hero-apps-name-container"
-                        >
-                          <h2
-                            class="hero-apps-subtitle el-subtitle"
-                          />
-                          <div
-                            class="hero-apps-chip-placeholder"
-                          />
-                        </div>
-                      </div>
-                      <p
-                        class="hero-apps-strapline el-body-text"
-                      >
+                        </mock-styled.div>
+                        <mock-styled.div>
+                          <mock-styled.mock-styled.h2 />
+                          <mock-styled.div />
+                        </mock-styled.div>
+                      </mock-styled.div>
+                      <mock-styled.mock-styled.p>
                         Lorem ipsum dolor sit amet, consectetur adip
-                      </p>
-                    </div>
-                    <div
-                      class="hero-apps-image-container"
-                    >
-                      <div
-                        class="el-placeholder-image-wrapper"
-                      >
-                        <div
-                          class="el-placeholder-image"
+                      </mock-styled.mock-styled.p>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.div>
+                        <mock-styled.div
                           style="font-size: 4.6875em;"
                         >
                           <svg
@@ -450,37 +558,47 @@ Object {
                               fill="white"
                             />
                           </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="carousel-col"
-            >
-              <div
-                class="hero-apps-container"
-              >
-                <h2
-                  class="browse-apps-subtitle-placeholder browse-apps-subtitle el-subtitle"
+                        </mock-styled.div>
+                      </mock-styled.div>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.mock-styled.h2
+                  classname="mock-css."
                 />
-                <div
-                  class="hero-apps-inner-container"
+                <mock-styled.div
                   style="background-color: rgba(0, 97, 168, 0.102);"
                 >
-                  <div
-                    class="el-hfull hero-apps-flex-toggle el-flex-container"
+                  <mock-styled.div
+                    classname="mock-css.
+  height: 100%;
+ mock-css.
+  flex-direction: column;
+
+  , {
+    flex-direction: row;
+  }
+
+  , {
+    flex-direction: column;
+  }
+
+  , {
+    flex-direction: row;
+  }
+
+  , {
+    flex-direction: column;
+  }
+"
                   >
-                    <div
-                      class="hero-apps-content-wrapper"
-                    >
-                      <div
-                        class="hero-apps-content-container"
-                      >
-                        <div
-                          class="el-placeholder-image"
+                    <mock-styled.div>
+                      <mock-styled.div>
+                        <mock-styled.div
                           style="font-size: 2.8125em; width: 72px; height: 72px;"
                         >
                           <svg
@@ -495,505 +613,601 @@ Object {
                               fill="#E3E3E3"
                             />
                           </svg>
-                        </div>
-                        <div
-                          class="hero-apps-name-container"
-                        >
-                          <h2
-                            class="hero-apps-subtitle el-subtitle"
-                          />
-                          <div
-                            class="hero-apps-chip-placeholder"
-                          />
-                        </div>
-                      </div>
-                      <p
-                        class="hero-apps-strapline el-body-text"
-                      >
+                        </mock-styled.div>
+                        <mock-styled.div>
+                          <mock-styled.mock-styled.h2 />
+                          <mock-styled.div />
+                        </mock-styled.div>
+                      </mock-styled.div>
+                      <mock-styled.mock-styled.p>
                         Lorem ipsum dolor sit amet, consectetur adip
-                      </p>
-                    </div>
-                    <div
-                      class="hero-apps-image-container"
-                    >
-                      <img
-                        class="hero-apps-image"
+                      </mock-styled.mock-styled.p>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.img
                         src="https://image.com"
                       />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-flex-column el-flex-container"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
-          <h2
-            class="browse-apps-subtitle el-subtitle"
-          >
+          <mock-styled.mock-styled.h2>
             App Collections
-          </h2>
-          <div
-            class="el-mb11 carousel-wrapper"
+          </mock-styled.mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <a
-              class="el-fade-in carousel-controls-right carousel-controls"
+            <mock-styled.mock-styled.a
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <span
-                class="el-intent-primary el-icon"
+              <mock-styled.span
+                classname="mock-css."
                 style="font-size: 0.75em;"
               >
                 <svg />
-              </span>
-            </a>
-            <div
-              class="carousel-grid"
-              style="--ckvo4up-0: 6; --ckvo4up-1: 25.000%; --ckvo4up-2: 0.5625rem; --ckvo4up-6: 0.9375rem;"
+              </mock-styled.span>
+            </mock-styled.mock-styled.a>
+            <mock-styled.div
+              numbercols="4"
+              numberitems="6"
+              percentagewidth="25.000"
             >
-              <div
-                class="carousel-col"
-              >
-                <div
-                  class="app-filter-col"
-                >
-                  <div
-                    class="el-flex-column el-flex-container"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css.
+  flex-direction: column;
+"
                   >
-                    <span
-                      class="el-mb5 el-icon"
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                       style="font-size: 5em;"
                     >
                       <svg />
-                    </span>
-                    <div
-                      class="el-flex-column el-flex-justify-center el-flex-container"
+                    </mock-styled.span>
+                    <mock-styled.div
+                      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
                     >
-                      <h2
-                        class="app-filter-subtitle el-subtitle"
-                      >
+                      <mock-styled.mock-styled.h2>
                         Reapit Developed Apps
-                      </h2>
-                      <p
-                        class="app-filter-strapline el-body-text"
-                      >
+                      </mock-styled.mock-styled.h2>
+                      <mock-styled.mock-styled.p>
                         Lorem ipsum dolor sit amet, consectetur adip
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="carousel-col"
-              >
-                <div
-                  class="app-filter-col"
-                >
-                  <div
-                    class="el-flex-column el-flex-container"
+                      </mock-styled.mock-styled.p>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css.
+  flex-direction: column;
+"
                   >
-                    <span
-                      class="el-mb5 el-icon"
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                       style="font-size: 5em;"
                     >
                       <svg />
-                    </span>
-                    <div
-                      class="el-flex-column el-flex-justify-center el-flex-container"
+                    </mock-styled.span>
+                    <mock-styled.div
+                      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
                     >
-                      <h2
-                        class="app-filter-subtitle el-subtitle"
-                      >
+                      <mock-styled.mock-styled.h2>
                         Reapit Developed Apps
-                      </h2>
-                      <p
-                        class="app-filter-strapline el-body-text"
-                      >
+                      </mock-styled.mock-styled.h2>
+                      <mock-styled.mock-styled.p>
                         Lorem ipsum dolor sit amet, consectetur adip
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="carousel-col"
-              >
-                <div
-                  class="app-filter-col"
-                >
-                  <div
-                    class="el-flex-column el-flex-container"
+                      </mock-styled.mock-styled.p>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css.
+  flex-direction: column;
+"
                   >
-                    <span
-                      class="el-mb5 el-icon"
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                       style="font-size: 5em;"
                     >
                       <svg />
-                    </span>
-                    <div
-                      class="el-flex-column el-flex-justify-center el-flex-container"
+                    </mock-styled.span>
+                    <mock-styled.div
+                      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
                     >
-                      <h2
-                        class="app-filter-subtitle el-subtitle"
-                      >
+                      <mock-styled.mock-styled.h2>
                         Reapit Developed Apps
-                      </h2>
-                      <p
-                        class="app-filter-strapline el-body-text"
-                      >
+                      </mock-styled.mock-styled.h2>
+                      <mock-styled.mock-styled.p>
                         Lorem ipsum dolor sit amet, consectetur adip
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="carousel-col"
-              >
-                <div
-                  class="app-filter-col"
-                >
-                  <div
-                    class="el-flex-column el-flex-container"
+                      </mock-styled.mock-styled.p>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css.
+  flex-direction: column;
+"
                   >
-                    <span
-                      class="el-mb5 el-icon"
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                       style="font-size: 5em;"
                     >
                       <svg />
-                    </span>
-                    <div
-                      class="el-flex-column el-flex-justify-center el-flex-container"
+                    </mock-styled.span>
+                    <mock-styled.div
+                      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
                     >
-                      <h2
-                        class="app-filter-subtitle el-subtitle"
-                      >
+                      <mock-styled.mock-styled.h2>
                         Reapit Developed Apps
-                      </h2>
-                      <p
-                        class="app-filter-strapline el-body-text"
-                      >
+                      </mock-styled.mock-styled.h2>
+                      <mock-styled.mock-styled.p>
                         Lorem ipsum dolor sit amet, consectetur adip
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="carousel-col"
-              >
-                <div
-                  class="app-filter-col"
-                >
-                  <div
-                    class="el-flex-column el-flex-container"
+                      </mock-styled.mock-styled.p>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css.
+  flex-direction: column;
+"
                   >
-                    <span
-                      class="el-mb5 el-icon"
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                       style="font-size: 5em;"
                     >
                       <svg />
-                    </span>
-                    <div
-                      class="el-flex-column el-flex-justify-center el-flex-container"
+                    </mock-styled.span>
+                    <mock-styled.div
+                      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
                     >
-                      <h2
-                        class="app-filter-subtitle el-subtitle"
-                      >
+                      <mock-styled.mock-styled.h2>
                         Reapit Developed Apps
-                      </h2>
-                      <p
-                        class="app-filter-strapline el-body-text"
-                      >
+                      </mock-styled.mock-styled.h2>
+                      <mock-styled.mock-styled.p>
                         Lorem ipsum dolor sit amet, consectetur adip
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="carousel-col"
-              >
-                <div
-                  class="app-filter-col"
-                >
-                  <div
-                    class="el-flex-column el-flex-container"
+                      </mock-styled.mock-styled.p>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css.
+  flex-direction: column;
+"
                   >
-                    <span
-                      class="el-mb5 el-icon"
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                       style="font-size: 5em;"
                     >
                       <svg />
-                    </span>
-                    <div
-                      class="el-flex-column el-flex-justify-center el-flex-container"
+                    </mock-styled.span>
+                    <mock-styled.div
+                      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
                     >
-                      <h2
-                        class="app-filter-subtitle el-subtitle"
-                      >
+                      <mock-styled.mock-styled.h2>
                         Reapit Developed Apps
-                      </h2>
-                      <p
-                        class="app-filter-strapline el-body-text"
-                      >
+                      </mock-styled.mock-styled.h2>
+                      <mock-styled.mock-styled.p>
                         Lorem ipsum dolor sit amet, consectetur adip
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-flex-align-center el-flex-container"
+                      </mock-styled.mock-styled.p>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <h2
-              class="browse-apps-subtitle el-subtitle"
-            >
+            <mock-styled.mock-styled.h2>
               Indentity Apps
-            </h2>
-            <a
-              class="app-filter-link"
-            >
+            </mock-styled.mock-styled.h2>
+            <mock-styled.a>
               See All
-            </a>
-          </div>
-          <div
-            class="apps-grid"
-          />
-          <div
-            class="el-flex-align-center el-flex-container"
+            </mock-styled.a>
+          </mock-styled.div>
+          <mock-styled.div />
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <h2
-              class="browse-apps-subtitle el-subtitle"
-            >
+            <mock-styled.mock-styled.h2>
               Free Apps
-            </h2>
-            <a
-              class="app-filter-link"
-            >
+            </mock-styled.mock-styled.h2>
+            <mock-styled.a>
               See All
-            </a>
-          </div>
-          <div
-            class="simple-apps-grid apps-grid"
-          />
-        </div>
-      </section>
+            </mock-styled.a>
+          </mock-styled.div>
+          <mock-styled.mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <div
-        class="app-search-filters-wrap"
-      >
-        <h1
-          class="browse-apps-title el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.div>
+        <mock-styled.mock-styled.h1
+          classname=""
         >
           AppMarket
-        </h1>
-        <div
-          class="el-mb5 el-mt3 apps-search-mobile-controls el-flex-container"
+        </mock-styled.mock-styled.h1>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  margin-top: 0.5rem;
+ mock-css.
+  display: flex;
+
+  , {
+    display: none;
+  }
+"
         >
-          <span
-            class="apps-search-mobile-icon el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.5rem;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--color-grey-light);
+  border-radius: 0.25rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+"
             style="font-size: 1.25rem;"
           >
             <svg />
-          </span>
-          <span
-            class="apps-search-mobile-icon el-icon"
+          </mock-styled.span>
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.5rem;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--color-grey-light);
+  border-radius: 0.25rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+"
             style="font-size: 1.25rem;"
           >
             <svg />
-          </span>
-        </div>
-      </div>
-      <div
-        class="el-flex-column el-flex-container"
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+"
       />
-      <div
-        class="el-flex-justify-between el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <p
-          class="apps-search-desktop-controls el-has-bold-text el-body-text"
+        <mock-styled.p
+          classname="mock-css.
+  display: none;
+
+  , {
+    display: flex;
+  }
+ mock-css."
         >
           Browse By
-        </p>
-      </div>
-      <div
-        class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  width: 100%;
+  margin-bottom: 1.25rem;
+ mock-css.
+  display: none;
+
+  , {
+    display: flex;
+  }
+"
       >
-        <input
-          class="el-multi-select-checkbox"
+        <mock-styled.input
+          checked="false"
           id="9"
           name="Tools"
           type="checkbox"
           value="9"
         />
-        <label
-          class="el-has-grey-chips el-multi-select-label"
-          for="9"
+        <mock-styled.label
+          classname="mock-css."
+          htmlfor="9"
         >
           Tools
-        </label>
-        <input
-          class="el-multi-select-checkbox"
+        </mock-styled.label>
+        <mock-styled.input
+          checked="false"
           id="8"
           name="Social"
           type="checkbox"
           value="8"
         />
-        <label
-          class="el-has-grey-chips el-multi-select-label"
-          for="8"
+        <mock-styled.label
+          classname="mock-css."
+          htmlfor="8"
         >
           Social
-        </label>
-        <input
-          class="el-multi-select-checkbox"
+        </mock-styled.label>
+        <mock-styled.input
+          checked="false"
           id="7"
           name="Marketing"
           type="checkbox"
           value="7"
         />
-        <label
-          class="el-has-grey-chips el-multi-select-label"
-          for="7"
+        <mock-styled.label
+          classname="mock-css."
+          htmlfor="7"
         >
           Marketing
-        </label>
-        <input
-          class="el-multi-select-checkbox"
+        </mock-styled.label>
+        <mock-styled.input
+          checked="false"
           id="6"
           name="Communication"
           type="checkbox"
           value="6"
         />
-        <label
-          class="el-has-grey-chips el-multi-select-label"
-          for="6"
+        <mock-styled.label
+          classname="mock-css."
+          htmlfor="6"
         >
           Communication
-        </label>
-        <input
-          class="el-multi-select-checkbox"
+        </mock-styled.label>
+        <mock-styled.input
+          checked="false"
           id="5"
           name="Media"
           type="checkbox"
           value="5"
         />
-        <label
-          class="el-has-grey-chips el-multi-select-label"
-          for="5"
+        <mock-styled.label
+          classname="mock-css."
+          htmlfor="5"
         >
           Media
-        </label>
-        <input
-          class="el-multi-select-checkbox"
+        </mock-styled.label>
+        <mock-styled.input
+          checked="false"
           id="4"
           name="Events"
           type="checkbox"
           value="4"
         />
-        <label
-          class="el-has-grey-chips el-multi-select-label"
-          for="4"
+        <mock-styled.label
+          classname="mock-css."
+          htmlfor="4"
         >
           Events
-        </label>
-        <input
-          class="el-multi-select-checkbox"
+        </mock-styled.label>
+        <mock-styled.input
+          checked="false"
           id="3"
           name="Finance"
           type="checkbox"
           value="3"
         />
-        <label
-          class="el-has-grey-chips el-multi-select-label"
-          for="3"
+        <mock-styled.label
+          classname="mock-css."
+          htmlfor="3"
         >
           Finance
-        </label>
-        <input
-          class="el-multi-select-checkbox"
+        </mock-styled.label>
+        <mock-styled.input
+          checked="false"
           id="2"
           name="Productivity"
           type="checkbox"
           value="2"
         />
-        <label
-          class="el-has-grey-chips el-multi-select-label"
-          for="2"
+        <mock-styled.label
+          classname="mock-css."
+          htmlfor="2"
         >
           Productivity
-        </label>
-        <input
-          class="el-multi-select-checkbox"
+        </mock-styled.label>
+        <mock-styled.input
+          checked="false"
           id="1"
           name="Other"
           type="checkbox"
           value="1"
         />
-        <label
-          class="el-has-grey-chips el-multi-select-label"
-          for="1"
+        <mock-styled.label
+          classname="mock-css."
+          htmlfor="1"
         >
           Other
-        </label>
-      </div>
-      <div
-        class="apps-search-desktop-controls el-flex-container"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  display: none;
+
+  , {
+    display: flex;
+  }
+"
       >
-        <div
-          class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+ mock-css.
+  width: 100%;
+
+  , {
+    margin-bottom: 2.5rem;
+    width: 50%;
+  }
+
+  , {
+    width: 33.33%;
+  }
+
+  , {
+    width: 25%;
+  }
+ mock-css.
+  margin-right: 0.75rem;
+"
         >
-          <span
-            class="apps-search-input-icon el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  border-radius: 0.25rem 0 0 0.25rem;
+  padding: 0 0.5rem 0 1.25rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-grey-light);
+"
             style="font-size: 1.25rem;"
           >
             <svg />
-          </span>
-          <input
-            class="apps-search-input"
+          </mock-styled.span>
+          <mock-styled.input
             placeholder="Search by App or Developer"
             type="text"
           />
-        </div>
-      </div>
-      <div
-        class="featured-hero-apps-item"
-      >
-        <div
-          class="el-flex-column el-flex-container"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
-          <h2
-            class="browse-apps-subtitle el-subtitle"
-          >
+          <mock-styled.mock-styled.h2>
             New in AppMarket
-          </h2>
-          <div
-            class="featured-hero-apps-container"
+          </mock-styled.mock-styled.h2>
+          <mock-styled.div
             style="background-color: rgba(0, 97, 168, 0.102);"
           >
-            <div
-              class="featured-hero-apps-flex-container"
-            >
-              <div
-                class="featured-hero-apps-content-container"
-              >
-                <div
-                  class="featured-hero-apps-inner-container"
-                >
-                  <div
-                    class="el-mb7 el-placeholder-image"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css.
+  margin-bottom: 1.25rem;
+"
                     style="font-size: 2.8125em; width: 72px; height: 72px;"
                   >
                     <svg
@@ -1008,50 +1222,57 @@ Object {
                         fill="#E3E3E3"
                       />
                     </svg>
-                  </div>
-                  <div
-                    class="featured-hero-apps-name-container"
-                  >
-                    <h2
-                      class="featured-hero-apps-subtitle el-subtitle"
-                    />
-                    <div
-                      class="hero-apps-chip-placeholder"
-                    />
-                  </div>
-                  <button
-                    class="featured-hero-apps-button-mob-tablet el-button"
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.mock-styled.h2 />
+                    <mock-styled.div />
+                  </mock-styled.div>
+                  <mock-styled.button
+                    classname="mock-css.
+  display: none;
+
+  , {
+    display: block;
+  }
+
+  , {
+    display: none;
+  }
+
+  , {
+    display: block;
+  }
+"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
                     Find Out More
-                    <div
-                      class="el-button-loader"
-                    />
-                  </button>
-                </div>
-                <p
-                  class="featured-hero-apps-strapline el-body-text"
-                >
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+                <mock-styled.mock-styled.p>
                   Lorem ipsum dolor sit amet, consectetur adip
-                </p>
-                <button
-                  class="featured-hero-apps-button-desktop el-button"
+                </mock-styled.mock-styled.p>
+                <mock-styled.button
+                  classname="mock-css.
+  display: none;
+
+  , {
+    display: block;
+  }
+
+  , {
+    display: none;
+  }
+"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
                   Find Out More
-                  <div
-                    class="el-button-loader"
-                  />
-                </button>
-              </div>
-              <div
-                class="featured-hero-apps-image-container"
-              >
-                <div
-                  class="el-placeholder-image-wrapper"
-                >
-                  <div
-                    class="el-placeholder-image"
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
                     style="font-size: 7.8125em;"
                   >
                     <svg
@@ -1101,46 +1322,62 @@ Object {
                         fill="white"
                       />
                     </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="hero-apps-carousel-widescreen carousel-wrapper"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  , {
+    width: calc(50% - 0.625rem);
+    display: inline-block;
+  }
+"
       >
-        <div
-          class="carousel-grid"
-          style="--ckvo4up-0: 2; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
+        <mock-styled.div
+          numbercols="2"
+          numberitems="2"
+          percentagewidth="50.000"
         >
-          <div
-            class="carousel-col"
-          >
-            <div
-              class="hero-apps-container"
-            >
-              <h2
-                class="browse-apps-subtitle el-subtitle"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.mock-styled.h2
+                classname=""
               >
                 Discover Amazing Apps
-              </h2>
-              <div
-                class="hero-apps-inner-container"
+              </mock-styled.mock-styled.h2>
+              <mock-styled.div
                 style="background-color: rgba(0, 97, 168, 0.102);"
               >
-                <div
-                  class="el-hfull hero-apps-flex-toggle el-flex-container"
+                <mock-styled.div
+                  classname="mock-css.
+  height: 100%;
+ mock-css.
+  flex-direction: column;
+
+  , {
+    flex-direction: row;
+  }
+
+  , {
+    flex-direction: column;
+  }
+
+  , {
+    flex-direction: row;
+  }
+
+  , {
+    flex-direction: column;
+  }
+"
                 >
-                  <div
-                    class="hero-apps-content-wrapper"
-                  >
-                    <div
-                      class="hero-apps-content-container"
-                    >
-                      <div
-                        class="el-placeholder-image"
+                  <mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.div
                         style="font-size: 2.8125em; width: 72px; height: 72px;"
                       >
                         <svg
@@ -1155,32 +1392,19 @@ Object {
                             fill="#E3E3E3"
                           />
                         </svg>
-                      </div>
-                      <div
-                        class="hero-apps-name-container"
-                      >
-                        <h2
-                          class="hero-apps-subtitle el-subtitle"
-                        />
-                        <div
-                          class="hero-apps-chip-placeholder"
-                        />
-                      </div>
-                    </div>
-                    <p
-                      class="hero-apps-strapline el-body-text"
-                    >
+                      </mock-styled.div>
+                      <mock-styled.div>
+                        <mock-styled.mock-styled.h2 />
+                        <mock-styled.div />
+                      </mock-styled.div>
+                    </mock-styled.div>
+                    <mock-styled.mock-styled.p>
                       Lorem ipsum dolor sit amet, consectetur adip
-                    </p>
-                  </div>
-                  <div
-                    class="hero-apps-image-container"
-                  >
-                    <div
-                      class="el-placeholder-image-wrapper"
-                    >
-                      <div
-                        class="el-placeholder-image"
+                    </mock-styled.mock-styled.p>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.div
                         style="font-size: 4.6875em;"
                       >
                         <svg
@@ -1230,37 +1454,47 @@ Object {
                             fill="white"
                           />
                         </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="carousel-col"
-          >
-            <div
-              class="hero-apps-container"
-            >
-              <h2
-                class="browse-apps-subtitle-placeholder browse-apps-subtitle el-subtitle"
+                      </mock-styled.div>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.mock-styled.h2
+                classname="mock-css."
               />
-              <div
-                class="hero-apps-inner-container"
+              <mock-styled.div
                 style="background-color: rgba(0, 97, 168, 0.102);"
               >
-                <div
-                  class="el-hfull hero-apps-flex-toggle el-flex-container"
+                <mock-styled.div
+                  classname="mock-css.
+  height: 100%;
+ mock-css.
+  flex-direction: column;
+
+  , {
+    flex-direction: row;
+  }
+
+  , {
+    flex-direction: column;
+  }
+
+  , {
+    flex-direction: row;
+  }
+
+  , {
+    flex-direction: column;
+  }
+"
                 >
-                  <div
-                    class="hero-apps-content-wrapper"
-                  >
-                    <div
-                      class="hero-apps-content-container"
-                    >
-                      <div
-                        class="el-placeholder-image"
+                  <mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.div
                         style="font-size: 2.8125em; width: 72px; height: 72px;"
                       >
                         <svg
@@ -1275,293 +1509,291 @@ Object {
                             fill="#E3E3E3"
                           />
                         </svg>
-                      </div>
-                      <div
-                        class="hero-apps-name-container"
-                      >
-                        <h2
-                          class="hero-apps-subtitle el-subtitle"
-                        />
-                        <div
-                          class="hero-apps-chip-placeholder"
-                        />
-                      </div>
-                    </div>
-                    <p
-                      class="hero-apps-strapline el-body-text"
-                    >
+                      </mock-styled.div>
+                      <mock-styled.div>
+                        <mock-styled.mock-styled.h2 />
+                        <mock-styled.div />
+                      </mock-styled.div>
+                    </mock-styled.div>
+                    <mock-styled.mock-styled.p>
                       Lorem ipsum dolor sit amet, consectetur adip
-                    </p>
-                  </div>
-                  <div
-                    class="hero-apps-image-container"
-                  >
-                    <img
-                      class="hero-apps-image"
+                    </mock-styled.mock-styled.p>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.img
                       src="https://image.com"
                     />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-flex-column el-flex-container"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+"
       >
-        <h2
-          class="browse-apps-subtitle el-subtitle"
-        >
+        <mock-styled.mock-styled.h2>
           App Collections
-        </h2>
-        <div
-          class="el-mb11 carousel-wrapper"
+        </mock-styled.mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <a
-            class="el-fade-in carousel-controls-right carousel-controls"
+          <mock-styled.mock-styled.a
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           >
-            <span
-              class="el-intent-primary el-icon"
+            <mock-styled.span
+              classname="mock-css."
               style="font-size: 0.75em;"
             >
               <svg />
-            </span>
-          </a>
-          <div
-            class="carousel-grid"
-            style="--ckvo4up-0: 6; --ckvo4up-1: 25.000%; --ckvo4up-2: 0.5625rem; --ckvo4up-6: 0.9375rem;"
+            </mock-styled.span>
+          </mock-styled.mock-styled.a>
+          <mock-styled.div
+            numbercols="4"
+            numberitems="6"
+            percentagewidth="25.000"
           >
-            <div
-              class="carousel-col"
-            >
-              <div
-                class="app-filter-col"
-              >
-                <div
-                  class="el-flex-column el-flex-container"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  flex-direction: column;
+"
                 >
-                  <span
-                    class="el-mb5 el-icon"
+                  <mock-styled.span
+                    classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                     style="font-size: 5em;"
                   >
                     <svg />
-                  </span>
-                  <div
-                    class="el-flex-column el-flex-justify-center el-flex-container"
+                  </mock-styled.span>
+                  <mock-styled.div
+                    classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
                   >
-                    <h2
-                      class="app-filter-subtitle el-subtitle"
-                    >
+                    <mock-styled.mock-styled.h2>
                       Reapit Developed Apps
-                    </h2>
-                    <p
-                      class="app-filter-strapline el-body-text"
-                    >
+                    </mock-styled.mock-styled.h2>
+                    <mock-styled.mock-styled.p>
                       Lorem ipsum dolor sit amet, consectetur adip
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="carousel-col"
-            >
-              <div
-                class="app-filter-col"
-              >
-                <div
-                  class="el-flex-column el-flex-container"
+                    </mock-styled.mock-styled.p>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  flex-direction: column;
+"
                 >
-                  <span
-                    class="el-mb5 el-icon"
+                  <mock-styled.span
+                    classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                     style="font-size: 5em;"
                   >
                     <svg />
-                  </span>
-                  <div
-                    class="el-flex-column el-flex-justify-center el-flex-container"
+                  </mock-styled.span>
+                  <mock-styled.div
+                    classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
                   >
-                    <h2
-                      class="app-filter-subtitle el-subtitle"
-                    >
+                    <mock-styled.mock-styled.h2>
                       Reapit Developed Apps
-                    </h2>
-                    <p
-                      class="app-filter-strapline el-body-text"
-                    >
+                    </mock-styled.mock-styled.h2>
+                    <mock-styled.mock-styled.p>
                       Lorem ipsum dolor sit amet, consectetur adip
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="carousel-col"
-            >
-              <div
-                class="app-filter-col"
-              >
-                <div
-                  class="el-flex-column el-flex-container"
+                    </mock-styled.mock-styled.p>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  flex-direction: column;
+"
                 >
-                  <span
-                    class="el-mb5 el-icon"
+                  <mock-styled.span
+                    classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                     style="font-size: 5em;"
                   >
                     <svg />
-                  </span>
-                  <div
-                    class="el-flex-column el-flex-justify-center el-flex-container"
+                  </mock-styled.span>
+                  <mock-styled.div
+                    classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
                   >
-                    <h2
-                      class="app-filter-subtitle el-subtitle"
-                    >
+                    <mock-styled.mock-styled.h2>
                       Reapit Developed Apps
-                    </h2>
-                    <p
-                      class="app-filter-strapline el-body-text"
-                    >
+                    </mock-styled.mock-styled.h2>
+                    <mock-styled.mock-styled.p>
                       Lorem ipsum dolor sit amet, consectetur adip
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="carousel-col"
-            >
-              <div
-                class="app-filter-col"
-              >
-                <div
-                  class="el-flex-column el-flex-container"
+                    </mock-styled.mock-styled.p>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  flex-direction: column;
+"
                 >
-                  <span
-                    class="el-mb5 el-icon"
+                  <mock-styled.span
+                    classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                     style="font-size: 5em;"
                   >
                     <svg />
-                  </span>
-                  <div
-                    class="el-flex-column el-flex-justify-center el-flex-container"
+                  </mock-styled.span>
+                  <mock-styled.div
+                    classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
                   >
-                    <h2
-                      class="app-filter-subtitle el-subtitle"
-                    >
+                    <mock-styled.mock-styled.h2>
                       Reapit Developed Apps
-                    </h2>
-                    <p
-                      class="app-filter-strapline el-body-text"
-                    >
+                    </mock-styled.mock-styled.h2>
+                    <mock-styled.mock-styled.p>
                       Lorem ipsum dolor sit amet, consectetur adip
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="carousel-col"
-            >
-              <div
-                class="app-filter-col"
-              >
-                <div
-                  class="el-flex-column el-flex-container"
+                    </mock-styled.mock-styled.p>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  flex-direction: column;
+"
                 >
-                  <span
-                    class="el-mb5 el-icon"
+                  <mock-styled.span
+                    classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                     style="font-size: 5em;"
                   >
                     <svg />
-                  </span>
-                  <div
-                    class="el-flex-column el-flex-justify-center el-flex-container"
+                  </mock-styled.span>
+                  <mock-styled.div
+                    classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
                   >
-                    <h2
-                      class="app-filter-subtitle el-subtitle"
-                    >
+                    <mock-styled.mock-styled.h2>
                       Reapit Developed Apps
-                    </h2>
-                    <p
-                      class="app-filter-strapline el-body-text"
-                    >
+                    </mock-styled.mock-styled.h2>
+                    <mock-styled.mock-styled.p>
                       Lorem ipsum dolor sit amet, consectetur adip
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="carousel-col"
-            >
-              <div
-                class="app-filter-col"
-              >
-                <div
-                  class="el-flex-column el-flex-container"
+                    </mock-styled.mock-styled.p>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  flex-direction: column;
+"
                 >
-                  <span
-                    class="el-mb5 el-icon"
+                  <mock-styled.span
+                    classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                     style="font-size: 5em;"
                   >
                     <svg />
-                  </span>
-                  <div
-                    class="el-flex-column el-flex-justify-center el-flex-container"
+                  </mock-styled.span>
+                  <mock-styled.div
+                    classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
                   >
-                    <h2
-                      class="app-filter-subtitle el-subtitle"
-                    >
+                    <mock-styled.mock-styled.h2>
                       Reapit Developed Apps
-                    </h2>
-                    <p
-                      class="app-filter-strapline el-body-text"
-                    >
+                    </mock-styled.mock-styled.h2>
+                    <mock-styled.mock-styled.p>
                       Lorem ipsum dolor sit amet, consectetur adip
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-flex-align-center el-flex-container"
+                    </mock-styled.mock-styled.p>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <h2
-            class="browse-apps-subtitle el-subtitle"
-          >
+          <mock-styled.mock-styled.h2>
             Indentity Apps
-          </h2>
-          <a
-            class="app-filter-link"
-          >
+          </mock-styled.mock-styled.h2>
+          <mock-styled.a>
             See All
-          </a>
-        </div>
-        <div
-          class="apps-grid"
-        />
-        <div
-          class="el-flex-align-center el-flex-container"
+          </mock-styled.a>
+        </mock-styled.div>
+        <mock-styled.div />
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <h2
-            class="browse-apps-subtitle el-subtitle"
-          >
+          <mock-styled.mock-styled.h2>
             Free Apps
-          </h2>
-          <a
-            class="app-filter-link"
-          >
+          </mock-styled.mock-styled.h2>
+          <mock-styled.a>
             See All
-          </a>
-        </div>
-        <div
-          class="simple-apps-grid apps-grid"
-        />
-      </div>
-    </section>
+          </mock-styled.a>
+        </mock-styled.div>
+        <mock-styled.mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

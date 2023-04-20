@@ -1,11 +1,11 @@
 import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { AppsInstalled } from '../apps-installed'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 
-window.reapit.config.clientHiddenAppIds = {}
-window.reapit.config.orgAdminRestrictedAppIds = []
+process.env.clientHiddenAppIds = {}
+process.env.orgAdminRestrictedAppIds = []
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
@@ -20,7 +20,8 @@ jest.mock('@reapit/connect-session', () => ({
   })),
 }))
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, false]),
 }))
 

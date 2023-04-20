@@ -8,9 +8,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "webpack serve --hot --color --mode development",
+    "start": "vite",
+    "build": "vite build",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
-    "build": "rimraf public/dist && NODE_ENV=production webpack",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "release": "serverless deploy",
@@ -64,8 +64,7 @@
     "serverless-single-page-app-plugin": "^1.0.4",
     "ts-jest": "^29.1.0",
     "typescript": "^4.9.5",
-    "webpack": "^5.75.0",
-    "webpack-dev-server": "^4.11.1"
+    "vite": "^4.2.2"
   },
   "browserslist": [
     "> 0.5%",

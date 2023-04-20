@@ -1,11 +1,9 @@
 import * as React from 'react'
-import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import { createBrowserHistory, History } from 'history'
 import { catchChunkError } from '@reapit/utils-react'
-import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
-import { OkayPage } from '@reapit/utils-react'
-import { Loader } from '@reapit/elements'
+import { FC } from 'react'
 
 export const history: History<any> = createBrowserHistory()
 
@@ -18,20 +16,23 @@ export const ROUTES = {
   OK: '/ok',
 }
 
-const Router = () => (
-  <BrowserRouter history={history}>
-    <React.Suspense fallback={<Loader />}>
-      <Switch>
-        <Route path={ROUTES.OK} exact render={() => <OkayPage />} />
-        <Route path={ROUTES.LOGIN} component={LoginPage} />
+export const RoutesComponent: FC = () => (
+  <Routes>
+    <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+    <Route
+      path={ROUTES.APPOINTMENT}
+      element={
         <PrivateRouteWrapper>
-          <Switch>
-            <PrivateRoute allow="CLIENT" path={ROUTES.APPOINTMENT} component={Appointment} />
-          </Switch>
+          <Appointment />
         </PrivateRouteWrapper>
-        <Redirect to={ROUTES.LOGIN} />
-      </Switch>
-    </React.Suspense>
+      }
+    />
+  </Routes>
+)
+
+const Router: FC = () => (
+  <BrowserRouter>
+    <RoutesComponent />
   </BrowserRouter>
 )
 

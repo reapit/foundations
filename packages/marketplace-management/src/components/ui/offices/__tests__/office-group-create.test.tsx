@@ -1,14 +1,13 @@
 import React from 'react'
 import { fetcher } from '@reapit/utils-common'
 import OfficeGroupCreate, { handleSwitchStep, onHandleSubmit } from '../office-group-create'
-import { History } from 'history'
 import Routes from '../../../../constants/routes'
 import { toastMessages } from '../../../../constants/toast-messages'
 import { useOrgId } from '../../../../utils/use-org-id'
-import { render } from '@testing-library/react'
 import useSWR from 'swr'
 import { mockOfficeList } from '../../../../services/__stubs__/offices'
 import { OFFICE_IN_USE_ERROR } from '../../../../services/office'
+import { render } from '../../../../tests/react-testing'
 
 jest.useFakeTimers()
 jest.mock('swr', () => ({
@@ -54,10 +53,8 @@ describe('onHandleSubmit', () => {
   const orgId = 'ORG1'
   const officeIds = 'OF1,OF2'
   const mutate = jest.fn()
-  const history = {
-    push: jest.fn(),
-  } as unknown as History
-  const onSubmit = onHandleSubmit(history, orgId, mutate, success, error)
+  const navigate = jest.fn()
+  const onSubmit = onHandleSubmit(navigate, orgId, mutate, success, error)
 
   it('should show notification error', async () => {
     mockedFetch.mockReturnValueOnce(undefined)
@@ -82,7 +79,7 @@ describe('onHandleSubmit', () => {
 
     jest.runAllTimers()
     expect(success).toHaveBeenCalledWith(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
-    expect(history.push).toHaveBeenCalledWith(Routes.OFFICES_GROUPS)
+    expect(navigate).toHaveBeenCalledWith(Routes.OFFICES_GROUPS)
   })
 })
 

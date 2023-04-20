@@ -1,4 +1,4 @@
-export const Routes = {
+export const RoutePaths = {
   HOME: '/',
   ADMIN: '/admin',
   LOGIN: '/login',

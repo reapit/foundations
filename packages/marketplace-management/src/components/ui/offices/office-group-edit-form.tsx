@@ -34,8 +34,15 @@ import { useForm, UseFormReset, UseFormGetValues } from 'react-hook-form'
 import { fetcherWithClientCode } from '../../../utils/fetcher'
 import { useOrgId } from '../../../utils/use-org-id'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import {
+  GetActionNames,
+  getActions,
+  UpdateActionNames,
+  updateActions,
+  SendFunction,
+  useReapitGet,
+  useReapitUpdate,
+} from '@reapit/use-reapit-data'
 import { Link } from 'react-router-dom'
 import Routes from '../../../constants/routes'
 
@@ -169,7 +176,7 @@ export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup,
 
   const [, , deleteOfficeGroup] = useReapitUpdate<undefined, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteOfficeGroup],
+    action: updateActions[UpdateActionNames.deleteOfficeGroup],
     method: 'DELETE',
     uriParams: {
       orgId,
@@ -179,7 +186,7 @@ export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup,
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions[GetActionNames.getInstallations],
     queryParams: {
       pageSize: 999,
       isInstalled: true,

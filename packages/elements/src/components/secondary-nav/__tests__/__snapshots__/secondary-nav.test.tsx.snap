@@ -1,41 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SecondaryNav component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-secondary-nav"
-      >
-        <div
-          class="el-secondary-nav-item"
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
           App List
-        </div>
-        <div
-          class="el-is-active el-secondary-nav-item"
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
           Create App
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-secondary-nav"
-    >
-      <div
-        class="el-secondary-nav-item"
+    <mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
         App List
-      </div>
-      <div
-        class="el-is-active el-secondary-nav-item"
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
         Create App
-      </div>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

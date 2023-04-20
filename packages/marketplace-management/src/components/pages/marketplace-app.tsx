@@ -3,7 +3,7 @@ import { AppDetailModel, DesktopIntegrationTypeModelPagedResult } from '@reapit/
 import AppToggleVisibilitySection from '../ui/apps/app-toggle-visibility-section'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { useHistory, useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import useSWR from 'swr'
 import { URLS } from '../../constants/api'
 import AppPricingPermissionsSection from '../ui/apps/app-pricing-permissions-section'
@@ -24,13 +24,13 @@ import {
   ButtonGroup,
   useMediaQuery,
 } from '@reapit/elements'
-import { navigate } from '../ui/nav/nav'
+import { navigateRoute } from '../ui/nav/nav'
 import Routes from '../../constants/routes'
 import { useOrgId } from '../../utils/use-org-id'
 import { OrgIdSelect } from '../hocs/org-id-select'
 
 export const handleLoadAppListing = (isDesktop: boolean, appId: string) => () => {
-  const appListingUri = `${window.reapit.config.marketplaceUrl}/apps/${appId}`
+  const appListingUri = `${process.env.marketplaceUrl}/apps/${appId}`
   if (isDesktop) {
     return (window.location.href = `agencycloud://process/webpage?url=${appListingUri}`)
   }
@@ -39,7 +39,7 @@ export const handleLoadAppListing = (isDesktop: boolean, appId: string) => () =>
 }
 
 const MarketplaceAppPage: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const { isMobile } = useMediaQuery()
   const parms = useParams<{ appId: string }>()
@@ -75,7 +75,7 @@ const MarketplaceAppPage: FC = () => {
           page.
         </BodyText>
         {!orgClientId && <OrgIdSelect />}
-        <Button className={elMb5} type="button" intent="primary" onClick={navigate(history, Routes.MARKETPLACE)}>
+        <Button className={elMb5} type="button" intent="primary" onClick={navigateRoute(navigate, Routes.MARKETPLACE)}>
           Back To Apps
         </Button>
         <Button
@@ -107,7 +107,7 @@ const MarketplaceAppPage: FC = () => {
                     className={elMb5}
                     type="button"
                     intent="primary"
-                    onClick={navigate(history, Routes.MARKETPLACE)}
+                    onClick={navigateRoute(navigate, Routes.MARKETPLACE)}
                   >
                     Back To Apps
                   </Button>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '../../tests/react-testing'
-import Router from '../router'
+import { RoutesComponent } from '../router'
 
 jest.mock('../analytics')
 jest.mock('@reapit/connect-session', () => ({
@@ -14,9 +14,9 @@ jest.mock('@reapit/connect-session', () => ({
   }),
 }))
 
-describe('Router', () => {
+describe('RoutesComponent', () => {
   window.location.pathname = '/'
   it('should match a snapshot', () => {
-    expect(render(<Router />)).toMatchSnapshot()
+    expect(render(<RoutesComponent />)).toMatchSnapshot()
   })
 })

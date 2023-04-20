@@ -1,16 +1,13 @@
-import { History } from 'history'
-import { navigate } from '..'
+import { navigateRoute } from '..'
 
 describe('navigate', () => {
   it('should open a new page', () => {
-    const mockHistory = {
-      push: jest.fn(),
-    } as unknown as History
+    const navigate = jest.fn()
 
-    const curried = navigate(mockHistory, '/payments')
+    const curried = navigateRoute(navigate, '/payments')
 
     curried()
 
-    expect(mockHistory.push).toHaveBeenCalledWith('/payments')
+    expect(navigate).toHaveBeenCalledWith('/payments')
   })
 })

@@ -1,28 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnalyticsBanner should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="cookie-banner-position el-intent-secondary el-persistent-notification"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  bottom: 1.25rem;
+ mock-css."
       >
         <div
-          class="el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           The AppMarket uses mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product - to opt out of this tracking
            
@@ -31,28 +46,43 @@ Object {
           </a>
           , if you do not opt out you can at a later date.
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="cookie-banner-position el-intent-secondary el-persistent-notification"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  bottom: 1.25rem;
+ mock-css."
     >
       <div
-        class="el-pn-icon"
+        class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
         data-testid="close-icon"
       >
-        <span
-          class="el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
+        </mock-styled.span>
       </div>
       <div
-        class="el-pn-content"
+        class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
       >
         The AppMarket uses mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product - to opt out of this tracking
          
@@ -61,7 +91,7 @@ Object {
         </a>
         , if you do not opt out you can at a later date.
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -118,67 +148,15 @@ Object {
 `;
 
 exports[`AnalyticsBanner should match snapshot when there is no current user 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="cookie-banner-position el-intent-secondary el-persistent-notification"
-      >
-        <div
-          class="el-pn-icon"
-          data-testid="close-icon"
-        >
-          <span
-            class="el-icon"
-          >
-            <svg />
-          </span>
-        </div>
-        <div
-          class="el-pn-content"
-        >
-          The AppMarket uses mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product - to opt out of this tracking
-           
-          <a>
-            click here
-          </a>
-          , if you do not opt out you can at a later date.
-        </div>
-      </div>
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="cookie-banner-position el-intent-secondary el-persistent-notification"
-    >
-      <div
-        class="el-pn-icon"
-        data-testid="close-icon"
-      >
-        <span
-          class="el-icon"
-        >
-          <svg />
-        </span>
-      </div>
-      <div
-        class="el-pn-content"
-      >
-        The AppMarket uses mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product - to opt out of this tracking
-         
-        <a>
-          click here
-        </a>
-        , if you do not opt out you can at a later date.
-      </div>
-    </div>
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

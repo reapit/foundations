@@ -15,13 +15,8 @@ module.exports = {
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]'],
   moduleNameMapper: {
     ...jestGlobalConfig.moduleNameMapper,
-
     '\\.(css)$': '<rootDir>/src/scripts/style-mock.js',
     '^uuid': join(__dirname, '../..', 'node_modules/uuid/dist/index.js'),
-  },
-  transform: {
-    ...jestGlobalConfig.transform,
-    '\\.[jt]sx?$': 'babel-jest',
   },
   coverageThreshold: {
     global: {

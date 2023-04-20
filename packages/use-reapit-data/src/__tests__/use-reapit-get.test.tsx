@@ -54,7 +54,7 @@ describe('useReapitGet', () => {
     })
 
     const action = {
-      ...getActions('local')[GetActionNames.getApps],
+      ...getActions[GetActionNames.getApps],
       successMessage: 'Some success message',
     }
 

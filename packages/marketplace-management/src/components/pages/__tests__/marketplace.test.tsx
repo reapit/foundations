@@ -1,10 +1,9 @@
 import React, { ChangeEvent } from 'react'
-import { render } from '@testing-library/react'
 import { handleSearch, MarketplacePage, onPageChangeHandler } from '../marketplace'
-import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { useOrgId } from '../../../utils/use-org-id'
 import { mockAppsList } from '../../../services/__stubs__/apps'
+import { render } from '../../../tests/react-testing'
 
 const mockUseOrgId = useOrgId as jest.Mock
 
@@ -12,11 +11,9 @@ jest.mock('../../../services/apps', () => ({
   getAppRestrictionsService: jest.fn(() => ({})),
 }))
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: () => [mockAppsList, false],
-  GetActionNames: {
-    getApps: 'getApps',
-  },
 }))
 
 jest.mock('@reapit/connect-session', () => ({
@@ -32,15 +29,6 @@ jest.mock('@reapit/connect-session', () => ({
 
 jest.mock('../../../utils/use-org-id')
 
-jest.mock('react-router', () => ({
-  useLocation: jest.fn(() => ({
-    pathname: '/marketplace',
-  })),
-  useHistory: jest.fn(() => ({
-    history: () => {},
-  })),
-}))
-
 describe('MarketplacePage', () => {
   it('should match a snapshot', () => {
     expect(render(<MarketplacePage />)).toMatchSnapshot()
@@ -54,32 +42,29 @@ describe('MarketplacePage', () => {
 
 describe('onPageChangeHandler', () => {
   it('should update the history object', async () => {
-    const mockHistory = {
-      push: jest.fn(),
-      location: { search: 'pageNumber=1&pageSize=12' },
-    } as unknown as History
+    const navigate = jest.fn()
     const mockPage = 2
 
-    const curried = onPageChangeHandler(mockHistory)
+    const curried = onPageChangeHandler(navigate)
 
     curried(mockPage)
 
-    expect(mockHistory.push).toHaveBeenCalledWith(`${Routes.MARKETPLACE}?pageNumber=${mockPage}&pageSize=12`)
+    expect(navigate).toHaveBeenCalledWith(`${Routes.MARKETPLACE}?pageSize=12&pageNumber=${mockPage}`)
   })
 })
 
 describe('handleSearch', () => {
   it('should update the history object', async () => {
-    const mockHistory = { push: jest.fn() } as unknown as History
+    const navigate = jest.fn()
     const event = {
       target: { value: 'test' },
     } as unknown as ChangeEvent<HTMLInputElement>
 
-    const curried = handleSearch(mockHistory)
+    const curried = handleSearch(navigate)
 
     curried(event)
 
-    expect(mockHistory.push).toHaveBeenCalledWith(
+    expect(navigate).toHaveBeenCalledWith(
       `${Routes.MARKETPLACE}?pageSize=12&pageNumber=1&searchTerm=${event.target.value}`,
     )
   })

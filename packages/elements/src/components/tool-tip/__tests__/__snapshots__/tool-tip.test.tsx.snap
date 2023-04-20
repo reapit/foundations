@@ -1,33 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ToolTip should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-tool-tip-container"
-      >
+      <mock-styled.div>
         Hover here
-        <div
-          class="el-tool-tip-child"
+        <mock-styled.div
+          classname=""
         >
           hello there
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-tool-tip-container"
-    >
+    <mock-styled.div>
       Hover here
-      <div
-        class="el-tool-tip-child"
+      <mock-styled.div
+        classname=""
       >
         hello there
-      </div>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

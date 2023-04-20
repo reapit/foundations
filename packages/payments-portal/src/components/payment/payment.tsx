@@ -82,7 +82,7 @@ export const handleMerchantKeyRefresh =
 export const Payment: FC = () => {
   const [paymentProvider, setPaymentProvider] = useState<PaymentProvider | null>(null)
   const [configLoading, setConfigLoading] = useState<boolean>(true)
-  const { paymentId } = useParams<PaymentUriParams>()
+  const { paymentId } = useParams<'paymentId'>()
   const location = useLocation()
   const params = new URLSearchParams(location.search)
   const session = params.get('session')

@@ -28,7 +28,7 @@ export const dataIdFromObject = (object: Readonly<StoreObject>) => {
 }
 
 const httpLink = new HttpLink({
-  uri: window.reapit.config.graphqlUri,
+  uri: process.env.graphqlUri,
 })
 
 const authLink = setContext(async (_, { headers }) => {

@@ -3,10 +3,9 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import Routes from '../../constants/routes'
-import { History } from 'history'
-import { useHistory, useLocation } from 'react-router'
+import { NavigateFunction, useLocation, useNavigate } from 'react-router'
 
-export const callbackAppClick = () => (window.location.href = window.reapit.config.marketplaceUrl)
+export const callbackAppClick = () => (window.location.href = process.env.marketplaceUrl)
 
 export const getDefaultNavIndex = (pathname: string) => {
   switch (pathname) {
@@ -21,8 +20,8 @@ export const getDefaultNavIndex = (pathname: string) => {
   }
 }
 
-export const navigate = (history: History, route: string) => (): void => {
-  history.push(route)
+export const navigateRoute = (navigate: NavigateFunction, route: string) => (): void => {
+  navigate(route)
 }
 
 export const openNewPage = (uri: string) => (event?: MouseEvent) => {
@@ -33,7 +32,7 @@ export const openNewPage = (uri: string) => (event?: MouseEvent) => {
 
 export const Nav: FC = () => {
   const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
 
   const navOptions: NavResponsiveOption[] = [
@@ -42,13 +41,13 @@ export const Nav: FC = () => {
     },
     {
       itemIndex: 1,
-      callback: navigate(history, Routes.ACCOUNTS),
+      callback: navigateRoute(navigate, Routes.ACCOUNTS),
       iconId: 'usersMenu',
       text: 'Users',
     },
     {
       itemIndex: 2,
-      callback: navigate(history, Routes.DATA),
+      callback: navigateRoute(navigate, Routes.DATA),
       iconId: 'dataMenu',
       text: 'Data',
     },

@@ -1,57 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MarketplacePage should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-flex-auto el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="el-secondary-nav-container"
-        >
-          <h1
-            class="el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Apps
-          </h1>
-          <span
-            class="el-mb5 el-icon-size-large el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             AppMarket Visibility and Installation Management
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             To set the visibility of an app in the AppMarket or to manage installations for your organisation or specific office groups, please select an app.
-          </p>
+          </mock-styled.p>
           <div
-            class="el-mb5"
+            class="mock-css.
+  margin-bottom: 0.75rem;
+"
           >
-            <h2
-              class="el-subtitle"
+            <mock-styled.h2
+              classname=""
             >
               Organisations
-            </h2>
-            <p
-              class="el-has-grey-text el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-            </p>
-            <div
-              class="el-border-radius controls-container"
+            </mock-styled.p>
+            <mock-styled.div
+              classname="mock-css.
+  border-radius: 0.25rem;
+"
             >
-              <div
-                class="el-input-group"
-              >
-                <select
-                  class="el-wfull el-select"
+              <mock-styled.div>
+                <mock-styled.select
+                  classname="mock-css.
+  width: 100%;
+"
+                  value="SOME_ID"
                 >
                   <option
                     value=""
@@ -68,1102 +78,911 @@ Object {
                   >
                     name
                   </option>
-                </select>
-                <label
-                  class="el-label"
-                  for="myId"
+                </mock-styled.select>
+                <mock-styled.label
+                  htmlfor="myId"
                 >
                   Select Organisation
-                </label>
-              </div>
-            </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 name="searchTerm"
                 placeholder="Developer or App"
                 type="text"
-                value=""
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Search
-              </label>
-            </div>
-          </div>
-        </aside>
-        <section
-          class="el-hfull el-page-container"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <div
-            class="el-flex-justify-between el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  justify-content: space-between;
+"
           >
-            <h1
-              class="el-title"
+            <mock-styled.h1
+              classname=""
             >
               SOME_NAME
                AppMarket
-            </h1>
-          </div>
-          <div
-            class="el-grid"
+            </mock-styled.h1>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-col"
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-fade-in el-card-wrap"
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
               >
-                <div
-                  class="el-card-main-wrap"
-                >
-                  <div
-                    class="el-card-heading-wrap"
-                  >
-                    <h5
-                      class="el-card-heading"
-                    >
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
                       Test App Dev
-                    </h5>
-                    <h6
-                      class="el-card-sub-heading"
-                    >
+                    </mock-styled.h5>
+                    <mock-styled.h6>
                       DFG
-                    </h6>
-                    <h6
-                      class="el-card-sub-heading-additional"
-                    >
+                    </mock-styled.h6>
+                    <mock-styled.h6>
                       Integration
-                    </h6>
-                  </div>
-                </div>
-                <div
-                  class="el-mb5 el-card-body-wrap"
+                    </mock-styled.h6>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 />
-                <div
-                  class="el-card-list-main-wrap"
-                >
-                  <h5
-                    class="el-card-list-heading"
-                  >
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Installation and Visibility
-                  </h5>
-                  <h6
-                    class="el-card-list-sub-heading"
-                  />
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Installation Status
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Not installed
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Marketplace Visibility
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Marketplace visible
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-col"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-fade-in el-card-wrap"
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
               >
-                <div
-                  class="el-card-main-wrap"
-                >
-                  <div
-                    class="el-card-image-wrap"
-                  >
+                <mock-styled.div>
+                  <mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Insights-icon.png"
                     />
-                  </div>
-                  <div
-                    class="el-card-heading-wrap"
-                  >
-                    <h5
-                      class="el-card-heading"
-                    >
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
                       Reapit Insights
-                    </h5>
-                    <h6
-                      class="el-card-sub-heading"
-                    >
+                    </mock-styled.h5>
+                    <mock-styled.h6>
                       Reapit Ltd
-                    </h6>
-                    <h6
-                      class="el-card-sub-heading-additional"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="el-mb5 el-card-body-wrap"
+                    </mock-styled.h6>
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 >
                   Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
-                </div>
-                <div
-                  class="el-card-list-main-wrap"
-                >
-                  <h5
-                    class="el-card-list-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Installation and Visibility
-                  </h5>
-                  <h6
-                    class="el-card-list-sub-heading"
-                  />
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Installation Status
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Not installed
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Marketplace Visibility
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Marketplace visible
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-col"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-fade-in el-card-wrap"
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
               >
-                <div
-                  class="el-card-main-wrap"
-                >
-                  <div
-                    class="el-card-image-wrap"
-                  >
+                <mock-styled.div>
+                  <mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-Management-icon.png"
                     />
-                  </div>
-                  <div
-                    class="el-card-heading-wrap"
-                  >
-                    <h5
-                      class="el-card-heading"
-                    >
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
                       Marketplace Management
-                    </h5>
-                    <h6
-                      class="el-card-sub-heading"
-                    >
+                    </mock-styled.h5>
+                    <mock-styled.h6>
                       Reapit Ltd
-                    </h6>
-                    <h6
-                      class="el-card-sub-heading-additional"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="el-mb5 el-card-body-wrap"
+                    </mock-styled.h6>
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 >
                   Description Description Description Description Description Description Description Description
-                </div>
-                <div
-                  class="el-card-list-main-wrap"
-                >
-                  <h5
-                    class="el-card-list-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Installation and Visibility
-                  </h5>
-                  <h6
-                    class="el-card-list-sub-heading"
-                  />
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Installation Status
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Not installed
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Marketplace Visibility
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Marketplace visible
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-col"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-fade-in el-card-wrap"
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
               >
-                <div
-                  class="el-card-main-wrap"
-                >
-                  <div
-                    class="el-card-image-wrap"
-                  >
+                <mock-styled.div>
+                  <mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Holly-Test-App-icon(1).png"
                     />
-                  </div>
-                  <div
-                    class="el-card-heading-wrap"
-                  >
-                    <h5
-                      class="el-card-heading"
-                    >
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
                       Holly Test App
-                    </h5>
-                    <h6
-                      class="el-card-sub-heading"
-                    >
+                    </mock-styled.h5>
+                    <mock-styled.h6>
                       Holly Phillips Testing
-                    </h6>
-                    <h6
-                      class="el-card-sub-heading-additional"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="el-mb5 el-card-body-wrap"
+                    </mock-styled.h6>
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 >
                   https://holly.com https://holly.com https://holly.com https://holly.comhttps://holly.com https://holly.comhttps://holly.com https://holly.com
-                </div>
-                <div
-                  class="el-card-list-main-wrap"
-                >
-                  <h5
-                    class="el-card-list-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Installation and Visibility
-                  </h5>
-                  <h6
-                    class="el-card-list-sub-heading"
-                  />
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Installation Status
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Not installed
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Marketplace Visibility
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Marketplace hidden
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-col"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-fade-in el-card-wrap"
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
               >
-                <div
-                  class="el-card-main-wrap"
-                >
-                  <div
-                    class="el-card-image-wrap"
-                  >
+                <mock-styled.div>
+                  <mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Payments-Portal-icon.png"
                     />
-                  </div>
-                  <div
-                    class="el-card-heading-wrap"
-                  >
-                    <h5
-                      class="el-card-heading"
-                    >
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
                       Reapit Payments Portal
-                    </h5>
-                    <h6
-                      class="el-card-sub-heading"
-                    >
+                    </mock-styled.h5>
+                    <mock-styled.h6>
                       Reapit Ltd
-                    </h6>
-                    <h6
-                      class="el-card-sub-heading-additional"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="el-mb5 el-card-body-wrap"
+                    </mock-styled.h6>
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 >
                   It takes your money and sends it to Sage Pay. Then it updates RPS.
-                </div>
-                <div
-                  class="el-card-list-main-wrap"
-                >
-                  <h5
-                    class="el-card-list-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Installation and Visibility
-                  </h5>
-                  <h6
-                    class="el-card-list-sub-heading"
-                  />
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Installation Status
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Not installed
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Marketplace Visibility
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Marketplace visible
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-col"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-fade-in el-card-wrap"
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
               >
-                <div
-                  class="el-card-main-wrap"
-                >
-                  <div
-                    class="el-card-image-wrap"
-                  >
+                <mock-styled.div>
+                  <mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Data-Warehouse-icon.png"
                     />
-                  </div>
-                  <div
-                    class="el-card-heading-wrap"
-                  >
-                    <h5
-                      class="el-card-heading"
-                    >
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
                       Data Warehouse
-                    </h5>
-                    <h6
-                      class="el-card-sub-heading"
-                    >
+                    </mock-styled.h5>
+                    <mock-styled.h6>
                       Reapit Ltd
-                    </h6>
-                    <h6
-                      class="el-card-sub-heading-additional"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="el-mb5 el-card-body-wrap"
+                    </mock-styled.h6>
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 >
                   The data warehouse houses lots of data. The data warehouse houses lots of data.
-                </div>
-                <div
-                  class="el-card-list-main-wrap"
-                >
-                  <h5
-                    class="el-card-list-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Installation and Visibility
-                  </h5>
-                  <h6
-                    class="el-card-list-sub-heading"
-                  />
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Installation Status
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Not installed
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Marketplace Visibility
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Marketplace hidden
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-col"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-fade-in el-card-wrap"
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
               >
-                <div
-                  class="el-card-main-wrap"
-                >
-                  <div
-                    class="el-card-image-wrap"
-                  >
+                <mock-styled.div>
+                  <mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-icon.png"
                     />
-                  </div>
-                  <div
-                    class="el-card-heading-wrap"
-                  >
-                    <h5
-                      class="el-card-heading"
-                    >
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
                       Reapit Connect
-                    </h5>
-                    <h6
-                      class="el-card-sub-heading"
-                    >
+                    </mock-styled.h5>
+                    <mock-styled.h6>
                       Reapit Ltd
-                    </h6>
-                    <h6
-                      class="el-card-sub-heading-additional"
-                    >
+                    </mock-styled.h6>
+                    <mock-styled.h6>
                       Integration
-                    </h6>
-                  </div>
-                </div>
-                <div
-                  class="el-mb5 el-card-body-wrap"
+                    </mock-styled.h6>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 >
                   Reapit Connect removes the overhead of having to build and maintain a user credential directory for your app.
-                </div>
-                <div
-                  class="el-card-list-main-wrap"
-                >
-                  <h5
-                    class="el-card-list-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Installation and Visibility
-                  </h5>
-                  <h6
-                    class="el-card-list-sub-heading"
-                  />
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Installation Status
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Not installed
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Marketplace Visibility
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Marketplace hidden
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-col"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-fade-in el-card-wrap"
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
               >
-                <div
-                  class="el-card-main-wrap"
-                >
-                  <div
-                    class="el-card-image-wrap"
-                  >
+                <mock-styled.div>
+                  <mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                     />
-                  </div>
-                  <div
-                    class="el-card-heading-wrap"
-                  >
-                    <h5
-                      class="el-card-heading"
-                    >
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
                       Online Check List
-                    </h5>
-                    <h6
-                      class="el-card-sub-heading"
-                    >
+                    </mock-styled.h5>
+                    <mock-styled.h6>
                       Reapit Ltd
-                    </h6>
-                    <h6
-                      class="el-card-sub-heading-additional"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="el-mb5 el-card-body-wrap"
+                    </mock-styled.h6>
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 >
                   Helps you to get organised, simplify your workflow, and to ensure checks are carried out. Manage your checks online from anywhere.
-                </div>
-                <div
-                  class="el-card-list-main-wrap"
-                >
-                  <h5
-                    class="el-card-list-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Installation and Visibility
-                  </h5>
-                  <h6
-                    class="el-card-list-sub-heading"
-                  />
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Installation Status
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Not installed
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Marketplace Visibility
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Marketplace visible
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-col"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-fade-in el-card-wrap"
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
               >
-                <div
-                  class="el-card-main-wrap"
-                >
-                  <div
-                    class="el-card-image-wrap"
-                  >
+                <mock-styled.div>
+                  <mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Geo-Diary-icon.png"
                     />
-                  </div>
-                  <div
-                    class="el-card-heading-wrap"
-                  >
-                    <h5
-                      class="el-card-heading"
-                    >
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
                       Geo Diary
-                    </h5>
-                    <h6
-                      class="el-card-sub-heading"
-                    >
+                    </mock-styled.h5>
+                    <mock-styled.h6>
                       Reapit Ltd
-                    </h6>
-                    <h6
-                      class="el-card-sub-heading-additional"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="el-mb5 el-card-body-wrap"
+                    </mock-styled.h6>
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 >
                   GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
-                </div>
-                <div
-                  class="el-card-list-main-wrap"
-                >
-                  <h5
-                    class="el-card-list-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Installation and Visibility
-                  </h5>
-                  <h6
-                    class="el-card-list-sub-heading"
-                  />
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Installation Status
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Not installed
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="el-card-list-item"
-                >
-                  <div
-                    class="el-card-list-icon"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-list-item-text-wrap"
-                  >
-                    <div
-                      class="el-card-list-item-text-primary"
-                    >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div>
                       Marketplace Visibility
-                    </div>
-                    <div
-                      class="el-card-list-item-text-secondary"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Marketplace visible
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-pagination-wrap"
-          >
-            <div
-              class="el-pagination-text"
-            >
-              <input
-                class="el-pagination-input"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 value="1"
               />
                of 
               1
-            </div>
-            <button
-              class="el-pagination-button"
+            </mock-styled.div>
+            <mock-styled.button
               data-testid="back-button"
               type="button"
             >
-              <span
-                class="el-icon"
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
-            </button>
-            <button
-              class="el-pagination-button"
+              </mock-styled.span>
+            </mock-styled.button>
+            <mock-styled.button
               data-testid="forward-button"
               type="button"
             >
-              <span
-                class="el-icon"
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
-            </button>
-          </div>
-        </section>
-      </div>
+              </mock-styled.span>
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-flex-auto el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Apps
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           AppMarket Visibility and Installation Management
-        </h2>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           To set the visibility of an app in the AppMarket or to manage installations for your organisation or specific office groups, please select an app.
-        </p>
+        </mock-styled.p>
         <div
-          class="el-mb5"
+          class="mock-css.
+  margin-bottom: 0.75rem;
+"
         >
-          <h2
-            class="el-subtitle"
+          <mock-styled.h2
+            classname=""
           >
             Organisations
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-          </p>
-          <div
-            class="el-border-radius controls-container"
+          </mock-styled.p>
+          <mock-styled.div
+            classname="mock-css.
+  border-radius: 0.25rem;
+"
           >
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-wfull el-select"
+            <mock-styled.div>
+              <mock-styled.select
+                classname="mock-css.
+  width: 100%;
+"
+                value="SOME_ID"
               >
                 <option
                   value=""
@@ -1180,1052 +999,851 @@ Object {
                 >
                   name
                 </option>
-              </select>
-              <label
-                class="el-label"
-                for="myId"
+              </mock-styled.select>
+              <mock-styled.label
+                htmlfor="myId"
               >
                 Select Organisation
-              </label>
-            </div>
-          </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
-        <div
-          class="controls-container"
-        >
-          <div
-            class="input-full-width el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
           >
-            <input
-              class="el-input"
+            <mock-styled.input
               id="test-static-id"
               name="searchTerm"
               placeholder="Developer or App"
               type="text"
-              value=""
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Search
-            </label>
-          </div>
-        </div>
-      </aside>
-      <section
-        class="el-hfull el-page-container"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <div
-          class="el-flex-justify-between el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
         >
-          <h1
-            class="el-title"
+          <mock-styled.h1
+            classname=""
           >
             SOME_NAME
              AppMarket
-          </h1>
-        </div>
-        <div
-          class="el-grid"
+          </mock-styled.h1>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-col"
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-fade-in el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="el-card-main-wrap"
-              >
-                <div
-                  class="el-card-heading-wrap"
-                >
-                  <h5
-                    class="el-card-heading"
-                  >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Test App Dev
-                  </h5>
-                  <h6
-                    class="el-card-sub-heading"
-                  >
+                  </mock-styled.h5>
+                  <mock-styled.h6>
                     DFG
-                  </h6>
-                  <h6
-                    class="el-card-sub-heading-additional"
-                  >
+                  </mock-styled.h6>
+                  <mock-styled.h6>
                     Integration
-                  </h6>
-                </div>
-              </div>
-              <div
-                class="el-mb5 el-card-body-wrap"
+                  </mock-styled.h6>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               />
-              <div
-                class="el-card-list-main-wrap"
-              >
-                <h5
-                  class="el-card-list-heading"
-                >
+              <mock-styled.div>
+                <mock-styled.h5>
                   Installation and Visibility
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                />
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Installation Status
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Not installed
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Marketplace Visibility
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Marketplace visible
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-fade-in el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="el-card-main-wrap"
-              >
-                <div
-                  class="el-card-image-wrap"
-                >
+              <mock-styled.div>
+                <mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Insights-icon.png"
                   />
-                </div>
-                <div
-                  class="el-card-heading-wrap"
-                >
-                  <h5
-                    class="el-card-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Reapit Insights
-                  </h5>
-                  <h6
-                    class="el-card-sub-heading"
-                  >
+                  </mock-styled.h5>
+                  <mock-styled.h6>
                     Reapit Ltd
-                  </h6>
-                  <h6
-                    class="el-card-sub-heading-additional"
-                  />
-                </div>
-              </div>
-              <div
-                class="el-mb5 el-card-body-wrap"
+                  </mock-styled.h6>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               >
                 Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
-              </div>
-              <div
-                class="el-card-list-main-wrap"
-              >
-                <h5
-                  class="el-card-list-heading"
-                >
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   Installation and Visibility
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                />
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Installation Status
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Not installed
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Marketplace Visibility
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Marketplace visible
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-fade-in el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="el-card-main-wrap"
-              >
-                <div
-                  class="el-card-image-wrap"
-                >
+              <mock-styled.div>
+                <mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-Management-icon.png"
                   />
-                </div>
-                <div
-                  class="el-card-heading-wrap"
-                >
-                  <h5
-                    class="el-card-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Marketplace Management
-                  </h5>
-                  <h6
-                    class="el-card-sub-heading"
-                  >
+                  </mock-styled.h5>
+                  <mock-styled.h6>
                     Reapit Ltd
-                  </h6>
-                  <h6
-                    class="el-card-sub-heading-additional"
-                  />
-                </div>
-              </div>
-              <div
-                class="el-mb5 el-card-body-wrap"
+                  </mock-styled.h6>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               >
                 Description Description Description Description Description Description Description Description
-              </div>
-              <div
-                class="el-card-list-main-wrap"
-              >
-                <h5
-                  class="el-card-list-heading"
-                >
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   Installation and Visibility
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                />
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Installation Status
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Not installed
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Marketplace Visibility
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Marketplace visible
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-fade-in el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="el-card-main-wrap"
-              >
-                <div
-                  class="el-card-image-wrap"
-                >
+              <mock-styled.div>
+                <mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Holly-Test-App-icon(1).png"
                   />
-                </div>
-                <div
-                  class="el-card-heading-wrap"
-                >
-                  <h5
-                    class="el-card-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Holly Test App
-                  </h5>
-                  <h6
-                    class="el-card-sub-heading"
-                  >
+                  </mock-styled.h5>
+                  <mock-styled.h6>
                     Holly Phillips Testing
-                  </h6>
-                  <h6
-                    class="el-card-sub-heading-additional"
-                  />
-                </div>
-              </div>
-              <div
-                class="el-mb5 el-card-body-wrap"
+                  </mock-styled.h6>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               >
                 https://holly.com https://holly.com https://holly.com https://holly.comhttps://holly.com https://holly.comhttps://holly.com https://holly.com
-              </div>
-              <div
-                class="el-card-list-main-wrap"
-              >
-                <h5
-                  class="el-card-list-heading"
-                >
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   Installation and Visibility
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                />
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Installation Status
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Not installed
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Marketplace Visibility
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Marketplace hidden
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-fade-in el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="el-card-main-wrap"
-              >
-                <div
-                  class="el-card-image-wrap"
-                >
+              <mock-styled.div>
+                <mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Payments-Portal-icon.png"
                   />
-                </div>
-                <div
-                  class="el-card-heading-wrap"
-                >
-                  <h5
-                    class="el-card-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Reapit Payments Portal
-                  </h5>
-                  <h6
-                    class="el-card-sub-heading"
-                  >
+                  </mock-styled.h5>
+                  <mock-styled.h6>
                     Reapit Ltd
-                  </h6>
-                  <h6
-                    class="el-card-sub-heading-additional"
-                  />
-                </div>
-              </div>
-              <div
-                class="el-mb5 el-card-body-wrap"
+                  </mock-styled.h6>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               >
                 It takes your money and sends it to Sage Pay. Then it updates RPS.
-              </div>
-              <div
-                class="el-card-list-main-wrap"
-              >
-                <h5
-                  class="el-card-list-heading"
-                >
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   Installation and Visibility
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                />
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Installation Status
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Not installed
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Marketplace Visibility
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Marketplace visible
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-fade-in el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="el-card-main-wrap"
-              >
-                <div
-                  class="el-card-image-wrap"
-                >
+              <mock-styled.div>
+                <mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Data-Warehouse-icon.png"
                   />
-                </div>
-                <div
-                  class="el-card-heading-wrap"
-                >
-                  <h5
-                    class="el-card-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Data Warehouse
-                  </h5>
-                  <h6
-                    class="el-card-sub-heading"
-                  >
+                  </mock-styled.h5>
+                  <mock-styled.h6>
                     Reapit Ltd
-                  </h6>
-                  <h6
-                    class="el-card-sub-heading-additional"
-                  />
-                </div>
-              </div>
-              <div
-                class="el-mb5 el-card-body-wrap"
+                  </mock-styled.h6>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               >
                 The data warehouse houses lots of data. The data warehouse houses lots of data.
-              </div>
-              <div
-                class="el-card-list-main-wrap"
-              >
-                <h5
-                  class="el-card-list-heading"
-                >
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   Installation and Visibility
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                />
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Installation Status
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Not installed
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Marketplace Visibility
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Marketplace hidden
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-fade-in el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="el-card-main-wrap"
-              >
-                <div
-                  class="el-card-image-wrap"
-                >
+              <mock-styled.div>
+                <mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-icon.png"
                   />
-                </div>
-                <div
-                  class="el-card-heading-wrap"
-                >
-                  <h5
-                    class="el-card-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Reapit Connect
-                  </h5>
-                  <h6
-                    class="el-card-sub-heading"
-                  >
+                  </mock-styled.h5>
+                  <mock-styled.h6>
                     Reapit Ltd
-                  </h6>
-                  <h6
-                    class="el-card-sub-heading-additional"
-                  >
+                  </mock-styled.h6>
+                  <mock-styled.h6>
                     Integration
-                  </h6>
-                </div>
-              </div>
-              <div
-                class="el-mb5 el-card-body-wrap"
+                  </mock-styled.h6>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               >
                 Reapit Connect removes the overhead of having to build and maintain a user credential directory for your app.
-              </div>
-              <div
-                class="el-card-list-main-wrap"
-              >
-                <h5
-                  class="el-card-list-heading"
-                >
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   Installation and Visibility
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                />
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Installation Status
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Not installed
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Marketplace Visibility
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Marketplace hidden
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-fade-in el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="el-card-main-wrap"
-              >
-                <div
-                  class="el-card-image-wrap"
-                >
+              <mock-styled.div>
+                <mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                   />
-                </div>
-                <div
-                  class="el-card-heading-wrap"
-                >
-                  <h5
-                    class="el-card-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Online Check List
-                  </h5>
-                  <h6
-                    class="el-card-sub-heading"
-                  >
+                  </mock-styled.h5>
+                  <mock-styled.h6>
                     Reapit Ltd
-                  </h6>
-                  <h6
-                    class="el-card-sub-heading-additional"
-                  />
-                </div>
-              </div>
-              <div
-                class="el-mb5 el-card-body-wrap"
+                  </mock-styled.h6>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               >
                 Helps you to get organised, simplify your workflow, and to ensure checks are carried out. Manage your checks online from anywhere.
-              </div>
-              <div
-                class="el-card-list-main-wrap"
-              >
-                <h5
-                  class="el-card-list-heading"
-                >
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   Installation and Visibility
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                />
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Installation Status
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Not installed
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Marketplace Visibility
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Marketplace visible
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-fade-in el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="el-card-main-wrap"
-              >
-                <div
-                  class="el-card-image-wrap"
-                >
+              <mock-styled.div>
+                <mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Geo-Diary-icon.png"
                   />
-                </div>
-                <div
-                  class="el-card-heading-wrap"
-                >
-                  <h5
-                    class="el-card-heading"
-                  >
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
                     Geo Diary
-                  </h5>
-                  <h6
-                    class="el-card-sub-heading"
-                  >
+                  </mock-styled.h5>
+                  <mock-styled.h6>
                     Reapit Ltd
-                  </h6>
-                  <h6
-                    class="el-card-sub-heading-additional"
-                  />
-                </div>
-              </div>
-              <div
-                class="el-mb5 el-card-body-wrap"
+                  </mock-styled.h6>
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               >
                 GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
-              </div>
-              <div
-                class="el-card-list-main-wrap"
-              >
-                <h5
-                  class="el-card-list-heading"
-                >
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.h5>
                   Installation and Visibility
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                />
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                </mock-styled.h5>
+                <mock-styled.h6 />
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Installation Status
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Not installed
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Marketplace Visibility
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Marketplace visible
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-pagination-wrap"
-        >
-          <div
-            class="el-pagination-text"
-          >
-            <input
-              class="el-pagination-input"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               value="1"
             />
              of 
             1
-          </div>
-          <button
-            class="el-pagination-button"
+          </mock-styled.div>
+          <mock-styled.button
             data-testid="back-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-          <button
-            class="el-pagination-button"
+            </mock-styled.span>
+          </mock-styled.button>
+          <mock-styled.button
             data-testid="forward-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-        </div>
-      </section>
-    </div>
+            </mock-styled.span>
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -2282,57 +1900,67 @@ Object {
 `;
 
 exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-flex-auto el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="el-secondary-nav-container"
-        >
-          <h1
-            class="el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Apps
-          </h1>
-          <span
-            class="el-mb5 el-icon-size-large el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             AppMarket Visibility and Installation Management
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             To set the visibility of an app in the AppMarket or to manage installations for your organisation or specific office groups, please select an app.
-          </p>
+          </mock-styled.p>
           <div
-            class="el-mb5"
+            class="mock-css.
+  margin-bottom: 0.75rem;
+"
           >
-            <h2
-              class="el-subtitle"
+            <mock-styled.h2
+              classname=""
             >
               Organisations
-            </h2>
-            <p
-              class="el-has-grey-text el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-            </p>
-            <div
-              class="el-border-radius controls-container"
+            </mock-styled.p>
+            <mock-styled.div
+              classname="mock-css.
+  border-radius: 0.25rem;
+"
             >
-              <div
-                class="el-input-group"
-              >
-                <select
-                  class="el-wfull el-select"
+              <mock-styled.div>
+                <mock-styled.select
+                  classname="mock-css.
+  width: 100%;
+"
+                  value="SOME_ID"
                 >
                   <option
                     value=""
@@ -2349,122 +1977,149 @@ Object {
                   >
                     name
                   </option>
-                </select>
-                <label
-                  class="el-label"
-                  for="myId"
+                </mock-styled.select>
+                <mock-styled.label
+                  htmlfor="myId"
                 >
                   Select Organisation
-                </label>
-              </div>
-            </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 name="searchTerm"
                 placeholder="Developer or App"
                 type="text"
-                value=""
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Search
-              </label>
-            </div>
-          </div>
-        </aside>
-        <section
-          class="el-hfull el-page-container"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <div
-            class="el-flex-justify-between el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  justify-content: space-between;
+"
           >
-            <h1
-              class="el-title"
+            <mock-styled.h1
+              classname=""
             >
                AppMarket
-            </h1>
-          </div>
-          <div
-            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            </mock-styled.h1>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css. mock-css. mock-css. mock-css."
           >
             <div
-              class="el-pn-icon"
+              class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
               data-testid="close-icon"
             >
-              <span
-                class="el-icon"
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
+              </mock-styled.span>
             </div>
             <div
-              class="el-pn-content"
+              class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
             >
               No organisation selected. You need to select an organisation to view available apps.
             </div>
-          </div>
-        </section>
-      </div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-flex-auto el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Apps
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           AppMarket Visibility and Installation Management
-        </h2>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           To set the visibility of an app in the AppMarket or to manage installations for your organisation or specific office groups, please select an app.
-        </p>
+        </mock-styled.p>
         <div
-          class="el-mb5"
+          class="mock-css.
+  margin-bottom: 0.75rem;
+"
         >
-          <h2
-            class="el-subtitle"
+          <mock-styled.h2
+            classname=""
           >
             Organisations
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-          </p>
-          <div
-            class="el-border-radius controls-container"
+          </mock-styled.p>
+          <mock-styled.div
+            classname="mock-css.
+  border-radius: 0.25rem;
+"
           >
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-wfull el-select"
+            <mock-styled.div>
+              <mock-styled.select
+                classname="mock-css.
+  width: 100%;
+"
+                value="SOME_ID"
               >
                 <option
                   value=""
@@ -2481,72 +2136,89 @@ Object {
                 >
                   name
                 </option>
-              </select>
-              <label
-                class="el-label"
-                for="myId"
+              </mock-styled.select>
+              <mock-styled.label
+                htmlfor="myId"
               >
                 Select Organisation
-              </label>
-            </div>
-          </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
-        <div
-          class="controls-container"
-        >
-          <div
-            class="input-full-width el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
           >
-            <input
-              class="el-input"
+            <mock-styled.input
               id="test-static-id"
               name="searchTerm"
               placeholder="Developer or App"
               type="text"
-              value=""
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Search
-            </label>
-          </div>
-        </div>
-      </aside>
-      <section
-        class="el-hfull el-page-container"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <div
-          class="el-flex-justify-between el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
         >
-          <h1
-            class="el-title"
+          <mock-styled.h1
+            classname=""
           >
              AppMarket
-          </h1>
-        </div>
-        <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          </mock-styled.h1>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             No organisation selected. You need to select an organisation to view available apps.
           </div>
-        </div>
-      </section>
-    </div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

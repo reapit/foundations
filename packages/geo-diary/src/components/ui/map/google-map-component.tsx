@@ -376,7 +376,7 @@ export const GoogleMapComponent: FC<MapProps> = ({ appointments }) => {
         <GoogleMap
           autoFitBounds={Boolean(appointments.length)}
           googleMaps={window.google.maps}
-          apiKey={window.reapit.config.googleMapApiKey}
+          apiKey={process.env.googleMapApiKey}
           onLoaded={handleOnLoaded(mapRefs)}
           zoom={DEFAULT_ZOOM}
           center={{ lat: currentLat ?? DEFAULT_LAT_LNG.lat, lng: currentLng ?? DEFAULT_LAT_LNG.lng }}

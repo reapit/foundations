@@ -1,93 +1,101 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="featured-hero-apps-item"
-      >
-        <div
-          class="el-flex-column el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
-          <h2
-            class="browse-apps-subtitle el-subtitle"
-          >
+          <mock-styled.mock-styled.h2>
             New in AppMarket
-          </h2>
-          <div
-            class="featured-hero-apps-container"
+          </mock-styled.mock-styled.h2>
+          <mock-styled.div
             style="background-color: rgba(0, 97, 168, 0.102);"
           >
-            <div
-              class="featured-hero-apps-flex-container"
-            >
-              <div
-                class="featured-hero-apps-content-container"
-              >
-                <div
-                  class="featured-hero-apps-inner-container"
-                >
-                  <img
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.img
                     alt="will-test-dev-co-voracious-person"
-                    class="el-fade-in featured-hero-apps-icon"
+                    classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                   />
-                  <div
-                    class="featured-hero-apps-name-container"
-                  >
-                    <h2
-                      class="featured-hero-apps-subtitle el-subtitle"
-                    >
+                  <mock-styled.div>
+                    <mock-styled.mock-styled.h2>
                       will-test-dev-co-voracious-person
-                    </h2>
-                    <div
-                      class="hero-apps-chip-container"
-                    >
-                      <span
-                        class="hero-apps-chip"
-                      >
+                    </mock-styled.mock-styled.h2>
+                    <mock-styled.div>
+                      <mock-styled.span>
                         Category
-                      </span>
-                    </div>
-                  </div>
-                  <button
-                    class="featured-hero-apps-button-mob-tablet el-button"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.button
+                    classname="mock-css.
+  display: none;
+
+  , {
+    display: block;
+  }
+
+  , {
+    display: none;
+  }
+
+  , {
+    display: block;
+  }
+"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
                     Find Out More
-                    <div
-                      class="el-button-loader"
-                    />
-                  </button>
-                </div>
-                <p
-                  class="featured-hero-apps-strapline el-body-text"
-                >
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+                <mock-styled.mock-styled.p>
                   Lorem ipsum dolor sit amet, consectetur adip
-                </p>
-                <button
-                  class="featured-hero-apps-button-desktop el-button"
+                </mock-styled.mock-styled.p>
+                <mock-styled.button
+                  classname="mock-css.
+  display: none;
+
+  , {
+    display: block;
+  }
+
+  , {
+    display: none;
+  }
+"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
                   Find Out More
-                  <div
-                    class="el-button-loader"
-                  />
-                </button>
-              </div>
-              <div
-                class="featured-hero-apps-image-container"
-              >
-                <div
-                  class="el-placeholder-image-wrapper"
-                >
-                  <div
-                    class="el-placeholder-image"
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
                     style="font-size: 7.8125em;"
                   >
                     <svg
@@ -137,99 +145,107 @@ Object {
                         fill="white"
                       />
                     </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="featured-hero-apps-item"
-    >
-      <div
-        class="el-flex-column el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+"
       >
-        <h2
-          class="browse-apps-subtitle el-subtitle"
-        >
+        <mock-styled.mock-styled.h2>
           New in AppMarket
-        </h2>
-        <div
-          class="featured-hero-apps-container"
+        </mock-styled.mock-styled.h2>
+        <mock-styled.div
           style="background-color: rgba(0, 97, 168, 0.102);"
         >
-          <div
-            class="featured-hero-apps-flex-container"
-          >
-            <div
-              class="featured-hero-apps-content-container"
-            >
-              <div
-                class="featured-hero-apps-inner-container"
-              >
-                <img
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.img
                   alt="will-test-dev-co-voracious-person"
-                  class="el-fade-in featured-hero-apps-icon"
+                  classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
                   src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                 />
-                <div
-                  class="featured-hero-apps-name-container"
-                >
-                  <h2
-                    class="featured-hero-apps-subtitle el-subtitle"
-                  >
+                <mock-styled.div>
+                  <mock-styled.mock-styled.h2>
                     will-test-dev-co-voracious-person
-                  </h2>
-                  <div
-                    class="hero-apps-chip-container"
-                  >
-                    <span
-                      class="hero-apps-chip"
-                    >
+                  </mock-styled.mock-styled.h2>
+                  <mock-styled.div>
+                    <mock-styled.span>
                       Category
-                    </span>
-                  </div>
-                </div>
-                <button
-                  class="featured-hero-apps-button-mob-tablet el-button"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.button
+                  classname="mock-css.
+  display: none;
+
+  , {
+    display: block;
+  }
+
+  , {
+    display: none;
+  }
+
+  , {
+    display: block;
+  }
+"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
                   Find Out More
-                  <div
-                    class="el-button-loader"
-                  />
-                </button>
-              </div>
-              <p
-                class="featured-hero-apps-strapline el-body-text"
-              >
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+              <mock-styled.mock-styled.p>
                 Lorem ipsum dolor sit amet, consectetur adip
-              </p>
-              <button
-                class="featured-hero-apps-button-desktop el-button"
+              </mock-styled.mock-styled.p>
+              <mock-styled.button
+                classname="mock-css.
+  display: none;
+
+  , {
+    display: block;
+  }
+
+  , {
+    display: none;
+  }
+"
                 style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
               >
                 Find Out More
-                <div
-                  class="el-button-loader"
-                />
-              </button>
-            </div>
-            <div
-              class="featured-hero-apps-image-container"
-            >
-              <div
-                class="el-placeholder-image-wrapper"
-              >
-                <div
-                  class="el-placeholder-image"
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
                   style="font-size: 7.8125em;"
                 >
                   <svg
@@ -279,13 +295,13 @@ Object {
                       fill="white"
                     />
                   </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -342,39 +358,30 @@ Object {
 `;
 
 exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="featured-hero-apps-item"
-      >
-        <div
-          class="el-flex-column el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
-          <h2
-            class="browse-apps-subtitle el-subtitle"
-          >
+          <mock-styled.mock-styled.h2>
             New in AppMarket
-          </h2>
-          <div
-            class="featured-hero-apps-container"
+          </mock-styled.mock-styled.h2>
+          <mock-styled.div
             style="background-color: rgba(0, 97, 168, 0.102);"
           >
-            <div
-              class="featured-hero-apps-flex-container"
-            >
-              <div
-                class="featured-hero-apps-content-container"
-              >
-                <div
-                  class="featured-hero-apps-inner-container"
-                >
-                  <div
-                    class="el-mb7 el-placeholder-image"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css.
+  margin-bottom: 1.25rem;
+"
                     style="font-size: 2.8125em; width: 72px; height: 72px;"
                   >
                     <svg
@@ -389,50 +396,57 @@ Object {
                         fill="#E3E3E3"
                       />
                     </svg>
-                  </div>
-                  <div
-                    class="featured-hero-apps-name-container"
-                  >
-                    <h2
-                      class="featured-hero-apps-subtitle el-subtitle"
-                    />
-                    <div
-                      class="hero-apps-chip-placeholder"
-                    />
-                  </div>
-                  <button
-                    class="featured-hero-apps-button-mob-tablet el-button"
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.mock-styled.h2 />
+                    <mock-styled.div />
+                  </mock-styled.div>
+                  <mock-styled.button
+                    classname="mock-css.
+  display: none;
+
+  , {
+    display: block;
+  }
+
+  , {
+    display: none;
+  }
+
+  , {
+    display: block;
+  }
+"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
                     Find Out More
-                    <div
-                      class="el-button-loader"
-                    />
-                  </button>
-                </div>
-                <p
-                  class="featured-hero-apps-strapline el-body-text"
-                >
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+                <mock-styled.mock-styled.p>
                   Lorem ipsum dolor sit amet, consectetur adip
-                </p>
-                <button
-                  class="featured-hero-apps-button-desktop el-button"
+                </mock-styled.mock-styled.p>
+                <mock-styled.button
+                  classname="mock-css.
+  display: none;
+
+  , {
+    display: block;
+  }
+
+  , {
+    display: none;
+  }
+"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
                   Find Out More
-                  <div
-                    class="el-button-loader"
-                  />
-                </button>
-              </div>
-              <div
-                class="featured-hero-apps-image-container"
-              >
-                <div
-                  class="el-placeholder-image-wrapper"
-                >
-                  <div
-                    class="el-placeholder-image"
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
                     style="font-size: 7.8125em;"
                   >
                     <svg
@@ -482,45 +496,36 @@ Object {
                         fill="white"
                       />
                     </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="featured-hero-apps-item"
-    >
-      <div
-        class="el-flex-column el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+"
       >
-        <h2
-          class="browse-apps-subtitle el-subtitle"
-        >
+        <mock-styled.mock-styled.h2>
           New in AppMarket
-        </h2>
-        <div
-          class="featured-hero-apps-container"
+        </mock-styled.mock-styled.h2>
+        <mock-styled.div
           style="background-color: rgba(0, 97, 168, 0.102);"
         >
-          <div
-            class="featured-hero-apps-flex-container"
-          >
-            <div
-              class="featured-hero-apps-content-container"
-            >
-              <div
-                class="featured-hero-apps-inner-container"
-              >
-                <div
-                  class="el-mb7 el-placeholder-image"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 1.25rem;
+"
                   style="font-size: 2.8125em; width: 72px; height: 72px;"
                 >
                   <svg
@@ -535,50 +540,57 @@ Object {
                       fill="#E3E3E3"
                     />
                   </svg>
-                </div>
-                <div
-                  class="featured-hero-apps-name-container"
-                >
-                  <h2
-                    class="featured-hero-apps-subtitle el-subtitle"
-                  />
-                  <div
-                    class="hero-apps-chip-placeholder"
-                  />
-                </div>
-                <button
-                  class="featured-hero-apps-button-mob-tablet el-button"
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.mock-styled.h2 />
+                  <mock-styled.div />
+                </mock-styled.div>
+                <mock-styled.button
+                  classname="mock-css.
+  display: none;
+
+  , {
+    display: block;
+  }
+
+  , {
+    display: none;
+  }
+
+  , {
+    display: block;
+  }
+"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
                   Find Out More
-                  <div
-                    class="el-button-loader"
-                  />
-                </button>
-              </div>
-              <p
-                class="featured-hero-apps-strapline el-body-text"
-              >
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+              <mock-styled.mock-styled.p>
                 Lorem ipsum dolor sit amet, consectetur adip
-              </p>
-              <button
-                class="featured-hero-apps-button-desktop el-button"
+              </mock-styled.mock-styled.p>
+              <mock-styled.button
+                classname="mock-css.
+  display: none;
+
+  , {
+    display: block;
+  }
+
+  , {
+    display: none;
+  }
+"
                 style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
               >
                 Find Out More
-                <div
-                  class="el-button-loader"
-                />
-              </button>
-            </div>
-            <div
-              class="featured-hero-apps-image-container"
-            >
-              <div
-                class="el-placeholder-image-wrapper"
-              >
-                <div
-                  class="el-placeholder-image"
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
                   style="font-size: 7.8125em;"
                 >
                   <svg
@@ -628,13 +640,13 @@ Object {
                       fill="white"
                     />
                   </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

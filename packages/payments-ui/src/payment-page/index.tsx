@@ -5,9 +5,9 @@ import { PaymentProvider } from '../payment-provider'
 import { BodyText, Col, elFadeIn, elMb11, elMr4, FlexContainer, Grid, Icon, Subtitle, Title } from '@reapit/elements'
 import { combineAddress } from '@reapit/utils-common'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
-import { useHistory } from 'react-router'
 import { PaymentsBackButton } from './__styles__'
-import { navigate } from '../utils'
+import { navigateRoute } from '../utils'
+import { useNavigate } from 'react-router'
 
 export interface PaymentPageContentProps {
   paymentProvider: PaymentProvider
@@ -21,7 +21,7 @@ export const handleOpenModal =
   }
 
 export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvider }) => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { payment, property, isPortal, config } = paymentProvider
   const { customer, amount, description, id } = payment ?? {}
   const { companyName } = config
@@ -29,7 +29,7 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
   return (
     <div className={elFadeIn}>
       {!isPortal && (
-        <PaymentsBackButton onClick={navigate(history, '/payments')}>
+        <PaymentsBackButton onClick={navigateRoute(navigate, '/payments')}>
           <Icon icon="backSolidSystem" intent="primary" />
         </PaymentsBackButton>
       )}

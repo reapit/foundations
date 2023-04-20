@@ -150,24 +150,24 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
 
   const [generateSessionLoading, , generateSession] = useReapitUpdate<CreateSessionRequest, SessionResponse>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.paymentsSessionCreate],
+    action: updateActions[UpdateActionNames.paymentsSessionCreate],
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
     headers: {
       Authorization: connectSession?.idToken as string,
       'reapit-customer': clientCode as string,
-      'reapit-app-id': window.reapit.config.appId,
+      'reapit-app-id': process.env.appId,
     },
   })
 
   const [generatePaymentRequestLoading, , generatePaymentRequest] = useReapitUpdate<PaymentEmailRequest, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.paymentRequestCreate],
+    action: updateActions[UpdateActionNames.paymentRequestCreate],
     method: 'POST',
     headers: {
       Authorization: connectSession?.idToken as string,
       'reapit-customer': clientCode as string,
-      'reapit-app-id': window.reapit.config.appId,
+      'reapit-app-id': process.env.appId,
     },
     uriParams: {
       paymentId: selectedPayment?.id,
@@ -176,7 +176,7 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
 
   const [updatePaymentLoading, , updatePayment] = useReapitUpdate<UpdateStatusBody, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.privatePaymentUpdate],
+    action: updateActions[UpdateActionNames.privatePaymentUpdate],
     method: 'PATCH',
     headers: {
       'if-match': selectedPayment?._eTag as string,

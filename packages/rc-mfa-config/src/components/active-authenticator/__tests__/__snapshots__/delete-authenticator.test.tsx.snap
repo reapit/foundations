@@ -1,35 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeleteAuthenticator should render component with props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <button
-        class="el-intent-primary el-button"
+      <mock-styled.div />
+      <mock-styled.button
+        classname="mock-css."
+        disabled="false"
       >
         Reset Authenticator
-        <div
-          class="el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <button
-      class="el-intent-primary el-button"
+    <mock-styled.div />
+    <mock-styled.button
+      classname="mock-css."
+      disabled="false"
     >
       Reset Authenticator
-      <div
-        class="el-button-loader"
-      />
-    </button>
+      <mock-styled.div />
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

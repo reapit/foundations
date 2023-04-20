@@ -1,23 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`travel-mode TravelMode should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
-      <input
-        checked=""
-        class="toggle-travel-checkbox"
+      <mock-styled.input
+        checked="true"
         id="travel-mode"
         type="checkbox"
       />
-      <label
-        class="toggle-travel-label"
-        for="travel-mode"
+      <mock-styled.label
+        htmlfor="travel-mode"
       >
         <img
           src="[object Object]"
@@ -25,23 +21,19 @@ Object {
         <img
           src="[object Object]"
         />
-      </label>
+      </mock-styled.label>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
-    <input
-      checked=""
-      class="toggle-travel-checkbox"
+    <mock-styled.input
+      checked="true"
       id="travel-mode"
       type="checkbox"
     />
-    <label
-      class="toggle-travel-label"
-      for="travel-mode"
+    <mock-styled.label
+      htmlfor="travel-mode"
     >
       <img
         src="[object Object]"
@@ -49,7 +41,7 @@ Object {
       <img
         src="[object Object]"
       />
-    </label>
+    </mock-styled.label>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -1,25 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PrivateRouteWrapper should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <main
-        class="el-main-container"
-      >
-        <div />
-        <div />
-      </main>
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <main
-      class="el-main-container"
-    >
-      <div />
-      <div />
-    </main>
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

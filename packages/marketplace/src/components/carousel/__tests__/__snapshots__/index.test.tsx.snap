@@ -1,99 +1,109 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Carousel should match a snapshot with options 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="carousel-wrapper"
-      >
-        <a
-          class="el-fade-in carousel-controls-right carousel-controls"
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.mock-styled.a
+          classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <span
-            class="el-intent-primary el-icon"
+          <mock-styled.span
+            classname="mock-css."
             style="font-size: 0.75em;"
           >
             <svg />
-          </span>
-        </a>
-        <div
-          class="carousel-grid"
-          style="--ckvo4up-0: 3; --ckvo4up-1: 100.000%; --ckvo4up-2: 0rem; --ckvo4up-6: 0rem;"
+          </mock-styled.span>
+        </mock-styled.mock-styled.a>
+        <mock-styled.div
+          numbercols="1"
+          numberitems="3"
+          percentagewidth="100.000"
         >
-          <div
-            class="carousel-col"
-          >
+          <mock-styled.div>
             <div>
               Carousel Item 1
             </div>
-          </div>
-          <div
-            class="carousel-col"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             <div>
               Carousel Item 2
             </div>
-          </div>
-          <div
-            class="carousel-col"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             <div>
               Carousel Item 3
             </div>
-          </div>
-        </div>
-      </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="carousel-wrapper"
-    >
-      <a
-        class="el-fade-in carousel-controls-right carousel-controls"
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.mock-styled.a
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="el-intent-primary el-icon"
+        <mock-styled.span
+          classname="mock-css."
           style="font-size: 0.75em;"
         >
           <svg />
-        </span>
-      </a>
-      <div
-        class="carousel-grid"
-        style="--ckvo4up-0: 3; --ckvo4up-1: 100.000%; --ckvo4up-2: 0rem; --ckvo4up-6: 0rem;"
+        </mock-styled.span>
+      </mock-styled.mock-styled.a>
+      <mock-styled.div
+        numbercols="1"
+        numberitems="3"
+        percentagewidth="100.000"
       >
-        <div
-          class="carousel-col"
-        >
+        <mock-styled.div>
           <div>
             Carousel Item 1
           </div>
-        </div>
-        <div
-          class="carousel-col"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           <div>
             Carousel Item 2
           </div>
-        </div>
-        <div
-          class="carousel-col"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           <div>
             Carousel Item 3
           </div>
-        </div>
-      </div>
-    </div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

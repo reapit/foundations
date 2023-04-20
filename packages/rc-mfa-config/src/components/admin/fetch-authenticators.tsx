@@ -19,7 +19,7 @@ export const FetchAuthenticators: FC<FetchAuthenticatorsProps> = ({ userId }) =>
 
   const [authenticators, authenticatorsLoading, , refreshAuthenticators] = useReapitGet<AuthenticatorModel[]>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getUserAuthenticators],
+    action: getActions[GetActionNames.getUserAuthenticators],
     uriParams: { userId },
     fetchWhenTrue: [userId, shouldFetch],
   })

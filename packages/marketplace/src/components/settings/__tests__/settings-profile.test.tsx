@@ -6,7 +6,7 @@ import { UseSnack } from '@reapit/elements'
 import { TrackingEvent } from '../../../core/analytics-events'
 import { trackEvent } from '../../../core/analytics'
 import { mockUserModel } from '../../../tests/__stubs__/user'
-import { SendFunction } from '@reapit/utils-react'
+import { SendFunction } from '@reapit/use-reapit-data'
 import { UpdateUserModel } from '@reapit/foundations-ts-definitions'
 
 jest.mock('../../../core/use-apps-browse-state')

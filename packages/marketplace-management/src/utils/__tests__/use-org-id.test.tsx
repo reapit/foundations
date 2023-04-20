@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, PropsWithChildren } from 'react'
 import { OrgIdStateProvider, UseOrgIdState, useOrgId, handleFetchInitialState } from '../use-org-id'
 import { renderHook, act } from '@testing-library/react-hooks'
 import { render } from '@testing-library/react'
@@ -14,7 +14,7 @@ const mockGetUserInfo = getUserInfo as jest.Mock
 describe('useOrgId', () => {
   it('should return UseOrgIdState', async () => {
     const { result } = renderHook<{}, UseOrgIdState>(() => useOrgId(), {
-      wrapper: (props) => <OrgIdStateProvider>{props.children}</OrgIdStateProvider>,
+      wrapper: (props: PropsWithChildren) => <OrgIdStateProvider>{props.children}</OrgIdStateProvider>,
     })
 
     expect(result.current.orgIdState).toEqual({

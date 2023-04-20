@@ -11,7 +11,7 @@ import React, { MouseEvent } from 'react'
 import { useAppsBrowseState } from '../use-apps-browse-state'
 import { mockAppsBrowseState } from '../__mocks__/use-apps-browse-state'
 import { mockUserModel } from '../../tests/__stubs__/user'
-import { SendFunction } from '@reapit/utils-react'
+import { SendFunction } from '@reapit/use-reapit-data'
 import { UpdateUserModel } from '@reapit/foundations-ts-definitions'
 
 jest.mock('../use-apps-browse-state')
@@ -31,12 +31,12 @@ const mockUseAppsBrowseState = useAppsBrowseState as jest.Mock
 
 describe('AnalyticsBanner', () => {
   it('should match snapshot', () => {
-    window.reapit.config.appEnv = 'production'
+    process.env.appEnv = 'production'
     expect(render(<AnalyticsBanner />)).toMatchSnapshot()
   })
 
   it('should match snapshot when there is no current user', () => {
-    window.reapit.config.appEnv = 'production'
+    process.env.appEnv = 'production'
     mockUseAppsBrowseState.mockReturnValueOnce({
       ...mockAppsBrowseState,
       currentUserState: null,

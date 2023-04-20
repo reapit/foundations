@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FlexContainer should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-flex-container"
+      <mock-styled.div
+        classname=""
       >
         <p>
           I am child
         </p>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-flex-container"
+    <mock-styled.div
+      classname=""
     >
       <p>
         I am child
       </p>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -78,27 +78,111 @@ Object {
 `;
 
 exports[`FlexContainer should match a snapshot and render children with all props applied 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-flex-row el-flex-row-reverse el-flex-column el-flex-column-reverse el-flex-wrap el-flex-no-wrap el-flex-wrap-reverse el-flex-auto el-flex-initial el-flex-grow0 el-flex-grow el-flex-shrink0 el-flex-shrink el-flex-justify-center el-flex-justify-end el-flex-justify-between el-flex-justify-around el-flex-justify-evenly el-flex-align-center el-flex-align-start el-flex-align-end el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: row;
+ mock-css.
+  flex-direction: row-reverse;
+ mock-css.
+  flex-direction: column;
+ mock-css.
+  flex-direction: column-reverse;
+ mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  flex-wrap: nowrap;
+ mock-css.
+  flex-wrap: wrap-reverse;
+ mock-css.
+  flex: 1 1 auto;
+ mock-css.
+  flex: 0 1 auto;
+ mock-css.
+  flex-grow: 0;
+ mock-css.
+  flex-grow: 1;
+ mock-css.
+  flex-shrink: 0;
+ mock-css.
+  flex-shrink: 1;
+ mock-css.
+  justify-content: center;
+ mock-css.
+  justify-content: flex-end;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  justify-content: space-around;
+ mock-css.
+  justify-content: space-evenly;
+ mock-css.
+  align-items: center;
+ mock-css.
+  align-items: flex-start;
+ mock-css.
+  align-items: flex-end;
+"
       >
         <p>
           I am child
         </p>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-flex-row el-flex-row-reverse el-flex-column el-flex-column-reverse el-flex-wrap el-flex-no-wrap el-flex-wrap-reverse el-flex-auto el-flex-initial el-flex-grow0 el-flex-grow el-flex-shrink0 el-flex-shrink el-flex-justify-center el-flex-justify-end el-flex-justify-between el-flex-justify-around el-flex-justify-evenly el-flex-align-center el-flex-align-start el-flex-align-end el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  flex-direction: row;
+ mock-css.
+  flex-direction: row-reverse;
+ mock-css.
+  flex-direction: column;
+ mock-css.
+  flex-direction: column-reverse;
+ mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  flex-wrap: nowrap;
+ mock-css.
+  flex-wrap: wrap-reverse;
+ mock-css.
+  flex: 1 1 auto;
+ mock-css.
+  flex: 0 1 auto;
+ mock-css.
+  flex-grow: 0;
+ mock-css.
+  flex-grow: 1;
+ mock-css.
+  flex-shrink: 0;
+ mock-css.
+  flex-shrink: 1;
+ mock-css.
+  justify-content: center;
+ mock-css.
+  justify-content: flex-end;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  justify-content: space-around;
+ mock-css.
+  justify-content: space-evenly;
+ mock-css.
+  align-items: center;
+ mock-css.
+  align-items: flex-start;
+ mock-css.
+  align-items: flex-end;
+"
     >
       <p>
         I am child
       </p>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -155,27 +239,23 @@ Object {
 `;
 
 exports[`MainContainer should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <main
-        class="el-main-container"
-      >
+      <mock-styled.main>
         <p>
           I am child
         </p>
-      </main>
+      </mock-styled.main>
     </div>
   </body>,
   "container": <div>
-    <main
-      class="el-main-container"
-    >
+    <mock-styled.main>
       <p>
         I am child
       </p>
-    </main>
+    </mock-styled.main>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -232,27 +312,23 @@ Object {
 `;
 
 exports[`Molecule should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-molecule"
-      >
+      <mock-styled.div>
         <p>
           I am child
         </p>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-molecule"
-    >
+    <mock-styled.div>
       <p>
         I am child
       </p>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -309,27 +385,23 @@ Object {
 `;
 
 exports[`PageContainer should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <section
-        class="el-page-container"
-      >
+      <mock-styled.section>
         <p>
           I am child
         </p>
-      </section>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <section
-      class="el-page-container"
-    >
+    <mock-styled.section>
       <p>
         I am child
       </p>
-    </section>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -386,27 +458,23 @@ Object {
 `;
 
 exports[`SecondaryNavContainer should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <aside
-        class="el-secondary-nav-container"
-      >
+      <mock-styled.aside>
         <p>
           I am child
         </p>
-      </aside>
+      </mock-styled.aside>
     </div>
   </body>,
   "container": <div>
-    <aside
-      class="el-secondary-nav-container"
-    >
+    <mock-styled.aside>
       <p>
         I am child
       </p>
-    </aside>
+    </mock-styled.aside>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

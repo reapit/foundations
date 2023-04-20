@@ -1,141 +1,121 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`appointment-time AppointmentTime should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
-      <div
-        class="appointment-time-container-expanded appointment-time-container"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-mx-auto el-toggle-radio-wrap"
+        <mock-styled.div
+          classname="mock-css.
+  margin: 0 auto;
+"
         >
-          <input
-            checked=""
-            class="el-toggle-radio"
+          <mock-styled.input
             id="today"
             name="appointment-time"
             type="radio"
             value="TODAY"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="today"
+          <mock-styled.label
+            classname=""
+            htmlfor="today"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Today
-            </span>
-          </label>
-          <input
-            class="el-toggle-radio"
+            </mock-styled.span>
+          </mock-styled.label>
+          <mock-styled.input
             id="tomorrow"
             name="appointment-time"
             type="radio"
             value="TOMORROW"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="tomorrow"
+          <mock-styled.label
+            classname=""
+            htmlfor="tomorrow"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Tomorrow
-            </span>
-          </label>
-          <input
-            class="el-toggle-radio"
+            </mock-styled.span>
+          </mock-styled.label>
+          <mock-styled.input
             id="week"
             name="appointment-time"
             type="radio"
             value="WEEK"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="week"
+          <mock-styled.label
+            classname=""
+            htmlfor="week"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Week
-            </span>
-          </label>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
-    <div
-      class="appointment-time-container-expanded appointment-time-container"
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="el-mx-auto el-toggle-radio-wrap"
+      <mock-styled.div
+        classname="mock-css.
+  margin: 0 auto;
+"
       >
-        <input
-          checked=""
-          class="el-toggle-radio"
+        <mock-styled.input
           id="today"
           name="appointment-time"
           type="radio"
           value="TODAY"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="today"
+        <mock-styled.label
+          classname=""
+          htmlfor="today"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Today
-          </span>
-        </label>
-        <input
-          class="el-toggle-radio"
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
           id="tomorrow"
           name="appointment-time"
           type="radio"
           value="TOMORROW"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="tomorrow"
+        <mock-styled.label
+          classname=""
+          htmlfor="tomorrow"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Tomorrow
-          </span>
-        </label>
-        <input
-          class="el-toggle-radio"
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
           id="week"
           name="appointment-time"
           type="radio"
           value="WEEK"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="week"
+        <mock-styled.label
+          classname=""
+          htmlfor="week"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Week
-          </span>
-        </label>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.label>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

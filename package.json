@@ -35,6 +35,7 @@
       "packages/payments-ui",
       "packages/payments-service",
       "packages/rc-mfa-config",
+      "packages/reapit-connect",
       "packages/react-app-scaffolder",
       "packages/security-header-lambda",
       "packages/seed-data-workflow",

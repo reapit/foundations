@@ -1,20 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SettingsInstalled should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <h1
-        class="el-title"
+      <mock-styled.div />
+      <mock-styled.h1
+        classname=""
       >
         Installations
-      </h1>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h1>
+      <mock-styled.p
+        classname="mock-css."
       >
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
          
@@ -22,125 +20,101 @@ Object {
           see here
         </a>
         .
-      </p>
+      </mock-styled.p>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="appName"
                 placeholder="Filter by App Name"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Filter by App Name
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="el-mb11 el-table"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="6"
       >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             App Name
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Customer Code
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Date Installed
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Installed By
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Date Uninstalled
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Uninstalled By
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Uninstall
-          </div>
-        </div>
-        <div
-          class="el-table-row-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="App Name"
               >
                 MOCK_APP_NAME
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Customer Code"
               >
                 RES
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Date Installed"
               >
                 23-03-2022
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Installed By"
               >
                 <a
@@ -150,90 +124,78 @@ Object {
                 >
                   example@mail.com
                 </a>
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Date Uninstalled"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Uninstalled By"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="el-table-cta-cell"
-            >
-              <div
-                class="el-table-cta-icon-container"
-              >
-                <span
-                  class="el-intent-primary el-icon"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-table-row-container"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="App Name"
               >
                 MOCK_APP_NAME_TWO
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Customer Code"
               >
                 MXX
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Date Installed"
               >
                 11-01-2022
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Installed By"
               >
                 <a
@@ -243,94 +205,79 @@ Object {
                 >
                   example@mail.com
                 </a>
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Date Uninstalled"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Uninstalled By"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="el-table-cta-cell"
-            >
-              <div
-                class="el-table-cta-icon-container"
-              >
-                <span
-                  class="el-intent-primary el-icon"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-pagination-wrap"
-      >
-        <div
-          class="el-pagination-text"
-        >
-          <input
-            class="el-pagination-input"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           1
-        </div>
-        <button
-          class="el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-      </div>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h1
-      class="el-title"
+    <mock-styled.div />
+    <mock-styled.h1
+      classname=""
     >
       Installations
-    </h1>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h1>
+    <mock-styled.p
+      classname="mock-css."
     >
       The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
        
@@ -338,125 +285,101 @@ Object {
         see here
       </a>
       .
-    </p>
+    </mock-styled.p>
     <form>
-      <div
-        class="el-mb11 el-form-layout"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="appName"
               placeholder="Filter by App Name"
               type="search"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Filter by App Name
-            </label>
-          </div>
-        </div>
-      </div>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
-    <div
-      class="el-mb11 el-table"
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="6"
     >
-      <div
-        class="el-table-headers-row"
-      >
-        <div
-          class="el-table-header"
-        >
+      <mock-styled.div>
+        <mock-styled.div>
           App Name
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Customer Code
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Date Installed
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Installed By
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Date Uninstalled
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Uninstalled By
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Uninstall
-        </div>
-      </div>
-      <div
-        class="el-table-row-container"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-table-row"
-        >
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="el-intent-secondary el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="App Name"
             >
               MOCK_APP_NAME
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Customer Code"
             >
               RES
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Date Installed"
             >
               23-03-2022
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Installed By"
             >
               <a
@@ -466,90 +389,78 @@ Object {
               >
                 example@mail.com
               </a>
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Date Uninstalled"
             >
               -
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Uninstalled By"
             >
               -
-            </div>
-          </div>
-          <div
-            class="el-table-cta-cell"
-          >
-            <div
-              class="el-table-cta-icon-container"
-            >
-              <span
-                class="el-intent-primary el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-table-row-container"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-table-row"
-        >
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="el-intent-secondary el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="App Name"
             >
               MOCK_APP_NAME_TWO
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Customer Code"
             >
               MXX
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Date Installed"
             >
               11-01-2022
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Installed By"
             >
               <a
@@ -559,81 +470,68 @@ Object {
               >
                 example@mail.com
               </a>
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Date Uninstalled"
             >
               -
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Uninstalled By"
             >
               -
-            </div>
-          </div>
-          <div
-            class="el-table-cta-cell"
-          >
-            <div
-              class="el-table-cta-icon-container"
-            >
-              <span
-                class="el-intent-primary el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="el-pagination-wrap"
-    >
-      <div
-        class="el-pagination-text"
-      >
-        <input
-          class="el-pagination-input"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.input
           value="1"
         />
          of 
         1
-      </div>
-      <button
-        class="el-pagination-button"
+      </mock-styled.div>
+      <mock-styled.button
         data-testid="back-button"
         type="button"
       >
-        <span
-          class="el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </button>
-      <button
-        class="el-pagination-button"
+        </mock-styled.span>
+      </mock-styled.button>
+      <mock-styled.button
         data-testid="forward-button"
         type="button"
       >
-        <span
-          class="el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </button>
-    </div>
+        </mock-styled.span>
+      </mock-styled.button>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -690,20 +588,18 @@ Object {
 `;
 
 exports[`SettingsInstalled should match a snapshot when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <h1
-        class="el-title"
+      <mock-styled.div />
+      <mock-styled.h1
+        classname=""
       >
         Installations
-      </h1>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h1>
+      <mock-styled.p
+        classname="mock-css."
       >
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
          
@@ -711,58 +607,48 @@ Object {
           see here
         </a>
         .
-      </p>
+      </mock-styled.p>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="appName"
                 placeholder="Filter by App Name"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Filter by App Name
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="el-loader-container"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h1
-      class="el-title"
+    <mock-styled.div />
+    <mock-styled.h1
+      classname=""
     >
       Installations
-    </h1>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h1>
+    <mock-styled.p
+      classname="mock-css."
     >
       The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
        
@@ -770,45 +656,37 @@ Object {
         see here
       </a>
       .
-    </p>
+    </mock-styled.p>
     <form>
-      <div
-        class="el-mb11 el-form-layout"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="appName"
               placeholder="Filter by App Name"
               type="search"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Filter by App Name
-            </label>
-          </div>
-        </div>
-      </div>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
-    <div
-      class="el-loader-container"
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-loader"
-      >
-        <div
-          class="el-loader-moving-bar"
-        />
-      </div>
-    </div>
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -865,20 +743,18 @@ Object {
 `;
 
 exports[`SettingsInstalled should match a snapshot when no installations 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <h1
-        class="el-title"
+      <mock-styled.div />
+      <mock-styled.h1
+        classname=""
       >
         Installations
-      </h1>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h1>
+      <mock-styled.p
+        classname="mock-css."
       >
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
          
@@ -886,66 +762,75 @@ Object {
           see here
         </a>
         .
-      </p>
+      </mock-styled.p>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="appName"
                 placeholder="Filter by App Name"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Filter by App Name
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      <mock-styled.div
+        classname="mock-css. mock-css. mock-css. mock-css."
       >
         <div
-          class="el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           No installations for the application.
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h1
-      class="el-title"
+    <mock-styled.div />
+    <mock-styled.h1
+      classname=""
     >
       Installations
-    </h1>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h1>
+    <mock-styled.p
+      classname="mock-css."
     >
       The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
        
@@ -953,53 +838,64 @@ Object {
         see here
       </a>
       .
-    </p>
+    </mock-styled.p>
     <form>
-      <div
-        class="el-mb11 el-form-layout"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="appName"
               placeholder="Filter by App Name"
               type="search"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Filter by App Name
-            </label>
-          </div>
-        </div>
-      </div>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
-    <div
-      class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+    <mock-styled.div
+      classname="mock-css. mock-css. mock-css. mock-css."
     >
       <div
-        class="el-pn-icon"
+        class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
         data-testid="close-icon"
       >
-        <span
-          class="el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
+        </mock-styled.span>
       </div>
       <div
-        class="el-pn-content"
+        class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
       >
         No installations for the application.
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1056,20 +952,18 @@ Object {
 `;
 
 exports[`SettingsInstalled should match a snapshot when no response 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <h1
-        class="el-title"
+      <mock-styled.div />
+      <mock-styled.h1
+        classname=""
       >
         Installations
-      </h1>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h1>
+      <mock-styled.p
+        classname="mock-css."
       >
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
          
@@ -1077,47 +971,41 @@ Object {
           see here
         </a>
         .
-      </p>
+      </mock-styled.p>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="appName"
                 placeholder="Filter by App Name"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Filter by App Name
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h1
-      class="el-title"
+    <mock-styled.div />
+    <mock-styled.h1
+      classname=""
     >
       Installations
-    </h1>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h1>
+    <mock-styled.p
+      classname="mock-css."
     >
       The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
        
@@ -1125,33 +1013,29 @@ Object {
         see here
       </a>
       .
-    </p>
+    </mock-styled.p>
     <form>
-      <div
-        class="el-mb11 el-form-layout"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="appName"
               placeholder="Filter by App Name"
               type="search"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Filter by App Name
-            </label>
-          </div>
-        </div>
-      </div>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],
@@ -1209,60 +1093,86 @@ Object {
 `;
 
 exports[`SettingsInstalled should match a snapshot when not an admin 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
       id="root"
     />
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css. mock-css. mock-css. mock-css."
       >
         <div
-          class="el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           You do not have permission to view this page.
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css. mock-css. mock-css. mock-css."
     >
       <div
-        class="el-pn-icon"
+        class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
         data-testid="close-icon"
       >
-        <span
-          class="el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
+        </mock-styled.span>
       </div>
       <div
-        class="el-pn-content"
+        class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
       >
         You do not have permission to view this page.
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1319,7 +1229,7 @@ Object {
 `;
 
 exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -1328,16 +1238,14 @@ Object {
       <div />
     </div>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <h1
-        class="el-title"
+      <mock-styled.div />
+      <mock-styled.h1
+        classname=""
       >
         Installations
-      </h1>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h1>
+      <mock-styled.p
+        classname="mock-css."
       >
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
          
@@ -1345,125 +1253,101 @@ Object {
           see here
         </a>
         .
-      </p>
+      </mock-styled.p>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="appName"
                 placeholder="Filter by App Name"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Filter by App Name
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="el-mb11 el-table"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="6"
       >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             App Name
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Customer Code
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Date Installed
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Installed By
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Date Uninstalled
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Uninstalled By
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Uninstall
-          </div>
-        </div>
-        <div
-          class="el-table-row-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="App Name"
               >
                 MOCK_APP_NAME
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Customer Code"
               >
                 RES
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Date Installed"
               >
                 23-03-2022
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Installed By"
               >
                 <a
@@ -1473,90 +1357,78 @@ Object {
                 >
                   example@mail.com
                 </a>
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Date Uninstalled"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Uninstalled By"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="el-table-cta-cell"
-            >
-              <div
-                class="el-table-cta-icon-container"
-              >
-                <span
-                  class="el-intent-primary el-icon"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-table-row-container"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="App Name"
               >
                 MOCK_APP_NAME_TWO
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Customer Code"
               >
                 MXX
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Date Installed"
               >
                 11-01-2022
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Installed By"
               >
                 <a
@@ -1566,94 +1438,79 @@ Object {
                 >
                   example@mail.com
                 </a>
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Date Uninstalled"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Uninstalled By"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="el-table-cta-cell"
-            >
-              <div
-                class="el-table-cta-icon-container"
-              >
-                <span
-                  class="el-intent-primary el-icon"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-pagination-wrap"
-      >
-        <div
-          class="el-pagination-text"
-        >
-          <input
-            class="el-pagination-input"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           1
-        </div>
-        <button
-          class="el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-      </div>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h1
-      class="el-title"
+    <mock-styled.div />
+    <mock-styled.h1
+      classname=""
     >
       Installations
-    </h1>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h1>
+    <mock-styled.p
+      classname="mock-css."
     >
       The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
        
@@ -1661,125 +1518,101 @@ Object {
         see here
       </a>
       .
-    </p>
+    </mock-styled.p>
     <form>
-      <div
-        class="el-mb11 el-form-layout"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="appName"
               placeholder="Filter by App Name"
               type="search"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Filter by App Name
-            </label>
-          </div>
-        </div>
-      </div>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
-    <div
-      class="el-mb11 el-table"
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="6"
     >
-      <div
-        class="el-table-headers-row"
-      >
-        <div
-          class="el-table-header"
-        >
+      <mock-styled.div>
+        <mock-styled.div>
           App Name
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Customer Code
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Date Installed
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Installed By
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Date Uninstalled
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Uninstalled By
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Uninstall
-        </div>
-      </div>
-      <div
-        class="el-table-row-container"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-table-row"
-        >
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="el-intent-secondary el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="App Name"
             >
               MOCK_APP_NAME
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Customer Code"
             >
               RES
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Date Installed"
             >
               23-03-2022
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Installed By"
             >
               <a
@@ -1789,90 +1622,78 @@ Object {
               >
                 example@mail.com
               </a>
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Date Uninstalled"
             >
               -
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Uninstalled By"
             >
               -
-            </div>
-          </div>
-          <div
-            class="el-table-cta-cell"
-          >
-            <div
-              class="el-table-cta-icon-container"
-            >
-              <span
-                class="el-intent-primary el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-table-row-container"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-table-row"
-        >
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="el-intent-secondary el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="App Name"
             >
               MOCK_APP_NAME_TWO
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Customer Code"
             >
               MXX
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Date Installed"
             >
               11-01-2022
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Installed By"
             >
               <a
@@ -1882,81 +1703,68 @@ Object {
               >
                 example@mail.com
               </a>
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Date Uninstalled"
             >
               -
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Uninstalled By"
             >
               -
-            </div>
-          </div>
-          <div
-            class="el-table-cta-cell"
-          >
-            <div
-              class="el-table-cta-icon-container"
-            >
-              <span
-                class="el-intent-primary el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="el-pagination-wrap"
-    >
-      <div
-        class="el-pagination-text"
-      >
-        <input
-          class="el-pagination-input"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.input
           value="1"
         />
          of 
         1
-      </div>
-      <button
-        class="el-pagination-button"
+      </mock-styled.div>
+      <mock-styled.button
         data-testid="back-button"
         type="button"
       >
-        <span
-          class="el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </button>
-      <button
-        class="el-pagination-button"
+        </mock-styled.span>
+      </mock-styled.button>
+      <mock-styled.button
         data-testid="forward-button"
         type="button"
       >
-        <span
-          class="el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </button>
-    </div>
+        </mock-styled.span>
+      </mock-styled.button>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

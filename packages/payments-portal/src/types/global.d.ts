@@ -8,15 +8,11 @@ export type Config = {
   platformApiUrl: string
   paymentsApiUrl: string
   marketplaceUrl: string
-  apiKey: string
   appId: string
 }
 
 declare global {
   interface Window {
-    reapit: {
-      config: Config
-    }
     sagepayOwnForm: ({ merchantSessionKey: string }) => {
       tokeniseCardDetails: (params: any) => void
     }

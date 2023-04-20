@@ -1,14 +1,14 @@
 import React, { FC, memo, useMemo } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { AppsBrowseConfigItemInterface, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { elFadeIn, FlexContainer, MediaType, PlaceholderImage, useMediaQuery } from '@reapit/elements'
 import { AppIcon, SimpleAppsCol, AppTitle, SimpleAppStrapline } from './__styles__'
 import { useReapitConnect } from '@reapit/connect-session'
-import { Routes } from '../../constants/routes'
-import { navigate } from '../../utils/navigation'
-import { useHistory } from 'react-router-dom'
+import { RoutePaths } from '../../constants/routes'
+import { navigateRoute } from '../../utils/navigation'
+import { useNavigate } from 'react-router-dom'
 import { filterRestrictedAppsList } from '../../utils/browse-app'
 
 interface SimpleAppsCollectionProps {
@@ -26,7 +26,7 @@ export const handleMaxLength = (mediaQuery: MediaType) => () => {
 }
 
 export const SimpleAppsCollection: FC<SimpleAppsCollectionProps> = memo(({ configItem }) => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const mediaQuery = useMediaQuery()
   const maxLength = useMemo(handleMaxLength(mediaQuery), [mediaQuery])
@@ -37,7 +37,7 @@ export const SimpleAppsCollection: FC<SimpleAppsCollectionProps> = memo(({ confi
 
   const [unfilteredApps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams,
     fetchWhenTrue: [filters],
   })
@@ -50,7 +50,7 @@ export const SimpleAppsCollection: FC<SimpleAppsCollectionProps> = memo(({ confi
         if (maxLength <= index) return null
 
         return (
-          <SimpleAppsCol key={id} onClick={navigate(history, `${Routes.APPS_BROWSE}/${id}`)}>
+          <SimpleAppsCol key={id} onClick={navigateRoute(navigate, `${RoutePaths.APPS_BROWSE}/${id}`)}>
             <FlexContainer isFlexJustifyBetween>
               <FlexContainer isFlexColumn isFlexJustifyCenter>
                 <FlexContainer>

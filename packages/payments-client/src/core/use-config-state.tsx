@@ -1,4 +1,4 @@
-import React, { FC, createContext, useContext, useState, useEffect } from 'react'
+import React, { FC, createContext, useContext, useState, useEffect, PropsWithChildren } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from './connect-session'
@@ -18,7 +18,7 @@ export const ConfigStateContext = createContext<ConfigStateHook>({
 
 const { Provider } = ConfigStateContext
 
-export const ConfigProvider: FC = ({ children }) => {
+export const ConfigProvider: FC<PropsWithChildren> = ({ children }) => {
   const [configLoading, setConfigLoading] = useState<boolean>(true)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientCode = connectSession?.loginIdentity?.clientId
@@ -26,11 +26,11 @@ export const ConfigProvider: FC = ({ children }) => {
 
   const [config, , , refreshConfig, , clearConfigCache] = useReapitGet<ClientConfigModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPaymentsClientConfig],
+    action: getActions[GetActionNames.getPaymentsClientConfig],
     headers: {
       Authorization: idToken,
       'reapit-customer': clientCode as string,
-      'reapit-app-id': window.reapit.config.appId,
+      'reapit-app-id': process.env.appId,
     },
     uriParams: {
       clientCode,

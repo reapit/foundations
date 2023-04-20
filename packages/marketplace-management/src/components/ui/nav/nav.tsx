@@ -3,8 +3,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import Routes from '../../../constants/routes'
-import { History } from 'history'
-import { history } from '../../../core/router'
+import { NavigateFunction, useNavigate } from 'react-router'
 
 export const MARKETPLACE_DEV_URL = 'https://marketplace.dev.paas.reapit.cloud/installed'
 export const MARKETPLACE_PROD_URL = 'https://marketplace.reapit.cloud/installed'
@@ -29,11 +28,12 @@ export const getDefaultNavIndex = (pathname: string) => {
   }
 }
 
-export const navigate = (history: History, route: string) => (): void => {
-  history.push(route)
+export const navigateRoute = (navigate: NavigateFunction, route: string) => (): void => {
+  navigate(route)
 }
 
 export const Nav: FC = () => {
+  const navigate = useNavigate()
   const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const navOptions: NavResponsiveOption[] = [
     {
@@ -43,16 +43,16 @@ export const Nav: FC = () => {
       itemIndex: 1,
       text: 'Offices',
       iconId: 'officesMenu',
-      callback: navigate(history, Routes.OFFICES),
+      callback: navigateRoute(navigate, Routes.OFFICES),
       subItems: [
         {
           itemIndex: 0,
-          callback: navigate(history, Routes.OFFICES),
+          callback: navigateRoute(navigate, Routes.OFFICES),
           text: 'Offices',
         },
         {
           itemIndex: 1,
-          callback: navigate(history, Routes.OFFICES_GROUPS),
+          callback: navigateRoute(navigate, Routes.OFFICES_GROUPS),
           text: 'Offices Groups',
         },
       ],
@@ -61,16 +61,16 @@ export const Nav: FC = () => {
       itemIndex: 2,
       text: 'Users',
       iconId: 'usersMenu',
-      callback: navigate(history, Routes.USERS),
+      callback: navigateRoute(navigate, Routes.USERS),
       subItems: [
         {
           itemIndex: 2,
-          callback: navigate(history, Routes.USERS),
+          callback: navigateRoute(navigate, Routes.USERS),
           text: 'Users',
         },
         {
           itemIndex: 3,
-          callback: navigate(history, Routes.USERS_GROUPS),
+          callback: navigateRoute(navigate, Routes.USERS_GROUPS),
           text: 'Users Groups',
         },
       ],
@@ -79,7 +79,7 @@ export const Nav: FC = () => {
       itemIndex: 3,
       text: 'AppMarket',
       iconId: 'marketplaceMenu',
-      callback: navigate(history, Routes.MARKETPLACE),
+      callback: navigateRoute(navigate, Routes.MARKETPLACE),
     },
   ]
 

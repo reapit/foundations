@@ -5,15 +5,15 @@ module.exports = {
     ['@babel/preset-react', { runtime: 'automatic' }],
     '@linaria',
   ],
-  // plugins: [
-  //   '@babel/plugin-transform-runtime',
-  //   [
-  //     'module-resolver',
-  //     {
-  //       alias: {
-  //         '@': './src',
-  //       },
-  //     },
-  //   ],
-  // ],
+  plugins: [
+    '@babel/plugin-transform-runtime',
+    [
+      'module-resolver',
+      {
+        alias: {
+          '@': './src',
+        },
+      },
+    ],
+  ],
 }

@@ -1,47 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InputGroup component should match a snapshot when used in explicit mode 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-input-group"
-      >
-        <input
-          class="el-input"
-        />
-        <span
-          class="el-icon"
+      <mock-styled.div>
+        <mock-styled.input />
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-        <label
-          class="el-label"
-        >
+        </mock-styled.span>
+        <mock-styled.label>
           Please enter a username
-        </label>
-      </div>
+        </mock-styled.label>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-input-group"
-    >
-      <input
-        class="el-input"
-      />
-      <span
-        class="el-icon"
+    <mock-styled.div>
+      <mock-styled.input />
+      <mock-styled.span
+        classname=""
       >
         <svg />
-      </span>
-      <label
-        class="el-label"
-      >
+      </mock-styled.span>
+      <mock-styled.label>
         Please enter a username
-      </label>
-    </div>
+      </mock-styled.label>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -98,29 +86,23 @@ Object {
 `;
 
 exports[`InputGroup component should match a snapshot when used in react shorthand mode 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-input-group"
-      >
-        <input
-          class="el-input"
+      <mock-styled.div>
+        <mock-styled.input
           id="myId"
         />
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-input-group"
-    >
-      <input
-        class="el-input"
+    <mock-styled.div>
+      <mock-styled.input
         id="myId"
       />
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -177,41 +159,33 @@ Object {
 `;
 
 exports[`InputGroup component should match a snapshot when used in react shorthand mode, with a label 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-input-group"
-      >
-        <input
-          class="el-input"
+      <mock-styled.div>
+        <mock-styled.input
           id="myId"
         />
-        <label
-          class="el-label"
-          for="myId"
+        <mock-styled.label
+          htmlfor="myId"
         >
           Enter your username
-        </label>
-      </div>
+        </mock-styled.label>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-input-group"
-    >
-      <input
-        class="el-input"
+    <mock-styled.div>
+      <mock-styled.input
         id="myId"
       />
-      <label
-        class="el-label"
-        for="myId"
+      <mock-styled.label
+        htmlfor="myId"
       >
         Enter your username
-      </label>
-    </div>
+      </mock-styled.label>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -268,39 +242,33 @@ Object {
 `;
 
 exports[`InputGroup component should match a snapshot when used in react shorthand mode, with an icon 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-input-group"
-      >
-        <input
-          class="el-input"
+      <mock-styled.div>
+        <mock-styled.input
           id="myId"
         />
-        <span
-          class="el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </div>
+        </mock-styled.span>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-input-group"
-    >
-      <input
-        class="el-input"
+    <mock-styled.div>
+      <mock-styled.input
         id="myId"
       />
-      <span
-        class="el-icon"
+      <mock-styled.span
+        classname=""
       >
         <svg />
-      </span>
-    </div>
+      </mock-styled.span>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -357,51 +325,43 @@ Object {
 `;
 
 exports[`InputGroup component should match a snapshot when used in react shorthand mode, with an icon and a label 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-input-group"
-      >
-        <input
-          class="el-input"
+      <mock-styled.div>
+        <mock-styled.input
           id="myId"
         />
-        <span
-          class="el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-        <label
-          class="el-label"
-          for="myId"
+        </mock-styled.span>
+        <mock-styled.label
+          htmlfor="myId"
         >
           Enter your username
-        </label>
-      </div>
+        </mock-styled.label>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-input-group"
-    >
-      <input
-        class="el-input"
+    <mock-styled.div>
+      <mock-styled.input
         id="myId"
       />
-      <span
-        class="el-icon"
+      <mock-styled.span
+        classname=""
       >
         <svg />
-      </span>
-      <label
-        class="el-label"
-        for="myId"
+      </mock-styled.span>
+      <mock-styled.label
+        htmlfor="myId"
       >
         Enter your username
-      </label>
-    </div>
+      </mock-styled.label>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

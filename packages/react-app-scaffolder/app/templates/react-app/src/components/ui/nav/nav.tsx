@@ -68,7 +68,7 @@ export const Nav: FC = () => {
     navOptions.push(
       {
         itemIndex: 4,
-        callback: () => (window.location.href = window.reapit.config.marketplaceUrl),
+        callback: () => (window.location.href = process.env.marketplaceUrl),
         iconId: 'appsMenu',
         text: 'Apps',
       },

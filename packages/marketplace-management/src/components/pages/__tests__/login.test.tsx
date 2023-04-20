@@ -1,27 +1,21 @@
 import React from 'react'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { Login } from '../login'
-import { render } from '@testing-library/react'
-
-jest.mock('../../../core/connect-session', () => ({
-  reapitConnectBrowserSession: {
-    connectLoginRedirect: jest.fn(),
-  },
-}))
+import { Login, handleLoginClick } from '../login'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { render } from '../../../tests/react-testing'
 
 describe('Login', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<Login />)
-    expect(wrapper).toMatchSnapshot()
+    process.env.appEnv = 'development'
+    expect(render(<Login />)).toMatchSnapshot()
   })
 })
 
-describe('loginHandler', () => {
-  it('should correctly call redirect on click', () => {
-    const wrapper = render(<Login />)
+describe('handleLoginClick', () => {
+  it('should correctly login user', () => {
+    const loginSpy = jest.spyOn(reapitConnectBrowserSession, 'connectLoginRedirect')
 
-    wrapper.getByText('Login').click()
+    handleLoginClick()
 
-    expect(reapitConnectBrowserSession.connectLoginRedirect).toHaveBeenCalledTimes(1)
+    expect(loginSpy).toHaveBeenCalledTimes(1)
   })
 })

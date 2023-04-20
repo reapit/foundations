@@ -1,156 +1,174 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FollowUpNotesModal should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <div
-        class="el-mb8"
+        class="mock-css.
+  margin-bottom: 1.5rem;
+"
       >
-        <p
-          class="el-body-text"
+        <mock-styled.p
+          classname=""
         >
           Record follow up notes on your appointment here, along with an optional follow up date.
-        </p>
+        </mock-styled.p>
       </div>
       <form>
-        <div
-          class="el-mb8 el-input-group"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 1.5rem;
+"
         >
-          <input
-            class="el-input"
+          <mock-styled.input
             id="test-static-id"
             name="due"
             type="date"
-            value="2020-07-09"
           />
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-          <label
-            class="el-label"
-            for="test-static-id"
+          </mock-styled.span>
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Due date
-          </label>
-        </div>
-        <div
-          class="el-mb8 el-input-group"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 1.5rem;
+"
         >
-          <textarea
-            class="el-text-area"
+          <mock-styled.textarea
             name="notes"
           />
-          <label
-            class="el-label"
-          >
+          <mock-styled.label>
             Follow up notes
-          </label>
-        </div>
-        <div
-          class="el-flex-justify-evenly el-flex-container"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-evenly;
+"
         >
-          <button
-            class="el-intent-secondary el-button-size2 el-button"
+          <mock-styled.button
+            classname="mock-css. mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
+            disabled="false"
             type="button"
           >
             Cancel
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-critical el-button-size2 el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css. mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
             type="submit"
           >
             Submit
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <div
-      class="el-mb8"
+      class="mock-css.
+  margin-bottom: 1.5rem;
+"
     >
-      <p
-        class="el-body-text"
+      <mock-styled.p
+        classname=""
       >
         Record follow up notes on your appointment here, along with an optional follow up date.
-      </p>
+      </mock-styled.p>
     </div>
     <form>
-      <div
-        class="el-mb8 el-input-group"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 1.5rem;
+"
       >
-        <input
-          class="el-input"
+        <mock-styled.input
           id="test-static-id"
           name="due"
           type="date"
-          value="2020-07-09"
         />
-        <span
-          class="el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-        <label
-          class="el-label"
-          for="test-static-id"
+        </mock-styled.span>
+        <mock-styled.label
+          htmlfor="test-static-id"
         >
           Due date
-        </label>
-      </div>
-      <div
-        class="el-mb8 el-input-group"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 1.5rem;
+"
       >
-        <textarea
-          class="el-text-area"
+        <mock-styled.textarea
           name="notes"
         />
-        <label
-          class="el-label"
-        >
+        <mock-styled.label>
           Follow up notes
-        </label>
-      </div>
-      <div
-        class="el-flex-justify-evenly el-flex-container"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-evenly;
+"
       >
-        <button
-          class="el-intent-secondary el-button-size2 el-button"
+        <mock-styled.button
+          classname="mock-css. mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
+          disabled="false"
           type="button"
         >
           Cancel
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-intent-critical el-button-size2 el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css. mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
           type="submit"
         >
           Submit
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

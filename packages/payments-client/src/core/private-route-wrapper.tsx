@@ -1,18 +1,16 @@
-import React, { FC } from 'react'
-import { Redirect, useLocation } from 'react-router'
+import React, { FC, PropsWithChildren } from 'react'
+import { Navigate, useLocation } from 'react-router'
 import { useReapitConnect } from '@reapit/connect-session'
 import Nav from './nav'
 import { reapitConnectBrowserSession } from './connect-session'
-import { Routes } from '../constants/routes'
+import { RoutePaths } from '../constants/routes'
 import { Loader, MainContainer } from '@reapit/elements'
 import { ORG_ADMIN_GROUP } from '../constants/permissions'
 import { ConfigProvider } from './use-config-state'
 
 const { Suspense } = React
 
-export type PrivateRouteWrapperProps = {}
-
-export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const location = useLocation()
   const { pathname, search } = location
   const currentUri = `${pathname}${search}`
@@ -31,17 +29,17 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   if (
     window['__REAPIT_MARKETPLACE_GLOBALS__'] &&
     window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode &&
-    window.location.pathname !== `${Routes.PAYMENTS}/${window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode}`
+    window.location.pathname !== `${RoutePaths.PAYMENTS}/${window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode}`
   ) {
-    return <Redirect to={`${Routes.PAYMENTS}/${window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode}`} />
+    return <Navigate to={`${RoutePaths.PAYMENTS}/${window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode}`} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
-    return <Redirect to={connectInternalRedirect} />
+    return <Navigate to={connectInternalRedirect} />
   }
 
-  if (window.location.pathname === '/' || (window.location.pathname === Routes.ADMIN && !isAdmin)) {
-    return <Redirect to={Routes.PAYMENTS} />
+  if (window.location.pathname === '/' || (window.location.pathname === RoutePaths.ADMIN && !isAdmin)) {
+    return <Navigate to={RoutePaths.PAYMENTS} />
   }
 
   return (

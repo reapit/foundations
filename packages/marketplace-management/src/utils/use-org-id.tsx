@@ -1,4 +1,14 @@
-import React, { createContext, Dispatch, SetStateAction, useContext, useState, ChangeEvent, useEffect, FC } from 'react'
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+  ChangeEvent,
+  useEffect,
+  FC,
+  PropsWithChildren,
+} from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { getUserInfo } from '../services/user'
@@ -103,7 +113,7 @@ export const useOrgId = (): UseOrgIdState => {
   }
 }
 
-export const OrgIdStateProvider: FC = ({ children }) => {
+export const OrgIdStateProvider: FC<PropsWithChildren> = ({ children }) => {
   const [orgIdState, setOrgIdState] = useState<OrgIdState>(defaultState)
 
   return (

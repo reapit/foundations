@@ -1,4 +1,4 @@
-import { Routes } from '../constants/routes'
+import { RoutePaths } from '../constants/routes'
 
 export interface StringMap {
   [key: string]: string
@@ -6,7 +6,7 @@ export interface StringMap {
 
 export type PartialRecord<K extends keyof any, T> = { [P in K]?: T }
 
-export type RouteValue = keyof typeof Routes
+export type RouteValue = keyof typeof RoutePaths
 
 export type FormState = 'PENDING' | 'DONE' | 'SUBMITTING' | 'ERROR' | 'SUCCESS'
 

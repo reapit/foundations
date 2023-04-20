@@ -1,419 +1,307 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card should match a snapshot and render children with full props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-wrap"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-card-context-menu-wrapper"
-        >
-          <div
-            class="el-card-context-menu-toggle"
-          >
-            <span
-              class="el-icon"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-context-menu-items"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-card-context-menu-item"
-            >
-              <span
-                class="el-icon"
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.25rem;"
               >
                 <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-context-menu-item"
-            >
-              <span
-                class="el-icon"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.25rem;"
               >
                 <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-context-menu-item"
-            >
-              <span
-                class="el-icon"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.25rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-main-wrap"
-        >
-          <div
-            class="el-card-image-wrap"
-          >
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             <img
               src="https://via.placeholder.com/72x72.svg"
             />
-          </div>
-          <div
-            class="el-card-heading-wrap"
-          >
-            <h5
-              class="el-card-heading"
-            >
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h5>
               Main Heading
-            </h5>
-            <h6
-              class="el-card-sub-heading"
-            >
+            </mock-styled.h5>
+            <mock-styled.h6>
               Main Subheading
-            </h6>
-            <h6
-              class="el-card-sub-heading-additional"
-            >
+            </mock-styled.h6>
+            <mock-styled.h6>
               Main Subheading Additional
-            </h6>
-          </div>
-        </div>
-        <div
-          class="el-mb5 el-card-body-wrap"
+            </mock-styled.h6>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </div>
-        <div
-          class="el-card-list-main-wrap"
-        >
-          <div
-            class="el-card-context-menu-wrapper"
-          >
-            <div
-              class="el-card-context-menu-toggle"
-            >
-              <span
-                class="el-icon"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.25rem;"
               >
                 <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-context-menu-items"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-card-context-menu-item"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-context-menu-item"
-              >
-                <span
-                  class="el-icon"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-context-menu-item"
-              >
-                <span
-                  class="el-icon"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.25rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-          <h5
-            class="el-card-list-heading"
-          >
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.h5>
             List Card Heading
-          </h5>
-          <h6
-            class="el-card-list-sub-heading"
-          >
+          </mock-styled.h5>
+          <mock-styled.h6>
             List Card Sub Heading
-          </h6>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+          </mock-styled.h6>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Applicant
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Bob Smith
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Property
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Some Address
-            </div>
-          </div>
-        </div>
-      </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-wrap"
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-card-context-menu-wrapper"
-      >
-        <div
-          class="el-card-context-menu-toggle"
-        >
-          <span
-            class="el-icon"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
             style="font-size: 1.25rem;"
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-context-menu-items"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-card-context-menu-item"
-          >
-            <span
-              class="el-icon"
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-context-menu-item"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-context-menu-item"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-main-wrap"
-      >
-        <div
-          class="el-card-image-wrap"
-        >
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
           <img
             src="https://via.placeholder.com/72x72.svg"
           />
-        </div>
-        <div
-          class="el-card-heading-wrap"
-        >
-          <h5
-            class="el-card-heading"
-          >
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h5>
             Main Heading
-          </h5>
-          <h6
-            class="el-card-sub-heading"
-          >
+          </mock-styled.h5>
+          <mock-styled.h6>
             Main Subheading
-          </h6>
-          <h6
-            class="el-card-sub-heading-additional"
-          >
+          </mock-styled.h6>
+          <mock-styled.h6>
             Main Subheading Additional
-          </h6>
-        </div>
-      </div>
-      <div
-        class="el-mb5 el-card-body-wrap"
+          </mock-styled.h6>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      </div>
-      <div
-        class="el-card-list-main-wrap"
-      >
-        <div
-          class="el-card-context-menu-wrapper"
-        >
-          <div
-            class="el-card-context-menu-toggle"
-          >
-            <span
-              class="el-icon"
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-context-menu-items"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-card-context-menu-item"
-            >
-              <span
-                class="el-icon"
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.25rem;"
               >
                 <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-context-menu-item"
-            >
-              <span
-                class="el-icon"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.25rem;"
               >
                 <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-context-menu-item"
-            >
-              <span
-                class="el-icon"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.25rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-        </div>
-        <h5
-          class="el-card-list-heading"
-        >
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.h5>
           List Card Heading
-        </h5>
-        <h6
-          class="el-card-list-sub-heading"
-        >
+        </mock-styled.h5>
+        <mock-styled.h6>
           List Card Sub Heading
-        </h6>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+        </mock-styled.h6>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Applicant
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Bob Smith
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Property
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Some Address
-          </div>
-        </div>
-      </div>
-    </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -470,18 +358,18 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children with no props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-wrap"
+      <mock-styled.div
+        classname=""
       />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-wrap"
+    <mock-styled.div
+      classname=""
     />
   </div>,
   "debug": [Function],
@@ -539,109 +427,89 @@ Object {
 `;
 
 exports[`CardContextMenu should match a snapshot and render children with full props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-context-menu-wrapper"
-      >
-        <div
-          class="el-card-context-menu-toggle"
-        >
-          <span
-            class="el-icon"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
             style="font-size: 1.25rem;"
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-context-menu-items"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-card-context-menu-item"
-          >
-            <span
-              class="el-icon"
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-context-menu-item"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-context-menu-item"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-context-menu-wrapper"
-    >
-      <div
-        class="el-card-context-menu-toggle"
-      >
-        <span
-          class="el-icon"
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.span
+          classname=""
           style="font-size: 1.25rem;"
         >
           <svg />
-        </span>
-      </div>
-      <div
-        class="el-card-context-menu-items"
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-card-context-menu-item"
-        >
-          <span
-            class="el-icon"
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
             style="font-size: 1.25rem;"
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-context-menu-item"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
             style="font-size: 1.25rem;"
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-context-menu-item"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
             style="font-size: 1.25rem;"
           >
             <svg />
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -698,7 +566,7 @@ Object {
 `;
 
 exports[`CardContextMenu should match a snapshot and render children with no props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div />

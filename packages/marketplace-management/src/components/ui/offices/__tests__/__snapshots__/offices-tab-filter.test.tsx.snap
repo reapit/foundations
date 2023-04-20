@@ -1,114 +1,130 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OfficeTabFilterForm should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <form>
-        <div
-          class="el-form-layout-has-margin el-fade-in el-form-layout"
+        <mock-styled.div
+          classname="mock-css. mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="name"
                 placeholder="Search for an office"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Search
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-flex-grow el-flex-align-end el-hfull el-flex-container"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-grow: 1;
+ mock-css.
+  align-items: flex-end;
+ mock-css.
+  height: 100%;
+"
             >
-              <div
-                class="el-button-group"
-              >
-                <div
-                  class="el-button-group-align-left el-button-group-inner"
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
                 >
-                  <button
-                    class="el-intent-primary el-button"
+                  <mock-styled.button
+                    classname="mock-css."
                     type="submit"
                   >
                     Search
-                    <div
-                      class="el-button-loader"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
     <form>
-      <div
-        class="el-form-layout-has-margin el-fade-in el-form-layout"
+      <mock-styled.div
+        classname="mock-css. mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="name"
               placeholder="Search for an office"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Search
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-flex-grow el-flex-align-end el-hfull el-flex-container"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-grow: 1;
+ mock-css.
+  align-items: flex-end;
+ mock-css.
+  height: 100%;
+"
           >
-            <div
-              class="el-button-group"
-            >
-              <div
-                class="el-button-group-align-left el-button-group-inner"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <button
-                  class="el-intent-primary el-button"
+                <mock-styled.button
+                  classname="mock-css."
                   type="submit"
                 >
                   Search
-                  <div
-                    class="el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

@@ -8,7 +8,6 @@ const { Suspense } = React
 
 export type PrivateRouteWrapperProps = {
   children?: React.ReactNode
-  path: string
   showMenu?: boolean
 }
 
@@ -26,7 +25,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <MainContainer>
       <Suspense fallback={<Loader fullPage />}>{children}</Suspense>
-      {window.reapit.config.appEnv !== 'production' && <HelperWidget appName={HelperWidgetApps.developerPortal} />}
+      {process.env.appEnv !== 'production' && <HelperWidget appName={HelperWidgetApps.developerPortal} />}
     </MainContainer>
   )
 }

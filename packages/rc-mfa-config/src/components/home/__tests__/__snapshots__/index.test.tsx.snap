@@ -1,131 +1,139 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomePage should render component when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-flex-auto el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="el-secondary-nav-container"
-        >
-          <h1
-            class="el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Configure
-          </h1>
-          <span
-            class="el-mb5 el-icon-size-large el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             Your MFA Config
-          </h2>
-          <p
-            class="el-has-grey-text el-small-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
-          </p>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           >
             Docs
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </aside>
-        <section
-          class="el-hfull el-page-container"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <h1
-            class="el-title"
+          <mock-styled.h1
+            classname=""
           >
             Configure MFA Authenticator
-          </h1>
-          <div
-            class="el-loader-container"
+          </mock-styled.h1>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-mb11 el-loader"
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 2.5rem;
+"
             >
-              <div
-                class="el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </section>
-      </div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-flex-auto el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Configure
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Your MFA Config
-        </h2>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
-        </p>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
         >
           Docs
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-hfull el-page-container"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <h1
-          class="el-title"
+        <mock-styled.h1
+          classname=""
         >
           Configure MFA Authenticator
-        </h1>
-        <div
-          class="el-loader-container"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-mb11 el-loader"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
-    </div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -182,283 +190,381 @@ Object {
 `;
 
 exports[`HomePage should render component with data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-flex-auto el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="el-secondary-nav-container"
-        >
-          <h1
-            class="el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Configure
-          </h1>
-          <span
-            class="el-mb5 el-icon-size-large el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             Your MFA Config
-          </h2>
-          <p
-            class="el-has-grey-text el-small-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
-          </p>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           >
             Docs
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </aside>
-        <section
-          class="el-hfull el-page-container"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <h1
-            class="el-title"
+          <mock-styled.h1
+            classname=""
           >
             Configure MFA Authenticator
-          </h1>
-          <div
-            class="el-mb7 el-fade-in el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          </mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1.25rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css. mock-css. mock-css. mock-css."
           >
             <div
-              class="el-pn-icon"
+              class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
               data-testid="close-icon"
             >
-              <span
-                class="el-icon"
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
+              </mock-styled.span>
             </div>
             <div
-              class="el-pn-content"
+              class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
             >
               You have an active authenticator registered for your account. If you want to re-configure, click the ‘Reset Authenticator’ button below.
             </div>
-          </div>
-          <div
-            class="el-mb11 el-fade-in el-grid"
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           >
-            <div
-              class="el-col"
+            <mock-styled.div
+              classname=""
             >
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Authenticator Type
-              </h2>
-              <p
-                class="el-has-grey-text el-has-no-margin el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 Authenticator App
-              </p>
-            </div>
-            <div
-              class="el-col"
+              </mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Status
-              </h2>
-              <p
-                class="el-has-grey-text el-has-no-margin el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 Active
-              </p>
-            </div>
-            <div
-              class="el-col"
+              </mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Created
-              </h2>
-              <p
-                class="el-has-grey-text el-has-no-margin el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 11/11/2022 11:03
-              </p>
-            </div>
-            <div
-              class="el-col"
+              </mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Last Updated
-              </h2>
-              <p
-                class="el-has-grey-text el-has-no-margin el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
                 11/11/2022 11:03
-              </p>
-            </div>
-          </div>
-          <button
-            class="el-intent-primary el-button"
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
           >
             Reset Authenticator
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </section>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-flex-auto el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Configure
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Your MFA Config
-        </h2>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
-        </p>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
         >
           Docs
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-hfull el-page-container"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <h1
-          class="el-title"
+        <mock-styled.h1
+          classname=""
         >
           Configure MFA Authenticator
-        </h1>
-        <div
-          class="el-mb7 el-fade-in el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 1.25rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             You have an active authenticator registered for your account. If you want to re-configure, click the ‘Reset Authenticator’ button below.
           </div>
-        </div>
-        <div
-          class="el-mb11 el-fade-in el-grid"
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <div
-            class="el-col"
+          <mock-styled.div
+            classname=""
           >
-            <h2
-              class="el-has-no-margin el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Authenticator Type
-            </h2>
-            <p
-              class="el-has-grey-text el-has-no-margin el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               Authenticator App
-            </p>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <h2
-              class="el-has-no-margin el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Status
-            </h2>
-            <p
-              class="el-has-grey-text el-has-no-margin el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               Active
-            </p>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <h2
-              class="el-has-no-margin el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Created
-            </h2>
-            <p
-              class="el-has-grey-text el-has-no-margin el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               11/11/2022 11:03
-            </p>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <h2
-              class="el-has-no-margin el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Last Updated
-            </h2>
-            <p
-              class="el-has-grey-text el-has-no-margin el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               11/11/2022 11:03
-            </p>
-          </div>
-        </div>
-        <button
-          class="el-intent-primary el-button"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.button
+          classname="mock-css."
         >
           Reset Authenticator
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </section>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -515,179 +621,241 @@ Object {
 `;
 
 exports[`HomePage should render component with no data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-flex-auto el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="el-secondary-nav-container"
-        >
-          <h1
-            class="el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Configure
-          </h1>
-          <span
-            class="el-mb5 el-icon-size-large el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             Your MFA Config
-          </h2>
-          <p
-            class="el-has-grey-text el-small-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
-          </p>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           >
             Docs
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </aside>
-        <section
-          class="el-hfull el-page-container"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <h1
-            class="el-title"
+          <mock-styled.h1
+            classname=""
           >
             Configure MFA Authenticator
-          </h1>
-          <div
-            class="el-mb7 el-fade-in el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          </mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1.25rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css. mock-css. mock-css. mock-css."
           >
             <div
-              class="el-pn-icon"
+              class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
               data-testid="close-icon"
             >
-              <span
-                class="el-icon"
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
+              </mock-styled.span>
             </div>
             <div
-              class="el-pn-content"
+              class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
             >
               No authenticators configured for your user account. Please use the button below to configure one.
             </div>
-          </div>
-          <div
-            class="el-button-group"
-          >
-            <div
-              class="el-button-group-inner"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <button
-                class="el-intent-critical el-button"
+              <mock-styled.button
+                classname="mock-css."
               >
                 Configure MFA Device
-                <div
-                  class="el-button-loader"
-                />
-              </button>
-            </div>
-          </div>
-        </section>
-      </div>
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-flex-auto el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Configure
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Your MFA Config
-        </h2>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
-        </p>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
         >
           Docs
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-hfull el-page-container"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <h1
-          class="el-title"
+        <mock-styled.h1
+          classname=""
         >
           Configure MFA Authenticator
-        </h1>
-        <div
-          class="el-mb7 el-fade-in el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 1.25rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             No authenticators configured for your user account. Please use the button below to configure one.
           </div>
-        </div>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-inner"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-critical el-button"
+            <mock-styled.button
+              classname="mock-css."
             >
               Configure MFA Device
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </section>
-    </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

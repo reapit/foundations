@@ -10,6 +10,8 @@ type RenderHtmlMarkupProps = {
   label?: string
 }
 
+const CanvasWithChildren = Canvas as any
+
 export const RenderHtmlMarkup = ({ component, story, label }: RenderHtmlMarkupProps) => {
   const MAX_ATTEMPTS = 10
   const [domElements, setDomElements] = useState<(Element | null)[]>([])
@@ -72,8 +74,8 @@ export const RenderHtmlMarkup = ({ component, story, label }: RenderHtmlMarkupPr
     }
   }
   return (
-    <Canvas mdxSource={String(getMdxSource())}>
+    <CanvasWithChildren mdxSource={String(getMdxSource())}>
       <p>{getLabel()}</p>
-    </Canvas>
+    </CanvasWithChildren>
   )
 }

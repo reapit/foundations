@@ -1,9 +1,10 @@
-import * as React from 'react'
+import React from 'react'
 import { render } from '../../tests/react-testing'
-import { Router } from '../router'
+import { RoutesComponent } from '../router'
 
-describe('Router', () => {
-  it('should match snapshot', () => {
-    expect(render(<Router />)).toMatchSnapshot()
+describe('RoutesComponent', () => {
+  window.location.pathname = '/'
+  it('should match a snapshot', () => {
+    expect(render(<RoutesComponent />)).toMatchSnapshot()
   })
 })

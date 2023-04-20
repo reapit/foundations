@@ -1,19 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProgressBarContainer should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-progress-bar-container"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-progress-bar-container"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -70,19 +66,15 @@ Object {
 `;
 
 exports[`ProgressBarInner should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-progress-bar-inner"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-progress-bar-inner"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -139,19 +131,15 @@ Object {
 `;
 
 exports[`ProgressBarItem should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-progress-bar-item"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-progress-bar-item"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -208,73 +196,91 @@ Object {
 `;
 
 exports[`ProgressBarPercentage should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-progress-bar-container"
-      >
-        <div
-          class="el-progress-bar-inner"
+      <mock-styled.div>
+        <mock-styled.div
           style="width: 0%; transition-duration: 0.3333333333333333s;"
         >
-          <div
-            class="el-progress-bar-item-dark-blue el-progress-bar-item"
+          <mock-styled.div
+            classname="mock-css.
+  background-color: var(--color-blue-dark);
+"
           />
-          <div
-            class="el-progress-bar-item-medium-blue el-progress-bar-item"
+          <mock-styled.div
+            classname="mock-css.
+  background-color: var(--intent-primary);
+"
           />
-          <div
-            class="el-progress-bar-item-light-blue el-progress-bar-item"
+          <mock-styled.div
+            classname="mock-css.
+  background-color: var(--intent-secondary);
+"
           />
-          <div
-            class="el-progress-bar-item-lightest-blue el-progress-bar-item"
+          <mock-styled.div
+            classname="mock-css.
+  background-color: var(--color-blue-light2);
+"
           />
-          <div
-            class="el-progress-bar-item-orange el-progress-bar-item"
+          <mock-styled.div
+            classname="mock-css.
+  background-color: var(--color-accent-orange);
+"
           />
-        </div>
-        <div
-          class="el-progress-bar-label-right el-progress-bar-label"
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-right: auto;
+"
         >
           0
           %
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-progress-bar-container"
-    >
-      <div
-        class="el-progress-bar-inner"
+    <mock-styled.div>
+      <mock-styled.div
         style="width: 0%; transition-duration: 0.3333333333333333s;"
       >
-        <div
-          class="el-progress-bar-item-dark-blue el-progress-bar-item"
+        <mock-styled.div
+          classname="mock-css.
+  background-color: var(--color-blue-dark);
+"
         />
-        <div
-          class="el-progress-bar-item-medium-blue el-progress-bar-item"
+        <mock-styled.div
+          classname="mock-css.
+  background-color: var(--intent-primary);
+"
         />
-        <div
-          class="el-progress-bar-item-light-blue el-progress-bar-item"
+        <mock-styled.div
+          classname="mock-css.
+  background-color: var(--intent-secondary);
+"
         />
-        <div
-          class="el-progress-bar-item-lightest-blue el-progress-bar-item"
+        <mock-styled.div
+          classname="mock-css.
+  background-color: var(--color-blue-light2);
+"
         />
-        <div
-          class="el-progress-bar-item-orange el-progress-bar-item"
+        <mock-styled.div
+          classname="mock-css.
+  background-color: var(--color-accent-orange);
+"
         />
-      </div>
-      <div
-        class="el-progress-bar-label-right el-progress-bar-label"
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-right: auto;
+"
       >
         0
         %
-      </div>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -331,77 +337,95 @@ Object {
 `;
 
 exports[`ProgressBarSteps should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-progress-bar-container"
-      >
-        <div
-          class="el-progress-bar-inner"
+      <mock-styled.div>
+        <mock-styled.div
           style="width: 50%;"
         >
-          <div
-            class="el-progress-bar-item-dark-blue el-progress-bar-item"
+          <mock-styled.div
+            classname="mock-css.
+  background-color: var(--color-blue-dark);
+"
           />
-          <div
-            class="el-progress-bar-item-medium-blue el-progress-bar-item"
+          <mock-styled.div
+            classname="mock-css.
+  background-color: var(--intent-primary);
+"
           />
-          <div
-            class="el-progress-bar-item-light-blue el-progress-bar-item"
+          <mock-styled.div
+            classname="mock-css.
+  background-color: var(--intent-secondary);
+"
           />
-          <div
-            class="el-progress-bar-item-lightest-blue el-progress-bar-item"
+          <mock-styled.div
+            classname="mock-css.
+  background-color: var(--color-blue-light2);
+"
           />
-          <div
-            class="el-progress-bar-item-orange el-progress-bar-item"
+          <mock-styled.div
+            classname="mock-css.
+  background-color: var(--color-accent-orange);
+"
           />
-        </div>
-        <div
-          class="el-progress-bar-label-left el-progress-bar-label"
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-left: auto;
+"
         >
           5
           /
           10
            Completed
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-progress-bar-container"
-    >
-      <div
-        class="el-progress-bar-inner"
+    <mock-styled.div>
+      <mock-styled.div
         style="width: 50%;"
       >
-        <div
-          class="el-progress-bar-item-dark-blue el-progress-bar-item"
+        <mock-styled.div
+          classname="mock-css.
+  background-color: var(--color-blue-dark);
+"
         />
-        <div
-          class="el-progress-bar-item-medium-blue el-progress-bar-item"
+        <mock-styled.div
+          classname="mock-css.
+  background-color: var(--intent-primary);
+"
         />
-        <div
-          class="el-progress-bar-item-light-blue el-progress-bar-item"
+        <mock-styled.div
+          classname="mock-css.
+  background-color: var(--intent-secondary);
+"
         />
-        <div
-          class="el-progress-bar-item-lightest-blue el-progress-bar-item"
+        <mock-styled.div
+          classname="mock-css.
+  background-color: var(--color-blue-light2);
+"
         />
-        <div
-          class="el-progress-bar-item-orange el-progress-bar-item"
+        <mock-styled.div
+          classname="mock-css.
+  background-color: var(--color-accent-orange);
+"
         />
-      </div>
-      <div
-        class="el-progress-bar-label-left el-progress-bar-label"
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-left: auto;
+"
       >
         5
         /
         10
          Completed
-      </div>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

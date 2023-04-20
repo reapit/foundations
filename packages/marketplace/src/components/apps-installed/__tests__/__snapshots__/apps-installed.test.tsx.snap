@@ -1,57 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppsInstalled should match a snapshot when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="installed-apps-container"
-      >
-        <div
-          class="installed-apps-inner-container"
-        >
-          <div
-            class="el-loader-container"
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-loader"
-            >
-              <div
-                class="el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="installed-apps-container"
-    >
-      <div
-        class="installed-apps-inner-container"
-      >
-        <div
-          class="el-loader-container"
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -108,30 +88,33 @@ Object {
 `;
 
 exports[`AppsInstalled should match a snapshot with data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="installed-apps-container"
-      >
-        <div
-          class="installed-apps-inner-container"
-        >
-          <div
-            class="installed-apps-grid"
-          >
-            <div
-              class="el-fade-in installed-apps-col"
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="installed-apps-icon-wrapper"
-              >
-                <div
-                  class="el-placeholder-image"
+              <mock-styled.div>
+                <mock-styled.div
                   style="font-size: 2.5em; width: 64px; height: 64px;"
                 >
                   <svg
@@ -146,22 +129,31 @@ Object {
                       fill="#E3E3E3"
                     />
                   </svg>
-                </div>
-              </div>
-              <div
-                class="installed-apps-text"
-              >
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
                 MOCK_APP_NAME
-              </div>
-            </div>
-            <div
-              class="el-fade-in installed-apps-col"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="installed-apps-icon-wrapper"
-              >
-                <div
-                  class="el-placeholder-image"
+              <mock-styled.div>
+                <mock-styled.div
                   style="font-size: 2.5em; width: 64px; height: 64px;"
                 >
                   <svg
@@ -176,17 +168,13 @@ Object {
                       fill="#E3E3E3"
                     />
                   </svg>
-                </div>
-              </div>
-              <div
-                class="installed-apps-text"
-              >
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
                 MOCK_APP_NAME_ANOTHER
-              </div>
-            </div>
-            <div
-              class="install-more-apps installed-apps-col"
-            >
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.mock-styled.div>
               <svg
                 fill="none"
                 height="52"
@@ -214,33 +202,36 @@ Object {
                 />
               </svg>
               Install More Apps
-            </div>
-          </div>
-        </div>
-      </div>
+            </mock-styled.mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="installed-apps-container"
-    >
-      <div
-        class="installed-apps-inner-container"
-      >
-        <div
-          class="installed-apps-grid"
-        >
-          <div
-            class="el-fade-in installed-apps-col"
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           >
-            <div
-              class="installed-apps-icon-wrapper"
-            >
-              <div
-                class="el-placeholder-image"
+            <mock-styled.div>
+              <mock-styled.div
                 style="font-size: 2.5em; width: 64px; height: 64px;"
               >
                 <svg
@@ -255,22 +246,31 @@ Object {
                     fill="#E3E3E3"
                   />
                 </svg>
-              </div>
-            </div>
-            <div
-              class="installed-apps-text"
-            >
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
               MOCK_APP_NAME
-            </div>
-          </div>
-          <div
-            class="el-fade-in installed-apps-col"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           >
-            <div
-              class="installed-apps-icon-wrapper"
-            >
-              <div
-                class="el-placeholder-image"
+            <mock-styled.div>
+              <mock-styled.div
                 style="font-size: 2.5em; width: 64px; height: 64px;"
               >
                 <svg
@@ -285,17 +285,13 @@ Object {
                     fill="#E3E3E3"
                   />
                 </svg>
-              </div>
-            </div>
-            <div
-              class="installed-apps-text"
-            >
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
               MOCK_APP_NAME_ANOTHER
-            </div>
-          </div>
-          <div
-            class="install-more-apps installed-apps-col"
-          >
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.mock-styled.div>
             <svg
               fill="none"
               height="52"
@@ -323,10 +319,10 @@ Object {
               />
             </svg>
             Install More Apps
-          </div>
-        </div>
-      </div>
-    </div>
+          </mock-styled.mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

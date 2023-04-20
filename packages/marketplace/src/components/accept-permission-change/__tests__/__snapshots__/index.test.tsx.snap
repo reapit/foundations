@@ -1,72 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AcceptPermissionChangePage should match snapshot  1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
       id="root"
     >
       <div>
-        <div
-          class="el-is-active el-modal-bg"
+        <mock-styled.div
+          classname="mock-css."
         />
-        <div
-          class="el-is-active el-modal"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-modal-header"
-          >
+          <mock-styled.div>
             Requested Permissions
-          </div>
-          <div
-            class="el-modal-body"
-          >
-            <p
-              class="el-has-grey-text el-body-text"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.p
+              classname="mock-css."
             >
               To accept the permissions as requested by 
               will-test-dev-co-voracious-person
                please click ‘Accept’ below.
-            </p>
-            <div
-              class="el-button-group"
-            >
-              <div
-                class="el-button-group-align-center el-button-group-inner"
+            </mock-styled.p>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <button
-                  class="el-intent-low el-button-fixed-width el-button"
+                <mock-styled.button
+                  classname="mock-css. mock-css."
                 >
                   Ignore
-                  <div
-                    class="el-button-loader"
-                  />
-                </button>
-                <button
-                  class="el-intent-primary el-button-fixed-width el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css. mock-css."
                 >
                   Accept
-                  <div
-                    class="el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

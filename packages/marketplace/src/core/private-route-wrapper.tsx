@@ -1,16 +1,14 @@
-import React, { FC, Suspense } from 'react'
+import React, { FC, PropsWithChildren, Suspense } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Nav } from '../components/nav/nav'
 import { reapitConnectBrowserSession } from './connect-session'
-import { useLocation, Redirect } from 'react-router'
+import { useLocation, Navigate } from 'react-router'
 import { Loader, MainContainer, PageContainer, PersistentNotification } from '@reapit/elements'
-import { Routes } from '../constants/routes'
+import { RoutePaths } from '../constants/routes'
 import { AppsBrowseProvider } from './use-apps-browse-state'
 import { AnalyticsBanner } from './analytics-banner'
 
-export type PrivateRouteWrapperProps = {}
-
-export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location?.pathname}${location?.search}`
@@ -40,11 +38,11 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   }
 
   if (isRoot) {
-    return <Redirect to={Routes.APPS_BROWSE} />
+    return <Navigate to={RoutePaths.APPS_BROWSE} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
-    return <Redirect to={connectInternalRedirect} />
+    return <Navigate to={connectInternalRedirect} />
   }
 
   return (

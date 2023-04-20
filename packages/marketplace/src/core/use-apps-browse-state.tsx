@@ -5,9 +5,17 @@ import {
   CategoryModelPagedResult,
   UserModel,
 } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
-import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch, useMemo } from 'react'
+import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
+import React, {
+  FC,
+  createContext,
+  useContext,
+  useState,
+  SetStateAction,
+  Dispatch,
+  useMemo,
+  PropsWithChildren,
+} from 'react'
 import { useReapitConnect } from '../../../connect-session/src'
 import { reapitConnectBrowserSession } from './connect-session'
 
@@ -60,7 +68,7 @@ export const AppsBrowseStateContext = createContext<AppsBrowseStateHook>({} as A
 
 const { Provider } = AppsBrowseStateContext
 
-export const AppsBrowseProvider: FC = ({ children }) => {
+export const AppsBrowseProvider: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [appsBrowseFilterState, setAppsBrowseFilterState] = useState<AppsBrowseConfigItemFiltersInterface | null>(null)
   const email = connectSession?.loginIdentity.email
@@ -71,7 +79,7 @@ export const AppsBrowseProvider: FC = ({ children }) => {
 
   const [appsBrowseConfigCollection] = useReapitGet<AppsBrowseConfigCollection>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppMarketAdminLive],
+    action: getActions[GetActionNames.getAppMarketAdminLive],
     fetchWhenTrue: [connectSession],
     queryParams: {
       isLive: true,
@@ -84,13 +92,13 @@ export const AppsBrowseProvider: FC = ({ children }) => {
 
   const [appsBrowseCategoriesCollection] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
+    action: getActions[GetActionNames.getAppCategories],
     queryParams: { pageSize: 25 },
   })
 
   const [currentUser, , , refreshCurrentUser] = useReapitGet<UserModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getUserById],
+    action: getActions[GetActionNames.getUserById],
     uriParams: {
       userId,
     },

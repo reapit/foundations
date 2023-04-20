@@ -5,7 +5,6 @@ import OfficesGroupsTab, {
   onFilterChangeHandler,
   onPageChangeHandler,
 } from '../offices-groups-tab'
-import { createBrowserHistory, History } from 'history'
 import Routes from '@/constants/routes'
 import { mockOfficeGroups } from '../../../../services/__stubs__/office-groups'
 import useSWR from 'swr'
@@ -101,13 +100,11 @@ describe('onPageChangeHandler', () => {
 
 describe('onFilterChangeHandler', () => {
   it('should handle filter changes', () => {
-    const history: History<any> = createBrowserHistory()
-    jest.spyOn(history, 'push')
-
-    const curried = onFilterChangeHandler(history, { pageNumber: '2' })
+    const navigate = jest.fn()
+    const curried = onFilterChangeHandler(navigate, { pageNumber: '2' })
 
     curried()
 
-    expect(history.push).toHaveBeenCalledWith(`${Routes.OFFICES_GROUPS}?pageNumber=2`)
+    expect(navigate).toHaveBeenCalledWith(`${Routes.OFFICES_GROUPS}?pageNumber=2`)
   })
 })

@@ -21,8 +21,8 @@ import { openNewPage } from '../../utils/navigation'
 import { appsSearchContainer, AppsSearchInput, appsSearchInputIcon } from '../apps-browse/__styles__'
 import debounce from 'just-debounce-it'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet } from '@reapit/use-reapit-data'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { AppsSupportItem } from './apps-support-item'
 import { cx } from '@linaria/core'
 import { filterRestrictedAppsList } from '../../utils/browse-app'
@@ -45,7 +45,7 @@ export const AppsSupportPage: FC = () => {
 
   const [unfilteredApps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams: { clientId, searchTerm: search, pageSize: 25, includeHiddenApps: true, onlyInstalled: true, product },
     fetchWhenTrue: [search, clientId],
   })

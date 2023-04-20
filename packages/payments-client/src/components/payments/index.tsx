@@ -1,11 +1,9 @@
 import React, { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
-import { useHistory } from 'react-router'
 import { PaymentModel, PaymentModelPagedResult, PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { statusOptions } from '../../constants/filter-options'
-import { PaymentLogo, navigate } from '@reapit/payments-ui'
+import { PaymentLogo, navigateRoute } from '@reapit/payments-ui'
 import { PaymentsFilterControls } from './payments-filter-controls'
 import { combineAddress, DATE_TIME_FORMAT, isTruthy, toLocalTime } from '@reapit/utils-common'
-import ErrorBoundary from '../../core/error-boundary'
 import {
   Button,
   elFadeIn,
@@ -29,12 +27,14 @@ import {
 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { openNewPage } from '../../core/nav'
-import { Routes } from '../../constants/routes'
+import { RoutePaths } from '../../constants/routes'
 import { PaymentRequestModal } from './payment-request-modal'
 import { getActions, useReapitGet, GetActionNames, objectToQuery } from '@reapit/use-reapit-data'
 import { cx } from '@linaria/core'
 import dayjs from 'dayjs'
 import { useConfigState } from '../../core/use-config-state'
+import ErrorBoundary from '../error-boundary'
+import { useNavigate } from 'react-router'
 
 export interface CellProps {
   properties?: PropertyModelPagedResult | null
@@ -75,7 +75,7 @@ export const handleOpenModal =
   }
 
 export const PaymentsPage: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [selectedPayment, setSelectedPayment] = useState<PaymentModel | null>(null)
   const [paymentsFilters, setPaymentsFilters] = useState<PaymentsFilters>({
@@ -94,7 +94,7 @@ export const PaymentsPage: FC = () => {
 
   const [payments, paymentsLoading, , refreshPayments] = useReapitGet<PaymentModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPayments],
+    action: getActions[GetActionNames.getPayments],
     queryParams,
   })
 
@@ -102,7 +102,7 @@ export const PaymentsPage: FC = () => {
 
   const [properties] = useReapitGet<PropertyModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getProperties],
+    action: getActions[GetActionNames.getProperties],
     queryParams: {
       id: propertyIds,
     },
@@ -223,7 +223,7 @@ export const PaymentsPage: FC = () => {
                             intent="critical"
                             chevronRight
                             disabled={status === 'posted' || configNotConfigured}
-                            onClick={navigate(history, `${Routes.PAYMENTS}/${id}`)}
+                            onClick={navigateRoute(navigate, `${RoutePaths.PAYMENTS}/${id}`)}
                           >
                             Take Payment
                           </Button>

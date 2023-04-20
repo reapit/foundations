@@ -1,33 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentLogo should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="logo"
-      >
+      <mock-styled.div />
+      <mock-styled.div>
         <img
           src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
         />
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="logo"
-    >
+    <mock-styled.div />
+    <mock-styled.div>
       <img
         src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
       />
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

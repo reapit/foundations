@@ -14,10 +14,10 @@ import {
   Title,
   useModal,
 } from '@reapit/elements'
-import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/use-reapit-data'
 import { InstallationModelPagedResult, TerminateInstallationModel } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GetActionNames, getActions, isTruthy, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import dayjs from 'dayjs'
 import { useReapitConnect } from '@reapit/connect-session'
 import { openNewPage } from '../../utils/navigation'
@@ -29,6 +29,7 @@ import { selectIsAdmin } from '../../utils/auth'
 import { trackEventHandler, trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 import { FilterForm } from './filter-form'
+import { isTruthy } from '@reapit/utils-common'
 
 export interface InstallationDetails {
   installationId: string
@@ -122,7 +123,7 @@ export const SettingsInstalled: FC = () => {
 
   const [installations, installationsLoading, , refetchInstallations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions[GetActionNames.getInstallations],
     queryParams: {
       pageNumber,
       pageSize: 12,
@@ -134,7 +135,7 @@ export const SettingsInstalled: FC = () => {
 
   const [, , uninstallApp, uninstallSuccess] = useReapitUpdate<TerminateInstallationModel, null>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.terminateInstallation],
+    action: updateActions[UpdateActionNames.terminateInstallation],
     uriParams: {
       installationId: installationDetails?.installationId,
     },

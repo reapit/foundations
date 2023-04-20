@@ -1,234 +1,224 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <form
-        class="el-p8"
+        class="mock-css.
+  padding: 1.5rem;
+"
       >
-        <h2
-          class="el-subtitle"
+        <mock-styled.h2
+          classname=""
         >
           Edit User Group
-        </h2>
-        <p
-          class="el-has-grey-text el-has-section-margin el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting them from the list below.
-        </p>
-        <div
-          class="el-form-layout-has-margin el-fade-in el-form-layout"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="mock-css. mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <div
-            class="el-input-wrap-full"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 placeholder="Search"
               />
-              <span
-                class="el-icon"
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
-              <label
-                class="el-label"
-                for="test-static-id"
+              </mock-styled.span>
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Users
-              </label>
-            </div>
-            <div
-              class="el-multi-select-input-wrapper"
-            >
-              <input
-                class="el-multi-select-input"
+              </mock-styled.label>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="user-groups-ids-MarketplaceAdmin"
                 name="userIds"
               />
-              <div
-                class="el-multi-select-selected"
+              <mock-styled.div
+                classname=""
               >
-                <input
-                  checked=""
-                  class="el-multi-select-checkbox"
+                <mock-styled.input
                   id="test-static-id"
                   type="checkbox"
                 />
-                <label
-                  class="el-multi-select-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  classname=""
+                  htmlfor="test-static-id"
                 />
-                <input
-                  checked=""
-                  class="el-multi-select-checkbox"
+                <mock-styled.input
                   id="test-static-id"
                   type="checkbox"
                 />
-                <label
-                  class="el-multi-select-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  classname=""
+                  htmlfor="test-static-id"
                 />
-                <input
-                  checked=""
-                  class="el-multi-select-checkbox"
+                <mock-styled.input
                   id="test-static-id"
                   type="checkbox"
                 />
-                <label
-                  class="el-multi-select-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  classname=""
+                  htmlfor="test-static-id"
                 />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-align-right el-button-group-inner"
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="el-intent-secondary el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Cancel
-              <div
-                class="el-button-loader"
-              />
-            </button>
-            <button
-              class="el-intent-primary el-button"
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
               type="submit"
             >
               Submit
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
     <form
-      class="el-p8"
+      class="mock-css.
+  padding: 1.5rem;
+"
     >
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Edit User Group
-      </h2>
-      <p
-        class="el-has-grey-text el-has-section-margin el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css. mock-css."
       >
         The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting them from the list below.
-      </p>
-      <div
-        class="el-form-layout-has-margin el-fade-in el-form-layout"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css. mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="el-input-wrap-full"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               placeholder="Search"
             />
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-            <label
-              class="el-label"
-              for="test-static-id"
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Users
-            </label>
-          </div>
-          <div
-            class="el-multi-select-input-wrapper"
-          >
-            <input
-              class="el-multi-select-input"
+            </mock-styled.label>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="user-groups-ids-MarketplaceAdmin"
               name="userIds"
             />
-            <div
-              class="el-multi-select-selected"
+            <mock-styled.div
+              classname=""
             >
-              <input
-                checked=""
-                class="el-multi-select-checkbox"
+              <mock-styled.input
                 id="test-static-id"
                 type="checkbox"
               />
-              <label
-                class="el-multi-select-label"
-                for="test-static-id"
+              <mock-styled.label
+                classname=""
+                htmlfor="test-static-id"
               />
-              <input
-                checked=""
-                class="el-multi-select-checkbox"
+              <mock-styled.input
                 id="test-static-id"
                 type="checkbox"
               />
-              <label
-                class="el-multi-select-label"
-                for="test-static-id"
+              <mock-styled.label
+                classname=""
+                htmlfor="test-static-id"
               />
-              <input
-                checked=""
-                class="el-multi-select-checkbox"
+              <mock-styled.input
                 id="test-static-id"
                 type="checkbox"
               />
-              <label
-                class="el-multi-select-label"
-                for="test-static-id"
+              <mock-styled.label
+                classname=""
+                htmlfor="test-static-id"
               />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-right el-button-group-inner"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-secondary el-button"
+          <mock-styled.button
+            classname="mock-css."
             type="button"
           >
             Cancel
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-primary el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
             type="submit"
           >
             Submit
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

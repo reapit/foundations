@@ -91,7 +91,7 @@ export const handleCreateTransaction =
               save: false,
             },
           },
-          vendorTxCode: window.reapit.config.appEnv === 'production' ? id : uuid(),
+          vendorTxCode: process.env.appEnv === 'production' ? id : uuid(),
           amount: amount ? amount * 100 : 0,
           currency: 'GBP',
           description: description || '',
@@ -107,7 +107,7 @@ export const handleCreateTransaction =
           },
           entryMethod: 'Ecommerce',
           strongCustomerAuthentication: {
-            notificationURL: `${window.reapit.config.paymentsApiUrl}/opayo/private/notification`,
+            notificationURL: `${process.env.paymentsApiUrl}/opayo/private/notification`,
             website: siteUrl,
             browserAcceptHeader: 'text/html, application/json',
             browserJavascriptEnabled: true,

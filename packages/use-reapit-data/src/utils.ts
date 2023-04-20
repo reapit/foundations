@@ -78,7 +78,7 @@ export const getUrl = (action: GetAction | UpdateAction, queryParams?: Object, u
  * 
   const [trafficEvents] = useReapitGet<TrafficEventsModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getTrafficStats],
+    action: getActions[GetActionNames.getTrafficStats],
     queryParams: {
       appId: listToBatchQuery<AppSummaryModel>(apps, 'id', 'appId')
     },

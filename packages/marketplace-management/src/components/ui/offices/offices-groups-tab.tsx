@@ -1,9 +1,7 @@
 import React, { useState, useCallback, FC, useMemo, Dispatch, SetStateAction, useEffect } from 'react'
 import useSWR from 'swr'
-import { useHistory, useLocation } from 'react-router'
-import { History } from 'history'
+import { useNavigate, useLocation, NavigateFunction } from 'react-router'
 import { OfficeGroupModelPagedResult, OfficeGroupModel } from '@reapit/foundations-ts-definitions'
-import ErrorBoundary from '@/components/hocs/error-boundary'
 import {
   Button,
   ButtonGroup,
@@ -28,6 +26,7 @@ import { fetcherWithClientCode } from '../../../utils/fetcher'
 import debounce from 'just-debounce-it'
 import { useForm } from 'react-hook-form'
 import qs from 'qs'
+import ErrorBoundary from '../../error-boundary'
 
 export interface OfficeGroupFilters {
   name?: string
@@ -48,9 +47,9 @@ export const onPageChangeHandler =
     }))
   }
 
-export const onFilterChangeHandler = (history: History<any>, officeGroupFilters: OfficeGroupFilters) => () => {
+export const onFilterChangeHandler = (navigate: NavigateFunction, officeGroupFilters: OfficeGroupFilters) => () => {
   const queryString = qs.stringify(officeGroupFilters)
-  return history.push(`${Routes.OFFICES_GROUPS}?${queryString}`)
+  return navigate(`${Routes.OFFICES_GROUPS}?${queryString}`)
 }
 
 export const mergeOfficesGroups = (officeModels: OfficeModel[], officeGroupModels: OfficeGroupModel[]) =>
@@ -122,7 +121,7 @@ export const handleSortTableData =
   }
 
 const OfficesGroupsTab: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { Modal, openModal, closeModal } = useModal()
   const { isMobile } = useMediaQuery()
@@ -170,7 +169,7 @@ const OfficesGroupsTab: FC = () => {
     mode: 'onChange',
   })
 
-  useEffect(onFilterChangeHandler(history, officeGroupFilters), [officeGroupFilters])
+  useEffect(onFilterChangeHandler(navigate, officeGroupFilters), [officeGroupFilters])
 
   const rows = useMemo(handleSortTableData(groupsWithOffices, offices, onComplete), [groupsWithOffices, offices])
 

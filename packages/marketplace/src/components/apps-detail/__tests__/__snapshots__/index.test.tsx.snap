@@ -1,52 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppsDetailPage should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <div
-          class="el-intent-critical el-persistent-notification"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.div
+          classname="mock-css."
         >
           <div
-            class="el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             Interested in hearing more about this app? Click here and one of the Reapit Team will be in touch!
           </div>
-        </div>
-        <div
-          class="app-detail-back-button"
-        >
-          <span
-            class="el-intent-primary el-icon"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname="mock-css."
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-mb5 el-flex-container"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
         >
-          <div
-            class="app-detail-wrapper"
-          >
-            <div
-              class="el-placeholder-image"
+          <mock-styled.div>
+            <mock-styled.div
               style="font-size: 2.8125em; width: 72px; height: 72px;"
             >
               <svg
@@ -61,66 +69,72 @@ Object {
                   fill="#E3E3E3"
                 />
               </svg>
-            </div>
-          </div>
-          <div
-            class="el-flex-column el-flex-justify-between el-flex-container"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: space-between;
+"
           >
-            <div
-              class="el-flex-column el-flex-container"
+            <mock-styled.div
+              classname="mock-css.
+  flex-direction: column;
+"
             >
-              <h1
-                class="el-has-no-margin el-title"
+              <mock-styled.h1
+                classname="mock-css."
               />
-              <p
-                class="el-has-grey-text el-body-text"
+              <mock-styled.p
+                classname="mock-css."
               />
-            </div>
-            <div
-              class="el-flex-container"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr5 el-intent-success el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css."
               >
                 <svg />
-              </span>
-              <p
-                class="el-mr5 el-has-no-margin el-small-text"
+              </mock-styled.span>
+              <mock-styled.p
+                classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css."
               >
                 Verified by Reapit
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-mb11 el-button-group"
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-button-group-align-left el-button-group-inner"
+          <mock-styled.div
+            classname="mock-css."
           />
-        </div>
-        <div
-          class="apps-detail-content-grid"
-        >
-          <div
-            class="apps-detail-content-col-main"
-          >
-            <h2
-              class="el-has-bold-text el-subtitle"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="mock-css."
             >
               About App
-            </h2>
+            </mock-styled.h2>
             <div
               class="html-render"
             >
-              <div
-                class="app-detail-image-wrap"
-              >
-                <div
-                  class="el-placeholder-image-wrapper"
-                >
-                  <div
-                    class="el-mb7 el-placeholder-image"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css.
+  margin-bottom: 1.25rem;
+"
                     style="font-size: 7.5em;"
                   >
                     <svg
@@ -170,116 +184,126 @@ Object {
                         fill="white"
                       />
                     </svg>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="html-content-wrap"
-              />
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div />
             </div>
-          </div>
-          <div
-            class="apps-detail-content-col-carousel"
-          >
-            <div
-              class="carousel-wrapper"
-            >
-              <div
-                class="carousel-grid"
-                style="--ckvo4up-0: 0; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                numbercols="2"
+                numberitems="0"
+                percentagewidth="50.000"
               />
-            </div>
-          </div>
-          <div
-            class="apps-detail-content-col-permissions"
-          >
-            <div
-              class="el-mb11 app-detail-support-grid"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 2.5rem;
+"
             >
-              <div
-                class="app-detail-support-grid-col"
-              >
-                <h2
-                  class="el-has-no-margin el-subtitle"
+              <mock-styled.div>
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Pricing Policy
-                </h2>
-                <p
-                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css.
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+ mock-css. mock-css."
                 >
                   Free
-                </p>
-              </div>
-            </div>
+                </mock-styled.p>
+              </mock-styled.div>
+            </mock-styled.div>
             <div
-              class="el-mb11"
+              class="mock-css.
+  margin-bottom: 2.5rem;
+"
             >
-              <h2
-                class="el-has-bold-text el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 About Developer
-              </h2>
-              <p
-                class="el-has-grey-text el-has-no-margin el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               />
             </div>
             <div
-              class="el-mb11"
+              class="mock-css.
+  margin-bottom: 2.5rem;
+"
             >
-              <h2
-                class="el-has-bold-text el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Permissions
-              </h2>
+              </mock-styled.h2>
             </div>
-          </div>
-        </div>
-      </section>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <div
-        class="el-intent-critical el-persistent-notification"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.div
+        classname="mock-css."
       >
         <div
-          class="el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           Interested in hearing more about this app? Click here and one of the Reapit Team will be in touch!
         </div>
-      </div>
-      <div
-        class="app-detail-back-button"
-      >
-        <span
-          class="el-intent-primary el-icon"
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.span
+          classname="mock-css."
         >
           <svg />
-        </span>
-      </div>
-      <div
-        class="el-mb5 el-flex-container"
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+"
       >
-        <div
-          class="app-detail-wrapper"
-        >
-          <div
-            class="el-placeholder-image"
+        <mock-styled.div>
+          <mock-styled.div
             style="font-size: 2.8125em; width: 72px; height: 72px;"
           >
             <svg
@@ -294,66 +318,72 @@ Object {
                 fill="#E3E3E3"
               />
             </svg>
-          </div>
-        </div>
-        <div
-          class="el-flex-column el-flex-justify-between el-flex-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: space-between;
+"
         >
-          <div
-            class="el-flex-column el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
           >
-            <h1
-              class="el-has-no-margin el-title"
+            <mock-styled.h1
+              classname="mock-css."
             />
-            <p
-              class="el-has-grey-text el-body-text"
+            <mock-styled.p
+              classname="mock-css."
             />
-          </div>
-          <div
-            class="el-flex-container"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr5 el-intent-success el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css."
             >
               <svg />
-            </span>
-            <p
-              class="el-mr5 el-has-no-margin el-small-text"
+            </mock-styled.span>
+            <mock-styled.p
+              classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css."
             >
               Verified by Reapit
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-mb11 el-button-group"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-button-group-align-left el-button-group-inner"
+        <mock-styled.div
+          classname="mock-css."
         />
-      </div>
-      <div
-        class="apps-detail-content-grid"
-      >
-        <div
-          class="apps-detail-content-col-main"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             About App
-          </h2>
+          </mock-styled.h2>
           <div
             class="html-render"
           >
-            <div
-              class="app-detail-image-wrap"
-            >
-              <div
-                class="el-placeholder-image-wrapper"
-              >
-                <div
-                  class="el-mb7 el-placeholder-image"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 1.25rem;
+"
                   style="font-size: 7.5em;"
                 >
                   <svg
@@ -403,71 +433,73 @@ Object {
                       fill="white"
                     />
                   </svg>
-                </div>
-              </div>
-            </div>
-            <div
-              class="html-content-wrap"
-            />
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div />
           </div>
-        </div>
-        <div
-          class="apps-detail-content-col-carousel"
-        >
-          <div
-            class="carousel-wrapper"
-          >
-            <div
-              class="carousel-grid"
-              style="--ckvo4up-0: 0; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              numbercols="2"
+              numberitems="0"
+              percentagewidth="50.000"
             />
-          </div>
-        </div>
-        <div
-          class="apps-detail-content-col-permissions"
-        >
-          <div
-            class="el-mb11 app-detail-support-grid"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="app-detail-support-grid-col"
-            >
-              <h2
-                class="el-has-no-margin el-subtitle"
+            <mock-styled.div>
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Pricing Policy
-              </h2>
-              <p
-                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css.
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+ mock-css. mock-css."
               >
                 Free
-              </p>
-            </div>
-          </div>
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
           <div
-            class="el-mb11"
+            class="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <h2
-              class="el-has-bold-text el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               About Developer
-            </h2>
-            <p
-              class="el-has-grey-text el-has-no-margin el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             />
           </div>
           <div
-            class="el-mb11"
+            class="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <h2
-              class="el-has-bold-text el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Permissions
-            </h2>
+            </mock-styled.h2>
           </div>
-        </div>
-      </div>
-    </section>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

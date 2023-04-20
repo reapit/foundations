@@ -7,8 +7,9 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { trackEvent } from '../../../core/analytics'
 import { TrackingEvent } from '../../../core/analytics-events'
 
-jest.mock('@reapit/utils-react', () => ({
-  ...jest.requireActual('@reapit/utils-react'),
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitUpdate: jest.fn(() => [false, null, jest.fn()]),
 }))
 jest.mock('../../../core/analytics')

@@ -1,19 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <input
-        class="el-input"
-      />
+      <mock-styled.input />
     </div>
   </body>,
   "container": <div>
-    <input
-      class="el-input"
-    />
+    <mock-styled.input />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

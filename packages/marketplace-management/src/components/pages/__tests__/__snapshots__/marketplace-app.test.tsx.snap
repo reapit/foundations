@@ -1,51 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MarketplaceAppPage should match a snapshot when has an error 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-intent-danger el-persistent-notification"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css."
       >
         <div
-          class="el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           Something went wrong fetching the app details. Please refresh this page.
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-intent-danger el-persistent-notification"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css."
     >
       <div
-        class="el-pn-icon"
+        class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
         data-testid="close-icon"
       >
-        <span
-          class="el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
+        </mock-styled.span>
       </div>
       <div
-        class="el-pn-content"
+        class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
       >
         Something went wrong fetching the app details. Please refresh this page.
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -102,571 +134,877 @@ Object {
 `;
 
 exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-flex-auto el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="el-secondary-nav-container"
-        >
-          <h1
-            class="el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Apps
-          </h1>
-          <span
-            class="el-mb5 el-icon-size-large el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             Marketplace Visibility and Installation Management
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             To set the visibility of app in the Marketplace or manage installations, use the various sections on this page.
-          </p>
-          <button
-            class="el-mb5 el-intent-primary el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
             type="button"
           >
             Back To Apps
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-mb5 el-intent-critical el-button-has-right-chevron el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
             type="button"
           >
             View Listing
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </aside>
-        <section
-          class="el-hfull el-page-container"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <div
-            class="el-flex-justify-between el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  justify-content: space-between;
+"
           >
-            <h1
-              class="el-title"
+            <mock-styled.h1
+              classname=""
             >
               SOME_NAME
                - 
               Geo Diary
-            </h1>
-          </div>
-          <h2
-            class="el-subtitle"
+            </mock-styled.h1>
+          </mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Pricing Information
-          </h2>
+          </mock-styled.h2>
           <div
-            class="el-mb11"
+            class="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <p
-              class="el-has-grey-text el-body-text"
+            <mock-styled.p
+              classname="mock-css."
             >
               Reapit Ltd
                have specified there is no cost for using this App/Integration.
-            </p>
+            </mock-styled.p>
           </div>
-          <h2
-            class="el-subtitle"
+          <mock-styled.h2
+            classname=""
           >
             Data Permissions
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             By installing this app, you are granting the following permissions to your data:
-          </p>
-          <div
-            class="el-mb11 el-grid"
+          </mock-styled.p>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-col"
+            <mock-styled.div
+              classname=""
             >
               Information about your organisation
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Names/email addresses of your users
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Read applicants
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Read appointments
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Write appointments
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Read contacts
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Read landlords
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Read negotiators
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Read offers
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Read offices
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Read properties
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Read tenancies
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Read vendors
-            </div>
-            <div
-              class="el-col"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Read Referrals
-            </div>
-          </div>
-          <h2
-            class="el-subtitle"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Application Visibility
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
-          </p>
-          <div
-            class="el-mb11 el-input-group"
+          </mock-styled.p>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <input
-              checked=""
-              class="el-input"
+            <mock-styled.input
+              checked="true"
               id="cfbe6f29-4003-4648-aa5a-8eb777bd606e"
               type="checkbox"
             />
-            <label
-              class="el-label"
-              for="cfbe6f29-4003-4648-aa5a-8eb777bd606e"
+            <mock-styled.label
+              htmlfor="cfbe6f29-4003-4648-aa5a-8eb777bd606e"
             >
               Visible
-            </label>
-          </div>
+            </mock-styled.label>
+          </mock-styled.div>
           <div
-            class="el-mb11"
+            class="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <h2
-              class="el-subtitle"
+            <mock-styled.h2
+              classname=""
             >
               Current Installations
-            </h2>
-            <p
-              class="el-has-grey-text el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
             >
               This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
-            </p>
+            </mock-styled.p>
           </div>
-          <h2
-            class="el-subtitle"
+          <mock-styled.h2
+            classname=""
           >
             Installation
-          </h2>
-          <p
-            class="el-has-grey-text el-has-section-margin el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             Please select the type of installation you require for this app:
-          </p>
-          <div
-            class="el-form-layout-has-margin el-form-layout"
+          </mock-styled.p>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-mb5 el-input-group"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
+                  checked="false"
                   id="WHOLE_ORG"
                   type="checkbox"
                 />
-                <label
-                  class="el-label"
-                  for="WHOLE_ORG"
+                <mock-styled.label
+                  htmlfor="WHOLE_ORG"
                 >
                   Install for the whole of your organisation
-                </label>
-              </div>
-              <p
-                class="el-body-text"
+                </mock-styled.label>
+              </mock-styled.div>
+              <mock-styled.p
+                classname=""
               >
                 This will grant the app access to all data for all users and offices across your organisation
-              </p>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-mb5 el-input-group"
+              </mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
+                  checked="false"
                   id="SPECIFIC_OFFICE_GROUPS"
                   type="checkbox"
                 />
-                <label
-                  class="el-label"
-                  for="SPECIFIC_OFFICE_GROUPS"
+                <mock-styled.label
+                  htmlfor="SPECIFIC_OFFICE_GROUPS"
                 >
                   Install for specific office groups
-                </label>
-              </div>
-              <p
-                class="el-body-text"
+                </mock-styled.label>
+              </mock-styled.div>
+              <mock-styled.p
+                classname=""
               >
                 This will grant the app access to only data for the specific offices inside of each office group
-              </p>
-            </div>
-          </div>
-          <div
-            class="el-mb7 el-button-group"
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1.25rem;
+"
           >
-            <div
-              class="el-button-group-align-right el-button-group-inner"
+            <mock-styled.div
+              classname="mock-css."
             >
-              <button
-                class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
-                disabled=""
+              <mock-styled.button
+                classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+ mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
+                disabled="true"
               >
                 Save
-                <div
-                  class="el-button-loader"
-                />
-              </button>
-            </div>
-          </div>
-        </section>
-      </div>
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-flex-auto el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Apps
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Marketplace Visibility and Installation Management
-        </h2>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           To set the visibility of app in the Marketplace or manage installations, use the various sections on this page.
-        </p>
-        <button
-          class="el-mb5 el-intent-primary el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           type="button"
         >
           Back To Apps
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-mb5 el-intent-critical el-button-has-right-chevron el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
           type="button"
         >
           View Listing
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-hfull el-page-container"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <div
-          class="el-flex-justify-between el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
         >
-          <h1
-            class="el-title"
+          <mock-styled.h1
+            classname=""
           >
             SOME_NAME
              - 
             Geo Diary
-          </h1>
-        </div>
-        <h2
-          class="el-subtitle"
+          </mock-styled.h1>
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Pricing Information
-        </h2>
+        </mock-styled.h2>
         <div
-          class="el-mb11"
+          class="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <p
-            class="el-has-grey-text el-body-text"
+          <mock-styled.p
+            classname="mock-css."
           >
             Reapit Ltd
              have specified there is no cost for using this App/Integration.
-          </p>
+          </mock-styled.p>
         </div>
-        <h2
-          class="el-subtitle"
+        <mock-styled.h2
+          classname=""
         >
           Data Permissions
-        </h2>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           By installing this app, you are granting the following permissions to your data:
-        </p>
-        <div
-          class="el-mb11 el-grid"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-col"
+          <mock-styled.div
+            classname=""
           >
             Information about your organisation
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Names/email addresses of your users
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Read applicants
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Read appointments
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Write appointments
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Read contacts
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Read landlords
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Read negotiators
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Read offers
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Read offices
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Read properties
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Read tenancies
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Read vendors
-          </div>
-          <div
-            class="el-col"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Read Referrals
-          </div>
-        </div>
-        <h2
-          class="el-subtitle"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Application Visibility
-        </h2>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
-        </p>
-        <div
-          class="el-mb11 el-input-group"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <input
-            checked=""
-            class="el-input"
+          <mock-styled.input
+            checked="true"
             id="cfbe6f29-4003-4648-aa5a-8eb777bd606e"
             type="checkbox"
           />
-          <label
-            class="el-label"
-            for="cfbe6f29-4003-4648-aa5a-8eb777bd606e"
+          <mock-styled.label
+            htmlfor="cfbe6f29-4003-4648-aa5a-8eb777bd606e"
           >
             Visible
-          </label>
-        </div>
+          </mock-styled.label>
+        </mock-styled.div>
         <div
-          class="el-mb11"
+          class="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <h2
-            class="el-subtitle"
+          <mock-styled.h2
+            classname=""
           >
             Current Installations
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
-          </p>
+          </mock-styled.p>
         </div>
-        <h2
-          class="el-subtitle"
+        <mock-styled.h2
+          classname=""
         >
           Installation
-        </h2>
-        <p
-          class="el-has-grey-text el-has-section-margin el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           Please select the type of installation you require for this app:
-        </p>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-mb5 el-input-group"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 0.75rem;
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
+                checked="false"
                 id="WHOLE_ORG"
                 type="checkbox"
               />
-              <label
-                class="el-label"
-                for="WHOLE_ORG"
+              <mock-styled.label
+                htmlfor="WHOLE_ORG"
               >
                 Install for the whole of your organisation
-              </label>
-            </div>
-            <p
-              class="el-body-text"
+              </mock-styled.label>
+            </mock-styled.div>
+            <mock-styled.p
+              classname=""
             >
               This will grant the app access to all data for all users and offices across your organisation
-            </p>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-mb5 el-input-group"
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 0.75rem;
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
+                checked="false"
                 id="SPECIFIC_OFFICE_GROUPS"
                 type="checkbox"
               />
-              <label
-                class="el-label"
-                for="SPECIFIC_OFFICE_GROUPS"
+              <mock-styled.label
+                htmlfor="SPECIFIC_OFFICE_GROUPS"
               >
                 Install for specific office groups
-              </label>
-            </div>
-            <p
-              class="el-body-text"
+              </mock-styled.label>
+            </mock-styled.div>
+            <mock-styled.p
+              classname=""
             >
               This will grant the app access to only data for the specific offices inside of each office group
-            </p>
-          </div>
-        </div>
-        <div
-          class="el-mb7 el-button-group"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 1.25rem;
+"
         >
-          <div
-            class="el-button-group-align-right el-button-group-inner"
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
-              disabled=""
+            <mock-styled.button
+              classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+ mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
+              disabled="true"
             >
               Save
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </section>
-    </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -723,135 +1061,275 @@ Object {
 `;
 
 exports[`MarketplaceAppPage should match a snapshot when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-flex-auto el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="el-secondary-nav-container"
-        >
-          <h1
-            class="el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Apps
-          </h1>
-          <span
-            class="el-mb5 el-icon-size-large el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             Marketplace Visibility and Installation Management
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             To set the visibility of app in the Marketplace or manage installations, use the various sections on this page.
-          </p>
-          <button
-            class="el-mb5 el-intent-primary el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
             type="button"
           >
             Back To Apps
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-mb5 el-intent-critical el-button-has-right-chevron el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
             type="button"
           >
             View Listing
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </aside>
-        <section
-          class="el-hfull el-page-container"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <div
-            class="el-loader-container"
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-loader"
-            >
-              <div
-                class="el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </section>
-      </div>
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-flex-auto el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Apps
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Marketplace Visibility and Installation Management
-        </h2>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           To set the visibility of app in the Marketplace or manage installations, use the various sections on this page.
-        </p>
-        <button
-          class="el-mb5 el-intent-primary el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           type="button"
         >
           Back To Apps
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-mb5 el-intent-critical el-button-has-right-chevron el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
           type="button"
         >
           View Listing
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-hfull el-page-container"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <div
-          class="el-loader-container"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
-    </div>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -908,57 +1386,67 @@ Object {
 `;
 
 exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-flex-auto el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="el-secondary-nav-container"
-        >
-          <h1
-            class="el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Apps
-          </h1>
-          <span
-            class="el-mb5 el-icon-size-large el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             Marketplace Visibility and Installation Management
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             To set the visibility of app in the Marketplace or manage installations, use the various sections on this page.
-          </p>
+          </mock-styled.p>
           <div
-            class="el-mb5"
+            class="mock-css.
+  margin-bottom: 0.75rem;
+"
           >
-            <h2
-              class="el-subtitle"
+            <mock-styled.h2
+              classname=""
             >
               Organisations
-            </h2>
-            <p
-              class="el-has-grey-text el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-            </p>
-            <div
-              class="el-border-radius controls-container"
+            </mock-styled.p>
+            <mock-styled.div
+              classname="mock-css.
+  border-radius: 0.25rem;
+"
             >
-              <div
-                class="el-input-group"
-              >
-                <select
-                  class="el-wfull el-select"
+              <mock-styled.div>
+                <mock-styled.select
+                  classname="mock-css.
+  width: 100%;
+"
+                  value="SOME_ID"
                 >
                   <option
                     value=""
@@ -975,109 +1463,202 @@ Object {
                   >
                     name
                   </option>
-                </select>
-                <label
-                  class="el-label"
-                  for="myId"
+                </mock-styled.select>
+                <mock-styled.label
+                  htmlfor="myId"
                 >
                   Select Organisation
-                </label>
-              </div>
-            </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
-          <button
-            class="el-mb5 el-intent-primary el-button"
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
             type="button"
           >
             Back To Apps
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-mb5 el-intent-critical el-button-has-right-chevron el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
             type="button"
           >
             View Listing
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </aside>
-        <section
-          class="el-hfull el-page-container"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <div
-            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          <mock-styled.div
+            classname="mock-css. mock-css. mock-css. mock-css."
           >
             <div
-              class="el-pn-icon"
+              class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
               data-testid="close-icon"
             >
-              <span
-                class="el-icon"
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
+              </mock-styled.span>
             </div>
             <div
-              class="el-pn-content"
+              class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
             >
               No organisation selected. You need to select an organisation to view the app details.
             </div>
-          </div>
-        </section>
-      </div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-flex-auto el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Apps
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Marketplace Visibility and Installation Management
-        </h2>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           To set the visibility of app in the Marketplace or manage installations, use the various sections on this page.
-        </p>
+        </mock-styled.p>
         <div
-          class="el-mb5"
+          class="mock-css.
+  margin-bottom: 0.75rem;
+"
         >
-          <h2
-            class="el-subtitle"
+          <mock-styled.h2
+            classname=""
           >
             Organisations
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-          </p>
-          <div
-            class="el-border-radius controls-container"
+          </mock-styled.p>
+          <mock-styled.div
+            classname="mock-css.
+  border-radius: 0.25rem;
+"
           >
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-wfull el-select"
+            <mock-styled.div>
+              <mock-styled.select
+                classname="mock-css.
+  width: 100%;
+"
+                value="SOME_ID"
               >
                 <option
                   value=""
@@ -1094,59 +1675,142 @@ Object {
                 >
                   name
                 </option>
-              </select>
-              <label
-                class="el-label"
-                for="myId"
+              </mock-styled.select>
+              <mock-styled.label
+                htmlfor="myId"
               >
                 Select Organisation
-              </label>
-            </div>
-          </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
-        <button
-          class="el-mb5 el-intent-primary el-button"
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           type="button"
         >
           Back To Apps
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-mb5 el-intent-critical el-button-has-right-chevron el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
           type="button"
         >
           View Listing
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-hfull el-page-container"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        <mock-styled.div
+          classname="mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             No organisation selected. You need to select an organisation to view the app details.
           </div>
-        </div>
-      </section>
-    </div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

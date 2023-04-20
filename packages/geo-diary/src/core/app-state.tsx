@@ -3,7 +3,15 @@
 https://github.com/testing-library/react-hooks-testing-library/issues/654 can remove when tests un-skipped
 Looks like we will have to migrate to the main testing lib when this PR is merged
 https://github.com/testing-library/react-testing-library/pull/991*/
-import React, { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react'
+import React, {
+  createContext,
+  Dispatch,
+  PropsWithChildren,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 import { VendorLandlordModel } from '../components/pages/appointment/appointment'
 import { ContactDrawerType } from '../components/ui/contact-drawer'
 import { Distance, Duration, GeocoderResult, MapRefs } from '../components/ui/map/types'
@@ -77,7 +85,7 @@ export const AppStateContext = createContext<AppStateContextProps>({} as AppStat
 
 const { Provider } = AppStateContext
 
-export const AppStateProvider: React.FC = ({ children }) => {
+export const AppStateProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [appState, setAppState] = useState<AppState>(defaultAppState)
 
   useEffect(() => {

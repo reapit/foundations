@@ -50,7 +50,7 @@
     "@testing-library/user-event": "^14.4.3",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
-    "@vitejs/plugin-react": "^3.1.0",
+    "@vitejs/plugin-react-swc": "^3.3.0",
     "autoprefixer": "^10.4.13",
     "aws-cdk": "^2.66.1",
     "aws-cdk-lib": "^2.66.1",
@@ -105,17 +105,16 @@
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
     "ts-paths-to-webpack-alias": "^0.3.1",
+    "typescript": "^4.9.5",
     "vite": "^4.2.2",
     "vite-plugin-checker": "^0.5.6",
     "vite-plugin-node-polyfills": "^0.8.1",
     "vite-plugin-pwa": "^0.14.7",
+    "vite-plugin-simple-gql": "^0.5.0",
     "vite-plugin-svgr": "^2.4.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1",
     "workbox-webpack-plugin": "^6.5.4"
-  },
-  "devDependencies": {
-    "typescript": "^4.9.5"
   }
 }

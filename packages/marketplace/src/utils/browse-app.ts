@@ -10,12 +10,12 @@ export const filterRestrictedAppsList =
 
     if (!apps || !apps?.data || !clientId) return null
 
-    const clientHiddenAppIds = window.reapit.config.clientHiddenAppIds[clientId] ?? []
+    const clientHiddenAppIds = process.env.clientHiddenAppIds[clientId] ?? []
 
     const filtered = apps.data.filter(({ id }) => {
       if (!id) return false
       const isClientRestricted = clientHiddenAppIds.includes(id)
-      const isOrgRestricted = !isOrgAdmin && window.reapit.config.orgAdminRestrictedAppIds.includes(id)
+      const isOrgRestricted = !isOrgAdmin && process.env.orgAdminRestrictedAppIds.includes(id)
 
       return !isClientRestricted && !isOrgRestricted
     })
@@ -34,9 +34,9 @@ export const filterRestrictedAppDetail =
 
     if (!id || !clientId) return null
 
-    const clientHiddenAppIds = window.reapit.config.clientHiddenAppIds[clientId] ?? []
+    const clientHiddenAppIds = process.env.clientHiddenAppIds[clientId] ?? []
     const isClientRestricted = clientHiddenAppIds.includes(id)
-    const isOrgRestricted = !isOrgAdmin && window.reapit.config.orgAdminRestrictedAppIds.includes(id)
+    const isOrgRestricted = !isOrgAdmin && process.env.orgAdminRestrictedAppIds.includes(id)
 
     if (!isClientRestricted && !isOrgRestricted) return app
 

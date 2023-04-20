@@ -29,8 +29,8 @@ import { handleLogout } from '.'
 import { trackEventHandler, trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 import { UpdateUserModel, UserModel } from '@reapit/foundations-ts-definitions'
-import { updateActions, UpdateActionNames } from '@reapit/utils-common'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { updateActions, UpdateActionNames } from '@reapit/use-reapit-data'
+import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
 
 export type ChangePasswordFormValues = {
@@ -96,7 +96,7 @@ export const SettingsProfile: FC = () => {
 
   const [, , updateUser] = useReapitUpdate<UpdateUserModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateUser],
+    action: updateActions[UpdateActionNames.updateUser],
     method: 'PUT',
     uriParams: {
       userId,

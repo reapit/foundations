@@ -1,44 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EtaTextRow should match snapshot with a phone number and populated state 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <div
-        class="contact-option-row"
+        class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
       >
         <div
-          class="grid"
+          class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
         >
           <div
-            class="col span8"
+            class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
           >
-            <label
-              class="el-label"
-            >
+            <mock-styled.label>
               Send ETA Text
-            </label>
+            </mock-styled.label>
             <div
-              class="contact-option-value"
+              class="mock-css.
+  text-align: left;
+"
             >
               0777777777
             </div>
           </div>
           <div
-            class="col span8"
+            class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
           >
             <div
-              class="contact-option-icons"
+              class="mock-css.
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  , {
+    margin-left: ,;
+  }
+"
             >
               <a>
-                <div
-                  class="fa-icon-wrap"
-                >
+                <mock-styled.div>
                   <svg
                     fill="currentColor"
                     height="1em"
@@ -56,12 +80,10 @@ Object {
                       d="M18.92 5.01C18.72 4.42 18.16 4 17.5 4h-11c-.66 0-1.21.42-1.42 1.01L3 11v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 15c-.83 0-1.5-.67-1.5-1.5S5.67 12 6.5 12s1.5.67 1.5 1.5S7.33 15 6.5 15zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 10l1.5-4.5h11L19 10H5z"
                     />
                   </svg>
-                </div>
+                </mock-styled.div>
               </a>
               <a>
-                <div
-                  class="fa-icon-wrap"
-                >
+                <mock-styled.div>
                   <svg
                     fill="currentColor"
                     height="1em"
@@ -75,7 +97,7 @@ Object {
                       d="M208 96c26.5 0 48-21.5 48-48S234.5 0 208 0s-48 21.5-48 48 21.5 48 48 48zm94.5 149.1l-23.3-11.8-9.7-29.4c-14.7-44.6-55.7-75.8-102.2-75.9-36-.1-55.9 10.1-93.3 25.2-21.6 8.7-39.3 25.2-49.7 46.2L17.6 213c-7.8 15.8-1.5 35 14.2 42.9 15.6 7.9 34.6 1.5 42.5-14.3L81 228c3.5-7 9.3-12.5 16.5-15.4l26.8-10.8-15.2 60.7c-5.2 20.8.4 42.9 14.9 58.8l59.9 65.4c7.2 7.9 12.3 17.4 14.9 27.7l18.3 73.3c4.3 17.1 21.7 27.6 38.8 23.3 17.1-4.3 27.6-21.7 23.3-38.8l-22.2-89c-2.6-10.3-7.7-19.9-14.9-27.7l-45.5-49.7 17.2-68.7 5.5 16.5c5.3 16.1 16.7 29.4 31.7 37l23.3 11.8c15.6 7.9 34.6 1.5 42.5-14.3 7.7-15.7 1.4-35.1-14.3-43zM73.6 385.8c-3.2 8.1-8 15.4-14.2 21.5l-50 50.1c-12.5 12.5-12.5 32.8 0 45.3s32.7 12.5 45.2 0l59.4-59.4c6.1-6.1 10.9-13.4 14.2-21.5l13.5-33.8c-55.3-60.3-38.7-41.8-47.4-53.7l-20.7 51.5z"
                     />
                   </svg>
-                </div>
+                </mock-styled.div>
               </a>
             </div>
           </div>
@@ -84,40 +106,64 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <div
-      class="contact-option-row"
+      class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
     >
       <div
-        class="grid"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
       >
         <div
-          class="col span8"
+          class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
         >
-          <label
-            class="el-label"
-          >
+          <mock-styled.label>
             Send ETA Text
-          </label>
+          </mock-styled.label>
           <div
-            class="contact-option-value"
+            class="mock-css.
+  text-align: left;
+"
           >
             0777777777
           </div>
         </div>
         <div
-          class="col span8"
+          class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
         >
           <div
-            class="contact-option-icons"
+            class="mock-css.
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  , {
+    margin-left: ,;
+  }
+"
           >
             <a>
-              <div
-                class="fa-icon-wrap"
-              >
+              <mock-styled.div>
                 <svg
                   fill="currentColor"
                   height="1em"
@@ -135,12 +181,10 @@ Object {
                     d="M18.92 5.01C18.72 4.42 18.16 4 17.5 4h-11c-.66 0-1.21.42-1.42 1.01L3 11v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 15c-.83 0-1.5-.67-1.5-1.5S5.67 12 6.5 12s1.5.67 1.5 1.5S7.33 15 6.5 15zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 10l1.5-4.5h11L19 10H5z"
                   />
                 </svg>
-              </div>
+              </mock-styled.div>
             </a>
             <a>
-              <div
-                class="fa-icon-wrap"
-              >
+              <mock-styled.div>
                 <svg
                   fill="currentColor"
                   height="1em"
@@ -154,7 +198,7 @@ Object {
                     d="M208 96c26.5 0 48-21.5 48-48S234.5 0 208 0s-48 21.5-48 48 21.5 48 48 48zm94.5 149.1l-23.3-11.8-9.7-29.4c-14.7-44.6-55.7-75.8-102.2-75.9-36-.1-55.9 10.1-93.3 25.2-21.6 8.7-39.3 25.2-49.7 46.2L17.6 213c-7.8 15.8-1.5 35 14.2 42.9 15.6 7.9 34.6 1.5 42.5-14.3L81 228c3.5-7 9.3-12.5 16.5-15.4l26.8-10.8-15.2 60.7c-5.2 20.8.4 42.9 14.9 58.8l59.9 65.4c7.2 7.9 12.3 17.4 14.9 27.7l18.3 73.3c4.3 17.1 21.7 27.6 38.8 23.3 17.1-4.3 27.6-21.7 23.3-38.8l-22.2-89c-2.6-10.3-7.7-19.9-14.9-27.7l-45.5-49.7 17.2-68.7 5.5 16.5c5.3 16.1 16.7 29.4 31.7 37l23.3 11.8c15.6 7.9 34.6 1.5 42.5-14.3 7.7-15.7 1.4-35.1-14.3-43zM73.6 385.8c-3.2 8.1-8 15.4-14.2 21.5l-50 50.1c-12.5 12.5-12.5 32.8 0 45.3s32.7 12.5 45.2 0l59.4-59.4c6.1-6.1 10.9-13.4 14.2-21.5l13.5-33.8c-55.3-60.3-38.7-41.8-47.4-53.7l-20.7 51.5z"
                   />
                 </svg>
-              </div>
+              </mock-styled.div>
             </a>
           </div>
         </div>
@@ -216,20 +260,16 @@ Object {
 `;
 
 exports[`EtaTextRow should match snapshot without phone number and default state 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
   </div>,
   "debug": [Function],

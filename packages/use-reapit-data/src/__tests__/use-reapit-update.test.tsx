@@ -58,7 +58,7 @@ describe('useReapitUpdate', () => {
       () =>
         useReapitUpdate<{}, typeof mockData>({
           reapitConnectBrowserSession,
-          action: updateActions('local')[UpdateActionNames.updateDeveloper],
+          action: updateActions[UpdateActionNames.updateDeveloper],
           uriParams: {
             developerId: 'FOO',
           },
@@ -116,7 +116,7 @@ describe('useReapitUpdate', () => {
       () =>
         useReapitUpdate<{}, typeof mockData>({
           reapitConnectBrowserSession,
-          action: updateActions('local')[UpdateActionNames.updateDeveloper],
+          action: updateActions[UpdateActionNames.updateDeveloper],
           returnType: UpdateReturnTypeEnum.LOCATION,
         }),
       {

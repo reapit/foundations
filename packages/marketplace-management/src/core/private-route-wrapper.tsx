@@ -1,16 +1,16 @@
-import React, { FC } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { useLocation, Redirect } from 'react-router'
+import { useLocation, Navigate } from 'react-router'
 import Routes from '@/constants/routes'
 import { Loader, MainContainer } from '@reapit/elements'
 import { Nav } from '../components/ui/nav/nav'
+import { SWRConfig } from 'swr'
+import { fetcher } from '../utils/fetcher'
 
 const { Suspense } = React
 
-export type PrivateRouteWrapperProps = {}
-
-export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
@@ -27,21 +27,25 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   const { pathname } = location
 
   if (!hasAccess && pathname !== Routes.ACCESS_DENIED) {
-    return <Redirect to={Routes.ACCESS_DENIED} />
-  }
-
-  if (pathname === '/') {
-    return <Redirect to={Routes.OFFICES} />
+    return <Navigate to={Routes.ACCESS_DENIED} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
-    return <Redirect to={connectInternalRedirect} />
+    return <Navigate to={connectInternalRedirect} />
   }
+
   return (
-    <MainContainer>
-      <Nav />
-      <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
-    </MainContainer>
+    <SWRConfig
+      value={{
+        revalidateOnFocus: false,
+        fetcher,
+      }}
+    >
+      <MainContainer>
+        <Nav />
+        <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
+      </MainContainer>
+    </SWRConfig>
   )
 }
 

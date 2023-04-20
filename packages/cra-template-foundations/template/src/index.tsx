@@ -33,7 +33,7 @@ const run = async () => {
   try {
     const globalConfig: Config = config
     // Set the global config
-    window.reapit.config = globalConfig
+    process.env = globalConfig
 
     // I import the app dynamically so that the config is set on window and I avoid any
     // runtime issues where config is undefined

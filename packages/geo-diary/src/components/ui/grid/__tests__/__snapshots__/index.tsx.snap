@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Col component should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <div
-        class="col span6"
+        class="mock-css. mock-css.
+  grid-column-end: span 6;
+"
       >
         <p>
           I am child
@@ -19,12 +19,12 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <div
-      class="col span6"
+      class="mock-css. mock-css.
+  grid-column-end: span 6;
+"
     >
       <p>
         I am child
@@ -86,16 +86,18 @@ Object {
 `;
 
 exports[`Col component should render with the correct classNames when supplied span and offset props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <div
-        class="col span4 offset2"
+        class="mock-css. mock-css.
+  grid-column-end: span 4;
+ mock-css.
+  grid-column-start: 2;
+"
       >
         <p>
           I am child
@@ -104,12 +106,14 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <div
-      class="col span4 offset2"
+      class="mock-css. mock-css.
+  grid-column-end: span 4;
+ mock-css.
+  grid-column-start: 2;
+"
     >
       <p>
         I am child
@@ -171,16 +175,17 @@ Object {
 `;
 
 exports[`Grid component should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <div
-        class="grid"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
       >
         <p>
           I am child
@@ -189,12 +194,13 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <div
-      class="grid"
+      class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
     >
       <p>
         I am child

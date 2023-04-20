@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppsIcon should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -200,7 +200,7 @@ Object {
 `;
 
 exports[`ChatIcon should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -287,7 +287,7 @@ Object {
 `;
 
 exports[`DataWarehouseIcon should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -650,7 +650,7 @@ Object {
 `;
 
 exports[`DesktopIcon should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -997,7 +997,7 @@ Object {
 `;
 
 exports[`DocsIcon should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -1096,7 +1096,7 @@ Object {
 `;
 
 exports[`MarketplaceManagementIcon should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -1451,7 +1451,7 @@ Object {
 `;
 
 exports[`PowerBiIcon should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -1814,7 +1814,7 @@ Object {
 `;
 
 exports[`VideoIcon should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -1901,7 +1901,7 @@ Object {
 `;
 
 exports[`WebsiteIcon should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
