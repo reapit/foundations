@@ -17,9 +17,12 @@
     "dist",
     "src/tests/badges"
   ],
-  "main": "dist/index.js",
-  "umd:main": "dist/connect-session.umd.production.js",
-  "module": "dist/connect-session.esm.js",
+  "publishConfig": {
+    "main": "dist/index.js",
+    "umd:main": "dist/connect-session.umd.production.js",
+    "module": "dist/connect-session.esm.js"
+  },
+  "main": "src/index.ts",
   "typings": "dist/index.d.ts",
   "types": "dist/index.d.ts",
   "scripts": {

@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "author": "Author",
-  "main": "./src/index.ts",
+  "main": "./index.ts",
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",

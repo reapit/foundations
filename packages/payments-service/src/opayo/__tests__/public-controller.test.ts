@@ -38,6 +38,7 @@ describe('OpayoPublicController', () => {
       {
         'reapit-customer': 'SBOX',
         'reapit-session': 'MOCK_SESSION',
+        'x-forwarded-for': 'https://example.com',
       },
       {} as unknown as TransactionDto,
     )
@@ -55,6 +56,7 @@ describe('OpayoPublicController', () => {
     const result = await controller.createMerchantKeys({
       'reapit-customer': 'SBOX',
       'reapit-session': 'MOCK_SESSION',
+      'x-forwarded-for': 'https://example.com',
     })
 
     expect(result).toEqual('Success')

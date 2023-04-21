@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import { RoutePaths } from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { catchChunkError } from '@reapit/utils-react'

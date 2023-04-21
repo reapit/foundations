@@ -3,6 +3,7 @@ import { ClientConfigProvider } from '../provider'
 import { mockConfigModel } from '../../tests/__mocks__/config'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
 import { BadRequestException, NotFoundException } from '@nestjs/common'
+import { ClientConfigDto } from '../dto'
 
 const mockDataMapper = {
   get: jest.fn(),
@@ -10,6 +11,8 @@ const mockDataMapper = {
   delete: jest.fn(),
   update: jest.fn(),
 }
+
+const mockConfigDto = mockConfigModel as ClientConfigDto
 
 describe('ClientConfigProvider', () => {
   let app: TestingModule
@@ -55,7 +58,7 @@ describe('ClientConfigProvider', () => {
       return mockConfigModel
     })
 
-    const result = await provider.create('SBOX', mockConfigModel)
+    const result = await provider.create('SBOX', mockConfigDto)
 
     expect(result).toEqual(mockConfigModel)
   })
@@ -68,7 +71,7 @@ describe('ClientConfigProvider', () => {
         throw new Error()
       })
 
-      const result = await provider.create('SBOX', mockConfigModel)
+      const result = await provider.create('SBOX', mockConfigDto)
 
       expect(result).toBeUndefined()
     } catch (err) {
@@ -83,7 +86,7 @@ describe('ClientConfigProvider', () => {
       return mockConfigModel
     })
 
-    const result = await provider.update('SBOX', mockConfigModel)
+    const result = await provider.update('SBOX', mockConfigDto)
 
     expect(result).toEqual(mockConfigModel)
   })
@@ -96,7 +99,7 @@ describe('ClientConfigProvider', () => {
         throw new Error()
       })
 
-      const result = await provider.update('SBOX', mockConfigModel)
+      const result = await provider.update('SBOX', mockConfigDto)
 
       expect(result).toBeUndefined()
     } catch (err) {
