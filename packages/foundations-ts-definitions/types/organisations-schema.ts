@@ -1483,6 +1483,19 @@ export interface UserSignInResponse {
    */
   refreshToken?: string
 }
+/**
+ * Representation of the user signout
+ */
+export interface UserSignOutModel {
+  /**
+   * The user id of the user making this request
+   */
+  userId?: string
+  /**
+   * flag determining the status
+   */
+  logoutSuccess?: boolean
+}
 export interface Users {
   pageSize?: number
   pageNumber?: number
