@@ -90,7 +90,7 @@
     "node-polyfill-webpack-plugin": "^1.1.4",
     "postcss": "^8.4.21",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-loader": "^6.2.1",
+    "postcss-loader": "^7.1.0",
     "prettier": "^2.8.4",
     "prettier-plugin-packagejson": "^2.4.3",
     "react-refresh": "^0.14.0",
