@@ -4860,6 +4860,44 @@ export interface CreateAreaModel {
   parentId?: string
 }
 /**
+ * Request body to create bulk journal entry
+ * example:
+ * [object Object]
+ */
+export interface CreateBulkJournalEntryModel {
+  /**
+   * Collection of journal entries
+   */
+  createJournalEntry?: {
+    /**
+     * The unique identifier of the type the journal entry is related to.
+     * Default value set to MI
+     */
+    typeId?: string
+    /**
+     * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type (Required when 'associatedId' is not given)
+     */
+    propertyId?: string
+    /**
+     * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy/worksOrder) (Required when 'associatedId' is given)
+     * TypeId must be set to WO when passing worksOrder
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the entity the journal entry has been raised against. Can additionally be associated to a property (Required when 'propertyId' is not given)
+     */
+    associatedId?: string
+    /**
+     * The textual description of the journal entry event
+     */
+    description: string
+    /**
+     * The identifier of the negotiator recording the journal entry
+     */
+    negotiatorId?: string
+  }[]
+}
+/**
  * Request body used to create a new certificate
  * example:
  * [object Object]
@@ -13258,6 +13296,10 @@ export interface PropertyModel {
     [name: string]: any
   }
   /**
+   * The keywords associated with property
+   */
+  keywords?: string[]
+  /**
    * The requested extras fields
    */
   extrasField?: {
@@ -14083,6 +14125,10 @@ export interface PropertyModelPagedResult {
     metadata?: {
       [name: string]: any
     }
+    /**
+     * The keywords associated with property
+     */
+    keywords?: string[]
     /**
      * The requested extras fields
      */
