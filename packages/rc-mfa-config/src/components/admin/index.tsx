@@ -70,7 +70,13 @@ export const handleUserOrgChange =
   }
 
 export const getAdminOrgs = (userOrgs: UserOrganisationModel[]) =>
-  userOrgs.filter((userOrg) => userOrg.groups?.includes('OrganisationAdmin'))
+  userOrgs.filter((userOrg) => {
+    const groups = userOrg.groups ?? []
+    const isOrgAdmin = groups.includes('OrganisationAdmin')
+    const isMarketplaceAdmin = groups.includes('MarketplaceAdmin')
+    const isUserAdmin = groups.includes('ReapitUserAdmin')
+    return isOrgAdmin || isMarketplaceAdmin || isUserAdmin
+  })
 
 export const AdminPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
