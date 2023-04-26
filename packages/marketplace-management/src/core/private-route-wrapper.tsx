@@ -14,7 +14,7 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
-  const hasAccess = connectSession?.loginIdentity?.groups.includes('OrganisationAdmin')
+  const hasAccess = connectSession?.loginIdentity?.groups?.includes('OrganisationAdmin')
 
   if (!connectSession) {
     return (
@@ -25,6 +25,10 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   }
 
   const { pathname } = location
+
+  if (pathname === '/') {
+    return <Navigate to={Routes.USERS} />
+  }
 
   if (!hasAccess && pathname !== Routes.ACCESS_DENIED) {
     return <Navigate to={Routes.ACCESS_DENIED} />

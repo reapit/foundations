@@ -6,18 +6,10 @@ exports[`PrivateRouteWrapper should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.main>
-        <div />
-        <div />
-      </mock-styled.main>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.main>
-      <div />
-      <div />
-    </mock-styled.main>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

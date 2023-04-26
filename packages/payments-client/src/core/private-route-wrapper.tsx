@@ -26,6 +26,10 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
     )
   }
 
+  if (pathname === '/') {
+    return <Navigate to={RoutePaths.PAYMENTS} />
+  }
+
   if (
     window['__REAPIT_MARKETPLACE_GLOBALS__'] &&
     window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode &&

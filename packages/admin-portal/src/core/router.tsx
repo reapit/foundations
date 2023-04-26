@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import { catchChunkError, OkayPage } from '@reapit/utils-react'
 import RoutePaths from '../constants/routes'
 import { createBrowserHistory, History } from 'history'
@@ -114,7 +114,14 @@ export const RoutesComponent = () => {
           </PrivateRouteWrapper>
         }
       />
-      <Route path={RoutePaths.ROOT} index element={<Navigate to={RoutePaths.APPS} replace />} />
+      <Route
+        path={RoutePaths.ROOT}
+        element={
+          <PrivateRouteWrapper>
+            <AppsManagementPage />
+          </PrivateRouteWrapper>
+        }
+      />
     </Routes>
   )
 }

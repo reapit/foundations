@@ -4,6 +4,10 @@ import qs from 'qs'
 import { GetAction } from './get-actions'
 import { UpdateAction } from './update-actions'
 
+export const RC_SESSION_MISSING_ERROR =
+  'Missing valid Reapit Connect Session, please try logging in again if the problem persists'
+export const NETWORK_ERROR = 'ERR_NETWORK'
+
 export interface StringMap {
   [key: string]: string
 }

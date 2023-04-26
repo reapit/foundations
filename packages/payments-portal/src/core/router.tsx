@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import { createBrowserHistory, History } from 'history'
 import { RoutePaths } from '../constants/routes'
 import { catchChunkError } from '@reapit/utils-react'
@@ -20,7 +20,7 @@ export const FourOFour: FC = () => (
 export const RoutesComponent: FC = () => (
   <Routes>
     <Route path={RoutePaths.PAYMENT} element={<PaymentPage />} />
-    <Route path={RoutePaths.HOME} index element={<Navigate to={RoutePaths.PAYMENT} replace />} />
+    <Route path={RoutePaths.HOME} index element={<FourOFour />} />
   </Routes>
 )
 

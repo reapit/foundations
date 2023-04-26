@@ -6,10 +6,32 @@ exports[`RoutesComponent should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
+      <mock-styled.main>
+        <mock-styled.section>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.main>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
+    <mock-styled.main>
+      <mock-styled.section>
+        <mock-styled.div
+          classname="mock-css."
+        >
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.main>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

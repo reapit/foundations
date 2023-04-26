@@ -6,10 +6,82 @@ exports[`RoutesComponent should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.div
+          classname="mock-css. mock-css. mock-css. mock-css."
+        >
+          <div
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+            data-testid="close-icon"
+          >
+            <mock-styled.span
+              classname=""
+            >
+              <svg />
+            </mock-styled.span>
+          </div>
+          <div
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
+          >
+            Page not found
+          </div>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.div
+        classname="mock-css. mock-css. mock-css. mock-css."
+      >
+        <div
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+          data-testid="close-icon"
+        >
+          <mock-styled.span
+            classname=""
+          >
+            <svg />
+          </mock-styled.span>
+        </div>
+        <div
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
+        >
+          Page not found
+        </div>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

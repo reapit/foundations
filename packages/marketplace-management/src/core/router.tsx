@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import RoutePaths from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { FC, lazy } from 'react'
@@ -55,7 +55,15 @@ export const RoutesComponent: FC = () => (
         </PrivateRouteWrapper>
       }
     />
-    <Route path={RoutePaths.HOME} index element={<Navigate to={RoutePaths.USERS} replace />} />
+    <Route
+      path={RoutePaths.HOME}
+      index
+      element={
+        <PrivateRouteWrapper>
+          <Users />
+        </PrivateRouteWrapper>
+      }
+    />
   </Routes>
 )
 

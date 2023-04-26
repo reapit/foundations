@@ -6,6 +6,7 @@ import { ReapitUpdateState, UpdateReturnTypeEnum } from '../use-reapit-update'
 import axios from 'axios'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { UpdateActionNames, updateActions } from '../update-actions'
+import { MemoryRouter } from 'react-router-dom'
 
 jest.mock('axios', () => ({
   __esModule: true,
@@ -37,7 +38,9 @@ jest.mock('@reapit/elements', () => ({
 const createWrapper = () => {
   const queryClient = new QueryClient()
   const Wrapper: PropsWithChildren<any> = ({ children }) => (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <MemoryRouter>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </MemoryRouter>
   )
 
   return Wrapper

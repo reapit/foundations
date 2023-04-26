@@ -2,10 +2,18 @@ import { logger } from '@reapit/utils-react'
 import { useMemo } from 'react'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 import { useSnack } from '@reapit/elements'
-import { getMergedHeaders, getUrl, handleReapitError, StringMap } from './utils'
+import {
+  getMergedHeaders,
+  getUrl,
+  handleReapitError,
+  NETWORK_ERROR,
+  RC_SESSION_MISSING_ERROR,
+  StringMap,
+} from './utils'
 import { useMutation } from '@tanstack/react-query'
 import axios, { AxiosError, AxiosResponseHeaders } from 'axios'
 import { UpdateAction } from './update-actions'
+import { useNavigate } from 'react-router-dom'
 
 export type ReapitUpdateState<ParamsType, DataType> = [
   boolean,
@@ -52,6 +60,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
   reapitConnectBrowserSession,
 }: ReapitUpdate): ReapitUpdateState<ParamsType, DataType> => {
   const { error: errorSnack, success: successSnack } = useSnack()
+  const navigate = useNavigate()
   const { successMessage, errorMessage } = action
   const url = useMemo(getUrl(action, undefined, uriParams), [uriParams, action])
 
@@ -102,9 +111,16 @@ export const useReapitUpdate = <ParamsType, DataType>({
     },
     onError: async (error: AxiosError<any>) => {
       const connectSession = await reapitConnectBrowserSession.connectSession()
+      const isRcError = error.message === RC_SESSION_MISSING_ERROR
+      const isFourOOne = error.code === NETWORK_ERROR
+
+      if (isRcError || isFourOOne || !connectSession) {
+        return navigate('/login')
+      }
+
       const errorString = handleReapitError(error, errorMessage)
       errorSnack(errorString, 5000)
-      logger(new Error(errorString), connectSession ?? null)
+      logger(new Error(errorString), connectSession)
     },
   })
 

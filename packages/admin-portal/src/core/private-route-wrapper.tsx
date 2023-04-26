@@ -5,6 +5,7 @@ import { reapitConnectBrowserSession } from '../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Loader, MainContainer } from '@reapit/elements'
 import { PermissionsProvider } from './use-permissions-state'
+import Routes from '../constants/routes'
 
 export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
@@ -17,6 +18,10 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
         <Loader fullPage />
       </MainContainer>
     )
+  }
+
+  if (window.location.pathname === '/') {
+    return <Navigate to={Routes.APPS} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {

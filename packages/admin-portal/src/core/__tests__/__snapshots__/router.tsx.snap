@@ -4,13 +4,9 @@ exports[`RoutesComponent should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
-    <div>
-      <mock-styled.div />
-    </div>
+    <div />
   </body>,
-  "container": <div>
-    <mock-styled.div />
-  </div>,
+  "container": <div />,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],

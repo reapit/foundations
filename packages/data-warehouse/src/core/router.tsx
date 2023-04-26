@@ -28,6 +28,14 @@ export const RoutesComponent: FC = () => (
         </PrivateRouteWrapper>
       }
     />
+    <Route
+      path={RoutePaths.HOME}
+      element={
+        <PrivateRouteWrapper>
+          <AccountsPage />
+        </PrivateRouteWrapper>
+      }
+    />
   </Routes>
 )
 
