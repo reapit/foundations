@@ -33,7 +33,7 @@ export class PipelineDto {
   packageManager: PackageManagerEnum = PackageManagerEnum.YARN
 
   @IsString()
-  @MaxLength(10)
+  @MaxLength(40)
   outDir: string = 'build'
 
   @IsString()
