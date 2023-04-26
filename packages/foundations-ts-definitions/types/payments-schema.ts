@@ -104,13 +104,13 @@ export interface PaymentModel {
   /**
    * The date and time when the payment was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the payment was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
