@@ -13,8 +13,8 @@ import {
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useGlobalState } from '../../../core/use-global-state'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
+import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { InviteMemberModel } from '@reapit/foundations-ts-definitions'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchemaMember } from './validation-schema'
@@ -53,7 +53,7 @@ export const Controls: FC = () => {
 
   const [, , inviteMember, inviteMemberSuccess] = useReapitUpdate<InviteMemberModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.inviteMember],
+    action: updateActions[UpdateActionNames.inviteMember],
     method: 'POST',
     uriParams: {
       developerId: currentMember?.developerId,

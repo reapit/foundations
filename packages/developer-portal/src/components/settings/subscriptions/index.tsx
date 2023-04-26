@@ -14,10 +14,10 @@ import {
   useMediaQuery,
   useModal,
 } from '@reapit/elements'
-import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/use-reapit-data'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { useReapitConnect } from '@reapit/connect-session'
 import dayjs from 'dayjs'
 import { Controls } from '../page/controls'
@@ -63,14 +63,14 @@ export const SettingsSubscriptionsPage: FC = () => {
 
   const [subscriptions, subscriptionsLoading, , refreshSubscriptions] = useReapitGet<SubscriptionModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getSubscriptions],
+    action: getActions[GetActionNames.getSubscriptions],
     queryParams: { pageSize: 12, pageNumber, developerId },
     fetchWhenTrue: [developerId],
   })
 
   const [, , deleteSubscription, deleteSubscriptionSuccess] = useReapitUpdate<undefined, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteSubscription],
+    action: updateActions[UpdateActionNames.deleteSubscription],
     method: 'DELETE',
     uriParams: {
       subscriptionId,

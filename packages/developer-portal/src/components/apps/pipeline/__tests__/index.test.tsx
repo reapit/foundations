@@ -8,6 +8,8 @@ jest.mock('@harelpls/use-pusher', () => ({
   },
 }))
 
+jest.mock('../../state/use-app-state')
+
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: jest.fn(() => ({

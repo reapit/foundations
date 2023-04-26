@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
-import { useHistory, useLocation } from 'react-router'
+import { useNavigate, useLocation, Routes } from 'react-router'
 import { Route } from 'react-router-dom'
-import Routes from '../../constants/routes'
+import RoutePaths from '../../constants/routes'
 import UsersTab from '../ui/users/users-tab'
 import UsersGroupsTab from '../ui/users/user-groups-tab'
 import {
@@ -18,7 +18,7 @@ import {
   elHFull,
   Button,
 } from '@reapit/elements'
-import { navigate } from '../ui/nav/nav'
+import { navigateRoute } from '../ui/nav/nav'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GLOSSARY_USER_ROLES_URL } from '../../constants/api'
@@ -31,7 +31,7 @@ export const handleDocs = (connectIsDesktop: Boolean) => () => {
 }
 
 export const UsersPage: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { pathname } = location
   const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
@@ -41,19 +41,19 @@ export const UsersPage: FC = () => {
       <SecondaryNavContainer>
         <Title>Users</Title>
         <SecondaryNav className={elMb9}>
-          <SecondaryNavItem onClick={navigate(history, Routes.USERS)} active={pathname === Routes.USERS}>
+          <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.USERS)} active={pathname === RoutePaths.USERS}>
             Users
           </SecondaryNavItem>
           <SecondaryNavItem
-            onClick={navigate(history, Routes.USERS_GROUPS)}
-            active={pathname.includes(Routes.USERS_GROUPS)}
+            onClick={navigateRoute(navigate, RoutePaths.USERS_GROUPS)}
+            active={pathname.includes(RoutePaths.USERS_GROUPS)}
           >
             User Groups
           </SecondaryNavItem>
         </SecondaryNav>
         <Icon className={elMb5} icon="vendorInfographic" iconSize="large" />
         <BodyText hasGreyText>
-          {pathname === Routes.USERS
+          {pathname === RoutePaths.USERS
             ? 'This list contains all ‘Users’ within your organisation. You can edit users to manage the groups an individual user belongs to. For more information on ‘User Groups’, please click below.'
             : 'This list contains all available member groups for your organisation. You can manage users associated to each group by selecting the dropown.'}
         </BodyText>
@@ -63,8 +63,10 @@ export const UsersPage: FC = () => {
         <OrgIdSelect />
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
-        <Route path={Routes.USERS} component={UsersTab} exact />
-        <Route path={Routes.USERS_GROUPS} component={UsersGroupsTab} exact />
+        <Routes>
+          <Route index element={<UsersTab />} />
+          <Route path={RoutePaths.USERS_GROUPS.replace('/users/', '')} element={<UsersGroupsTab />} />
+        </Routes>
       </PageContainer>
     </FlexContainer>
   )

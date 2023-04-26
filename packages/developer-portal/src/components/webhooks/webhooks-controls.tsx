@@ -16,16 +16,18 @@ import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
 import { cx } from '@linaria/core'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
-import { StringMap } from '@reapit/utils-common'
 import { useWebhooksState, WebhooksFilterState } from './state/use-webhooks-state'
-import { History } from 'history'
-import { useHistory } from 'react-router'
+import { NavigateFunction, useNavigate } from 'react-router'
 import { ExternalPages, openNewPage } from '../../utils/navigation'
 import { TopicModel } from '../../types/webhooks'
 
+interface StringMap {
+  [key: string]: string
+}
+
 export type HandleSelectFilters = (
   setWebhookQueryParams: Dispatch<SetStateAction<WebhooksFilterState>>,
-  history: History,
+  navigate: NavigateFunction,
 ) => SelectAppIdEventHandler
 
 export type SelectAppIdEventHandler = (
@@ -33,8 +35,8 @@ export type SelectAppIdEventHandler = (
   applicationId?: string | undefined,
 ) => void
 
-export const handleHistoryToQueryParams = (history: History): WebhooksFilterState => {
-  const queryParams = new URLSearchParams(history.location.search)
+export const handleHistoryToQueryParams = (): WebhooksFilterState => {
+  const queryParams = new URLSearchParams(window.location.search)
   return {
     applicationId: queryParams.get('applicationId') ?? '',
     from: queryParams.get('from') ?? dayjs().format('YYYY-MM-DD'),
@@ -46,14 +48,14 @@ export const handleHistoryToQueryParams = (history: History): WebhooksFilterStat
 }
 
 export const handleSelectFilters: HandleSelectFilters =
-  (setWebhookQueryParams, history) =>
+  (setWebhookQueryParams, navigate) =>
   (event?: ChangeEvent<HTMLSelectElement | HTMLInputElement>, applicationId?: string) => {
     const value = applicationId ? applicationId : event?.target.value
     const name = applicationId ? 'applicationId' : event?.target.name
 
     if ((applicationId && !value) || !name) return
 
-    const queryParams = handleHistoryToQueryParams(history)
+    const queryParams = handleHistoryToQueryParams()
     const newParams = {
       ...queryParams,
       [name]: value,
@@ -66,12 +68,12 @@ export const handleSelectFilters: HandleSelectFilters =
     }, {})
     const newQueryString = new URLSearchParams(cleanedParams).toString()
     setWebhookQueryParams(newParams)
-    history.push(`${history.location.pathname}?${newQueryString}`)
+    navigate(`${window.location.pathname}?${newQueryString}`)
   }
 
 export const WebhooksControls: FC = () => {
   const { webhooksFilterState, webhooksDataState, setWebhooksFilterState } = useWebhooksState()
-  const history = useHistory()
+  const navigate = useNavigate()
   const { Modal, openModal, closeModal } = useModal()
   const { to, from, applicationId, topicId, entityId, eventId } = webhooksFilterState
   const { apps, topics } = webhooksDataState
@@ -90,7 +92,7 @@ export const WebhooksControls: FC = () => {
                   className={elWFull}
                   value={applicationId ?? ''}
                   name="applicationId"
-                  onChange={handleSelectFilters(setWebhooksFilterState, history)}
+                  onChange={handleSelectFilters(setWebhooksFilterState, navigate)}
                 >
                   <option key="default-option" value="">
                     None selected
@@ -115,7 +117,7 @@ export const WebhooksControls: FC = () => {
                     label="Date From"
                     min={dayjs(to).subtract(6, 'months').format('YYYY-MM')}
                     max={dayjs(to).format('YYYY-MM-DD')}
-                    onChange={handleSelectFilters(setWebhooksFilterState, history)}
+                    onChange={handleSelectFilters(setWebhooksFilterState, navigate)}
                   />
                 </ControlsContainer>
                 <ControlsContainer>
@@ -127,7 +129,7 @@ export const WebhooksControls: FC = () => {
                     label="Date To"
                     min={dayjs(from).format('YYYY-MM-DD')}
                     max={dayjs().format('YYYY-MM-DD')}
-                    onChange={handleSelectFilters(setWebhooksFilterState, history)}
+                    onChange={handleSelectFilters(setWebhooksFilterState, navigate)}
                   />
                 </ControlsContainer>
                 <ControlsContainer>
@@ -136,7 +138,7 @@ export const WebhooksControls: FC = () => {
                       className={elWFull}
                       value={topicId ?? ''}
                       name="topicId"
-                      onChange={handleSelectFilters(setWebhooksFilterState, history)}
+                      onChange={handleSelectFilters(setWebhooksFilterState, navigate)}
                     >
                       <option key="default-option" value="">
                         None selected
@@ -157,7 +159,7 @@ export const WebhooksControls: FC = () => {
                     type="text"
                     name="entityId"
                     label="Entity Id"
-                    onChange={handleSelectFilters(setWebhooksFilterState, history)}
+                    onChange={handleSelectFilters(setWebhooksFilterState, navigate)}
                   />
                 </ControlsContainer>
                 <ControlsContainer>
@@ -167,7 +169,7 @@ export const WebhooksControls: FC = () => {
                     type="text"
                     name="eventId"
                     label="Event Id"
-                    onChange={handleSelectFilters(setWebhooksFilterState, history)}
+                    onChange={handleSelectFilters(setWebhooksFilterState, navigate)}
                   />
                 </ControlsContainer>
               </>

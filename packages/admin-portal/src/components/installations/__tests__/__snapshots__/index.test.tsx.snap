@@ -1,431 +1,353 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Installations should render component when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           Installations
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-input-wrap-full"
-            >
-              <div
-                class="el-input-wrap-full"
-              >
-                <div
-                  class="el-mb5 el-input-group"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 >
-                  <input
-                    class="el-input"
+                  <mock-styled.input
                     id="test-static-id"
                     placeholder="Search"
                   />
-                  <span
-                    class="el-icon"
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                  <label
-                    class="el-label"
-                    for="test-static-id"
+                  </mock-styled.span>
+                  <mock-styled.label
+                    htmlfor="test-static-id"
                   >
                     Search Apps
-                  </label>
-                </div>
-                <div
-                  class="el-multi-select-input-wrapper"
-                >
-                  <input
-                    class="el-multi-select-input"
+                  </mock-styled.label>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
                     id="app-ids-select"
                     name="appIds"
                   />
-                  <div
-                    class="el-mb5 el-multi-select-selected"
+                  <mock-styled.div
+                    classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                   >
-                    <span
-                      class="el-ml2 el-icon-size-medium el-icon"
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-left: 0.375rem;
+ mock-css.
+  font-size: 2.5rem;
+"
                     >
                       <svg />
-                    </span>
+                    </mock-styled.span>
                     <p>
                       No apps selected
                     </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <label
-                class="el-label"
-              >
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Company
-              </label>
-              <div
-                class="el-searchable-dropdown-container"
-              >
+              </mock-styled.label>
+              <mock-styled.div>
                 <input
                   id="developer-search-box"
                   readonly=""
                   style="display: none;"
                   value=""
                 />
-                <span
-                  class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </span>
-                <input
-                  class="el-searchable-dropdown-search-input el-input"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
                   data-testid="search-input"
                   name="companyName"
                   placeholder="Search developer organisations"
                   value=""
                 />
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <label
-                class="el-label"
-              >
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Client
-              </label>
-              <div
-                class="el-searchable-dropdown-container"
-              >
+              </mock-styled.label>
+              <mock-styled.div>
                 <input
                   id="client-search-box"
                   readonly=""
                   style="display: none;"
                   value=""
                 />
-                <span
-                  class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </span>
-                <input
-                  class="el-searchable-dropdown-search-input el-input"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
                   data-testid="search-input"
                   name="clientId"
                   placeholder="Search customers"
                   value=""
                 />
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="installedDateFrom"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Installed Date From
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="installedDateTo"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Installed Date To
-                </label>
-              </div>
-            </div>
-          </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
         <div
-          class="el-mb11"
+          class="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-button-group"
-          >
-            <div
-              class="el-button-group-inner"
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <button
-                class="el-intent-primary el-button"
+              <mock-styled.button
+                classname="mock-css."
                 type="button"
               >
                 Download CSV
-                <div
-                  class="el-button-loader"
-                />
-              </button>
-            </div>
-          </div>
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
-        <div
-          class="el-loader-container"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         Installations
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap-full"
-          >
-            <div
-              class="el-input-wrap-full"
-            >
-              <div
-                class="el-mb5 el-input-group"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
                   id="test-static-id"
                   placeholder="Search"
                 />
-                <span
-                  class="el-icon"
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                </mock-styled.span>
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Search Apps
-                </label>
-              </div>
-              <div
-                class="el-multi-select-input-wrapper"
-              >
-                <input
-                  class="el-multi-select-input"
+                </mock-styled.label>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="app-ids-select"
                   name="appIds"
                 />
-                <div
-                  class="el-mb5 el-multi-select-selected"
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 >
-                  <span
-                    class="el-ml2 el-icon-size-medium el-icon"
+                  <mock-styled.span
+                    classname="mock-css.
+  margin-left: 0.375rem;
+ mock-css.
+  font-size: 2.5rem;
+"
                   >
                     <svg />
-                  </span>
+                  </mock-styled.span>
                   <p>
                     No apps selected
                   </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Company
-            </label>
-            <div
-              class="el-searchable-dropdown-container"
-            >
+            </mock-styled.label>
+            <mock-styled.div>
               <input
                 id="developer-search-box"
                 readonly=""
                 style="display: none;"
                 value=""
               />
-              <span
-                class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </span>
-              <input
-                class="el-searchable-dropdown-search-input el-input"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
                 data-testid="search-input"
                 name="companyName"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Client
-            </label>
-            <div
-              class="el-searchable-dropdown-container"
-            >
+            </mock-styled.label>
+            <mock-styled.div>
               <input
                 id="client-search-box"
                 readonly=""
                 style="display: none;"
                 value=""
               />
-              <span
-                class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </span>
-              <input
-                class="el-searchable-dropdown-search-input el-input"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
                 data-testid="search-input"
                 name="clientId"
                 placeholder="Search customers"
                 value=""
               />
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="installedDateFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Installed Date From
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="installedDateTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Installed Date To
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
       <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-inner"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Download CSV
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
-      <div
-        class="el-loader-container"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
-    </section>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -482,773 +404,637 @@ Object {
 `;
 
 exports[`Installations should render component with data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           Installations
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-input-wrap-full"
-            >
-              <div
-                class="el-input-wrap-full"
-              >
-                <div
-                  class="el-mb5 el-input-group"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 >
-                  <input
-                    class="el-input"
+                  <mock-styled.input
                     id="test-static-id"
                     placeholder="Search"
                   />
-                  <span
-                    class="el-icon"
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                  <label
-                    class="el-label"
-                    for="test-static-id"
+                  </mock-styled.span>
+                  <mock-styled.label
+                    htmlfor="test-static-id"
                   >
                     Search Apps
-                  </label>
-                </div>
-                <div
-                  class="el-multi-select-input-wrapper"
-                >
-                  <input
-                    class="el-multi-select-input"
+                  </mock-styled.label>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
                     id="app-ids-select"
                     name="appIds"
                   />
-                  <div
-                    class="el-mb5 el-multi-select-selected"
+                  <mock-styled.div
+                    classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                   >
-                    <span
-                      class="el-ml2 el-icon-size-medium el-icon"
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-left: 0.375rem;
+ mock-css.
+  font-size: 2.5rem;
+"
                     >
                       <svg />
-                    </span>
+                    </mock-styled.span>
                     <p>
                       No apps selected
                     </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <label
-                class="el-label"
-              >
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Company
-              </label>
-              <div
-                class="el-searchable-dropdown-container"
-              >
+              </mock-styled.label>
+              <mock-styled.div>
                 <input
                   id="developer-search-box"
                   readonly=""
                   style="display: none;"
                   value=""
                 />
-                <span
-                  class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </span>
-                <input
-                  class="el-searchable-dropdown-search-input el-input"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
                   data-testid="search-input"
                   name="companyName"
                   placeholder="Search developer organisations"
                   value=""
                 />
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <label
-                class="el-label"
-              >
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Client
-              </label>
-              <div
-                class="el-searchable-dropdown-container"
-              >
+              </mock-styled.label>
+              <mock-styled.div>
                 <input
                   id="client-search-box"
                   readonly=""
                   style="display: none;"
                   value=""
                 />
-                <span
-                  class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </span>
-                <input
-                  class="el-searchable-dropdown-search-input el-input"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
                   data-testid="search-input"
                   name="clientId"
                   placeholder="Search customers"
                   value=""
                 />
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="installedDateFrom"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Installed Date From
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="installedDateTo"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Installed Date To
-                </label>
-              </div>
-            </div>
-          </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
         <div
-          class="el-mb11"
+          class="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-button-group"
-          >
-            <div
-              class="el-button-group-inner"
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <button
-                class="el-intent-primary el-button"
+              <mock-styled.button
+                classname="mock-css."
                 type="button"
               >
                 Download CSV
-                <div
-                  class="el-button-loader"
-                />
-              </button>
-            </div>
-          </div>
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
-        <div
-          class="el-mb11 el-table"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           data-has-call-to-action="false"
           data-has-expandable-action="false"
         >
-          <div
-            class="el-table-headers-row"
-          >
-            <div
-              class="el-table-header"
-            >
+          <mock-styled.div>
+            <mock-styled.div>
               Customer Name
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               App Name
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Reapit Customer Code
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Customer Address
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Date Installed
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Installed By
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Date Uninstalled
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Uninstalled By
-            </div>
-          </div>
-          <div
-            class="el-table-row-container"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-row"
-            >
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <span
-                  class="el-intent-secondary el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-                <div
-                  class="el-table-cell-content"
+                </mock-styled.span>
+                <mock-styled.div
                   data-narrow-label="Customer Name"
                 >
                   Sandbox Estates
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <span
-                  class="el-intent-secondary el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-                <div
-                  class="el-table-cell-content"
+                </mock-styled.span>
+                <mock-styled.div
                   data-narrow-label="App Name"
                 >
                   App Test Name
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Reapit Customer Code"
                 >
                   SBOX
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Customer Address"
                 >
                   67-74 Third Floor Saffron Hill London EC1N 8QX
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Date Installed"
                 >
                   23-03-2022
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Installed By"
                 >
                   test@example.com
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Date Uninstalled"
                 >
                   -
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Uninstalled By"
                 />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-pagination-wrap"
-        >
-          <div
-            class="el-pagination-text"
-          >
-            <input
-              class="el-pagination-input"
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               value="1"
             />
              of 
             1
-          </div>
-          <button
-            class="el-pagination-button"
+          </mock-styled.div>
+          <mock-styled.button
             data-testid="back-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-          <button
-            class="el-pagination-button"
+            </mock-styled.span>
+          </mock-styled.button>
+          <mock-styled.button
             data-testid="forward-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-        </div>
-      </section>
+            </mock-styled.span>
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         Installations
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap-full"
-          >
-            <div
-              class="el-input-wrap-full"
-            >
-              <div
-                class="el-mb5 el-input-group"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.75rem;
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
                   id="test-static-id"
                   placeholder="Search"
                 />
-                <span
-                  class="el-icon"
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                </mock-styled.span>
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Search Apps
-                </label>
-              </div>
-              <div
-                class="el-multi-select-input-wrapper"
-              >
-                <input
-                  class="el-multi-select-input"
+                </mock-styled.label>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="app-ids-select"
                   name="appIds"
                 />
-                <div
-                  class="el-mb5 el-multi-select-selected"
+                <mock-styled.div
+                  classname="mock-css.
+  margin-bottom: 0.75rem;
+"
                 >
-                  <span
-                    class="el-ml2 el-icon-size-medium el-icon"
+                  <mock-styled.span
+                    classname="mock-css.
+  margin-left: 0.375rem;
+ mock-css.
+  font-size: 2.5rem;
+"
                   >
                     <svg />
-                  </span>
+                  </mock-styled.span>
                   <p>
                     No apps selected
                   </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Company
-            </label>
-            <div
-              class="el-searchable-dropdown-container"
-            >
+            </mock-styled.label>
+            <mock-styled.div>
               <input
                 id="developer-search-box"
                 readonly=""
                 style="display: none;"
                 value=""
               />
-              <span
-                class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </span>
-              <input
-                class="el-searchable-dropdown-search-input el-input"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
                 data-testid="search-input"
                 name="companyName"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Client
-            </label>
-            <div
-              class="el-searchable-dropdown-container"
-            >
+            </mock-styled.label>
+            <mock-styled.div>
               <input
                 id="client-search-box"
                 readonly=""
                 style="display: none;"
                 value=""
               />
-              <span
-                class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </span>
-              <input
-                class="el-searchable-dropdown-search-input el-input"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
                 data-testid="search-input"
                 name="clientId"
                 placeholder="Search customers"
                 value=""
               />
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="installedDateFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Installed Date From
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="installedDateTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Installed Date To
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
       <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-inner"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Download CSV
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
-      <div
-        class="el-mb11 el-table"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="false"
         data-has-expandable-action="false"
       >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             Customer Name
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             App Name
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Reapit Customer Code
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Customer Address
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Date Installed
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Installed By
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Date Uninstalled
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Uninstalled By
-          </div>
-        </div>
-        <div
-          class="el-table-row-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Customer Name"
               >
                 Sandbox Estates
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="App Name"
               >
                 App Test Name
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Reapit Customer Code"
               >
                 SBOX
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Customer Address"
               >
                 67-74 Third Floor Saffron Hill London EC1N 8QX
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Date Installed"
               >
                 23-03-2022
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Installed By"
               >
                 test@example.com
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Date Uninstalled"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Uninstalled By"
               />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-pagination-wrap"
-      >
-        <div
-          class="el-pagination-text"
-        >
-          <input
-            class="el-pagination-input"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           1
-        </div>
-        <button
-          class="el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-      </div>
-    </section>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

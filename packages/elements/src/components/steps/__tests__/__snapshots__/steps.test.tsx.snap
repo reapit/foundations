@@ -1,81 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Steps should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-steps"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-step"
+        <mock-styled.div
+          classname=""
           data-testid="step-0"
         >
           1
-        </div>
-        <div
-          class="el-step"
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           data-testid="step-1"
         >
           2
-        </div>
-        <div
-          class="el-step"
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           data-testid="step-2"
         >
           3
-        </div>
-        <div
-          class="el-step"
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           data-testid="step-3"
         >
           4
-        </div>
-        <div
-          class="el-step"
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           data-testid="step-4"
         >
           5
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-steps"
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-step"
+      <mock-styled.div
+        classname=""
         data-testid="step-0"
       >
         1
-      </div>
-      <div
-        class="el-step"
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
         data-testid="step-1"
       >
         2
-      </div>
-      <div
-        class="el-step"
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
         data-testid="step-2"
       >
         3
-      </div>
-      <div
-        class="el-step"
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
         data-testid="step-3"
       >
         4
-      </div>
-      <div
-        class="el-step"
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
         data-testid="step-4"
       >
         5
-      </div>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -132,81 +132,81 @@ Object {
 `;
 
 exports[`Steps should match a snapshot when selectedStep is different 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-steps"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-is-used el-step"
+        <mock-styled.div
+          classname="mock-css."
           data-testid="step-0"
         >
           1
-        </div>
-        <div
-          class="el-is-active el-step"
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
           data-testid="step-1"
         >
           2
-        </div>
-        <div
-          class="el-step"
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           data-testid="step-2"
         >
           3
-        </div>
-        <div
-          class="el-step"
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           data-testid="step-3"
         >
           4
-        </div>
-        <div
-          class="el-step"
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           data-testid="step-4"
         >
           5
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-steps"
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-is-used el-step"
+      <mock-styled.div
+        classname="mock-css."
         data-testid="step-0"
       >
         1
-      </div>
-      <div
-        class="el-is-active el-step"
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
         data-testid="step-1"
       >
         2
-      </div>
-      <div
-        class="el-step"
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
         data-testid="step-2"
       >
         3
-      </div>
-      <div
-        class="el-step"
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
         data-testid="step-3"
       >
         4
-      </div>
-      <div
-        class="el-step"
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
         data-testid="step-4"
       >
         5
-      </div>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -263,211 +263,151 @@ Object {
 `;
 
 exports[`StepsVertical should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-steps-vertical"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-step-vertical"
-        >
-          <div
-            class="el-step-vertical-item"
-          >
-            <div
-              class="el-step"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
               data-testid="step-0"
             >
               1
-            </div>
-          </div>
-          <div
-            class="el-step-vertical-content"
-          >
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
             Lorem, ipsum dolor
-          </div>
-        </div>
-        <div
-          class="el-step-vertical"
-        >
-          <div
-            class="el-step-vertical-item"
-          >
-            <div
-              class="el-step"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
               data-testid="step-1"
             >
               2
-            </div>
-          </div>
-          <div
-            class="el-step-vertical-content"
-          >
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
             Lorem, ipsum dolor
-          </div>
-        </div>
-        <div
-          class="el-step-vertical"
-        >
-          <div
-            class="el-step-vertical-item"
-          >
-            <div
-              class="el-step"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
               data-testid="step-2"
             >
               3
-            </div>
-          </div>
-          <div
-            class="el-step-vertical-content"
-          >
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
             Lorem, ipsum dolor
-          </div>
-        </div>
-        <div
-          class="el-step-vertical"
-        >
-          <div
-            class="el-step-vertical-item"
-          >
-            <div
-              class="el-step"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
               data-testid="step-3"
             >
               4
-            </div>
-          </div>
-          <div
-            class="el-step-vertical-content"
-          >
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
             Lorem, ipsum dolor
-          </div>
-        </div>
-        <div
-          class="el-step-vertical"
-        >
-          <div
-            class="el-step-vertical-item"
-          >
-            <div
-              class="el-is-active el-step"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
               data-testid="step-4"
             >
               5
-            </div>
-          </div>
-          <div
-            class="el-step-vertical-content"
-          >
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
             Lorem, ipsum dolor
-          </div>
-        </div>
-      </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-steps-vertical"
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-step-vertical"
-      >
-        <div
-          class="el-step-vertical-item"
-        >
-          <div
-            class="el-step"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
             data-testid="step-0"
           >
             1
-          </div>
-        </div>
-        <div
-          class="el-step-vertical-content"
-        >
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
           Lorem, ipsum dolor
-        </div>
-      </div>
-      <div
-        class="el-step-vertical"
-      >
-        <div
-          class="el-step-vertical-item"
-        >
-          <div
-            class="el-step"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
             data-testid="step-1"
           >
             2
-          </div>
-        </div>
-        <div
-          class="el-step-vertical-content"
-        >
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
           Lorem, ipsum dolor
-        </div>
-      </div>
-      <div
-        class="el-step-vertical"
-      >
-        <div
-          class="el-step-vertical-item"
-        >
-          <div
-            class="el-step"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
             data-testid="step-2"
           >
             3
-          </div>
-        </div>
-        <div
-          class="el-step-vertical-content"
-        >
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
           Lorem, ipsum dolor
-        </div>
-      </div>
-      <div
-        class="el-step-vertical"
-      >
-        <div
-          class="el-step-vertical-item"
-        >
-          <div
-            class="el-step"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
             data-testid="step-3"
           >
             4
-          </div>
-        </div>
-        <div
-          class="el-step-vertical-content"
-        >
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
           Lorem, ipsum dolor
-        </div>
-      </div>
-      <div
-        class="el-step-vertical"
-      >
-        <div
-          class="el-step-vertical-item"
-        >
-          <div
-            class="el-is-active el-step"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
             data-testid="step-4"
           >
             5
-          </div>
-        </div>
-        <div
-          class="el-step-vertical-content"
-        >
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
           Lorem, ipsum dolor
-        </div>
-      </div>
-    </div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -524,97 +464,73 @@ Object {
 `;
 
 exports[`StepsVertical should match a snapshot when selectedStep is different 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-steps-vertical"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-step-vertical"
-        >
-          <div
-            class="el-step-vertical-item"
-          >
-            <div
-              class="el-step"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
               data-testid="step-0"
             >
               1
-            </div>
-          </div>
-          <div
-            class="el-step-vertical-content"
-          >
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
             Lorem, ipsum dolor
-          </div>
-        </div>
-        <div
-          class="el-step-vertical"
-        >
-          <div
-            class="el-step-vertical-item"
-          >
-            <div
-              class="el-is-active el-step"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
               data-testid="step-1"
             >
               2
-            </div>
-          </div>
-          <div
-            class="el-step-vertical-content"
-          >
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
             Lorem, ipsum dolor
-          </div>
-        </div>
-      </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-steps-vertical"
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-step-vertical"
-      >
-        <div
-          class="el-step-vertical-item"
-        >
-          <div
-            class="el-step"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
             data-testid="step-0"
           >
             1
-          </div>
-        </div>
-        <div
-          class="el-step-vertical-content"
-        >
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
           Lorem, ipsum dolor
-        </div>
-      </div>
-      <div
-        class="el-step-vertical"
-      >
-        <div
-          class="el-step-vertical-item"
-        >
-          <div
-            class="el-is-active el-step"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
             data-testid="step-1"
           >
             2
-          </div>
-        </div>
-        <div
-          class="el-step-vertical-content"
-        >
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
           Lorem, ipsum dolor
-        </div>
-      </div>
-    </div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

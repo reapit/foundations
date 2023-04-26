@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppInstallModalContent should match a snapshot where an org admin and desktop mode 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           As an organisation admin, you have control over 
           enabling
@@ -25,33 +25,31 @@ Object {
            Users and Offices within your Organisation. To do this, you need to visit the
            
           Reapit Connect Management App.
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Desktop Integration
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-        </p>
+        </mock-styled.p>
         <div
-          class="el-mb6"
+          class="mock-css.
+  margin-bottom: 1rem;
+"
         >
-          <div
-            class="app-detail-permission-chip"
-          >
+          <mock-styled.div>
             Launchable from the applicant screen
-          </div>
-          <div
-            class="app-detail-permission-chip"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Provides ability to export a saved applicant to third party system
-          </div>
+          </mock-styled.div>
         </div>
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           For more information regarding Desktop Integration types, please
            
@@ -63,14 +61,14 @@ Object {
             click here
           </a>
           .
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Pricing Information
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Will Test DevCo
            have specified that there is a cost for using this 
@@ -88,84 +86,73 @@ Object {
           to view their pricing information. You will be billed directly by 
           Will Test DevCo
           .
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           You will not be charged by Reapit Ltd for any costs associated with using this
            
           integration
           .
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Data Permissions
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Information about your organisation and the names/email addresses of your users
-        </p>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.p>
+        <mock-styled.div>
           Read applicants
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read property images
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read properties
-        </div>
+        </mock-styled.div>
       </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-center el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-low el-button-fixed-width el-button"
+          <mock-styled.button
+            classname="mock-css. mock-css."
           >
             Cancel
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-primary el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
             type="button"
           >
             Confirm
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         As an organisation admin, you have control over 
         enabling
@@ -178,33 +165,31 @@ Object {
          Users and Offices within your Organisation. To do this, you need to visit the
          
         Reapit Connect Management App.
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Desktop Integration
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-      </p>
+      </mock-styled.p>
       <div
-        class="el-mb6"
+        class="mock-css.
+  margin-bottom: 1rem;
+"
       >
-        <div
-          class="app-detail-permission-chip"
-        >
+        <mock-styled.div>
           Launchable from the applicant screen
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Provides ability to export a saved applicant to third party system
-        </div>
+        </mock-styled.div>
       </div>
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         For more information regarding Desktop Integration types, please
          
@@ -216,14 +201,14 @@ Object {
           click here
         </a>
         .
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Pricing Information
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Will Test DevCo
          have specified that there is a cost for using this 
@@ -241,73 +226,62 @@ Object {
         to view their pricing information. You will be billed directly by 
         Will Test DevCo
         .
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         You will not be charged by Reapit Ltd for any costs associated with using this
          
         integration
         .
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Data Permissions
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Information about your organisation and the names/email addresses of your users
-      </p>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.p>
+      <mock-styled.div>
         Read applicants
-      </div>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         Read property images
-      </div>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         Read properties
-      </div>
+      </mock-styled.div>
     </div>
-    <div
-      class="el-button-group"
-    >
-      <div
-        class="el-button-group-align-center el-button-group-inner"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="el-intent-low el-button-fixed-width el-button"
+        <mock-styled.button
+          classname="mock-css. mock-css."
         >
           Cancel
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-intent-primary el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+          disabled="false"
           type="button"
         >
           Confirm
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -364,18 +338,18 @@ Object {
 `;
 
 exports[`AppInstallModalContent should match a snapshot where an org admin and web mode 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           As an organisation admin, you have control over 
           enabling
@@ -388,33 +362,31 @@ Object {
            Users and Offices within your Organisation. To do this, you need to visit the
            
           Reapit Connect Management App.
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Desktop Integration
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-        </p>
+        </mock-styled.p>
         <div
-          class="el-mb6"
+          class="mock-css.
+  margin-bottom: 1rem;
+"
         >
-          <div
-            class="app-detail-permission-chip"
-          >
+          <mock-styled.div>
             Launchable from the applicant screen
-          </div>
-          <div
-            class="app-detail-permission-chip"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Provides ability to export a saved applicant to third party system
-          </div>
+          </mock-styled.div>
         </div>
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           For more information regarding Desktop Integration types, please
            
@@ -426,14 +398,14 @@ Object {
             click here
           </a>
           .
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Pricing Information
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Will Test DevCo
            have specified that there is a cost for using this 
@@ -451,84 +423,73 @@ Object {
           to view their pricing information. You will be billed directly by 
           Will Test DevCo
           .
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           You will not be charged by Reapit Ltd for any costs associated with using this
            
           integration
           .
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Data Permissions
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Information about your organisation and the names/email addresses of your users
-        </p>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.p>
+        <mock-styled.div>
           Read applicants
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read property images
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read properties
-        </div>
+        </mock-styled.div>
       </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-center el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-low el-button-fixed-width el-button"
+          <mock-styled.button
+            classname="mock-css. mock-css."
           >
             Cancel
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-primary el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
             type="button"
           >
             Confirm
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         As an organisation admin, you have control over 
         enabling
@@ -541,33 +502,31 @@ Object {
          Users and Offices within your Organisation. To do this, you need to visit the
          
         Reapit Connect Management App.
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Desktop Integration
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-      </p>
+      </mock-styled.p>
       <div
-        class="el-mb6"
+        class="mock-css.
+  margin-bottom: 1rem;
+"
       >
-        <div
-          class="app-detail-permission-chip"
-        >
+        <mock-styled.div>
           Launchable from the applicant screen
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Provides ability to export a saved applicant to third party system
-        </div>
+        </mock-styled.div>
       </div>
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         For more information regarding Desktop Integration types, please
          
@@ -579,14 +538,14 @@ Object {
           click here
         </a>
         .
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Pricing Information
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Will Test DevCo
          have specified that there is a cost for using this 
@@ -604,73 +563,62 @@ Object {
         to view their pricing information. You will be billed directly by 
         Will Test DevCo
         .
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         You will not be charged by Reapit Ltd for any costs associated with using this
          
         integration
         .
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Data Permissions
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Information about your organisation and the names/email addresses of your users
-      </p>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.p>
+      <mock-styled.div>
         Read applicants
-      </div>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         Read property images
-      </div>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         Read properties
-      </div>
+      </mock-styled.div>
     </div>
-    <div
-      class="el-button-group"
-    >
-      <div
-        class="el-button-group-align-center el-button-group-inner"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="el-intent-low el-button-fixed-width el-button"
+        <mock-styled.button
+          classname="mock-css. mock-css."
         >
           Cancel
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-intent-primary el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+          disabled="false"
           type="button"
         >
           Confirm
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -727,18 +675,18 @@ Object {
 `;
 
 exports[`AppInstallModalContent should match a snapshot where app is free 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           You are about to 
           enable
@@ -749,33 +697,31 @@ Object {
             all
           </b>
            Users and Offices within your Organisation.
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Desktop Integration
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-        </p>
+        </mock-styled.p>
         <div
-          class="el-mb6"
+          class="mock-css.
+  margin-bottom: 1rem;
+"
         >
-          <div
-            class="app-detail-permission-chip"
-          >
+          <mock-styled.div>
             Launchable from the applicant screen
-          </div>
-          <div
-            class="app-detail-permission-chip"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Provides ability to export a saved applicant to third party system
-          </div>
+          </mock-styled.div>
         </div>
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           For more information regarding Desktop Integration types, please
            
@@ -787,89 +733,78 @@ Object {
             click here
           </a>
           .
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Pricing Information
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Will Test DevCo
            have specified there is no cost for using this 
           integration
           .
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Data Permissions
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Information about your organisation and the names/email addresses of your users
-        </p>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.p>
+        <mock-styled.div>
           Read applicants
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read property images
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read properties
-        </div>
+        </mock-styled.div>
       </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-center el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-low el-button-fixed-width el-button"
+          <mock-styled.button
+            classname="mock-css. mock-css."
           >
             Cancel
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-primary el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
             type="button"
           >
             Confirm
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         You are about to 
         enable
@@ -880,33 +815,31 @@ Object {
           all
         </b>
          Users and Offices within your Organisation.
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Desktop Integration
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-      </p>
+      </mock-styled.p>
       <div
-        class="el-mb6"
+        class="mock-css.
+  margin-bottom: 1rem;
+"
       >
-        <div
-          class="app-detail-permission-chip"
-        >
+        <mock-styled.div>
           Launchable from the applicant screen
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Provides ability to export a saved applicant to third party system
-        </div>
+        </mock-styled.div>
       </div>
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         For more information regarding Desktop Integration types, please
          
@@ -918,78 +851,67 @@ Object {
           click here
         </a>
         .
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Pricing Information
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Will Test DevCo
          have specified there is no cost for using this 
         integration
         .
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Data Permissions
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Information about your organisation and the names/email addresses of your users
-      </p>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.p>
+      <mock-styled.div>
         Read applicants
-      </div>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         Read property images
-      </div>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         Read properties
-      </div>
+      </mock-styled.div>
     </div>
-    <div
-      class="el-button-group"
-    >
-      <div
-        class="el-button-group-align-center el-button-group-inner"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="el-intent-low el-button-fixed-width el-button"
+        <mock-styled.button
+          classname="mock-css. mock-css."
         >
           Cancel
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-intent-primary el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+          disabled="false"
           type="button"
         >
           Confirm
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1046,18 +968,18 @@ Object {
 `;
 
 exports[`AppInstallModalContent should match a snapshot where has off grouping, not an org admin 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           You are about to 
           enable
@@ -1066,33 +988,31 @@ Object {
           ’ for your Office Group
            
           MOCK_OFFICE_GROUP
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Desktop Integration
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-        </p>
+        </mock-styled.p>
         <div
-          class="el-mb6"
+          class="mock-css.
+  margin-bottom: 1rem;
+"
         >
-          <div
-            class="app-detail-permission-chip"
-          >
+          <mock-styled.div>
             Launchable from the applicant screen
-          </div>
-          <div
-            class="app-detail-permission-chip"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Provides ability to export a saved applicant to third party system
-          </div>
+          </mock-styled.div>
         </div>
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           For more information regarding Desktop Integration types, please
            
@@ -1104,14 +1024,14 @@ Object {
             click here
           </a>
           .
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Pricing Information
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Will Test DevCo
            have specified that there is a cost for using this 
@@ -1129,84 +1049,73 @@ Object {
           to view their pricing information. You will be billed directly by 
           Will Test DevCo
           .
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           You will not be charged by Reapit Ltd for any costs associated with using this
            
           integration
           .
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Data Permissions
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Information about your organisation and the names/email addresses of your users
-        </p>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.p>
+        <mock-styled.div>
           Read applicants
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read property images
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read properties
-        </div>
+        </mock-styled.div>
       </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-center el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-low el-button-fixed-width el-button"
+          <mock-styled.button
+            classname="mock-css. mock-css."
           >
             Cancel
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-primary el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
             type="button"
           >
             Confirm
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         You are about to 
         enable
@@ -1215,33 +1124,31 @@ Object {
         ’ for your Office Group
          
         MOCK_OFFICE_GROUP
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Desktop Integration
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-      </p>
+      </mock-styled.p>
       <div
-        class="el-mb6"
+        class="mock-css.
+  margin-bottom: 1rem;
+"
       >
-        <div
-          class="app-detail-permission-chip"
-        >
+        <mock-styled.div>
           Launchable from the applicant screen
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Provides ability to export a saved applicant to third party system
-        </div>
+        </mock-styled.div>
       </div>
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         For more information regarding Desktop Integration types, please
          
@@ -1253,14 +1160,14 @@ Object {
           click here
         </a>
         .
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Pricing Information
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Will Test DevCo
          have specified that there is a cost for using this 
@@ -1278,73 +1185,62 @@ Object {
         to view their pricing information. You will be billed directly by 
         Will Test DevCo
         .
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         You will not be charged by Reapit Ltd for any costs associated with using this
          
         integration
         .
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Data Permissions
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Information about your organisation and the names/email addresses of your users
-      </p>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.p>
+      <mock-styled.div>
         Read applicants
-      </div>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         Read property images
-      </div>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         Read properties
-      </div>
+      </mock-styled.div>
     </div>
-    <div
-      class="el-button-group"
-    >
-      <div
-        class="el-button-group-align-center el-button-group-inner"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="el-intent-low el-button-fixed-width el-button"
+        <mock-styled.button
+          classname="mock-css. mock-css."
         >
           Cancel
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-intent-primary el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+          disabled="false"
           type="button"
         >
           Confirm
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1401,18 +1297,18 @@ Object {
 `;
 
 exports[`AppInstallModalContent should match a snapshot where not free but no pricing details 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           You are about to 
           enable
@@ -1423,33 +1319,31 @@ Object {
             all
           </b>
            Users and Offices within your Organisation.
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Desktop Integration
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-        </p>
+        </mock-styled.p>
         <div
-          class="el-mb6"
+          class="mock-css.
+  margin-bottom: 1rem;
+"
         >
-          <div
-            class="app-detail-permission-chip"
-          >
+          <mock-styled.div>
             Launchable from the applicant screen
-          </div>
-          <div
-            class="app-detail-permission-chip"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Provides ability to export a saved applicant to third party system
-          </div>
+          </mock-styled.div>
         </div>
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           For more information regarding Desktop Integration types, please
            
@@ -1461,14 +1355,14 @@ Object {
             click here
           </a>
           .
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Pricing Information
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           There may be a cost associated to using this 
           integration
@@ -1477,76 +1371,65 @@ Object {
           . Please contact 
           Will Test DevCo
            directly for information about pricing.
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Data Permissions
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Information about your organisation and the names/email addresses of your users
-        </p>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.p>
+        <mock-styled.div>
           Read applicants
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read property images
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read properties
-        </div>
+        </mock-styled.div>
       </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-center el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-low el-button-fixed-width el-button"
+          <mock-styled.button
+            classname="mock-css. mock-css."
           >
             Cancel
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-primary el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
             type="button"
           >
             Confirm
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         You are about to 
         enable
@@ -1557,33 +1440,31 @@ Object {
           all
         </b>
          Users and Offices within your Organisation.
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Desktop Integration
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-      </p>
+      </mock-styled.p>
       <div
-        class="el-mb6"
+        class="mock-css.
+  margin-bottom: 1rem;
+"
       >
-        <div
-          class="app-detail-permission-chip"
-        >
+        <mock-styled.div>
           Launchable from the applicant screen
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Provides ability to export a saved applicant to third party system
-        </div>
+        </mock-styled.div>
       </div>
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         For more information regarding Desktop Integration types, please
          
@@ -1595,14 +1476,14 @@ Object {
           click here
         </a>
         .
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Pricing Information
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         There may be a cost associated to using this 
         integration
@@ -1611,65 +1492,54 @@ Object {
         . Please contact 
         Will Test DevCo
          directly for information about pricing.
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Data Permissions
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Information about your organisation and the names/email addresses of your users
-      </p>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.p>
+      <mock-styled.div>
         Read applicants
-      </div>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         Read property images
-      </div>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         Read properties
-      </div>
+      </mock-styled.div>
     </div>
-    <div
-      class="el-button-group"
-    >
-      <div
-        class="el-button-group-align-center el-button-group-inner"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="el-intent-low el-button-fixed-width el-button"
+        <mock-styled.button
+          classname="mock-css. mock-css."
         >
           Cancel
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-intent-primary el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+          disabled="false"
           type="button"
         >
           Confirm
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1726,18 +1596,18 @@ Object {
 `;
 
 exports[`AppInstallModalContent should match a snapshot where not off grouping, not an org admin 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           You are about to 
           enable
@@ -1748,33 +1618,31 @@ Object {
             all
           </b>
            Users and Offices within your Organisation.
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Desktop Integration
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-        </p>
+        </mock-styled.p>
         <div
-          class="el-mb6"
+          class="mock-css.
+  margin-bottom: 1rem;
+"
         >
-          <div
-            class="app-detail-permission-chip"
-          >
+          <mock-styled.div>
             Launchable from the applicant screen
-          </div>
-          <div
-            class="app-detail-permission-chip"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Provides ability to export a saved applicant to third party system
-          </div>
+          </mock-styled.div>
         </div>
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           For more information regarding Desktop Integration types, please
            
@@ -1786,14 +1654,14 @@ Object {
             click here
           </a>
           .
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Pricing Information
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Will Test DevCo
            have specified that there is a cost for using this 
@@ -1811,84 +1679,73 @@ Object {
           to view their pricing information. You will be billed directly by 
           Will Test DevCo
           .
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           You will not be charged by Reapit Ltd for any costs associated with using this
            
           integration
           .
-        </p>
-        <p
-          class="el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Data Permissions
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Information about your organisation and the names/email addresses of your users
-        </p>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.p>
+        <mock-styled.div>
           Read applicants
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read property images
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read properties
-        </div>
+        </mock-styled.div>
       </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-center el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-low el-button-fixed-width el-button"
+          <mock-styled.button
+            classname="mock-css. mock-css."
           >
             Cancel
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-primary el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
             type="button"
           >
             Confirm
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         You are about to 
         enable
@@ -1899,33 +1756,31 @@ Object {
           all
         </b>
          Users and Offices within your Organisation.
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Desktop Integration
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-      </p>
+      </mock-styled.p>
       <div
-        class="el-mb6"
+        class="mock-css.
+  margin-bottom: 1rem;
+"
       >
-        <div
-          class="app-detail-permission-chip"
-        >
+        <mock-styled.div>
           Launchable from the applicant screen
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Provides ability to export a saved applicant to third party system
-        </div>
+        </mock-styled.div>
       </div>
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         For more information regarding Desktop Integration types, please
          
@@ -1937,14 +1792,14 @@ Object {
           click here
         </a>
         .
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Pricing Information
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Will Test DevCo
          have specified that there is a cost for using this 
@@ -1962,73 +1817,62 @@ Object {
         to view their pricing information. You will be billed directly by 
         Will Test DevCo
         .
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         You will not be charged by Reapit Ltd for any costs associated with using this
          
         integration
         .
-      </p>
-      <p
-        class="el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Data Permissions
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Information about your organisation and the names/email addresses of your users
-      </p>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.p>
+      <mock-styled.div>
         Read applicants
-      </div>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         Read property images
-      </div>
-      <div
-        class="app-detail-permission-chip"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         Read properties
-      </div>
+      </mock-styled.div>
     </div>
-    <div
-      class="el-button-group"
-    >
-      <div
-        class="el-button-group-align-center el-button-group-inner"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="el-intent-low el-button-fixed-width el-button"
+        <mock-styled.button
+          classname="mock-css. mock-css."
         >
           Cancel
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-intent-primary el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+          disabled="false"
           type="button"
         >
           Confirm
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

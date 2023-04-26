@@ -1,130 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FilterForm should render component 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="name"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Developer Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="company"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Company Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="gitHubUsername"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Github Username
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Registered From
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Registered To
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Status
-            </label>
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-select"
+            </mock-styled.label>
+            <mock-styled.div>
+              <mock-styled.select
                 name="status"
               >
                 <option
@@ -157,134 +120,97 @@ Object {
                 >
                   Removed
                 </option>
-              </select>
-            </div>
-          </div>
-        </div>
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-mb11 el-form-layout"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="name"
               type="search"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Developer Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="company"
               type="search"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Company Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="gitHubUsername"
               type="search"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Github Username
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="registeredFrom"
               type="date"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Registered From
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="registeredTo"
               type="date"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Registered To
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <label
-            class="el-label"
-          >
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             Status
-          </label>
-          <div
-            class="el-input-group"
-          >
-            <select
-              class="el-select"
+          </mock-styled.label>
+          <mock-styled.div>
+            <mock-styled.select
               name="status"
             >
               <option
@@ -317,10 +243,10 @@ Object {
               >
                 Removed
               </option>
-            </select>
-          </div>
-        </div>
-      </div>
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

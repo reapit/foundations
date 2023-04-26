@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HelperContent should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -13,31 +13,45 @@ Object {
       <div />
     </div>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="hzqukf0-helper-content-container"
-      >
+      <mock-styled.div />
+      <mock-styled.div>
         <div
-          class="e6p05ya-el-fade-in"
+          class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <h2
-            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             About Apps
-          </h2>
-          <div
-            class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
           >
             <div
-              class="e1g28qe3-el-mb7"
+              class="mock-css.
+  margin-bottom: 1.25rem;
+"
             >
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              <mock-styled.p
+                classname="mock-css."
               >
                 Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
-              </p>
+              </mock-styled.p>
               <img
                 alt="Video placeholder"
                 src="[object Object]"
@@ -47,43 +61,49 @@ Object {
             <div
               class=""
             >
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              <mock-styled.p
+                classname="mock-css."
               >
                 On a basic level an app is the means to authenticate against our services. To create an app, you should follow the steps in the wizard on the left of this page.
-              </p>
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.p>
+              <mock-styled.p
+                classname="mock-css."
               >
                 When you have completed this wizard, you will land on a dedicated page for your App, that will give you the Client Id, and in the case of server-side apps, a Client Secret, that will enable you to authenticate against out APIs. From here you can get started with development against our developer sandbox data.
-              </p>
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.p>
+              <mock-styled.p
+                classname="mock-css."
               >
                 When you are ready to go live with a customer, you will need to complete some additional information and submit your app for review by one of our team. On approval of your app, it will be listed in the AppMarket for your customers to install, this will then grant access to their production data.
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
+          </mock-styled.div>
         </div>
         <div
-          class="s1u7t7z0-step-is-hidden"
+          class="mock-css.
+  display: none;
+"
         >
-          <h2
-            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             AgencyCloud Functionality
-          </h2>
-          <div
-            class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
           >
             <div
-              class="e1g28qe3-el-mb7"
+              class="mock-css.
+  margin-bottom: 1.25rem;
+"
             >
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              <mock-styled.p
+                classname="mock-css."
               >
                 For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
-              </p>
+              </mock-styled.p>
               <img
                 alt="Video placeholder"
                 src="[object Object]"
@@ -93,62 +113,66 @@ Object {
             <div
               class=""
             >
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              <mock-styled.p
+                classname="mock-css."
               >
                 You can either launch your app from a dedicated menu, for example from a property or a contact, or even replace certain screens. Using our Desktop API your app can receive contextual information based on the screen or location the app is launched from. Providing relevant data for your users. For more information on our Desktop API please 
                 <a>
                   see here.
                 </a>
-              </p>
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.p>
+              <mock-styled.p
+                classname="mock-css."
               >
                 To ensure a consistent UI and UX, it is a requirement that apps that integrate with AgencyCloud use our Elements UI library and our Design System. If you want to familiarise yourself with this before moving on, you can 
                 <a>
                   view the docs here.
                 </a>
-              </p>
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.p>
+              <mock-styled.p
+                classname="mock-css."
               >
                 Please be aware that we do not support rendering of web applications that use a third-party UI. You cannot simply link out from your integrated app or render a pre-existing app in an iframe. For more information on the requirements, 
                 <a>
                   please click here.
                 </a>
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
+          </mock-styled.div>
         </div>
         <div
-          class="s1u7t7z0-step-is-hidden"
+          class="mock-css.
+  display: none;
+"
         >
-          <h2
-            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             External Web Applications
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             You should select this if you wish to integrate our Platform APIs with a pre-existing or future web application that you do not wish to launch from within the AgencyCloud desktop CRM.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             Your application can be authenticated against our Platform either on the client-side or server-side. If you choose client-side authentication at the next step but later wish to upgrade to a full AgencyCloud integration in the future, you can do this. However, it is important to note, server-side integrations cannot be launched from within AgencyCloud.
-          </p>
+          </mock-styled.p>
         </div>
         <div
-          class="s1u7t7z0-step-is-hidden"
+          class="mock-css.
+  display: none;
+"
         >
-          <h2
-            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Data Portal and Reporting Feeds
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             This is a server-side only data feed, using our
              
@@ -156,37 +180,43 @@ Object {
               Client Credentials authentication flow.
             </a>
              You should select this if you have no requirement to render your application inside of the AgencyCloud desktop CRM and, you have no requirement for user-centric client-side authentication.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             Typically, you will be pulling data to serve another application, to perform data processing or some other analytics function.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             You should also select this option if you require a permanent connection to our APIs; to pull data on demand as opposed to on the fly, when a user logs in to your application.
-          </p>
+          </mock-styled.p>
         </div>
         <div
-          class="s1u7t7z0-step-is-hidden"
+          class="mock-css.
+  display: none;
+"
         >
-          <h2
-            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Website Feeds
-          </h2>
-          <div
-            class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
           >
             <div
-              class="e1g28qe3-el-mb7"
+              class="mock-css.
+  margin-bottom: 1.25rem;
+"
             >
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              <mock-styled.p
+                classname="mock-css."
               >
                 It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
-              </p>
+              </mock-styled.p>
               <img
                 alt="Video placeholder"
                 src="[object Object]"
@@ -196,47 +226,49 @@ Object {
             <div
               class=""
             >
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              <mock-styled.p
+                classname="mock-css."
               >
                 When building a public website for a Reapit Customer, you will have no user authentication so your integration must be server-side, using our
                  
                 <a>
                   Client Credentials authentication flow.
                 </a>
-              </p>
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.p>
+              <mock-styled.p
+                classname="mock-css."
               >
                 Your application will be read-only and by selecting this option, we will pre-populate the typical API permissions your integration will need for most website development.
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
+          </mock-styled.div>
         </div>
         <div
-          class="s1u7t7z0-step-is-hidden"
+          class="mock-css.
+  display: none;
+"
         >
-          <h2
-            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Web Services to Platform
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             Select this option if you are migrating from the legacy Reapit SOAP API, or web services. These services will soon be deprecated so it is important to start your migration to the Foundations Platform as soon as possible.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             You will get options at the next steps to decide whether client or server-side authentication best serves your application needs however, in most cases web services applications are server-side using our
              
             <a>
               Client Credentials authentication flow.
             </a>
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             Please be aware there is not a 1:1 mapping between the SOAP and our Platform REST API. As such, we suggest reading the 
             <a>
@@ -253,23 +285,25 @@ Object {
                
             </a>
             to investigate which data sets and permissions you will need before getting started.
-          </p>
+          </mock-styled.p>
         </div>
         <div
-          class="s1u7t7z0-step-is-hidden"
+          class="mock-css.
+  display: none;
+"
         >
-          <h2
-            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Using Reapit Connect as an Identity Provider
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             We support using Reapit Connect, our client-side authentication solution, simply as an identity provider for your application.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             In this case, your client-side authenticated users will not have any data permissions however, you can access and validate their identity against your own application. For more on
              
@@ -281,18 +315,20 @@ Object {
             <a>
               visit here
             </a>
-          </p>
+          </mock-styled.p>
         </div>
         <div
-          class="s1u7t7z0-step-is-hidden"
+          class="mock-css.
+  display: none;
+"
         >
-          <h2
-            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Client Side Apps
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             Client-side Apps use our identity provider
              
@@ -305,9 +341,9 @@ Object {
               Authorization Code flow.
             </a>
              You will need to provide us with URIs to your application at the next step so we know where to return you to on login and on completion of this wizard, you will receive a Client ID you will need to get started.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             To make this process easier, we provide you with an authentication module for client-side apps,
              
@@ -320,21 +356,27 @@ Object {
               Create React App Template
             </a>
              for quick start client-side development.
-          </p>
+          </mock-styled.p>
         </div>
         <div
-          class="s1u7t7z0-step-is-hidden"
+          class="mock-css.
+  display: none;
+"
         >
-          <h2
-            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Server Side Apps
-          </h2>
-          <div
-            class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
           >
             <div
-              class="e1g28qe3-el-mb7"
+              class="mock-css.
+  margin-bottom: 1.25rem;
+"
             >
               <img
                 alt="Video placeholder"
@@ -345,8 +387,8 @@ Object {
             <div
               class=""
             >
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              <mock-styled.p
+                classname="mock-css."
               >
                 Server-side applications authenticate against our API using the
                  
@@ -354,25 +396,27 @@ Object {
                   Client Credentials authentication flow.
                 </a>
                  This process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all requests.
-              </p>
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.p>
+              <mock-styled.p
+                classname="mock-css."
               >
                 Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
+          </mock-styled.div>
         </div>
         <div
-          class="s1u7t7z0-step-is-hidden"
+          class="mock-css.
+  display: none;
+"
         >
-          <h2
-            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Reapit Connect Redirects
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             When using the Reapit Connect
              
@@ -380,9 +424,9 @@ Object {
               Authorization Code flow,
             </a>
              you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             We have pre-populated the URIs that you need when using our
              
@@ -390,18 +434,20 @@ Object {
               Create React App Template
             </a>
              however, any localhost (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
-          </p>
+          </mock-styled.p>
         </div>
         <div
-          class="s1u7t7z0-step-is-hidden"
+          class="mock-css.
+  display: none;
+"
         >
-          <h2
-            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Permissions
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our our Platform REST API. As such, it is worth looking at the
              
@@ -414,42 +460,56 @@ Object {
                
             </a>
             before procceeding, to investigate which permissions you think you will need.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             For some flows we have pre-populated suggested permissions based on what you have said you wish to acheive with our Platform. These can be removed or added as you see fit and all permissions can be edited later if you wish to add or remove them before your app goes live.
-          </p>
+          </mock-styled.p>
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="hzqukf0-helper-content-container"
-    >
+    <mock-styled.div />
+    <mock-styled.div>
       <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <h2
-          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           About Apps
-        </h2>
-        <div
-          class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
           <div
-            class="e1g28qe3-el-mb7"
+            class="mock-css.
+  margin-bottom: 1.25rem;
+"
           >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            <mock-styled.p
+              classname="mock-css."
             >
               Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
-            </p>
+            </mock-styled.p>
             <img
               alt="Video placeholder"
               src="[object Object]"
@@ -459,43 +519,49 @@ Object {
           <div
             class=""
           >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            <mock-styled.p
+              classname="mock-css."
             >
               On a basic level an app is the means to authenticate against our services. To create an app, you should follow the steps in the wizard on the left of this page.
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css."
             >
               When you have completed this wizard, you will land on a dedicated page for your App, that will give you the Client Id, and in the case of server-side apps, a Client Secret, that will enable you to authenticate against out APIs. From here you can get started with development against our developer sandbox data.
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css."
             >
               When you are ready to go live with a customer, you will need to complete some additional information and submit your app for review by one of our team. On approval of your app, it will be listed in the AppMarket for your customers to install, this will then grant access to their production data.
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
+        </mock-styled.div>
       </div>
       <div
-        class="s1u7t7z0-step-is-hidden"
+        class="mock-css.
+  display: none;
+"
       >
-        <h2
-          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           AgencyCloud Functionality
-        </h2>
-        <div
-          class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
           <div
-            class="e1g28qe3-el-mb7"
+            class="mock-css.
+  margin-bottom: 1.25rem;
+"
           >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            <mock-styled.p
+              classname="mock-css."
             >
               For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
-            </p>
+            </mock-styled.p>
             <img
               alt="Video placeholder"
               src="[object Object]"
@@ -505,62 +571,66 @@ Object {
           <div
             class=""
           >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            <mock-styled.p
+              classname="mock-css."
             >
               You can either launch your app from a dedicated menu, for example from a property or a contact, or even replace certain screens. Using our Desktop API your app can receive contextual information based on the screen or location the app is launched from. Providing relevant data for your users. For more information on our Desktop API please 
               <a>
                 see here.
               </a>
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css."
             >
               To ensure a consistent UI and UX, it is a requirement that apps that integrate with AgencyCloud use our Elements UI library and our Design System. If you want to familiarise yourself with this before moving on, you can 
               <a>
                 view the docs here.
               </a>
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css."
             >
               Please be aware that we do not support rendering of web applications that use a third-party UI. You cannot simply link out from your integrated app or render a pre-existing app in an iframe. For more information on the requirements, 
               <a>
                 please click here.
               </a>
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
+        </mock-styled.div>
       </div>
       <div
-        class="s1u7t7z0-step-is-hidden"
+        class="mock-css.
+  display: none;
+"
       >
-        <h2
-          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           External Web Applications
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           You should select this if you wish to integrate our Platform APIs with a pre-existing or future web application that you do not wish to launch from within the AgencyCloud desktop CRM.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Your application can be authenticated against our Platform either on the client-side or server-side. If you choose client-side authentication at the next step but later wish to upgrade to a full AgencyCloud integration in the future, you can do this. However, it is important to note, server-side integrations cannot be launched from within AgencyCloud.
-        </p>
+        </mock-styled.p>
       </div>
       <div
-        class="s1u7t7z0-step-is-hidden"
+        class="mock-css.
+  display: none;
+"
       >
-        <h2
-          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Data Portal and Reporting Feeds
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           This is a server-side only data feed, using our
            
@@ -568,37 +638,43 @@ Object {
             Client Credentials authentication flow.
           </a>
            You should select this if you have no requirement to render your application inside of the AgencyCloud desktop CRM and, you have no requirement for user-centric client-side authentication.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Typically, you will be pulling data to serve another application, to perform data processing or some other analytics function.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           You should also select this option if you require a permanent connection to our APIs; to pull data on demand as opposed to on the fly, when a user logs in to your application.
-        </p>
+        </mock-styled.p>
       </div>
       <div
-        class="s1u7t7z0-step-is-hidden"
+        class="mock-css.
+  display: none;
+"
       >
-        <h2
-          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Website Feeds
-        </h2>
-        <div
-          class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
           <div
-            class="e1g28qe3-el-mb7"
+            class="mock-css.
+  margin-bottom: 1.25rem;
+"
           >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            <mock-styled.p
+              classname="mock-css."
             >
               It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
-            </p>
+            </mock-styled.p>
             <img
               alt="Video placeholder"
               src="[object Object]"
@@ -608,47 +684,49 @@ Object {
           <div
             class=""
           >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            <mock-styled.p
+              classname="mock-css."
             >
               When building a public website for a Reapit Customer, you will have no user authentication so your integration must be server-side, using our
                
               <a>
                 Client Credentials authentication flow.
               </a>
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css."
             >
               Your application will be read-only and by selecting this option, we will pre-populate the typical API permissions your integration will need for most website development.
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
+        </mock-styled.div>
       </div>
       <div
-        class="s1u7t7z0-step-is-hidden"
+        class="mock-css.
+  display: none;
+"
       >
-        <h2
-          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Web Services to Platform
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           Select this option if you are migrating from the legacy Reapit SOAP API, or web services. These services will soon be deprecated so it is important to start your migration to the Foundations Platform as soon as possible.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           You will get options at the next steps to decide whether client or server-side authentication best serves your application needs however, in most cases web services applications are server-side using our
            
           <a>
             Client Credentials authentication flow.
           </a>
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Please be aware there is not a 1:1 mapping between the SOAP and our Platform REST API. As such, we suggest reading the 
           <a>
@@ -665,23 +743,25 @@ Object {
              
           </a>
           to investigate which data sets and permissions you will need before getting started.
-        </p>
+        </mock-styled.p>
       </div>
       <div
-        class="s1u7t7z0-step-is-hidden"
+        class="mock-css.
+  display: none;
+"
       >
-        <h2
-          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Using Reapit Connect as an Identity Provider
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           We support using Reapit Connect, our client-side authentication solution, simply as an identity provider for your application.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           In this case, your client-side authenticated users will not have any data permissions however, you can access and validate their identity against your own application. For more on
            
@@ -693,18 +773,20 @@ Object {
           <a>
             visit here
           </a>
-        </p>
+        </mock-styled.p>
       </div>
       <div
-        class="s1u7t7z0-step-is-hidden"
+        class="mock-css.
+  display: none;
+"
       >
-        <h2
-          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Client Side Apps
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           Client-side Apps use our identity provider
            
@@ -717,9 +799,9 @@ Object {
             Authorization Code flow.
           </a>
            You will need to provide us with URIs to your application at the next step so we know where to return you to on login and on completion of this wizard, you will receive a Client ID you will need to get started.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           To make this process easier, we provide you with an authentication module for client-side apps,
            
@@ -732,21 +814,27 @@ Object {
             Create React App Template
           </a>
            for quick start client-side development.
-        </p>
+        </mock-styled.p>
       </div>
       <div
-        class="s1u7t7z0-step-is-hidden"
+        class="mock-css.
+  display: none;
+"
       >
-        <h2
-          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Server Side Apps
-        </h2>
-        <div
-          class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
           <div
-            class="e1g28qe3-el-mb7"
+            class="mock-css.
+  margin-bottom: 1.25rem;
+"
           >
             <img
               alt="Video placeholder"
@@ -757,8 +845,8 @@ Object {
           <div
             class=""
           >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            <mock-styled.p
+              classname="mock-css."
             >
               Server-side applications authenticate against our API using the
                
@@ -766,25 +854,27 @@ Object {
                 Client Credentials authentication flow.
               </a>
                This process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all requests.
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css."
             >
               Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
+        </mock-styled.div>
       </div>
       <div
-        class="s1u7t7z0-step-is-hidden"
+        class="mock-css.
+  display: none;
+"
       >
-        <h2
-          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Reapit Connect Redirects
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           When using the Reapit Connect
            
@@ -792,9 +882,9 @@ Object {
             Authorization Code flow,
           </a>
            you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           We have pre-populated the URIs that you need when using our
            
@@ -802,18 +892,20 @@ Object {
             Create React App Template
           </a>
            however, any localhost (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
-        </p>
+        </mock-styled.p>
       </div>
       <div
-        class="s1u7t7z0-step-is-hidden"
+        class="mock-css.
+  display: none;
+"
       >
-        <h2
-          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Permissions
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our our Platform REST API. As such, it is worth looking at the
            
@@ -826,14 +918,14 @@ Object {
              
           </a>
           before procceeding, to investigate which permissions you think you will need.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           For some flows we have pre-populated suggested permissions based on what you have said you wish to acheive with our Platform. These can be removed or added as you see fit and all permissions can be edited later if you wish to add or remove them before your app goes live.
-        </p>
+        </mock-styled.p>
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

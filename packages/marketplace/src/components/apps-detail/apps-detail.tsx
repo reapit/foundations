@@ -28,11 +28,11 @@ import {
   useModal,
   PersistentNotification,
 } from '@reapit/elements'
-import { useHistory, useParams } from 'react-router-dom'
-import { AcProcessType, DesktopLink, HTMLRender, useReapitGet } from '@reapit/utils-react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { AcProcessType, DesktopLink, HTMLRender } from '@reapit/utils-react'
 import { AppDetailModel, DesktopIntegrationTypeModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GetActionNames, getActions } from '../../../../utils-common/src'
+import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import {
   AppDetailBackButton,
   AppsDetailContentColMain,
@@ -154,8 +154,8 @@ export const handleSalesBannerClick =
   }
 
 export const AppsDetail: FC = () => {
-  const history = useHistory()
-  const { appId } = useParams<AppIdParams>()
+  const navigate = useNavigate()
+  const { appId } = useParams<'appId'>()
   const imageRefs = useRef<LegacyRef<HTMLDivElement>[]>([])
   const mediaQuery = useMediaQuery()
   const carouselCols = useMemo<number>(handleCarouselCols(mediaQuery), [mediaQuery])
@@ -171,7 +171,7 @@ export const AppsDetail: FC = () => {
 
   const [unfilteredAppDetail, appDetailLoading, , refetchApp] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
+    action: getActions[GetActionNames.getAppById],
     queryParams: { clientId },
     uriParams: {
       appId,
@@ -183,7 +183,7 @@ export const AppsDetail: FC = () => {
 
   const [desktopIntegrationTypes] = useReapitGet<DesktopIntegrationTypeModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDesktopIntegrationTypes],
+    action: getActions[GetActionNames.getDesktopIntegrationTypes],
   })
 
   const app = appDetail ?? {}
@@ -291,12 +291,12 @@ export const AppsDetail: FC = () => {
       ) : (
         <>
           {/* Feature flagging sales banner in production */}
-          {window.reapit.config.appEnv !== 'production' && (
+          {process.env.appEnv !== 'production' && (
             <PersistentNotification onClick={salesBannerClick} isExpanded={salesBannerVisible} intent="critical">
               Interested in hearing more about this app? Click here and one of the Reapit Team will be in touch!
             </PersistentNotification>
           )}
-          <AppDetailBackButton onClick={navigateBack(history)}>
+          <AppDetailBackButton onClick={navigateBack(navigate)}>
             <Icon icon="backSystem" intent="primary" />
           </AppDetailBackButton>
           <AppsDetailHeader app={app} />

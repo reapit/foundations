@@ -1,59 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminApprovals should render component when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           App Revision Approvals
-        </h1>
-        <div
-          class="el-loader-container"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         App Revision Approvals
-      </h1>
-      <div
-        class="el-loader-container"
+      </mock-styled.h1>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
-    </section>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -110,345 +94,279 @@ Object {
 `;
 
 exports[`AdminApprovals should render component with data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           App Revision Approvals
-        </h1>
-        <div
-          class="el-mb11 el-table"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="2"
         >
-          <div
-            class="el-table-headers-row"
-          >
-            <div
-              class="el-table-header"
-            >
+          <mock-styled.div>
+            <mock-styled.div>
               Description
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Created Date
-            </div>
-            <div
-              class="el-table-header"
-            >
-              <span
-                class="el-icon"
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="el-table-row-container"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-row"
-            >
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Description"
                 >
                   App 'Reapit Insights' has been modified
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Created Date"
                 >
                   25 Mar 2022 08:32
-                </div>
-              </div>
-              <div
-                class="el-table-expandable-row-trigger-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <span
-                  class="el-intent-secondary el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-            <div
-              class="el-table-expandable-row"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-expandable-container"
-              >
-                <div
-                  class="el-button-group"
-                >
-                  <div
-                    class="el-button-group-align-center el-button-group-inner"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
                   >
-                    <button
-                      class="el-intent-secondary el-button"
+                    <mock-styled.button
+                      classname="mock-css."
                     >
                       View in AppMarket
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-secondary el-button"
-                      disabled=""
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="true"
                     >
                       View in DevPortal
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
                       type="button"
                     >
                       View Revision
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-secondary el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
                     >
                       View Consents
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-pagination-wrap"
-        >
-          <div
-            class="el-pagination-text"
-          >
-            <input
-              class="el-pagination-input"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               value="1"
             />
              of 
             1
-          </div>
-          <button
-            class="el-pagination-button"
+          </mock-styled.div>
+          <mock-styled.button
             data-testid="back-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-          <button
-            class="el-pagination-button"
+            </mock-styled.span>
+          </mock-styled.button>
+          <mock-styled.button
             data-testid="forward-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-        </div>
-      </section>
+            </mock-styled.span>
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         App Revision Approvals
-      </h1>
-      <div
-        class="el-mb11 el-table"
+      </mock-styled.h1>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="2"
       >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             Description
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Created Date
-          </div>
-          <div
-            class="el-table-header"
-          >
-            <span
-              class="el-icon"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.2rem;"
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Description"
               >
                 App 'Reapit Insights' has been modified
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Created Date"
               >
                 25 Mar 2022 08:32
-              </div>
-            </div>
-            <div
-              class="el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-expandable-container"
-            >
-              <div
-                class="el-button-group"
-              >
-                <div
-                  class="el-button-group-align-center el-button-group-inner"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
                 >
-                  <button
-                    class="el-intent-secondary el-button"
+                  <mock-styled.button
+                    classname="mock-css."
                   >
                     View in AppMarket
-                    <div
-                      class="el-button-loader"
-                    />
-                  </button>
-                  <button
-                    class="el-intent-secondary el-button"
-                    disabled=""
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="true"
                   >
                     View in DevPortal
-                    <div
-                      class="el-button-loader"
-                    />
-                  </button>
-                  <button
-                    class="el-intent-primary el-button"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
                     type="button"
                   >
                     View Revision
-                    <div
-                      class="el-button-loader"
-                    />
-                  </button>
-                  <button
-                    class="el-intent-secondary el-button"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
                   >
                     View Consents
-                    <div
-                      class="el-button-loader"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-pagination-wrap"
-      >
-        <div
-          class="el-pagination-text"
-        >
-          <input
-            class="el-pagination-input"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           1
-        </div>
-        <button
-          class="el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-      </div>
-    </section>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

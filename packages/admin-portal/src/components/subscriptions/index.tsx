@@ -67,7 +67,7 @@ const Subscriptions: FC = () => {
 
   const [subscriptions, subscriptionsLoading, , refetchSubs] = useReapitGet<SubscriptionModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getSubscriptions],
+    action: getActions[GetActionNames.getSubscriptions],
     queryParams: {
       ...objectToQuery(subscriptionsFilters),
       userEmail: subscriptionsFilters.userEmail ? encodeURIComponent(subscriptionsFilters.userEmail ?? '') : undefined,
@@ -78,7 +78,7 @@ const Subscriptions: FC = () => {
 
   const [, , cancelSub, cancelSubSuccess] = useReapitUpdate<void, null>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteSubscription],
+    action: updateActions[UpdateActionNames.deleteSubscription],
     method: 'DELETE',
     uriParams: {
       subscriptionId: cancelSubId,

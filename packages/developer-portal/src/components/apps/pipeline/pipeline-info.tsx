@@ -17,7 +17,7 @@ import { PipelineDeploymentTable } from './pipeline-deployments-table'
 import { PipelineTabs } from './pipeline-tabs'
 
 export const getAppFromPipeline = (isGithub: boolean) => {
-  const isProd = window.reapit.config.appEnv === 'production'
+  const isProd = process.env.appEnv === 'production'
   const isBitbucket = !isGithub
 
   if (isBitbucket && isProd) return 'https://bitbucket.org/site/addons/authorize?addon_key=reapit'

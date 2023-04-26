@@ -1,129 +1,205 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-mb5 el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+"
       >
-        <div
-          class="app-detail-wrapper"
-        >
-          <img
+        <mock-styled.div>
+          <mock-styled.img
             alt="will-test-dev-co-voracious-person"
-            class="el-fade-in app-detail-icon"
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
           />
-        </div>
-        <div
-          class="el-flex-column el-flex-justify-between el-flex-container"
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: space-between;
+"
         >
-          <div
-            class="el-flex-column el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
           >
-            <h1
-              class="el-has-no-margin el-title"
+            <mock-styled.h1
+              classname="mock-css."
             >
               will-test-dev-co-voracious-person
-            </h1>
-            <p
-              class="el-has-grey-text el-body-text"
+            </mock-styled.h1>
+            <mock-styled.p
+              classname="mock-css."
             >
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </p>
-          </div>
-          <div
-            class="el-flex-container"
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr5 el-intent-success el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css."
             >
               <svg />
-            </span>
-            <p
-              class="el-mr5 el-has-no-margin el-small-text"
+            </mock-styled.span>
+            <mock-styled.p
+              classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css."
             >
               Verified by Reapit
-            </p>
-            <div
-              class="el-fade-in app-detail-category-chip"
+            </mock-styled.p>
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
               Category
-            </div>
-            <p
-              class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
+            </mock-styled.div>
+            <mock-styled.p
+              classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css. mock-css."
             >
               Integration
-            </p>
-          </div>
-        </div>
-      </div>
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-mb5 el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 0.75rem;
+"
     >
-      <div
-        class="app-detail-wrapper"
-      >
-        <img
+      <mock-styled.div>
+        <mock-styled.img
           alt="will-test-dev-co-voracious-person"
-          class="el-fade-in app-detail-icon"
+          classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
         />
-      </div>
-      <div
-        class="el-flex-column el-flex-justify-between el-flex-container"
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: space-between;
+"
       >
-        <div
-          class="el-flex-column el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
-          <h1
-            class="el-has-no-margin el-title"
+          <mock-styled.h1
+            classname="mock-css."
           >
             will-test-dev-co-voracious-person
-          </h1>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h1>
+          <mock-styled.p
+            classname="mock-css."
           >
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </p>
-        </div>
-        <div
-          class="el-flex-container"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <span
-            class="el-mr5 el-intent-success el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css."
           >
             <svg />
-          </span>
-          <p
-            class="el-mr5 el-has-no-margin el-small-text"
+          </mock-styled.span>
+          <mock-styled.p
+            classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css."
           >
             Verified by Reapit
-          </p>
-          <div
-            class="el-fade-in app-detail-category-chip"
+          </mock-styled.p>
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           >
             Category
-          </div>
-          <p
-            class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
+          </mock-styled.div>
+          <mock-styled.p
+            classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css. mock-css."
           >
             Integration
-          </p>
-        </div>
-      </div>
-    </div>
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -180,145 +256,249 @@ Object {
 `;
 
 exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-mb5 el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+"
       >
-        <div
-          class="el-flex-column el-flex-justify-between el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: space-between;
+"
         >
-          <div
-            class="el-flex-justify-between el-flex-align-end el-mb3 el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: flex-end;
+ mock-css.
+  margin-bottom: 0.5rem;
+"
           >
-            <h2
-              class="app-detail-info-line-adjust el-has-bold-text el-has-no-margin el-subtitle"
+            <mock-styled.h2
+              classname="mock-css.
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+ mock-css. mock-css."
             >
               will-test-dev-co-voracious-person
-            </h2>
-            <div
-              class="el-flex-container"
+            </mock-styled.h2>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr2 el-intent-success el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.375rem;
+ mock-css."
               >
                 <svg />
-              </span>
-              <p
-                class="el-mr2 app-detail-info-line-adjust el-has-no-margin el-small-text"
+              </mock-styled.span>
+              <mock-styled.p
+                classname="mock-css.
+  margin-right: 0.375rem;
+ mock-css.
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+ mock-css."
               >
                 Verified by Reapit
-              </p>
-            </div>
-          </div>
-          <div
-            class="el-flex-container"
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="app-detail-wrapper"
-            >
-              <img
+            <mock-styled.div>
+              <mock-styled.img
                 alt="will-test-dev-co-voracious-person"
-                class="el-fade-in app-detail-icon"
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
                 src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
               />
-            </div>
-            <p
-              class="el-has-grey-text el-small-text"
+            </mock-styled.div>
+            <mock-styled.p
+              classname="mock-css."
             >
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </p>
-          </div>
-          <div
-            class="el-flex-container"
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-fade-in app-detail-category-chip"
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
               Category
-            </div>
-            <p
-              class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
+            </mock-styled.div>
+            <mock-styled.p
+              classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css. mock-css."
             >
               Integration
-            </p>
-          </div>
-        </div>
-      </div>
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-mb5 el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 0.75rem;
+"
     >
-      <div
-        class="el-flex-column el-flex-justify-between el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: space-between;
+"
       >
-        <div
-          class="el-flex-justify-between el-flex-align-end el-mb3 el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: flex-end;
+ mock-css.
+  margin-bottom: 0.5rem;
+"
         >
-          <h2
-            class="app-detail-info-line-adjust el-has-bold-text el-has-no-margin el-subtitle"
+          <mock-styled.h2
+            classname="mock-css.
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+ mock-css. mock-css."
           >
             will-test-dev-co-voracious-person
-          </h2>
-          <div
-            class="el-flex-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr2 el-intent-success el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.375rem;
+ mock-css."
             >
               <svg />
-            </span>
-            <p
-              class="el-mr2 app-detail-info-line-adjust el-has-no-margin el-small-text"
+            </mock-styled.span>
+            <mock-styled.p
+              classname="mock-css.
+  margin-right: 0.375rem;
+ mock-css.
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+ mock-css."
             >
               Verified by Reapit
-            </p>
-          </div>
-        </div>
-        <div
-          class="el-flex-container"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="app-detail-wrapper"
-          >
-            <img
+          <mock-styled.div>
+            <mock-styled.img
               alt="will-test-dev-co-voracious-person"
-              class="el-fade-in app-detail-icon"
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
               src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
             />
-          </div>
-          <p
-            class="el-has-grey-text el-small-text"
+          </mock-styled.div>
+          <mock-styled.p
+            classname="mock-css."
           >
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </p>
-        </div>
-        <div
-          class="el-flex-container"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-fade-in app-detail-category-chip"
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           >
             Category
-          </div>
-          <p
-            class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
+          </mock-styled.div>
+          <mock-styled.p
+            classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css. mock-css."
           >
             Integration
-          </p>
-        </div>
-      </div>
-    </div>
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

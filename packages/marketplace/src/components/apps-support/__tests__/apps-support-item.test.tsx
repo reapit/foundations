@@ -1,12 +1,13 @@
 import React from 'react'
 import { AppsSupportItem } from '../apps-support-item'
 import { render } from '../../../tests/react-testing'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockAppDetailModel, mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
-jest.mock('@reapit/utils-react', () => ({
-  ...jest.requireActual('@reapit/utils-react'),
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(),
 }))
 

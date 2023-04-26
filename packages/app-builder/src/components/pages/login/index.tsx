@@ -6,7 +6,7 @@ import { KeyAnimation } from '@reapit/utils-react'
 import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
 
 export const onLoginButtonClick = () => () => {
-  getReapitConnectBrowserSession(window.reapit.config).connectLoginRedirect()
+  getReapitConnectBrowserSession(process.env).connectLoginRedirect()
 }
 
 export const Login: FC = () => {

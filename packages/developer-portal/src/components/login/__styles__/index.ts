@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { forMobileOnly } from '@/core/__styles__/media'
+import { forMobileOnly } from '../../../core/__styles__/media'
 
 export const LoginContainer = styled.div`
   min-width: 100vw;

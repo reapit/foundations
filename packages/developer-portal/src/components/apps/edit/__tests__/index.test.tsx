@@ -3,7 +3,6 @@ import { AppEditPage, handleChangeTab } from '..'
 import { render, setViewport } from '../../../../tests/react-testing'
 import { useAppState } from '../../state/use-app-state'
 import { mockAppState } from '../../state/__mocks__/use-app-state'
-import { History } from 'history'
 import Routes from '../../../../constants/routes'
 
 jest.mock('../../state/use-app-state')
@@ -55,14 +54,12 @@ describe('handleChangeTab', () => {
         value: 'MOCK_VALUE',
       },
     } as ChangeEvent<HTMLInputElement>
-    const history = {
-      push: jest.fn(),
-    } as unknown as History
+    const navigate = jest.fn()
 
-    const curried = handleChangeTab(appId, history)
+    const curried = handleChangeTab(navigate, appId)
 
     curried(event)
 
-    expect(history.push).toHaveBeenCalledWith(`${Routes.APPS}/${appId}/edit/${event.target.value}`)
+    expect(navigate).toHaveBeenCalledWith(`${Routes.APPS}/${appId}/edit/${event.target.value}`)
   })
 })

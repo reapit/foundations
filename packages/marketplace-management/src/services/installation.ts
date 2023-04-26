@@ -20,7 +20,7 @@ export const bulkInstall = async (
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const response = await fetcher({
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         url: `${URLS.INSTALLATIONS}/bulk`,
         body: {
           appId,
@@ -46,7 +46,7 @@ export const installOrg = async (body: CreateInstallationModel): Promise<boolean
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const response = await fetcher({
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         url: URLS.INSTALLATIONS,
         body,
         method: 'POST',
@@ -69,7 +69,7 @@ export const uninstallOrg = async (
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const response = await fetcher({
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         url: `${URLS.INSTALLATIONS}/${installationId}/terminate`,
         body,
         method: 'POST',

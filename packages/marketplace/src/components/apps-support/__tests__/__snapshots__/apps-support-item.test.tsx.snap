@@ -1,53 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppsSupportItem should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-card-wrap"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-card-list-main-wrap"
-        >
-          <h5
-            class="el-card-list-heading"
-          >
+        <mock-styled.div>
+          <mock-styled.h5>
             MOCK_APP_NAME
-          </h5>
-          <h6
-            class="el-card-list-sub-heading"
-          >
+          </mock-styled.h5>
+          <mock-styled.h6>
             Will Test DevCo
-          </h6>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+          </mock-styled.h6>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Website
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               <a
                 href="https://foo.bar"
                 rel="noopener noreferrer"
@@ -55,32 +37,22 @@ Object {
               >
                 https://foo.bar
               </a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Support Email
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               <a
                 href="mailto:foo@bar.com"
                 rel="noopener noreferrer"
@@ -88,59 +60,39 @@ Object {
               >
                 foo@bar.com
               </a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Telephone
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               07777777777
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Terms and Conditions
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               <a
                 href="https://foo.bar"
                 rel="noopener noreferrer"
@@ -148,32 +100,22 @@ Object {
               >
                 https://foo.bar
               </a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Privacy Policy
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               <a
                 href="https://foo.bar"
                 rel="noopener noreferrer"
@@ -181,32 +123,22 @@ Object {
               >
                 https://foo.bar
               </a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Pricing Policy
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               <a
                 href="https://foo.bar"
                 rel="noopener noreferrer"
@@ -214,56 +146,38 @@ Object {
               >
                 https://foo.bar
               </a>
-            </div>
-          </div>
-        </div>
-      </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-card-wrap"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-card-list-main-wrap"
-      >
-        <h5
-          class="el-card-list-heading"
-        >
+      <mock-styled.div>
+        <mock-styled.h5>
           MOCK_APP_NAME
-        </h5>
-        <h6
-          class="el-card-list-sub-heading"
-        >
+        </mock-styled.h5>
+        <mock-styled.h6>
           Will Test DevCo
-        </h6>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+        </mock-styled.h6>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Website
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             <a
               href="https://foo.bar"
               rel="noopener noreferrer"
@@ -271,32 +185,22 @@ Object {
             >
               https://foo.bar
             </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Support Email
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             <a
               href="mailto:foo@bar.com"
               rel="noopener noreferrer"
@@ -304,59 +208,39 @@ Object {
             >
               foo@bar.com
             </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Telephone
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             07777777777
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Terms and Conditions
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             <a
               href="https://foo.bar"
               rel="noopener noreferrer"
@@ -364,32 +248,22 @@ Object {
             >
               https://foo.bar
             </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Privacy Policy
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             <a
               href="https://foo.bar"
               rel="noopener noreferrer"
@@ -397,32 +271,22 @@ Object {
             >
               https://foo.bar
             </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Pricing Policy
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             <a
               href="https://foo.bar"
               rel="noopener noreferrer"
@@ -430,10 +294,10 @@ Object {
             >
               https://foo.bar
             </a>
-          </div>
-        </div>
-      </div>
-    </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -490,375 +354,239 @@ Object {
 `;
 
 exports[`AppsSupportItem should match a snapshot where details not supplied 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-card-wrap"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-card-list-main-wrap"
-        >
-          <h5
-            class="el-card-list-heading"
-          >
+        <mock-styled.div>
+          <mock-styled.h5>
             MOCK_APP_NAME
-          </h5>
-          <h6
-            class="el-card-list-sub-heading"
-          />
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+          </mock-styled.h5>
+          <mock-styled.h6 />
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Website
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Not Supplied
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Support Email
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Not Supplied
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Telephone
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Not Supplied
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Terms and Conditions
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Not Supplied
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Privacy Policy
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Not Supplied
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Pricing Policy
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Free
-            </div>
-          </div>
-        </div>
-      </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-card-wrap"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-card-list-main-wrap"
-      >
-        <h5
-          class="el-card-list-heading"
-        >
+      <mock-styled.div>
+        <mock-styled.h5>
           MOCK_APP_NAME
-        </h5>
-        <h6
-          class="el-card-list-sub-heading"
-        />
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+        </mock-styled.h5>
+        <mock-styled.h6 />
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Website
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Not Supplied
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Support Email
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Not Supplied
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Telephone
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Not Supplied
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Terms and Conditions
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Not Supplied
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Privacy Policy
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Not Supplied
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Pricing Policy
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Free
-          </div>
-        </div>
-      </div>
-    </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

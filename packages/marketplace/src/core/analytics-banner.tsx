@@ -4,13 +4,13 @@ import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { getRoleFromGroups } from './analytics'
 import mixpanel from 'mixpanel-browser'
 import { PersistentNotification } from '@reapit/elements'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
+import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { UserModel, UpdateUserModel } from '@reapit/foundations-ts-definitions'
 import { cookieBannerPosition } from './__styles__'
 import { useAppsBrowseState } from './use-apps-browse-state'
 import { useLocation } from 'react-router'
-import { Routes } from '../constants/routes'
+import { RoutePaths } from '../constants/routes'
 
 export const handleSetUserConsent =
   (
@@ -19,7 +19,7 @@ export const handleSetUserConsent =
     setTrackingBannerVisible: Dispatch<SetStateAction<boolean>>,
   ) =>
   () => {
-    const isLocal = window.reapit.config.appEnv !== 'production'
+    const isLocal = process.env.appEnv !== 'production'
     if (!currentUserState || !connectSession) return
 
     if (currentUserState.consentToTrack) {
@@ -96,7 +96,7 @@ export const AnalyticsBanner: FC = () => {
 
   const [, , updateUser] = useReapitUpdate<UpdateUserModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateUser],
+    action: updateActions[UpdateActionNames.updateUser],
     method: 'PUT',
     uriParams: {
       userId,
@@ -119,7 +119,7 @@ export const AnalyticsBanner: FC = () => {
     trackingBannerVisible,
   ])
 
-  return currentUserState && currentUserState.consentToTrack && pathname !== Routes.SETTINGS_PROFILE ? (
+  return currentUserState && currentUserState.consentToTrack && pathname !== RoutePaths.SETTINGS_PROFILE ? (
     <PersistentNotification
       onClick={trackingBannerClick}
       className={cookieBannerPosition}

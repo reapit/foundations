@@ -7,7 +7,8 @@
     "paths": {
       "@reapit/elements": ["../elements/src"],
       "@reapit/utils-common": ["../utils-common/src"],
-      "@reapit/utils-react": ["../utils-react/src"],
+      "@reapit/utils-react": ["../utils-react"],
+      "@reapit/use-reapit-data": ["../use-reapit-data"],
       "@reapit/connect-session": ["../connect-session/src"]
     }
   },

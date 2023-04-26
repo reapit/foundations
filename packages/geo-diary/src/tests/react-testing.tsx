@@ -2,29 +2,26 @@
  * Renders a React Component with  UI providers as a testing convenience
  */
 
-import React, { FC, ReactElement } from 'react'
+import React, { FC, PropsWithChildren, ReactElement } from 'react'
 import { queries, render, RenderOptions } from '@testing-library/react'
 import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
-import { Router } from 'react-router-dom'
-import { createBrowserHistory, History } from 'history'
-// import { AppStateProvider } from '../core/app-state'
 import { ApolloProvider } from '@apollo/client'
 import client from '../graphql/client'
+import { MemoryRouter, Route, Routes } from 'react-router'
 
-const CombinedProvider: FC = ({ children }) => {
-  const history: History<any> = createBrowserHistory()
+const CombinedProvider: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <Router history={history}>
-      {/* <AppStateProvider> */}
-      <SnackProvider>
-        <NavStateProvider>
-          <MediaStateProvider>
-            <ApolloProvider client={client}> {children}</ApolloProvider>
-          </MediaStateProvider>
-        </NavStateProvider>
-      </SnackProvider>
-      {/* </AppStateProvider> */}
-    </Router>
+    <SnackProvider>
+      <NavStateProvider>
+        <MediaStateProvider>
+          <MemoryRouter>
+            <Routes>
+              <Route path="/" element={<ApolloProvider client={client}> {children}</ApolloProvider>} />
+            </Routes>
+          </MemoryRouter>
+        </MediaStateProvider>
+      </NavStateProvider>
+    </SnackProvider>
   )
 }
 

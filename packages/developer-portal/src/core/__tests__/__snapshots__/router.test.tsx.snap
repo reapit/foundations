@@ -1,65 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FourOFour should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <section
-        class="eukst9x-el-page-container"
-      >
-        <div
-          class="e1vxext9-el-intent-danger evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.div
+          classname="mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="eta6kcl-el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="ej9yrfo-el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="e1geon40-el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             Page not found
           </div>
-        </div>
-      </section>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <section
-      class="eukst9x-el-page-container"
-    >
-      <div
-        class="e1vxext9-el-intent-danger evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.div
+        classname="mock-css. mock-css. mock-css. mock-css."
       >
         <div
-          class="eta6kcl-el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="e1geon40-el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           Page not found
         </div>
-      </div>
-    </section>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -115,50 +137,16 @@ Object {
 }
 `;
 
-exports[`Router should match a snapshot 1`] = `
-Object {
+exports[`RouteRoutesComponent should match a snapshot 1`] = `
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <main
-        class="e16s02q7-el-main-container"
-      >
-        <div
-          class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
-        >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </main>
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <main
-      class="e16s02q7-el-main-container"
-    >
-      <div
-        class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
-      >
-        <div
-          class="eq1m1jz-el-loader"
-        >
-          <div
-            class="exikdu1-el-loader-moving-bar"
-          />
-        </div>
-      </div>
-    </main>
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

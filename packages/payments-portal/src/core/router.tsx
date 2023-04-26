@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
-import { Route, Router as BrowserRouter, Switch } from 'react-router-dom'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import { createBrowserHistory, History } from 'history'
-import { Routes } from '../constants/routes'
-import { PageContainer, PersistentNotification } from '@reapit/elements'
+import { RoutePaths } from '../constants/routes'
 import { catchChunkError } from '@reapit/utils-react'
+import { PageContainer, PersistentNotification } from '@reapit/elements'
 
 export const history: History<any> = createBrowserHistory()
 
@@ -17,14 +17,16 @@ export const FourOFour: FC = () => (
   </PageContainer>
 )
 
-const Router = () => (
-  <BrowserRouter history={history}>
-    <React.Suspense fallback={null}>
-      <Switch>
-        <Route path={Routes.PAYMENT} component={PaymentPage} exact />
-        <Route render={() => <FourOFour />} />
-      </Switch>
-    </React.Suspense>
+export const RoutesComponent: FC = () => (
+  <Routes>
+    <Route path={RoutePaths.PAYMENT} element={<PaymentPage />} />
+    <Route path={RoutePaths.HOME} index element={<FourOFour />} />
+  </Routes>
+)
+
+const Router: FC = () => (
+  <BrowserRouter>
+    <RoutesComponent />
   </BrowserRouter>
 )
 

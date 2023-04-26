@@ -11,7 +11,6 @@ import {
   Table as ELTable,
   useSnack,
 } from '@reapit/elements'
-import { cx } from '@linaria/core'
 
 import { ComponentWrapper, ContainerProps } from './container'
 import { uppercaseSentence } from './utils'
@@ -24,11 +23,11 @@ import { notEmpty } from '../../../../components/hooks/use-introspection/helpers
 import { usePageId } from '../../../../components/hooks/use-page-id'
 import { useObjectSpecials } from '../../../../components/hooks/objects/use-object-specials'
 import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
-import { styled } from '@linaria/react'
 import { getLabel, Input as FormInput } from './form-input'
 import { useObject } from '@/components/hooks/objects/use-object'
 import { IntrospectionResult } from '@/components/hooks/use-introspection/parse-introspection'
 import { QueryableField } from '@/components/hooks/use-introspection/types'
+import { FilterContainer, FiltersContainer } from './__styles__'
 
 export interface TableProps extends ContainerProps {
   typeName?: string
@@ -269,18 +268,6 @@ const argsToDefaultFilters = (args?: ParsedArg[]) => {
   return obj
 }
 
-const FilterContainer = styled.div`
-  display: flex;
-  flex: 1;
-
-  :not(:last-child) {
-    margin-right: 1rem;
-  }
-`
-const FiltersContainer = styled.div`
-  display: flex;
-`
-
 const Filters = ({
   filters,
   setFilters,
@@ -408,7 +395,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
 
     return (
       <ComponentWrapper {...props} ref={ref}>
-        <div className={cx(elFlex, elFlex1, elFlexColumn)}>
+        <div className={`${elFlex} ${elFlex1}, ${elFlexColumn}`}>
           {searchAvailable && (
             <Input type="text" placeholder="Search" value={queryStr} onChange={(e) => setQueryStr(e.target.value)} />
           )}

@@ -1,16 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HTMLRender should render match to snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
         class="html-render"
       >
-        <div
-          class="higv0h0"
-        >
+        <mock-styled.div>
           <div>
             <b>
               bold
@@ -39,7 +37,7 @@ Object {
               </li>
             </ul>
           </div>
-        </div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
@@ -47,9 +45,7 @@ Object {
     <div
       class="html-render"
     >
-      <div
-        class="higv0h0"
-      >
+      <mock-styled.div>
         <div>
           <b>
             bold
@@ -78,7 +74,7 @@ Object {
             </li>
           </ul>
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],
@@ -136,7 +132,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag a 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -211,7 +207,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag b 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -280,7 +276,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag blockquote 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -349,7 +345,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag h1 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -418,7 +414,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag h2 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -487,7 +483,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag hr 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -552,7 +548,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag i 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -621,7 +617,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag li 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -690,7 +686,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag ol 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -759,7 +755,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag p 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -828,7 +824,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag pre 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -897,7 +893,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag u 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -966,7 +962,7 @@ Object {
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag ul 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>

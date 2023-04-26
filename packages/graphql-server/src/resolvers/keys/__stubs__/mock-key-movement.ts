@@ -10,7 +10,7 @@ export const mockKeyMovementUpdate: UpdateKeyMovementArgs = {
 export const mockKeyMovement: CreateKeyMovementArgs = {
   keyId: 'keyId',
   propertyId: 'propertyId',
-  keyMovement: {},
+  movement: {},
   // @ts-ignore
   checkInNegotiator: undefined,
   checkOutNegotiator: undefined,

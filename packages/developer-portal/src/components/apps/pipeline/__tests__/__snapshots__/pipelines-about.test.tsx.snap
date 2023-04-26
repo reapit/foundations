@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PipelinesAbout should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e20pb60-el-grid"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eb3z2eu-el-col-split"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1ffzzrg-el-mb10 i147akox-icon-container"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
             <svg
               class=""
@@ -156,41 +156,108 @@ Object {
                 />
               </g>
             </svg>
-          </div>
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Pipeline Deployments
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             Pipelines are configurations used to deploy applications to our infrastructure. Think of them like a CI / CD runner like Github Actions, Travis or CircleCI
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             A Pipeline can be created via the developer portal or via our CLI NPM package.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             When you have created a pipeline for your app, you can either deploy it from the command line from a zip file, or by pulling directly from a Github or Bitbucket repo. This will give you a link to your deployed service in the Reapit Platform Cloud.
-          </p>
-          <button
-            class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
           >
             Create Pipeline
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-        <div
-          class="eb3z2eu-el-col-split"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1ffzzrg-el-mb10 i147akox-icon-container"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
             <svg
               class=""
@@ -385,7 +452,7 @@ Object {
                   </g>
                   <g
                     id="webhooks-docs-svg-element-nine"
-                    style="offset-path: path(\\"M37.255498,23.852076L39.921657,34.649638\\"); offset-rotate: auto;"
+                    style="offset-path: path("M37.255498,23.852076L39.921657,34.649638"); offset-rotate: auto;"
                   >
                     <g
                       id="webhooks-docs-svg-element-ten"
@@ -411,7 +478,7 @@ Object {
                   </g>
                   <g
                     id="webhooks-docs-svg-element-twelve"
-                    style="offset-path: path(\\"M103.180305,18.127591L98.950013,25.52561\\"); offset-rotate: auto;"
+                    style="offset-path: path("M103.180305,18.127591L98.950013,25.52561"); offset-rotate: auto;"
                   >
                     <g
                       id="webhooks-docs-svg-element-thirteen"
@@ -465,46 +532,44 @@ Object {
                 </clippath>
               </g>
             </svg>
-          </div>
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Pipeline Documentation
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             For more on how to get started with Pipelines and deploying to Reapit infrastructure as a Service (IAAS), visit the doucmentation link below.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             Please note, this service is a public Alpha and there may be some reliabilty issues while we refine our processes. As such, for now you should only use our infra for internal testing, pre-production applications and non-mission critical services.
-          </p>
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css."
           >
             View Docs
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e20pb60-el-grid"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eb3z2eu-el-col-split"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1ffzzrg-el-mb10 i147akox-icon-container"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
           <svg
             class=""
@@ -645,41 +710,108 @@ Object {
               />
             </g>
           </svg>
-        </div>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Pipeline Deployments
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           Pipelines are configurations used to deploy applications to our infrastructure. Think of them like a CI / CD runner like Github Actions, Travis or CircleCI
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           A Pipeline can be created via the developer portal or via our CLI NPM package.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           When you have created a pipeline for your app, you can either deploy it from the command line from a zip file, or by pulling directly from a Github or Bitbucket repo. This will give you a link to your deployed service in the Reapit Platform Cloud.
-        </p>
-        <button
-          class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
         >
           Create Pipeline
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-      <div
-        class="eb3z2eu-el-col-split"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1ffzzrg-el-mb10 i147akox-icon-container"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
           <svg
             class=""
@@ -874,7 +1006,7 @@ Object {
                 </g>
                 <g
                   id="webhooks-docs-svg-element-nine"
-                  style="offset-path: path(\\"M37.255498,23.852076L39.921657,34.649638\\"); offset-rotate: auto;"
+                  style="offset-path: path("M37.255498,23.852076L39.921657,34.649638"); offset-rotate: auto;"
                 >
                   <g
                     id="webhooks-docs-svg-element-ten"
@@ -900,7 +1032,7 @@ Object {
                 </g>
                 <g
                   id="webhooks-docs-svg-element-twelve"
-                  style="offset-path: path(\\"M103.180305,18.127591L98.950013,25.52561\\"); offset-rotate: auto;"
+                  style="offset-path: path("M103.180305,18.127591L98.950013,25.52561"); offset-rotate: auto;"
                 >
                   <g
                     id="webhooks-docs-svg-element-thirteen"
@@ -954,32 +1086,30 @@ Object {
               </clippath>
             </g>
           </svg>
-        </div>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Pipeline Documentation
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           For more on how to get started with Pipelines and deploying to Reapit infrastructure as a Service (IAAS), visit the doucmentation link below.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Please note, this service is a public Alpha and there may be some reliabilty issues while we refine our processes. As such, for now you should only use our infra for internal testing, pre-production applications and non-mission critical services.
-        </p>
-        <button
-          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

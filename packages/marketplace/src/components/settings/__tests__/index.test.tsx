@@ -4,8 +4,8 @@ import { TrackingEvent } from '../../../core/analytics-events'
 import { render } from '../../../tests/react-testing'
 import { handleLogout, SettingsPage } from '../index'
 
-window.reapit.config.clientHiddenAppIds = {}
-window.reapit.config.orgAdminRestrictedAppIds = []
+process.env.clientHiddenAppIds = {}
+process.env.orgAdminRestrictedAppIds = []
 
 jest.mock('../../../core/analytics')
 jest.mock('@reapit/connect-session', () => ({

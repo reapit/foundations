@@ -11,28 +11,30 @@ import {
   useMediaQuery,
   useModal,
 } from '@reapit/elements'
-import { AppUriParams, useAppState } from '../state/use-app-state'
+import { useAppState } from '../state/use-app-state'
 import { handleSetAppId } from '../utils/handle-set-app-id'
-import { useHistory, useLocation, useParams } from 'react-router-dom'
+import { NavigateFunction, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { AppEditTab } from './edit-page-tabs'
 import { AppEditForm } from './app-edit-form'
 import { Helper } from '../page/helper'
-import { History } from 'history'
 import Routes from '../../../constants/routes'
 
-export const handleChangeTab = (appId: string, history: History) => (event: ChangeEvent<HTMLInputElement>) => {
-  history.push(`${Routes.APPS}/${appId}/edit/${event.target.value}`)
-}
+export const handleChangeTab =
+  (navigate: NavigateFunction, appId?: string) => (event: ChangeEvent<HTMLInputElement>) => {
+    if (appId) {
+      navigate(`${Routes.APPS}/${appId}/edit/${event.target.value}`)
+    }
+  }
 
 export const AppEditPage: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
-  const { appId } = useParams<AppUriParams>()
+  const { appId } = useParams<'appId'>()
   const { appsDataState, setAppId } = useAppState()
   const { isMobile } = useMediaQuery()
   const { Modal, openModal, closeModal } = useModal()
 
-  useEffect(handleSetAppId(appId, setAppId), [appId])
+  useEffect(handleSetAppId(setAppId, appId), [appId])
 
   const { appDetail, appDetailLoading } = appsDataState
   const { pathname } = location
@@ -64,7 +66,7 @@ export const AppEditPage: FC = () => {
       <Tabs
         isFullWidth
         name="app-edit-tabs"
-        onChange={handleChangeTab(appId, history)}
+        onChange={handleChangeTab(navigate, appId)}
         options={
           [
             {
@@ -72,7 +74,7 @@ export const AppEditPage: FC = () => {
               value: AppEditTab.general,
               text: 'About Listings',
               isChecked:
-                pathname.includes(AppEditTab.general) || pathname === Routes.APPS_EDIT.replace(':appId', appId),
+                pathname.includes(AppEditTab.general) || pathname === Routes.APPS_EDIT.replace(':appId', appId ?? ''),
             },
             {
               id: AppEditTab.appListing,

@@ -15,7 +15,7 @@ export const fetchCustomersList = async (params: CustomerListParams): Promise<Cu
     if (headers) {
       return fetcher({
         url: `${URLS.customers}/?${setQueryParams(params)}`,
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         method: 'GET',
         headers,
       })

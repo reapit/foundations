@@ -157,9 +157,9 @@ export const handleGetLandlords =
 export const handleGetAmlInstallation =
   (setAppState: Dispatch<SetStateAction<AppState>>, accessToken?: string, clientId?: string | null) => (): void => {
     const getAmlInstallations = async (): Promise<void> => {
-      const amlAppId = window.reapit.config.amlAppId
+      const amlAppId = process.env.amlAppId
       const amlInstallations: InstallationModelPagedResult | never = await fetcher({
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         url: `/marketplace/installations?appId=${amlAppId}&clientId=${clientId}&isInstalled=true`,
         method: 'GET',
         headers: {

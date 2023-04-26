@@ -1,25 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppDetail should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.div />
+      <mock-styled.h1
+        classname=""
       >
         will-test-dev-co-voracious-person
-      </h1>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.h1>
+      <mock-styled.h2
+        classname=""
       >
         Authenticating Your App
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         Client-side Apps use our identity provider
          
@@ -32,9 +30,9 @@ Object {
           Authorization Code flow.
         </a>
          You will need the Client Id and Redirect Uris below to configure Reapit Connect.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css. mock-css."
       >
         To make this process easier, we provide you with an authentication module for client-side apps,
          
@@ -47,178 +45,191 @@ Object {
           Create React App Template
         </a>
          for quick start client-side development.
-      </p>
-      <div
-        class="e20pb60-el-grid"
+      </mock-styled.p>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e14pp0yd-el-col"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Authentication Client Id
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 MOCK_EXTERNAL_ID
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          </mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
           >
             Copy
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 App Id
-              </h2>
-              <p
-                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css.
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css."
               >
                 MOCK_APP_ID
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          </mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
           >
             Copy
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Redirect Uri(s)
-          </h2>
-          <p
-            class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css.
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css. mock-css."
           >
             https://foo.bar
-          </p>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Sign Out Uri(s)
-          </h2>
-          <p
-            class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css.
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css. mock-css."
           >
             https://foo.bar
-          </p>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e14pp0yd-el-col"
+          <mock-styled.div
+            classname=""
           >
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Integration Type
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
-            </p>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e14pp0yd-el-col"
+          <mock-styled.div
+            classname=""
           >
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               App Status
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               Your app is live and public in the AppMarket with a pending revision under review
-            </p>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Permissions
-          </h2>
-          <div
-            class="p11sa0f-permission-chip"
-          >
+          </mock-styled.h2>
+          <mock-styled.div>
             Read applicants
-          </div>
-          <div
-            class="p11sa0f-permission-chip"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Read properties
-          </div>
-        </div>
-      </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <h1
-      class="e1byern-el-title"
+    <mock-styled.div />
+    <mock-styled.h1
+      classname=""
     >
       will-test-dev-co-voracious-person
-    </h1>
-    <h2
-      class="e15ggth7-el-subtitle"
+    </mock-styled.h1>
+    <mock-styled.h2
+      classname=""
     >
       Authenticating Your App
-    </h2>
-    <p
-      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       Client-side Apps use our identity provider
        
@@ -231,9 +242,9 @@ Object {
         Authorization Code flow.
       </a>
        You will need the Client Id and Redirect Uris below to configure Reapit Connect.
-    </p>
-    <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
+    </mock-styled.p>
+    <mock-styled.p
+      classname="mock-css. mock-css."
     >
       To make this process easier, we provide you with an authentication module for client-side apps,
        
@@ -246,160 +257,175 @@ Object {
         Create React App Template
       </a>
        for quick start client-side development.
-    </p>
-    <div
-      class="e20pb60-el-grid"
+    </mock-styled.p>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="e14pp0yd-el-col"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname=""
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Authentication Client Id
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
             >
               MOCK_EXTERNAL_ID
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-        <button
-          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+        </mock-styled.div>
+        <mock-styled.button
+          classname="mock-css."
         >
           Copy
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname=""
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               App Id
-            </h2>
-            <p
-              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css.
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css."
             >
               MOCK_APP_ID
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-        <button
-          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+        </mock-styled.div>
+        <mock-styled.button
+          classname="mock-css."
         >
           Copy
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Redirect Uri(s)
-        </h2>
-        <p
-          class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css.
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css. mock-css."
         >
           https://foo.bar
-        </p>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Sign Out Uri(s)
-        </h2>
-        <p
-          class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css.
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css. mock-css."
         >
           https://foo.bar
-        </p>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e14pp0yd-el-col"
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Integration Type
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
-          </p>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e14pp0yd-el-col"
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             App Status
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             Your app is live and public in the AppMarket with a pending revision under review
-          </p>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Permissions
-        </h2>
-        <div
-          class="p11sa0f-permission-chip"
-        >
+        </mock-styled.h2>
+        <mock-styled.div>
           Read applicants
-        </div>
-        <div
-          class="p11sa0f-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read properties
-        </div>
-      </div>
-    </div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -456,25 +482,23 @@ Object {
 `;
 
 exports[`AppDetail should match snapshot when app is client credentials 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.div />
+      <mock-styled.h1
+        classname=""
       >
         will-test-dev-co-voracious-person
-      </h1>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.h1>
+      <mock-styled.h2
+        classname=""
       >
         Authenticating Your App
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         Client-side Apps use our identity provider
          
@@ -487,9 +511,9 @@ Object {
           Authorization Code flow.
         </a>
          You will need the Client Id and Redirect Uris below to configure Reapit Connect.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css. mock-css."
       >
         To make this process easier, we provide you with an authentication module for client-side apps,
          
@@ -502,178 +526,191 @@ Object {
           Create React App Template
         </a>
          for quick start client-side development.
-      </p>
-      <div
-        class="e20pb60-el-grid"
+      </mock-styled.p>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e14pp0yd-el-col"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Authentication Client Id
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 MOCK_EXTERNAL_ID
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          </mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
           >
             Copy
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e2kmzjs-el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 App Id
-              </h2>
-              <p
-                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css.
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css."
               >
                 MOCK_APP_ID
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          </mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
           >
             Copy
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Redirect Uri(s)
-          </h2>
-          <p
-            class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css.
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css. mock-css."
           >
             https://foo.bar
-          </p>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Sign Out Uri(s)
-          </h2>
-          <p
-            class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css.
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css. mock-css."
           >
             https://foo.bar
-          </p>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e14pp0yd-el-col"
+          <mock-styled.div
+            classname=""
           >
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Integration Type
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
-            </p>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e14pp0yd-el-col"
+          <mock-styled.div
+            classname=""
           >
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               App Status
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css. mock-css."
             >
               Your app is live and public in the AppMarket with a pending revision under review
-            </p>
-          </div>
-        </div>
-        <div
-          class="e14pp0yd-el-col"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Permissions
-          </h2>
-          <div
-            class="p11sa0f-permission-chip"
-          >
+          </mock-styled.h2>
+          <mock-styled.div>
             Read applicants
-          </div>
-          <div
-            class="p11sa0f-permission-chip"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Read properties
-          </div>
-        </div>
-      </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <h1
-      class="e1byern-el-title"
+    <mock-styled.div />
+    <mock-styled.h1
+      classname=""
     >
       will-test-dev-co-voracious-person
-    </h1>
-    <h2
-      class="e15ggth7-el-subtitle"
+    </mock-styled.h1>
+    <mock-styled.h2
+      classname=""
     >
       Authenticating Your App
-    </h2>
-    <p
-      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       Client-side Apps use our identity provider
        
@@ -686,9 +723,9 @@ Object {
         Authorization Code flow.
       </a>
        You will need the Client Id and Redirect Uris below to configure Reapit Connect.
-    </p>
-    <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
+    </mock-styled.p>
+    <mock-styled.p
+      classname="mock-css. mock-css."
     >
       To make this process easier, we provide you with an authentication module for client-side apps,
        
@@ -701,160 +738,175 @@ Object {
         Create React App Template
       </a>
        for quick start client-side development.
-    </p>
-    <div
-      class="e20pb60-el-grid"
+    </mock-styled.p>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="e14pp0yd-el-col"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname=""
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               Authentication Client Id
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
             >
               MOCK_EXTERNAL_ID
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-        <button
-          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+        </mock-styled.div>
+        <mock-styled.button
+          classname="mock-css."
         >
           Copy
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e2kmzjs-el-flex-container"
+        <mock-styled.div
+          classname=""
         >
-          <span
-            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           <div>
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+            <mock-styled.h2
+              classname="mock-css."
             >
               App Id
-            </h2>
-            <p
-              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css.
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css."
             >
               MOCK_APP_ID
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-        <button
-          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+        </mock-styled.div>
+        <mock-styled.button
+          classname="mock-css."
         >
           Copy
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Redirect Uri(s)
-        </h2>
-        <p
-          class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css.
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css. mock-css."
         >
           https://foo.bar
-        </p>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Sign Out Uri(s)
-        </h2>
-        <p
-          class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css.
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css. mock-css."
         >
           https://foo.bar
-        </p>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e14pp0yd-el-col"
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Integration Type
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
-          </p>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e14pp0yd-el-col"
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             App Status
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             Your app is live and public in the AppMarket with a pending revision under review
-          </p>
-        </div>
-      </div>
-      <div
-        class="e14pp0yd-el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Permissions
-        </h2>
-        <div
-          class="p11sa0f-permission-chip"
-        >
+        </mock-styled.h2>
+        <mock-styled.div>
           Read applicants
-        </div>
-        <div
-          class="p11sa0f-permission-chip"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Read properties
-        </div>
-      </div>
-    </div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -911,41 +963,29 @@ Object {
 `;
 
 exports[`AppDetail should match snapshot where loading apps 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="ebhrnzh-el-loader-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eq1m1jz-el-loader"
-        >
-          <div
-            class="exikdu1-el-loader-moving-bar"
-          />
-        </div>
-      </div>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="ebhrnzh-el-loader-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eq1m1jz-el-loader"
-      >
-        <div
-          class="exikdu1-el-loader-moving-bar"
-        />
-      </div>
-    </div>
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1002,57 +1042,83 @@ Object {
 `;
 
 exports[`AppDetail should match snapshot where no app found 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css. mock-css. mock-css. mock-css."
       >
         <div
-          class="eta6kcl-el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="e1geon40-el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           No record of this app found
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css. mock-css. mock-css. mock-css."
     >
       <div
-        class="eta6kcl-el-pn-icon"
+        class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
         data-testid="close-icon"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
+        </mock-styled.span>
       </div>
       <div
-        class="e1geon40-el-pn-content"
+        class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
       >
         No record of this app found
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

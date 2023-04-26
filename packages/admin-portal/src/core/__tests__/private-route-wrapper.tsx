@@ -21,7 +21,7 @@ jest.mock('@reapit/connect-session', () => ({
 
 describe('PrivateRouteWrapper', () => {
   it('should match snapshot', () => {
-    const wrapper = render(<PrivateRouteWrapper path="/" />)
+    const wrapper = render(<PrivateRouteWrapper />)
     expect(wrapper).toMatchSnapshot()
   })
 })

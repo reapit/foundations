@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
-import { useHistory } from 'react-router'
 import ErrorBoundary from '../../../core/error-boundary'
-import Routes from '../../../constants/routes'
+import RoutePaths from '../../../constants/routes'
 import {
   elFadeIn,
   elHFull,
@@ -13,8 +12,8 @@ import {
   SecondaryNavItem,
   Title,
 } from '@reapit/elements'
-import { navigate } from '../../../utils/navigation'
-import { Route, Switch, useLocation } from 'react-router-dom'
+import { navigateRoute } from '../../../utils/navigation'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import AnalyticsCostsPage from '../costs'
 import AnalyticsCalculatorPage from '../calculator'
 import AnalyticsInstallationsPage from '../installations'
@@ -26,7 +25,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 export const AnalyticsPage: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { pathname } = location
@@ -38,27 +37,27 @@ export const AnalyticsPage: FC = () => {
         <Title>Analytics</Title>
         <SecondaryNav className={cx(elMb8, elFadeIn)}>
           <SecondaryNavItem
-            onClick={navigate(history, Routes.ANALYTICS_API_CALLS)}
-            active={pathname === Routes.ANALYTICS_API_CALLS}
+            onClick={navigateRoute(navigate, RoutePaths.ANALYTICS_API_CALLS)}
+            active={pathname === RoutePaths.ANALYTICS_API_CALLS}
           >
             API Usage
           </SecondaryNavItem>
           <SecondaryNavItem
-            onClick={navigate(history, Routes.ANALYTICS_COSTS)}
-            active={pathname === Routes.ANALYTICS_COSTS}
+            onClick={navigateRoute(navigate, RoutePaths.ANALYTICS_COSTS)}
+            active={pathname === RoutePaths.ANALYTICS_COSTS}
           >
             Costs
           </SecondaryNavItem>
           <SecondaryNavItem
-            onClick={navigate(history, Routes.ANALYTICS_INSTALLATIONS)}
-            active={pathname === Routes.ANALYTICS_INSTALLATIONS}
+            onClick={navigateRoute(navigate, RoutePaths.ANALYTICS_INSTALLATIONS)}
+            active={pathname === RoutePaths.ANALYTICS_INSTALLATIONS}
           >
             Installations
           </SecondaryNavItem>
           {isCustomer && (
             <SecondaryNavItem
-              onClick={navigate(history, Routes.ANALYTICS_COST_CALCULATOR)}
-              active={pathname === Routes.ANALYTICS_COST_CALCULATOR}
+              onClick={navigateRoute(navigate, RoutePaths.ANALYTICS_COST_CALCULATOR)}
+              active={pathname === RoutePaths.ANALYTICS_COST_CALCULATOR}
             >
               Cost Calculator
             </SecondaryNavItem>
@@ -68,12 +67,18 @@ export const AnalyticsPage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <ErrorBoundary>
-          <Switch>
-            <Route path={Routes.ANALYTICS_API_CALLS} exact component={AnalyticsCallsPage} />
-            <Route path={Routes.ANALYTICS_COSTS} exact component={AnalyticsCostsPage} />
-            <Route path={Routes.ANALYTICS_INSTALLATIONS} exact component={AnalyticsInstallationsPage} />
-            <Route path={Routes.ANALYTICS_COST_CALCULATOR} exact component={AnalyticsCalculatorPage} />
-          </Switch>
+          <Routes>
+            <Route path={RoutePaths.ANALYTICS_API_CALLS.replace('/analytics/', '')} element={<AnalyticsCallsPage />} />
+            <Route path={RoutePaths.ANALYTICS_COSTS.replace('/analytics/', '')} element={<AnalyticsCostsPage />} />
+            <Route
+              path={RoutePaths.ANALYTICS_INSTALLATIONS.replace('/analytics/', '')}
+              element={<AnalyticsInstallationsPage />}
+            />
+            <Route
+              path={RoutePaths.ANALYTICS_COST_CALCULATOR.replace('/analytics/', '')}
+              element={<AnalyticsCalculatorPage />}
+            />
+          </Routes>
         </ErrorBoundary>
       </PageContainer>
     </FlexContainer>

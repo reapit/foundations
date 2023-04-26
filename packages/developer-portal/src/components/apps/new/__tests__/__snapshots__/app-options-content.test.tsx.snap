@@ -1,263 +1,263 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppOptionsContent should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="s1gxdqv9-step-option-item-selected s16agsy2-step-option-item"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <span
-          class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 1.5rem;
+"
           style="font-size: 2rem;"
         >
           <svg />
-        </span>
-        <div
-          class="se3ab8l-step-option-item-text"
-        >
+        </mock-styled.span>
+        <mock-styled.div>
           AgencyCloud Functionality
-        </div>
-        <span
-          class="ebee6r1-el-intent-primary ej9yrfo-el-icon"
+        </mock-styled.div>
+        <mock-styled.span
+          classname="mock-css."
         >
           <svg />
-        </span>
-      </div>
-      <div
-        class="s16agsy2-step-option-item"
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <span
-          class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 1.5rem;
+"
           style="font-size: 2rem;"
         >
           <svg />
-        </span>
-        <div
-          class="se3ab8l-step-option-item-text"
-        >
+        </mock-styled.span>
+        <mock-styled.div>
           Create an External Web Application
-        </div>
-      </div>
-      <div
-        class="s16agsy2-step-option-item"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <span
-          class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 1.5rem;
+"
           style="font-size: 2rem;"
         >
           <svg />
-        </span>
-        <div
-          class="se3ab8l-step-option-item-text"
-        >
+        </mock-styled.span>
+        <mock-styled.div>
           Data / Portal / Reporting Feed
-        </div>
-      </div>
-      <div
-        class="s16agsy2-step-option-item"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <span
-          class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 1.5rem;
+"
           style="font-size: 2rem;"
         >
           <svg />
-        </span>
-        <div
-          class="se3ab8l-step-option-item-text"
-        >
+        </mock-styled.span>
+        <mock-styled.div>
           Website Feed
-        </div>
-      </div>
-      <div
-        class="s16agsy2-step-option-item"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <span
-          class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 1.5rem;
+"
           style="font-size: 2rem;"
         >
           <svg />
-        </span>
-        <div
-          class="se3ab8l-step-option-item-text"
-        >
+        </mock-styled.span>
+        <mock-styled.div>
           WebServices to Platform
-        </div>
-      </div>
-      <div
-        class="s16agsy2-step-option-item"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <span
-          class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 1.5rem;
+"
           style="font-size: 2rem;"
         >
           <svg />
-        </span>
-        <div
-          class="se3ab8l-step-option-item-text"
-        >
+        </mock-styled.span>
+        <mock-styled.div>
           Reapit Connect as ID Provider
-        </div>
-      </div>
-      <div
-        class="s16agsy2-step-option-item"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <span
-          class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 1.5rem;
+"
           style="font-size: 2rem;"
         >
           <svg />
-        </span>
-        <div
-          class="se3ab8l-step-option-item-text"
-        >
+        </mock-styled.span>
+        <mock-styled.div>
           Client Side App
-        </div>
-      </div>
-      <div
-        class="s16agsy2-step-option-item"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <span
-          class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 1.5rem;
+"
           style="font-size: 2rem;"
         >
           <svg />
-        </span>
-        <div
-          class="se3ab8l-step-option-item-text"
-        >
+        </mock-styled.span>
+        <mock-styled.div>
           Server Side Integration
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="s1gxdqv9-step-option-item-selected s16agsy2-step-option-item"
+    <mock-styled.div
+      classname="mock-css."
     >
-      <span
-        class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-right: 1.5rem;
+"
         style="font-size: 2rem;"
       >
         <svg />
-      </span>
-      <div
-        class="se3ab8l-step-option-item-text"
-      >
+      </mock-styled.span>
+      <mock-styled.div>
         AgencyCloud Functionality
-      </div>
-      <span
-        class="ebee6r1-el-intent-primary ej9yrfo-el-icon"
+      </mock-styled.div>
+      <mock-styled.span
+        classname="mock-css."
       >
         <svg />
-      </span>
-    </div>
-    <div
-      class="s16agsy2-step-option-item"
+      </mock-styled.span>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <span
-        class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-right: 1.5rem;
+"
         style="font-size: 2rem;"
       >
         <svg />
-      </span>
-      <div
-        class="se3ab8l-step-option-item-text"
-      >
+      </mock-styled.span>
+      <mock-styled.div>
         Create an External Web Application
-      </div>
-    </div>
-    <div
-      class="s16agsy2-step-option-item"
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <span
-        class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-right: 1.5rem;
+"
         style="font-size: 2rem;"
       >
         <svg />
-      </span>
-      <div
-        class="se3ab8l-step-option-item-text"
-      >
+      </mock-styled.span>
+      <mock-styled.div>
         Data / Portal / Reporting Feed
-      </div>
-    </div>
-    <div
-      class="s16agsy2-step-option-item"
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <span
-        class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-right: 1.5rem;
+"
         style="font-size: 2rem;"
       >
         <svg />
-      </span>
-      <div
-        class="se3ab8l-step-option-item-text"
-      >
+      </mock-styled.span>
+      <mock-styled.div>
         Website Feed
-      </div>
-    </div>
-    <div
-      class="s16agsy2-step-option-item"
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <span
-        class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-right: 1.5rem;
+"
         style="font-size: 2rem;"
       >
         <svg />
-      </span>
-      <div
-        class="se3ab8l-step-option-item-text"
-      >
+      </mock-styled.span>
+      <mock-styled.div>
         WebServices to Platform
-      </div>
-    </div>
-    <div
-      class="s16agsy2-step-option-item"
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <span
-        class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-right: 1.5rem;
+"
         style="font-size: 2rem;"
       >
         <svg />
-      </span>
-      <div
-        class="se3ab8l-step-option-item-text"
-      >
+      </mock-styled.span>
+      <mock-styled.div>
         Reapit Connect as ID Provider
-      </div>
-    </div>
-    <div
-      class="s16agsy2-step-option-item"
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <span
-        class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-right: 1.5rem;
+"
         style="font-size: 2rem;"
       >
         <svg />
-      </span>
-      <div
-        class="se3ab8l-step-option-item-text"
-      >
+      </mock-styled.span>
+      <mock-styled.div>
         Client Side App
-      </div>
-    </div>
-    <div
-      class="s16agsy2-step-option-item"
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <span
-        class="e1y7nq95-el-mr8 ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-right: 1.5rem;
+"
         style="font-size: 2rem;"
       >
         <svg />
-      </span>
-      <div
-        class="se3ab8l-step-option-item-text"
-      >
+      </mock-styled.span>
+      <mock-styled.div>
         Server Side Integration
-      </div>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

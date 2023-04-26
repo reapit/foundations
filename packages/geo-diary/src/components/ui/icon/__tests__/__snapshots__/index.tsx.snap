@@ -1,16 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Icon component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <span
-        class="icon-container"
+        class="mock-css.
+  display: flex;
+  color: black;
+"
       >
         <svg
           height="15px"
@@ -47,12 +48,13 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <span
-      class="icon-container"
+      class="mock-css.
+  display: flex;
+  color: black;
+"
     >
       <svg
         height="15px"
@@ -142,16 +144,17 @@ Object {
 `;
 
 exports[`Icon component should match a snapshot when color prop is supplied 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <span
-        class="icon-container"
+        class="mock-css.
+  display: flex;
+  color: black;
+"
         style="color: red;"
       >
         <svg
@@ -189,12 +192,13 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <span
-      class="icon-container"
+      class="mock-css.
+  display: flex;
+  color: black;
+"
       style="color: red;"
     >
       <svg
@@ -285,20 +289,16 @@ Object {
 `;
 
 exports[`Icon component should render nothing if invalid icon prop is supplied 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
   </div>,
   "debug": [Function],

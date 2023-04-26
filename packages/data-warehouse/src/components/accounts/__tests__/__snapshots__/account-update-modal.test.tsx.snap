@@ -1,176 +1,140 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AccountUpdateModal should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           Enter new password below
-        </p>
-        <div
-          class="el-mb11 el-form-layout"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="password"
                 placeholder="*********"
                 type="password"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Password
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="passwordConfirm"
                 placeholder="*********"
                 type="password"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Confirm Password
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-align-center el-button-group-inner"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="el-intent-low el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Cancel
-              <div
-                class="el-button-loader"
-              />
-            </button>
-            <button
-              class="el-intent-primary el-button"
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
               type="submit"
             >
               Update
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         Enter new password below
-      </p>
-      <div
-        class="el-mb11 el-form-layout"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="password"
               placeholder="*********"
               type="password"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Password
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="passwordConfirm"
               placeholder="*********"
               type="password"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Confirm Password
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-center el-button-group-inner"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-low el-button"
+          <mock-styled.button
+            classname="mock-css."
             type="button"
           >
             Cancel
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-primary el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
             type="submit"
           >
             Update
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

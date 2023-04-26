@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
-import { passwordRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { passwordRegex } from '@reapit/utils-common'
 import { AccountCreateModel } from '../../types/accounts'
 import { object, ref, string } from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useGlobalState } from '../../core/use-global-state'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { BodyText, Button, ButtonGroup, elMb11, FormLayout, InputError, InputGroup, InputWrap } from '@reapit/elements'
 
@@ -55,7 +55,7 @@ export const AccountUpdateModal: FC<AccountUpdateModalProps> = ({ accountId, clo
 
   const [, , updateAccount] = useReapitUpdate<Partial<AccountCreateModel>, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateDwAccount],
+    action: updateActions[UpdateActionNames.updateDwAccount],
     method: 'PATCH',
     uriParams: {
       accountId,

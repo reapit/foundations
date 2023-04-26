@@ -19,5 +19,5 @@ export const usePortal = (id: string) => {
 
 export const Portal = ({ id, children }): ReactPortal => {
   const target = usePortal(id)
-  return createPortal(children, target)
+  return createPortal(children, target) as ReactPortal
 }

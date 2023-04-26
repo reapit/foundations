@@ -33,6 +33,7 @@ describe('OpayoPrivateController', () => {
     const result = await controller.createTransaction(
       {
         'reapit-customer': 'SBOX',
+        'x-forwarded-for': 'https://example.com',
       },
       {} as unknown as TransactionDto,
     )
@@ -49,6 +50,7 @@ describe('OpayoPrivateController', () => {
 
     const result = await controller.createMerchantKeys({
       'reapit-customer': 'SBOX',
+      'x-forwarded-for': 'https://example.com',
     })
 
     expect(result).toEqual('Success')

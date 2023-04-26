@@ -2,22 +2,36 @@
 
 exports[`Toolbox should match a snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="toolbox-div"
-  >
-    <span
-      class="category-title"
-    >
+  <mock-styled.div>
+    <mock-styled.span>
       Commonly used
-    </span>
+    </mock-styled.span>
     <div
-      class="transition el-w12 el-flex el-flex-row el-flex-wrap el-flex-align-start el-flex-justify-start"
+      class="mock-css.
+  transition: all 0.3s;
+ mock-css.
+  width: 100%;
+ mock-css.
+  display: flex;
+ mock-css.
+  flex-direction: row;
+ mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  align-items: flex-start;
+ mock-css.
+  justify-content: flex-start;
+"
     >
-      <div
-        class="item-container"
-      >
-        <div
-          class="el-m3 block cursor-move item"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin: 0.5rem;
+ mock-css.
+  display: block;
+ mock-css.
+  cursor: move;
+"
         >
           <svg
             fill="none"
@@ -93,22 +107,22 @@ exports[`Toolbox should match a snapshot 1`] = `
               fill="#23A4DE"
             />
           </svg>
-        </div>
-        <div
-          class="item-name"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Text
-        </div>
-      </div>
-      <div
-        class="item-container"
-      >
-        <div
-          class="el-m3 block cursor-move item"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin: 0.5rem;
+ mock-css.
+  display: block;
+ mock-css.
+  cursor: move;
+"
         >
-          <div
-            class="item"
-          >
+          <mock-styled.div>
             <svg
               fill="none"
               height="43"
@@ -149,15 +163,13 @@ exports[`Toolbox should match a snapshot 1`] = `
                 fill-rule="evenodd"
               />
             </svg>
-          </div>
-        </div>
-        <div
-          class="item-name"
-        >
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
           Link
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
-  </div>
+  </mock-styled.div>
 </DocumentFragment>
 `;

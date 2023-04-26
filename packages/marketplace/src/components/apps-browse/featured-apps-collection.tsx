@@ -1,7 +1,7 @@
 import React, { FC, memo, useMemo } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { objectToQuery, useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { objectToQuery, useReapitGet } from '@reapit/use-reapit-data'
 import { elFadeIn, elMb1, FlexContainer, MediaType, PlaceholderImage, useMediaQuery } from '@reapit/elements'
 import {
   AppsBrowseConfigItemFiltersInterface,
@@ -10,9 +10,9 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { AppIcon, AppTitle, AppsCol, FeaturedAppStrapline } from './__styles__'
 import { useReapitConnect } from '@reapit/connect-session'
-import { navigate } from '../../utils/navigation'
-import { Routes } from '../../constants/routes'
-import { useHistory } from 'react-router-dom'
+import { navigateRoute } from '../../utils/navigation'
+import { RoutePaths } from '../../constants/routes'
+import { useNavigate } from 'react-router-dom'
 import { filterRestrictedAppsList } from '../../utils/browse-app'
 
 interface FeaturedAppsCollectionProps {
@@ -30,7 +30,7 @@ export const handleMaxLength = (mediaQuery: MediaType) => () => {
 }
 
 export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = memo(({ configItem }) => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const mediaQuery = useMediaQuery()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const product = connectSession?.loginIdentity.orgProduct ?? 'agencyCloud'
@@ -44,7 +44,7 @@ export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = memo(({ c
 
   const [unfilteredApps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams,
     fetchWhenTrue: [filters],
   })
@@ -57,7 +57,7 @@ export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = memo(({ c
         if (maxLength <= index) return null
 
         return (
-          <AppsCol className={elFadeIn} key={id} onClick={navigate(history, `${Routes.APPS_BROWSE}/${id}`)}>
+          <AppsCol className={elFadeIn} key={id} onClick={navigateRoute(navigate, `${RoutePaths.APPS_BROWSE}/${id}`)}>
             <FlexContainer isFlexJustifyBetween>
               <FlexContainer isFlexColumn isFlexJustifyCenter>
                 <FlexContainer className={elMb1}>

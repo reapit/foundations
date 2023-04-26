@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '@reapit/utils-common'
-import Routes from '@/constants/routes'
+import Routes from '../../constants/routes'
 import {
   Button,
   ButtonGroup,
@@ -12,8 +12,8 @@ import {
   TableRow,
   TableRowContainer,
 } from '@reapit/elements'
-import { useHistory } from 'react-router'
-import { navigate, openNewPage } from '../../utils/navigation'
+import { useNavigate } from 'react-router'
+import { navigateRoute, openNewPage } from '../../utils/navigation'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { useChannel, useEvent } from '@harelpls/use-pusher'
@@ -25,12 +25,12 @@ interface PipelineRowProps {
 }
 
 export const PipelineRow: FC<PipelineRowProps> = ({ pipeline, connectSession }) => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const [appPipeline, setAppPipeline] = useState<PipelineModelInterface>(pipeline)
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const channel = useChannel(`private-${connectSession?.loginIdentity.developerId}`)
-  useEvent<PipelineModelInterface>(
+  useEvent(
     channel,
     'pipeline-update',
     handlePipelineEvent(
@@ -63,13 +63,16 @@ export const PipelineRow: FC<PipelineRowProps> = ({ pipeline, connectSession }) 
           <ButtonGroup>
             <Button
               intent="secondary"
-              onClick={navigate(history, Routes.APP_PIPELINE_CONFIGURE.replace(':appId', appPipeline.appId as string))}
+              onClick={navigateRoute(
+                navigate,
+                Routes.APP_PIPELINE_CONFIGURE.replace(':appId', appPipeline.appId as string),
+              )}
             >
               Configure
             </Button>
             <Button
               intent="primary"
-              onClick={navigate(history, Routes.APP_PIPELINE.replace(':appId', appPipeline.appId as string))}
+              onClick={navigateRoute(navigate, Routes.APP_PIPELINE.replace(':appId', appPipeline.appId as string))}
             >
               Deployments
             </Button>

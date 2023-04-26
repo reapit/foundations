@@ -1,117 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MemberUpdateControls should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
           >
             Set As 
             User
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-          <button
-            class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
           >
             Invite Again
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
           >
             Disable
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-          <button
-            class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
           >
             Set As Main Contact
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-          <button
-            class="e1vxext9-el-intent-danger e1tqqdf9-el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
           >
             Delete
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="ebqwrow-el-button-group"
-    >
-      <div
-        class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+        <mock-styled.button
+          classname="mock-css."
+          disabled="false"
         >
           Set As 
           User
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+          disabled="false"
         >
           Invite Again
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+          disabled="false"
         >
           Disable
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
         >
           Set As Main Contact
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="e1vxext9-el-intent-danger e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+          disabled="false"
         >
           Delete
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

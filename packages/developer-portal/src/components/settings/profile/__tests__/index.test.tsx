@@ -10,7 +10,7 @@ jest.mock('@reapit/connect-session')
 const mockUseReapitConnect = useReapitConnect as jest.Mock
 
 describe('SettingsProfilePage', () => {
-  window.reapit.config.swaggerWhitelist = [mockDeveloperModel.id as string]
+  process.env.swaggerWhitelist = [mockDeveloperModel.id as string]
   it('should match snapshot', () => {
     mockUseReapitConnect.mockReturnValue({
       connectSession: {

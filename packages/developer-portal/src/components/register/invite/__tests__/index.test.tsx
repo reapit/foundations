@@ -1,11 +1,11 @@
 import React, { MouseEvent } from 'react'
 import { render } from '../../../../tests/react-testing'
-import Invite, { handleLogin, handleReject, handleAccept } from '../index'
-import { History } from 'history'
-import { useReapitUpdate } from '@reapit/utils-react'
+import Invite, { handleReject, handleAccept } from '../index'
+import { useReapitUpdate } from '@reapit/use-reapit-data'
 import { acceptInviteService, rejectInviteService } from '../../../../services/developer'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitUpdate: jest.fn(() => []),
 }))
 
@@ -108,19 +108,5 @@ describe('handleAccept', () => {
     expect(acceptInviteService).toHaveBeenCalledWith(params, developerId, memberId)
     expect(error).toHaveBeenCalledWith('Error')
     expect(setInviteState).toHaveBeenCalledWith('DEFAULT')
-  })
-})
-
-describe('handleLogin', () => {
-  it('should correctly log the user in', () => {
-    const history = {
-      replace: jest.fn(),
-    } as unknown as History
-
-    const curried = handleLogin(history)
-
-    curried()
-
-    expect(history.replace).toHaveBeenCalled()
   })
 })

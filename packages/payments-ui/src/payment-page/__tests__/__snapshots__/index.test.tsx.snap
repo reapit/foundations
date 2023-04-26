@@ -1,356 +1,372 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="payments-back-button"
-        >
-          <span
-            class="el-intent-primary el-icon"
+        <mock-styled.div>
+          <mock-styled.span
+            classname="mock-css."
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-flex-justify-between el-flex-container"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <h1
-              class="el-title"
+            <mock-styled.h1
+              classname=""
             >
               Card Payment
-            </h1>
-          </div>
-          <div
-            class="logo"
-          >
+            </mock-styled.h1>
+          </mock-styled.div>
+          <mock-styled.div>
             <img
               src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
             />
-          </div>
-        </div>
-        <h2
-          class="el-subtitle"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Payment Details
           , Ref: PAY20000001
-        </h2>
-        <div
-          class="el-mb11 el-grid"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-col"
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr4 el-intent-secondary el-icon-size-medium el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <div>
-                <h2
-                  class="el-has-no-margin el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Payment Amount
-                </h2>
-                <p
-                  class="el-has-grey-text el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   100.00
-                </p>
+                </mock-styled.p>
               </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr4 el-icon-size-medium el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <div>
-                <h2
-                  class="el-has-no-margin el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Reason For Payment
-                </h2>
-                <p
-                  class="el-has-grey-text el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   Tenancy Check Fee
-                </p>
+                </mock-styled.p>
               </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr4 el-icon-size-medium el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <div>
-                <h2
-                  class="el-has-no-margin el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Customer
                   , Ref: OXF12300101
-                </h2>
-                <p
-                  class="el-has-grey-text el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   Mr John Smith
-                </p>
+                </mock-styled.p>
               </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr4 el-icon-size-medium el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <div>
-                <h2
-                  class="el-has-no-margin el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Customer Address
-                </h2>
-                <p
-                  class="el-has-grey-text el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   1 Test House Test Lane County of Test Test City A11 2BB
-                </p>
+                </mock-styled.p>
               </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr4 el-icon-size-medium el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <div>
-                <h2
-                  class="el-has-no-margin el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Customer Email
-                </h2>
-                <p
-                  class="el-has-grey-text el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   <a
                     href="mailto:example@email.com"
                   >
                     example@email.com
                   </a>
-                </p>
+                </mock-styled.p>
               </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr4 el-icon-size-medium el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <div>
-                <h2
-                  class="el-has-no-margin el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Property
                   , Ref: OXF200008
-                </h2>
-                <p
-                  class="el-has-grey-text el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   15 Example street Solihull West Midlands B91 2XX
-                </p>
+                </mock-styled.p>
               </div>
-            </div>
-          </div>
-        </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
         <form
-          class="el-fade-in"
+          class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <h2
-            class="el-subtitle"
+          <mock-styled.h2
+            classname=""
           >
             Billing Details
-          </h2>
-          <div
-            class="el-form-layout-has-margin el-form-layout"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="customerFirstName"
                   placeholder="First name here"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer First Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="customerLastName"
                   placeholder="Last name here"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer Last Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="email"
                   placeholder="Email here"
                   type="email"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer Email
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="address1"
                   placeholder="Address First Line"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Address Line 1
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="city"
                   placeholder="Town / City Name"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Town / City
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="postalCode"
                   placeholder="Post Code"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Post Code
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <select
-                  class="el-select"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.select
+                  disabled="false"
                   name="country"
                 >
                   <option
@@ -1603,32 +1619,26 @@ Object {
                   >
                     Zimbabwe
                   </option>
-                </select>
-                <label
-                  class="el-label"
-                >
+                </mock-styled.select>
+                <mock-styled.label>
                   Country
-                </label>
-              </div>
-            </div>
-          </div>
-          <h2
-            class="el-subtitle"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Card Details
-          </h2>
-          <div
-            class="el-form-layout-has-margin el-form-layout"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   autocomplete="cardNumber"
-                  class="el-input"
+                  disabled="false"
                   id="cardNumber"
                   inputmode="numeric"
                   maxlength="19"
@@ -1637,9 +1647,7 @@ Object {
                   type="text"
                   value=""
                 />
-                <span
-                  class="el-icon"
-                >
+                <mock-styled.span>
                   <svg
                     fill="currentColor"
                     height="1em"
@@ -1653,45 +1661,35 @@ Object {
                       d="M0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V256H0v176zm192-68c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-40zm-128 0c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM576 80v48H0V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48z"
                     />
                   </svg>
-                </span>
-                <label
-                  class="el-label"
-                  for="cardNumber"
+                </mock-styled.span>
+                <mock-styled.label
+                  htmlfor="cardNumber"
                 >
                   Card Number
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="cardholderName"
                   placeholder="Name as appears on the card"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Card Holder Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   autocomplete="expiryDate"
-                  class="el-input"
+                  disabled="false"
                   id="expiryDate"
                   inputmode="numeric"
                   maxlength="7"
@@ -1700,405 +1698,412 @@ Object {
                   type="text"
                   value=""
                 />
-                <label
-                  class="el-label"
-                  for="expiryDate"
+                <mock-styled.label
+                  htmlfor="expiryDate"
                 >
                   Card Expires
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   maxlength="3"
                   name="securityCode"
                   placeholder="CSV on the back of card"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Security Code
-                </label>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-button-group"
-          >
-            <div
-              class="el-button-group-inner"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <button
-                class="el-intent-primary el-button"
+              <mock-styled.button
+                classname="mock-css."
+                disabled="false"
                 type="submit"
               >
                 Make Payment
-                <div
-                  class="el-button-loader"
-                />
-              </button>
-            </div>
-          </div>
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="payments-back-button"
-      >
-        <span
-          class="el-intent-primary el-icon"
+      <mock-styled.div>
+        <mock-styled.span
+          classname="mock-css."
         >
           <svg />
-        </span>
-      </div>
-      <div
-        class="el-flex-justify-between el-flex-container"
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <div
-          class="el-flex-container"
+        <mock-styled.div
+          classname=""
         >
-          <h1
-            class="el-title"
+          <mock-styled.h1
+            classname=""
           >
             Card Payment
-          </h1>
-        </div>
-        <div
-          class="logo"
-        >
+          </mock-styled.h1>
+        </mock-styled.div>
+        <mock-styled.div>
           <img
             src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
           />
-        </div>
-      </div>
-      <h2
-        class="el-subtitle"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname=""
       >
         Payment Details
         , Ref: PAY20000001
-      </h2>
-      <div
-        class="el-mb11 el-grid"
+      </mock-styled.h2>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-col"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr4 el-intent-secondary el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Payment Amount
-              </h2>
-              <p
-                class="el-has-grey-text el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 100.00
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr4 el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Reason For Payment
-              </h2>
-              <p
-                class="el-has-grey-text el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 Tenancy Check Fee
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr4 el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Customer
                 , Ref: OXF12300101
-              </h2>
-              <p
-                class="el-has-grey-text el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 Mr John Smith
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr4 el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Customer Address
-              </h2>
-              <p
-                class="el-has-grey-text el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 1 Test House Test Lane County of Test Test City A11 2BB
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr4 el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Customer Email
-              </h2>
-              <p
-                class="el-has-grey-text el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 <a
                   href="mailto:example@email.com"
                 >
                   example@email.com
                 </a>
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr4 el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Property
                 , Ref: OXF200008
-              </h2>
-              <p
-                class="el-has-grey-text el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 15 Example street Solihull West Midlands B91 2XX
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-      </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
       <form
-        class="el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <h2
-          class="el-subtitle"
+        <mock-styled.h2
+          classname=""
         >
           Billing Details
-        </h2>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="customerFirstName"
                 placeholder="First name here"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer First Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="customerLastName"
                 placeholder="Last name here"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Last Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="email"
                 placeholder="Email here"
                 type="email"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Email
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="address1"
                 placeholder="Address First Line"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Address Line 1
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="city"
                 placeholder="Town / City Name"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Town / City
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="postalCode"
                 placeholder="Post Code"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Post Code
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-select"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.select
+                disabled="false"
                 name="country"
               >
                 <option
@@ -3351,32 +3356,26 @@ Object {
                 >
                   Zimbabwe
                 </option>
-              </select>
-              <label
-                class="el-label"
-              >
+              </mock-styled.select>
+              <mock-styled.label>
                 Country
-              </label>
-            </div>
-          </div>
-        </div>
-        <h2
-          class="el-subtitle"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Card Details
-        </h2>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 autocomplete="cardNumber"
-                class="el-input"
+                disabled="false"
                 id="cardNumber"
                 inputmode="numeric"
                 maxlength="19"
@@ -3385,9 +3384,7 @@ Object {
                 type="text"
                 value=""
               />
-              <span
-                class="el-icon"
-              >
+              <mock-styled.span>
                 <svg
                   fill="currentColor"
                   height="1em"
@@ -3401,45 +3398,35 @@ Object {
                     d="M0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V256H0v176zm192-68c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-40zm-128 0c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM576 80v48H0V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48z"
                   />
                 </svg>
-              </span>
-              <label
-                class="el-label"
-                for="cardNumber"
+              </mock-styled.span>
+              <mock-styled.label
+                htmlfor="cardNumber"
               >
                 Card Number
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="cardholderName"
                 placeholder="Name as appears on the card"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Card Holder Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 autocomplete="expiryDate"
-                class="el-input"
+                disabled="false"
                 id="expiryDate"
                 inputmode="numeric"
                 maxlength="7"
@@ -3448,54 +3435,45 @@ Object {
                 type="text"
                 value=""
               />
-              <label
-                class="el-label"
-                for="expiryDate"
+              <mock-styled.label
+                htmlfor="expiryDate"
               >
                 Card Expires
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 maxlength="3"
                 name="securityCode"
                 placeholder="CSV on the back of card"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Security Code
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-inner"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="mock-css."
+              disabled="false"
               type="submit"
             >
               Make Payment
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </div>,
@@ -3554,356 +3532,372 @@ Object {
 `;
 
 exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="payments-back-button"
-        >
-          <span
-            class="el-intent-primary el-icon"
+        <mock-styled.div>
+          <mock-styled.span
+            classname="mock-css."
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-flex-justify-between el-flex-container"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <h1
-              class="el-title"
+            <mock-styled.h1
+              classname=""
             >
               Card Payment
-            </h1>
-          </div>
-          <div
-            class="logo"
-          >
+            </mock-styled.h1>
+          </mock-styled.div>
+          <mock-styled.div>
             <img
               src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
             />
-          </div>
-        </div>
-        <h2
-          class="el-subtitle"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Payment Details
           , Ref: PAY20000001
-        </h2>
-        <div
-          class="el-mb11 el-grid"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-col"
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr4 el-intent-secondary el-icon-size-medium el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <div>
-                <h2
-                  class="el-has-no-margin el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Payment Amount
-                </h2>
-                <p
-                  class="el-has-grey-text el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   100.00
-                </p>
+                </mock-styled.p>
               </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr4 el-icon-size-medium el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <div>
-                <h2
-                  class="el-has-no-margin el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Reason For Payment
-                </h2>
-                <p
-                  class="el-has-grey-text el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   Tenancy Check Fee
-                </p>
+                </mock-styled.p>
               </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr4 el-icon-size-medium el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <div>
-                <h2
-                  class="el-has-no-margin el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Customer
                   , Ref: OXF12300101
-                </h2>
-                <p
-                  class="el-has-grey-text el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   Mr John Smith
-                </p>
+                </mock-styled.p>
               </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr4 el-icon-size-medium el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <div>
-                <h2
-                  class="el-has-no-margin el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Customer Address
-                </h2>
-                <p
-                  class="el-has-grey-text el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   1 Test House Test Lane County of Test Test City A11 2BB
-                </p>
+                </mock-styled.p>
               </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr4 el-icon-size-medium el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <div>
-                <h2
-                  class="el-has-no-margin el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Customer Email
-                </h2>
-                <p
-                  class="el-has-grey-text el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   <a
                     href="mailto:example@email.com"
                   >
                     example@email.com
                   </a>
-                </p>
+                </mock-styled.p>
               </div>
-            </div>
-          </div>
-          <div
-            class="el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-mr4 el-icon-size-medium el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <div>
-                <h2
-                  class="el-has-no-margin el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css."
                 >
                   Property
                   , Ref: OXF200008
-                </h2>
-                <p
-                  class="el-has-grey-text el-body-text"
+                </mock-styled.h2>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   15 Example street Solihull West Midlands B91 2XX
-                </p>
+                </mock-styled.p>
               </div>
-            </div>
-          </div>
-        </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
         <form
-          class="el-fade-in"
+          class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <h2
-            class="el-subtitle"
+          <mock-styled.h2
+            classname=""
           >
             Billing Details
-          </h2>
-          <div
-            class="el-form-layout-has-margin el-form-layout"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="customerFirstName"
                   placeholder="First name here"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer First Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="customerLastName"
                   placeholder="Last name here"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer Last Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="email"
                   placeholder="Email here"
                   type="email"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer Email
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="address1"
                   placeholder="Address First Line"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Address Line 1
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="city"
                   placeholder="Town / City Name"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Town / City
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="postalCode"
                   placeholder="Post Code"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Post Code
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <select
-                  class="el-select"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.select
+                  disabled="false"
                   name="country"
                 >
                   <option
@@ -5156,32 +5150,26 @@ Object {
                   >
                     Zimbabwe
                   </option>
-                </select>
-                <label
-                  class="el-label"
-                >
+                </mock-styled.select>
+                <mock-styled.label>
                   Country
-                </label>
-              </div>
-            </div>
-          </div>
-          <h2
-            class="el-subtitle"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Card Details
-          </h2>
-          <div
-            class="el-form-layout-has-margin el-form-layout"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   autocomplete="cardNumber"
-                  class="el-input"
+                  disabled="false"
                   id="cardNumber"
                   inputmode="numeric"
                   maxlength="19"
@@ -5190,9 +5178,7 @@ Object {
                   type="text"
                   value=""
                 />
-                <span
-                  class="el-icon"
-                >
+                <mock-styled.span>
                   <svg
                     fill="currentColor"
                     height="1em"
@@ -5206,45 +5192,35 @@ Object {
                       d="M0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V256H0v176zm192-68c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-40zm-128 0c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM576 80v48H0V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48z"
                     />
                   </svg>
-                </span>
-                <label
-                  class="el-label"
-                  for="cardNumber"
+                </mock-styled.span>
+                <mock-styled.label
+                  htmlfor="cardNumber"
                 >
                   Card Number
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   name="cardholderName"
                   placeholder="Name as appears on the card"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Card Holder Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   autocomplete="expiryDate"
-                  class="el-input"
+                  disabled="false"
                   id="expiryDate"
                   inputmode="numeric"
                   maxlength="7"
@@ -5253,405 +5229,412 @@ Object {
                   type="text"
                   value=""
                 />
-                <label
-                  class="el-label"
-                  for="expiryDate"
+                <mock-styled.label
+                  htmlfor="expiryDate"
                 >
                   Card Expires
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  disabled="false"
                   id="test-static-id"
                   maxlength="3"
                   name="securityCode"
                   placeholder="CSV on the back of card"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Security Code
-                </label>
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-button-group"
-          >
-            <div
-              class="el-button-group-inner"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <button
-                class="el-intent-primary el-button"
+              <mock-styled.button
+                classname="mock-css."
+                disabled="false"
                 type="submit"
               >
                 Make Payment
-                <div
-                  class="el-button-loader"
-                />
-              </button>
-            </div>
-          </div>
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="payments-back-button"
-      >
-        <span
-          class="el-intent-primary el-icon"
+      <mock-styled.div>
+        <mock-styled.span
+          classname="mock-css."
         >
           <svg />
-        </span>
-      </div>
-      <div
-        class="el-flex-justify-between el-flex-container"
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <div
-          class="el-flex-container"
+        <mock-styled.div
+          classname=""
         >
-          <h1
-            class="el-title"
+          <mock-styled.h1
+            classname=""
           >
             Card Payment
-          </h1>
-        </div>
-        <div
-          class="logo"
-        >
+          </mock-styled.h1>
+        </mock-styled.div>
+        <mock-styled.div>
           <img
             src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
           />
-        </div>
-      </div>
-      <h2
-        class="el-subtitle"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname=""
       >
         Payment Details
         , Ref: PAY20000001
-      </h2>
-      <div
-        class="el-mb11 el-grid"
+      </mock-styled.h2>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-col"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr4 el-intent-secondary el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Payment Amount
-              </h2>
-              <p
-                class="el-has-grey-text el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 100.00
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr4 el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Reason For Payment
-              </h2>
-              <p
-                class="el-has-grey-text el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 Tenancy Check Fee
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr4 el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Customer
                 , Ref: OXF12300101
-              </h2>
-              <p
-                class="el-has-grey-text el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 Mr John Smith
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr4 el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Customer Address
-              </h2>
-              <p
-                class="el-has-grey-text el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 1 Test House Test Lane County of Test Test City A11 2BB
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr4 el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Customer Email
-              </h2>
-              <p
-                class="el-has-grey-text el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 <a
                   href="mailto:example@email.com"
                 >
                   example@email.com
                 </a>
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-mr4 el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             <div>
-              <h2
-                class="el-has-no-margin el-subtitle"
+              <mock-styled.h2
+                classname="mock-css."
               >
                 Property
                 , Ref: OXF200008
-              </h2>
-              <p
-                class="el-has-grey-text el-body-text"
+              </mock-styled.h2>
+              <mock-styled.p
+                classname="mock-css."
               >
                 15 Example street Solihull West Midlands B91 2XX
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-      </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
       <form
-        class="el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <h2
-          class="el-subtitle"
+        <mock-styled.h2
+          classname=""
         >
           Billing Details
-        </h2>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="customerFirstName"
                 placeholder="First name here"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer First Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="customerLastName"
                 placeholder="Last name here"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Last Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="email"
                 placeholder="Email here"
                 type="email"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Email
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="address1"
                 placeholder="Address First Line"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Address Line 1
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="city"
                 placeholder="Town / City Name"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Town / City
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="postalCode"
                 placeholder="Post Code"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Post Code
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-select"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.select
+                disabled="false"
                 name="country"
               >
                 <option
@@ -6904,32 +6887,26 @@ Object {
                 >
                   Zimbabwe
                 </option>
-              </select>
-              <label
-                class="el-label"
-              >
+              </mock-styled.select>
+              <mock-styled.label>
                 Country
-              </label>
-            </div>
-          </div>
-        </div>
-        <h2
-          class="el-subtitle"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Card Details
-        </h2>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 autocomplete="cardNumber"
-                class="el-input"
+                disabled="false"
                 id="cardNumber"
                 inputmode="numeric"
                 maxlength="19"
@@ -6938,9 +6915,7 @@ Object {
                 type="text"
                 value=""
               />
-              <span
-                class="el-icon"
-              >
+              <mock-styled.span>
                 <svg
                   fill="currentColor"
                   height="1em"
@@ -6954,45 +6929,35 @@ Object {
                     d="M0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V256H0v176zm192-68c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-40zm-128 0c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM576 80v48H0V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48z"
                   />
                 </svg>
-              </span>
-              <label
-                class="el-label"
-                for="cardNumber"
+              </mock-styled.span>
+              <mock-styled.label
+                htmlfor="cardNumber"
               >
                 Card Number
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 name="cardholderName"
                 placeholder="Name as appears on the card"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Card Holder Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 autocomplete="expiryDate"
-                class="el-input"
+                disabled="false"
                 id="expiryDate"
                 inputmode="numeric"
                 maxlength="7"
@@ -7001,54 +6966,45 @@ Object {
                 type="text"
                 value=""
               />
-              <label
-                class="el-label"
-                for="expiryDate"
+              <mock-styled.label
+                htmlfor="expiryDate"
               >
                 Card Expires
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                disabled="false"
                 id="test-static-id"
                 maxlength="3"
                 name="securityCode"
                 placeholder="CSV on the back of card"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Security Code
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-inner"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="mock-css."
+              disabled="false"
               type="submit"
             >
               Make Payment
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </div>,

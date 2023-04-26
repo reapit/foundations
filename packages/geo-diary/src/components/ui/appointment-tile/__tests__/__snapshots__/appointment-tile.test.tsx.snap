@@ -1,164 +1,160 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppointmentTile should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <div>
-        <div
-          class="cancelled-tile el-mb6 el-card-wrap"
+        <mock-styled.div
+          classname="mock-css.
+  * {
+    color: #646464;
+  }
+ mock-css.
+  margin-bottom: 1rem;
+"
         >
-          <div
-            class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+          <mock-styled.div
+            classname="mock-css."
           >
-            <h5
-              class="el-card-list-heading"
-            >
+            <mock-styled.h5>
               05:30 PM - 06:00 PM - Cancelled 
-            </h5>
-            <h6
-              class="el-card-list-sub-heading"
-            >
+            </mock-styled.h5>
+            <mock-styled.h6>
               Viewing
-            </h6>
-          </div>
-          <div
-            class="el-card-list-item-expanded el-card-list-item"
+            </mock-styled.h6>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
           >
-            <div
-              class="el-card-list-icon"
-            >
-              <span
-                class="el-icon"
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-list-item-text-wrap"
-            >
-              <div
-                class="el-card-list-item-text-primary"
-              >
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
                 Property
-              </div>
-              <div
-                class="el-card-list-item-text-secondary"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 56 High Street
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-card-list-item-expanded el-card-list-item"
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
           >
-            <div
-              class="el-card-list-icon"
-            >
-              <span
-                class="el-icon"
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
-            </div>
-            <div
-              class="el-card-list-item-text-wrap"
-            >
-              <div
-                class="el-card-list-item-text-primary"
-              >
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
                 Attendee
-              </div>
-              <div
-                class="el-card-list-item-text-secondary"
-              />
-            </div>
-          </div>
-        </div>
+              </mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <div>
-      <div
-        class="cancelled-tile el-mb6 el-card-wrap"
+      <mock-styled.div
+        classname="mock-css.
+  * {
+    color: #646464;
+  }
+ mock-css.
+  margin-bottom: 1rem;
+"
       >
-        <div
-          class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <h5
-            class="el-card-list-heading"
-          >
+          <mock-styled.h5>
             05:30 PM - 06:00 PM - Cancelled 
-          </h5>
-          <h6
-            class="el-card-list-sub-heading"
-          >
+          </mock-styled.h5>
+          <mock-styled.h6>
             Viewing
-          </h6>
-        </div>
-        <div
-          class="el-card-list-item-expanded el-card-list-item"
+          </mock-styled.h6>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
         >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Property
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               56 High Street
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item-expanded el-card-list-item"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
         >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Attendee
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            />
-          </div>
-        </div>
-      </div>
+            </mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],

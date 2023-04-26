@@ -1,9 +1,9 @@
 import React, { FC, useEffect } from 'react'
 import { Button, ButtonGroup, FormLayout, InputError, InputGroup, InputWrap, Select, TextArea } from '@reapit/elements'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { DeveloperModel, UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { useForm, useWatch } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { companyInformationValidationSchema } from './validation-schema'
@@ -91,7 +91,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
   const [, developerUpdating, updateDeveloper, updateDeveloperSuccess] = useReapitUpdate<UpdateDeveloperModel, boolean>(
     {
       reapitConnectBrowserSession,
-      action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateDeveloper],
+      action: updateActions[UpdateActionNames.updateDeveloper],
       method: 'PUT',
       uriParams: {
         developerId: developer.id,

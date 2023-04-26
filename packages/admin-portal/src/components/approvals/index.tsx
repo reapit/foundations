@@ -43,7 +43,7 @@ export const AdminApprovals: FC = () => {
 
   const [approvals, approvalsLoading, , refreshApprovals] = useReapitGet<ApprovalModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApprovals],
+    action: getActions[GetActionNames.getApprovals],
     queryParams: { pageNumber, pageSize: 12 },
   })
 
@@ -80,16 +80,13 @@ export const AdminApprovals: FC = () => {
                   content: (
                     <>
                       <ButtonGroup alignment="center">
-                        <Button
-                          intent="secondary"
-                          onClick={openNewPage(`${window.reapit.config.appMarketUri}/apps/${appId}`)}
-                        >
+                        <Button intent="secondary" onClick={openNewPage(`${process.env.appMarketUri}/apps/${appId}`)}>
                           View in AppMarket
                         </Button>
                         <Button
                           intent="secondary"
                           disabled={hasReadAccess}
-                          onClick={openNewPage(`${window.reapit.config.developerPortalUri}/apps/${appId}`)}
+                          onClick={openNewPage(`${process.env.developerPortalUri}/apps/${appId}`)}
                         >
                           View in DevPortal
                         </Button>

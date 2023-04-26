@@ -45,7 +45,7 @@ export const Customers: FC = () => {
 
   const [customers, customersLoading] = useReapitGet<CustomerModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getCustomers],
+    action: getActions[GetActionNames.getCustomers],
     queryParams: {
       ...queryParams,
       pageSize: 12,

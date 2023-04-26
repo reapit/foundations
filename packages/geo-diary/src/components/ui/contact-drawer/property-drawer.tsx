@@ -5,7 +5,7 @@ import { handleClose } from './index'
 import TextRow from './text-row'
 import { elMb3, Label } from '@reapit/elements'
 import { KeyMovementModel, KeysModel, NegotiatorModel, OfficeModel } from '@reapit/foundations-ts-definitions'
-import { cx } from '@linaria/utils'
+import { cx } from '@linaria/core'
 
 export type KeyModel = KeysModel & {
   movements?: (KeyMovementModel & { checkOutToNegotiator?: NegotiatorModel; checkInNegotiator?: NegotiatorModel })[]

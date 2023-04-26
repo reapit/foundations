@@ -2,7 +2,6 @@ import React, { ChangeEvent } from 'react'
 import { render } from '../../../tests/react-testing'
 import Routes from '../../../constants/routes'
 import WebhooksControls, { handleSelectFilters } from '../webhooks-controls'
-import { History } from 'history'
 
 jest.mock('../state/use-webhooks-state')
 
@@ -19,13 +18,7 @@ describe('WebhooksControls', () => {
 
 describe('handleSelectFilters', () => {
   it('should correctly update query', () => {
-    const history = {
-      push: jest.fn(),
-      location: {
-        search: '?applicationId=SOME_ID&to=2021-09-21&from=2021-08-21',
-        pathname: Routes.WEBHOOKS_MANAGE,
-      },
-    } as unknown as History
+    const navigate = jest.fn()
     const event = {
       target: {
         value: 'SOME_NEW_ID',
@@ -33,10 +26,10 @@ describe('handleSelectFilters', () => {
       },
     } as ChangeEvent<HTMLInputElement>
     const setWebhookQueryParams = jest.fn()
-    const curried = handleSelectFilters(setWebhookQueryParams, history)
+    const curried = handleSelectFilters(setWebhookQueryParams, navigate)
     curried(event)
-    expect(history.push).toHaveBeenCalledWith(
-      `${history.location.pathname}?applicationId=${event.target.value}&from=2021-08-21&to=2021-09-21`,
+    expect(navigate).toHaveBeenCalledWith(
+      `${window.location.pathname}?applicationId=${event.target.value}&from=2019-10-10&to=2019-10-10`,
     )
   })
 })

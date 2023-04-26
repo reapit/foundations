@@ -15,7 +15,7 @@ export const addMemberToGroup = async (group: UpdateUserGroupParams): Promise<an
     const headers = await getPlatformHeaders(reapitConnectBrowserSession)
     if (headers) {
       const response = await fetcher({
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         url: `${URLS.USERS_GROUPS}/${group.id}/members`,
         method: 'POST',
         headers,
@@ -42,7 +42,7 @@ export const removeMemberFromGroup = async ({
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const response = await fetcher({
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         url: `${URLS.USERS_GROUPS}/${id}/members/${userId}`,
         method: 'DELETE',
         headers,
@@ -68,7 +68,7 @@ export const getUserInfo = async (email: string): Promise<UserInfoModel | undefi
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const response = await fetcher({
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         url: `${URLS.USERS_INFO}?email=${encodedEmail}`,
         method: 'GET',
         headers,

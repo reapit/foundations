@@ -2,16 +2,9 @@
 
 exports[`AppView should match a snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="el-is-full-page el-loader-container"
-  >
-    <div
-      class="el-loader"
-    >
-      <div
-        class="el-loader-moving-bar"
-      />
-    </div>
+  <mock-styled.div />
+  <div>
+    Not Found
   </div>
 </DocumentFragment>
 `;

@@ -1,15 +1,15 @@
-import React, { FC, Suspense } from 'react'
+import React, { FC, PropsWithChildren, Suspense } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Nav } from '../components/nav'
 import { reapitConnectBrowserSession } from './connect-session'
-import { useLocation, Redirect } from 'react-router'
+import { useLocation, Navigate } from 'react-router'
 import { Loader, MainContainer, PageContainer } from '@reapit/elements'
 import { getIsAdmin } from '../utils/is-admin'
-import { Routes } from '../constants/routes'
+import { RoutePaths } from '../constants/routes'
 
 export type PrivateRouteWrapperProps = {}
 
-export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location?.pathname}${location?.search}`
@@ -26,11 +26,11 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
-    return <Redirect to={connectInternalRedirect} />
+    return <Navigate to={connectInternalRedirect} />
   }
 
-  if (!isAdmin && currentUri === Routes.ADMIN) {
-    return <Redirect to={Routes.HOME} />
+  if (!isAdmin && currentUri === RoutePaths.ADMIN) {
+    return <Navigate to={RoutePaths.HOME} />
   }
 
   return (

@@ -2,8 +2,7 @@ import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { AccountUpdateModal } from './account-update-modal'
 import { useGlobalState } from '../../core/use-global-state'
 import { Button, ButtonGroup, elMb11, Table, useModal } from '@reapit/elements'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export const handleModalOpen =
@@ -28,7 +27,7 @@ export const AccountsTable: FC = () => {
 
   const [accountDeleting, , deleteAccount] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateDwAccount],
+    action: updateActions[UpdateActionNames.updateDwAccount],
     method: 'DELETE',
   })
 

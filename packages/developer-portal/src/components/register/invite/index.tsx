@@ -1,7 +1,6 @@
 import React, { Dispatch, FC, MouseEvent, SetStateAction, useState } from 'react'
-import { useHistory, useLocation } from 'react-router'
+import { useNavigate, useLocation } from 'react-router'
 import { AcceptInviteModel } from '@reapit/foundations-ts-definitions'
-import { History } from 'history'
 import { getParamsFromPath, letterNumberSpaceRegex, personNameRegex } from '@reapit/utils-common'
 import { useForm } from 'react-hook-form'
 import { BodyText, ButtonGroup, Button, FormLayout, InputWrap, InputGroup, useSnack, Modal } from '@reapit/elements'
@@ -11,6 +10,7 @@ import { object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { acceptInviteService, rejectInviteService } from '../../../services/developer'
 import { specialCharsTest } from '../../../utils/yup'
+import { navigateRoute } from '../../../utils/navigation'
 
 const { FIELD_REQUIRED, MAXIMUM_CHARACTER_LENGTH } = errorMessages
 
@@ -78,13 +78,9 @@ export const handleReject =
     }
   }
 
-export const handleLogin = (history: History) => () => {
-  history.replace(Routes.LOGIN)
-}
-
 export const Invite: FC = () => {
   const location = useLocation()
-  const history = useHistory()
+  const navigate = useNavigate()
   const { error } = useSnack()
   const [inviteState, setInviteState] = useState<InviteState>('DEFAULT')
   const queryParams = getParamsFromPath(location.search)
@@ -171,7 +167,7 @@ export const Invite: FC = () => {
             Portal. If not, you will shortly receive an email with instructions on setting up your login credentials.
           </BodyText>
           <ButtonGroup alignment="center">
-            <Button fixedWidth intent="primary" onClick={handleLogin(history)}>
+            <Button fixedWidth intent="primary" onClick={navigateRoute(navigate, Routes.LOGIN)}>
               Login
             </Button>
           </ButtonGroup>

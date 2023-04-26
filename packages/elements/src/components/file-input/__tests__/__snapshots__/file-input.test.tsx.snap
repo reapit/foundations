@@ -1,77 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FileInput component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-file-input-wrap"
-      >
-        <div
-          class="el-flex-align-center el-flex-container"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <button
-            class="el-mr4 el-intent-low el-button"
+          <mock-styled.button
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
             type="button"
           >
             Upload
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <input
-            class="el-file-input"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.input
             data-testid="el-file-input"
             type="file"
           />
-          <input
-            class="el-file-input-hidden"
+          <mock-styled.input
             id="test-static-id"
-            value=""
           />
-          <p
-            class="el-has-grey-text el-has-no-margin el-small-text"
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             Upload File
-          </p>
-        </div>
-      </div>
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-file-input-wrap"
-    >
-      <div
-        class="el-flex-align-center el-flex-container"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  align-items: center;
+"
       >
-        <button
-          class="el-mr4 el-intent-low el-button"
+        <mock-styled.button
+          classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
           type="button"
         >
           Upload
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <input
-          class="el-file-input"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.input
           data-testid="el-file-input"
           type="file"
         />
-        <input
-          class="el-file-input-hidden"
+        <mock-styled.input
           id="test-static-id"
-          value=""
         />
-        <p
-          class="el-has-grey-text el-has-no-margin el-small-text"
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           Upload File
-        </p>
-      </div>
-    </div>
+        </mock-styled.p>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -128,105 +122,99 @@ Object {
 `;
 
 exports[`FileInput component should match a snapshot with full props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-file-input-wrap"
-      >
-        <label
-          class="el-label"
-        >
+      <mock-styled.div>
+        <mock-styled.label>
           Some Label
-        </label>
-        <div
-          class="el-flex-align-center el-flex-container"
+        </mock-styled.label>
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <button
-            class="el-mr4 el-intent-low el-button"
+          <mock-styled.button
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
             type="button"
           >
             Change
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <input
-            class="el-file-input"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.input
             data-testid="el-file-input"
             type="file"
           />
-          <input
-            class="el-file-input-hidden"
+          <mock-styled.input
             id="test-static-id"
-            value="https://mock.com"
           />
-          <div
-            class="el-file-input-icon-container"
-          >
-            <span
-              class="el-mr4 el-intent-primary el-icon"
+          <mock-styled.div>
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
             >
               <svg />
-            </span>
-            <span
-              class="el-mr4 el-intent-primary el-icon"
+            </mock-styled.span>
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
             >
               <svg />
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-file-input-wrap"
-    >
-      <label
-        class="el-label"
-      >
+    <mock-styled.div>
+      <mock-styled.label>
         Some Label
-      </label>
-      <div
-        class="el-flex-align-center el-flex-container"
+      </mock-styled.label>
+      <mock-styled.div
+        classname="mock-css.
+  align-items: center;
+"
       >
-        <button
-          class="el-mr4 el-intent-low el-button"
+        <mock-styled.button
+          classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
           type="button"
         >
           Change
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <input
-          class="el-file-input"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.input
           data-testid="el-file-input"
           type="file"
         />
-        <input
-          class="el-file-input-hidden"
+        <mock-styled.input
           id="test-static-id"
-          value="https://mock.com"
         />
-        <div
-          class="el-file-input-icon-container"
-        >
-          <span
-            class="el-mr4 el-intent-primary el-icon"
+        <mock-styled.div>
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
           >
             <svg />
-          </span>
-          <span
-            class="el-mr4 el-intent-primary el-icon"
+          </mock-styled.span>
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
           >
             <svg />
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

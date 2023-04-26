@@ -1,190 +1,152 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ResendConfirmButton should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="customerFirstName"
                 placeholder="First name here"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer First Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="customerLastName"
                 placeholder="Last name here"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Last Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="email"
                 placeholder="Email here"
                 type="email"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Email
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-mb7 el-button-group"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 1.25rem;
+"
         >
-          <div
-            class="el-button-group-inner"
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="mock-css."
+              disabled="false"
               type="submit"
             >
               Re-send Confirmation
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="customerFirstName"
               placeholder="First name here"
               type="text"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Customer First Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="customerLastName"
               placeholder="Last name here"
               type="text"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Customer Last Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="email"
               placeholder="Email here"
               type="email"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Customer Email
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-mb7 el-button-group"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 1.25rem;
+"
       >
-        <div
-          class="el-button-group-inner"
+        <mock-styled.div
+          classname=""
         >
-          <button
-            class="el-intent-primary el-button"
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
             type="submit"
           >
             Re-send Confirmation
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

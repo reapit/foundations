@@ -79,11 +79,12 @@ export const onHandleSubmit =
   }
 
 export const EditUserForm: FC<EditUserFormProps> = ({ onComplete, user, orgId }) => {
-  const groupIdQuery = qs.stringify({ id: window.reapit.config.groupIdsWhitelist }, { indices: false })
+  const groupIdQuery = qs.stringify({ id: process.env.groupIdsWhitelist }, { indices: false })
   const { data } = useSWR<GroupModelPagedResult | undefined>(
     !orgId ? null : `${URLS.USERS_GROUPS}?${groupIdQuery}&pageSize=999&organisationId=${orgId}`,
   )
-  const userGroups = user.groups?.filter((group) => window.reapit.config.groupIdsWhitelist.includes(group))
+  const whitelist = process.env.groupIdsWhitelist
+  const userGroups = user.groups?.filter((group) => whitelist.includes(group))
   const { success, error } = useSnack()
   const onSubmit = useCallback(onHandleSubmit(onComplete, user, success, error, orgId), [user, orgId])
 

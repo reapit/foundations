@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Router from './router'
-import ErrorBoundary from '@/components/hocs/error-boundary'
 import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
+import ErrorBoundary from '../components/error-boundary'
 
 const App = () => {
   return (

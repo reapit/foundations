@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS } from '../app-installation-manager'
 import AppInstallationConfirmationModal from '../app-installation-confirmation-modal'
+import { render } from '../../../../tests/react-testing'
 
 describe('AppInstallationConfirmationModal', () => {
   it('should match a snapshot when the install type is WHOLE_ORG', () => {

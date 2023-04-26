@@ -1,27 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-body-wrap"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-body-wrap"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -78,27 +74,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-context-menu-item"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-context-menu-item"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -155,27 +147,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 3`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-context-menu-items"
-      >
+      <mock-styled.h5>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.h5>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-context-menu-items"
-    >
+    <mock-styled.h5>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.h5>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -232,27 +220,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 4`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-context-menu-toggle"
-      >
+      <mock-styled.h6>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.h6>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-context-menu-toggle"
-    >
+    <mock-styled.h6>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.h6>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -309,27 +293,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 5`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-context-menu-wrapper"
-      >
+      <mock-styled.h6>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.h6>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-context-menu-wrapper"
-    >
+    <mock-styled.h6>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.h6>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -386,27 +366,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 6`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h5
-        class="el-card-heading"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </h5>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <h5
-      class="el-card-heading"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </h5>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -463,27 +439,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 7`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-heading-wrap"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-heading-wrap"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -540,27 +512,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 8`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-image-wrap"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-image-wrap"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -617,27 +585,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 9`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-list"
-      >
+      <mock-styled.button>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-list"
-    >
+    <mock-styled.button>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -694,27 +658,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 10`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h5
-        class="el-card-list-heading"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </h5>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <h5
-      class="el-card-list-heading"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </h5>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -771,27 +731,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 11`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-list-icon"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-list-icon"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -848,27 +804,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 12`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-list-item"
-      >
+      <mock-styled.h5>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.h5>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-list-item"
-    >
+    <mock-styled.h5>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.h5>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -925,27 +877,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 13`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-list-item-text-primary"
-      >
+      <mock-styled.h6>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.h6>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-list-item-text-primary"
-    >
+    <mock-styled.h6>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.h6>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1002,27 +950,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 14`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-list-item-text-secondary"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-list-item-text-secondary"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1079,27 +1023,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 15`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-list-item-text-wrap"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-list-item-text-wrap"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1156,27 +1096,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 16`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-list-main-wrap"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-list-main-wrap"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1233,27 +1169,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 17`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h6
-        class="el-card-list-sub-heading"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </h6>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <h6
-      class="el-card-list-sub-heading"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </h6>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1310,27 +1242,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 18`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-main-wrap"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-main-wrap"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1387,27 +1315,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 19`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <button
-        class="el-mobile-toggle"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <button
-      class="el-mobile-toggle"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </button>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1464,27 +1388,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 20`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h6
-        class="el-card-sub-heading"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </h6>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <h6
-      class="el-card-sub-heading"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </h6>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1541,27 +1461,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 21`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h6
-        class="el-card-sub-heading-additional"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </h6>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <h6
-      class="el-card-sub-heading-additional"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </h6>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1618,27 +1534,23 @@ Object {
 `;
 
 exports[`Card should match a snapshot and render children 22`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-card-wrap"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-card-wrap"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

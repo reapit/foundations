@@ -1,135 +1,149 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ElementsPage should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="e93m1fg-el-secondary-nav-container"
-        >
-          <h1
-            class="e1byern-el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             UI
-          </h1>
-          <span
-            class="ehvkknk-el-mb5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             Reapit Elements
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean, interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design System, our in house styleguide.
-          </p>
-          <button
-            class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           >
             View Docs
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-          <button
-            class="ehvkknk-el-mb5 e1iow709-el-intent-critical e1tqqdf9-el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           >
             Storybook
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </aside>
-        <section
-          class="e12d7zo5-el-hfull eukst9x-el-page-container"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <h1
-            class="e1byern-el-title"
+          <mock-styled.h1
+            classname=""
           >
             Elements
-          </h1>
+          </mock-styled.h1>
           <iframe
             allow="clipboard-write"
-            class="i10jkiq5-iframe-wrapper"
+            class="mock-css.
+  height: 88.5vh;
+  width: 100%;
+"
             frameborder="0"
           />
-        </section>
-      </div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="e93m1fg-el-secondary-nav-container"
-      >
-        <h1
-          class="e1byern-el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           UI
-        </h1>
-        <span
-          class="ehvkknk-el-mb5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Reapit Elements
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean, interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design System, our in house styleguide.
-        </p>
-        <button
-          class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="ehvkknk-el-mb5 e1iow709-el-intent-critical e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
         >
           Storybook
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="e12d7zo5-el-hfull eukst9x-el-page-container"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Elements
-        </h1>
+        </mock-styled.h1>
         <iframe
           allow="clipboard-write"
-          class="i10jkiq5-iframe-wrapper"
+          class="mock-css.
+  height: 88.5vh;
+  width: 100%;
+"
           frameborder="0"
         />
-      </section>
-    </div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

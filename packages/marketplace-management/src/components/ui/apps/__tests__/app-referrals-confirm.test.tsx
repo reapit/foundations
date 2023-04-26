@@ -2,10 +2,11 @@ import React, { ChangeEvent } from 'react'
 import { handleOnCheckboxChange, handleOnChange, ReferralsConfirmationSelection } from '../app-referrals-confirm'
 import { render } from '../../../../tests/react-testing'
 import { mockAppDetail } from '../../../../services/__stubs__/apps'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockReferralTypes } from '../../../../services/__stubs__/referral-types'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, true]),
 }))
 

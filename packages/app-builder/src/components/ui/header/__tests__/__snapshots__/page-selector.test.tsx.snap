@@ -2,15 +2,24 @@
 
 exports[`PageSelector should match a snapshot 1`] = `
 <DocumentFragment>
+  <mock-styled.div />
   <div
-    class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
+    class="mock-css.
+  flex: 1 1 0%;
+ mock-css.
+  display: flex;
+ mock-css.
+  align-items: center;
+ mock-css.
+  justify-content: flex-start;
+"
   >
-    <div
-      class="toggle-container"
-    >
-      <button
-        class="el-m2 app-builder-icon-button-with-text app-builder-icon-button el-button"
-        style="--awfk8ev-0: #f2f2f2; --a1p3rkwf-0: black; --a1p3rkwf-1: #23A4DE; --a1p3rkwf-2: #EAF5FC;"
+    <mock-styled.div>
+      <mock-styled.mock-styled.div
+        classname="mock-css.
+  margin: 0.375rem;
+"
+        isactive="true"
       >
         <svg
           fill="none"
@@ -27,11 +36,8 @@ exports[`PageSelector should match a snapshot 1`] = `
           />
         </svg>
         New Page
-        <div
-          class="el-button-loader"
-        />
-      </button>
-    </div>
+      </mock-styled.mock-styled.div>
+    </mock-styled.div>
   </div>
 </DocumentFragment>
 `;

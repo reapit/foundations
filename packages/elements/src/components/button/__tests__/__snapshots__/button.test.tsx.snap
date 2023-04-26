@@ -1,31 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <button
-        class="el-intent-primary el-button"
+      <mock-styled.button
+        classname="mock-css."
+        disabled="false"
         type="submit"
       >
         button text
-        <div
-          class="el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
-    <button
-      class="el-intent-primary el-button"
+    <mock-styled.button
+      classname="mock-css."
+      disabled="false"
       type="submit"
     >
       button text
-      <div
-        class="el-button-loader"
-      />
-    </button>
+      <mock-styled.div />
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -82,39 +80,41 @@ Object {
 `;
 
 exports[`Button should match a snapshot 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <button
-        class="el-floating-button el-intent-primary el-button"
+      <mock-styled.button
+        classname="mock-css. mock-css."
+        disabled="false"
         type="submit"
       >
-        <span
-          class="el-intent-neutral el-icon-size-small el-icon"
+        <mock-styled.span
+          classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
         >
           <svg />
-        </span>
-        <div
-          class="el-button-loader"
-        />
-      </button>
+        </mock-styled.span>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
-    <button
-      class="el-floating-button el-intent-primary el-button"
+    <mock-styled.button
+      classname="mock-css. mock-css."
+      disabled="false"
       type="submit"
     >
-      <span
-        class="el-intent-neutral el-icon-size-small el-icon"
+      <mock-styled.span
+        classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
       >
         <svg />
-      </span>
-      <div
-        class="el-button-loader"
-      />
-    </button>
+      </mock-styled.span>
+      <mock-styled.div />
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -171,33 +171,265 @@ Object {
 `;
 
 exports[`Button should match a snapshot with all modifiers 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <button
-        class="some-class el-intent-primary el-button-has-left-chevron el-button-has-right-chevron el-button-fixed-width el-is-loading el-button"
-        disabled=""
+      <mock-styled.button
+        classname="some-class mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: 0.5rem;
+  padding-left: ,rem;
+
+  , {
+    padding-left: 1.25rem;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+  }
+
+  &., {
+    &::before {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::before {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::before {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::before {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::before {
+      background-image: url(',');
+    }
+  }
+ mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+ mock-css. mock-css."
+        disabled="true"
         type="submit"
       >
         button text
-        <div
-          class="el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
-    <button
-      class="some-class el-intent-primary el-button-has-left-chevron el-button-has-right-chevron el-button-fixed-width el-is-loading el-button"
-      disabled=""
+    <mock-styled.button
+      classname="some-class mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: 0.5rem;
+  padding-left: ,rem;
+
+  , {
+    padding-left: 1.25rem;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+  }
+
+  &., {
+    &::before {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::before {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::before {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::before {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::before {
+      background-image: url(',');
+    }
+  }
+ mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+ mock-css. mock-css."
+      disabled="true"
       type="submit"
     >
       button text
-      <div
-        class="el-button-loader"
-      />
-    </button>
+      <mock-styled.div />
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -254,77 +486,61 @@ Object {
 `;
 
 exports[`ButtonGroup should match a snapshot for align center 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-center el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-button"
+          <mock-styled.button
+            classname=""
           >
             1
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname=""
           >
             2
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname=""
           >
             3
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-button-group"
-    >
-      <div
-        class="el-button-group-align-center el-button-group-inner"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="el-button"
+        <mock-styled.button
+          classname=""
         >
           1
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname=""
         >
           2
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname=""
         >
           3
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -381,77 +597,61 @@ Object {
 `;
 
 exports[`ButtonGroup should match a snapshot for align left 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-left el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-button"
+          <mock-styled.button
+            classname=""
           >
             1
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname=""
           >
             2
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname=""
           >
             3
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-button-group"
-    >
-      <div
-        class="el-button-group-align-left el-button-group-inner"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="el-button"
+        <mock-styled.button
+          classname=""
         >
           1
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname=""
         >
           2
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname=""
         >
           3
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -508,77 +708,61 @@ Object {
 `;
 
 exports[`ButtonGroup should match a snapshot for align right 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-right el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-button"
+          <mock-styled.button
+            classname=""
           >
             1
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname=""
           >
             2
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname=""
           >
             3
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-button-group"
-    >
-      <div
-        class="el-button-group-align-right el-button-group-inner"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="el-button"
+        <mock-styled.button
+          classname=""
         >
           1
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname=""
         >
           2
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname=""
         >
           3
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

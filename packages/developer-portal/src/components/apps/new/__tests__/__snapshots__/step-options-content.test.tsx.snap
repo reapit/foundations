@@ -1,113 +1,133 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StepOptionsContent should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="s1cum27r-step-form-container"
-        >
-          <div
-            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Login Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080/login"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Logout Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Login Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080/login"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Logout Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -164,113 +184,133 @@ Object {
 `;
 
 exports[`StepOptionsContent should match a snapshot 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="s1cum27r-step-form-container"
-        >
-          <div
-            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Login Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080/login"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Logout Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Login Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080/login"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Logout Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -327,113 +367,133 @@ Object {
 `;
 
 exports[`StepOptionsContent should match a snapshot 3`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="s1cum27r-step-form-container"
-        >
-          <div
-            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Login Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080/login"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Logout Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Login Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080/login"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Logout Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -490,113 +550,133 @@ Object {
 `;
 
 exports[`StepOptionsContent should match a snapshot 4`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="s1cum27r-step-form-container"
-        >
-          <div
-            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Login Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080/login"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Logout Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Login Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080/login"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Logout Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -653,113 +733,133 @@ Object {
 `;
 
 exports[`StepOptionsContent should match a snapshot 5`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="s1cum27r-step-form-container"
-        >
-          <div
-            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Login Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080/login"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Logout Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Login Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080/login"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Logout Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -816,113 +916,133 @@ Object {
 `;
 
 exports[`StepOptionsContent should match a snapshot 6`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="s1cum27r-step-form-container"
-        >
-          <div
-            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Login Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080/login"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Logout Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Login Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080/login"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Logout Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -979,113 +1099,133 @@ Object {
 `;
 
 exports[`StepOptionsContent should match a snapshot 7`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="s1cum27r-step-form-container"
-        >
-          <div
-            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Login Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080/login"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Logout Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Login Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080/login"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Logout Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1142,113 +1282,133 @@ Object {
 `;
 
 exports[`StepOptionsContent should match a snapshot 8`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="s1cum27r-step-form-container"
-        >
-          <div
-            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Login Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080/login"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Logout Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Login Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080/login"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Logout Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1305,113 +1465,133 @@ Object {
 `;
 
 exports[`StepOptionsContent should match a snapshot 9`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="s1cum27r-step-form-container"
-        >
-          <div
-            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Login Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080/login"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Logout Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Login Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080/login"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Logout Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1468,113 +1648,133 @@ Object {
 `;
 
 exports[`StepOptionsContent should match a snapshot 10`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="s1cum27r-step-form-container"
-        >
-          <div
-            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Login Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080/login"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Logout Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Login Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080/login"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Logout Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1631,113 +1831,133 @@ Object {
 `;
 
 exports[`StepOptionsContent should match a snapshot 11`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="s1cum27r-step-form-container"
-        >
-          <div
-            class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Login Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               type="text"
-              value="http://localhost:8080/login"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Logout Redirect URI
-            </label>
-            <span
-              class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
             >
               Some error
-            </span>
-          </div>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  width: 100%;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="e1ffzzrg-el-mb10 e1979rmu-el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Login Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             type="text"
-            value="http://localhost:8080/login"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Logout Redirect URI
-          </label>
-          <span
-            class="e1vxext9-el-intent-danger e15fmnse-el-input-add-on"
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
           >
             Some error
-          </span>
-        </div>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

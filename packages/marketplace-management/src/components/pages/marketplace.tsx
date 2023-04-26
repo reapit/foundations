@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FC, useCallback } from 'react'
-import { useHistory, useLocation } from 'react-router'
-import { History } from 'history'
+import { useNavigate, useLocation, NavigateFunction } from 'react-router'
 import Routes from '../../constants/routes'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import AppCard from '../ui/apps/app-card'
@@ -28,25 +27,24 @@ import {
 import { useOrgId } from '../../utils/use-org-id'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { OrgIdSelect } from '../hocs/org-id-select'
-import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import qs from 'qs'
 import { useReapitConnect } from '@reapit/connect-session'
 import debounce from 'just-debounce-it'
 import { ControlsContainer, inputFullWidth } from '../hocs/__styles__'
 
-export const onPageChangeHandler = (history: History<any>) => (pageNumber: number) => {
-  const queryParams = qs.parse(history.location.search, { ignoreQueryPrefix: true })
+export const onPageChangeHandler = (navigate: NavigateFunction) => (pageNumber: number) => {
+  const queryParams = qs.parse(window.location.search, { ignoreQueryPrefix: true })
   const queryString = qs.stringify({
     ...queryParams,
     pageSize: 12,
     pageNumber,
   })
 
-  return history.push(`${Routes.MARKETPLACE}?${queryString}`)
+  return navigate(`${Routes.MARKETPLACE}?${queryString}`)
 }
 
-export const handleSearch = (history: History<any>) => (event: ChangeEvent<HTMLInputElement>) => {
+export const handleSearch = (navigate: NavigateFunction) => (event: ChangeEvent<HTMLInputElement>) => {
   const search = event.target.value.toLowerCase()
 
   const searchTerm = search ? { searchTerm: search } : {}
@@ -57,18 +55,18 @@ export const handleSearch = (history: History<any>) => (event: ChangeEvent<HTMLI
     ...searchTerm,
   })
 
-  return history.push(`${Routes.MARKETPLACE}?${queryString}`)
+  return navigate(`${Routes.MARKETPLACE}?${queryString}`)
 }
 
 export const MarketplacePage: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { Modal, openModal, closeModal } = useModal()
   const { isMobile } = useMediaQuery()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const onPageChange = useCallback(onPageChangeHandler(history), [history])
+  const onPageChange = useCallback(onPageChangeHandler(navigate), [navigate])
   const searchParams = qs.parse(location.search, { ignoreQueryPrefix: true })
-  const debouncedSearch = useCallback(debounce(handleSearch(history), 500), [])
+  const debouncedSearch = useCallback(debounce(handleSearch(navigate), 500), [])
 
   const {
     orgIdState: { orgName, orgClientId },
@@ -76,7 +74,7 @@ export const MarketplacePage: FC = () => {
 
   const [appData, appLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', clientId: orgClientId, ...searchParams },
     fetchWhenTrue: [orgClientId],
   })

@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
-import { useLocation, Redirect } from 'react-router'
+import { useLocation, Navigate } from 'react-router'
 import Routes from '../constants/routes'
 import ErrorBoundary from '../components/error-boundary'
 import { Nav } from '../components/nav'
@@ -10,9 +10,7 @@ import { GlobalProvider } from './use-global-state'
 
 const { Suspense } = React
 
-export type PrivateRouteWrapperProps = {}
-
-export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
@@ -28,11 +26,11 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   }
 
   if (window.location.pathname === '/') {
-    return <Redirect to={Routes.ACCOUNTS} />
+    return <Navigate to={Routes.ACCOUNTS} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
-    return <Redirect to={connectInternalRedirect} />
+    return <Navigate to={connectInternalRedirect} />
   }
 
   return (

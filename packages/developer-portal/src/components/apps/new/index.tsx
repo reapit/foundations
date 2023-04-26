@@ -21,7 +21,7 @@ import { StepOptionsContent } from './step-options-content'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, UseFormTrigger } from 'react-hook-form'
 import { object, SchemaOf, string, TestFunction } from 'yup'
-import { UpdateActionNames, updateActions, whiteListLocalhostAndIsValidUrl } from '@reapit/utils-common'
+import { whiteListLocalhostAndIsValidUrl } from '@reapit/utils-common'
 import errorMessages from '../../../constants/error-messages'
 import { AnyObject } from 'yup/lib/types'
 import { AppDetailModel, CreateAppModel } from '@reapit/foundations-ts-definitions'
@@ -29,10 +29,15 @@ import generate from 'project-name-generator'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import dashify from 'dashify'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { useReapitUpdate, SendFunction, UpdateReturnTypeEnum } from '@reapit/utils-react'
+import {
+  UpdateActionNames,
+  updateActions,
+  useReapitUpdate,
+  SendFunction,
+  UpdateReturnTypeEnum,
+} from '@reapit/use-reapit-data'
 import Routes from '../../../constants/routes'
-import { History } from 'history'
-import { useHistory } from 'react-router-dom'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
 import { HelperContent } from './helper-content'
 import { defaultAppWizardState } from '../state/defaults'
 import { Helper } from '../page/helper'
@@ -162,7 +167,7 @@ export const handleSubmitApp =
 export const handleNavigateOnSuccess =
   (
     app: AppDetailModel | undefined,
-    history: History,
+    navigate: NavigateFunction,
     appsRefresh: () => void,
     appPipelineRefresh: () => void,
     setAppWizardState: Dispatch<SetStateAction<AppWizardState>>,
@@ -172,7 +177,7 @@ export const handleNavigateOnSuccess =
       appsRefresh()
       appPipelineRefresh()
       setAppWizardState(defaultAppWizardState)
-      history.push(`${Routes.APPS}/${app.id}`)
+      navigate(`${Routes.APPS}/${app.id}`)
     }
   }
 
@@ -184,7 +189,7 @@ export const preventReturnSubmit = (event: KeyboardEvent) => {
 
 export const AppsNewPage: FC = () => {
   const { appWizardState, setAppWizardState, appsDataState, appPipelineState } = useAppState()
-  const history = useHistory()
+  const navigate = useNavigate()
   const { isMobile } = useMediaQuery()
   const { Modal, openModal, closeModal } = useModal()
 
@@ -203,12 +208,12 @@ export const AppsNewPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [appCreating, app, createApp] = useReapitUpdate<CreateAppModel, AppDetailModel>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createApp],
+    action: updateActions[UpdateActionNames.createApp],
     method: 'POST',
     returnType: UpdateReturnTypeEnum.LOCATION,
   })
 
-  useEffect(handleNavigateOnSuccess(app, history, appsRefresh, appPipelineRefresh, setAppWizardState), [app])
+  useEffect(handleNavigateOnSuccess(app, navigate, appsRefresh, appPipelineRefresh, setAppWizardState), [app])
 
   const { headingText, headerText, iconName } = getAppWizardStep(currentStep)
 

@@ -96,7 +96,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
 
   const [members, membersLoading, , refreshMembers] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloperMembers],
+    action: getActions[GetActionNames.getDeveloperMembers],
     uriParams: {
       developerId: devIdMembers,
       memberId: memberUpdate?.id,
@@ -110,7 +110,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
 
   const [userInfo, userInfoLoading] = useReapitGet<UserInfoModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getUserInfo],
+    action: getActions[GetActionNames.getUserInfo],
     queryParams: {
       email: encodeURIComponent(memberEmail ?? ''),
       includeIdpData: true,
@@ -120,7 +120,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
 
   const [memberUpdating, , updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateMember],
+    action: updateActions[UpdateActionNames.updateMember],
     method: 'PUT',
     uriParams: {
       developerId: devIdMembers,
@@ -130,7 +130,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
 
   const [, , deleteMember, deleteMemberSuccess] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteMember],
+    action: updateActions[UpdateActionNames.deleteMember],
     method: 'DELETE',
     uriParams: { developerId: memberDelete?.developerId, memberId: memberDelete?.id },
   })

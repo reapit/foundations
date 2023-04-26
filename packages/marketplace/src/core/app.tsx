@@ -1,20 +1,29 @@
-import React, { FC } from 'react'
+import React, { FC, StrictMode } from 'react'
 import Router from './router'
 import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
-import ErrorBoundary from './error-boundary'
 import { injectSwitchModeToWindow } from '@reapit/utils-react'
+import ErrorBoundary from '../components/error-boundary'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
+const queryClient = new QueryClient()
 
 injectSwitchModeToWindow()
 
 const App: FC = () => (
   <ErrorBoundary>
-    <NavStateProvider>
-      <MediaStateProvider>
+    <StrictMode>
+      <QueryClientProvider client={queryClient}>
         <SnackProvider>
-          <Router />
+          <NavStateProvider>
+            <MediaStateProvider>
+              <Router />
+            </MediaStateProvider>
+          </NavStateProvider>
         </SnackProvider>
-      </MediaStateProvider>
-    </NavStateProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </StrictMode>
   </ErrorBoundary>
 )
 

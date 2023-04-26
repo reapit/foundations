@@ -1,8 +1,7 @@
 import { SubscriptionModel, SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
-import React, { FC, createContext, useContext, useMemo } from 'react'
+import React, { FC, PropsWithChildren, createContext, useContext, useMemo } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from './connect-session'
 import { Loader, PageContainer, PersistentNotification } from '@reapit/elements'
 import { PagedApiResponse } from '../types/core'
@@ -24,21 +23,21 @@ export const GlobalStateContext = createContext<GlobalState>({} as GlobalState)
 
 const { Provider } = GlobalStateContext
 
-export const GlobalProvider: FC = ({ children }) => {
+export const GlobalProvider: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity?.clientId
   const orgId = connectSession?.loginIdentity?.orgId
 
   const [subscriptions, subscriptionsLoading] = useReapitGet<SubscriptionModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getSubscriptions],
+    action: getActions[GetActionNames.getSubscriptions],
     queryParams: { customerId: clientId, pageSize: 999 },
     fetchWhenTrue: [clientId],
   })
 
   const [accounts, accountsLoading, , refreshAccounts] = useReapitGet<PagedApiResponse<AccountModel>>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDwAccounts],
+    action: getActions[GetActionNames.getDwAccounts],
     queryParams: { organisationId: orgId, pageSize: 999 },
     fetchWhenTrue: [orgId],
   })

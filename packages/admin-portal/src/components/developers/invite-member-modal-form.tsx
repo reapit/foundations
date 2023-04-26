@@ -2,8 +2,7 @@ import React, { FC } from 'react'
 import { Button, ButtonGroup, FormLayout, InputGroup } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { InviteMemberModel } from '@reapit/foundations-ts-definitions'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchemaMember } from './validation-schema'
@@ -29,7 +28,7 @@ export const InviteMemberModalForm: FC<InviteMemberModalFormProps> = ({ develope
 
   const [, , inviteMember] = useReapitUpdate<InviteMemberModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.inviteMember],
+    action: updateActions[UpdateActionNames.inviteMember],
     method: 'POST',
     uriParams: {
       developerId,

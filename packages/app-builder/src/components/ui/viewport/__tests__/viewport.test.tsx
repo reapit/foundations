@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
-import routeData, { MemoryRouter } from 'react-router'
+import { MemoryRouter } from 'react-router'
 import { MockedProvider } from '@apollo/client/testing'
 import { Viewport } from '../index'
 import { Editor } from '@craftjs/core'
@@ -41,19 +41,8 @@ jest.mock(
 )
 
 describe('Viewport', () => {
-  const mockParams = {
-    appId: '123',
-    pageId: '456',
-  }
-  const mockLocation = {
-    pathname: '/123/456',
-    hash: '',
-    search: '',
-    state: '',
-  }
   beforeEach(() => {
-    jest.spyOn(routeData, 'useParams').mockReturnValue(mockParams)
-    jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
+    window.location.pathname = '/123/456'
 
     // IntersectionObserver isn't available in test environment
     const mockIntersectionObserver = jest.fn()

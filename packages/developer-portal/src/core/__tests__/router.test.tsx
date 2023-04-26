@@ -1,11 +1,11 @@
 import React from 'react'
 import { render } from '../../tests/react-testing'
-import Router, { FourOFour } from '../router'
+import { FourOFour, RoutesComponent } from '../router'
 
-describe('Router', () => {
+describe('RouteRoutesComponent', () => {
   it('should match a snapshot', () => {
-    window.reapit.config.appEnv = 'development'
-    expect(render(<Router />)).toMatchSnapshot()
+    process.env.appEnv = 'development'
+    expect(render(<RoutesComponent />)).toMatchSnapshot()
   })
 })
 

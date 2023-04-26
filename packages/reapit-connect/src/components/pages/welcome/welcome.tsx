@@ -24,7 +24,7 @@ export const handleIsShowAgencyCloudSectionMemo = (session: ReapitConnectHook) =
 
 export const Welcome: React.FC<WelcomeProps> = () => {
   const session = useReapitConnect(reapitConnectBrowserSession)
-  const appEnv = window.reapit.config.appEnv
+  const appEnv = process.env.appEnv
 
   const isShowAgencyCloudSection = React.useMemo(handleIsShowAgencyCloudSectionMemo(session), [
     session?.connectSession?.loginIdentity?.groups,

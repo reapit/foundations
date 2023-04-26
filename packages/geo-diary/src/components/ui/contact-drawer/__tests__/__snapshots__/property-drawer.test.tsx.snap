@@ -1,102 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
-      <label
-        class="el-label"
-      >
+      <mock-styled.label>
         Key Number
-      </label>
+      </mock-styled.label>
       <p
-        class="el-mb3"
+        class="mock-css.
+  margin-bottom: 0.5rem;
+"
       >
         123
       </p>
-      <label
-        class="el-label"
-      >
+      <mock-styled.label>
         Keys in set
-      </label>
+      </mock-styled.label>
       <div
-        class="el-mb3"
+        class="mock-css.
+  margin-bottom: 0.5rem;
+"
       >
         <p>
           Front door key
         </p>
       </div>
-      <label
-        class="el-label"
-      >
+      <mock-styled.label>
         Office
-      </label>
+      </mock-styled.label>
       <p
-        class="el-mb3"
+        class="mock-css.
+  margin-bottom: 0.5rem;
+"
       >
         Camberwell
       </p>
-      <label
-        class="el-label"
-      >
+      <mock-styled.label>
         Status
-      </label>
+      </mock-styled.label>
       <p
-        class="el-mb3"
+        class="mock-css.
+  margin-bottom: 0.5rem;
+"
       >
         Checked in at 13/01/2022 10:50
       </p>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
-    <label
-      class="el-label"
-    >
+    <mock-styled.label>
       Key Number
-    </label>
+    </mock-styled.label>
     <p
-      class="el-mb3"
+      class="mock-css.
+  margin-bottom: 0.5rem;
+"
     >
       123
     </p>
-    <label
-      class="el-label"
-    >
+    <mock-styled.label>
       Keys in set
-    </label>
+    </mock-styled.label>
     <div
-      class="el-mb3"
+      class="mock-css.
+  margin-bottom: 0.5rem;
+"
     >
       <p>
         Front door key
       </p>
     </div>
-    <label
-      class="el-label"
-    >
+    <mock-styled.label>
       Office
-    </label>
+    </mock-styled.label>
     <p
-      class="el-mb3"
+      class="mock-css.
+  margin-bottom: 0.5rem;
+"
     >
       Camberwell
     </p>
-    <label
-      class="el-label"
-    >
+    <mock-styled.label>
       Status
-    </label>
+    </mock-styled.label>
     <p
-      class="el-mb3"
+      class="mock-css.
+  margin-bottom: 0.5rem;
+"
     >
       Checked in at 13/01/2022 10:50
     </p>
@@ -156,27 +152,61 @@ Object {
 `;
 
 exports[`PropertyDrawer should match snapshot with an appointment in state 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <div
-        class="drawer-header"
+        class="mock-css.
+  margin-bottom: ,;
+  padding: ,;
+  border-bottom: 1px solid ,;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+"
       >
-        <h2
-          class="el-has-no-margin el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Property Information
-        </h2>
+        </mock-styled.h2>
         <button
-          class="icon-button-container small-button"
+          class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+ mock-css.
+  width: 2rem;
+  height: 2rem;
+
+  , {
+    font-size: 0.75rem;
+  }
+"
         >
           <span
-            class="icon-container"
+            class="mock-css.
+  display: flex;
+  color: black;
+"
           >
             <svg
               height="16px"
@@ -217,22 +247,39 @@ Object {
         </button>
       </div>
       <div
-        class="contact-option-row"
+        class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
       >
         <div
-          class="grid"
+          class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
         >
           <div
-            class="col span16"
+            class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
           >
-            <label
-              class="el-label"
-            >
+            <mock-styled.label>
               Address
-            </label>
+            </mock-styled.label>
           </div>
           <div
-            class="col span16"
+            class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
           >
             <p>
               Yew Tree Cottage
@@ -256,106 +303,157 @@ Object {
         </div>
       </div>
       <div
-        class="contact-option-row"
+        class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
       >
         <div
-          class="grid"
+          class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
         >
           <div
-            class="col span16"
+            class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
           >
-            <label
-              class="el-label"
-            >
+            <mock-styled.label>
               Price
-            </label>
+            </mock-styled.label>
           </div>
           <div
-            class="col span16"
+            class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
           >
             £300000
           </div>
         </div>
       </div>
       <div
-        class="contact-option-row"
+        class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
       >
         <div
-          class="grid"
+          class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
         >
           <div
-            class="col span16"
+            class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
           >
-            <label
-              class="el-label"
-            >
+            <mock-styled.label>
               Viewing Arrangements
-            </label>
+            </mock-styled.label>
           </div>
           <div
-            class="col span16"
+            class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
           >
             Knock three times
           </div>
         </div>
       </div>
       <div
-        class="contact-option-row"
+        class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
       >
         <div
-          class="grid"
+          class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
         >
           <div
-            class="col span16"
+            class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
           >
-            <label
-              class="el-label"
-            />
+            <mock-styled.label />
           </div>
           <div
-            class="col span16"
+            class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
           >
             <ul>
               <li>
-                <label
-                  class="el-label"
-                >
+                <mock-styled.label>
                   Key Number
-                </label>
+                </mock-styled.label>
                 <p
-                  class="el-mb3"
+                  class="mock-css.
+  margin-bottom: 0.5rem;
+"
                 >
                   123
                 </p>
-                <label
-                  class="el-label"
-                >
+                <mock-styled.label>
                   Keys in set
-                </label>
+                </mock-styled.label>
                 <div
-                  class="el-mb3"
+                  class="mock-css.
+  margin-bottom: 0.5rem;
+"
                 >
                   <p>
                     Front door key
                   </p>
                 </div>
-                <label
-                  class="el-label"
-                >
+                <mock-styled.label>
                   Office
-                </label>
+                </mock-styled.label>
                 <p
-                  class="el-mb3"
+                  class="mock-css.
+  margin-bottom: 0.5rem;
+"
                 >
                   Camberwell
                 </p>
-                <label
-                  class="el-label"
-                >
+                <mock-styled.label>
                   Status
-                </label>
+                </mock-styled.label>
                 <p
-                  class="el-mb3"
+                  class="mock-css.
+  margin-bottom: 0.5rem;
+"
                 >
                   Checked in at 13/01/2022 10:50
                 </p>
@@ -367,23 +465,57 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <div
-      class="drawer-header"
+      class="mock-css.
+  margin-bottom: ,;
+  padding: ,;
+  border-bottom: 1px solid ,;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+"
     >
-      <h2
-        class="el-has-no-margin el-subtitle"
+      <mock-styled.h2
+        classname="mock-css."
       >
         Property Information
-      </h2>
+      </mock-styled.h2>
       <button
-        class="icon-button-container small-button"
+        class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+ mock-css.
+  width: 2rem;
+  height: 2rem;
+
+  , {
+    font-size: 0.75rem;
+  }
+"
       >
         <span
-          class="icon-container"
+          class="mock-css.
+  display: flex;
+  color: black;
+"
         >
           <svg
             height="16px"
@@ -424,22 +556,39 @@ Object {
       </button>
     </div>
     <div
-      class="contact-option-row"
+      class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
     >
       <div
-        class="grid"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
       >
         <div
-          class="col span16"
+          class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
         >
-          <label
-            class="el-label"
-          >
+          <mock-styled.label>
             Address
-          </label>
+          </mock-styled.label>
         </div>
         <div
-          class="col span16"
+          class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
         >
           <p>
             Yew Tree Cottage
@@ -463,106 +612,157 @@ Object {
       </div>
     </div>
     <div
-      class="contact-option-row"
+      class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
     >
       <div
-        class="grid"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
       >
         <div
-          class="col span16"
+          class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
         >
-          <label
-            class="el-label"
-          >
+          <mock-styled.label>
             Price
-          </label>
+          </mock-styled.label>
         </div>
         <div
-          class="col span16"
+          class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
         >
           £300000
         </div>
       </div>
     </div>
     <div
-      class="contact-option-row"
+      class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
     >
       <div
-        class="grid"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
       >
         <div
-          class="col span16"
+          class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
         >
-          <label
-            class="el-label"
-          >
+          <mock-styled.label>
             Viewing Arrangements
-          </label>
+          </mock-styled.label>
         </div>
         <div
-          class="col span16"
+          class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
         >
           Knock three times
         </div>
       </div>
     </div>
     <div
-      class="contact-option-row"
+      class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
     >
       <div
-        class="grid"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
       >
         <div
-          class="col span16"
+          class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
         >
-          <label
-            class="el-label"
-          />
+          <mock-styled.label />
         </div>
         <div
-          class="col span16"
+          class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
         >
           <ul>
             <li>
-              <label
-                class="el-label"
-              >
+              <mock-styled.label>
                 Key Number
-              </label>
+              </mock-styled.label>
               <p
-                class="el-mb3"
+                class="mock-css.
+  margin-bottom: 0.5rem;
+"
               >
                 123
               </p>
-              <label
-                class="el-label"
-              >
+              <mock-styled.label>
                 Keys in set
-              </label>
+              </mock-styled.label>
               <div
-                class="el-mb3"
+                class="mock-css.
+  margin-bottom: 0.5rem;
+"
               >
                 <p>
                   Front door key
                 </p>
               </div>
-              <label
-                class="el-label"
-              >
+              <mock-styled.label>
                 Office
-              </label>
+              </mock-styled.label>
               <p
-                class="el-mb3"
+                class="mock-css.
+  margin-bottom: 0.5rem;
+"
               >
                 Camberwell
               </p>
-              <label
-                class="el-label"
-              >
+              <mock-styled.label>
                 Status
-              </label>
+              </mock-styled.label>
               <p
-                class="el-mb3"
+                class="mock-css.
+  margin-bottom: 0.5rem;
+"
               >
                 Checked in at 13/01/2022 10:50
               </p>
@@ -627,20 +827,16 @@ Object {
 `;
 
 exports[`PropertyDrawer should match snapshot without an appointment in state 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
   </div>,
   "debug": [Function],

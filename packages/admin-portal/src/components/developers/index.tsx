@@ -19,7 +19,7 @@ export const DevsManagement: FC = () => {
 
   const [developers, developersLoading, , refreshDevelopers] = useReapitGet<DeveloperModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDevelopers],
+    action: getActions[GetActionNames.getDevelopers],
     queryParams: { pageNumber, pageSize, ...objectToQuery(developerFilters) },
   })
 

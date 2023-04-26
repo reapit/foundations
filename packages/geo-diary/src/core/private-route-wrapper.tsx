@@ -1,14 +1,14 @@
-import React, { FC, Suspense } from 'react'
+import React, { FC, PropsWithChildren, Suspense } from 'react'
 import Nav from '../components/ui/nav'
 import ErrorBoundary from './error-boundary'
-import { Redirect, useLocation } from 'react-router'
+import { Navigate, useLocation } from 'react-router'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { ApolloProvider } from '@apollo/client'
 import { Loader, MainContainer, PageContainer, PersistentNotification } from '@reapit/elements'
 import client from '../graphql/client'
 
-export const PrivateRouteWrapper: FC = ({ children }) => {
+export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
@@ -36,7 +36,7 @@ export const PrivateRouteWrapper: FC = ({ children }) => {
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
-    return <Redirect to={connectInternalRedirect} />
+    return <Navigate to={connectInternalRedirect} />
   }
 
   return (

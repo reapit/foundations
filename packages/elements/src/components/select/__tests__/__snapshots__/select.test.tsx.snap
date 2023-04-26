@@ -1,19 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <select
-        class="el-select"
-      />
+      <mock-styled.select />
     </div>
   </body>,
   "container": <div>
-    <select
-      class="el-select"
-    />
+    <mock-styled.select />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

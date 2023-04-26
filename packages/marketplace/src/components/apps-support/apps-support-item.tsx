@@ -2,8 +2,8 @@ import React, { FC, useCallback } from 'react'
 import { Card } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { AppDetailModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { AcProcessType, DesktopLink, useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { AcProcessType, DesktopLink } from '@reapit/utils-react'
+import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import { trackEventHandler } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -20,7 +20,7 @@ export const AppsSupportItem: FC<AppsSupportItemProps> = ({ app }) => {
 
   const [appDetail] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
+    action: getActions[GetActionNames.getAppById],
     uriParams: {
       appId: id,
     },

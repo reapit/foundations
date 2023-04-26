@@ -1,40 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WebhooksAbout should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="ec47sgk-el-mb11 epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css. mock-css. mock-css. mock-css."
       >
         <div
-          class="eta6kcl-el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="e1geon40-el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           Please note that apps and integrations developed using Webhooks for topics other than application install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
         </div>
-      </div>
-      <div
-        class="e20pb60-el-grid"
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eb3z2eu-el-col-split"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1ffzzrg-el-mb10 i147akox-icon-container"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
             <svg
               class=""
@@ -175,31 +192,98 @@ Object {
                 />
               </g>
             </svg>
-          </div>
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Manage Webhooks Subscriptions
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             Our webhooks system allows your application to directly subscribe to events happening in our customers data. Rather than needing to make API calls to poll for new information, a webhook subscription can be created to allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
-          </p>
-          <button
-            class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
           >
             Add new webhook
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-        <div
-          class="eb3z2eu-el-col-split"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1ffzzrg-el-mb10 i147akox-icon-container"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.25rem;
+"
           >
             <svg
               class=""
@@ -394,7 +478,7 @@ Object {
                   </g>
                   <g
                     id="webhooks-docs-svg-element-nine"
-                    style="offset-path: path(\\"M37.255498,23.852076L39.921657,34.649638\\"); offset-rotate: auto;"
+                    style="offset-path: path("M37.255498,23.852076L39.921657,34.649638"); offset-rotate: auto;"
                   >
                     <g
                       id="webhooks-docs-svg-element-ten"
@@ -420,7 +504,7 @@ Object {
                   </g>
                   <g
                     id="webhooks-docs-svg-element-twelve"
-                    style="offset-path: path(\\"M103.180305,18.127591L98.950013,25.52561\\"); offset-rotate: auto;"
+                    style="offset-path: path("M103.180305,18.127591L98.950013,25.52561"); offset-rotate: auto;"
                   >
                     <g
                       id="webhooks-docs-svg-element-thirteen"
@@ -474,14 +558,14 @@ Object {
                 </clippath>
               </g>
             </svg>
-          </div>
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Webhooks Documentation
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             This system is designed to work flexibly with your application. If you wish, you can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a different webhook subscription per topic or per customer. For more information about Webhooks, please see our
              
@@ -492,50 +576,65 @@ Object {
             >
               webhooks documentation.
             </a>
-          </p>
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css."
           >
             View Docs
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="ec47sgk-el-mb11 epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css. mock-css. mock-css. mock-css."
     >
       <div
-        class="eta6kcl-el-pn-icon"
+        class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
         data-testid="close-icon"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
+        </mock-styled.span>
       </div>
       <div
-        class="e1geon40-el-pn-content"
+        class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
       >
         Please note that apps and integrations developed using Webhooks for topics other than application install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
       </div>
-    </div>
-    <div
-      class="e20pb60-el-grid"
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eb3z2eu-el-col-split"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1ffzzrg-el-mb10 i147akox-icon-container"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
           <svg
             class=""
@@ -676,31 +775,98 @@ Object {
               />
             </g>
           </svg>
-        </div>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Manage Webhooks Subscriptions
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           Our webhooks system allows your application to directly subscribe to events happening in our customers data. Rather than needing to make API calls to poll for new information, a webhook subscription can be created to allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
-        </p>
-        <button
-          class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
         >
           Add new webhook
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-      <div
-        class="eb3z2eu-el-col-split"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1ffzzrg-el-mb10 i147akox-icon-container"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.25rem;
+"
         >
           <svg
             class=""
@@ -895,7 +1061,7 @@ Object {
                 </g>
                 <g
                   id="webhooks-docs-svg-element-nine"
-                  style="offset-path: path(\\"M37.255498,23.852076L39.921657,34.649638\\"); offset-rotate: auto;"
+                  style="offset-path: path("M37.255498,23.852076L39.921657,34.649638"); offset-rotate: auto;"
                 >
                   <g
                     id="webhooks-docs-svg-element-ten"
@@ -921,7 +1087,7 @@ Object {
                 </g>
                 <g
                   id="webhooks-docs-svg-element-twelve"
-                  style="offset-path: path(\\"M103.180305,18.127591L98.950013,25.52561\\"); offset-rotate: auto;"
+                  style="offset-path: path("M103.180305,18.127591L98.950013,25.52561"); offset-rotate: auto;"
                 >
                   <g
                     id="webhooks-docs-svg-element-thirteen"
@@ -975,14 +1141,14 @@ Object {
               </clippath>
             </g>
           </svg>
-        </div>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Webhooks Documentation
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           This system is designed to work flexibly with your application. If you wish, you can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a different webhook subscription per topic or per customer. For more information about Webhooks, please see our
            
@@ -993,17 +1159,15 @@ Object {
           >
             webhooks documentation.
           </a>
-        </p>
-        <button
-          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

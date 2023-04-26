@@ -86,7 +86,7 @@ export const DeveloperStatusModal: FC<DeveloperStatusModalProps> = ({
 
   const [, , updateDeveloperStatus, developerUpdated] = useReapitUpdate<UpdateDeveloperModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateDeveloper],
+    action: updateActions[UpdateActionNames.updateDeveloper],
     method: 'PUT',
     uriParams: {
       developerId: developer?.id,

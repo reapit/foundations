@@ -17,9 +17,9 @@ import {
   useMediaQuery,
 } from '@reapit/elements'
 import React, { FC } from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import Routes from '../../../constants/routes'
-import { ExternalPages, navigate, openNewPage } from '../../../utils/navigation'
+import { ExternalPages, navigateRoute, openNewPage } from '../../../utils/navigation'
 import { StepContainer } from '../new/__styles__'
 import { HelperGraphic } from './helper-graphic'
 import { cx } from '@linaria/core'
@@ -27,7 +27,7 @@ import { cx } from '@linaria/core'
 /**Temporary index while we don't have a video. Replace this file with index-final when we have welcome video */
 
 export const AppsWelcomePage: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { isMobile, isTablet, isDesktop } = useMediaQuery()
   const isFlexColumn = isMobile || isTablet || isDesktop
   return (
@@ -96,7 +96,7 @@ export const AppsWelcomePage: FC = () => {
                   </BodyText>
                 </div>
                 <ButtonGroup alignment="left">
-                  <Button intent="critical" size={2} onClick={navigate(history, Routes.APPS_NEW)} chevronRight>
+                  <Button intent="critical" size={2} onClick={navigateRoute(navigate, Routes.APPS_NEW)} chevronRight>
                     Create App
                   </Button>
                 </ButtonGroup>

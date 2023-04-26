@@ -1,61 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MyLocation should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
-      <div
-        class="my-location-wrap"
-      >
-        <div
-          class="my-location-inner-wrap"
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="my-location-section"
-          >
-            <input
-              class="el-input"
+          <mock-styled.div>
+            <mock-styled.input
               placeholder="Enter location"
               value=""
             />
-          </div>
-          <div
-            class="destination-location-section"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           />
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
-    <div
-      class="my-location-wrap"
-    >
-      <div
-        class="my-location-inner-wrap"
+    <mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="my-location-section"
-        >
-          <input
-            class="el-input"
+        <mock-styled.div>
+          <mock-styled.input
             placeholder="Enter location"
             value=""
           />
-        </div>
-        <div
-          class="destination-location-section"
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         />
-      </div>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

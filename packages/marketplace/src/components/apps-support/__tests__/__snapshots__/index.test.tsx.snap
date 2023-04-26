@@ -1,167 +1,253 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppsSupportPage should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-flex-auto el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="el-secondary-nav-container"
-        >
-          <h1
-            class="el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Support
-          </h1>
-          <span
-            class="el-mb5 el-icon-size-large el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <p
-            class="el-has-grey-text el-small-text"
+          </mock-styled.span>
+          <mock-styled.p
+            classname="mock-css."
           >
             For AppMarket support, you will need to contact the app developer directly. You can find the relevant contact details by searching by app or developer name.
-          </p>
-          <p
-            class="el-has-grey-text el-small-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             In addition we have provided comprehensive documentation on using the AppMarket at the below link.
-          </p>
-          <button
-            class="el-intent-neutral el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css."
           >
             View Docs
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </aside>
-        <section
-          class="el-hfull el-page-container"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <div
-            class="el-flex-align-center apps-search-container el-mb11 el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+ mock-css.
+  width: 100%;
+
+  , {
+    margin-bottom: 2.5rem;
+    width: 50%;
+  }
+
+  , {
+    width: 33.33%;
+  }
+
+  , {
+    width: 25%;
+  }
+ mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <span
-              class="apps-search-input-icon el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  border-radius: 0.25rem 0 0 0.25rem;
+  padding: 0 0.5rem 0 1.25rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-grey-light);
+"
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-            <input
-              class="apps-search-input"
+            </mock-styled.span>
+            <mock-styled.input
               placeholder="Search by App or Developer"
               type="text"
             />
-          </div>
-          <div
-            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css. mock-css. mock-css. mock-css."
           >
             <div
-              class="el-pn-icon"
+              class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
               data-testid="close-icon"
             >
-              <span
-                class="el-icon"
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
+              </mock-styled.span>
             </div>
             <div
-              class="el-pn-content"
+              class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
             >
               Search for an app or developer name to get support contact details
             </div>
-          </div>
-        </section>
-      </div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-flex-auto el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Support
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.span>
+        <mock-styled.p
+          classname="mock-css."
         >
           For AppMarket support, you will need to contact the app developer directly. You can find the relevant contact details by searching by app or developer name.
-        </p>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           In addition we have provided comprehensive documentation on using the AppMarket at the below link.
-        </p>
-        <button
-          class="el-intent-neutral el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css."
         >
           View Docs
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-hfull el-page-container"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <div
-          class="el-flex-align-center apps-search-container el-mb11 el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+ mock-css.
+  width: 100%;
+
+  , {
+    margin-bottom: 2.5rem;
+    width: 50%;
+  }
+
+  , {
+    width: 33.33%;
+  }
+
+  , {
+    width: 25%;
+  }
+ mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <span
-            class="apps-search-input-icon el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  border-radius: 0.25rem 0 0 0.25rem;
+  padding: 0 0.5rem 0 1.25rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-grey-light);
+"
             style="font-size: 1.25rem;"
           >
             <svg />
-          </span>
-          <input
-            class="apps-search-input"
+          </mock-styled.span>
+          <mock-styled.input
             placeholder="Search by App or Developer"
             type="text"
           />
-        </div>
-        <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             Search for an app or developer name to get support contact details
           </div>
-        </div>
-      </section>
-    </div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -218,151 +304,199 @@ Object {
 `;
 
 exports[`AppsSupportPage should match a snapshot when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-flex-auto el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="el-secondary-nav-container"
-        >
-          <h1
-            class="el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Support
-          </h1>
-          <span
-            class="el-mb5 el-icon-size-large el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <p
-            class="el-has-grey-text el-small-text"
+          </mock-styled.span>
+          <mock-styled.p
+            classname="mock-css."
           >
             For AppMarket support, you will need to contact the app developer directly. You can find the relevant contact details by searching by app or developer name.
-          </p>
-          <p
-            class="el-has-grey-text el-small-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             In addition we have provided comprehensive documentation on using the AppMarket at the below link.
-          </p>
-          <button
-            class="el-intent-neutral el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css."
           >
             View Docs
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </aside>
-        <section
-          class="el-hfull el-page-container"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <div
-            class="el-flex-align-center apps-search-container el-mb11 el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+ mock-css.
+  width: 100%;
+
+  , {
+    margin-bottom: 2.5rem;
+    width: 50%;
+  }
+
+  , {
+    width: 33.33%;
+  }
+
+  , {
+    width: 25%;
+  }
+ mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <span
-              class="apps-search-input-icon el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  border-radius: 0.25rem 0 0 0.25rem;
+  padding: 0 0.5rem 0 1.25rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-grey-light);
+"
               style="font-size: 1.25rem;"
             >
               <svg />
-            </span>
-            <input
-              class="apps-search-input"
+            </mock-styled.span>
+            <mock-styled.input
               placeholder="Search by App or Developer"
               type="text"
             />
-          </div>
-          <div
-            class="el-loader-container"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-loader"
-            >
-              <div
-                class="el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </section>
-      </div>
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-flex-auto el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Support
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.span>
+        <mock-styled.p
+          classname="mock-css."
         >
           For AppMarket support, you will need to contact the app developer directly. You can find the relevant contact details by searching by app or developer name.
-        </p>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           In addition we have provided comprehensive documentation on using the AppMarket at the below link.
-        </p>
-        <button
-          class="el-intent-neutral el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css."
         >
           View Docs
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-hfull el-page-container"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <div
-          class="el-flex-align-center apps-search-container el-mb11 el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+ mock-css.
+  width: 100%;
+
+  , {
+    margin-bottom: 2.5rem;
+    width: 50%;
+  }
+
+  , {
+    width: 33.33%;
+  }
+
+  , {
+    width: 25%;
+  }
+ mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <span
-            class="apps-search-input-icon el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  border-radius: 0.25rem 0 0 0.25rem;
+  padding: 0 0.5rem 0 1.25rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-grey-light);
+"
             style="font-size: 1.25rem;"
           >
             <svg />
-          </span>
-          <input
-            class="apps-search-input"
+          </mock-styled.span>
+          <mock-styled.input
             placeholder="Search by App or Developer"
             type="text"
           />
-        </div>
-        <div
-          class="el-loader-container"
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
-    </div>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

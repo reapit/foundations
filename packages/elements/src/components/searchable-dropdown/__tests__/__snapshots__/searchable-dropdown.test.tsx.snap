@@ -1,71 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ControlledSearchableDropdown component should display default value 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-searchable-dropdown-container"
-      >
+      <mock-styled.div>
         <input
           id="some-id"
           readonly=""
           style="display: none;"
           value="4"
         />
-        <span
-          class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-        >
-          <span
-            class="el-icon"
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </span>
-        <input
-          class="el-searchable-dropdown-search-input el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div
           data-testid="search-input"
           value="Forth"
         />
-        <span
-          class="el-searchable-dropdown-close-button el-icon"
-        >
-          <svg />
-        </span>
-      </div>
+        <mock-styled.div
+          icon="closeSystem"
+        />
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-searchable-dropdown-container"
-    >
+    <mock-styled.div>
       <input
         id="some-id"
         readonly=""
         style="display: none;"
         value="4"
       />
-      <span
-        class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-      >
-        <span
-          class="el-icon"
+      <mock-styled.div>
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </span>
-      <input
-        class="el-searchable-dropdown-search-input el-input"
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div
         data-testid="search-input"
         value="Forth"
       />
-      <span
-        class="el-searchable-dropdown-close-button el-icon"
-      >
-        <svg />
-      </span>
-    </div>
+      <mock-styled.div
+        icon="closeSystem"
+      />
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -122,61 +108,49 @@ Object {
 `;
 
 exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-searchable-dropdown-container"
-      >
+      <mock-styled.div>
         <input
           id="some-id"
           readonly=""
           style="display: none;"
           value=""
         />
-        <span
-          class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-        >
-          <span
-            class="el-icon"
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </span>
-        <input
-          class="el-searchable-dropdown-search-input el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div
           data-testid="search-input"
-          value=""
         />
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-searchable-dropdown-container"
-    >
+    <mock-styled.div>
       <input
         id="some-id"
         readonly=""
         style="display: none;"
         value=""
       />
-      <span
-        class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-      >
-        <span
-          class="el-icon"
+      <mock-styled.div>
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </span>
-      <input
-        class="el-searchable-dropdown-search-input el-input"
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div
         data-testid="search-input"
-        value=""
       />
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -233,61 +207,51 @@ Object {
 `;
 
 exports[`SearchableDropdown component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-searchable-dropdown-container"
-      >
+      <mock-styled.div>
         <input
           id="some-id"
           readonly=""
           style="display: none;"
           value=""
         />
-        <span
-          class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-        >
-          <span
-            class="el-icon"
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </span>
-        <input
-          class="el-searchable-dropdown-search-input el-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div
           data-testid="search-input"
           value=""
         />
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-searchable-dropdown-container"
-    >
+    <mock-styled.div>
       <input
         id="some-id"
         readonly=""
         style="display: none;"
         value=""
       />
-      <span
-        class="el-searchable-dropdown-search-input-add-on el-input-add-on"
-      >
-        <span
-          class="el-icon"
+      <mock-styled.div>
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </span>
-      <input
-        class="el-searchable-dropdown-search-input el-input"
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div
         data-testid="search-input"
         value=""
       />
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -344,23 +308,19 @@ Object {
 `;
 
 exports[`SearchableDropdownSearchLabel component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <label
-        class="el-searchable-dropdown-search-label el-label"
-      >
+      <mock-styled.div>
         I am a label
-      </label>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <label
-      class="el-searchable-dropdown-search-label el-label"
-    >
+    <mock-styled.div>
       I am a label
-    </label>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

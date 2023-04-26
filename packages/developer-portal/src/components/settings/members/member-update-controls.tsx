@@ -1,9 +1,9 @@
 import React, { FC, useEffect } from 'react'
 import { Button, ButtonGroup } from '@reapit/elements'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { InviteMemberModel, MemberModel, UpdateMemberModel } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 
@@ -59,7 +59,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
 
   const [, memberUpdating, updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateMember],
+    action: updateActions[UpdateActionNames.updateMember],
     method: 'PUT',
     uriParams: {
       developerId: member.developerId,
@@ -69,7 +69,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
 
   const [, memberDeleting, deleteMember, deleteMemberSuccess] = useReapitUpdate<undefined, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateMember],
+    action: updateActions[UpdateActionNames.updateMember],
     method: 'DELETE',
     uriParams: {
       developerId: member.developerId,
@@ -79,7 +79,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
 
   const [, memberReinviting, reinviteMember, reinviteMemberSuccess] = useReapitUpdate<InviteMemberModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.inviteMember],
+    action: updateActions[UpdateActionNames.inviteMember],
     method: 'POST',
     uriParams: {
       developerId: member.developerId,

@@ -1,197 +1,275 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Webhooks
-        </h1>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       >
-        <div
-          class="egmnxi3-el-tabs-options-wrap"
-        >
-          <input
-            checked=""
-            class="enkj6b-el-tabs"
+        <mock-styled.div>
+          <mock-styled.input
             id="webhook-tab-about"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/about"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-about"
+          <mock-styled.label
+            htmlfor="webhook-tab-about"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               About Webhooks
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="webhook-tab-new"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/new"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-new"
+          <mock-styled.label
+            htmlfor="webhook-tab-new"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Add Webhook
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="webhook-tab-manage"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/manage"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-manage"
+          <mock-styled.label
+            htmlfor="webhook-tab-manage"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Manage Webhooks
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="webhook-tab-logs"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/logs"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-logs"
+          <mock-styled.label
+            htmlfor="webhook-tab-logs"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Transaction Logs
             </span>
-          </label>
-        </div>
-        <div
-          class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
         />
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         Webhooks
-      </h1>
-    </div>
-    <div
-      class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
     >
-      <div
-        class="egmnxi3-el-tabs-options-wrap"
-      >
-        <input
-          checked=""
-          class="enkj6b-el-tabs"
+      <mock-styled.div>
+        <mock-styled.input
           id="webhook-tab-about"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/about"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-about"
+        <mock-styled.label
+          htmlfor="webhook-tab-about"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             About Webhooks
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="webhook-tab-new"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/new"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-new"
+        <mock-styled.label
+          htmlfor="webhook-tab-new"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Add Webhook
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="webhook-tab-manage"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/manage"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-manage"
+        <mock-styled.label
+          htmlfor="webhook-tab-manage"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Manage Webhooks
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="webhook-tab-logs"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/logs"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-logs"
+        <mock-styled.label
+          htmlfor="webhook-tab-logs"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Transaction Logs
           </span>
-        </label>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       />
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -248,197 +326,275 @@ Object {
 `;
 
 exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Webhooks
-        </h1>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       >
-        <div
-          class="egmnxi3-el-tabs-options-wrap"
-        >
-          <input
-            class="enkj6b-el-tabs"
+        <mock-styled.div>
+          <mock-styled.input
             id="webhook-tab-about"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/about"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-about"
+          <mock-styled.label
+            htmlfor="webhook-tab-about"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               About Webhooks
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="webhook-tab-new"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/new"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-new"
+          <mock-styled.label
+            htmlfor="webhook-tab-new"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Add Webhook
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="webhook-tab-manage"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/manage"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-manage"
+          <mock-styled.label
+            htmlfor="webhook-tab-manage"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Manage Webhooks
             </span>
-          </label>
-          <input
-            checked=""
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="webhook-tab-logs"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/logs"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-logs"
+          <mock-styled.label
+            htmlfor="webhook-tab-logs"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Transaction Logs
             </span>
-          </label>
-        </div>
-        <div
-          class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
         />
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         Webhooks
-      </h1>
-    </div>
-    <div
-      class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
     >
-      <div
-        class="egmnxi3-el-tabs-options-wrap"
-      >
-        <input
-          class="enkj6b-el-tabs"
+      <mock-styled.div>
+        <mock-styled.input
           id="webhook-tab-about"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/about"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-about"
+        <mock-styled.label
+          htmlfor="webhook-tab-about"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             About Webhooks
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="webhook-tab-new"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/new"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-new"
+        <mock-styled.label
+          htmlfor="webhook-tab-new"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Add Webhook
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="webhook-tab-manage"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/manage"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-manage"
+        <mock-styled.label
+          htmlfor="webhook-tab-manage"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Manage Webhooks
           </span>
-        </label>
-        <input
-          checked=""
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="webhook-tab-logs"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/logs"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-logs"
+        <mock-styled.label
+          htmlfor="webhook-tab-logs"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Transaction Logs
           </span>
-        </label>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       />
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -495,197 +651,275 @@ Object {
 `;
 
 exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Webhooks
-        </h1>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       >
-        <div
-          class="egmnxi3-el-tabs-options-wrap"
-        >
-          <input
-            class="enkj6b-el-tabs"
+        <mock-styled.div>
+          <mock-styled.input
             id="webhook-tab-about"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/about"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-about"
+          <mock-styled.label
+            htmlfor="webhook-tab-about"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               About Webhooks
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="webhook-tab-new"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/new"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-new"
+          <mock-styled.label
+            htmlfor="webhook-tab-new"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Add Webhook
             </span>
-          </label>
-          <input
-            checked=""
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="webhook-tab-manage"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/manage"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-manage"
+          <mock-styled.label
+            htmlfor="webhook-tab-manage"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Manage Webhooks
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="webhook-tab-logs"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/logs"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-logs"
+          <mock-styled.label
+            htmlfor="webhook-tab-logs"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Transaction Logs
             </span>
-          </label>
-        </div>
-        <div
-          class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
         />
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         Webhooks
-      </h1>
-    </div>
-    <div
-      class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
     >
-      <div
-        class="egmnxi3-el-tabs-options-wrap"
-      >
-        <input
-          class="enkj6b-el-tabs"
+      <mock-styled.div>
+        <mock-styled.input
           id="webhook-tab-about"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/about"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-about"
+        <mock-styled.label
+          htmlfor="webhook-tab-about"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             About Webhooks
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="webhook-tab-new"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/new"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-new"
+        <mock-styled.label
+          htmlfor="webhook-tab-new"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Add Webhook
           </span>
-        </label>
-        <input
-          checked=""
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="webhook-tab-manage"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/manage"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-manage"
+        <mock-styled.label
+          htmlfor="webhook-tab-manage"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Manage Webhooks
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="webhook-tab-logs"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/logs"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-logs"
+        <mock-styled.label
+          htmlfor="webhook-tab-logs"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Transaction Logs
           </span>
-        </label>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       />
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -742,197 +976,275 @@ Object {
 `;
 
 exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Webhooks
-        </h1>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       >
-        <div
-          class="egmnxi3-el-tabs-options-wrap"
-        >
-          <input
-            class="enkj6b-el-tabs"
+        <mock-styled.div>
+          <mock-styled.input
             id="webhook-tab-about"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/about"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-about"
+          <mock-styled.label
+            htmlfor="webhook-tab-about"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               About Webhooks
             </span>
-          </label>
-          <input
-            checked=""
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="webhook-tab-new"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/new"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-new"
+          <mock-styled.label
+            htmlfor="webhook-tab-new"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Add Webhook
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="webhook-tab-manage"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/manage"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-manage"
+          <mock-styled.label
+            htmlfor="webhook-tab-manage"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Manage Webhooks
             </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="webhook-tab-logs"
             name="webhook-tabs"
             type="radio"
             value="/webhooks/logs"
           />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="webhook-tab-logs"
+          <mock-styled.label
+            htmlfor="webhook-tab-logs"
           >
             <span
-              class="eulcr0n-el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Transaction Logs
             </span>
-          </label>
-        </div>
-        <div
-          class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
         />
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         Webhooks
-      </h1>
-    </div>
-    <div
-      class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
     >
-      <div
-        class="egmnxi3-el-tabs-options-wrap"
-      >
-        <input
-          class="enkj6b-el-tabs"
+      <mock-styled.div>
+        <mock-styled.input
           id="webhook-tab-about"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/about"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-about"
+        <mock-styled.label
+          htmlfor="webhook-tab-about"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             About Webhooks
           </span>
-        </label>
-        <input
-          checked=""
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="webhook-tab-new"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/new"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-new"
+        <mock-styled.label
+          htmlfor="webhook-tab-new"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Add Webhook
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="webhook-tab-manage"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/manage"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-manage"
+        <mock-styled.label
+          htmlfor="webhook-tab-manage"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Manage Webhooks
           </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="webhook-tab-logs"
           name="webhook-tabs"
           type="radio"
           value="/webhooks/logs"
         />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="webhook-tab-logs"
+        <mock-styled.label
+          htmlfor="webhook-tab-logs"
         >
           <span
-            class="eulcr0n-el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Transaction Logs
           </span>
-        </label>
-      </div>
-      <div
-        class="e6l6sr3-el-tabs-full-width e1147ynd-el-tabs-footer"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       />
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -1,10 +1,10 @@
 /* istanbul ignore file */
-import { History } from 'history'
 import { Dispatch, SetStateAction } from 'react'
 import { ClientConfigModel } from '../types/config'
+import { NavigateFunction } from 'react-router'
 
-export const navigate = (history: History, route: string) => (): void => {
-  history.push(route)
+export const navigateRoute = (navigate: NavigateFunction, route: string) => (): void => {
+  navigate(route)
 }
 
 export const checkShouldUpdateScript = (env: string) => {

@@ -2,8 +2,8 @@ import React, { FC } from 'react'
 import { Button, ButtonGroup, FlexContainer, Loader, Subtitle, Title, useMediaQuery, useModal } from '@reapit/elements'
 import { HitsPerDayChart } from './hits-per-day-chart'
 import { useAnalyticsState } from '../state/use-analytics-state'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet, listToBatchQuery } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet, listToBatchQuery } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { AppSummaryModel, TrafficEventsModel } from '@reapit/foundations-ts-definitions'
 import { ChartWrapper } from '../__styles__'
@@ -27,7 +27,7 @@ export const AnalyticsCalls: FC = () => {
 
   const [trafficEvents, trafficEventsLoading] = useReapitGet<TrafficEventsModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getTrafficStats],
+    action: getActions[GetActionNames.getTrafficStats],
     queryParams: { dateFrom, dateTo, applicationId: appsQuery, ...customerQuery },
     fetchWhenTrue: [dateFrom, dateTo, appsQuery],
   })

@@ -1,32 +1,32 @@
 import React from 'react'
-import { useLocation, useHistory } from 'react-router-dom'
-import Routes from '@/constants/routes'
-import { confirmRegistration } from '@/services/cognito-identity'
+import { useLocation, useNavigate } from 'react-router-dom'
+import Routes from '../../../constants/routes'
+import { confirmRegistration } from '../../../services/cognito-identity'
 
 export const handleUseEffect =
-  ({ userName, verificationCode, replace }) =>
+  ({ userName, verificationCode, navigate }) =>
   () => {
     confirmRegistration({
       userName,
       verificationCode,
-      connectClientId: window.reapit.config.connectClientId,
+      connectClientId: process.env.connectClientId,
     })
       .then(() => {
-        replace(`${Routes.LOGIN}?isSuccess=1`)
+        navigate(`${Routes.LOGIN}?isSuccess=1`)
       })
       .catch((error) => {
         console.log(error)
-        replace(`${Routes.LOGIN}?confirmError=1`)
+        navigate(`${Routes.LOGIN}?confirmError=1`)
       })
   }
 
 export const RegisterConfirm: React.FC = () => {
   const { search } = useLocation()
-  const { replace } = useHistory()
+  const navigate = useNavigate()
   const queryParams = new URLSearchParams(search)
   const userName = queryParams.get('userName')
   const verificationCode = queryParams.get('verificationCode')
-  React.useEffect(handleUseEffect({ userName, verificationCode, replace }), [])
+  React.useEffect(handleUseEffect({ userName, verificationCode, navigate }), [])
   return <React.Fragment />
 }
 

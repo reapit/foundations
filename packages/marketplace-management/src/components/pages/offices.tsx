@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
-import { useHistory, useLocation } from 'react-router'
+import { useNavigate, useLocation, Routes } from 'react-router'
 import { Route } from 'react-router-dom'
-import Routes from '../../constants/routes'
+import RoutePaths from '../../constants/routes'
 import OfficesTab from '../ui/offices/offices-tab'
 import OfficesGroupsTab from '../ui/offices/offices-groups-tab'
 import {
@@ -18,7 +18,7 @@ import {
   SecondaryNavItem,
   Title,
 } from '@reapit/elements'
-import { navigate } from '../ui/nav/nav'
+import { navigateRoute } from '../ui/nav/nav'
 import OfficeGroupCreate from '../ui/offices/office-group-create'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -32,7 +32,7 @@ export const handleDocs = (connectIsDesktop: Boolean) => () => {
 }
 
 const OfficesPage: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { pathname } = location
   const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
@@ -42,27 +42,30 @@ const OfficesPage: FC = () => {
       <SecondaryNavContainer>
         <Title>Offices</Title>
         <SecondaryNav className={elMb9}>
-          <SecondaryNavItem onClick={navigate(history, Routes.OFFICES)} active={pathname === Routes.OFFICES}>
+          <SecondaryNavItem
+            onClick={navigateRoute(navigate, RoutePaths.OFFICES)}
+            active={pathname === RoutePaths.OFFICES}
+          >
             Offices
           </SecondaryNavItem>
           <SecondaryNavItem
-            onClick={navigate(history, Routes.OFFICES_GROUPS)}
-            active={pathname.includes(Routes.OFFICES_GROUPS)}
+            onClick={navigateRoute(navigate, RoutePaths.OFFICES_GROUPS)}
+            active={pathname.includes(RoutePaths.OFFICES_GROUPS)}
           >
             Office Groups
           </SecondaryNavItem>
         </SecondaryNav>
         <Icon className={elMb5} icon="developmentInfographic" iconSize="large" />
         <BodyText hasGreyText>
-          {pathname === Routes.OFFICES
+          {pathname === RoutePaths.OFFICES
             ? 'This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Groups’ page.'
-            : pathname === Routes.OFFICES_GROUPS
+            : pathname === RoutePaths.OFFICES_GROUPS
             ? 'This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Office Groups’ page.'
             : 'You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.'}
         </BodyText>
-        {pathname === Routes.OFFICES_GROUPS && (
+        {pathname === RoutePaths.OFFICES_GROUPS && (
           <>
-            <Button className={elMb5} intent="primary" onClick={navigate(history, Routes.OFFICES_GROUPS_NEW)}>
+            <Button className={elMb5} intent="primary" onClick={navigateRoute(navigate, RoutePaths.OFFICES_GROUPS_NEW)}>
               Create Group
             </Button>
             <Button className={elMb5} onClick={handleDocs(connectIsDesktop)}>
@@ -73,9 +76,11 @@ const OfficesPage: FC = () => {
         <OrgIdSelect />
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
-        <Route path={Routes.OFFICES} component={OfficesTab} exact />
-        <Route path={Routes.OFFICES_GROUPS} component={OfficesGroupsTab} exact />
-        <Route path={Routes.OFFICES_GROUPS_NEW} component={OfficeGroupCreate} exact />
+        <Routes>
+          <Route index element={<OfficesTab />} />
+          <Route path={RoutePaths.OFFICES_GROUPS.replace('/offices/', '')} element={<OfficesGroupsTab />} />
+          <Route path={RoutePaths.OFFICES_GROUPS_NEW.replace('/offices/', '')} element={<OfficeGroupCreate />} />
+        </Routes>
       </PageContainer>
     </FlexContainer>
   )

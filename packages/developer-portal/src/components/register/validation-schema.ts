@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 import * as Yup from 'yup'
 import { formFields } from './form-fields'
-import errorMessages from '@/constants/error-messages'
+import errorMessages from '../../constants/error-messages'
 import { personNameRegex, telephoneRegex, emailRegex } from '@reapit/utils-common'
 import { specialCharsTest } from '../../utils/yup'
 import githubUsernameRegex from 'github-username-regex'

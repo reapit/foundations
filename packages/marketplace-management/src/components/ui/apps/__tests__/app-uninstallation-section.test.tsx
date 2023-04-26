@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
 import AppUninstallationSection from '../app-uninstallation-section'
+import { render } from '../../../../tests/react-testing'
 
 describe('AppUninstallationSection', () => {
   it('should match a snapshot when theres no installations', () => {

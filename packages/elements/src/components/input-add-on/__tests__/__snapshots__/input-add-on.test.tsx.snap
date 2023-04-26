@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InputAddOn component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <span
-        class="el-input-add-on"
+      <mock-styled.span
+        classname=""
       />
     </div>
   </body>,
   "container": <div>
-    <span
-      class="el-input-add-on"
+    <mock-styled.span
+      classname=""
     />
   </div>,
   "debug": [Function],

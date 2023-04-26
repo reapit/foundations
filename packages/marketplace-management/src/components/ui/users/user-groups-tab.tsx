@@ -1,9 +1,7 @@
 import React, { useState, useCallback, useMemo, FC } from 'react'
 import useSWR from 'swr'
-import { useHistory, useLocation } from 'react-router'
-import { History } from 'history'
+import { useNavigate, useLocation, NavigateFunction } from 'react-router'
 import { GroupModelPagedResult, GroupModel } from '@reapit/foundations-ts-definitions'
-import ErrorBoundary from '@/components/hocs/error-boundary'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import qs from 'query-string'
@@ -26,10 +24,11 @@ import { elMb11 } from '@reapit/elements'
 import EditUserGroupForm from './edit-user-group'
 import { useOrgId } from '../../../utils/use-org-id'
 import { OrgIdSelect } from '../../hocs/org-id-select'
+import ErrorBoundary from '../../error-boundary'
 
-export const onPageChangeHandler = (history: History<any>) => (page: number) => {
+export const onPageChangeHandler = (navigate: NavigateFunction) => (page: number) => {
   const queryString = `?pageNumber=${page}`
-  return history.push(`${Routes.USERS_GROUPS}${queryString}`)
+  return navigate(`${Routes.USERS_GROUPS}${queryString}`)
 }
 
 export const handleSortTableData = (groups: GroupModel[], orgId: string, onComplete: () => void) => (): RowProps[] => {
@@ -64,18 +63,18 @@ export const handleSortTableData = (groups: GroupModel[], orgId: string, onCompl
 }
 
 const UserGroupsTab: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { Modal, openModal, closeModal } = useModal()
   const { isMobile } = useMediaQuery()
   const search = location.search
-  const onPageChange = useCallback(onPageChangeHandler(history), [history])
+  const onPageChange = useCallback(onPageChangeHandler(navigate), [navigate])
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
   const {
     orgIdState: { orgId, orgName },
   } = useOrgId()
 
-  const groupIds = qs.stringify({ id: window.reapit.config.groupIdsWhitelist }, { indices: false })
+  const groupIds = qs.stringify({ id: process.env.groupIdsWhitelist }, { indices: false })
   const { data, mutate } = useSWR<GroupModelPagedResult | undefined>(
     !orgId
       ? null

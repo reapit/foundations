@@ -1,11 +1,10 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
-import { createBrowserHistory, History } from 'history'
 import Routes from '@/constants/routes'
 import UserGroupsTab, { onPageChangeHandler } from '../user-groups-tab'
 import useSWR from 'swr'
 import { useOrgId } from '../../../../utils/use-org-id'
 import { mockUserGroups } from '../../../../services/__stubs__/user-groups'
+import { render } from '../../../../tests/react-testing'
 
 jest.mock('swr')
 
@@ -50,12 +49,11 @@ describe('UserGroupsTab', () => {
 
 describe('onPageChangeHandler', () => {
   it('should return a function when executing', () => {
-    const history: History<any> = createBrowserHistory()
-    jest.spyOn(history, 'push')
-    const onPageChangeHandlerFn = onPageChangeHandler(history)
+    const navigate = jest.fn()
+    const onPageChangeHandlerFn = onPageChangeHandler(navigate)
     expect(onPageChangeHandlerFn).toBeDefined()
 
     onPageChangeHandlerFn(2)
-    expect(history.push).toHaveBeenLastCalledWith(`${Routes.USERS_GROUPS}?pageNumber=2`)
+    expect(navigate).toHaveBeenLastCalledWith(`${Routes.USERS_GROUPS}?pageNumber=2`)
   })
 })

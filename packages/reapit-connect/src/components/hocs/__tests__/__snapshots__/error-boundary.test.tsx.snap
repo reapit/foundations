@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`ErrorBoundary should match snapshot 1`] = `""`;
-
-exports[`ErrorBoundary should match snapshot when error 1`] = `
-<p>
-  Something went wrong here, try refreshing your page.
-</p>
-`;

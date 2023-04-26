@@ -2,7 +2,6 @@ import React, { ChangeEvent } from 'react'
 import { handleChangeTab, WebhooksWrapper } from '..'
 import { render } from '../../../tests/react-testing'
 import Routes from '../../../constants/routes'
-import { History } from 'history'
 
 jest.mock('../state/use-webhooks-state')
 
@@ -19,19 +18,14 @@ describe('WebhooksWrapper', () => {
 
 describe('handleChangeTab', () => {
   it('should correctly change tab', () => {
-    const history = {
-      push: jest.fn(),
-      location: {
-        search: '?applicationId=SOME_ID&to=2021-09-21&from=2021-08-21',
-      },
-    } as unknown as History
+    const navigate = jest.fn()
     const event = {
       target: {
         value: Routes.WEBHOOKS_MANAGE,
       },
     } as ChangeEvent<HTMLInputElement>
-    const curried = handleChangeTab(history)
+    const curried = handleChangeTab(navigate)
     curried(event)
-    expect(history.push).toHaveBeenCalledWith(`${event.target.value}${history.location.search}`)
+    expect(navigate).toHaveBeenCalledWith(`${event.target.value}${window.location.search}`)
   })
 })

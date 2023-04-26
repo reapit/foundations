@@ -1,48 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperAppsCollection should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <h2
-        class="browse-apps-subtitle el-subtitle"
-      >
+      <mock-styled.div />
+      <mock-styled.mock-styled.h2>
         My Apps
-      </h2>
-      <div
-        class="developer-apps-grid"
-      >
-        <div
-          class="developer-apps-col-helper"
-        >
-          <div
-            class="el-flex-align-center el-flex-container"
+      </mock-styled.mock-styled.h2>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <span
-              class="el-mr3 el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-right: 0.5rem;
+"
               style="font-size: 3.75rem;"
             >
               <svg />
-            </span>
-            <p
-              class="developer-main-strapline el-body-text"
-            >
+            </mock-styled.span>
+            <mock-styled.mock-styled.p>
               Apps you are currently developing show here. These will not be visible to users until approved for public listing.
-            </p>
-          </div>
-        </div>
-        <div
-          class="el-fade-in developer-apps-col"
+            </mock-styled.mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <div
-            class="el-flex-align-center el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <div
-              class="el-mr5 el-placeholder-image"
+            <mock-styled.div
+              classname="mock-css.
+  margin-right: 0.75rem;
+"
               style="font-size: 1.25em; width: 32px; height: 32px;"
             >
               <svg
@@ -57,22 +69,38 @@ Object {
                   fill="#E3E3E3"
                 />
               </svg>
-            </div>
-            <p
-              class="developer-subtitle el-body-text"
-            >
+            </mock-styled.div>
+            <mock-styled.mock-styled.p>
               MOCK_APP_NAME
-            </p>
-          </div>
-        </div>
-        <div
-          class="el-fade-in developer-apps-col"
+            </mock-styled.mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <div
-            class="el-flex-align-center el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
           >
-            <div
-              class="el-mr5 el-placeholder-image"
+            <mock-styled.div
+              classname="mock-css.
+  margin-right: 0.75rem;
+"
               style="font-size: 1.25em; width: 32px; height: 32px;"
             >
               <svg
@@ -87,56 +115,66 @@ Object {
                   fill="#E3E3E3"
                 />
               </svg>
-            </div>
-            <p
-              class="developer-subtitle el-body-text"
-            >
+            </mock-styled.div>
+            <mock-styled.mock-styled.p>
               MOCK_APP_NAME_ANOTHER
-            </p>
-          </div>
-        </div>
-      </div>
+            </mock-styled.mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h2
-      class="browse-apps-subtitle el-subtitle"
-    >
+    <mock-styled.div />
+    <mock-styled.mock-styled.h2>
       My Apps
-    </h2>
-    <div
-      class="developer-apps-grid"
-    >
-      <div
-        class="developer-apps-col-helper"
-      >
-        <div
-          class="el-flex-align-center el-flex-container"
+    </mock-styled.mock-styled.h2>
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <span
-            class="el-mr3 el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.5rem;
+"
             style="font-size: 3.75rem;"
           >
             <svg />
-          </span>
-          <p
-            class="developer-main-strapline el-body-text"
-          >
+          </mock-styled.span>
+          <mock-styled.mock-styled.p>
             Apps you are currently developing show here. These will not be visible to users until approved for public listing.
-          </p>
-        </div>
-      </div>
-      <div
-        class="el-fade-in developer-apps-col"
+          </mock-styled.mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="el-flex-align-center el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <div
-            class="el-mr5 el-placeholder-image"
+          <mock-styled.div
+            classname="mock-css.
+  margin-right: 0.75rem;
+"
             style="font-size: 1.25em; width: 32px; height: 32px;"
           >
             <svg
@@ -151,22 +189,38 @@ Object {
                 fill="#E3E3E3"
               />
             </svg>
-          </div>
-          <p
-            class="developer-subtitle el-body-text"
-          >
+          </mock-styled.div>
+          <mock-styled.mock-styled.p>
             MOCK_APP_NAME
-          </p>
-        </div>
-      </div>
-      <div
-        class="el-fade-in developer-apps-col"
+          </mock-styled.mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="el-flex-align-center el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <div
-            class="el-mr5 el-placeholder-image"
+          <mock-styled.div
+            classname="mock-css.
+  margin-right: 0.75rem;
+"
             style="font-size: 1.25em; width: 32px; height: 32px;"
           >
             <svg
@@ -181,15 +235,13 @@ Object {
                 fill="#E3E3E3"
               />
             </svg>
-          </div>
-          <p
-            class="developer-subtitle el-body-text"
-          >
+          </mock-styled.div>
+          <mock-styled.mock-styled.p>
             MOCK_APP_NAME_ANOTHER
-          </p>
-        </div>
-      </div>
-    </div>
+          </mock-styled.mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -246,19 +298,15 @@ Object {
 `;
 
 exports[`DeveloperAppsCollection should match a snapshot when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

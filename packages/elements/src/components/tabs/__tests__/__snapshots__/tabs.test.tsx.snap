@@ -1,139 +1,199 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-tabs-full-width el-tabs-wrap"
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       >
-        <div
-          class="el-tabs-options-wrap"
-        >
-          <input
-            checked=""
-            class="el-tabs"
+        <mock-styled.div>
+          <mock-styled.input
             id="option-1"
             name="my-cool-toggle-radio"
             type="radio"
             value="option-1"
           />
-          <label
-            class="el-tabs-label"
-            for="option-1"
+          <mock-styled.label
+            htmlfor="option-1"
           >
             <span
-              class="el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Option 1
             </span>
-          </label>
-          <input
-            class="el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="option-2"
             name="my-cool-toggle-radio"
             type="radio"
             value="option-2"
           />
-          <label
-            class="el-tabs-label"
-            for="option-2"
+          <mock-styled.label
+            htmlfor="option-2"
           >
             <span
-              class="el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Option 2
             </span>
-          </label>
-          <input
-            class="el-tabs"
+          </mock-styled.label>
+          <mock-styled.input
             id="option-3"
             name="my-cool-toggle-radio"
             type="radio"
             value="option-3"
           />
-          <label
-            class="el-tabs-label"
-            for="option-3"
+          <mock-styled.label
+            htmlfor="option-3"
           >
             <span
-              class="el-tabs-item"
+              class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
             >
               Option 3
             </span>
-          </label>
-        </div>
-        <div
-          class="el-tabs-full-width el-tabs-footer"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
         />
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-tabs-full-width el-tabs-wrap"
+    <mock-styled.div
+      classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
     >
-      <div
-        class="el-tabs-options-wrap"
-      >
-        <input
-          checked=""
-          class="el-tabs"
+      <mock-styled.div>
+        <mock-styled.input
           id="option-1"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-1"
         />
-        <label
-          class="el-tabs-label"
-          for="option-1"
+        <mock-styled.label
+          htmlfor="option-1"
         >
           <span
-            class="el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Option 1
           </span>
-        </label>
-        <input
-          class="el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="option-2"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-2"
         />
-        <label
-          class="el-tabs-label"
-          for="option-2"
+        <mock-styled.label
+          htmlfor="option-2"
         >
           <span
-            class="el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Option 2
           </span>
-        </label>
-        <input
-          class="el-tabs"
+        </mock-styled.label>
+        <mock-styled.input
           id="option-3"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-3"
         />
-        <label
-          class="el-tabs-label"
-          for="option-3"
+        <mock-styled.label
+          htmlfor="option-3"
         >
           <span
-            class="el-tabs-item"
+            class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+"
           >
             Option 3
           </span>
-        </label>
-      </div>
-      <div
-        class="el-tabs-full-width el-tabs-footer"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       />
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

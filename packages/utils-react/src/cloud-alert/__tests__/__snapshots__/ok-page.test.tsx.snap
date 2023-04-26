@@ -1,15 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OkayPage should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="o1k9lr2a"
+        class="mock-css.
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+"
       >
         <div
-          class="o1o582w2"
+          class="mock-css.
+  margin: 0 auto;
+"
         >
           <h5
             id="ok-content"
@@ -22,10 +29,17 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="o1k9lr2a"
+      class="mock-css.
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+"
     >
       <div
-        class="o1o582w2"
+        class="mock-css.
+  margin: 0 auto;
+"
       >
         <h5
           id="ok-content"

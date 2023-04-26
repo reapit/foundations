@@ -1,151 +1,115 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Customers should render component when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           Customers
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="name"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="agencyCloudId"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer Code
-                </label>
-              </div>
-            </div>
-          </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
-        <div
-          class="el-loader-container"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         Customers
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="name"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="agencyCloudId"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Code
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="el-loader-container"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
-    </section>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -202,485 +166,393 @@ Object {
 `;
 
 exports[`Customers should render component with data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           Customers
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="name"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="agencyCloudId"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer Code
-                </label>
-              </div>
-            </div>
-          </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
-        <div
-          class="el-mb11 el-table"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="5"
         >
-          <div
-            class="el-table-headers-row"
-          >
-            <div
-              class="el-table-header"
-            >
+          <mock-styled.div>
+            <mock-styled.div>
               Customer Name
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Agency Cloud Id
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Customer Id
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Customer Billing Reference
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Customer Address
-            </div>
-            <div
-              class="el-table-header"
-            >
-              <span
-                class="el-icon"
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="el-table-row-container"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-row"
-            >
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <span
-                  class="el-intent-secondary el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-                <div
-                  class="el-table-cell-content"
+                </mock-styled.span>
+                <mock-styled.div
                   data-narrow-label="Customer Name"
                 >
                   Reapit Sales
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Agency Cloud Id"
                 >
                   RES
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Customer Id"
                 >
                   201a8d35-f682-41a8-95ed-079133e4b517
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Customer Billing Reference"
                 >
                   HJP000
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Customer Address"
                 >
                   5 Radcliffe House Blenheim Court Solihull solihull B91 2AA
-                </div>
-              </div>
-              <div
-                class="el-table-expandable-row-trigger-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <span
-                  class="el-intent-secondary el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-            <div
-              class="el-table-expandable-row"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-expandable-container"
-              >
-                <div
-                  class="el-button-group"
-                >
-                  <div
-                    class="el-button-group-align-center el-button-group-inner"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
                   >
-                    <button
-                      class="el-intent-secondary el-button"
+                    <mock-styled.button
+                      classname="mock-css."
                     >
                       Fetch Office Groups
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-pagination-wrap"
-        >
-          <div
-            class="el-pagination-text"
-          >
-            <input
-              class="el-pagination-input"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               value="1"
             />
              of 
             1
-          </div>
-          <button
-            class="el-pagination-button"
+          </mock-styled.div>
+          <mock-styled.button
             data-testid="back-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-          <button
-            class="el-pagination-button"
+            </mock-styled.span>
+          </mock-styled.button>
+          <mock-styled.button
             data-testid="forward-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-        </div>
-      </section>
+            </mock-styled.span>
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         Customers
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="name"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="agencyCloudId"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Code
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="el-mb11 el-table"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
       >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             Customer Name
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Agency Cloud Id
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Customer Id
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Customer Billing Reference
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Customer Address
-          </div>
-          <div
-            class="el-table-header"
-          >
-            <span
-              class="el-icon"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.2rem;"
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Customer Name"
               >
                 Reapit Sales
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Agency Cloud Id"
               >
                 RES
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Customer Id"
               >
                 201a8d35-f682-41a8-95ed-079133e4b517
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Customer Billing Reference"
               >
                 HJP000
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Customer Address"
               >
                 5 Radcliffe House Blenheim Court Solihull solihull B91 2AA
-              </div>
-            </div>
-            <div
-              class="el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-expandable-container"
-            >
-              <div
-                class="el-button-group"
-              >
-                <div
-                  class="el-button-group-align-center el-button-group-inner"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
                 >
-                  <button
-                    class="el-intent-secondary el-button"
+                  <mock-styled.button
+                    classname="mock-css."
                   >
                     Fetch Office Groups
-                    <div
-                      class="el-button-loader"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-pagination-wrap"
-      >
-        <div
-          class="el-pagination-text"
-        >
-          <input
-            class="el-pagination-input"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           1
-        </div>
-        <button
-          class="el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-      </div>
-    </section>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

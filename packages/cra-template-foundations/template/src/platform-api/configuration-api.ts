@@ -8,7 +8,7 @@ export const configurationAppointmentsApiService = async (
   try {
     if (!session) return
 
-    const response = await fetch(`${window.reapit.config.platformApiUrl}${URLS.CONFIGURATION_APPOINTMENT_TYPES}`, {
+    const response = await fetch(`${process.env.platformApiUrl}${URLS.CONFIGURATION_APPOINTMENT_TYPES}`, {
       method: 'GET',
       headers: {
         ...BASE_HEADERS,

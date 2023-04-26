@@ -1,31 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TextRow should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <div
-        class="contact-option-row"
+        class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
       >
         <div
-          class="grid"
+          class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
         >
           <div
-            class="col span16"
+            class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
           >
-            <label
-              class="el-label"
-            >
+            <mock-styled.label>
               Label
-            </label>
+            </mock-styled.label>
           </div>
           <div
-            class="col span16"
+            class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
           >
             blah blah
           </div>
@@ -34,27 +49,42 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <div
-      class="contact-option-row"
+      class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
     >
       <div
-        class="grid"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
       >
         <div
-          class="col span16"
+          class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
         >
-          <label
-            class="el-label"
-          >
+          <mock-styled.label>
             Label
-          </label>
+          </mock-styled.label>
         </div>
         <div
-          class="col span16"
+          class="mock-css. mock-css.
+  grid-column-end: span 16;
+"
         >
           blah blah
         </div>

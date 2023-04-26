@@ -9,7 +9,7 @@ export const fetchTrafficPeriod = async (period: string) => {
     if (headers) {
       return fetcherWithBlob({
         url: `${URLS.traffic}/${period}`,
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         method: 'GET',
         headers,
       })

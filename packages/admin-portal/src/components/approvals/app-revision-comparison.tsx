@@ -266,7 +266,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
 
   const [app, appLoading] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
+    action: getActions[GetActionNames.getAppById],
     uriParams: {
       appId,
     },
@@ -275,7 +275,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
 
   const [revision, revisionLoading] = useReapitGet<AppRevisionModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getRevisionById],
+    action: getActions[GetActionNames.getRevisionById],
     uriParams: {
       revisionId,
       appId,
@@ -285,17 +285,17 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
 
   const [desktopIntegrationTypes, desktopTypesLoading] = useReapitGet<DesktopIntegrationTypeModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDesktopIntegrationTypes],
+    action: getActions[GetActionNames.getDesktopIntegrationTypes],
   })
 
   const [scopes, scopesLoading] = useReapitGet<ScopeModel[]>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppPermissions],
+    action: getActions[GetActionNames.getAppPermissions],
   })
 
   const [, , approveRevision, revisionApproved] = useReapitUpdate<ApproveModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.approveRevision],
+    action: updateActions[UpdateActionNames.approveRevision],
     method: 'POST',
     uriParams: {
       appId,
@@ -305,7 +305,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
 
   const [, , rejectRevision, revisionRejected] = useReapitUpdate<RejectRevisionModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.rejectRevision],
+    action: updateActions[UpdateActionNames.rejectRevision],
     method: 'POST',
     uriParams: {
       appId,
@@ -315,7 +315,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
 
   const [, , createConsentEmails] = useReapitUpdate<CreateAppRevisionConsentsModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createConsentEmails],
+    action: updateActions[UpdateActionNames.createConsentEmails],
     method: 'POST',
     uriParams: {
       appId,

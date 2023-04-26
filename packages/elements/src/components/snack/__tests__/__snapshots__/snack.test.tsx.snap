@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Snack component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-intent-secondary el-snack"
+      <mock-styled.div
+        classname="mock-css."
       />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-intent-secondary el-snack"
+    <mock-styled.div
+      classname="mock-css."
     />
   </div>,
   "debug": [Function],
@@ -70,33 +70,37 @@ Object {
 `;
 
 exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-intent-secondary el-snack"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <span
-          class="el-snack-icon el-intent-secondary el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 0.5rem;
+ mock-css."
           style="font-size: 1.25rem;"
         >
           <svg />
-        </span>
-      </div>
+        </mock-styled.span>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-intent-secondary el-snack"
+    <mock-styled.div
+      classname="mock-css."
     >
-      <span
-        class="el-snack-icon el-intent-secondary el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-right: 0.5rem;
+ mock-css."
         style="font-size: 1.25rem;"
       >
         <svg />
-      </span>
-    </div>
+      </mock-styled.span>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -153,55 +157,63 @@ Object {
 `;
 
 exports[`SnackHolder component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      >
-        <div
-          class="el-intent-primary el-snack"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <span
-            class="el-snack-icon el-intent-primary el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-right: 0.5rem;
+ mock-css."
             style="font-size: 1.25rem;"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           i am a snack
-          <span
-            class="el-snack-close-icon el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  cursor: pointer;
+  padding-left: 0.5rem;
+  color: var(--color-black);
+"
             data-testid="close-icon"
           >
             <svg />
-          </span>
-        </div>
-      </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    >
-      <div
-        class="el-intent-primary el-snack"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <span
-          class="el-snack-icon el-intent-primary el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 0.5rem;
+ mock-css."
           style="font-size: 1.25rem;"
         >
           <svg />
-        </span>
+        </mock-styled.span>
         i am a snack
-        <span
-          class="el-snack-close-icon el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  cursor: pointer;
+  padding-left: 0.5rem;
+  color: var(--color-black);
+"
           data-testid="close-icon"
         >
           <svg />
-        </span>
-      </div>
-    </div>
+        </mock-styled.span>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

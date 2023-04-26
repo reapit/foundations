@@ -39,7 +39,7 @@ export const DownloadUsersCSV: FC<DownloadUsersCSVProps> = ({ queryParams }) => 
 
   const [users] = useReapitGet<UserModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getUsers],
+    action: getActions[GetActionNames.getUsers],
     queryParams: {
       ...queryParams,
       pageSize: 9999,

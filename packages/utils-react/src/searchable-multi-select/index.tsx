@@ -33,7 +33,7 @@ export interface SearchableMultiSelectProps extends InputHTMLAttributes<HTMLInpu
   nameKey: string // The key in the fetched object to set as the display name for a single selected item eg 'name'
   searchKey: string // The query string key to filter the API on eg 'appName' - will be the value of the text input
   dataListKey: string // The accessor for the fetched list eg 'data' or '_embedded'
-  action: GetAction // A useReapitGet action eg getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations]
+  action: GetAction // A useReapitGet action eg getActions[GetActionNames.getInstallations]
   label?: string // The Label to be applied to the Search input
   queryParams?: Object // Any addtional query params eg pageSize or clientId
   noneSelectedLabel?: string // An optional label for the multi select if no items are selected
@@ -53,7 +53,7 @@ export interface SearchableMultiSelectProps extends InputHTMLAttributes<HTMLInpu
     nameKey="name"
     searchKey="appName"
     dataListKey="data"
-    action={getActions(window.reapit.config.appEnv)[GetActionNames.getApps]}
+    action={getActions[GetActionNames.getApps]}
     queryParams={{ pageSize: 100 }}
     noneSelectedLabel="No apps selected"
     {...register('appIds')}

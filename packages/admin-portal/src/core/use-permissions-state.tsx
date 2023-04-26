@@ -1,4 +1,14 @@
-import React, { FC, createContext, useContext, useMemo, useState, Dispatch, SetStateAction, useEffect } from 'react'
+import React, {
+  FC,
+  createContext,
+  useContext,
+  useMemo,
+  useState,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  PropsWithChildren,
+} from 'react'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
 import { elMt5, Loader, PageContainer, PersistentNotification } from '@reapit/elements'
@@ -37,7 +47,7 @@ export const PermissionsStateContext = createContext<PermissionsStateHook>({} as
 
 const { Provider } = PermissionsStateContext
 
-export const PermissionsProvider: FC = ({ children }) => {
+export const PermissionsProvider: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [bannerVisible, setBannerVisible] = useState<boolean>(true)
   const { hasReadAccess, hasWriteAccess } = useMemo(handleAccessPermissions(connectSession), [connectSession])

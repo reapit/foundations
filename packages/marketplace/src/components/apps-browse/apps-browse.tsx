@@ -43,9 +43,9 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
-import { History } from 'history'
-import { Routes } from '../../constants/routes'
-import { useHistory, useLocation } from 'react-router'
+import { NavigateFunction } from 'react-router'
+import { RoutePaths } from '../../constants/routes'
+import { useNavigate, useLocation } from 'react-router'
 import { AppDetailBackButton } from '../apps-detail/__styles__'
 
 export type MobileControlsState = 'search' | 'filters' | null
@@ -77,7 +77,7 @@ export const handleClearFilters =
 export const handleSetFilters =
   (
     setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
-    history: History,
+    navigate: NavigateFunction,
     configItem: AppsBrowseConfigItemInterface,
   ) =>
   () => {
@@ -85,7 +85,7 @@ export const handleSetFilters =
     if (filters) {
       trackEvent(TrackingEvent.ClickSeeAllFilter, true, { filters, collectionTitle: content?.title, collectionId: id })
       setAppsBrowseFilterState(filters)
-      history.push(`${Routes.APPS_BROWSE}?collectionId=${id}`)
+      navigate(`${RoutePaths.APPS_BROWSE}?collectionId=${id}`)
     }
   }
 
@@ -146,7 +146,7 @@ export const handleCollectionId =
 export const AppsBrowse: FC = () => {
   const { appsBrowseFilterState, setAppsBrowseFilterState, appsBrowseConfigState } = useAppsBrowseState()
   const mediaQuery = useMediaQuery()
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [mobileControlsState, setMobileControlsState] = useState<MobileControlsState>(null)
@@ -234,7 +234,7 @@ export const AppsBrowse: FC = () => {
               <Fragment key={index}>
                 <FlexContainer isFlexAlignCenter>
                   <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
-                  <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, history, configItem)}>
+                  <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, navigate, configItem)}>
                     See All
                   </AppFilterLink>
                 </FlexContainer>
@@ -247,7 +247,7 @@ export const AppsBrowse: FC = () => {
               <Fragment key={index}>
                 <FlexContainer isFlexAlignCenter>
                   <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
-                  <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, history, configItem)}>
+                  <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, navigate, configItem)}>
                     See All
                   </AppFilterLink>
                 </FlexContainer>

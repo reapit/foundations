@@ -10,7 +10,8 @@ import { ExpandableContentType } from '../webhooks-manage'
 import { mockWebhookModel } from '../../../tests/__stubs__/webhooks'
 
 jest.mock('../state/use-webhooks-state')
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [{ keys: [{ id: 'MOCK_ID' }] }, false, undefined, jest.fn()]),
   useReapitUpdate: jest.fn(() => [null, false, jest.fn()]),
 }))

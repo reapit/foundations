@@ -1,13 +1,13 @@
 import React, { FC, useState } from 'react'
 import { BodyText, Button, ButtonGroup, Subtitle, Title, FlexContainer, elMb12 } from '@reapit/elements'
-import { Routes } from '../../constants/routes'
+import { RoutePaths } from '../../constants/routes'
 import reapitLogo from '../../assets/images/reapit-logo.svg'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { KeyAnimation } from '@reapit/utils-react'
 import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
 
 export const onLoginButtonClick = () => () => {
-  reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.APPS_BROWSE_MANAGER}`)
+  reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${RoutePaths.APPS_BROWSE_MANAGER}`)
 }
 
 export const Login: FC = () => {

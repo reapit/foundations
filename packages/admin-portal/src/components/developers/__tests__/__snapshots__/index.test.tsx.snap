@@ -1,138 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DevsManagement should render component when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           Developers
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="name"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Developer Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="company"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Company Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="gitHubUsername"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Github Username
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="registeredFrom"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Registered From
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="registeredTo"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Registered To
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <label
-                class="el-label"
-              >
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Status
-              </label>
-              <div
-                class="el-input-group"
-              >
-                <select
-                  class="el-select"
+              </mock-styled.label>
+              <mock-styled.div>
+                <mock-styled.select
                   name="status"
                 >
                   <option
@@ -165,154 +126,111 @@ Object {
                   >
                     Removed
                   </option>
-                </select>
-              </div>
-            </div>
-          </div>
+                </mock-styled.select>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
-        <div
-          class="el-loader-container"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         Developers
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="name"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Developer Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="company"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Company Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="gitHubUsername"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Github Username
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Registered From
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Registered To
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Status
-            </label>
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-select"
+            </mock-styled.label>
+            <mock-styled.div>
+              <mock-styled.select
                 name="status"
               >
                 <option
@@ -345,23 +263,19 @@ Object {
                 >
                   Removed
                 </option>
-              </select>
-            </div>
-          </div>
-        </div>
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="el-loader-container"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
-    </section>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -418,138 +332,99 @@ Object {
 `;
 
 exports[`DevsManagement should render component with data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           Developers
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="name"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Developer Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="company"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Company Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="gitHubUsername"
                   type="search"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Github Username
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="registeredFrom"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Registered From
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <div
-                class="el-input-group"
-              >
-                <input
-                  class="el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="registeredTo"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Registered To
-                </label>
-              </div>
-            </div>
-            <div
-              class="el-input-wrap"
-            >
-              <label
-                class="el-label"
-              >
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Status
-              </label>
-              <div
-                class="el-input-group"
-              >
-                <select
-                  class="el-select"
+              </mock-styled.label>
+              <mock-styled.div>
+                <mock-styled.select
                   name="status"
                 >
                   <option
@@ -582,430 +457,339 @@ Object {
                   >
                     Removed
                   </option>
-                </select>
-              </div>
-            </div>
-          </div>
+                </mock-styled.select>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
         <div
-          class="el-mb11"
+          class="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-button-group"
-          >
-            <div
-              class="el-button-group-inner"
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <button
-                class="el-intent-primary el-button"
+              <mock-styled.button
+                classname="mock-css."
                 type="button"
               >
                 Download CSV
-                <div
-                  class="el-button-loader"
-                />
-              </button>
-            </div>
-          </div>
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
         <div
-          class="el-mb11"
+          class="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <h2
-            class="el-subtitle"
+          <mock-styled.h2
+            classname=""
           >
             Total Developers
-          </h2>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             1
-          </p>
-          <div
-            class="el-table"
+          </mock-styled.p>
+          <mock-styled.div
             data-has-call-to-action="false"
             data-has-expandable-action="true"
             data-num-columns-excl-action-col="7"
           >
-            <div
-              class="el-table-headers-row"
-            >
-              <div
-                class="el-table-header"
-              >
+            <mock-styled.div>
+              <mock-styled.div>
                 Company Name
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Developer Name
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Developer Email
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Job Title
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Account Status
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Created Date
-              </div>
-              <div
-                class="el-table-header"
-              >
+              </mock-styled.div>
+              <mock-styled.div>
                 Agreed Terms Date
-              </div>
-              <div
-                class="el-table-header"
-              >
-                <span
-                  class="el-icon"
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-            <div
-              class="el-table-row-container"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-row"
-              >
-                <div
-                  class="el-table-cell-has-dark-text el-table-cell"
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Company Name"
                   >
                     Reapit Sales
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell-has-dark-text el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Developer Name"
                   >
                     Sales Team
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell-has-dark-text el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Developer Email"
                   >
                     test@example.com
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Job Title"
                   />
-                </div>
-                <div
-                  class="el-table-cell"
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Account Status"
                   >
                     confirmed
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Created Date"
                   >
                     03 Mar 2022 10:18
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Agreed Terms Date"
                   >
                     -
-                  </div>
-                </div>
-                <div
-                  class="el-table-expandable-row-trigger-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <span
-                    class="el-intent-secondary el-icon"
+                  <mock-styled.span
+                    classname="mock-css."
                   >
                     <svg />
-                  </span>
-                </div>
-              </div>
-              <div
-                class="el-table-expandable-row"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-expandable-container"
-                >
-                  <div
-                    class="el-button-group"
-                  >
-                    <div
-                      class="el-button-group-align-center el-button-group-inner"
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div
+                      classname="mock-css."
                     >
-                      <button
-                        class="el-intent-primary el-button"
+                      <mock-styled.button
+                        classname="mock-css."
                         type="button"
                       >
                         Update Status
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
                         type="button"
                       >
                         DevEdition is Free
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
+                        disabled="false"
                       >
                         Toggle Subscription 
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
                       >
                         Invite Member
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                      <button
-                        class="el-intent-secondary el-button"
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
                       >
                         Fetch Members
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                      <button
-                        class="el-intent-secondary el-button"
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
                       >
                         Fetch Apps
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                      <button
-                        class="el-intent-danger el-button"
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
                         type="button"
                       >
                         Delete Developer
-                        <div
-                          class="el-button-loader"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                        <mock-styled.div />
+                      </mock-styled.button>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
-        <div
-          class="el-pagination-wrap"
-        >
-          <div
-            class="el-pagination-text"
-          >
-            <input
-              class="el-pagination-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               value="1"
             />
              of 
             1
-          </div>
-          <button
-            class="el-pagination-button"
+          </mock-styled.div>
+          <mock-styled.button
             data-testid="back-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-          <button
-            class="el-pagination-button"
+            </mock-styled.span>
+          </mock-styled.button>
+          <mock-styled.button
             data-testid="forward-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-        </div>
-      </section>
+            </mock-styled.span>
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         Developers
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="name"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Developer Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="company"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Company Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="gitHubUsername"
                 type="search"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Github Username
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Registered From
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Registered To
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <label
-              class="el-label"
-            >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Status
-            </label>
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-select"
+            </mock-styled.label>
+            <mock-styled.div>
+              <mock-styled.select
                 name="status"
               >
                 <option
@@ -1038,299 +822,247 @@ Object {
                 >
                   Removed
                 </option>
-              </select>
-            </div>
-          </div>
-        </div>
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
       <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-inner"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Download CSV
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
       <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <h2
-          class="el-subtitle"
+        <mock-styled.h2
+          classname=""
         >
           Total Developers
-        </h2>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           1
-        </p>
-        <div
-          class="el-table"
+        </mock-styled.p>
+        <mock-styled.div
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="7"
         >
-          <div
-            class="el-table-headers-row"
-          >
-            <div
-              class="el-table-header"
-            >
+          <mock-styled.div>
+            <mock-styled.div>
               Company Name
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Developer Name
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Developer Email
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Job Title
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Account Status
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Created Date
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Agreed Terms Date
-            </div>
-            <div
-              class="el-table-header"
-            >
-              <span
-                class="el-icon"
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="el-table-row-container"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-row"
-            >
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Company Name"
                 >
                   Reapit Sales
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Developer Name"
                 >
                   Sales Team
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Developer Email"
                 >
                   test@example.com
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Job Title"
                 />
-              </div>
-              <div
-                class="el-table-cell"
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Account Status"
                 >
                   confirmed
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Created Date"
                 >
                   03 Mar 2022 10:18
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Agreed Terms Date"
                 >
                   -
-                </div>
-              </div>
-              <div
-                class="el-table-expandable-row-trigger-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <span
-                  class="el-intent-secondary el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-            <div
-              class="el-table-expandable-row"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-expandable-container"
-              >
-                <div
-                  class="el-button-group"
-                >
-                  <div
-                    class="el-button-group-align-center el-button-group-inner"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
                   >
-                    <button
-                      class="el-intent-primary el-button"
+                    <mock-styled.button
+                      classname="mock-css."
                       type="button"
                     >
                       Update Status
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
                       type="button"
                     >
                       DevEdition is Free
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="false"
                     >
                       Toggle Subscription 
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
                     >
                       Invite Member
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-secondary el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
                     >
                       Fetch Members
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-secondary el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
                     >
                       Fetch Apps
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-danger el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
                       type="button"
                     >
                       Delete Developer
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
-      <div
-        class="el-pagination-wrap"
-      >
-        <div
-          class="el-pagination-text"
-        >
-          <input
-            class="el-pagination-input"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           1
-        </div>
-        <button
-          class="el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-      </div>
-    </section>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

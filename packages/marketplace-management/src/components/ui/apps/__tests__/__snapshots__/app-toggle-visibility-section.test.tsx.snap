@@ -1,65 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Application Visibility
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
-      </p>
-      <div
-        class="el-mb11 el-input-group"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <input
-          checked=""
-          class="el-input"
+        <mock-styled.input
+          checked="true"
           id="test-static-id"
           type="checkbox"
         />
-        <label
-          class="el-label"
-          for="test-static-id"
+        <mock-styled.label
+          htmlfor="test-static-id"
         >
           Visible
-        </label>
-      </div>
+        </mock-styled.label>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <h2
-      class="el-subtitle"
+    <mock-styled.h2
+      classname=""
     >
       Application Visibility
-    </h2>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
-    </p>
-    <div
-      class="el-mb11 el-input-group"
+    </mock-styled.p>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <input
-        checked=""
-        class="el-input"
+      <mock-styled.input
+        checked="true"
         id="test-static-id"
         type="checkbox"
       />
-      <label
-        class="el-label"
-        for="test-static-id"
+      <mock-styled.label
+        htmlfor="test-static-id"
       >
         Visible
-      </label>
-    </div>
+      </mock-styled.label>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

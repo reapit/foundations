@@ -3,9 +3,8 @@ import { Dispatch } from 'react'
 import { SharesModel } from '../../types/shares'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { Button, ButtonGroup, elMb11, Table } from '@reapit/elements'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { UpdateActionNames, updateActions, SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 
 export interface SharesTableProps {
   shares: SharesModel[]
@@ -69,13 +68,13 @@ export const URLComponent: FC<TableCellProps> = ({ value }) => {
 export const SharesTable: FC<SharesTableProps> = ({ shares, refreshShares }) => {
   const [refreshingShare, , refreshShare] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.refreshDwShare],
+    action: updateActions[UpdateActionNames.refreshDwShare],
     method: 'POST',
   })
 
   const [deletingShare, , deleteShare] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteDwShare],
+    action: updateActions[UpdateActionNames.deleteDwShare],
     method: 'DELETE',
   })
 

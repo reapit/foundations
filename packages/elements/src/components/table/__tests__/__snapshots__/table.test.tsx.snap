@@ -1,19 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table Component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -70,97 +66,79 @@ Object {
 `;
 
 exports[`Table Component should match a snapshot for cta content alternate settings 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table"
+      <mock-styled.div
         data-has-call-to-action="true"
         data-has-expandable-action="false"
       >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-table-header"
-          >
-            <span
-              class="el-icon"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.2rem;"
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="foo-bar el-table-cta-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="foo-bar"
             >
-              <div
-                class="el-table-cta-icon-container"
-              >
-                <span
-                  class="el-intent-primary el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table"
+    <mock-styled.div
       data-has-call-to-action="true"
       data-has-expandable-action="false"
     >
-      <div
-        class="el-table-headers-row"
-      >
-        <div
-          class="el-table-header"
-        >
-          <span
-            class="el-icon"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
             style="font-size: 1.2rem;"
           >
             <svg />
-          </span>
-        </div>
-      </div>
-      <div
-        class="el-table-row-container"
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-table-row"
-        >
-          <div
-            class="foo-bar el-table-cta-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="foo-bar"
           >
-            <div
-              class="el-table-cta-icon-container"
-            >
-              <span
-                class="el-intent-primary el-icon"
+            <mock-styled.div>
+              <mock-styled.span
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -217,101 +195,83 @@ Object {
 `;
 
 exports[`Table Component should match a snapshot for expandable content alternate settings 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table"
+      <mock-styled.div
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="0"
       >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             Some Content
-          </div>
-        </div>
-        <div
-          class="el-table-row-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="foo-bar el-table-expandable-row-trigger-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="foo-bar"
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-expandable-container"
-            >
+            <mock-styled.div>
               <p>
                 I am the content that is only visible when expanded
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table"
+    <mock-styled.div
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="0"
     >
-      <div
-        class="el-table-headers-row"
-      >
-        <div
-          class="el-table-header"
-        >
+      <mock-styled.div>
+        <mock-styled.div>
           Some Content
-        </div>
-      </div>
-      <div
-        class="el-table-row-container"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-table-row"
-        >
-          <div
-            class="foo-bar el-table-expandable-row-trigger-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="foo-bar"
           >
-            <span
-              class="el-intent-secondary el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="el-table-expandable-row"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-expandable-container"
-          >
+          <mock-styled.div>
             <p>
               I am the content that is only visible when expanded
             </p>
-          </div>
-        </div>
-      </div>
-    </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -368,311 +328,255 @@ Object {
 `;
 
 exports[`Table Component should match a snapshot with full props and cta content 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table"
+      <mock-styled.div
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="8"
       >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-span2 el-table-header"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  grid-column-end: span 2;
+"
           >
             Property
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Customer
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Client A/C
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Description
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Request Date
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Amount
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Payment Status
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Some Action
-          </div>
-        </div>
-        <div
-          class="el-is-active el-table-row-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="el-span2 el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  grid-column-end: span 2;
+ mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Property"
               >
                 Mt Ash Jacket, Brassey Road
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Customer"
               >
                 Mr Johnny Corrigan
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
-              >
+              <mock-styled.div>
                 Alternate Lettings Client Acc
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
-              >
+              <mock-styled.div>
                 Tenant Payment Request
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Request Date"
               >
                 19 Apr 2021
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="el-table-cell-content"
-              >
+              <mock-styled.div>
                 £50.00
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
-              >
+              <mock-styled.div>
                 Not Requested
-              </div>
-            </div>
-            <div
-              class="foo-bar el-table-cta-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="foo-bar"
             >
-              <div
-                class="el-table-cta-icon-container"
-              >
-                <span
-                  class="el-intent-primary el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table"
+    <mock-styled.div
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="8"
     >
-      <div
-        class="el-table-headers-row"
-      >
-        <div
-          class="el-span2 el-table-header"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  grid-column-end: span 2;
+"
         >
           Property
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Customer
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Client A/C
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Description
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Request Date
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Amount
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Payment Status
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Some Action
-        </div>
-      </div>
-      <div
-        class="el-is-active el-table-row-container"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-table-row"
-        >
-          <div
-            class="el-span2 el-table-cell-has-dark-text el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  grid-column-end: span 2;
+ mock-css."
           >
-            <span
-              class="el-intent-secondary el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Property"
             >
               Mt Ash Jacket, Brassey Road
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-intent-secondary el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Customer"
             >
               Mr Johnny Corrigan
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
-            >
+            <mock-styled.div>
               Alternate Lettings Client Acc
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
-            >
+            <mock-styled.div>
               Tenant Payment Request
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Request Date"
             >
               19 Apr 2021
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="el-table-cell-content"
-            >
+            <mock-styled.div>
               £50.00
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
-            >
+            <mock-styled.div>
               Not Requested
-            </div>
-          </div>
-          <div
-            class="foo-bar el-table-cta-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="foo-bar"
           >
-            <div
-              class="el-table-cta-icon-container"
-            >
-              <span
-                class="el-intent-primary el-icon"
+            <mock-styled.div>
+              <mock-styled.span
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -729,333 +633,277 @@ Object {
 `;
 
 exports[`Table Component should match a snapshot with full props and expandable content 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table"
+      <mock-styled.div
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="8"
       >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-span2 el-table-header"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  grid-column-end: span 2;
+"
           >
             Property
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Customer
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Client A/C
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Description
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Request Date
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Amount
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Payment Status
-          </div>
-          <div
-            class="el-table-header"
-          >
-            <span
-              class="el-icon"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.2rem;"
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="el-is-active el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="el-span2 el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  grid-column-end: span 2;
+ mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Property"
               >
                 Mt Ash Jacket, Brassey Road
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Customer"
               >
                 Mr Johnny Corrigan
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
-              >
+              <mock-styled.div>
                 Alternate Lettings Client Acc
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
-              >
+              <mock-styled.div>
                 Tenant Payment Request
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Request Date"
               >
                 19 Apr 2021
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="el-table-cell-content"
-              >
+              <mock-styled.div>
                 £50.00
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
-              >
+              <mock-styled.div>
                 Not Requested
-              </div>
-            </div>
-            <div
-              class="el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-intent-primary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="el-is-active el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="el-table-expandable-container"
-            >
+            <mock-styled.div>
               <p>
                 I am the content that is only visible when expanded
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table"
+    <mock-styled.div
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="8"
     >
-      <div
-        class="el-table-headers-row"
-      >
-        <div
-          class="el-span2 el-table-header"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  grid-column-end: span 2;
+"
         >
           Property
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Customer
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Client A/C
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Description
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Request Date
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Amount
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Payment Status
-        </div>
-        <div
-          class="el-table-header"
-        >
-          <span
-            class="el-icon"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
             style="font-size: 1.2rem;"
           >
             <svg />
-          </span>
-        </div>
-      </div>
-      <div
-        class="el-is-active el-table-row-container"
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-table-row"
-        >
-          <div
-            class="el-span2 el-table-cell-has-dark-text el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  grid-column-end: span 2;
+ mock-css."
           >
-            <span
-              class="el-intent-secondary el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Property"
             >
               Mt Ash Jacket, Brassey Road
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-intent-secondary el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Customer"
             >
               Mr Johnny Corrigan
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
-            >
+            <mock-styled.div>
               Alternate Lettings Client Acc
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
-            >
+            <mock-styled.div>
               Tenant Payment Request
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Request Date"
             >
               19 Apr 2021
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="el-table-cell-content"
-            >
+            <mock-styled.div>
               £50.00
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
-            >
+            <mock-styled.div>
               Not Requested
-            </div>
-          </div>
-          <div
-            class="el-table-expandable-row-trigger-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-intent-primary el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="el-is-active el-table-expandable-row"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-table-expandable-container"
-          >
+          <mock-styled.div>
             <p>
               I am the content that is only visible when expanded
             </p>
-          </div>
-        </div>
-      </div>
-    </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1112,19 +960,15 @@ Object {
 `;
 
 exports[`Table Component should match a snapshot with varied number columns 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

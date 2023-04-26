@@ -138,12 +138,12 @@ export const AdminPage: FC = () => {
 
   const [deleteLoading, , deleteSubmit, deleteSubmitSuccess] = useReapitUpdate<ClientConfigDeleteModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.paymentsClientConfigDelete],
+    action: updateActions[UpdateActionNames.paymentsClientConfigDelete],
     method: 'DELETE',
     headers: {
       Authorization: idToken,
       'reapit-customer': clientCode,
-      'reapit-app-id': window.reapit.config.appId,
+      'reapit-app-id': process.env.appId,
     },
     uriParams: {
       clientCode,
@@ -152,12 +152,12 @@ export const AdminPage: FC = () => {
 
   const [createLoading, , createSubmit, createSubmitSuccess] = useReapitUpdate<ClientConfigCreateModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.paymentsClientConfigCreate],
+    action: updateActions[UpdateActionNames.paymentsClientConfigCreate],
     method: 'POST',
     headers: {
       Authorization: idToken,
       'reapit-customer': clientCode,
-      'reapit-app-id': window.reapit.config.appId,
+      'reapit-app-id': process.env.appId,
     },
     uriParams: {
       clientCode,
@@ -166,12 +166,12 @@ export const AdminPage: FC = () => {
 
   const [updateLoading, , updateSubmit, updateSubmitSuccess] = useReapitUpdate<ClientConfigCreateModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.paymentsClientConfigUpdate],
+    action: updateActions[UpdateActionNames.paymentsClientConfigUpdate],
     method: 'PATCH',
     headers: {
       Authorization: idToken,
       'reapit-customer': clientCode,
-      'reapit-app-id': window.reapit.config.appId,
+      'reapit-app-id': process.env.appId,
     },
     uriParams: {
       clientCode,
@@ -180,7 +180,7 @@ export const AdminPage: FC = () => {
 
   const [, , uploadImage] = useReapitUpdate<CreateImageUploadModel, ImageUploadModel>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.fileUpload],
+    action: updateActions[UpdateActionNames.fileUpload],
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })

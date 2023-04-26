@@ -2,11 +2,6 @@
 
 exports[`App should match a snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="el-snack-holder"
-  />
-  <div>
-    I am a router
-  </div>
+  <mock-styled.div />
 </DocumentFragment>
 `;

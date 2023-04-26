@@ -12,13 +12,13 @@ import {
   Subtitle,
   Title,
 } from '@reapit/elements'
-import { AppUriParams, useAppState } from '../state/use-app-state'
+import { useAppState } from '../state/use-app-state'
 import { useParams } from 'react-router-dom'
 import { handleSetAppId } from '../utils/handle-set-app-id'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { AppClientSecretModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet } from '@reapit/use-reapit-data'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { LinkChip, PermissionChip, textOverflow, textOverflowContainer } from './__styles__'
 import { ExternalPages, openNewPage } from '../../../utils/navigation'
@@ -85,18 +85,18 @@ export const AppDetail: FC = () => {
   const { appsDataState, setAppId } = useAppState()
   const [copyState, setCopyState] = useState<CopyState>(defaultCopyState)
   const [shouldFetchSecret, setShouldFetchSecret] = useState<boolean>(false)
-  const { appId } = useParams<AppUriParams>()
+  const { appId } = useParams<'appId'>()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const isAdmin = selectIsDeveloperAdmin(connectSession)
 
-  useEffect(handleSetAppId(appId, setAppId), [appId])
+  useEffect(handleSetAppId(setAppId, appId), [appId])
 
   const { appDetail, appDetailLoading } = appsDataState
   const { id, name, externalId, authFlow, redirectUris, signoutUris, scopes } = appDetail ?? {}
 
   const [appSecret, appSecretLoading] = useReapitGet<AppClientSecretModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppSecret],
+    action: getActions[GetActionNames.getAppSecret],
     uriParams: { appId },
     fetchWhenTrue: [appId, authFlow === 'clientCredentials', shouldFetchSecret],
   })

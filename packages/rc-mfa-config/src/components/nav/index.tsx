@@ -2,16 +2,16 @@ import React, { FC } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
-import { Routes } from '../../constants/routes'
-import { history } from '../../core/router'
-import { navigate } from '../../utils/navigation'
+import { RoutePaths } from '../../constants/routes'
+import { navigateRoute } from '../../utils/navigation'
 import { getIsAdmin } from '../../utils/is-admin'
+import { useNavigate } from 'react-router'
 
 export const getDefaultNavIndex = (pathname: string) => {
   switch (pathname) {
-    case Routes.HOME:
+    case RoutePaths.HOME:
       return 1
-    case Routes.ADMIN:
+    case RoutePaths.ADMIN:
       return 2
     default:
       return 0
@@ -19,6 +19,7 @@ export const getDefaultNavIndex = (pathname: string) => {
 }
 
 export const Nav: FC = () => {
+  const navigate = useNavigate()
   const { connectLogoutRedirect, connectIsDesktop, connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const isAdmin = getIsAdmin(connectSession)
 
@@ -30,7 +31,7 @@ export const Nav: FC = () => {
       itemIndex: 1,
       text: 'Configure',
       iconId: 'myAccountMenu',
-      callback: navigate(history, Routes.HOME),
+      callback: navigateRoute(navigate, RoutePaths.HOME),
     },
   ]
 
@@ -39,7 +40,7 @@ export const Nav: FC = () => {
       itemIndex: 2,
       text: 'Admin',
       iconId: 'manageMenu',
-      callback: navigate(history, Routes.ADMIN),
+      callback: navigateRoute(navigate, RoutePaths.ADMIN),
     })
   }
 

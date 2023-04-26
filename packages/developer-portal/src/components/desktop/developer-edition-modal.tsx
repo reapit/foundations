@@ -4,8 +4,8 @@ import { selectLoginIdentity } from '../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { SubscribingState } from '.'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
+import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { BodyText, Button, ButtonGroup, useModal } from '@reapit/elements'
 import { useGlobalState } from '../../core/use-global-state'
 import { Link } from 'react-router-dom'
@@ -20,7 +20,7 @@ export interface DeveloperEditionModalProps {
 export const HAS_SUB_MESSAGE = 'An identical subscription is already active'
 
 export const handleDownload = () => {
-  window.open(window.reapit.config.developerEditionDownloadUrl, '_self')
+  window.open(process.env.developerEditionDownloadUrl, '_self')
 }
 
 export const handleOnConfirm =
@@ -135,7 +135,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
   const [, subscriptionCreating, createSubscription, createSubscriptionSuccess, createSubscriptionError] =
     useReapitUpdate<CreateSubscriptionModel, boolean>({
       reapitConnectBrowserSession,
-      action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createSubscription],
+      action: updateActions[UpdateActionNames.createSubscription],
       method: 'POST',
     })
 

@@ -1,761 +1,637 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PipelineDeploymentTable should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="ec47sgk-el-mb11 ejadz4k-el-table"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
       >
-        <div
-          class="e1ijk5il-el-table-headers-row"
-        >
-          <div
-            class="e1co3p83-el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             Release Type
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Created
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Status
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Version
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Currently Deployed
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
-            <span
-              class="ej9yrfo-el-icon"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.2rem;"
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Release Type"
               >
                 Unknown
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Created"
               >
                 20 Apr 2022 02:30:26
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Status"
               >
-                <span
-                  class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                 Succeeded
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Version"
               />
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Currently Deployed"
               >
                 Deployed
-              </div>
-            </div>
-            <div
-              class="e1fmntjl-el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="e3q521i-el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eygkx5t-el-table-expandable-container"
-            >
-              <div
-                class="ejadz4k-el-table"
-              >
-                <div
-                  class="f141c8gf-four-col-table e1ijk5il-el-table-headers-row"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  grid-template-columns: repeat(4, 1fr);
+"
                 >
-                  <div
-                    class="e1co3p83-el-table-header"
-                  >
+                  <mock-styled.div>
                     Task
-                  </div>
-                  <div
-                    class="e1co3p83-el-table-header"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Status
-                  </div>
-                  <div
-                    class="e1co3p83-el-table-header"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Started
-                  </div>
-                  <div
-                    class="e1co3p83-el-table-header"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Finished
-                  </div>
-                </div>
-                <div
-                  class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  grid-template-columns: repeat(4, 1fr);
+"
                 >
-                  <div
-                    class="e4zpaja-el-table-cell"
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       Download Source
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
-                      <span
-                        class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname="mock-css."
                       />
                       Succeeded
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       -
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       -
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  grid-template-columns: repeat(4, 1fr);
+"
                 >
-                  <div
-                    class="e4zpaja-el-table-cell"
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       Install
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
-                      <span
-                        class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname="mock-css."
                       />
                       Succeeded
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       -
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       -
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  grid-template-columns: repeat(4, 1fr);
+"
                 >
-                  <div
-                    class="e4zpaja-el-table-cell"
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       Build
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
-                      <span
-                        class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname="mock-css."
                       />
                       Succeeded
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       -
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       -
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  grid-template-columns: repeat(4, 1fr);
+"
                 >
-                  <div
-                    class="e4zpaja-el-table-cell"
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       Deploy
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
-                      <span
-                        class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname="mock-css."
                       />
                       Succeeded
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       -
-                    </div>
-                  </div>
-                  <div
-                    class="e4zpaja-el-table-cell"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="e1t8i3z1-el-table-cell-content"
-                    >
+                    <mock-styled.div>
                       -
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
               <div
-                class="e1s056ze-el-mt6"
+                class="mock-css.
+  margin-top: 1rem;
+"
               >
-                <button
-                  class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
-                  disabled=""
+                <mock-styled.button
+                  classname="mock-css."
+                  disabled="true"
                 >
                   Logs Expired
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
+                  <mock-styled.div />
+                </mock-styled.button>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="e1nnyshg-el-pagination-wrap"
-      >
-        <div
-          class="ex6bmfc-el-pagination-text"
-        >
-          <input
-            class="e1yynswi-el-pagination-input"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           1
-        </div>
-        <button
-          class="e1g9l338-el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="e1g9l338-el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-      </div>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="ec47sgk-el-mb11 ejadz4k-el-table"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
     >
-      <div
-        class="e1ijk5il-el-table-headers-row"
-      >
-        <div
-          class="e1co3p83-el-table-header"
-        >
+      <mock-styled.div>
+        <mock-styled.div>
           Release Type
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Created
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Status
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Version
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Currently Deployed
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
-          <span
-            class="ej9yrfo-el-icon"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
             style="font-size: 1.2rem;"
           >
             <svg />
-          </span>
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Release Type"
             >
               Unknown
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Created"
             >
               20 Apr 2022 02:30:26
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Status"
             >
-              <span
-                class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+              <mock-styled.span
+                classname="mock-css."
               />
               Succeeded
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Version"
             />
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Currently Deployed"
             >
               Deployed
-            </div>
-          </div>
-          <div
-            class="e1fmntjl-el-table-expandable-row-trigger-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="e3q521i-el-table-expandable-row"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eygkx5t-el-table-expandable-container"
-          >
-            <div
-              class="ejadz4k-el-table"
-            >
-              <div
-                class="f141c8gf-four-col-table e1ijk5il-el-table-headers-row"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  grid-template-columns: repeat(4, 1fr);
+"
               >
-                <div
-                  class="e1co3p83-el-table-header"
-                >
+                <mock-styled.div>
                   Task
-                </div>
-                <div
-                  class="e1co3p83-el-table-header"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Status
-                </div>
-                <div
-                  class="e1co3p83-el-table-header"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Started
-                </div>
-                <div
-                  class="e1co3p83-el-table-header"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Finished
-                </div>
-              </div>
-              <div
-                class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  grid-template-columns: repeat(4, 1fr);
+"
               >
-                <div
-                  class="e4zpaja-el-table-cell"
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
+                  <mock-styled.div>
                     Download Source
-                  </div>
-                </div>
-                <div
-                  class="e4zpaja-el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
-                    <span
-                      class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname="mock-css."
                     />
                     Succeeded
-                  </div>
-                </div>
-                <div
-                  class="e4zpaja-el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
+                  <mock-styled.div>
                     -
-                  </div>
-                </div>
-                <div
-                  class="e4zpaja-el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
+                  <mock-styled.div>
                     -
-                  </div>
-                </div>
-              </div>
-              <div
-                class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  grid-template-columns: repeat(4, 1fr);
+"
               >
-                <div
-                  class="e4zpaja-el-table-cell"
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
+                  <mock-styled.div>
                     Install
-                  </div>
-                </div>
-                <div
-                  class="e4zpaja-el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
-                    <span
-                      class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname="mock-css."
                     />
                     Succeeded
-                  </div>
-                </div>
-                <div
-                  class="e4zpaja-el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
+                  <mock-styled.div>
                     -
-                  </div>
-                </div>
-                <div
-                  class="e4zpaja-el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
+                  <mock-styled.div>
                     -
-                  </div>
-                </div>
-              </div>
-              <div
-                class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  grid-template-columns: repeat(4, 1fr);
+"
               >
-                <div
-                  class="e4zpaja-el-table-cell"
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
+                  <mock-styled.div>
                     Build
-                  </div>
-                </div>
-                <div
-                  class="e4zpaja-el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
-                    <span
-                      class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname="mock-css."
                     />
                     Succeeded
-                  </div>
-                </div>
-                <div
-                  class="e4zpaja-el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
+                  <mock-styled.div>
                     -
-                  </div>
-                </div>
-                <div
-                  class="e4zpaja-el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
+                  <mock-styled.div>
                     -
-                  </div>
-                </div>
-              </div>
-              <div
-                class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  grid-template-columns: repeat(4, 1fr);
+"
               >
-                <div
-                  class="e4zpaja-el-table-cell"
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
+                  <mock-styled.div>
                     Deploy
-                  </div>
-                </div>
-                <div
-                  class="e4zpaja-el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
-                    <span
-                      class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname="mock-css."
                     />
                     Succeeded
-                  </div>
-                </div>
-                <div
-                  class="e4zpaja-el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
+                  <mock-styled.div>
                     -
-                  </div>
-                </div>
-                <div
-                  class="e4zpaja-el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1t8i3z1-el-table-cell-content"
-                  >
+                  <mock-styled.div>
                     -
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
             <div
-              class="e1s056ze-el-mt6"
+              class="mock-css.
+  margin-top: 1rem;
+"
             >
-              <button
-                class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
-                disabled=""
+              <mock-styled.button
+                classname="mock-css."
+                disabled="true"
               >
                 Logs Expired
-                <div
-                  class="e1q1vabn-el-button-loader"
-                />
-              </button>
+                <mock-styled.div />
+              </mock-styled.button>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="e1nnyshg-el-pagination-wrap"
-    >
-      <div
-        class="ex6bmfc-el-pagination-text"
-      >
-        <input
-          class="e1yynswi-el-pagination-input"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.input
           value="1"
         />
          of 
         1
-      </div>
-      <button
-        class="e1g9l338-el-pagination-button"
+      </mock-styled.div>
+      <mock-styled.button
         data-testid="back-button"
         type="button"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </button>
-      <button
-        class="e1g9l338-el-pagination-button"
+        </mock-styled.span>
+      </mock-styled.button>
+      <mock-styled.button
         data-testid="forward-button"
         type="button"
       >
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </button>
-    </div>
+        </mock-styled.span>
+      </mock-styled.button>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -812,41 +688,29 @@ Object {
 `;
 
 exports[`PipelineDeploymentTable should match snapshot when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="ebhrnzh-el-loader-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eq1m1jz-el-loader"
-        >
-          <div
-            class="exikdu1-el-loader-moving-bar"
-          />
-        </div>
-      </div>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="ebhrnzh-el-loader-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eq1m1jz-el-loader"
-      >
-        <div
-          class="exikdu1-el-loader-moving-bar"
-        />
-      </div>
-    </div>
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

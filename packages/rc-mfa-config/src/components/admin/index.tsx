@@ -89,14 +89,14 @@ export const AdminPage: FC = () => {
 
   const [userInfo, userInfoLoading] = useReapitGet<UserInfoModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getUserInfo],
+    action: getActions[GetActionNames.getUserInfo],
     queryParams: { email: encodeURIComponent(email ?? '') },
     fetchWhenTrue: [email],
   })
 
   const [users, usersLoading] = useReapitGet<UserModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getUsers],
+    action: getActions[GetActionNames.getUsers],
     queryParams: { pageSize: 12, pageNumber, ...queryParams },
     fetchWhenTrue: [organisationId],
   })

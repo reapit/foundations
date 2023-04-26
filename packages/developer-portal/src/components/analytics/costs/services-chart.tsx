@@ -4,9 +4,9 @@ import React, { FC, useMemo } from 'react'
 import { Chart } from 'react-chartjs-2'
 import { Loader } from '@reapit/elements'
 import { ChartDataset } from 'chart.js/auto'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { useReapitConnect } from '@reapit/connect-session'
 import { useAnalyticsState } from '../state/use-analytics-state'
 
@@ -58,7 +58,7 @@ export const ServicesChart: FC = () => {
 
   const [billing, billingLoading] = useReapitGet<BillingOverviewForPeriodV2Model>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getBillingDataByPeriod],
+    action: getActions[GetActionNames.getBillingDataByPeriod],
     queryParams: { dateFrom: monthFrom, dateTo: monthTo, ...appsQuery, ...customerIdQuery, developerId },
     headers: {
       ['api-version']: '2',

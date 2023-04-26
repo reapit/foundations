@@ -1,9 +1,7 @@
 import React, { useState, useCallback, useMemo, FC } from 'react'
 import useSWR from 'swr'
-import { useHistory, useLocation } from 'react-router'
-import { History } from 'history'
+import { useNavigate, useLocation, NavigateFunction } from 'react-router'
 import { UserModelPagedResult, UserModel } from '@reapit/foundations-ts-definitions'
-import ErrorBoundary from '@/components/hocs/error-boundary'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import {
@@ -30,15 +28,16 @@ import { useOrgId } from '../../../utils/use-org-id'
 import { OrgIdSelect } from '../../hocs/org-id-select'
 import qs from 'qs'
 import { useForm } from 'react-hook-form'
+import ErrorBoundary from '../../error-boundary'
 
 export interface UserFilters {
   email?: string
   name?: string
 }
 
-export const onPageChangeHandler = (history: History<any>) => (page: number) => {
+export const onPageChangeHandler = (navigate: NavigateFunction) => (page: number) => {
   const queryString = `?pageNumber=${page}`
-  return history.push(`${Routes.USERS}${queryString}`)
+  return navigate(`${Routes.USERS}${queryString}`)
 }
 
 export const handleSortTableData = (users: UserModel[], orgId: string, onComplete: () => void) => (): RowProps[] => {
@@ -63,7 +62,7 @@ export const handleSortTableData = (users: UserModel[], orgId: string, onComplet
         value:
           user.groups
             ?.map((group) => {
-              if (window.reapit.config.groupIdsWhitelist.includes(group)) return group
+              if (process.env.groupIdsWhitelist.includes(group)) return group
             })
             .filter(Boolean)
             .join(', ') ?? '',
@@ -79,12 +78,12 @@ export const handleSortTableData = (users: UserModel[], orgId: string, onComplet
 }
 
 const UsersTab: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { Modal, openModal, closeModal } = useModal()
   const [userSearch, setUserSearch] = useState<UserFilters>({})
   const { isMobile } = useMediaQuery()
-  const onPageChange = useCallback(onPageChangeHandler(history), [history])
+  const onPageChange = useCallback(onPageChangeHandler(navigate), [navigate])
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
   const { register, handleSubmit } = useForm<UserFilters>({ mode: 'all' })
   const {

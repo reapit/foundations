@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { elMr3, FlexContainer, Icon, PlaceholderImage, elFadeIn, elMr5, useMediaQuery } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
@@ -14,12 +14,12 @@ import {
   DeveloperMainStrapline,
   DeveloperSubtitle,
 } from './__styles__'
-import { useHistory } from 'react-router-dom'
-import { navigate } from '../../utils/navigation'
-import { Routes } from '../../constants/routes'
+import { useNavigate } from 'react-router-dom'
+import { navigateRoute } from '../../utils/navigation'
+import { RoutePaths } from '../../constants/routes'
 
 export const DeveloperAppsCollection: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { isMobile } = useMediaQuery()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = connectSession?.loginIdentity.developerId
@@ -28,7 +28,7 @@ export const DeveloperAppsCollection: FC = () => {
 
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 100, pageNumber: 1, product },
     fetchWhenTrue: [developerId],
   })
@@ -52,7 +52,7 @@ export const DeveloperAppsCollection: FC = () => {
               <DeveloperAppsCol
                 className={elFadeIn}
                 key={id}
-                onClick={navigate(history, `${Routes.APPS_BROWSE}/${id}`)}
+                onClick={navigateRoute(navigate, `${RoutePaths.APPS_BROWSE}/${id}`)}
               >
                 <FlexContainer isFlexAlignCenter>
                   {iconUri ? (

@@ -7,7 +7,7 @@ export const GraphQLPage: FC = () => {
   return (
     <>
       <Title>GraphQL</Title>
-      {window.reapit.config.appEnv !== 'production' ? <GraphQLV2 /> : <GraphQLV1 />}
+      {process.env.appEnv !== 'production' ? <GraphQLV2 /> : <GraphQLV1 />}
     </>
   )
 }

@@ -1,80 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppBrowseManageTable should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <h2
-          class="el-has-capitalised-text el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           featured apps
-        </h2>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
-        </p>
-        <div
-          class="el-table"
-        />
+        </mock-styled.p>
+        <mock-styled.div />
         <br />
-        <button
-          class="el-intent-primary el-button"
+        <mock-styled.button
+          classname="mock-css."
         >
           Add
-          <div
-            class="el-button-loader"
-          />
-        </button>
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <h2
-        class="el-has-capitalised-text el-subtitle"
+      <mock-styled.h2
+        classname="mock-css."
       >
         featured apps
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
-      </p>
-      <div
-        class="el-table"
-      />
+      </mock-styled.p>
+      <mock-styled.div />
       <br />
-      <button
-        class="el-intent-primary el-button"
+      <mock-styled.button
+        classname="mock-css."
       >
         Add
-        <div
-          class="el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],

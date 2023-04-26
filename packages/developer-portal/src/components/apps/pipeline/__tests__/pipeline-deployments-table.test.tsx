@@ -7,11 +7,12 @@ import {
   PipelineRunnerEvent,
 } from '../pipeline-deployments-table'
 import { mockPipelineModelInterface, mockPipelineRunnerResponse } from '../../../../tests/__stubs__/pipeline'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 
 jest.mock('../../state/use-app-state')
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockPipelineRunnerResponse, false, undefined, jest.fn()]),
 }))
 

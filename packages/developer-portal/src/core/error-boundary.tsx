@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import * as Sentry from '@sentry/react'
 import { PersistentNotification } from '@reapit/elements'
 
-export class ErrorBoundary extends React.Component {
+export class ErrorBoundary extends React.Component<PropsWithChildren> {
   render() {
     return (
       <Sentry.ErrorBoundary

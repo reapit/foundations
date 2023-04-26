@@ -12,7 +12,7 @@ interface AmlCheckContentProps {
 
 export const AmlCheckRow: FC<AmlCheckContentProps> = ({ contactId, name }) => {
   const demoQuery = isDemo() ? '/?demo=true' : ''
-  const amlAppUrl = `${window.reapit.config.amlAppUrl}/${contactId}${demoQuery}`
+  const amlAppUrl = `${process.env.amlAppUrl}/${contactId}${demoQuery}`
   return (
     <div className={styles.contactOptionRow}>
       <Grid>

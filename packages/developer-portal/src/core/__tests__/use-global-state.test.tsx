@@ -4,7 +4,6 @@ import { mockMembersPagedResult } from '../../tests/__stubs__/members'
 import { GlobalProvider, handlePermissionError, PERMISSION_ERROR } from '../use-global-state'
 import { logger } from '@reapit/utils-react'
 import Routes from '../../constants/routes'
-import { History } from 'history'
 
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [mockMembersPagedResult, false, undefined, jest.fn()]),
@@ -26,34 +25,30 @@ describe('GlobalProvider', () => {
 describe('handlePermissionError', () => {
   it('should log a non permission error and show a snack', () => {
     const snack = jest.fn()
-    const history = {
-      push: jest.fn(),
-    } as unknown as History
+    const navigate = jest.fn()
     const error = 'Some random error string'
 
-    const curried = handlePermissionError(snack, history)
+    const curried = handlePermissionError(snack, navigate)
 
     curried(error)
 
     expect(logger).toHaveBeenCalledWith(new Error(error))
     expect(snack).toHaveBeenCalledWith(error)
-    expect(history.push).not.toHaveBeenCalled()
+    expect(navigate).not.toHaveBeenCalled()
   })
 
   it('should redirect for a permission error', () => {
     const snack = jest.fn()
-    const history = {
-      push: jest.fn(),
-    } as unknown as History
+    const navigate = jest.fn()
     const error = PERMISSION_ERROR
 
-    const curried = handlePermissionError(snack, history)
+    const curried = handlePermissionError(snack, navigate)
 
     curried(error)
 
     expect(logger).not.toHaveBeenCalled()
     expect(snack).not.toHaveBeenCalled()
-    expect(history.push).toHaveBeenCalledWith(Routes.CUSTOMER_REGISTER)
+    expect(navigate).toHaveBeenCalledWith(Routes.CUSTOMER_REGISTER)
   })
 
   afterEach(() => {

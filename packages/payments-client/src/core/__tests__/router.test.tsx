@@ -1,13 +1,21 @@
 import React from 'react'
-import { Routes } from '../../constants/routes'
 import { render } from '../../tests/react-testing'
-import Router, { history } from '../router'
+import { RoutesComponent } from '../router'
 
-describe('Router', () => {
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: () => ({
+    connectSession: {
+      loginIdentity: {},
+      groups: [],
+    },
+    connectInternalRedirect: '',
+  }),
+}))
+
+describe('RoutesComponent', () => {
+  window.location.pathname = '/'
   it('should match a snapshot', () => {
-    Object.keys(Routes).forEach((route) => {
-      history.push(Routes[route])
-      expect(render(<Router />)).toMatchSnapshot()
-    })
+    expect(render(<RoutesComponent />)).toMatchSnapshot()
   })
 })

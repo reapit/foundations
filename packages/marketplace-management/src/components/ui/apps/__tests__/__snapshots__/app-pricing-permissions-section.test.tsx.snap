@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Desktop Integration
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         For more information regarding Desktop Integration types, please
          
@@ -27,60 +27,64 @@ Object {
         >
           click here
         </a>
-      </p>
-      <div
-        class="el-mb11 el-grid"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-col"
+        <mock-styled.div
+          classname=""
         >
           DESCRIPTION
-        </div>
-      </div>
-      <h2
-        class="el-subtitle"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname=""
       >
         Pricing Information
-      </h2>
+      </mock-styled.h2>
       <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
           APP_DEVELOPER
           . Please contact 
           APP_DEVELOPER
            directly for information about pricing.
-        </p>
+        </mock-styled.p>
       </div>
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Data Permissions
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         By installing this app, you are granting the following permissions to your data:
-      </p>
+      </mock-styled.p>
       0
     </div>
   </body>,
   "container": <div>
-    <h2
-      class="el-subtitle"
+    <mock-styled.h2
+      classname=""
     >
       Desktop Integration
-    </h2>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-    </p>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.p>
+    <mock-styled.p
+      classname="mock-css."
     >
       For more information regarding Desktop Integration types, please
        
@@ -91,44 +95,48 @@ Object {
       >
         click here
       </a>
-    </p>
-    <div
-      class="el-mb11 el-grid"
+    </mock-styled.p>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="el-col"
+      <mock-styled.div
+        classname=""
       >
         DESCRIPTION
-      </div>
-    </div>
-    <h2
-      class="el-subtitle"
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.h2
+      classname=""
     >
       Pricing Information
-    </h2>
+    </mock-styled.h2>
     <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
         APP_DEVELOPER
         . Please contact 
         APP_DEVELOPER
          directly for information about pricing.
-      </p>
+      </mock-styled.p>
     </div>
-    <h2
-      class="el-subtitle"
+    <mock-styled.h2
+      classname=""
     >
       Data Permissions
-    </h2>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       By installing this app, you are granting the following permissions to your data:
-    </p>
+    </mock-styled.p>
     0
   </div>,
   "debug": [Function],
@@ -186,22 +194,22 @@ Object {
 `;
 
 exports[`AppPricingPermissionsSection should match a snapshot for has a pricing uri 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Desktop Integration
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         For more information regarding Desktop Integration types, please
          
@@ -212,26 +220,30 @@ Object {
         >
           click here
         </a>
-      </p>
-      <div
-        class="el-mb11 el-grid"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-col"
+        <mock-styled.div
+          classname=""
         >
           DESCRIPTION
-        </div>
-      </div>
-      <h2
-        class="el-subtitle"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname=""
       >
         Pricing Information
-      </h2>
+      </mock-styled.h2>
       <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           APP_DEVELOPER
            have specified that there is a cost for using this App/Integration, please
@@ -247,39 +259,39 @@ Object {
           to view their pricing information. You will be billed directly by 
           APP_DEVELOPER
           .
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
-        </p>
+        </mock-styled.p>
       </div>
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Data Permissions
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         By installing this app, you are granting the following permissions to your data:
-      </p>
+      </mock-styled.p>
       0
     </div>
   </body>,
   "container": <div>
-    <h2
-      class="el-subtitle"
+    <mock-styled.h2
+      classname=""
     >
       Desktop Integration
-    </h2>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-    </p>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.p>
+    <mock-styled.p
+      classname="mock-css."
     >
       For more information regarding Desktop Integration types, please
        
@@ -290,26 +302,30 @@ Object {
       >
         click here
       </a>
-    </p>
-    <div
-      class="el-mb11 el-grid"
+    </mock-styled.p>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="el-col"
+      <mock-styled.div
+        classname=""
       >
         DESCRIPTION
-      </div>
-    </div>
-    <h2
-      class="el-subtitle"
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.h2
+      classname=""
     >
       Pricing Information
-    </h2>
+    </mock-styled.h2>
     <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         APP_DEVELOPER
          have specified that there is a cost for using this App/Integration, please
@@ -325,23 +341,23 @@ Object {
         to view their pricing information. You will be billed directly by 
         APP_DEVELOPER
         .
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
-      </p>
+      </mock-styled.p>
     </div>
-    <h2
-      class="el-subtitle"
+    <mock-styled.h2
+      classname=""
     >
       Data Permissions
-    </h2>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       By installing this app, you are granting the following permissions to your data:
-    </p>
+    </mock-styled.p>
     0
   </div>,
   "debug": [Function],
@@ -399,22 +415,22 @@ Object {
 `;
 
 exports[`AppPricingPermissionsSection should match a snapshot for has a pricing uri and not desktop 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Desktop Integration
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         For more information regarding Desktop Integration types, please
          
@@ -425,26 +441,30 @@ Object {
         >
           click here
         </a>
-      </p>
-      <div
-        class="el-mb11 el-grid"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-col"
+        <mock-styled.div
+          classname=""
         >
           DESCRIPTION
-        </div>
-      </div>
-      <h2
-        class="el-subtitle"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname=""
       >
         Pricing Information
-      </h2>
+      </mock-styled.h2>
       <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           APP_DEVELOPER
            have specified that there is a cost for using this App/Integration, please
@@ -460,39 +480,39 @@ Object {
           to view their pricing information. You will be billed directly by 
           APP_DEVELOPER
           .
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
-        </p>
+        </mock-styled.p>
       </div>
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Data Permissions
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         By installing this app, you are granting the following permissions to your data:
-      </p>
+      </mock-styled.p>
       0
     </div>
   </body>,
   "container": <div>
-    <h2
-      class="el-subtitle"
+    <mock-styled.h2
+      classname=""
     >
       Desktop Integration
-    </h2>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-    </p>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.p>
+    <mock-styled.p
+      classname="mock-css."
     >
       For more information regarding Desktop Integration types, please
        
@@ -503,26 +523,30 @@ Object {
       >
         click here
       </a>
-    </p>
-    <div
-      class="el-mb11 el-grid"
+    </mock-styled.p>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="el-col"
+      <mock-styled.div
+        classname=""
       >
         DESCRIPTION
-      </div>
-    </div>
-    <h2
-      class="el-subtitle"
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.h2
+      classname=""
     >
       Pricing Information
-    </h2>
+    </mock-styled.h2>
     <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         APP_DEVELOPER
          have specified that there is a cost for using this App/Integration, please
@@ -538,23 +562,23 @@ Object {
         to view their pricing information. You will be billed directly by 
         APP_DEVELOPER
         .
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
-      </p>
+      </mock-styled.p>
     </div>
-    <h2
-      class="el-subtitle"
+    <mock-styled.h2
+      classname=""
     >
       Data Permissions
-    </h2>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       By installing this app, you are granting the following permissions to your data:
-    </p>
+    </mock-styled.p>
     0
   </div>,
   "debug": [Function],
@@ -612,22 +636,22 @@ Object {
 `;
 
 exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Desktop Integration
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-      </p>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         For more information regarding Desktop Integration types, please
          
@@ -638,60 +662,64 @@ Object {
         >
           click here
         </a>
-      </p>
-      <div
-        class="el-mb11 el-grid"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-col"
+        <mock-styled.div
+          classname=""
         >
           DESCRIPTION
-        </div>
-      </div>
-      <h2
-        class="el-subtitle"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname=""
       >
         Pricing Information
-      </h2>
+      </mock-styled.h2>
       <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
           APP_DEVELOPER
           . Please contact 
           APP_DEVELOPER
            directly for information about pricing.
-        </p>
+        </mock-styled.p>
       </div>
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Data Permissions
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         By installing this app, you are granting the following permissions to your data:
-      </p>
+      </mock-styled.p>
       0
     </div>
   </body>,
   "container": <div>
-    <h2
-      class="el-subtitle"
+    <mock-styled.h2
+      classname=""
     >
       Desktop Integration
-    </h2>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
-    </p>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.p>
+    <mock-styled.p
+      classname="mock-css."
     >
       For more information regarding Desktop Integration types, please
        
@@ -702,44 +730,48 @@ Object {
       >
         click here
       </a>
-    </p>
-    <div
-      class="el-mb11 el-grid"
+    </mock-styled.p>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="el-col"
+      <mock-styled.div
+        classname=""
       >
         DESCRIPTION
-      </div>
-    </div>
-    <h2
-      class="el-subtitle"
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.h2
+      classname=""
     >
       Pricing Information
-    </h2>
+    </mock-styled.h2>
     <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
         APP_DEVELOPER
         . Please contact 
         APP_DEVELOPER
          directly for information about pricing.
-      </p>
+      </mock-styled.p>
     </div>
-    <h2
-      class="el-subtitle"
+    <mock-styled.h2
+      classname=""
     >
       Data Permissions
-    </h2>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       By installing this app, you are granting the following permissions to your data:
-    </p>
+    </mock-styled.p>
     0
   </div>,
   "debug": [Function],

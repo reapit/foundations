@@ -14,9 +14,9 @@ jest.mock('axios', () => ({
   patch: jest.fn(),
 }))
 
-window.reapit.config.paymentsApiUrl = 'https://payments-service.reapit.cloud'
-window.reapit.config.apiKey = 'MOCK_API_KEY'
-window.reapit.config.appId = 'MOCK_APP_ID'
+process.env.paymentsApiUrl = 'https://payments-service.reapit.cloud'
+process.env.apiKey = 'MOCK_API_KEY'
+process.env.appId = 'MOCK_APP_ID'
 
 const mockSuccess = jest.fn()
 const mockError = jest.fn()

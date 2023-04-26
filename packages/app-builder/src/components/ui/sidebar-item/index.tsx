@@ -1,13 +1,13 @@
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { elBorderGreyB, elFlex, elFlex1, elFlexAlignCenter, elFlexColumn, elPx3, elWFull } from '@reapit/elements'
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 
 import Arrow from '../../icons/arrow'
 import { bgWhite, cursorPointer, overflowAuto } from '../styles'
 import { Chevron, HeaderDiv, SidebarItemDiv } from './styles'
 
-type SidebarItemProps = {
+type SidebarItemProps = PropsWithChildren & {
   title: string
   height?: string
   expanded?: boolean

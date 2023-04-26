@@ -1,926 +1,880 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`appointment AppointmentContent should match snapshot when has appointments 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
-      <div
-        class="controls-container"
-      >
-        <div
-          class="controls-title-wrapper"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             Location
-          </h2>
-          <div
-            class="tab-mode-button-container"
-          >
-            <button
-              class="el-intent-primary el-button"
+          </mock-styled.h2>
+          <mock-styled.div>
+            <mock-styled.button
+              classname="mock-css."
             >
               MAP
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-        <div
-          class="my-location-wrap"
-        >
-          <div
-            class="my-location-inner-wrap"
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="my-location-section"
-            >
-              <input
-                class="el-input"
+            <mock-styled.div>
+              <mock-styled.input
                 placeholder="Enter location"
                 value=""
               />
-            </div>
-            <div
-              class="destination-location-section"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             />
-          </div>
-        </div>
-      </div>
-      <div
-        class="appointment-time-container-expanded appointment-time-container"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-mx-auto el-toggle-radio-wrap"
+        <mock-styled.div
+          classname="mock-css.
+  margin: 0 auto;
+"
         >
-          <input
-            checked=""
-            class="el-toggle-radio"
+          <mock-styled.input
             id="today"
             name="appointment-time"
             type="radio"
             value="TODAY"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="today"
+          <mock-styled.label
+            classname=""
+            htmlfor="today"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Today
-            </span>
-          </label>
-          <input
-            class="el-toggle-radio"
+            </mock-styled.span>
+          </mock-styled.label>
+          <mock-styled.input
             id="tomorrow"
             name="appointment-time"
             type="radio"
             value="TOMORROW"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="tomorrow"
+          <mock-styled.label
+            classname=""
+            htmlfor="tomorrow"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Tomorrow
-            </span>
-          </label>
-          <input
-            class="el-toggle-radio"
+            </mock-styled.span>
+          </mock-styled.label>
+          <mock-styled.input
             id="week"
             name="appointment-time"
             type="radio"
             value="WEEK"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="week"
+          <mock-styled.label
+            classname=""
+            htmlfor="week"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Week
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        class="mobile-appointments-show appoinment-container"
+            </mock-styled.span>
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  transform: translate3d(-100%, 0, 0);
+  animation: slide-in 0.35s forwards;
+
+  @keyframes slide-in {
+    100% {
+      transform: translate3d(0%, 0, 0);
+    }
+  }
+"
       >
         <div
-          class="el-fade-in"
+          class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
           <div>
-            <div
-              class="cancelled-tile el-mb6 el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  * {
+    color: #646464;
+  }
+ mock-css.
+  margin-bottom: 1rem;
+"
             >
-              <div
-                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+              <mock-styled.div
+                classname="mock-css."
               >
-                <h5
-                  class="el-card-list-heading"
-                >
+                <mock-styled.h5>
                   undefined - undefined - Cancelled 
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                >
+                </mock-styled.h5>
+                <mock-styled.h6>
                   Appointment
-                </h6>
-              </div>
-            </div>
+                </mock-styled.h6>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
           <div>
-            <div
-              class="cancelled-tile el-mb6 el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  * {
+    color: #646464;
+  }
+ mock-css.
+  margin-bottom: 1rem;
+"
             >
-              <div
-                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+              <mock-styled.div
+                classname="mock-css."
               >
-                <h5
-                  class="el-card-list-heading"
-                >
+                <mock-styled.h5>
                   undefined - undefined - Cancelled 
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                >
+                </mock-styled.h5>
+                <mock-styled.h6>
                   Viewing
-                </h6>
-              </div>
-            </div>
+                </mock-styled.h6>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
           <div>
-            <div
-              class="el-mb6 el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 1rem;
+"
             >
-              <div
-                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+              <mock-styled.div
+                classname="mock-css."
               >
-                <div
-                  class="el-card-context-menu-wrapper"
-                >
-                  <div
-                    class="el-card-context-menu-toggle"
-                  >
-                    <span
-                      class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-items"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <h5
-                  class="el-card-list-heading"
-                >
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.h5>
                   undefined - undefined
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                >
+                </mock-styled.h5>
+                <mock-styled.h6>
                   Viewing
-                </h6>
-              </div>
-              <div
-                class="el-card-list-item-expanded el-card-list-item"
+                </mock-styled.h6>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
               >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Property
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Yew Tree Cottage Church Walk
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item-expanded el-card-list-item"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
               >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Attendee
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Ms Harper Dale
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item-expanded el-card-list-item"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
               >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Attendee
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Mr Teddy Allan
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
           <div>
-            <div
-              class="el-mb6 el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 1rem;
+"
             >
-              <div
-                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+              <mock-styled.div
+                classname="mock-css."
               >
-                <div
-                  class="el-card-context-menu-wrapper"
-                >
-                  <div
-                    class="el-card-context-menu-toggle"
-                  >
-                    <span
-                      class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-items"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <h5
-                  class="el-card-list-heading"
-                >
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.h5>
                   undefined - undefined
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                >
+                </mock-styled.h5>
+                <mock-styled.h6>
                   Viewing
-                </h6>
-              </div>
-              <div
-                class="el-card-list-item-expanded el-card-list-item"
+                </mock-styled.h6>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
               >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Property
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Belmont Hanover Farm
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item-expanded el-card-list-item"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
               >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Attendee
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Mr Ronnie Akhtar
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
           <div>
-            <div
-              class="el-mb6 el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 1rem;
+"
             >
-              <div
-                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+              <mock-styled.div
+                classname="mock-css."
               >
-                <div
-                  class="el-card-context-menu-wrapper"
-                >
-                  <div
-                    class="el-card-context-menu-toggle"
-                  >
-                    <span
-                      class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-items"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <h5
-                  class="el-card-list-heading"
-                >
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.h5>
                   undefined - undefined
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                >
+                </mock-styled.h5>
+                <mock-styled.h6>
                   Viewing
-                </h6>
-              </div>
-              <div
-                class="el-card-list-item-expanded el-card-list-item"
+                </mock-styled.h6>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
               >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Property
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     78 Wadworth Holme
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item-expanded el-card-list-item"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
               >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Attendee
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Ms Poppy Beggs
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
           <div>
-            <div
-              class="el-mb6 el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 1rem;
+"
             >
-              <div
-                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+              <mock-styled.div
+                classname="mock-css."
               >
-                <div
-                  class="el-card-context-menu-wrapper"
-                >
-                  <div
-                    class="el-card-context-menu-toggle"
-                  >
-                    <span
-                      class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-items"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <h5
-                  class="el-card-list-heading"
-                >
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.h5>
                   undefined - undefined
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                >
+                </mock-styled.h5>
+                <mock-styled.h6>
                   Viewing
-                </h6>
-              </div>
-              <div
-                class="el-card-list-item-expanded el-card-list-item"
+                </mock-styled.h6>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
               >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Property
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Sunnyside St. Rumbolds Lane
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item-expanded el-card-list-item"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
               >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Attendee
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Mr Elijah Brown
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
           <div>
-            <div
-              class="el-mb6 el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 1rem;
+"
             >
-              <div
-                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+              <mock-styled.div
+                classname="mock-css."
               >
-                <div
-                  class="el-card-context-menu-wrapper"
-                >
-                  <div
-                    class="el-card-context-menu-toggle"
-                  >
-                    <span
-                      class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-items"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <h5
-                  class="el-card-list-heading"
-                >
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.h5>
                   undefined - undefined
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                >
+                </mock-styled.h5>
+                <mock-styled.h6>
                   Appointment
-                </h6>
-              </div>
-              <div
-                class="el-card-list-item-expanded el-card-list-item"
+                </mock-styled.h6>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
               >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Attendee
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Mr Jenson Brown
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
           <div>
-            <div
-              class="el-mb6 el-card-wrap"
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 1rem;
+"
             >
-              <div
-                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+              <mock-styled.div
+                classname="mock-css."
               >
-                <div
-                  class="el-card-context-menu-wrapper"
-                >
-                  <div
-                    class="el-card-context-menu-toggle"
-                  >
-                    <span
-                      class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-items"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                    <div
-                      class="el-card-context-menu-item"
-                    >
-                      <span
-                        class="el-icon"
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
                         style="font-size: 1.25rem;"
                       >
                         <svg />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <h5
-                  class="el-card-list-heading"
-                >
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.h5>
                   undefined - undefined
-                </h5>
-                <h6
-                  class="el-card-list-sub-heading"
-                >
+                </mock-styled.h5>
+                <mock-styled.h6>
                   Viewing
-                </h6>
-              </div>
-              <div
-                class="el-card-list-item-expanded el-card-list-item"
+                </mock-styled.h6>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
               >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Property
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     90 Bromham Road
-                  </div>
-                </div>
-              </div>
-              <div
-                class="el-card-list-item-expanded el-card-list-item"
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
               >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
                     Attendee
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
+                  </mock-styled.div>
+                  <mock-styled.div>
                     Mr Colton Jackson
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
         </div>
-      </div>
+      </mock-styled.div>
       <div
-        class="drawer-bg"
+        class="mock-css.
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: 0.35s;
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
       />
       <div
-        class="drawer"
+        class="mock-css.
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow: scroll;
+  background: white;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  padding-bottom: ,;
+  transition: 0.35s;
+  opacity: 0;
+  transform: translateY(100%);
+  z-index: -2;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
       />
-      <div
-        class="map-container"
-      >
-        <div
-          class="map-content-container"
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         />
-        <div
-          class="map-panel-container"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="map-panel-item"
-          >
-            <input
-              checked=""
-              class="toggle-travel-checkbox"
+          <mock-styled.div>
+            <mock-styled.input
+              checked="true"
               id="travel-mode"
               type="checkbox"
             />
-            <label
-              class="toggle-travel-label"
-              for="travel-mode"
+            <mock-styled.label
+              htmlfor="travel-mode"
             >
               <img
                 src="[object Object]"
@@ -928,962 +882,908 @@ Object {
               <img
                 src="[object Object]"
               />
-            </label>
-          </div>
-          <div
-            class="map-panel-item"
-          >
-            <h2
-              class="el-has-bold-text el-subtitle"
+            </mock-styled.label>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="mock-css."
             >
               ETA
-            </h2>
+            </mock-styled.h2>
             <p />
-          </div>
-          <div
-            class="map-panel-item"
-          >
-            <h2
-              class="el-has-bold-text el-subtitle"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="mock-css."
             >
               Distance
-            </h2>
+            </mock-styled.h2>
             <p />
-          </div>
-          <div
-            class="map-panel-item"
-          >
-            <button
-              class="el-intent-critical el-button"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Start Journey
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
-    <div
-      class="controls-container"
-    >
-      <div
-        class="controls-title-wrapper"
-      >
-        <h2
-          class="el-has-bold-text el-subtitle"
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname="mock-css."
         >
           Location
-        </h2>
-        <div
-          class="tab-mode-button-container"
-        >
-          <button
-            class="el-intent-primary el-button"
+        </mock-styled.h2>
+        <mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
           >
             MAP
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-      <div
-        class="my-location-wrap"
-      >
-        <div
-          class="my-location-inner-wrap"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="my-location-section"
-          >
-            <input
-              class="el-input"
+          <mock-styled.div>
+            <mock-styled.input
               placeholder="Enter location"
               value=""
             />
-          </div>
-          <div
-            class="destination-location-section"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           />
-        </div>
-      </div>
-    </div>
-    <div
-      class="appointment-time-container-expanded appointment-time-container"
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="el-mx-auto el-toggle-radio-wrap"
+      <mock-styled.div
+        classname="mock-css.
+  margin: 0 auto;
+"
       >
-        <input
-          checked=""
-          class="el-toggle-radio"
+        <mock-styled.input
           id="today"
           name="appointment-time"
           type="radio"
           value="TODAY"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="today"
+        <mock-styled.label
+          classname=""
+          htmlfor="today"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Today
-          </span>
-        </label>
-        <input
-          class="el-toggle-radio"
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
           id="tomorrow"
           name="appointment-time"
           type="radio"
           value="TOMORROW"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="tomorrow"
+        <mock-styled.label
+          classname=""
+          htmlfor="tomorrow"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Tomorrow
-          </span>
-        </label>
-        <input
-          class="el-toggle-radio"
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
           id="week"
           name="appointment-time"
           type="radio"
           value="WEEK"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="week"
+        <mock-styled.label
+          classname=""
+          htmlfor="week"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Week
-          </span>
-        </label>
-      </div>
-    </div>
-    <div
-      class="mobile-appointments-show appoinment-container"
+          </mock-styled.span>
+        </mock-styled.label>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  transform: translate3d(-100%, 0, 0);
+  animation: slide-in 0.35s forwards;
+
+  @keyframes slide-in {
+    100% {
+      transform: translate3d(0%, 0, 0);
+    }
+  }
+"
     >
       <div
-        class="el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
         <div>
-          <div
-            class="cancelled-tile el-mb6 el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  * {
+    color: #646464;
+  }
+ mock-css.
+  margin-bottom: 1rem;
+"
           >
-            <div
-              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+            <mock-styled.div
+              classname="mock-css."
             >
-              <h5
-                class="el-card-list-heading"
-              >
+              <mock-styled.h5>
                 undefined - undefined - Cancelled 
-              </h5>
-              <h6
-                class="el-card-list-sub-heading"
-              >
+              </mock-styled.h5>
+              <mock-styled.h6>
                 Appointment
-              </h6>
-            </div>
-          </div>
+              </mock-styled.h6>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
         <div>
-          <div
-            class="cancelled-tile el-mb6 el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  * {
+    color: #646464;
+  }
+ mock-css.
+  margin-bottom: 1rem;
+"
           >
-            <div
-              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+            <mock-styled.div
+              classname="mock-css."
             >
-              <h5
-                class="el-card-list-heading"
-              >
+              <mock-styled.h5>
                 undefined - undefined - Cancelled 
-              </h5>
-              <h6
-                class="el-card-list-sub-heading"
-              >
+              </mock-styled.h5>
+              <mock-styled.h6>
                 Viewing
-              </h6>
-            </div>
-          </div>
+              </mock-styled.h6>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
         <div>
-          <div
-            class="el-mb6 el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1rem;
+"
           >
-            <div
-              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="el-card-context-menu-wrapper"
-              >
-                <div
-                  class="el-card-context-menu-toggle"
-                >
-                  <span
-                    class="el-icon"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-context-menu-items"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <h5
-                class="el-card-list-heading"
-              >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.h5>
                 undefined - undefined
-              </h5>
-              <h6
-                class="el-card-list-sub-heading"
-              >
+              </mock-styled.h5>
+              <mock-styled.h6>
                 Viewing
-              </h6>
-            </div>
-            <div
-              class="el-card-list-item-expanded el-card-list-item"
+              </mock-styled.h6>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
             >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
                   Property
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Yew Tree Cottage Church Walk
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item-expanded el-card-list-item"
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
             >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
                   Attendee
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Ms Harper Dale
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item-expanded el-card-list-item"
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
             >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
                   Attendee
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Mr Teddy Allan
-                </div>
-              </div>
-            </div>
-          </div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
         <div>
-          <div
-            class="el-mb6 el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1rem;
+"
           >
-            <div
-              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="el-card-context-menu-wrapper"
-              >
-                <div
-                  class="el-card-context-menu-toggle"
-                >
-                  <span
-                    class="el-icon"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-context-menu-items"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <h5
-                class="el-card-list-heading"
-              >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.h5>
                 undefined - undefined
-              </h5>
-              <h6
-                class="el-card-list-sub-heading"
-              >
+              </mock-styled.h5>
+              <mock-styled.h6>
                 Viewing
-              </h6>
-            </div>
-            <div
-              class="el-card-list-item-expanded el-card-list-item"
+              </mock-styled.h6>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
             >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
                   Property
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Belmont Hanover Farm
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item-expanded el-card-list-item"
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
             >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
                   Attendee
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Mr Ronnie Akhtar
-                </div>
-              </div>
-            </div>
-          </div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
         <div>
-          <div
-            class="el-mb6 el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1rem;
+"
           >
-            <div
-              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="el-card-context-menu-wrapper"
-              >
-                <div
-                  class="el-card-context-menu-toggle"
-                >
-                  <span
-                    class="el-icon"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-context-menu-items"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <h5
-                class="el-card-list-heading"
-              >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.h5>
                 undefined - undefined
-              </h5>
-              <h6
-                class="el-card-list-sub-heading"
-              >
+              </mock-styled.h5>
+              <mock-styled.h6>
                 Viewing
-              </h6>
-            </div>
-            <div
-              class="el-card-list-item-expanded el-card-list-item"
+              </mock-styled.h6>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
             >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
                   Property
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   78 Wadworth Holme
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item-expanded el-card-list-item"
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
             >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
                   Attendee
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Ms Poppy Beggs
-                </div>
-              </div>
-            </div>
-          </div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
         <div>
-          <div
-            class="el-mb6 el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1rem;
+"
           >
-            <div
-              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="el-card-context-menu-wrapper"
-              >
-                <div
-                  class="el-card-context-menu-toggle"
-                >
-                  <span
-                    class="el-icon"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-context-menu-items"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <h5
-                class="el-card-list-heading"
-              >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.h5>
                 undefined - undefined
-              </h5>
-              <h6
-                class="el-card-list-sub-heading"
-              >
+              </mock-styled.h5>
+              <mock-styled.h6>
                 Viewing
-              </h6>
-            </div>
-            <div
-              class="el-card-list-item-expanded el-card-list-item"
+              </mock-styled.h6>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
             >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
                   Property
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Sunnyside St. Rumbolds Lane
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item-expanded el-card-list-item"
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
             >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
                   Attendee
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Mr Elijah Brown
-                </div>
-              </div>
-            </div>
-          </div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
         <div>
-          <div
-            class="el-mb6 el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1rem;
+"
           >
-            <div
-              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="el-card-context-menu-wrapper"
-              >
-                <div
-                  class="el-card-context-menu-toggle"
-                >
-                  <span
-                    class="el-icon"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-context-menu-items"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <h5
-                class="el-card-list-heading"
-              >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.h5>
                 undefined - undefined
-              </h5>
-              <h6
-                class="el-card-list-sub-heading"
-              >
+              </mock-styled.h5>
+              <mock-styled.h6>
                 Appointment
-              </h6>
-            </div>
-            <div
-              class="el-card-list-item-expanded el-card-list-item"
+              </mock-styled.h6>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
             >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
                   Attendee
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Mr Jenson Brown
-                </div>
-              </div>
-            </div>
-          </div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
         <div>
-          <div
-            class="el-mb6 el-card-wrap"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1rem;
+"
           >
-            <div
-              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="el-card-context-menu-wrapper"
-              >
-                <div
-                  class="el-card-context-menu-toggle"
-                >
-                  <span
-                    class="el-icon"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
                     style="font-size: 1.25rem;"
                   >
                     <svg />
-                  </span>
-                </div>
-                <div
-                  class="el-card-context-menu-items"
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                  <div
-                    class="el-card-context-menu-item"
-                  >
-                    <span
-                      class="el-icon"
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
                       style="font-size: 1.25rem;"
                     >
                       <svg />
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <h5
-                class="el-card-list-heading"
-              >
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.h5>
                 undefined - undefined
-              </h5>
-              <h6
-                class="el-card-list-sub-heading"
-              >
+              </mock-styled.h5>
+              <mock-styled.h6>
                 Viewing
-              </h6>
-            </div>
-            <div
-              class="el-card-list-item-expanded el-card-list-item"
+              </mock-styled.h6>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
             >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
                   Property
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   90 Bromham Road
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item-expanded el-card-list-item"
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
             >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
                 >
                   <svg />
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
                   Attendee
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
+                </mock-styled.div>
+                <mock-styled.div>
                   Mr Colton Jackson
-                </div>
-              </div>
-            </div>
-          </div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
       </div>
-    </div>
+    </mock-styled.div>
     <div
-      class="drawer-bg"
+      class="mock-css.
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: 0.35s;
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
     />
     <div
-      class="drawer"
+      class="mock-css.
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow: scroll;
+  background: white;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  padding-bottom: ,;
+  transition: 0.35s;
+  opacity: 0;
+  transform: translateY(100%);
+  z-index: -2;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
     />
-    <div
-      class="map-container"
-    >
-      <div
-        class="map-content-container"
+    <mock-styled.div>
+      <mock-styled.div
+        classname=""
       />
-      <div
-        class="map-panel-container"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="map-panel-item"
-        >
-          <input
-            checked=""
-            class="toggle-travel-checkbox"
+        <mock-styled.div>
+          <mock-styled.input
+            checked="true"
             id="travel-mode"
             type="checkbox"
           />
-          <label
-            class="toggle-travel-label"
-            for="travel-mode"
+          <mock-styled.label
+            htmlfor="travel-mode"
           >
             <img
               src="[object Object]"
@@ -1891,43 +1791,35 @@ Object {
             <img
               src="[object Object]"
             />
-          </label>
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             ETA
-          </h2>
+          </mock-styled.h2>
           <p />
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             Distance
-          </h2>
+          </mock-styled.h2>
           <p />
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <button
-            class="el-intent-critical el-button"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
             type="button"
           >
             Start Journey
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1984,165 +1876,179 @@ Object {
 `;
 
 exports[`appointment AppointmentContent should match snapshot when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
-      <div
-        class="controls-container"
-      >
-        <div
-          class="controls-title-wrapper"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             Location
-          </h2>
-          <div
-            class="tab-mode-button-container"
-          >
-            <button
-              class="el-intent-primary el-button"
+          </mock-styled.h2>
+          <mock-styled.div>
+            <mock-styled.button
+              classname="mock-css."
             >
               MAP
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-        <div
-          class="my-location-wrap"
-        >
-          <div
-            class="my-location-inner-wrap"
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="my-location-section"
-            >
-              <input
-                class="el-input"
+            <mock-styled.div>
+              <mock-styled.input
                 placeholder="Enter location"
                 value=""
               />
-            </div>
-            <div
-              class="destination-location-section"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             />
-          </div>
-        </div>
-      </div>
-      <div
-        class="appointment-time-container-expanded appointment-time-container"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-mx-auto el-toggle-radio-wrap"
+        <mock-styled.div
+          classname="mock-css.
+  margin: 0 auto;
+"
         >
-          <input
-            checked=""
-            class="el-toggle-radio"
+          <mock-styled.input
             id="today"
             name="appointment-time"
             type="radio"
             value="TODAY"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="today"
+          <mock-styled.label
+            classname=""
+            htmlfor="today"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Today
-            </span>
-          </label>
-          <input
-            class="el-toggle-radio"
+            </mock-styled.span>
+          </mock-styled.label>
+          <mock-styled.input
             id="tomorrow"
             name="appointment-time"
             type="radio"
             value="TOMORROW"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="tomorrow"
+          <mock-styled.label
+            classname=""
+            htmlfor="tomorrow"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Tomorrow
-            </span>
-          </label>
-          <input
-            class="el-toggle-radio"
+            </mock-styled.span>
+          </mock-styled.label>
+          <mock-styled.input
             id="week"
             name="appointment-time"
             type="radio"
             value="WEEK"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="week"
+          <mock-styled.label
+            classname=""
+            htmlfor="week"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Week
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        class="mobile-appointments-show appoinment-container"
+            </mock-styled.span>
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  transform: translate3d(-100%, 0, 0);
+  animation: slide-in 0.35s forwards;
+
+  @keyframes slide-in {
+    100% {
+      transform: translate3d(0%, 0, 0);
+    }
+  }
+"
       >
-        <div
-          class="loading-container"
-        >
-          <div
-            class="el-loader-container"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-loader"
-            >
-              <div
-                class="el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
       <div
-        class="drawer-bg"
+        class="mock-css.
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: 0.35s;
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
       />
       <div
-        class="drawer"
+        class="mock-css.
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow: scroll;
+  background: white;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  padding-bottom: ,;
+  transition: 0.35s;
+  opacity: 0;
+  transform: translateY(100%);
+  z-index: -2;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
       />
-      <div
-        class="map-container"
-      >
-        <div
-          class="map-content-container"
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         />
-        <div
-          class="map-panel-container"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="map-panel-item"
-          >
-            <input
-              checked=""
-              class="toggle-travel-checkbox"
+          <mock-styled.div>
+            <mock-styled.input
+              checked="true"
               id="travel-mode"
               type="checkbox"
             />
-            <label
-              class="toggle-travel-label"
-              for="travel-mode"
+            <mock-styled.label
+              htmlfor="travel-mode"
             >
               <img
                 src="[object Object]"
@@ -2150,201 +2056,207 @@ Object {
               <img
                 src="[object Object]"
               />
-            </label>
-          </div>
-          <div
-            class="map-panel-item"
-          >
-            <h2
-              class="el-has-bold-text el-subtitle"
+            </mock-styled.label>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="mock-css."
             >
               ETA
-            </h2>
+            </mock-styled.h2>
             <p />
-          </div>
-          <div
-            class="map-panel-item"
-          >
-            <h2
-              class="el-has-bold-text el-subtitle"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="mock-css."
             >
               Distance
-            </h2>
+            </mock-styled.h2>
             <p />
-          </div>
-          <div
-            class="map-panel-item"
-          >
-            <button
-              class="el-intent-critical el-button"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Start Journey
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
-    <div
-      class="controls-container"
-    >
-      <div
-        class="controls-title-wrapper"
-      >
-        <h2
-          class="el-has-bold-text el-subtitle"
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname="mock-css."
         >
           Location
-        </h2>
-        <div
-          class="tab-mode-button-container"
-        >
-          <button
-            class="el-intent-primary el-button"
+        </mock-styled.h2>
+        <mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
           >
             MAP
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-      <div
-        class="my-location-wrap"
-      >
-        <div
-          class="my-location-inner-wrap"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="my-location-section"
-          >
-            <input
-              class="el-input"
+          <mock-styled.div>
+            <mock-styled.input
               placeholder="Enter location"
               value=""
             />
-          </div>
-          <div
-            class="destination-location-section"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           />
-        </div>
-      </div>
-    </div>
-    <div
-      class="appointment-time-container-expanded appointment-time-container"
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="el-mx-auto el-toggle-radio-wrap"
+      <mock-styled.div
+        classname="mock-css.
+  margin: 0 auto;
+"
       >
-        <input
-          checked=""
-          class="el-toggle-radio"
+        <mock-styled.input
           id="today"
           name="appointment-time"
           type="radio"
           value="TODAY"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="today"
+        <mock-styled.label
+          classname=""
+          htmlfor="today"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Today
-          </span>
-        </label>
-        <input
-          class="el-toggle-radio"
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
           id="tomorrow"
           name="appointment-time"
           type="radio"
           value="TOMORROW"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="tomorrow"
+        <mock-styled.label
+          classname=""
+          htmlfor="tomorrow"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Tomorrow
-          </span>
-        </label>
-        <input
-          class="el-toggle-radio"
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
           id="week"
           name="appointment-time"
           type="radio"
           value="WEEK"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="week"
+        <mock-styled.label
+          classname=""
+          htmlfor="week"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Week
-          </span>
-        </label>
-      </div>
-    </div>
-    <div
-      class="mobile-appointments-show appoinment-container"
+          </mock-styled.span>
+        </mock-styled.label>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  transform: translate3d(-100%, 0, 0);
+  animation: slide-in 0.35s forwards;
+
+  @keyframes slide-in {
+    100% {
+      transform: translate3d(0%, 0, 0);
+    }
+  }
+"
     >
-      <div
-        class="loading-container"
-      >
-        <div
-          class="el-loader-container"
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
     <div
-      class="drawer-bg"
+      class="mock-css.
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: 0.35s;
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
     />
     <div
-      class="drawer"
+      class="mock-css.
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow: scroll;
+  background: white;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  padding-bottom: ,;
+  transition: 0.35s;
+  opacity: 0;
+  transform: translateY(100%);
+  z-index: -2;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
     />
-    <div
-      class="map-container"
-    >
-      <div
-        class="map-content-container"
+    <mock-styled.div>
+      <mock-styled.div
+        classname=""
       />
-      <div
-        class="map-panel-container"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="map-panel-item"
-        >
-          <input
-            checked=""
-            class="toggle-travel-checkbox"
+        <mock-styled.div>
+          <mock-styled.input
+            checked="true"
             id="travel-mode"
             type="checkbox"
           />
-          <label
-            class="toggle-travel-label"
-            for="travel-mode"
+          <mock-styled.label
+            htmlfor="travel-mode"
           >
             <img
               src="[object Object]"
@@ -2352,43 +2264,35 @@ Object {
             <img
               src="[object Object]"
             />
-          </label>
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             ETA
-          </h2>
+          </mock-styled.h2>
           <p />
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             Distance
-          </h2>
+          </mock-styled.h2>
           <p />
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <button
-            class="el-intent-critical el-button"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
             type="button"
           >
             Start Journey
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -2445,173 +2349,222 @@ Object {
 `;
 
 exports[`appointment Apppointment should match snapshot with an empty query 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
-      <div
-        class="controls-container"
-      >
-        <div
-          class="controls-title-wrapper"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             Location
-          </h2>
-          <div
-            class="tab-mode-button-container"
-          >
-            <button
-              class="el-intent-primary el-button"
+          </mock-styled.h2>
+          <mock-styled.div>
+            <mock-styled.button
+              classname="mock-css."
             >
               MAP
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-        <div
-          class="my-location-wrap"
-        >
-          <div
-            class="my-location-inner-wrap"
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="my-location-section"
-            >
-              <input
-                class="el-input"
+            <mock-styled.div>
+              <mock-styled.input
                 placeholder="Enter location"
                 value=""
               />
-            </div>
-            <div
-              class="destination-location-section"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             />
-          </div>
-        </div>
-      </div>
-      <div
-        class="appointment-time-container-expanded appointment-time-container"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-mx-auto el-toggle-radio-wrap"
+        <mock-styled.div
+          classname="mock-css.
+  margin: 0 auto;
+"
         >
-          <input
-            checked=""
-            class="el-toggle-radio"
+          <mock-styled.input
             id="today"
             name="appointment-time"
             type="radio"
             value="TODAY"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="today"
+          <mock-styled.label
+            classname=""
+            htmlfor="today"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Today
-            </span>
-          </label>
-          <input
-            class="el-toggle-radio"
+            </mock-styled.span>
+          </mock-styled.label>
+          <mock-styled.input
             id="tomorrow"
             name="appointment-time"
             type="radio"
             value="TOMORROW"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="tomorrow"
+          <mock-styled.label
+            classname=""
+            htmlfor="tomorrow"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Tomorrow
-            </span>
-          </label>
-          <input
-            class="el-toggle-radio"
+            </mock-styled.span>
+          </mock-styled.label>
+          <mock-styled.input
             id="week"
             name="appointment-time"
             type="radio"
             value="WEEK"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="week"
+          <mock-styled.label
+            classname=""
+            htmlfor="week"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Week
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        class="mobile-appointments-show appoinment-container"
+            </mock-styled.span>
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  transform: translate3d(-100%, 0, 0);
+  animation: slide-in 0.35s forwards;
+
+  @keyframes slide-in {
+    100% {
+      transform: translate3d(0%, 0, 0);
+    }
+  }
+"
       >
         <div
-          class="el-fade-in"
+          class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <div
-            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          <mock-styled.div
+            classname="mock-css. mock-css. mock-css. mock-css."
           >
             <div
-              class="el-pn-icon"
+              class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
               data-testid="close-icon"
             >
-              <span
-                class="el-icon"
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
+              </mock-styled.span>
             </div>
             <div
-              class="el-pn-content"
+              class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
             >
               No appointments
             </div>
-          </div>
+          </mock-styled.div>
         </div>
-      </div>
+      </mock-styled.div>
       <div
-        class="drawer-bg"
+        class="mock-css.
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: 0.35s;
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
       />
       <div
-        class="drawer"
+        class="mock-css.
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow: scroll;
+  background: white;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  padding-bottom: ,;
+  transition: 0.35s;
+  opacity: 0;
+  transform: translateY(100%);
+  z-index: -2;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
       />
-      <div
-        class="map-container"
-      >
-        <div
-          class="map-content-container"
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         />
-        <div
-          class="map-panel-container"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="map-panel-item"
-          >
-            <input
-              checked=""
-              class="toggle-travel-checkbox"
+          <mock-styled.div>
+            <mock-styled.input
+              checked="true"
               id="travel-mode"
               type="checkbox"
             />
-            <label
-              class="toggle-travel-label"
-              for="travel-mode"
+            <mock-styled.label
+              htmlfor="travel-mode"
             >
               <img
                 src="[object Object]"
@@ -2619,209 +2572,250 @@ Object {
               <img
                 src="[object Object]"
               />
-            </label>
-          </div>
-          <div
-            class="map-panel-item"
-          >
-            <h2
-              class="el-has-bold-text el-subtitle"
+            </mock-styled.label>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="mock-css."
             >
               ETA
-            </h2>
+            </mock-styled.h2>
             <p />
-          </div>
-          <div
-            class="map-panel-item"
-          >
-            <h2
-              class="el-has-bold-text el-subtitle"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="mock-css."
             >
               Distance
-            </h2>
+            </mock-styled.h2>
             <p />
-          </div>
-          <div
-            class="map-panel-item"
-          >
-            <button
-              class="el-intent-critical el-button"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Start Journey
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
-    <div
-      class="controls-container"
-    >
-      <div
-        class="controls-title-wrapper"
-      >
-        <h2
-          class="el-has-bold-text el-subtitle"
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname="mock-css."
         >
           Location
-        </h2>
-        <div
-          class="tab-mode-button-container"
-        >
-          <button
-            class="el-intent-primary el-button"
+        </mock-styled.h2>
+        <mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
           >
             MAP
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-      <div
-        class="my-location-wrap"
-      >
-        <div
-          class="my-location-inner-wrap"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="my-location-section"
-          >
-            <input
-              class="el-input"
+          <mock-styled.div>
+            <mock-styled.input
               placeholder="Enter location"
               value=""
             />
-          </div>
-          <div
-            class="destination-location-section"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           />
-        </div>
-      </div>
-    </div>
-    <div
-      class="appointment-time-container-expanded appointment-time-container"
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="el-mx-auto el-toggle-radio-wrap"
+      <mock-styled.div
+        classname="mock-css.
+  margin: 0 auto;
+"
       >
-        <input
-          checked=""
-          class="el-toggle-radio"
+        <mock-styled.input
           id="today"
           name="appointment-time"
           type="radio"
           value="TODAY"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="today"
+        <mock-styled.label
+          classname=""
+          htmlfor="today"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Today
-          </span>
-        </label>
-        <input
-          class="el-toggle-radio"
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
           id="tomorrow"
           name="appointment-time"
           type="radio"
           value="TOMORROW"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="tomorrow"
+        <mock-styled.label
+          classname=""
+          htmlfor="tomorrow"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Tomorrow
-          </span>
-        </label>
-        <input
-          class="el-toggle-radio"
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
           id="week"
           name="appointment-time"
           type="radio"
           value="WEEK"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="week"
+        <mock-styled.label
+          classname=""
+          htmlfor="week"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Week
-          </span>
-        </label>
-      </div>
-    </div>
-    <div
-      class="mobile-appointments-show appoinment-container"
+          </mock-styled.span>
+        </mock-styled.label>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  transform: translate3d(-100%, 0, 0);
+  animation: slide-in 0.35s forwards;
+
+  @keyframes slide-in {
+    100% {
+      transform: translate3d(0%, 0, 0);
+    }
+  }
+"
     >
       <div
-        class="el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        <mock-styled.div
+          classname="mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             No appointments
           </div>
-        </div>
+        </mock-styled.div>
       </div>
-    </div>
+    </mock-styled.div>
     <div
-      class="drawer-bg"
+      class="mock-css.
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: 0.35s;
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
     />
     <div
-      class="drawer"
+      class="mock-css.
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow: scroll;
+  background: white;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  padding-bottom: ,;
+  transition: 0.35s;
+  opacity: 0;
+  transform: translateY(100%);
+  z-index: -2;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
     />
-    <div
-      class="map-container"
-    >
-      <div
-        class="map-content-container"
+    <mock-styled.div>
+      <mock-styled.div
+        classname=""
       />
-      <div
-        class="map-panel-container"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="map-panel-item"
-        >
-          <input
-            checked=""
-            class="toggle-travel-checkbox"
+        <mock-styled.div>
+          <mock-styled.input
+            checked="true"
             id="travel-mode"
             type="checkbox"
           />
-          <label
-            class="toggle-travel-label"
-            for="travel-mode"
+          <mock-styled.label
+            htmlfor="travel-mode"
           >
             <img
               src="[object Object]"
@@ -2829,43 +2823,35 @@ Object {
             <img
               src="[object Object]"
             />
-          </label>
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             ETA
-          </h2>
+          </mock-styled.h2>
           <p />
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             Distance
-          </h2>
+          </mock-styled.h2>
           <p />
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <button
-            class="el-intent-critical el-button"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
             type="button"
           >
             Start Journey
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -2922,173 +2908,222 @@ Object {
 `;
 
 exports[`appointment Apppointment should match snapshot with data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
-      <div
-        class="controls-container"
-      >
-        <div
-          class="controls-title-wrapper"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             Location
-          </h2>
-          <div
-            class="tab-mode-button-container"
-          >
-            <button
-              class="el-intent-primary el-button"
+          </mock-styled.h2>
+          <mock-styled.div>
+            <mock-styled.button
+              classname="mock-css."
             >
               MAP
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-        <div
-          class="my-location-wrap"
-        >
-          <div
-            class="my-location-inner-wrap"
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="my-location-section"
-            >
-              <input
-                class="el-input"
+            <mock-styled.div>
+              <mock-styled.input
                 placeholder="Enter location"
                 value=""
               />
-            </div>
-            <div
-              class="destination-location-section"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             />
-          </div>
-        </div>
-      </div>
-      <div
-        class="appointment-time-container-expanded appointment-time-container"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-mx-auto el-toggle-radio-wrap"
+        <mock-styled.div
+          classname="mock-css.
+  margin: 0 auto;
+"
         >
-          <input
-            checked=""
-            class="el-toggle-radio"
+          <mock-styled.input
             id="today"
             name="appointment-time"
             type="radio"
             value="TODAY"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="today"
+          <mock-styled.label
+            classname=""
+            htmlfor="today"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Today
-            </span>
-          </label>
-          <input
-            class="el-toggle-radio"
+            </mock-styled.span>
+          </mock-styled.label>
+          <mock-styled.input
             id="tomorrow"
             name="appointment-time"
             type="radio"
             value="TOMORROW"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="tomorrow"
+          <mock-styled.label
+            classname=""
+            htmlfor="tomorrow"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Tomorrow
-            </span>
-          </label>
-          <input
-            class="el-toggle-radio"
+            </mock-styled.span>
+          </mock-styled.label>
+          <mock-styled.input
             id="week"
             name="appointment-time"
             type="radio"
             value="WEEK"
           />
-          <label
-            class="el-toggle-radio-label"
-            for="week"
+          <mock-styled.label
+            classname=""
+            htmlfor="week"
           >
-            <span
-              class="el-toggle-radio-item"
-            >
+            <mock-styled.span>
               Week
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        class="mobile-appointments-show appoinment-container"
+            </mock-styled.span>
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  transform: translate3d(-100%, 0, 0);
+  animation: slide-in 0.35s forwards;
+
+  @keyframes slide-in {
+    100% {
+      transform: translate3d(0%, 0, 0);
+    }
+  }
+"
       >
         <div
-          class="el-fade-in"
+          class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <div
-            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          <mock-styled.div
+            classname="mock-css. mock-css. mock-css. mock-css."
           >
             <div
-              class="el-pn-icon"
+              class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
               data-testid="close-icon"
             >
-              <span
-                class="el-icon"
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
+              </mock-styled.span>
             </div>
             <div
-              class="el-pn-content"
+              class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
             >
               No appointments
             </div>
-          </div>
+          </mock-styled.div>
         </div>
-      </div>
+      </mock-styled.div>
       <div
-        class="drawer-bg"
+        class="mock-css.
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: 0.35s;
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
       />
       <div
-        class="drawer"
+        class="mock-css.
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow: scroll;
+  background: white;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  padding-bottom: ,;
+  transition: 0.35s;
+  opacity: 0;
+  transform: translateY(100%);
+  z-index: -2;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
       />
-      <div
-        class="map-container"
-      >
-        <div
-          class="map-content-container"
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         />
-        <div
-          class="map-panel-container"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="map-panel-item"
-          >
-            <input
-              checked=""
-              class="toggle-travel-checkbox"
+          <mock-styled.div>
+            <mock-styled.input
+              checked="true"
               id="travel-mode"
               type="checkbox"
             />
-            <label
-              class="toggle-travel-label"
-              for="travel-mode"
+            <mock-styled.label
+              htmlfor="travel-mode"
             >
               <img
                 src="[object Object]"
@@ -3096,209 +3131,250 @@ Object {
               <img
                 src="[object Object]"
               />
-            </label>
-          </div>
-          <div
-            class="map-panel-item"
-          >
-            <h2
-              class="el-has-bold-text el-subtitle"
+            </mock-styled.label>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="mock-css."
             >
               ETA
-            </h2>
+            </mock-styled.h2>
             <p />
-          </div>
-          <div
-            class="map-panel-item"
-          >
-            <h2
-              class="el-has-bold-text el-subtitle"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="mock-css."
             >
               Distance
-            </h2>
+            </mock-styled.h2>
             <p />
-          </div>
-          <div
-            class="map-panel-item"
-          >
-            <button
-              class="el-intent-critical el-button"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Start Journey
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
-    <div
-      class="controls-container"
-    >
-      <div
-        class="controls-title-wrapper"
-      >
-        <h2
-          class="el-has-bold-text el-subtitle"
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname="mock-css."
         >
           Location
-        </h2>
-        <div
-          class="tab-mode-button-container"
-        >
-          <button
-            class="el-intent-primary el-button"
+        </mock-styled.h2>
+        <mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
           >
             MAP
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-      <div
-        class="my-location-wrap"
-      >
-        <div
-          class="my-location-inner-wrap"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="my-location-section"
-          >
-            <input
-              class="el-input"
+          <mock-styled.div>
+            <mock-styled.input
               placeholder="Enter location"
               value=""
             />
-          </div>
-          <div
-            class="destination-location-section"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           />
-        </div>
-      </div>
-    </div>
-    <div
-      class="appointment-time-container-expanded appointment-time-container"
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="el-mx-auto el-toggle-radio-wrap"
+      <mock-styled.div
+        classname="mock-css.
+  margin: 0 auto;
+"
       >
-        <input
-          checked=""
-          class="el-toggle-radio"
+        <mock-styled.input
           id="today"
           name="appointment-time"
           type="radio"
           value="TODAY"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="today"
+        <mock-styled.label
+          classname=""
+          htmlfor="today"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Today
-          </span>
-        </label>
-        <input
-          class="el-toggle-radio"
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
           id="tomorrow"
           name="appointment-time"
           type="radio"
           value="TOMORROW"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="tomorrow"
+        <mock-styled.label
+          classname=""
+          htmlfor="tomorrow"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Tomorrow
-          </span>
-        </label>
-        <input
-          class="el-toggle-radio"
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
           id="week"
           name="appointment-time"
           type="radio"
           value="WEEK"
         />
-        <label
-          class="el-toggle-radio-label"
-          for="week"
+        <mock-styled.label
+          classname=""
+          htmlfor="week"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Week
-          </span>
-        </label>
-      </div>
-    </div>
-    <div
-      class="mobile-appointments-show appoinment-container"
+          </mock-styled.span>
+        </mock-styled.label>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  transform: translate3d(-100%, 0, 0);
+  animation: slide-in 0.35s forwards;
+
+  @keyframes slide-in {
+    100% {
+      transform: translate3d(0%, 0, 0);
+    }
+  }
+"
     >
       <div
-        class="el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        <mock-styled.div
+          classname="mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             No appointments
           </div>
-        </div>
+        </mock-styled.div>
       </div>
-    </div>
+    </mock-styled.div>
     <div
-      class="drawer-bg"
+      class="mock-css.
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: 0.35s;
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
     />
     <div
-      class="drawer"
+      class="mock-css.
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow: scroll;
+  background: white;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  padding-bottom: ,;
+  transition: 0.35s;
+  opacity: 0;
+  transform: translateY(100%);
+  z-index: -2;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    width: ,;
+    left: ,;
+  }
+"
     />
-    <div
-      class="map-container"
-    >
-      <div
-        class="map-content-container"
+    <mock-styled.div>
+      <mock-styled.div
+        classname=""
       />
-      <div
-        class="map-panel-container"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="map-panel-item"
-        >
-          <input
-            checked=""
-            class="toggle-travel-checkbox"
+        <mock-styled.div>
+          <mock-styled.input
+            checked="true"
             id="travel-mode"
             type="checkbox"
           />
-          <label
-            class="toggle-travel-label"
-            for="travel-mode"
+          <mock-styled.label
+            htmlfor="travel-mode"
           >
             <img
               src="[object Object]"
@@ -3306,43 +3382,35 @@ Object {
             <img
               src="[object Object]"
             />
-          </label>
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             ETA
-          </h2>
+          </mock-styled.h2>
           <p />
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             Distance
-          </h2>
+          </mock-styled.h2>
           <p />
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <button
-            class="el-intent-critical el-button"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
             type="button"
           >
             Start Journey
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

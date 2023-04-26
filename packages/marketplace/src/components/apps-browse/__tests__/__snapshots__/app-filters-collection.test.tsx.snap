@@ -1,75 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppFiltersCollection should match a snapshot for mobile desktop 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="app-filter-col"
-      >
-        <div
-          class="el-flex-column el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
-          <span
-            class="el-mb5 el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
             style="font-size: 5em;"
           >
             <svg />
-          </span>
-          <div
-            class="el-flex-column el-flex-justify-center el-flex-container"
+          </mock-styled.span>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
           >
-            <h2
-              class="app-filter-subtitle el-subtitle"
-            >
+            <mock-styled.mock-styled.h2>
               Reapit Developed Apps
-            </h2>
-            <p
-              class="app-filter-strapline el-body-text"
-            >
+            </mock-styled.mock-styled.h2>
+            <mock-styled.mock-styled.p>
               Lorem ipsum dolor sit amet, consectetur adip
-            </p>
-          </div>
-        </div>
-      </div>
+            </mock-styled.mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="app-filter-col"
-    >
-      <div
-        class="el-flex-column el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+"
       >
-        <span
-          class="el-mb5 el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
           style="font-size: 5em;"
         >
           <svg />
-        </span>
-        <div
-          class="el-flex-column el-flex-justify-center el-flex-container"
+        </mock-styled.span>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
         >
-          <h2
-            class="app-filter-subtitle el-subtitle"
-          >
+          <mock-styled.mock-styled.h2>
             Reapit Developed Apps
-          </h2>
-          <p
-            class="app-filter-strapline el-body-text"
-          >
+          </mock-styled.mock-styled.h2>
+          <mock-styled.mock-styled.p>
             Lorem ipsum dolor sit amet, consectetur adip
-          </p>
-        </div>
-      </div>
-    </div>
+          </mock-styled.mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -126,75 +126,75 @@ Object {
 `;
 
 exports[`AppFiltersCollection should match a snapshot for mobile mobile 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="app-filter-col"
-      >
-        <div
-          class="el-flex-column el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
-          <span
-            class="el-mb5 el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
             style="font-size: 3.75em;"
           >
             <svg />
-          </span>
-          <div
-            class="el-flex-column el-flex-justify-center el-flex-container"
+          </mock-styled.span>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
           >
-            <h2
-              class="app-filter-subtitle el-subtitle"
-            >
+            <mock-styled.mock-styled.h2>
               Reapit Developed Apps
-            </h2>
-            <p
-              class="app-filter-strapline el-body-text"
-            >
+            </mock-styled.mock-styled.h2>
+            <mock-styled.mock-styled.p>
               Lorem ipsum dolor sit amet, consectetur adip
-            </p>
-          </div>
-        </div>
-      </div>
+            </mock-styled.mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="app-filter-col"
-    >
-      <div
-        class="el-flex-column el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+"
       >
-        <span
-          class="el-mb5 el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
           style="font-size: 3.75em;"
         >
           <svg />
-        </span>
-        <div
-          class="el-flex-column el-flex-justify-center el-flex-container"
+        </mock-styled.span>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
         >
-          <h2
-            class="app-filter-subtitle el-subtitle"
-          >
+          <mock-styled.mock-styled.h2>
             Reapit Developed Apps
-          </h2>
-          <p
-            class="app-filter-strapline el-body-text"
-          >
+          </mock-styled.mock-styled.h2>
+          <mock-styled.mock-styled.p>
             Lorem ipsum dolor sit amet, consectetur adip
-          </p>
-        </div>
-      </div>
-    </div>
+          </mock-styled.mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -251,75 +251,75 @@ Object {
 `;
 
 exports[`AppFiltersCollection should match a snapshot for mobile superWidescreen 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="app-filter-col"
-      >
-        <div
-          class="el-flex-column el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
-          <span
-            class="el-mb5 el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
             style="font-size: 5em;"
           >
             <svg />
-          </span>
-          <div
-            class="el-flex-column el-flex-justify-center el-flex-container"
+          </mock-styled.span>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
           >
-            <h2
-              class="app-filter-subtitle el-subtitle"
-            >
+            <mock-styled.mock-styled.h2>
               Reapit Developed Apps
-            </h2>
-            <p
-              class="app-filter-strapline el-body-text"
-            >
+            </mock-styled.mock-styled.h2>
+            <mock-styled.mock-styled.p>
               Lorem ipsum dolor sit amet, consectetur adip
-            </p>
-          </div>
-        </div>
-      </div>
+            </mock-styled.mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="app-filter-col"
-    >
-      <div
-        class="el-flex-column el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+"
       >
-        <span
-          class="el-mb5 el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
           style="font-size: 5em;"
         >
           <svg />
-        </span>
-        <div
-          class="el-flex-column el-flex-justify-center el-flex-container"
+        </mock-styled.span>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
         >
-          <h2
-            class="app-filter-subtitle el-subtitle"
-          >
+          <mock-styled.mock-styled.h2>
             Reapit Developed Apps
-          </h2>
-          <p
-            class="app-filter-strapline el-body-text"
-          >
+          </mock-styled.mock-styled.h2>
+          <mock-styled.mock-styled.p>
             Lorem ipsum dolor sit amet, consectetur adip
-          </p>
-        </div>
-      </div>
-    </div>
+          </mock-styled.mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -376,75 +376,75 @@ Object {
 `;
 
 exports[`AppFiltersCollection should match a snapshot for mobile tablet 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="app-filter-col"
-      >
-        <div
-          class="el-flex-column el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
-          <span
-            class="el-mb5 el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
             style="font-size: 5em;"
           >
             <svg />
-          </span>
-          <div
-            class="el-flex-column el-flex-justify-center el-flex-container"
+          </mock-styled.span>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
           >
-            <h2
-              class="app-filter-subtitle el-subtitle"
-            >
+            <mock-styled.mock-styled.h2>
               Reapit Developed Apps
-            </h2>
-            <p
-              class="app-filter-strapline el-body-text"
-            >
+            </mock-styled.mock-styled.h2>
+            <mock-styled.mock-styled.p>
               Lorem ipsum dolor sit amet, consectetur adip
-            </p>
-          </div>
-        </div>
-      </div>
+            </mock-styled.mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="app-filter-col"
-    >
-      <div
-        class="el-flex-column el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+"
       >
-        <span
-          class="el-mb5 el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
           style="font-size: 5em;"
         >
           <svg />
-        </span>
-        <div
-          class="el-flex-column el-flex-justify-center el-flex-container"
+        </mock-styled.span>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
         >
-          <h2
-            class="app-filter-subtitle el-subtitle"
-          >
+          <mock-styled.mock-styled.h2>
             Reapit Developed Apps
-          </h2>
-          <p
-            class="app-filter-strapline el-body-text"
-          >
+          </mock-styled.mock-styled.h2>
+          <mock-styled.mock-styled.p>
             Lorem ipsum dolor sit amet, consectetur adip
-          </p>
-        </div>
-      </div>
-    </div>
+          </mock-styled.mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -501,75 +501,75 @@ Object {
 `;
 
 exports[`AppFiltersCollection should match a snapshot for mobile widescreen 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="app-filter-col"
-      >
-        <div
-          class="el-flex-column el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
-          <span
-            class="el-mb5 el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
             style="font-size: 5em;"
           >
             <svg />
-          </span>
-          <div
-            class="el-flex-column el-flex-justify-center el-flex-container"
+          </mock-styled.span>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
           >
-            <h2
-              class="app-filter-subtitle el-subtitle"
-            >
+            <mock-styled.mock-styled.h2>
               Reapit Developed Apps
-            </h2>
-            <p
-              class="app-filter-strapline el-body-text"
-            >
+            </mock-styled.mock-styled.h2>
+            <mock-styled.mock-styled.p>
               Lorem ipsum dolor sit amet, consectetur adip
-            </p>
-          </div>
-        </div>
-      </div>
+            </mock-styled.mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="app-filter-col"
-    >
-      <div
-        class="el-flex-column el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+"
       >
-        <span
-          class="el-mb5 el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
           style="font-size: 5em;"
         >
           <svg />
-        </span>
-        <div
-          class="el-flex-column el-flex-justify-center el-flex-container"
+        </mock-styled.span>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
         >
-          <h2
-            class="app-filter-subtitle el-subtitle"
-          >
+          <mock-styled.mock-styled.h2>
             Reapit Developed Apps
-          </h2>
-          <p
-            class="app-filter-strapline el-body-text"
-          >
+          </mock-styled.mock-styled.h2>
+          <mock-styled.mock-styled.p>
             Lorem ipsum dolor sit amet, consectetur adip
-          </p>
-        </div>
-      </div>
-    </div>
+          </mock-styled.mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

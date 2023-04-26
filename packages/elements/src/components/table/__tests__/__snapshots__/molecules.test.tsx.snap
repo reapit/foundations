@@ -1,39 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TableCell Component should match a snapshot with full props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="foo-bar el-table-cell-has-dark-text el-table-narrow-cell-is-full-width el-table-cell-narrow-order1 el-table-cell"
+      <mock-styled.div
+        classname="foo-bar mock-css. mock-css.
+  , {
+    grid-column-end: span 2;
+    text-align: center;
+  }
+ mock-css.
+  , {
+    order: 0;
+  }
+"
       >
-        <span
-          class="el-intent-secondary el-icon"
+        <mock-styled.span
+          classname="mock-css."
         >
           <svg />
-        </span>
-        <div
-          class="el-table-cell-content"
+        </mock-styled.span>
+        <mock-styled.div
           data-narrow-label="Label"
         />
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="foo-bar el-table-cell-has-dark-text el-table-narrow-cell-is-full-width el-table-cell-narrow-order1 el-table-cell"
+    <mock-styled.div
+      classname="foo-bar mock-css. mock-css.
+  , {
+    grid-column-end: span 2;
+    text-align: center;
+  }
+ mock-css.
+  , {
+    order: 0;
+  }
+"
     >
-      <span
-        class="el-intent-secondary el-icon"
+      <mock-styled.span
+        classname="mock-css."
       >
         <svg />
-      </span>
-      <div
-        class="el-table-cell-content"
+      </mock-styled.span>
+      <mock-styled.div
         data-narrow-label="Label"
       />
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -90,27 +106,23 @@ Object {
 `;
 
 exports[`TableCell Component should match a snapshot with no props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table-cell"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-table-cell-content"
-        />
-      </div>
+        <mock-styled.div />
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table-cell"
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-table-cell-content"
-      />
-    </div>
+      <mock-styled.div />
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -167,27 +179,23 @@ Object {
 `;
 
 exports[`TableCtaTriggerCell Component should match a snapshot with children and no icon 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table-cta-cell"
-      >
+      <mock-styled.div>
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table-cta-cell"
-    >
+    <mock-styled.div>
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -244,41 +252,33 @@ Object {
 `;
 
 exports[`TableCtaTriggerCell Component should match a snapshot with no children and an icon 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table-cta-cell"
-      >
-        <div
-          class="el-table-cta-icon-container"
-        >
-          <span
-            class="el-intent-primary el-icon"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname="mock-css."
             style="font-size: 1.2rem;"
           >
             <svg />
-          </span>
-        </div>
-      </div>
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table-cta-cell"
-    >
-      <div
-        class="el-table-cta-icon-container"
-      >
-        <span
-          class="el-intent-primary el-icon"
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.span
+          classname="mock-css."
           style="font-size: 1.2rem;"
         >
           <svg />
-        </span>
-      </div>
-    </div>
+        </mock-styled.span>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -335,19 +335,15 @@ Object {
 `;
 
 exports[`TableCtaTriggerCell Component should match a snapshot with no children and no icon 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table-cta-cell"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table-cta-cell"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -404,27 +400,23 @@ Object {
 `;
 
 exports[`TableExpandableRow Component should match a snapshot when not open 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-is-active el-table-expandable-row"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-table-expandable-container"
-        />
-      </div>
+        <mock-styled.div />
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-is-active el-table-expandable-row"
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="el-table-expandable-container"
-      />
-    </div>
+      <mock-styled.div />
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -481,27 +473,23 @@ Object {
 `;
 
 exports[`TableExpandableRow Component should match a snapshot when open 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-is-active el-table-expandable-row"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-table-expandable-container"
-        />
-      </div>
+        <mock-styled.div />
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-is-active el-table-expandable-row"
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="el-table-expandable-container"
-      />
-    </div>
+      <mock-styled.div />
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -558,27 +546,27 @@ Object {
 `;
 
 exports[`TableExpandableRowTriggerCell Component should match a snapshot with children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table-expandable-row-trigger-cell"
+      <mock-styled.div
+        classname=""
       >
         <div>
           I am a child
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table-expandable-row-trigger-cell"
+    <mock-styled.div
+      classname=""
     >
       <div>
         I am a child
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -635,31 +623,31 @@ Object {
 `;
 
 exports[`TableExpandableRowTriggerCell Component should match a snapshot with no children and closed 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table-expandable-row-trigger-cell"
+      <mock-styled.div
+        classname=""
       >
-        <span
-          class="el-intent-secondary el-icon"
+        <mock-styled.span
+          classname="mock-css."
         >
           <svg />
-        </span>
-      </div>
+        </mock-styled.span>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table-expandable-row-trigger-cell"
+    <mock-styled.div
+      classname=""
     >
-      <span
-        class="el-intent-secondary el-icon"
+      <mock-styled.span
+        classname="mock-css."
       >
         <svg />
-      </span>
-    </div>
+      </mock-styled.span>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -716,31 +704,41 @@ Object {
 `;
 
 exports[`TableExpandableRowTriggerCell Component should match a snapshot with no children and open 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table-narrow-cell-is-full-width el-table-expandable-row-trigger-cell"
+      <mock-styled.div
+        classname="mock-css.
+  , {
+    grid-column-end: span 2;
+    text-align: center;
+  }
+"
       >
-        <span
-          class="el-intent-primary el-icon"
+        <mock-styled.span
+          classname="mock-css."
         >
           <svg />
-        </span>
-      </div>
+        </mock-styled.span>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table-narrow-cell-is-full-width el-table-expandable-row-trigger-cell"
+    <mock-styled.div
+      classname="mock-css.
+  , {
+    grid-column-end: span 2;
+    text-align: center;
+  }
+"
     >
-      <span
-        class="el-intent-primary el-icon"
+      <mock-styled.span
+        classname="mock-css."
       >
         <svg />
-      </span>
-    </div>
+      </mock-styled.span>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -797,19 +795,15 @@ Object {
 `;
 
 exports[`TableHeader Component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table-header"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table-header"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -866,19 +860,15 @@ Object {
 `;
 
 exports[`TableHeadersRow Component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table-headers-row"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table-headers-row"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -935,19 +925,15 @@ Object {
 `;
 
 exports[`TableRow Component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-table-row"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-table-row"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1004,18 +990,18 @@ Object {
 `;
 
 exports[`TableRowContainer Component should match a snapshot when not open 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-is-active el-table-row-container"
+      <mock-styled.div
+        classname="mock-css."
       />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-is-active el-table-row-container"
+    <mock-styled.div
+      classname="mock-css."
     />
   </div>,
   "debug": [Function],
@@ -1073,18 +1059,18 @@ Object {
 `;
 
 exports[`TableRowContainer Component should match a snapshot when open 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-is-active el-table-row-container"
+      <mock-styled.div
+        classname="mock-css."
       />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-is-active el-table-row-container"
+    <mock-styled.div
+      classname="mock-css."
     />
   </div>,
   "debug": [Function],

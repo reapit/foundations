@@ -1,7 +1,6 @@
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
 import ErrorBoundary from '../../core/error-boundary'
-import Routes from '../../constants/routes'
+import RoutePaths from '../../constants/routes'
 import {
   Button,
   ButtonGroup,
@@ -26,8 +25,8 @@ import {
   Title,
   useModal,
 } from '@reapit/elements'
-import { ExternalPages, navigate, openNewPage } from '../../utils/navigation'
-import { Route, Switch, useLocation } from 'react-router-dom'
+import { ExternalPages, navigateRoute, openNewPage } from '../../utils/navigation'
+import { useLocation, useNavigate } from 'react-router-dom'
 import WebhooksPage from '../webhooks'
 import DesktopPage from '../desktop'
 import GraphQLPage from '../graphql'
@@ -35,8 +34,8 @@ import SwaggerPage from '../swagger'
 import { cx } from '@linaria/core'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { ControlsContainer } from '../webhooks/__styles__'
-import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet } from '@reapit/use-reapit-data'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { MemberModel, ProductModelPagedResult } from '@reapit/foundations-ts-definitions'
 import WebhooksControls from '../webhooks/webhooks-controls'
 import { useWebhooksState } from '../webhooks/state/use-webhooks-state'
@@ -62,7 +61,7 @@ export const handleDefaultSwaggerDoc =
   }
 
 export const ApiPage: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { globalDataState } = useGlobalState()
   const { webhooksDataState } = useWebhooksState()
@@ -71,24 +70,24 @@ export const ApiPage: FC = () => {
 
   const [productsList] = useReapitGet<ProductModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getProducts],
+    action: getActions[GetActionNames.getProducts],
   })
 
   const { currentMember, currentDeveloper } = globalDataState
-  const hasProducts = window.reapit.config.swaggerWhitelist.includes(currentDeveloper?.id as string)
+  const hasProducts = process.env.swaggerWhitelist.includes(currentDeveloper?.id as string)
 
   useEffect(handleDefaultSwaggerDoc(setSwaggerUri, productsList, currentMember), [productsList, currentMember])
 
   const { apps } = webhooksDataState
   const { pathname } = location
-  const isSwaggerPage = pathname === Routes.SWAGGER
-  const isWebhooksPage = pathname.includes(Routes.WEBHOOKS)
-  const isGrapQlPage = pathname === Routes.GRAPHQL
-  const isDesktopPage = pathname === Routes.DESKTOP
-  const isAboutPage = pathname === Routes.WEBHOOKS_ABOUT
-  const isNewPage = pathname === Routes.WEBHOOKS_NEW
-  const isManagePage = pathname === Routes.WEBHOOKS_MANAGE
-  const isLogsPage = pathname === Routes.WEBHOOKS_LOGS
+  const isSwaggerPage = pathname === RoutePaths.SWAGGER
+  const isWebhooksPage = pathname.includes(RoutePaths.WEBHOOKS)
+  const isGrapQlPage = pathname === RoutePaths.GRAPHQL
+  const isDesktopPage = pathname === RoutePaths.DESKTOP
+  const isAboutPage = pathname === RoutePaths.WEBHOOKS_ABOUT
+  const isNewPage = pathname === RoutePaths.WEBHOOKS_NEW
+  const isManagePage = pathname === RoutePaths.WEBHOOKS_MANAGE
+  const isLogsPage = pathname === RoutePaths.WEBHOOKS_LOGS
 
   return (
     <ErrorBoundary>
@@ -96,16 +95,16 @@ export const ApiPage: FC = () => {
         <SecondaryNavContainer>
           <Title>API</Title>
           <SecondaryNav className={elMb9}>
-            <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={isSwaggerPage}>
+            <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.SWAGGER)} active={isSwaggerPage}>
               REST API
             </SecondaryNavItem>
-            <SecondaryNavItem onClick={navigate(history, Routes.WEBHOOKS_ABOUT)} active={isWebhooksPage}>
+            <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.WEBHOOKS_ABOUT)} active={isWebhooksPage}>
               Webhooks
             </SecondaryNavItem>
-            <SecondaryNavItem onClick={navigate(history, Routes.GRAPHQL)} active={isGrapQlPage}>
+            <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.GRAPHQL)} active={isGrapQlPage}>
               GraphQL
             </SecondaryNavItem>
-            <SecondaryNavItem onClick={navigate(history, Routes.DESKTOP)} active={isDesktopPage}>
+            <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.DESKTOP)} active={isDesktopPage}>
               Desktop
             </SecondaryNavItem>
           </SecondaryNav>
@@ -186,7 +185,7 @@ export const ApiPage: FC = () => {
               <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.graphQLDocs)}>
                 View Docs
               </Button>
-              <Button className={elMb5} intent="critical" onClick={openNewPage(window.reapit.config.graphQLUri)}>
+              <Button className={elMb5} intent="critical" onClick={openNewPage(process.env.graphQLUri)}>
                 Open Explorer
               </Button>
             </>
@@ -223,16 +222,10 @@ export const ApiPage: FC = () => {
         </SecondaryNavContainer>
         <PageContainer className={elHFull}>
           <ErrorBoundary>
-            <Switch>
-              <Route
-                path={Routes.SWAGGER}
-                exact
-                render={(props) => <SwaggerPage {...props} swaggerUri={swaggerUri} />}
-              />
-              <Route path={Routes.WEBHOOKS} component={WebhooksPage} />
-              <Route path={Routes.GRAPHQL} exact component={GraphQLPage} />
-              <Route path={Routes.DESKTOP} exact component={DesktopPage} />
-            </Switch>
+            {pathname === RoutePaths.SWAGGER && <SwaggerPage swaggerUri={swaggerUri} />}
+            {pathname.includes(RoutePaths.WEBHOOKS) && <WebhooksPage />}
+            {pathname === RoutePaths.GRAPHQL && <GraphQLPage />}
+            {pathname === RoutePaths.DESKTOP && <DesktopPage />}
           </ErrorBoundary>
         </PageContainer>
       </FlexContainer>

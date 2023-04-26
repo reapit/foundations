@@ -19,8 +19,7 @@ import {
   Subtitle,
   Title,
 } from '@reapit/elements'
-import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { openNewPage } from '../nav'
@@ -31,14 +30,14 @@ export const Data: FC = () => {
 
   const [dataSets, dataSetsLoading] = useReapitGet<PagedApiResponse<DataSetModel>>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDwDataSets],
+    action: getActions[GetActionNames.getDwDataSets],
     queryParams: { organisationId: orgId, pageSize: 999 },
     fetchWhenTrue: [orgId],
   })
 
   const [shares, sharesLoading, , refreshShares] = useReapitGet<PagedApiResponse<SharesModel>>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDwShares],
+    action: getActions[GetActionNames.getDwShares],
     queryParams: { organisationId: orgId, pageSize: 999 },
     fetchWhenTrue: [orgId],
   })

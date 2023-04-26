@@ -2,7 +2,6 @@ import * as React from 'react'
 import { render } from '@testing-library/react'
 import Header from '../index'
 import { MockedProvider } from '@apollo/client/testing'
-import routeData from 'react-router'
 import { MemoryRouter } from 'react-router-dom'
 import { Editor } from '@craftjs/core'
 
@@ -24,19 +23,8 @@ jest.mock(
 )
 
 describe('Header', () => {
-  const mockParams = {
-    appId: '123',
-    pageId: '456',
-  }
-  const mockLocation = {
-    pathname: '/123/456',
-    hash: '',
-    search: '',
-    state: '',
-  }
   beforeEach(() => {
-    jest.spyOn(routeData, 'useParams').mockReturnValue(mockParams)
-    jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
+    window.location.pathname = '/123/456'
   })
   it('should match a snapshot', () => {
     const { asFragment } = render(

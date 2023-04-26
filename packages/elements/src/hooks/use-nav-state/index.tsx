@@ -1,4 +1,14 @@
-import React, { createContext, Dispatch, SetStateAction, useContext, useState, MouseEvent, useEffect } from 'react'
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+  MouseEvent,
+  useEffect,
+  PropsWithChildren,
+  FC,
+} from 'react'
 
 export interface NavState {
   navItemIndex: number | null
@@ -22,7 +32,7 @@ export const NavStateContext = createContext<NavStateContextProps>({} as NavStat
 
 const { Provider } = NavStateContext
 
-export const NavStateProvider: React.FC = ({ children }) => {
+export const NavStateProvider: FC<PropsWithChildren> = ({ children }) => {
   const [navState, setNavState] = useState<NavState>({
     navItemIndex: null,
     navMenuOpen: false,

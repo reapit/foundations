@@ -1,20 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppListingTab should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <p
-        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+      <mock-styled.div />
+      <mock-styled.p
+        classname="mock-css."
       >
         The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css. mock-css."
       >
         For information on listing your app 
         <a>
@@ -25,392 +23,482 @@ Object {
         <a>
           here.
         </a>
-      </p>
-      <div
-        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="name"
               placeholder="The name of your app as it will appear to users"
               type="text"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="supportEmail"
               placeholder="Email for customers to contact you"
               type="email"
               value="Mock field value"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Support email
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="telephone"
               placeholder="Number for customers to contact you"
               type="text"
               value="Mock field value"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Telephone
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="homePage"
               placeholder="Your company homepage. HTTP:// or HTTPS://"
               type="text"
               value="Mock field value"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Home page
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="launchUri"
               placeholder="HTTPS or HTTP only for localhost"
               type="text"
               value="Mock field value"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Launch URI
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="termsAndConditionsUrl"
               placeholder="URL to link to your Terms and Conditions"
               type="text"
               value="Mock field value"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Terms and Conditions
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="privacyPolicyUrl"
               placeholder="URL to link to your Privacy Policy"
               type="text"
               value="Mock field value"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Privacy Policy
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="videoUrl1"
               placeholder="YouTube embed preferred or any https hosted video"
               type="text"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Getting Started Video URL
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="videoUrl2"
               placeholder="YouTube embed preferred or any https hosted video"
               type="text"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Why Use Us Video URL
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="pricingUrl"
               placeholder="URL to link to your Pricing Info"
               type="text"
               value="Mock field value"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Pricing Info
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="isFree"
               type="checkbox"
               value="Mock field value"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               This application is free
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="deletionProtection"
               type="checkbox"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Check to prevent app from being deleted
-            </label>
-          </div>
-        </div>
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <label
-              class="e1nbkkrq-el-label"
-            >
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               App Categories
-            </label>
-            <div
-              class="eooz7jy-el-multi-select-input-wrapper"
-            >
-              <input
-                class="eg4njbl-el-multi-select-input"
+            </mock-styled.label>
+            <mock-styled.div>
+              <mock-styled.input
                 id="app-edit-categories-select"
                 value="Mock field value"
               />
-              <div
-                class="e12c6sou-el-multi-select-selected"
+              <mock-styled.div
+                classname=""
               >
-                <span
-                  class="e1el4z3b-el-ml2 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+                <mock-styled.span
+                  classname="mock-css.
+  margin-left: 0.375rem;
+ mock-css.
+  font-size: 2.5rem;
+"
                 >
                   <svg />
-                </span>
+                </mock-styled.span>
                 <p>
                   Please select one or more categories that best describes your app. These will be used by customers to find your app in the AppMarket
                 </p>
-              </div>
-              <div
-                class="ef7odf0-el-multi-select-un-selected"
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <input
-                  class="e1wdkc9j-el-multi-select-checkbox"
+                <mock-styled.input
                   id="test-static-id"
                   type="checkbox"
                 />
-                <label
-                  class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
                 >
                   MOCK_DESCRIPTION
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="summary"
               placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
               value="Mock field value"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Summary
-            </label>
-          </div>
-        </div>
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <label
-            class="e1nbkkrq-el-label"
-          >
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             Description
-          </label>
+          </mock-styled.label>
           <div />
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div />
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div />
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div />
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div />
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div />
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div />
-        </div>
-      </div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Upload Icon Image
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.button
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                type="button"
+              >
+                Upload
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.input
+                type="file"
+              />
+              <mock-styled.input
+                filename="MOCK_UUID"
+                id="test-static-id"
+                value=""
+              />
+              <mock-styled.p
+                classname="mock-css. mock-css."
+              >
+                Dimensions: 192px x 192px
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Upload Featured Image
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.button
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                type="button"
+              >
+                Upload
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.input
+                type="file"
+              />
+              <mock-styled.input
+                filename="MOCK_UUID"
+                id="test-static-id"
+                value=""
+              />
+              <mock-styled.p
+                classname="mock-css. mock-css."
+              >
+                Dimensions: 990px x 444px
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Upload Other Listing Image
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.button
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                type="button"
+              >
+                Upload
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.input
+                type="file"
+              />
+              <mock-styled.input
+                filename="MOCK_UUID"
+                id="test-static-id"
+                value=""
+              />
+              <mock-styled.p
+                classname="mock-css. mock-css."
+              >
+                Dimensions: 1196x x 914px
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Upload Other Listing Image
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.button
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                type="button"
+              >
+                Upload
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.input
+                type="file"
+              />
+              <mock-styled.input
+                filename="MOCK_UUID"
+                id="test-static-id"
+                value=""
+              />
+              <mock-styled.p
+                classname="mock-css. mock-css."
+              >
+                Dimensions: 1196x x 914px
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Upload Other Listing Image
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.button
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                type="button"
+              >
+                Upload
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.input
+                type="file"
+              />
+              <mock-styled.input
+                filename="MOCK_UUID"
+                id="test-static-id"
+                value=""
+              />
+              <mock-styled.p
+                classname="mock-css. mock-css."
+              >
+                Dimensions: 1196x x 914px
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Upload Other Listing Image
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.button
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                type="button"
+              >
+                Upload
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.input
+                type="file"
+              />
+              <mock-styled.input
+                filename="MOCK_UUID"
+                id="test-static-id"
+                value=""
+              />
+              <mock-styled.p
+                classname="mock-css. mock-css."
+              >
+                Dimensions: 1196x x 914px
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <p
-      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+    <mock-styled.div />
+    <mock-styled.p
+      classname="mock-css."
     >
       The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
-    </p>
-    <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
+    </mock-styled.p>
+    <mock-styled.p
+      classname="mock-css. mock-css."
     >
       For information on listing your app 
       <a>
@@ -421,379 +509,471 @@ Object {
       <a>
         here.
       </a>
-    </p>
-    <div
-      class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+    </mock-styled.p>
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="ep31he9-el-input-wrap-full"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="name"
             placeholder="The name of your app as it will appear to users"
             type="text"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Name
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="supportEmail"
             placeholder="Email for customers to contact you"
             type="email"
             value="Mock field value"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Support email
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="telephone"
             placeholder="Number for customers to contact you"
             type="text"
             value="Mock field value"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Telephone
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="homePage"
             placeholder="Your company homepage. HTTP:// or HTTPS://"
             type="text"
             value="Mock field value"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Home page
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="launchUri"
             placeholder="HTTPS or HTTP only for localhost"
             type="text"
             value="Mock field value"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Launch URI
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="termsAndConditionsUrl"
             placeholder="URL to link to your Terms and Conditions"
             type="text"
             value="Mock field value"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Terms and Conditions
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="privacyPolicyUrl"
             placeholder="URL to link to your Privacy Policy"
             type="text"
             value="Mock field value"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Privacy Policy
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="videoUrl1"
             placeholder="YouTube embed preferred or any https hosted video"
             type="text"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Getting Started Video URL
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="videoUrl2"
             placeholder="YouTube embed preferred or any https hosted video"
             type="text"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Why Use Us Video URL
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="pricingUrl"
             placeholder="URL to link to your Pricing Info"
             type="text"
             value="Mock field value"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Pricing Info
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="isFree"
             type="checkbox"
             value="Mock field value"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             This application is free
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="deletionProtection"
             type="checkbox"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Check to prevent app from being deleted
-          </label>
-        </div>
-      </div>
-      <div
-        class="ep31he9-el-input-wrap-full"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <label
-            class="e1nbkkrq-el-label"
-          >
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             App Categories
-          </label>
-          <div
-            class="eooz7jy-el-multi-select-input-wrapper"
-          >
-            <input
-              class="eg4njbl-el-multi-select-input"
+          </mock-styled.label>
+          <mock-styled.div>
+            <mock-styled.input
               id="app-edit-categories-select"
               value="Mock field value"
             />
-            <div
-              class="e12c6sou-el-multi-select-selected"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="e1el4z3b-el-ml2 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-left: 0.375rem;
+ mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <p>
                 Please select one or more categories that best describes your app. These will be used by customers to find your app in the AppMarket
               </p>
-            </div>
-            <div
-              class="ef7odf0-el-multi-select-un-selected"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <input
-                class="e1wdkc9j-el-multi-select-checkbox"
+              <mock-styled.input
                 id="test-static-id"
                 type="checkbox"
               />
-              <label
-                class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-                for="test-static-id"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
               >
                 MOCK_DESCRIPTION
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ep31he9-el-input-wrap-full"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="summary"
             placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
             value="Mock field value"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Summary
-          </label>
-        </div>
-      </div>
-      <div
-        class="ep31he9-el-input-wrap-full"
-      >
-        <label
-          class="e1nbkkrq-el-label"
-        >
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.label>
           Description
-        </label>
+        </mock-styled.label>
         <div />
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div />
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div />
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div />
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div />
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div />
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div />
-      </div>
-    </div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Upload Icon Image
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
+          >
+            <mock-styled.button
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+              type="button"
+            >
+              Upload
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.input
+              type="file"
+            />
+            <mock-styled.input
+              filename="MOCK_UUID"
+              id="test-static-id"
+              value=""
+            />
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Dimensions: 192px x 192px
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Upload Featured Image
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
+          >
+            <mock-styled.button
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+              type="button"
+            >
+              Upload
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.input
+              type="file"
+            />
+            <mock-styled.input
+              filename="MOCK_UUID"
+              id="test-static-id"
+              value=""
+            />
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Dimensions: 990px x 444px
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Upload Other Listing Image
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
+          >
+            <mock-styled.button
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+              type="button"
+            >
+              Upload
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.input
+              type="file"
+            />
+            <mock-styled.input
+              filename="MOCK_UUID"
+              id="test-static-id"
+              value=""
+            />
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Dimensions: 1196x x 914px
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Upload Other Listing Image
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
+          >
+            <mock-styled.button
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+              type="button"
+            >
+              Upload
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.input
+              type="file"
+            />
+            <mock-styled.input
+              filename="MOCK_UUID"
+              id="test-static-id"
+              value=""
+            />
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Dimensions: 1196x x 914px
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Upload Other Listing Image
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
+          >
+            <mock-styled.button
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+              type="button"
+            >
+              Upload
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.input
+              type="file"
+            />
+            <mock-styled.input
+              filename="MOCK_UUID"
+              id="test-static-id"
+              value=""
+            />
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Dimensions: 1196x x 914px
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Upload Other Listing Image
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
+          >
+            <mock-styled.button
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+              type="button"
+            >
+              Upload
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.input
+              type="file"
+            />
+            <mock-styled.input
+              filename="MOCK_UUID"
+              id="test-static-id"
+              value=""
+            />
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Dimensions: 1196x x 914px
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -850,20 +1030,18 @@ Object {
 `;
 
 exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <p
-        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+      <mock-styled.div />
+      <mock-styled.p
+        classname="mock-css."
       >
         The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css. mock-css."
       >
         For information on listing your app 
         <a>
@@ -874,512 +1052,562 @@ Object {
         <a>
           here.
         </a>
-      </p>
-      <div
-        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="name"
               placeholder="The name of your app as it will appear to users"
               type="text"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="supportEmail"
               placeholder="Email for customers to contact you"
               type="email"
             />
-            <span
-              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Support email
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
+            </mock-styled.label>
+            <mock-styled.p>
               An Error
-            </p>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="telephone"
               placeholder="Number for customers to contact you"
               type="text"
             />
-            <span
-              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Telephone
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
+            </mock-styled.label>
+            <mock-styled.p>
               An Error
-            </p>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="homePage"
               placeholder="Your company homepage. HTTP:// or HTTPS://"
               type="text"
             />
-            <span
-              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Home page
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
+            </mock-styled.label>
+            <mock-styled.p>
               An Error
-            </p>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="launchUri"
               placeholder="HTTPS or HTTP only for localhost"
               type="text"
             />
-            <span
-              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Launch URI
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
+            </mock-styled.label>
+            <mock-styled.p>
               An Error
-            </p>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="termsAndConditionsUrl"
               placeholder="URL to link to your Terms and Conditions"
               type="text"
             />
-            <span
-              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Terms and Conditions
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
+            </mock-styled.label>
+            <mock-styled.p>
               An Error
-            </p>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="privacyPolicyUrl"
               placeholder="URL to link to your Privacy Policy"
               type="text"
             />
-            <span
-              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Privacy Policy
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
+            </mock-styled.label>
+            <mock-styled.p>
               An Error
-            </p>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="videoUrl1"
               placeholder="YouTube embed preferred or any https hosted video"
               type="text"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Getting Started Video URL
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="videoUrl2"
               placeholder="YouTube embed preferred or any https hosted video"
               type="text"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Why Use Us Video URL
-            </label>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="pricingUrl"
               placeholder="URL to link to your Pricing Info"
               type="text"
             />
-            <span
-              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Pricing Info
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
+            </mock-styled.label>
+            <mock-styled.p>
               An Error
-            </p>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="isFree"
               type="checkbox"
             />
-            <span
-              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               This application is free
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
+            </mock-styled.label>
+            <mock-styled.p>
               An Error
-            </p>
-          </div>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="deletionProtection"
               type="checkbox"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Check to prevent app from being deleted
-            </label>
-          </div>
-        </div>
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <label
-              class="e1nbkkrq-el-label"
-            >
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               App Categories
-            </label>
-            <div
-              class="eooz7jy-el-multi-select-input-wrapper"
-            >
-              <input
-                class="eg4njbl-el-multi-select-input"
+            </mock-styled.label>
+            <mock-styled.div>
+              <mock-styled.input
                 id="app-edit-categories-select"
               />
-              <div
-                class="e12c6sou-el-multi-select-selected"
+              <mock-styled.div
+                classname=""
               >
-                <span
-                  class="e1el4z3b-el-ml2 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+                <mock-styled.span
+                  classname="mock-css.
+  margin-left: 0.375rem;
+ mock-css.
+  font-size: 2.5rem;
+"
                 >
                   <svg />
-                </span>
+                </mock-styled.span>
                 <p>
                   Please select one or more categories that best describes your app. These will be used by customers to find your app in the AppMarket
                 </p>
-              </div>
-              <div
-                class="ef7odf0-el-multi-select-un-selected"
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <input
-                  class="e1wdkc9j-el-multi-select-checkbox"
+                <mock-styled.input
                   id="test-static-id"
                   type="checkbox"
                 />
-                <label
-                  class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
                 >
                   MOCK_DESCRIPTION
-                </label>
-              </div>
-            </div>
-            <p
-              class="e19twfs3-el-input-error"
-            >
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.p>
               An Error
-            </p>
-          </div>
-        </div>
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="summary"
               placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
             />
-            <span
-              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Summary
-            </label>
-            <p
-              class="e19twfs3-el-input-error"
-            >
+            </mock-styled.label>
+            <mock-styled.p>
               An Error
-            </p>
-          </div>
-        </div>
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <label
-            class="e1nbkkrq-el-label"
-          >
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             Description
-          </label>
+          </mock-styled.label>
           <div />
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div />
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Upload Icon Image
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.button
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                type="button"
+              >
+                Upload
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.input
+                type="file"
+              />
+              <mock-styled.input
+                filename="MOCK_UUID"
+                id="test-static-id"
+              />
+              <mock-styled.p
+                classname="mock-css. mock-css."
+              >
+                Dimensions: 192px x 192px
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div />
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Upload Featured Image
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.button
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                type="button"
+              >
+                Upload
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.input
+                type="file"
+              />
+              <mock-styled.input
+                filename="MOCK_UUID"
+                id="test-static-id"
+              />
+              <mock-styled.p
+                classname="mock-css. mock-css."
+              >
+                Dimensions: 990px x 444px
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div />
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Upload Other Listing Image
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.button
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                type="button"
+              >
+                Upload
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.input
+                type="file"
+              />
+              <mock-styled.input
+                filename="MOCK_UUID"
+                id="test-static-id"
+              />
+              <mock-styled.p
+                classname="mock-css. mock-css."
+              >
+                Dimensions: 1196x x 914px
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div />
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Upload Other Listing Image
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.button
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                type="button"
+              >
+                Upload
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.input
+                type="file"
+              />
+              <mock-styled.input
+                filename="MOCK_UUID"
+                id="test-static-id"
+              />
+              <mock-styled.p
+                classname="mock-css. mock-css."
+              >
+                Dimensions: 1196x x 914px
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div />
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Upload Other Listing Image
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.button
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                type="button"
+              >
+                Upload
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.input
+                type="file"
+              />
+              <mock-styled.input
+                filename="MOCK_UUID"
+                id="test-static-id"
+              />
+              <mock-styled.p
+                classname="mock-css. mock-css."
+              >
+                Dimensions: 1196x x 914px
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <div />
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Upload Other Listing Image
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.button
+                classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                type="button"
+              >
+                Upload
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.input
+                type="file"
+              />
+              <mock-styled.input
+                filename="MOCK_UUID"
+                id="test-static-id"
+              />
+              <mock-styled.p
+                classname="mock-css. mock-css."
+              >
+                Dimensions: 1196x x 914px
+              </mock-styled.p>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-      </div>
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <p
-      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+    <mock-styled.div />
+    <mock-styled.p
+      classname="mock-css."
     >
       The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
-    </p>
-    <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
+    </mock-styled.p>
+    <mock-styled.p
+      classname="mock-css. mock-css."
     >
       For information on listing your app 
       <a>
@@ -1390,499 +1618,551 @@ Object {
       <a>
         here.
       </a>
-    </p>
-    <div
-      class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+    </mock-styled.p>
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="ep31he9-el-input-wrap-full"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="name"
             placeholder="The name of your app as it will appear to users"
             type="text"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Name
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="supportEmail"
             placeholder="Email for customers to contact you"
             type="email"
           />
-          <span
-            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css."
           >
             <svg />
-          </span>
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          </mock-styled.span>
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Support email
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.label>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="telephone"
             placeholder="Number for customers to contact you"
             type="text"
           />
-          <span
-            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css."
           >
             <svg />
-          </span>
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          </mock-styled.span>
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Telephone
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.label>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="homePage"
             placeholder="Your company homepage. HTTP:// or HTTPS://"
             type="text"
           />
-          <span
-            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css."
           >
             <svg />
-          </span>
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          </mock-styled.span>
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Home page
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.label>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="launchUri"
             placeholder="HTTPS or HTTP only for localhost"
             type="text"
           />
-          <span
-            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css."
           >
             <svg />
-          </span>
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          </mock-styled.span>
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Launch URI
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.label>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="termsAndConditionsUrl"
             placeholder="URL to link to your Terms and Conditions"
             type="text"
           />
-          <span
-            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css."
           >
             <svg />
-          </span>
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          </mock-styled.span>
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Terms and Conditions
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.label>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="privacyPolicyUrl"
             placeholder="URL to link to your Privacy Policy"
             type="text"
           />
-          <span
-            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css."
           >
             <svg />
-          </span>
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          </mock-styled.span>
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Privacy Policy
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.label>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="videoUrl1"
             placeholder="YouTube embed preferred or any https hosted video"
             type="text"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Getting Started Video URL
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="videoUrl2"
             placeholder="YouTube embed preferred or any https hosted video"
             type="text"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Why Use Us Video URL
-          </label>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="pricingUrl"
             placeholder="URL to link to your Pricing Info"
             type="text"
           />
-          <span
-            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css."
           >
             <svg />
-          </span>
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          </mock-styled.span>
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Pricing Info
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.label>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="isFree"
             type="checkbox"
           />
-          <span
-            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css."
           >
             <svg />
-          </span>
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          </mock-styled.span>
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             This application is free
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.label>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="deletionProtection"
             type="checkbox"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Check to prevent app from being deleted
-          </label>
-        </div>
-      </div>
-      <div
-        class="ep31he9-el-input-wrap-full"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <label
-            class="e1nbkkrq-el-label"
-          >
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
             App Categories
-          </label>
-          <div
-            class="eooz7jy-el-multi-select-input-wrapper"
-          >
-            <input
-              class="eg4njbl-el-multi-select-input"
+          </mock-styled.label>
+          <mock-styled.div>
+            <mock-styled.input
               id="app-edit-categories-select"
             />
-            <div
-              class="e12c6sou-el-multi-select-selected"
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="e1el4z3b-el-ml2 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+              <mock-styled.span
+                classname="mock-css.
+  margin-left: 0.375rem;
+ mock-css.
+  font-size: 2.5rem;
+"
               >
                 <svg />
-              </span>
+              </mock-styled.span>
               <p>
                 Please select one or more categories that best describes your app. These will be used by customers to find your app in the AppMarket
               </p>
-            </div>
-            <div
-              class="ef7odf0-el-multi-select-un-selected"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <input
-                class="e1wdkc9j-el-multi-select-checkbox"
+              <mock-styled.input
                 id="test-static-id"
                 type="checkbox"
               />
-              <label
-                class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-                for="test-static-id"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
               >
                 MOCK_DESCRIPTION
-              </label>
-            </div>
-          </div>
-          <p
-            class="e19twfs3-el-input-error"
-          >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-      </div>
-      <div
-        class="ep31he9-el-input-wrap-full"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="summary"
             placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
           />
-          <span
-            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css."
           >
             <svg />
-          </span>
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          </mock-styled.span>
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Summary
-          </label>
-          <p
-            class="e19twfs3-el-input-error"
-          >
+          </mock-styled.label>
+          <mock-styled.p>
             An Error
-          </p>
-        </div>
-      </div>
-      <div
-        class="ep31he9-el-input-wrap-full"
-      >
-        <label
-          class="e1nbkkrq-el-label"
-        >
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.label>
           Description
-        </label>
+        </mock-styled.label>
         <div />
-        <p
-          class="e19twfs3-el-input-error"
-        >
+        <mock-styled.p>
           An Error
-        </p>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div />
-        <p
-          class="e19twfs3-el-input-error"
-        >
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Upload Icon Image
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
+          >
+            <mock-styled.button
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+              type="button"
+            >
+              Upload
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.input
+              type="file"
+            />
+            <mock-styled.input
+              filename="MOCK_UUID"
+              id="test-static-id"
+            />
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Dimensions: 192px x 192px
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.p>
           An Error
-        </p>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div />
-        <p
-          class="e19twfs3-el-input-error"
-        >
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Upload Featured Image
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
+          >
+            <mock-styled.button
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+              type="button"
+            >
+              Upload
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.input
+              type="file"
+            />
+            <mock-styled.input
+              filename="MOCK_UUID"
+              id="test-static-id"
+            />
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Dimensions: 990px x 444px
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.p>
           An Error
-        </p>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div />
-        <p
-          class="e19twfs3-el-input-error"
-        >
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Upload Other Listing Image
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
+          >
+            <mock-styled.button
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+              type="button"
+            >
+              Upload
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.input
+              type="file"
+            />
+            <mock-styled.input
+              filename="MOCK_UUID"
+              id="test-static-id"
+            />
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Dimensions: 1196x x 914px
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.p>
           An Error
-        </p>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div />
-        <p
-          class="e19twfs3-el-input-error"
-        >
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Upload Other Listing Image
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
+          >
+            <mock-styled.button
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+              type="button"
+            >
+              Upload
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.input
+              type="file"
+            />
+            <mock-styled.input
+              filename="MOCK_UUID"
+              id="test-static-id"
+            />
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Dimensions: 1196x x 914px
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.p>
           An Error
-        </p>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div />
-        <p
-          class="e19twfs3-el-input-error"
-        >
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Upload Other Listing Image
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
+          >
+            <mock-styled.button
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+              type="button"
+            >
+              Upload
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.input
+              type="file"
+            />
+            <mock-styled.input
+              filename="MOCK_UUID"
+              id="test-static-id"
+            />
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Dimensions: 1196x x 914px
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.p>
           An Error
-        </p>
-      </div>
-      <div
-        class="e1ksxx4v-el-input-wrap"
-      >
-        <div />
-        <p
-          class="e19twfs3-el-input-error"
-        >
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Upload Other Listing Image
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css.
+  align-items: center;
+"
+          >
+            <mock-styled.button
+              classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+              type="button"
+            >
+              Upload
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.input
+              type="file"
+            />
+            <mock-styled.input
+              filename="MOCK_UUID"
+              id="test-static-id"
+            />
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Dimensions: 1196x x 914px
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.p>
           An Error
-        </p>
-      </div>
-    </div>
+        </mock-styled.p>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

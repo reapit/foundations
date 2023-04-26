@@ -10,7 +10,7 @@ export const getAccountService = async (accountId: string): Promise<AccountModel
 
     if (headers) {
       const response: AccountModel | undefined = await fetcher({
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         url: `${URLS.ACCOUNTS}/${accountId}`,
         method: 'GET',
         headers,

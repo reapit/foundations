@@ -11,9 +11,8 @@ import {
   MultiSelectOption,
 } from '@reapit/elements'
 import { MetaDataType } from './app-installation-confirmation-modal'
-import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 
 interface ReferralsConfirmationSelectionProps {
   setMetadata: Dispatch<SetStateAction<MetaDataType | null>>
@@ -51,7 +50,7 @@ export const ReferralsConfirmationSelection: FC<ReferralsConfirmationSelectionPr
 }) => {
   const [referralTypes, referralTypesLoading] = useReapitGet<ReferralTypeModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getReferralTypes],
+    action: getActions[GetActionNames.getReferralTypes],
     queryParams: { pageSize: 100 },
     fetchWhenTrue: [metadata],
   })

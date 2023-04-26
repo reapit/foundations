@@ -13,9 +13,6 @@ export type Config = {
 
 declare global {
   interface Window {
-    reapit: {
-      config: Config
-    }
     sagepayOwnForm: ({ merchantSessionKey: string }) => {
       tokeniseCardDetails: (params: any) => void
     }

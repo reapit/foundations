@@ -18,24 +18,17 @@ import { OfficeModel } from '@reapit/foundations-ts-definitions'
 import { OfficeGroupModel } from '@reapit/foundations-ts-definitions'
 import { toastMessages } from '../../../../constants/toast-messages'
 import { OFFICE_IN_USE_ERROR, updateOfficeGroup } from '../../../../services/office'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 
 jest.mock('@reapit/utils-common', () => ({
+  ...jest.requireActual('@reapit/utils-common'),
   fetcher: jest.fn(),
-  GetActionNames: {
-    getInstallations: 'getInstallations',
-  },
-  getActions: jest.fn(() => ({})),
-  UpdateActionNames: {
-    deleteOfficeGroup: 'deleteOfficeGroup',
-  },
-  updateActions: jest.fn(() => ({})),
 }))
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitUpdate: jest.fn(() => [null, null, jest.fn()]),
   useReapitGet: jest.fn(() => [{ data: [{ client: 'MOCK_CLIENT' }] }]),
-  logger: jest.fn(),
 }))
 
 jest.mock('../../../../core/connect-session')

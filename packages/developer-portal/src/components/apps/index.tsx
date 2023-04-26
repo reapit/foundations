@@ -14,7 +14,7 @@ export const Apps: FC = () => {
   return (
     <PusherProvider
       cluster="eu"
-      clientKey={window.reapit.config.PUSHER_KEY}
+      clientKey={process.env.PUSHER_KEY}
       authEndpoint={`${URLS.DEPLOYMENT_SERVICE_HOST}pusher/auth`}
       auth={{
         headers: {

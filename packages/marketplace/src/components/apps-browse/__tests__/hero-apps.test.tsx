@@ -1,4 +1,4 @@
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { mockAppDetailModel } from '../../../tests/__stubs__/apps'
@@ -8,8 +8,8 @@ import { HeroAppsCollection } from '../hero-apps'
 
 const configItem = handleSortConfigs(appsBrowseConfigCollection)().heroApps[0]
 
-window.reapit.config.clientHiddenAppIds = {}
-window.reapit.config.orgAdminRestrictedAppIds = []
+process.env.clientHiddenAppIds = {}
+process.env.orgAdminRestrictedAppIds = []
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
@@ -24,7 +24,8 @@ jest.mock('@reapit/connect-session', () => ({
   })),
 }))
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockAppDetailModel, false]),
   objectToQuery: jest.fn(() => '?query=string'),
 }))

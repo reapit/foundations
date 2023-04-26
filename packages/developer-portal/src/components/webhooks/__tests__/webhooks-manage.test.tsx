@@ -1,4 +1,4 @@
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { mockWebhookModelPagedResult } from '../../../tests/__stubs__/webhooks'
@@ -8,7 +8,8 @@ import { WebhooksManage } from '../webhooks-manage'
 
 jest.mock('../state/use-webhooks-state')
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockWebhookModelPagedResult, false, undefined, jest.fn()]),
 }))
 

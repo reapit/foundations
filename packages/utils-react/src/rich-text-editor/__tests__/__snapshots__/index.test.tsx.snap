@@ -1,13 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Editor should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="higv0h0"
-      >
+      <mock-styled.div>
         <div
           class="pell undefined pell-container"
           data-test=""
@@ -133,13 +131,11 @@ Object {
             </b>
           </div>
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="higv0h0"
-    >
+    <mock-styled.div>
       <div
         class="pell undefined pell-container"
         data-test=""
@@ -265,7 +261,7 @@ Object {
           </b>
         </div>
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

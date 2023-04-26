@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FormLayout component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-form-layout"
+      <mock-styled.div
+        classname=""
       />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-form-layout"
+    <mock-styled.div
+      classname=""
     />
   </div>,
   "debug": [Function],
@@ -70,19 +70,15 @@ Object {
 `;
 
 exports[`InputWrap component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-input-wrap"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-input-wrap"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -139,19 +135,15 @@ Object {
 `;
 
 exports[`InputWrapFull component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-input-wrap-full"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-input-wrap-full"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -208,19 +200,15 @@ Object {
 `;
 
 exports[`InputWrapMed component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-input-wrap-med"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-input-wrap-med"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -16,10 +16,9 @@ describe('sendEmail', () => {
   const to = 'email@example.com'
   const subject = 'Some Subject'
   const template = 'Some Body'
-  const from = 'email@example.com'
 
   it('should correctly send an email', async () => {
-    const messageId = await sendEmail(to, subject, template, from)
+    const messageId = await sendEmail(to, subject, template)
     expect(messageId).toEqual('SOME_ID')
   })
 })

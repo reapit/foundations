@@ -1,8 +1,8 @@
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch } from 'react'
+import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch, PropsWithChildren } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { defaultAnalyticsFilterState } from './defaults'
 
@@ -29,14 +29,14 @@ export const AnalyticsStateContext = createContext<AnalyticsStateHook>({} as Ana
 
 const { Provider } = AnalyticsStateContext
 
-export const AnalyticsProvider: FC = ({ children }) => {
+export const AnalyticsProvider: FC<PropsWithChildren> = ({ children }) => {
   const [analyticsFilterState, setAnalyticsFilterState] = useState<AnalyticsFilterState>(defaultAnalyticsFilterState)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = connectSession?.loginIdentity.developerId
 
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 100 },
     fetchWhenTrue: [developerId],
   })

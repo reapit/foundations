@@ -1,229 +1,185 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AcceptedModal should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css."
       />
-      <div
-        class="evmehgn-el-is-active e8lauwf-el-modal-bg"
-      />
-      <div
-        class="evmehgn-el-is-active e1ucftfo-el-modal"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="e1jrhqcv-el-modal-header"
-        >
+        <mock-styled.div>
           Reapit Foundations Invitation
-        </div>
-        <div
-          class="egkth73-el-modal-body"
-        >
-          <p
-            class="e1wasvgh-el-body-text"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.p
+            classname=""
           >
             You have been invited to join the '
             ' organisation on Reapit Foundations.
-          </p>
-          <p
-            class="e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname=""
           >
             Before confirming your account, please ensure your details are correct below.
-          </p>
-          <p
-            class="e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname=""
           >
             <strong>
               Important: 
             </strong>
             If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
-          </p>
+          </mock-styled.p>
           <form>
-            <div
-              class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1ksxx4v-el-input-wrap"
-              >
-                <div
-                  class="e1979rmu-el-input-group"
-                >
-                  <input
-                    class="e1urjlvd-el-input"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
                     id="test-static-id"
                     name="name"
                   />
-                  <label
-                    class="e1nbkkrq-el-label"
-                    for="test-static-id"
+                  <mock-styled.label
+                    htmlfor="test-static-id"
                   >
                     Name
-                  </label>
-                </div>
-              </div>
-              <div
-                class="e1ksxx4v-el-input-wrap"
-              >
-                <div
-                  class="e1979rmu-el-input-group"
-                >
-                  <input
-                    class="e1urjlvd-el-input"
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
                     id="test-static-id"
                     name="jobTitle"
                   />
-                  <label
-                    class="e1nbkkrq-el-label"
-                    for="test-static-id"
+                  <mock-styled.label
+                    htmlfor="test-static-id"
                   >
                     Job Title
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ebqwrow-el-button-group"
-            >
-              <div
-                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <button
-                  class="e1vxext9-el-intent-danger eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                <mock-styled.button
+                  classname="mock-css. mock-css."
+                  disabled="false"
                   type="button"
                 >
                   Decline
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css. mock-css."
+                  disabled="false"
                   type="submit"
                 >
                   Confirm
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
           </form>
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css."
     />
-    <div
-      class="evmehgn-el-is-active e8lauwf-el-modal-bg"
-    />
-    <div
-      class="evmehgn-el-is-active e1ucftfo-el-modal"
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="e1jrhqcv-el-modal-header"
-      >
+      <mock-styled.div>
         Reapit Foundations Invitation
-      </div>
-      <div
-        class="egkth73-el-modal-body"
-      >
-        <p
-          class="e1wasvgh-el-body-text"
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.p
+          classname=""
         >
           You have been invited to join the '
           ' organisation on Reapit Foundations.
-        </p>
-        <p
-          class="e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Before confirming your account, please ensure your details are correct below.
-        </p>
-        <p
-          class="e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           <strong>
             Important: 
           </strong>
           If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
-        </p>
+        </mock-styled.p>
         <form>
-          <div
-            class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <div
-                class="e1979rmu-el-input-group"
-              >
-                <input
-                  class="e1urjlvd-el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="name"
                 />
-                <label
-                  class="e1nbkkrq-el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <div
-                class="e1979rmu-el-input-group"
-              >
-                <input
-                  class="e1urjlvd-el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="jobTitle"
                 />
-                <label
-                  class="e1nbkkrq-el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Job Title
-                </label>
-              </div>
-            </div>
-          </div>
-          <div
-            class="ebqwrow-el-button-group"
-          >
-            <div
-              class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <button
-                class="e1vxext9-el-intent-danger eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+              <mock-styled.button
+                classname="mock-css. mock-css."
+                disabled="false"
                 type="button"
               >
                 Decline
-                <div
-                  class="e1q1vabn-el-button-loader"
-                />
-              </button>
-              <button
-                class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.button
+                classname="mock-css. mock-css."
+                disabled="false"
                 type="submit"
               >
                 Confirm
-                <div
-                  class="e1q1vabn-el-button-loader"
-                />
-              </button>
-            </div>
-          </div>
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
-      </div>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -280,229 +236,185 @@ Object {
 `;
 
 exports[`AcceptedModal should match snapshot when an invite is accepted or rejected 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css."
       />
-      <div
-        class="evmehgn-el-is-active e8lauwf-el-modal-bg"
-      />
-      <div
-        class="evmehgn-el-is-active e1ucftfo-el-modal"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="e1jrhqcv-el-modal-header"
-        >
+        <mock-styled.div>
           Reapit Foundations Invitation
-        </div>
-        <div
-          class="egkth73-el-modal-body"
-        >
-          <p
-            class="e1wasvgh-el-body-text"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.p
+            classname=""
           >
             You have been invited to join the '
             ' organisation on Reapit Foundations.
-          </p>
-          <p
-            class="e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname=""
           >
             Before confirming your account, please ensure your details are correct below.
-          </p>
-          <p
-            class="e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname=""
           >
             <strong>
               Important: 
             </strong>
             If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
-          </p>
+          </mock-styled.p>
           <form>
-            <div
-              class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1ksxx4v-el-input-wrap"
-              >
-                <div
-                  class="e1979rmu-el-input-group"
-                >
-                  <input
-                    class="e1urjlvd-el-input"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
                     id="test-static-id"
                     name="name"
                   />
-                  <label
-                    class="e1nbkkrq-el-label"
-                    for="test-static-id"
+                  <mock-styled.label
+                    htmlfor="test-static-id"
                   >
                     Name
-                  </label>
-                </div>
-              </div>
-              <div
-                class="e1ksxx4v-el-input-wrap"
-              >
-                <div
-                  class="e1979rmu-el-input-group"
-                >
-                  <input
-                    class="e1urjlvd-el-input"
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
                     id="test-static-id"
                     name="jobTitle"
                   />
-                  <label
-                    class="e1nbkkrq-el-label"
-                    for="test-static-id"
+                  <mock-styled.label
+                    htmlfor="test-static-id"
                   >
                     Job Title
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ebqwrow-el-button-group"
-            >
-              <div
-                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <button
-                  class="e1vxext9-el-intent-danger eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                <mock-styled.button
+                  classname="mock-css. mock-css."
+                  disabled="false"
                   type="button"
                 >
                   Decline
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css. mock-css."
+                  disabled="false"
                   type="submit"
                 >
                   Confirm
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
           </form>
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css."
     />
-    <div
-      class="evmehgn-el-is-active e8lauwf-el-modal-bg"
-    />
-    <div
-      class="evmehgn-el-is-active e1ucftfo-el-modal"
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="e1jrhqcv-el-modal-header"
-      >
+      <mock-styled.div>
         Reapit Foundations Invitation
-      </div>
-      <div
-        class="egkth73-el-modal-body"
-      >
-        <p
-          class="e1wasvgh-el-body-text"
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.p
+          classname=""
         >
           You have been invited to join the '
           ' organisation on Reapit Foundations.
-        </p>
-        <p
-          class="e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           Before confirming your account, please ensure your details are correct below.
-        </p>
-        <p
-          class="e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           <strong>
             Important: 
           </strong>
           If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
-        </p>
+        </mock-styled.p>
         <form>
-          <div
-            class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <div
-                class="e1979rmu-el-input-group"
-              >
-                <input
-                  class="e1urjlvd-el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="name"
                 />
-                <label
-                  class="e1nbkkrq-el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <div
-                class="e1979rmu-el-input-group"
-              >
-                <input
-                  class="e1urjlvd-el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
                   id="test-static-id"
                   name="jobTitle"
                 />
-                <label
-                  class="e1nbkkrq-el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Job Title
-                </label>
-              </div>
-            </div>
-          </div>
-          <div
-            class="ebqwrow-el-button-group"
-          >
-            <div
-              class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <button
-                class="e1vxext9-el-intent-danger eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+              <mock-styled.button
+                classname="mock-css. mock-css."
+                disabled="false"
                 type="button"
               >
                 Decline
-                <div
-                  class="e1q1vabn-el-button-loader"
-                />
-              </button>
-              <button
-                class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.button
+                classname="mock-css. mock-css."
+                disabled="false"
                 type="submit"
               >
                 Confirm
-                <div
-                  class="e1q1vabn-el-button-loader"
-                />
-              </button>
-            </div>
-          </div>
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
-      </div>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

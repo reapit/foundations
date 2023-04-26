@@ -19,8 +19,16 @@ import {
 } from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
 import { formFields } from './form-schema/form-fields'
-import { getActions, GetActionNames, updateActions, UpdateActionNames } from '@reapit/utils-common'
-import { Editor, ImageCropperFileInput, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import {
+  getActions,
+  GetActionNames,
+  updateActions,
+  UpdateActionNames,
+  UpdateReturnTypeEnum,
+  useReapitGet,
+  useReapitUpdate,
+} from '@reapit/use-reapit-data'
+import { Editor, ImageCropperFileInput } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { Controller, useWatch } from 'react-hook-form'
@@ -72,13 +80,13 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
 
   const [categoriesResult, categoriesLoading] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
+    action: getActions[GetActionNames.getAppCategories],
     queryParams: { pageSize: 25 },
   })
 
   const [, , createImageUpload] = useReapitUpdate<CreateImageUploadModel, ImageUploadModel>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.fileUpload],
+    action: updateActions[UpdateActionNames.fileUpload],
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })

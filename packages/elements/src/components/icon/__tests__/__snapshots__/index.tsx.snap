@@ -1,23 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Icon component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <span
-        class="el-icon"
+      <mock-styled.span
+        classname=""
       >
         <svg />
-      </span>
+      </mock-styled.span>
     </div>
   </body>,
   "container": <div>
-    <span
-      class="el-icon"
+    <mock-styled.span
+      classname=""
     >
       <svg />
-    </span>
+    </mock-styled.span>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -74,23 +74,23 @@ Object {
 `;
 
 exports[`Icon component should match a snapshot when intent prop is supplied 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <span
-        class="el-intent-primary el-icon"
+      <mock-styled.span
+        classname="mock-css."
       >
         <svg />
-      </span>
+      </mock-styled.span>
     </div>
   </body>,
   "container": <div>
-    <span
-      class="el-intent-primary el-icon"
+    <mock-styled.span
+      classname="mock-css."
     >
       <svg />
-    </span>
+    </mock-styled.span>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

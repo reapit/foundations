@@ -14,9 +14,9 @@ import {
   useModal,
 } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import Routes from '../../../constants/routes'
-import { ExternalPages, navigate, openNewPage } from '../../../utils/navigation'
+import { ExternalPages, navigateRoute, openNewPage } from '../../../utils/navigation'
 import { StepContainer } from '../new/__styles__'
 import videoImage from '../../../assets/images/desktop/video-placeholder.svg'
 
@@ -40,7 +40,7 @@ export const checkHasWatchedVideo = (): boolean => {
  */
 
 export const AppsWelcomePage: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { Modal, openModal, closeModal } = useModal()
   const [hasWatchedVideo, setHasWatchedVideo] = useState<boolean>(checkHasWatchedVideo())
   return (
@@ -113,7 +113,7 @@ export const AppsWelcomePage: FC = () => {
                     disabled={!hasWatchedVideo}
                     intent="critical"
                     size={2}
-                    onClick={navigate(history, Routes.APPS_NEW)}
+                    onClick={navigateRoute(navigate, Routes.APPS_NEW)}
                     chevronRight
                   >
                     {hasWatchedVideo ? 'Create App' : 'Watch Video To Start'}

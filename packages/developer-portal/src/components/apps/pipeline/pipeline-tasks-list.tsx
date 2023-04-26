@@ -15,7 +15,7 @@ import { buildStatusToIntent, buildStatusToReadable } from '@reapit/utils-common
 import { fourColTable } from './__styles__'
 import { dateToHuman } from '../../../utils/date-time'
 import { cx } from '@linaria/core'
-import { openNewPage } from '@/utils/navigation'
+import { openNewPage } from '../../../utils/navigation'
 
 interface TaskListProps {
   tasks: PipelineRunnerModelInterface['tasks']

@@ -1,117 +1,135 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AccessDenied should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           Reapit Connect Management
-        </h1>
-        <div
-          class="el-mb11 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.
           </div>
-        </div>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-align-center el-button-group-inner"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="el-intent-secondary el-button"
+            <mock-styled.button
+              classname="mock-css."
             >
               Marketplace
-              <div
-                class="el-button-loader"
-              />
-            </button>
-            <button
-              class="el-intent-critical el-button"
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
             >
               Logout
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </section>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.section>
+      <mock-styled.h1
+        classname=""
       >
         Reapit Connect Management
-      </h1>
-      <div
-        class="el-mb11 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      </mock-styled.h1>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css. mock-css. mock-css. mock-css."
       >
         <div
-          class="el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.
         </div>
-      </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-center el-button-group-inner"
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-secondary el-button"
+          <mock-styled.button
+            classname="mock-css."
           >
             Marketplace
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-critical el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
           >
             Logout
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-    </section>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -13,11 +13,10 @@ import {
 import { appsBrowseConfigCollection } from '../../../core/config'
 import { useAppsBrowseState } from '../../../core/use-apps-browse-state'
 import { mockAppsBrowseState } from '../../../core/__mocks__/use-apps-browse-state'
-import { History } from 'history'
-import { Routes } from '../../../constants/routes'
+import { RoutePaths } from '../../../constants/routes'
 
-window.reapit.config.clientHiddenAppIds = {}
-window.reapit.config.orgAdminRestrictedAppIds = []
+process.env.clientHiddenAppIds = {}
+process.env.orgAdminRestrictedAppIds = []
 
 jest.mock('../../../core/analytics')
 jest.mock('@reapit/connect-session', () => ({
@@ -125,15 +124,13 @@ describe('handleMobileControls', () => {
 describe('handleSetFilters', () => {
   it('should set filters', () => {
     const setAppsBrowseFilterState = jest.fn()
-    const history = {
-      push: jest.fn(),
-    } as unknown as History
-    const curried = handleSetFilters(setAppsBrowseFilterState, history, configItem)
+    const navigate = jest.fn()
+    const curried = handleSetFilters(setAppsBrowseFilterState, navigate, configItem)
 
     curried()
 
     expect(setAppsBrowseFilterState).toHaveBeenCalledWith(configItem.filters)
-    expect(history.push).toHaveBeenCalledWith(`${Routes.APPS_BROWSE}?collectionId=${configItem.id}`)
+    expect(navigate).toHaveBeenCalledWith(`${RoutePaths.APPS_BROWSE}?collectionId=${configItem.id}`)
   })
 })
 

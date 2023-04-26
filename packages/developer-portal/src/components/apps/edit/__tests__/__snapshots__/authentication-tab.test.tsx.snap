@@ -1,15 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AuthenticationTab should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <p
-        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+      <mock-styled.div />
+      <mock-styled.p
+        classname="mock-css."
       >
         When using the Reapit Connect
          
@@ -17,61 +15,47 @@ Object {
           Authorization Code flow,
         </a>
          you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
-      </p>
-      <div
-        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="redirectUris"
               placeholder="Enter your Redirect URI(s)"
               type="text"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Redirect URI(s)
-            </label>
-          </div>
-        </div>
-        <div
-          class="ep31he9-el-input-wrap-full"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <input
-              class="e1urjlvd-el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="signoutUris"
               placeholder="Enter your Sign Out URI(s)"
               type="text"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Sign Out URI(s)
-            </label>
-          </div>
-        </div>
-      </div>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <p
-      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+    <mock-styled.div />
+    <mock-styled.p
+      classname="mock-css."
     >
       When using the Reapit Connect
        
@@ -79,53 +63,41 @@ Object {
         Authorization Code flow,
       </a>
        you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
-    </p>
-    <div
-      class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+    </mock-styled.p>
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="ep31he9-el-input-wrap-full"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="redirectUris"
             placeholder="Enter your Redirect URI(s)"
             type="text"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Redirect URI(s)
-          </label>
-        </div>
-      </div>
-      <div
-        class="ep31he9-el-input-wrap-full"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <input
-            class="e1urjlvd-el-input"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="test-static-id"
             name="signoutUris"
             placeholder="Enter your Sign Out URI(s)"
             type="text"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Sign Out URI(s)
-          </label>
-        </div>
-      </div>
-    </div>
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -1,167 +1,351 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppsWelcome should match a snapshot when apps are present 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e20pb60-el-grid"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eqir0a0-el-span4 e14pp0yd-el-col"
+        <mock-styled.div
+          classname="mock-css.
+  grid-column-end: span 4;
+"
+          span4kscreen="7"
+          spandesktop="4"
+          spanmobile="4"
+          spansuperwidescreen="5"
+          spantablet="4"
+          spanwidescreen="4"
         >
-          <h1
-            class="e1byern-el-title"
+          <mock-styled.h1
+            classname=""
           >
             Apps
-          </h1>
-          <div
-            class="sjtd378-step-container"
-          >
-            <div
-              class="e1jxji48-el-flex-column ejp6mq9-el-flex-justify-around e2kmzjs-el-flex-container"
+          </mock-styled.h1>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: space-around;
+"
             >
               <div
-                class="e1g28qe3-el-mb7"
+                class="mock-css.
+  margin-bottom: 1.25rem;
+"
               >
                 <div
-                  class="ec47sgk-el-mb11"
+                  class="mock-css.
+  margin-bottom: 2.5rem;
+"
                 >
-                  <h2
-                    class="eh96l6x-el-has-bold-text ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+                  <mock-styled.h2
+                    classname="mock-css. mock-css."
                   >
                     View Docs
-                  </h2>
+                  </mock-styled.h2>
                 </div>
-                <div
-                  class="e1jxji48-el-flex-column ec47sgk-el-mb11 e2kmzjs-el-flex-container"
+                <mock-styled.div
+                  classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  margin-bottom: 2.5rem;
+"
                 >
-                  <div
-                    class="e2kmzjs-el-flex-container"
+                  <mock-styled.div
+                    classname=""
                   >
-                    <span
-                      class="e1it7rt1-el-mr5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
                     >
                       <svg />
-                    </span>
-                    <p
-                      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+                    </mock-styled.span>
+                    <mock-styled.p
+                      classname="mock-css."
                     >
                       We have invested a considerable amount of time to ensure our documentation is as comprehensive as possible, from detailed references, to our APIs to a glossary of terms and frequently asked questions.
-                    </p>
-                  </div>
-                  <p
-                    class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+                    </mock-styled.p>
+                  </mock-styled.div>
+                  <mock-styled.p
+                    classname="mock-css."
                   >
                     Having first watched the video, you may want to have a deep dive into the documentation before creating your first app.
-                  </p>
+                  </mock-styled.p>
                   <div
-                    class="e1g28qe3-el-mb7"
+                    class="mock-css.
+  margin-bottom: 1.25rem;
+"
                   >
-                    <p
-                      class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+                    <mock-styled.p
+                      classname="mock-css. mock-css."
                     >
                       If you get stuck at any point when working with Foundations, make the docs your first port of call.
-                    </p>
+                    </mock-styled.p>
                   </div>
-                  <div
-                    class="ebqwrow-el-button-group"
-                  >
-                    <div
-                      class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
+                  <mock-styled.div>
+                    <mock-styled.div
+                      classname="mock-css."
                     >
-                      <button
-                        class="ebee6r1-el-intent-primary eay05y4-el-button-has-right-chevron edjrbxy-el-button-size2 e1tqqdf9-el-button"
+                      <mock-styled.button
+                        classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+ mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
                       >
                         View Docs
-                        <div
-                          class="e1q1vabn-el-button-loader"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                        <mock-styled.div />
+                      </mock-styled.button>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
               </div>
               <div>
                 <div
-                  class="ec47sgk-el-mb11"
+                  class="mock-css.
+  margin-bottom: 2.5rem;
+"
                 >
-                  <h2
-                    class="eh96l6x-el-has-bold-text ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+                  <mock-styled.h2
+                    classname="mock-css. mock-css."
                   >
                     Create APP
-                  </h2>
+                  </mock-styled.h2>
                 </div>
-                <div
-                  class="e1jxji48-el-flex-column ec47sgk-el-mb11 e2kmzjs-el-flex-container"
+                <mock-styled.div
+                  classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  margin-bottom: 2.5rem;
+"
                 >
-                  <div
-                    class="e2kmzjs-el-flex-container"
+                  <mock-styled.div
+                    classname=""
                   >
-                    <span
-                      class="e1it7rt1-el-mr5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
                     >
                       <svg />
-                    </span>
-                    <p
-                      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+                    </mock-styled.span>
+                    <mock-styled.p
+                      classname="mock-css."
                     >
                       Creating an app is the starting point for authenticating against the Foundations APIs. Your app might be a web application, possibly rendered inside of the AgencyCloud CRM, or a simple data feed to serve a website.
-                    </p>
-                  </div>
+                    </mock-styled.p>
+                  </mock-styled.div>
                   <div
-                    class="e1g28qe3-el-mb7"
+                    class="mock-css.
+  margin-bottom: 1.25rem;
+"
                   >
-                    <p
-                      class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+                    <mock-styled.p
+                      classname="mock-css. mock-css."
                     >
                       In all cases, you will need to use the app creation wizard that will walk you through creating your app, explain key concepts along the way and link out to our documentation where relevant.
-                    </p>
+                    </mock-styled.p>
                   </div>
-                  <div
-                    class="ebqwrow-el-button-group"
-                  >
-                    <div
-                      class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
+                  <mock-styled.div>
+                    <mock-styled.div
+                      classname="mock-css."
                     >
-                      <button
-                        class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron edjrbxy-el-button-size2 e1tqqdf9-el-button"
+                      <mock-styled.button
+                        classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+ mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
                       >
                         Create App
-                        <div
-                          class="e1q1vabn-el-button-loader"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                        <mock-styled.div />
+                      </mock-styled.button>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="eqir0a0-el-span4 e14pp0yd-el-col"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  grid-column-end: span 4;
+"
+          span4kscreen="13"
+          spandesktop="4"
+          spanmobile="4"
+          spansuperwidescreen="11"
+          spantablet="4"
+          spanwidescreen="8"
         >
-          <h1
-            class="e1byern-el-title"
+          <mock-styled.h1
+            classname=""
           >
             About Foundations
-          </h1>
-          <div
-            class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
+          </mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
           >
             <div
-              class="e1g28qe3-el-mb7"
+              class="mock-css.
+  margin-bottom: 1.25rem;
+"
             >
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              <mock-styled.p
+                classname="mock-css."
               >
                 Reapit Foundations is a Platform as a Service that enables developers to access, update and enhance data within the Reapit AgencyCloud desktop CRM.
-              </p>
+              </mock-styled.p>
               <svg
                 fill="none"
                 viewBox="0 0 415 224"
@@ -429,185 +613,369 @@ Object {
             <div
               class=""
             >
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              <mock-styled.p
+                classname="mock-css."
               >
                 There are a number of aspects to The Platform documented within this Developer Portal, specifically, APIs, Webhooks, a UI Library and Data Analytics solutions. We also have an AppMarket to facilitate the publishing and installation of the software you build on top of the Platform.
-              </p>
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.p>
+              <mock-styled.p
+                classname="mock-css."
               >
                 Every developer will have different use cases for using our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’, which on a basic level is the means to authenticate against our services.
-              </p>
-              <p
-                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+              </mock-styled.p>
+              <mock-styled.p
+                classname="mock-css."
               >
                 To get started, create your first app using the wizard on the left of this page. This will allow you to authenticate against our APIs.
-              </p>
+              </mock-styled.p>
             </div>
-          </div>
-        </div>
-      </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e20pb60-el-grid"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eqir0a0-el-span4 e14pp0yd-el-col"
+      <mock-styled.div
+        classname="mock-css.
+  grid-column-end: span 4;
+"
+        span4kscreen="7"
+        spandesktop="4"
+        spanmobile="4"
+        spansuperwidescreen="5"
+        spantablet="4"
+        spanwidescreen="4"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Apps
-        </h1>
-        <div
-          class="sjtd378-step-container"
-        >
-          <div
-            class="e1jxji48-el-flex-column ejp6mq9-el-flex-justify-around e2kmzjs-el-flex-container"
+        </mock-styled.h1>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: space-around;
+"
           >
             <div
-              class="e1g28qe3-el-mb7"
+              class="mock-css.
+  margin-bottom: 1.25rem;
+"
             >
               <div
-                class="ec47sgk-el-mb11"
+                class="mock-css.
+  margin-bottom: 2.5rem;
+"
               >
-                <h2
-                  class="eh96l6x-el-has-bold-text ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css. mock-css."
                 >
                   View Docs
-                </h2>
+                </mock-styled.h2>
               </div>
-              <div
-                class="e1jxji48-el-flex-column ec47sgk-el-mb11 e2kmzjs-el-flex-container"
+              <mock-styled.div
+                classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  margin-bottom: 2.5rem;
+"
               >
-                <div
-                  class="e2kmzjs-el-flex-container"
+                <mock-styled.div
+                  classname=""
                 >
-                  <span
-                    class="e1it7rt1-el-mr5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+                  <mock-styled.span
+                    classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
                   >
                     <svg />
-                  </span>
-                  <p
-                    class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+                  </mock-styled.span>
+                  <mock-styled.p
+                    classname="mock-css."
                   >
                     We have invested a considerable amount of time to ensure our documentation is as comprehensive as possible, from detailed references, to our APIs to a glossary of terms and frequently asked questions.
-                  </p>
-                </div>
-                <p
-                  class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+                  </mock-styled.p>
+                </mock-styled.div>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   Having first watched the video, you may want to have a deep dive into the documentation before creating your first app.
-                </p>
+                </mock-styled.p>
                 <div
-                  class="e1g28qe3-el-mb7"
+                  class="mock-css.
+  margin-bottom: 1.25rem;
+"
                 >
-                  <p
-                    class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+                  <mock-styled.p
+                    classname="mock-css. mock-css."
                   >
                     If you get stuck at any point when working with Foundations, make the docs your first port of call.
-                  </p>
+                  </mock-styled.p>
                 </div>
-                <div
-                  class="ebqwrow-el-button-group"
-                >
-                  <div
-                    class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
                   >
-                    <button
-                      class="ebee6r1-el-intent-primary eay05y4-el-button-has-right-chevron edjrbxy-el-button-size2 e1tqqdf9-el-button"
+                    <mock-styled.button
+                      classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+ mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
                     >
                       View Docs
-                      <div
-                        class="e1q1vabn-el-button-loader"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
             </div>
             <div>
               <div
-                class="ec47sgk-el-mb11"
+                class="mock-css.
+  margin-bottom: 2.5rem;
+"
               >
-                <h2
-                  class="eh96l6x-el-has-bold-text ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+                <mock-styled.h2
+                  classname="mock-css. mock-css."
                 >
                   Create APP
-                </h2>
+                </mock-styled.h2>
               </div>
-              <div
-                class="e1jxji48-el-flex-column ec47sgk-el-mb11 e2kmzjs-el-flex-container"
+              <mock-styled.div
+                classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  margin-bottom: 2.5rem;
+"
               >
-                <div
-                  class="e2kmzjs-el-flex-container"
+                <mock-styled.div
+                  classname=""
                 >
-                  <span
-                    class="e1it7rt1-el-mr5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+                  <mock-styled.span
+                    classname="mock-css.
+  margin-right: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
                   >
                     <svg />
-                  </span>
-                  <p
-                    class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+                  </mock-styled.span>
+                  <mock-styled.p
+                    classname="mock-css."
                   >
                     Creating an app is the starting point for authenticating against the Foundations APIs. Your app might be a web application, possibly rendered inside of the AgencyCloud CRM, or a simple data feed to serve a website.
-                  </p>
-                </div>
+                  </mock-styled.p>
+                </mock-styled.div>
                 <div
-                  class="e1g28qe3-el-mb7"
+                  class="mock-css.
+  margin-bottom: 1.25rem;
+"
                 >
-                  <p
-                    class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+                  <mock-styled.p
+                    classname="mock-css. mock-css."
                   >
                     In all cases, you will need to use the app creation wizard that will walk you through creating your app, explain key concepts along the way and link out to our documentation where relevant.
-                  </p>
+                  </mock-styled.p>
                 </div>
-                <div
-                  class="ebqwrow-el-button-group"
-                >
-                  <div
-                    class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
                   >
-                    <button
-                      class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron edjrbxy-el-button-size2 e1tqqdf9-el-button"
+                    <mock-styled.button
+                      classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+ mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
                     >
                       Create App
-                      <div
-                        class="e1q1vabn-el-button-loader"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="eqir0a0-el-span4 e14pp0yd-el-col"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  grid-column-end: span 4;
+"
+        span4kscreen="13"
+        spandesktop="4"
+        spanmobile="4"
+        spansuperwidescreen="11"
+        spantablet="4"
+        spanwidescreen="8"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           About Foundations
-        </h1>
-        <div
-          class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
         >
           <div
-            class="e1g28qe3-el-mb7"
+            class="mock-css.
+  margin-bottom: 1.25rem;
+"
           >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            <mock-styled.p
+              classname="mock-css."
             >
               Reapit Foundations is a Platform as a Service that enables developers to access, update and enhance data within the Reapit AgencyCloud desktop CRM.
-            </p>
+            </mock-styled.p>
             <svg
               fill="none"
               viewBox="0 0 415 224"
@@ -875,25 +1243,25 @@ Object {
           <div
             class=""
           >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            <mock-styled.p
+              classname="mock-css."
             >
               There are a number of aspects to The Platform documented within this Developer Portal, specifically, APIs, Webhooks, a UI Library and Data Analytics solutions. We also have an AppMarket to facilitate the publishing and installation of the software you build on top of the Platform.
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css."
             >
               Every developer will have different use cases for using our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’, which on a basic level is the means to authenticate against our services.
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css."
             >
               To get started, create your first app using the wizard on the left of this page. This will allow you to authenticate against our APIs.
-            </p>
+            </mock-styled.p>
           </div>
-        </div>
-      </div>
-    </div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

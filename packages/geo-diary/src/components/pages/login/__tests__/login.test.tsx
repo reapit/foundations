@@ -5,7 +5,7 @@ import { render } from '../../../../tests/react-testing'
 
 describe('Login', () => {
   it('should match a snapshot', () => {
-    window.reapit.config.appEnv = 'development'
+    process.env.appEnv = 'development'
     expect(render(<Login />)).toMatchSnapshot()
   })
 })

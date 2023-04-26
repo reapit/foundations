@@ -1,4 +1,4 @@
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { render } from '@testing-library/react'
 import React from 'react'
 import { mockBillingOverviewData } from '../../../../tests/__stubs__/billing'
@@ -10,7 +10,8 @@ jest.mock('react-chartjs-2', () => ({
   Chart: () => <div>Mock Chart</div>,
 }))
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockBillingOverviewData, false]),
 }))
 
