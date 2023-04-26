@@ -1,67 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Router should match a snapshot 1`] = `
-Object {
+exports[`RoutesComponent should match a snapshot 1`] = `
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <main
-        class="el-main-container"
-      >
-        <section
-          class="el-page-container"
-        >
-          <div
-            class="el-is-full-page el-loader-container"
+      <mock-styled.div />
+      <mock-styled.main>
+        <mock-styled.section>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <p
-              class="el-loader-label"
-            >
+            <mock-styled.p>
               Loading
-            </p>
-            <div
-              class="el-loader"
-            >
-              <div
-                class="el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </section>
-      </main>
+            </mock-styled.p>
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.main>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <main
-      class="el-main-container"
-    >
-      <section
-        class="el-page-container"
-      >
-        <div
-          class="el-is-full-page el-loader-container"
+    <mock-styled.div />
+    <mock-styled.main>
+      <mock-styled.section>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <p
-            class="el-loader-label"
-          >
+          <mock-styled.p>
             Loading
-          </p>
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
-    </main>
+          </mock-styled.p>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.main>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

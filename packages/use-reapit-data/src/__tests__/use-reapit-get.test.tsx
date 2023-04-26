@@ -5,6 +5,7 @@ import axios from 'axios'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { GetActionNames, getActions } from '../get-actions'
 import { ReapitGetState, useReapitGet } from '../use-reapit-get'
+import { MemoryRouter } from 'react-router-dom'
 
 jest.mock('axios', () => ({
   get: jest.fn(),
@@ -35,7 +36,9 @@ jest.mock('@reapit/elements', () => ({
 const createWrapper = () => {
   const queryClient = new QueryClient()
   const Wrapper: PropsWithChildren<any> = ({ children }) => (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <MemoryRouter>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </MemoryRouter>
   )
 
   return Wrapper
@@ -54,7 +57,7 @@ describe('useReapitGet', () => {
     })
 
     const action = {
-      ...getActions('local')[GetActionNames.getApps],
+      ...getActions[GetActionNames.getApps],
       successMessage: 'Some success message',
     }
 

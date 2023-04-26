@@ -2,7 +2,6 @@ import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { AppSummaryModel, InstallationModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import defaultAppIcon from '../../../assets/images/default-app-icon.jpg'
 import Routes from '../../../constants/routes'
-import { history } from '../../../core/router'
 import { URLS } from '../../../constants/api'
 import useSWR from 'swr'
 import { ReapitConnectSession } from '@reapit/connect-session'
@@ -13,6 +12,8 @@ import {
 } from './app-installation-manager'
 import { Card, elFadeIn } from '@reapit/elements'
 import { useOrgId } from '../../../utils/use-org-id'
+import { navigateRoute } from '../nav/nav'
+import { useNavigate } from 'react-router'
 
 export interface AppCardProps {
   app: AppSummaryModel
@@ -21,10 +22,6 @@ export interface AppCardProps {
 
 export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
   (event.currentTarget.src = defaultAppIcon)
-
-export const handleNavigation = (appId: string) => () => {
-  history.push(`${Routes.MARKETPLACE}/${appId}`)
-}
 
 export const handleInstallationsStringEffect =
   (
@@ -50,6 +47,7 @@ export const handleInstallationsStringEffect =
 
 export const AppCard: FC<AppCardProps> = ({ app, connectSession }: AppCardProps) => {
   const [installationString, setInstallationString] = useState<string | null>(null)
+  const navigate = useNavigate()
   const {
     orgIdState: { orgClientId },
   } = useOrgId()
@@ -70,7 +68,7 @@ export const AppCard: FC<AppCardProps> = ({ app, connectSession }: AppCardProps)
   return (
     <Card
       className={elFadeIn}
-      onClick={handleNavigation(app.id as string)}
+      onClick={navigateRoute(navigate, `${Routes.MARKETPLACE}/${app.id}`)}
       hasMainCard
       hasListCard
       mainCardHeading={app.name}

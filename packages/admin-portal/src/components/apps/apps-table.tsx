@@ -98,7 +98,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
 
   const [, , deleteApp, appDeleted] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteApp],
+    action: updateActions[UpdateActionNames.deleteApp],
     method: 'DELETE',
     uriParams: {
       appId: appIdDelete,
@@ -221,13 +221,13 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
               content: (
                 <>
                   <ButtonGroup alignment="center">
-                    <Button intent="secondary" onClick={openNewPage(`${window.reapit.config.appMarketUri}/apps/${id}`)}>
+                    <Button intent="secondary" onClick={openNewPage(`${process.env.appMarketUri}/apps/${id}`)}>
                       View in AppMarket
                     </Button>
                     <Button
                       intent="secondary"
                       disabled={hasReadAccess}
-                      onClick={openNewPage(`${window.reapit.config.developerPortalUri}/apps/${id}`)}
+                      onClick={openNewPage(`${process.env.developerPortalUri}/apps/${id}`)}
                     >
                       View in DevPortal
                     </Button>

@@ -24,9 +24,9 @@ export const GraphQLV2: FC = () => {
         <ApolloExplorer
           className={cx(graphQLWrapper)}
           graphRef=""
-          endpointUrl={window.reapit.config.graphQLUri as any}
+          endpointUrl={process.env.graphQLUri as any}
           initialState={{
-            document: window.reapit.config.graphQLUri.includes('v2')
+            document: process.env.graphQLUri.includes('v2')
               ? `query GetApplicants {
   get_applicants_(embed: ["areas"]) {
     _embedded {
@@ -46,7 +46,7 @@ export const GraphQLV2: FC = () => {
               : '',
             headers: {
               Authorization: `Bearer ${
-                window.reapit.config.graphQLUri.includes('v2') ? connectSession?.accessToken : connectSession?.idToken
+                process.env.graphQLUri.includes('v2') ? connectSession?.accessToken : connectSession?.idToken
               }`,
             },
             displayOptions: {

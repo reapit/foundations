@@ -1,55 +1,27 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
 import OfficesPage, { handleDocs } from '../offices'
-import { Router, Switch } from 'react-router-dom'
-import { createBrowserHistory, History } from 'history'
 import Routes from '../../../constants/routes'
 import { OFFICE_GROUPS_DOCS_URL } from '../../../constants/api'
+import { render } from '../../../tests/react-testing'
 
 jest.mock('../../../utils/use-org-id')
 jest.mock('../../ui/offices/office-group-create', () => () => <div />)
 jest.mock('../../ui/offices/offices-groups-tab', () => () => <div />)
 
-export const history: History<any> = createBrowserHistory()
-
 describe('OfficesPage', () => {
   it('should match a snapshot for the offices tab', () => {
-    history.push(Routes.OFFICES)
-    expect(
-      render(
-        <Router history={history}>
-          <Switch>
-            <OfficesPage />
-          </Switch>
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    window.location.pathname = Routes.OFFICES
+    expect(render(<OfficesPage />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for the office groups tab', () => {
-    history.push(Routes.OFFICES_GROUPS)
-    expect(
-      render(
-        <Router history={history}>
-          <Switch>
-            <OfficesPage />
-          </Switch>
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    window.location.pathname = Routes.OFFICES_GROUPS
+    expect(render(<OfficesPage />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for the office new tab', () => {
-    history.push(Routes.OFFICES_GROUPS_NEW)
-    expect(
-      render(
-        <Router history={history}>
-          <Switch>
-            <OfficesPage />
-          </Switch>
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    window.location.pathname = Routes.OFFICES_GROUPS_NEW
+    expect(render(<OfficesPage />)).toMatchSnapshot()
   })
 })
 

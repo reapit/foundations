@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ColResponsive should match a snapshot and render children with no props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-col"
+      <mock-styled.div
+        classname=""
       >
         <p>
           I am child
         </p>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-col"
+    <mock-styled.div
+      classname=""
     >
       <p>
         I am child
       </p>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -78,27 +78,59 @@ Object {
 `;
 
 exports[`ColResponsive should render with the correct classNames when supplied all props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-span1 el-offset1 el-col"
+      <mock-styled.div
+        classname="mock-css.
+  grid-column-end: span 1;
+ mock-css.
+  grid-column-start: 1;
+"
+        offset4kscreen="1"
+        offsetdesktop="1"
+        offsetmobile="1"
+        offsetsuperwidescreen="1"
+        offsettablet="1"
+        offsetwidescreen="1"
+        span4kscreen="1"
+        spandesktop="1"
+        spanmobile="1"
+        spansuperwidescreen="1"
+        spantablet="1"
+        spanwidescreen="1"
       >
         <p>
           I am child
         </p>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-span1 el-offset1 el-col"
+    <mock-styled.div
+      classname="mock-css.
+  grid-column-end: span 1;
+ mock-css.
+  grid-column-start: 1;
+"
+      offset4kscreen="1"
+      offsetdesktop="1"
+      offsetmobile="1"
+      offsetsuperwidescreen="1"
+      offsettablet="1"
+      offsetwidescreen="1"
+      span4kscreen="1"
+      spandesktop="1"
+      spanmobile="1"
+      spansuperwidescreen="1"
+      spantablet="1"
+      spanwidescreen="1"
     >
       <p>
         I am child
       </p>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -155,27 +187,59 @@ Object {
 `;
 
 exports[`GridResponsive hould render with the correct classNames when supplied all props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-col-gap3 el-row-gap3 el-grid"
+      <mock-styled.div
+        classname="mock-css.
+  grid-column-gap: 0.75rem;
+ mock-css.
+  grid-row-gap: 0.75rem;
+"
+        colgap4kscreen="8"
+        colgapdesktop="3"
+        colgapmobile="1"
+        colgapsuperwidescreen="6"
+        colgaptablet="2"
+        colgapwidescreen="4"
+        rowgap4kscreen="8"
+        rowgapdesktop="3"
+        rowgapmobile="1"
+        rowgapsuperwidescreen="6"
+        rowgaptablet="2"
+        rowgapwidescreen="4"
       >
         <p>
           I am child
         </p>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-col-gap3 el-row-gap3 el-grid"
+    <mock-styled.div
+      classname="mock-css.
+  grid-column-gap: 0.75rem;
+ mock-css.
+  grid-row-gap: 0.75rem;
+"
+      colgap4kscreen="8"
+      colgapdesktop="3"
+      colgapmobile="1"
+      colgapsuperwidescreen="6"
+      colgaptablet="2"
+      colgapwidescreen="4"
+      rowgap4kscreen="8"
+      rowgapdesktop="3"
+      rowgapmobile="1"
+      rowgapsuperwidescreen="6"
+      rowgaptablet="2"
+      rowgapwidescreen="4"
     >
       <p>
         I am child
       </p>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -232,27 +296,27 @@ Object {
 `;
 
 exports[`GridResponsive should match a snapshot and render children with no props 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-grid"
+      <mock-styled.div
+        classname=""
       >
         <p>
           I am child
         </p>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-grid"
+    <mock-styled.div
+      classname=""
     >
       <p>
         I am child
       </p>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

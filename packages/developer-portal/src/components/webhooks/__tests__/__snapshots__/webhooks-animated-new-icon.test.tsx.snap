@@ -1,15 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WebhooksAnimatedNewIcon should match a snapshot where animated 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
       <svg
-        class="n1nrxdae-new-webhook-svg-style"
+        class="mock-css.
+  #webhooks-new-svg-element-one {
+    animation: webhooks-new-svg-element-one 300ms linear 1 normal forwards;
+  }
+  @keyframes webhooks-new-svg-element-one {
+    0% {
+      transform: translate(69px, 24px) scale(1, 1);
+    }
+    100% {
+      transform: translate(69px, 24px) scale(0.8, 0.8);
+    }
+  }
+  #webhooks-new-svg-element-two {
+    animation: webhooks-new-svg-element-two 300ms linear 1 normal forwards;
+  }
+  @keyframes webhooks-new-svg-element-two {
+    0% {
+      transform: translate(24px, 107px) scale(1, 1);
+    }
+    100% {
+      transform: translate(24px, 107px) scale(0.8, 0.8);
+    }
+  }
+  #webhooks-new-svg-element-three {
+    animation: webhooks-new-svg-element-three 300ms linear 1 normal forwards;
+  }
+  @keyframes webhooks-new-svg-element-three {
+    0% {
+      transform: translate(117px, 106px) scale(1, 1);
+    }
+    100% {
+      transform: translate(117px, 106px) scale(0.8, 0.8);
+    }
+  }
+  #webhooks-new-svg-element-four {
+    animation: webhooks-new-svg-element-four 300ms linear 1 normal forwards;
+  }
+  @keyframes webhooks-new-svg-element-four {
+    0% {
+      transform: translate(69.3825px, 75.303001px) scale(1, 1);
+    }
+    100% {
+      transform: translate(69.3825px, 75.303001px) scale(1.3, 1.3);
+    }
+  }
+"
         id="eYmCOrjogMB1"
         shape-rendering="geometricPrecision"
         text-rendering="geometricPrecision"
@@ -150,11 +193,54 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
     <svg
-      class="n1nrxdae-new-webhook-svg-style"
+      class="mock-css.
+  #webhooks-new-svg-element-one {
+    animation: webhooks-new-svg-element-one 300ms linear 1 normal forwards;
+  }
+  @keyframes webhooks-new-svg-element-one {
+    0% {
+      transform: translate(69px, 24px) scale(1, 1);
+    }
+    100% {
+      transform: translate(69px, 24px) scale(0.8, 0.8);
+    }
+  }
+  #webhooks-new-svg-element-two {
+    animation: webhooks-new-svg-element-two 300ms linear 1 normal forwards;
+  }
+  @keyframes webhooks-new-svg-element-two {
+    0% {
+      transform: translate(24px, 107px) scale(1, 1);
+    }
+    100% {
+      transform: translate(24px, 107px) scale(0.8, 0.8);
+    }
+  }
+  #webhooks-new-svg-element-three {
+    animation: webhooks-new-svg-element-three 300ms linear 1 normal forwards;
+  }
+  @keyframes webhooks-new-svg-element-three {
+    0% {
+      transform: translate(117px, 106px) scale(1, 1);
+    }
+    100% {
+      transform: translate(117px, 106px) scale(0.8, 0.8);
+    }
+  }
+  #webhooks-new-svg-element-four {
+    animation: webhooks-new-svg-element-four 300ms linear 1 normal forwards;
+  }
+  @keyframes webhooks-new-svg-element-four {
+    0% {
+      transform: translate(69.3825px, 75.303001px) scale(1, 1);
+    }
+    100% {
+      transform: translate(69.3825px, 75.303001px) scale(1.3, 1.3);
+    }
+  }
+"
       id="eYmCOrjogMB1"
       shape-rendering="geometricPrecision"
       text-rendering="geometricPrecision"
@@ -348,13 +434,11 @@ Object {
 `;
 
 exports[`WebhooksAnimatedNewIcon should match a snapshot where not animated 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
       <svg
         class=""
         id="eYmCOrjogMB1"
@@ -497,9 +581,7 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
     <svg
       class=""
       id="eYmCOrjogMB1"

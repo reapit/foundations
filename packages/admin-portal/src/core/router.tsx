@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
-import { Route, Router as BrowserRouter, Switch } from 'react-router-dom'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import { catchChunkError, OkayPage } from '@reapit/utils-react'
-import Routes from '../constants/routes'
+import RoutePaths from '../constants/routes'
 import { createBrowserHistory, History } from 'history'
 import { PageContainer, PersistentNotification } from '@reapit/elements'
 
@@ -28,33 +28,108 @@ export const FourOFour: FC = () => (
   </PageContainer>
 )
 
-const Router = () => {
+export const RoutesComponent = () => {
   return (
-    <BrowserRouter history={history}>
-      <React.Suspense fallback={null}>
-        <Switch>
-          <Route path={Routes.OK} exact render={() => <OkayPage />} />
-          <Route path={Routes.LOGIN} exact render={() => <Login />} />
-          <Route path={Routes.FOUR_O_FOUR} exact render={() => <FourOFour />} />
+    <Routes>
+      <Route path={RoutePaths.OK} element={<OkayPage />} />
+      <Route path={RoutePaths.LOGIN} element={<Login />} />
+      <Route path={RoutePaths.FOUR_O_FOUR} element={<FourOFour />} />
+      <Route
+        path={RoutePaths.BILLING}
+        element={
           <PrivateRouteWrapper>
-            <Switch>
-              <Route path={Routes.BILLING} component={BillingPage} exact />
-              <Route path={Routes.TRAFFIC} component={TrafficPage} exact />
-              <Route path={Routes.USAGE} component={UsagePage} exact />
-              <Route path={Routes.APPROVALS} component={ApprovalsPage} exact />
-              <Route path={Routes.APPS} component={AppsManagementPage} exact />
-              <Route path={Routes.DEV_MANAGEMENT} component={DevsManagementPage} exact />
-              <Route path={Routes.INSTALLATIONS} component={InstallationsPage} exact />
-              <Route path={Routes.CUSTOMERS} component={CustomersPage} exact />
-              <Route path={Routes.SUBSCRIPTIONS} component={SubscriptionsPage} exact />
-              <Route path={Routes.IAAS} component={IaaSPage} exact />
-              <Route render={() => <FourOFour />} />
-            </Switch>
+            <BillingPage />
           </PrivateRouteWrapper>
-        </Switch>
-      </React.Suspense>
-    </BrowserRouter>
+        }
+      />
+      <Route
+        path={RoutePaths.TRAFFIC}
+        element={
+          <PrivateRouteWrapper>
+            <TrafficPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.USAGE}
+        element={
+          <PrivateRouteWrapper>
+            <UsagePage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.APPROVALS}
+        element={
+          <PrivateRouteWrapper>
+            <ApprovalsPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.APPS}
+        element={
+          <PrivateRouteWrapper>
+            <AppsManagementPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.DEV_MANAGEMENT}
+        element={
+          <PrivateRouteWrapper>
+            <DevsManagementPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.INSTALLATIONS}
+        element={
+          <PrivateRouteWrapper>
+            <InstallationsPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.CUSTOMERS}
+        element={
+          <PrivateRouteWrapper>
+            <CustomersPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.SUBSCRIPTIONS}
+        element={
+          <PrivateRouteWrapper>
+            <SubscriptionsPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.IAAS}
+        element={
+          <PrivateRouteWrapper>
+            <IaaSPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.ROOT}
+        element={
+          <PrivateRouteWrapper>
+            <AppsManagementPage />
+          </PrivateRouteWrapper>
+        }
+      />
+    </Routes>
   )
 }
+
+const Router: FC = () => (
+  <BrowserRouter>
+    <RoutesComponent />
+  </BrowserRouter>
+)
 
 export default Router

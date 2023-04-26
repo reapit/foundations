@@ -1,120 +1,96 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ResendConsentModal should render a component with without an email and recipient 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         >
-          <div
-            class="el-input-wrap-full"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="recipient"
                 placeholder="Email of the recipient"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Consent Recipient
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-align-center el-button-group-inner"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="el-intent-low el-button-fixed-width el-button"
+            <mock-styled.button
+              classname="mock-css. mock-css."
             >
               Cancel
-              <div
-                class="el-button-loader"
-              />
-            </button>
-            <button
-              class="el-intent-primary el-button-fixed-width el-button"
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css. mock-css."
               type="submit"
             >
               Confirm
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-mb11 el-form-layout"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-input-wrap-full"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="recipient"
               placeholder="Email of the recipient"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Consent Recipient
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-center el-button-group-inner"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-low el-button-fixed-width el-button"
+          <mock-styled.button
+            classname="mock-css. mock-css."
           >
             Cancel
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-primary el-button-fixed-width el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css. mock-css."
             type="submit"
           >
             Confirm
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],
@@ -172,19 +148,15 @@ Object {
 `;
 
 exports[`ResendConsentModal should render a component without an email and recipient 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

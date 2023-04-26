@@ -181,28 +181,26 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
 
   const [categories] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
+    action: getActions[GetActionNames.getAppCategories],
     queryParams: { pageSize: 25 },
   })
 
   const [, , createImageUpload] = useReapitUpdate<CreateImageUploadModel, ImageUploadModel>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.fileUpload],
+    action: updateActions[UpdateActionNames.fileUpload],
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })
 
   const [initialApps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', pageSize: 100, id: defaultValues?.filters?.id },
     fetchWhenTrue: [Array.isArray(defaultValues?.filters?.id), defaultValues?.filters?.id?.length],
   })
 
   const [, , send] = useReapitUpdate<AppsBrowseConfigItemInterface, AppsBrowseConfigItemInterface>({
-    action: getActions(window.reapit.config.appEnv)[
-      defaultValues?.id ? GetActionNames.postAppMarketAdmin : GetActionNames.getAppMarketAdmin
-    ],
+    action: getActions[defaultValues?.id ? GetActionNames.postAppMarketAdmin : GetActionNames.getAppMarketAdmin],
     method: defaultValues?.id ? 'PUT' : 'POST',
     headers: {
       Authorization: connectSession?.idToken as string,
@@ -260,7 +258,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
             <SearchableMultiSelect
               id="select-multi-apps"
               reapitConnectBrowserSession={reapitConnectBrowserSession}
-              action={getActions(window.reapit.config.appEnv)[GetActionNames.getApps]}
+              action={getActions[GetActionNames.getApps]}
               valueKey="id"
               nameKey="name"
               searchKey="searchTerm"

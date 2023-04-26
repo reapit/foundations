@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`node-helpers nodesArrToObj should match a snapshot 1`] = `
-Object {
-  "ROOT": Object {
-    "custom": Object {},
+{
+  "ROOT": {
+    "custom": {},
     "displayName": "div",
     "hidden": false,
     "isCanvas": false,
-    "linkedNodes": Object {},
-    "nodes": Array [],
+    "linkedNodes": {},
+    "nodes": [],
     "parent": null,
-    "props": Object {},
-    "type": Object {
+    "props": {},
+    "type": {
       "resolvedName": "div",
     },
   },
@@ -19,46 +19,46 @@ Object {
 `;
 
 exports[`node-helpers nodesObjtoToArr should match a snapshot 1`] = `
-Array [
-  Object {
-    "custom": Object {
+[
+  {
+    "custom": {
       "displayName": "App",
     },
     "displayName": "Container",
     "hidden": false,
     "id": "app-idpage-idROOT",
     "isCanvas": true,
-    "linkedNodes": Object {},
+    "linkedNodes": {},
     "nodeId": "ROOT",
-    "nodes": Array [
+    "nodes": [
       "tPwDk5SDAg",
     ],
     "parent": null,
-    "props": Object {
+    "props": {
       "background": "white",
       "padding": 40,
       "width": 12,
     },
-    "type": Object {
+    "type": {
       "resolvedName": "Container",
     },
   },
-  Object {
+  {
     "custom": null,
     "displayName": "Text",
     "hidden": false,
     "id": "app-idpage-idtPwDk5SDAg",
     "isCanvas": false,
-    "linkedNodes": Object {},
+    "linkedNodes": {},
     "nodeId": "tPwDk5SDAg",
-    "nodes": Array [],
+    "nodes": [],
     "parent": "ROOT",
-    "props": Object {
+    "props": {
       "fontSize": 12,
       "text": "Type text here",
       "width": 12,
     },
-    "type": Object {
+    "type": {
       "resolvedName": "Text",
     },
   },

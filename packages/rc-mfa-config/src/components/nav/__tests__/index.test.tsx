@@ -1,6 +1,6 @@
 import React from 'react'
 import { Nav, getDefaultNavIndex } from '..'
-import { Routes } from '../../../constants/routes'
+import { RoutePaths } from '../../../constants/routes'
 import { render } from '../../../tests/react-testing'
 
 describe('Nav', () => {
@@ -14,11 +14,11 @@ describe('Nav', () => {
 describe('getDefaultNavIndex', () => {
   const routes = [
     {
-      route: Routes.HOME,
+      route: RoutePaths.HOME,
       index: 1,
     },
     {
-      route: Routes.ADMIN,
+      route: RoutePaths.ADMIN,
       index: 2,
     },
     {

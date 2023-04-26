@@ -1,171 +1,313 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GROUPS is selected 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Installation
-      </h2>
-      <p
-        class="el-has-grey-text el-has-section-margin el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css. mock-css."
       >
         Please select the type of installation you require for this app:
-      </p>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-mb5 el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
           >
-            <input
-              class="el-input"
+            <mock-styled.input
+              checked="false"
               id="WHOLE_ORG"
               type="checkbox"
             />
-            <label
-              class="el-label"
-              for="WHOLE_ORG"
+            <mock-styled.label
+              htmlfor="WHOLE_ORG"
             >
               Install for the whole of your organisation
-            </label>
-          </div>
-          <p
-            class="el-body-text"
+            </mock-styled.label>
+          </mock-styled.div>
+          <mock-styled.p
+            classname=""
           >
             This will grant the app access to all data for all users and offices across your organisation
-          </p>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-mb5 el-input-group"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
           >
-            <input
-              checked=""
-              class="el-input"
+            <mock-styled.input
+              checked="true"
               id="SPECIFIC_OFFICE_GROUPS"
               type="checkbox"
             />
-            <label
-              class="el-label"
-              for="SPECIFIC_OFFICE_GROUPS"
+            <mock-styled.label
+              htmlfor="SPECIFIC_OFFICE_GROUPS"
             >
               Install for specific office groups
-            </label>
-          </div>
-          <p
-            class="el-body-text"
+            </mock-styled.label>
+          </mock-styled.div>
+          <mock-styled.p
+            classname=""
           >
             This will grant the app access to only data for the specific offices inside of each office group
-          </p>
-        </div>
-      </div>
-      <div
-        class="el-mb7 el-button-group"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 1.25rem;
+"
       >
-        <div
-          class="el-button-group-align-right el-button-group-inner"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
+          <mock-styled.button
+            classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+ mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
+            disabled="false"
           >
             Save
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <h2
-      class="el-subtitle"
+    <mock-styled.h2
+      classname=""
     >
       Installation
-    </h2>
-    <p
-      class="el-has-grey-text el-has-section-margin el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css. mock-css."
     >
       Please select the type of installation you require for this app:
-    </p>
-    <div
-      class="el-form-layout-has-margin el-form-layout"
+    </mock-styled.p>
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="el-input-wrap"
-      >
-        <div
-          class="el-mb5 el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
         >
-          <input
-            class="el-input"
+          <mock-styled.input
+            checked="false"
             id="WHOLE_ORG"
             type="checkbox"
           />
-          <label
-            class="el-label"
-            for="WHOLE_ORG"
+          <mock-styled.label
+            htmlfor="WHOLE_ORG"
           >
             Install for the whole of your organisation
-          </label>
-        </div>
-        <p
-          class="el-body-text"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.p
+          classname=""
         >
           This will grant the app access to all data for all users and offices across your organisation
-        </p>
-      </div>
-      <div
-        class="el-input-wrap"
-      >
-        <div
-          class="el-mb5 el-input-group"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
         >
-          <input
-            checked=""
-            class="el-input"
+          <mock-styled.input
+            checked="true"
             id="SPECIFIC_OFFICE_GROUPS"
             type="checkbox"
           />
-          <label
-            class="el-label"
-            for="SPECIFIC_OFFICE_GROUPS"
+          <mock-styled.label
+            htmlfor="SPECIFIC_OFFICE_GROUPS"
           >
             Install for specific office groups
-          </label>
-        </div>
-        <p
-          class="el-body-text"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.p
+          classname=""
         >
           This will grant the app access to only data for the specific offices inside of each office group
-        </p>
-      </div>
-    </div>
-    <div
-      class="el-mb7 el-button-group"
+        </mock-styled.p>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 1.25rem;
+"
     >
-      <div
-        class="el-button-group-align-right el-button-group-inner"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
+        <mock-styled.button
+          classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+ mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
+          disabled="false"
         >
           Save
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -222,173 +364,313 @@ Object {
 `;
 
 exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is selected 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Installation
-      </h2>
-      <p
-        class="el-has-grey-text el-has-section-margin el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css. mock-css."
       >
         Please select the type of installation you require for this app:
-      </p>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-mb5 el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
           >
-            <input
-              checked=""
-              class="el-input"
+            <mock-styled.input
+              checked="true"
               id="WHOLE_ORG"
               type="checkbox"
             />
-            <label
-              class="el-label"
-              for="WHOLE_ORG"
+            <mock-styled.label
+              htmlfor="WHOLE_ORG"
             >
               Install for the whole of your organisation
-            </label>
-          </div>
-          <p
-            class="el-body-text"
+            </mock-styled.label>
+          </mock-styled.div>
+          <mock-styled.p
+            classname=""
           >
             This will grant the app access to all data for all users and offices across your organisation
-          </p>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-mb5 el-input-group"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
           >
-            <input
-              class="el-input"
+            <mock-styled.input
+              checked="false"
               id="SPECIFIC_OFFICE_GROUPS"
               type="checkbox"
             />
-            <label
-              class="el-label"
-              for="SPECIFIC_OFFICE_GROUPS"
+            <mock-styled.label
+              htmlfor="SPECIFIC_OFFICE_GROUPS"
             >
               Install for specific office groups
-            </label>
-          </div>
-          <p
-            class="el-body-text"
+            </mock-styled.label>
+          </mock-styled.div>
+          <mock-styled.p
+            classname=""
           >
             This will grant the app access to only data for the specific offices inside of each office group
-          </p>
-        </div>
-      </div>
-      <div
-        class="el-mb7 el-button-group"
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 1.25rem;
+"
       >
-        <div
-          class="el-button-group-align-right el-button-group-inner"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
-            disabled=""
+          <mock-styled.button
+            classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+ mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
+            disabled="true"
           >
             Save
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <h2
-      class="el-subtitle"
+    <mock-styled.h2
+      classname=""
     >
       Installation
-    </h2>
-    <p
-      class="el-has-grey-text el-has-section-margin el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css. mock-css."
     >
       Please select the type of installation you require for this app:
-    </p>
-    <div
-      class="el-form-layout-has-margin el-form-layout"
+    </mock-styled.p>
+    <mock-styled.div
+      classname="mock-css."
     >
-      <div
-        class="el-input-wrap"
-      >
-        <div
-          class="el-mb5 el-input-group"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
         >
-          <input
-            checked=""
-            class="el-input"
+          <mock-styled.input
+            checked="true"
             id="WHOLE_ORG"
             type="checkbox"
           />
-          <label
-            class="el-label"
-            for="WHOLE_ORG"
+          <mock-styled.label
+            htmlfor="WHOLE_ORG"
           >
             Install for the whole of your organisation
-          </label>
-        </div>
-        <p
-          class="el-body-text"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.p
+          classname=""
         >
           This will grant the app access to all data for all users and offices across your organisation
-        </p>
-      </div>
-      <div
-        class="el-input-wrap"
-      >
-        <div
-          class="el-mb5 el-input-group"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
         >
-          <input
-            class="el-input"
+          <mock-styled.input
+            checked="false"
             id="SPECIFIC_OFFICE_GROUPS"
             type="checkbox"
           />
-          <label
-            class="el-label"
-            for="SPECIFIC_OFFICE_GROUPS"
+          <mock-styled.label
+            htmlfor="SPECIFIC_OFFICE_GROUPS"
           >
             Install for specific office groups
-          </label>
-        </div>
-        <p
-          class="el-body-text"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.p
+          classname=""
         >
           This will grant the app access to only data for the specific offices inside of each office group
-        </p>
-      </div>
-    </div>
-    <div
-      class="el-mb7 el-button-group"
+        </mock-styled.p>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 1.25rem;
+"
     >
-      <div
-        class="el-button-group-align-right el-button-group-inner"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
-          disabled=""
+        <mock-styled.button
+          classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+ mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
+          disabled="true"
         >
           Save
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -206,4 +206,4 @@ const appsBrowseConfigCollectionProd: AppsBrowseConfigCollection = {
 }
 
 export const appsBrowseConfigCollection =
-  window.reapit.config.appEnv === 'production' ? appsBrowseConfigCollectionProd : appsBrowseConfigCollectionDev
+  process.env.appEnv === 'production' ? appsBrowseConfigCollectionProd : appsBrowseConfigCollectionDev

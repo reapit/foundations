@@ -106,7 +106,7 @@ describe('handleError', () => {
       traceId: 'mockTraceId',
     } as HandleErrorParams
     const output = await handleError(input)
-    expect(output).toEqual(errors.generateUnprocessableError('mockTraceId'))
+    expect(output).toEqual(errors.generateUnprocessableError('mockTraceId', new Error()))
   })
 
   it('should return UserInputError', async () => {

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -11,118 +11,152 @@ Object {
       <div />
     </div>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Pipeline
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-        </p>
-        <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
-          disabled=""
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          disabled="true"
         >
           Deploy
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           API Keys
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          disabled="false"
         >
           Delete Pipeline
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
         Pipeline
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-      </p>
-      <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
-        disabled=""
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+        disabled="true"
       >
         Deploy
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         API Keys
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+        disabled="false"
       >
         Delete Pipeline
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         View Docs
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -180,7 +214,7 @@ Object {
 `;
 
 exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/configure 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -193,116 +227,152 @@ Object {
       id="root"
     />
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Pipeline
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
-          When you create an app, we create a pre-provisioned pipeline for your app. You should configure your build steps on this page before using the deployments page to manage your releases to our infra.
-        </p>
-        <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
+          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          disabled="true"
         >
-          Save Config
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
+          Deploy
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           API Keys
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          disabled="false"
         >
           Delete Pipeline
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
         Pipeline
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
-        When you create an app, we create a pre-provisioned pipeline for your app. You should configure your build steps on this page before using the deployments page to manage your releases to our infra.
-      </p>
-      <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
+        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+        disabled="true"
       >
-        Save Config
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
+        Deploy
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         API Keys
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+        disabled="false"
       >
         Delete Pipeline
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         View Docs
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -360,7 +430,7 @@ Object {
 `;
 
 exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/environment 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -379,118 +449,152 @@ Object {
       id="root"
     />
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Pipeline
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-        </p>
-        <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
-          disabled=""
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          disabled="true"
         >
           Deploy
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           API Keys
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          disabled="false"
         >
           Delete Pipeline
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
         Pipeline
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-      </p>
-      <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
-        disabled=""
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+        disabled="true"
       >
         Deploy
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         API Keys
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+        disabled="false"
       >
         Delete Pipeline
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         View Docs
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -548,7 +652,7 @@ Object {
 `;
 
 exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/new 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -564,116 +668,152 @@ Object {
       id="root"
     />
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Pipeline
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
-          When you create an app, we create a pre-provisioned pipeline for your app. You should configure your build steps on this page before using the deployments page to manage your releases to our infra.
-        </p>
-        <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
+          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          disabled="true"
         >
-          Save Config
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
+          Deploy
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           API Keys
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          disabled="false"
         >
           Delete Pipeline
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
         Pipeline
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
-        When you create an app, we create a pre-provisioned pipeline for your app. You should configure your build steps on this page before using the deployments page to manage your releases to our infra.
-      </p>
-      <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
+        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+        disabled="true"
       >
-        Save Config
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
+        Deploy
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         API Keys
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+        disabled="false"
       >
         Delete Pipeline
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         View Docs
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -731,7 +871,7 @@ Object {
 `;
 
 exports[`PipelineControls should match snapshot where pipeline is provisioning 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -756,120 +896,152 @@ Object {
       id="root"
     />
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Pipeline
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-        </p>
-        <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary esjgurx-el-is-loading e1tqqdf9-el-button"
-          disabled=""
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css. mock-css."
+          disabled="true"
         >
           Provision
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           API Keys
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
-          disabled=""
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          disabled="true"
         >
           Delete Pipeline
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
         Pipeline
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-      </p>
-      <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary esjgurx-el-is-loading e1tqqdf9-el-button"
-        disabled=""
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css. mock-css."
+        disabled="true"
       >
         Provision
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         API Keys
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
-        disabled=""
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+        disabled="true"
       >
         Delete Pipeline
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         View Docs
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -927,7 +1099,7 @@ Object {
 `;
 
 exports[`PipelineControls should match snapshot where there is no pipeline 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -949,84 +1121,116 @@ Object {
       id="root"
     />
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Pipeline
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           To get started with Reapit IAAS pipelines, first take the time to read the documentation. Then visit this page to configure your first pipeline.
-        </p>
-        <button
-          class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           API Keys
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
         Pipeline
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         To get started with Reapit IAAS pipelines, first take the time to read the documentation. Then visit this page to configure your first pipeline.
-      </p>
-      <button
-        class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         API Keys
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         View Docs
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],

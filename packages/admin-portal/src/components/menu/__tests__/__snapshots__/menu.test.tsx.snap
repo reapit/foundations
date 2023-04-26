@@ -1,277 +1,449 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <nav
-        class="el-nav-container"
+      <mock-styled.div />
+      <mock-styled.nav
+        classname=""
       >
-        <a
-          class="el-nav-item-active el-nav-item"
+        <mock-styled.a
+          classname="mock-css.
+  @media screen and (min-width: 768px) {
+    --nav-menu-icon-primary-accent: var(--color-white);
+    color: var(--nav-menu-text-hover);
+    background-color: var(--nav-menu-background-accent);
+  }
+"
         >
-          <span
-            class="el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
-          <span
-            class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
+          </mock-styled.span>
+          <mock-styled.span
+            classname="mock-css. mock-css.
+  margin-left: auto;
+ mock-css.
+  margin-right: 0.375rem;
+ mock-css.
+  @media screen and (min-width: 768px) {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+"
             style="font-size: 2rem;"
           >
             <svg />
-          </span>
-        </a>
-        <a
-          class="el-nav-item"
+          </mock-styled.span>
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Approvals
-        </a>
-        <a
-          class="el-nav-item"
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Apps
-        </a>
-        <a
-          class="el-nav-item"
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Developers
-        </a>
-        <a
-          class="el-nav-item"
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Installations
-        </a>
-        <a
-          class="el-nav-item"
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Billing
-        </a>
-        <a
-          class="el-nav-item"
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Traffic
-        </a>
-        <a
-          class="el-nav-item"
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Customers
-        </a>
-        <a
-          class="el-nav-item"
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Subs
-        </a>
-        <a
-          class="el-nav-item"
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Usage
-        </a>
-        <a
-          class="el-nav-item"
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           IAAS
-        </a>
-        <a
-          class="el-nav-item-secondary el-nav-item"
+        </mock-styled.a>
+        <mock-styled.a
+          classname="mock-css.
+  @media screen and (min-width: 768px) {
+    margin-top: auto;
+  }
+"
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Logout
-        </a>
-      </nav>
+        </mock-styled.a>
+      </mock-styled.nav>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <nav
-      class="el-nav-container"
+    <mock-styled.div />
+    <mock-styled.nav
+      classname=""
     >
-      <a
-        class="el-nav-item-active el-nav-item"
+      <mock-styled.a
+        classname="mock-css.
+  @media screen and (min-width: 768px) {
+    --nav-menu-icon-primary-accent: var(--color-white);
+    color: var(--nav-menu-text-hover);
+    background-color: var(--nav-menu-background-accent);
+  }
+"
       >
-        <span
-          class="el-icon-size-medium el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  font-size: 2.5rem;
+"
         >
           <svg />
-        </span>
-        <span
-          class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
+        </mock-styled.span>
+        <mock-styled.span
+          classname="mock-css. mock-css.
+  margin-left: auto;
+ mock-css.
+  margin-right: 0.375rem;
+ mock-css.
+  @media screen and (min-width: 768px) {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+"
           style="font-size: 2rem;"
         >
           <svg />
-        </span>
-      </a>
-      <a
-        class="el-nav-item"
+        </mock-styled.span>
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
       >
-        <span
-          class="el-nav-item-icon el-icon-size-medium el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
         >
           <svg />
-        </span>
+        </mock-styled.span>
         Approvals
-      </a>
-      <a
-        class="el-nav-item"
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
       >
-        <span
-          class="el-nav-item-icon el-icon-size-medium el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
         >
           <svg />
-        </span>
+        </mock-styled.span>
         Apps
-      </a>
-      <a
-        class="el-nav-item"
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
       >
-        <span
-          class="el-nav-item-icon el-icon-size-medium el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
         >
           <svg />
-        </span>
+        </mock-styled.span>
         Developers
-      </a>
-      <a
-        class="el-nav-item"
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
       >
-        <span
-          class="el-nav-item-icon el-icon-size-medium el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
         >
           <svg />
-        </span>
+        </mock-styled.span>
         Installations
-      </a>
-      <a
-        class="el-nav-item"
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
       >
-        <span
-          class="el-nav-item-icon el-icon-size-medium el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
         >
           <svg />
-        </span>
+        </mock-styled.span>
         Billing
-      </a>
-      <a
-        class="el-nav-item"
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
       >
-        <span
-          class="el-nav-item-icon el-icon-size-medium el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
         >
           <svg />
-        </span>
+        </mock-styled.span>
         Traffic
-      </a>
-      <a
-        class="el-nav-item"
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
       >
-        <span
-          class="el-nav-item-icon el-icon-size-medium el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
         >
           <svg />
-        </span>
+        </mock-styled.span>
         Customers
-      </a>
-      <a
-        class="el-nav-item"
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
       >
-        <span
-          class="el-nav-item-icon el-icon-size-medium el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
         >
           <svg />
-        </span>
+        </mock-styled.span>
         Subs
-      </a>
-      <a
-        class="el-nav-item"
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
       >
-        <span
-          class="el-nav-item-icon el-icon-size-medium el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
         >
           <svg />
-        </span>
+        </mock-styled.span>
         Usage
-      </a>
-      <a
-        class="el-nav-item"
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
       >
-        <span
-          class="el-nav-item-icon el-icon-size-medium el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
         >
           <svg />
-        </span>
+        </mock-styled.span>
         IAAS
-      </a>
-      <a
-        class="el-nav-item-secondary el-nav-item"
+      </mock-styled.a>
+      <mock-styled.a
+        classname="mock-css.
+  @media screen and (min-width: 768px) {
+    margin-top: auto;
+  }
+"
       >
-        <span
-          class="el-nav-item-icon el-icon-size-medium el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
         >
           <svg />
-        </span>
+        </mock-styled.span>
         Logout
-      </a>
-    </nav>
+      </mock-styled.a>
+    </mock-styled.nav>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

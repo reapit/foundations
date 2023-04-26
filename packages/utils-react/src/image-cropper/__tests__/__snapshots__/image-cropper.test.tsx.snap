@@ -1,77 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ImageCropperWithInput should match snapshots with multiple conditions 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1ndspjz"
-      >
-        <div
-          class="ef457sc e2kmzjs"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <button
-            class="elmeic8 e1ymtwpu e1tqqdf9"
+          <mock-styled.button
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
             type="button"
           >
             Upload
-            <div
-              class="e1q1vabn"
-            />
-          </button>
-          <input
-            class="eqyxiu0"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.input
             type="file"
           />
-          <input
-            class="e17gdmv2"
+          <mock-styled.input
             id="test-static-id"
+            labeltext="input image"
             name="inputImage"
-            value=""
           />
-          <p
-            class="e11jaxfn ewfctk4 elle7d2"
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             Upload File
-          </p>
-        </div>
-      </div>
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1ndspjz"
-    >
-      <div
-        class="ef457sc e2kmzjs"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  align-items: center;
+"
       >
-        <button
-          class="elmeic8 e1ymtwpu e1tqqdf9"
+        <mock-styled.button
+          classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
           type="button"
         >
           Upload
-          <div
-            class="e1q1vabn"
-          />
-        </button>
-        <input
-          class="eqyxiu0"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.input
           type="file"
         />
-        <input
-          class="e17gdmv2"
+        <mock-styled.input
           id="test-static-id"
+          labeltext="input image"
           name="inputImage"
-          value=""
         />
-        <p
-          class="e11jaxfn ewfctk4 elle7d2"
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           Upload File
-        </p>
-      </div>
-    </div>
+        </mock-styled.p>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -128,111 +124,105 @@ Object {
 `;
 
 exports[`ImageCropperWithInput should match snapshots with multiple conditions 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="e1ndspjz"
-      >
-        <div
-          class="ef457sc e2kmzjs"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <button
-            class="elmeic8 e1ymtwpu e1tqqdf9"
+          <mock-styled.button
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
             type="button"
           >
             Upload
-            <div
-              class="e1q1vabn"
-            />
-          </button>
-          <input
-            class="eqyxiu0"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.input
             type="file"
           />
-          <input
-            class="e17gdmv2"
+          <mock-styled.input
             id="test-static-id"
+            labeltext="input image"
             name="inputImage"
-            value=""
           />
-          <p
-            class="e11jaxfn ewfctk4 elle7d2"
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             Upload File
-          </p>
-        </div>
-      </div>
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
     <div>
-      <div
-        class="e1ndspjz"
-      >
-        <div
-          class="ef457sc e2kmzjs"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  align-items: center;
+"
         >
-          <button
-            class="elmeic8 e1ymtwpu e1tqqdf9"
+          <mock-styled.button
+            classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
             type="button"
           >
             Upload
-            <div
-              class="e1q1vabn"
-            />
-          </button>
-          <input
-            class="eqyxiu0"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.input
             type="file"
           />
-          <input
-            class="e17gdmv2"
+          <mock-styled.input
             id="test-static-id"
+            labeltext="input image"
             name="inputImage"
-            value=""
           />
-          <p
-            class="e11jaxfn ewfctk4 elle7d2"
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             Upload File
-          </p>
-        </div>
-      </div>
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="e1ndspjz"
-    >
-      <div
-        class="ef457sc e2kmzjs"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  align-items: center;
+"
       >
-        <button
-          class="elmeic8 e1ymtwpu e1tqqdf9"
+        <mock-styled.button
+          classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
           type="button"
         >
           Upload
-          <div
-            class="e1q1vabn"
-          />
-        </button>
-        <input
-          class="eqyxiu0"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.input
           type="file"
         />
-        <input
-          class="e17gdmv2"
+        <mock-styled.input
           id="test-static-id"
+          labeltext="input image"
           name="inputImage"
-          value=""
         />
-        <p
-          class="e11jaxfn ewfctk4 elle7d2"
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           Upload File
-        </p>
-      </div>
-    </div>
+        </mock-styled.p>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

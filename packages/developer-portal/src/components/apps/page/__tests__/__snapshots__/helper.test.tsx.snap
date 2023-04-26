@@ -1,72 +1,104 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Helper should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Apps Documentation
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </p>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
         Apps Documentation
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </p>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         View Docs
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -124,72 +156,104 @@ Object {
 `;
 
 exports[`Helper should match a snapshot for the appsDetail page 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
-          Preview in AppMarket
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          Apps Documentation
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
-          Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
-        </p>
-        <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
+          This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
-          Preview
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          View Docs
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
-        Preview in AppMarket
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        Apps Documentation
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
-        Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
-      </p>
-      <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
+        This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
-        Preview
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        View Docs
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -247,98 +311,104 @@ Object {
 `;
 
 exports[`Helper should match a snapshot for the appsEdit page 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
-          Revision Outstanding
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          Apps Documentation
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
-          You have recently submitted an app listing revision for approval.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
-          For more on this process 
-          <a>
-            visit here.
-          </a>
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
-        >
-          If you no longer want your app revision to be approved, you can cancel below.
-        </p>
-        <button
-          class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button"
-        >
-          Cancel Revision
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          View Docs
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
-        Revision Outstanding
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        Apps Documentation
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
-        You have recently submitted an app listing revision for approval.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
-        For more on this process 
-        <a>
-          visit here.
-        </a>
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
-      >
-        If you no longer want your app revision to be approved, you can cancel below.
-      </p>
-      <button
-        class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button"
-      >
-        Cancel Revision
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        View Docs
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -396,104 +466,104 @@ Object {
 `;
 
 exports[`Helper should match a snapshot for the appsEdit page where has unsaved changes 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
-          Listed Application
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          Apps Documentation
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
-          As your app is live with customer data, you will need to submit any app changes for approval by one of our team. For more on this process 
-          <a>
-            visit here.
-          </a>
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
-          You also have the option of de-listing your app and reverting to a sandbox only integration.
-        </p>
-        <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
-        >
-          De-list app
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
-        >
-          Create Revision
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          View Docs
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
-        Listed Application
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        Apps Documentation
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
-        As your app is live with customer data, you will need to submit any app changes for approval by one of our team. For more on this process 
-        <a>
-          visit here.
-        </a>
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
-        You also have the option of de-listing your app and reverting to a sandbox only integration.
-      </p>
-      <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
-      >
-        De-list app
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
-      >
-        Create Revision
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        View Docs
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -551,72 +621,104 @@ Object {
 `;
 
 exports[`Helper should match a snapshot for the appsEdit page where has unsaved changes and not listed 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
-          Unsaved Changes
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          Apps Documentation
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
-          Before you list your app you can save the details at any point below. After app listing, you will have to create an app revision for our team to review.
-        </p>
-        <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
+          This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
-          Save Changes
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          View Docs
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
-        Unsaved Changes
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        Apps Documentation
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
-        Before you list your app you can save the details at any point below. After app listing, you will have to create an app revision for our team to review.
-      </p>
-      <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
+        This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
-        Save Changes
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        View Docs
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -674,90 +776,104 @@ Object {
 `;
 
 exports[`Helper should match a snapshot for the appsEdit page where is completed and not publically listed 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
-          Ready For Review
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          Apps Documentation
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
-          As your app listing is now complete, you can submit it for review by one of our team, so you can go live with customer data. For more on this process
-           
-          <a>
-            visit here.
-          </a>
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
-          You also have the option of saving any additional changes as you make them before submitting.
-        </p>
-        <button
-          class="esplruv-el-mb3 e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
-        >
-          Submit Review
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          View Docs
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
-        Ready For Review
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        Apps Documentation
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
-        As your app listing is now complete, you can submit it for review by one of our team, so you can go live with customer data. For more on this process
-         
-        <a>
-          visit here.
-        </a>
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
-        You also have the option of saving any additional changes as you make them before submitting.
-      </p>
-      <button
-        class="esplruv-el-mb3 e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
-      >
-        Submit Review
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        View Docs
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -815,88 +931,104 @@ Object {
 `;
 
 exports[`Helper should match a snapshot for the appsEdit page where isListed 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
-          Listed Application
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          Apps Documentation
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
-          As your app is live with customer data, you will need to submit any app changes for approval by one of our team. For more on this process 
-          <a>
-            visit here.
-          </a>
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
-          You also have the option of de-listing your app and reverting to a sandbox only integration.
-        </p>
-        <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
-        >
-          De-list app
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          View Docs
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
-        Listed Application
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        Apps Documentation
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
-        As your app is live with customer data, you will need to submit any app changes for approval by one of our team. For more on this process 
-        <a>
-          visit here.
-        </a>
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
-        You also have the option of de-listing your app and reverting to a sandbox only integration.
-      </p>
-      <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
-      >
-        De-list app
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        View Docs
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -954,56 +1086,104 @@ Object {
 `;
 
 exports[`Helper should match a snapshot for the appsEdit page where the app is loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
-          App Listings
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          Apps Documentation
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
-          Actions will appear below as you perform tasks on this page
-        </p>
+          This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+        >
+          View Docs
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
-        App Listings
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        Apps Documentation
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
-        Actions will appear below as you perform tasks on this page
-      </p>
+        This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+      >
+        View Docs
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -1061,92 +1241,104 @@ Object {
 `;
 
 exports[`Helper should match a snapshot for the consents page 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
-          App Consents
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          Apps Documentation
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
-          This page is visible because you have requested new permissions as part of your current outstanding app revision. An email will be sent to each of the customers who installed your app, requesting they agree to the new permissions you have requested.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
-        >
-          Each customer will have to agree to the new permission before our team can approve your revision. You can either track this process here or reach out to your customer to expedite their response to our message.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
-        >
-          You can also request that the email is re-sent to each customer individually.
-        </p>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
-        App Consents
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        Apps Documentation
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
-        This page is visible because you have requested new permissions as part of your current outstanding app revision. An email will be sent to each of the customers who installed your app, requesting they agree to the new permissions you have requested.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
-      >
-        Each customer will have to agree to the new permission before our team can approve your revision. You can either track this process here or reach out to your customer to expedite their response to our message.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
-      >
-        You can also request that the email is re-sent to each customer individually.
-      </p>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         View Docs
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],
@@ -1204,122 +1396,104 @@ Object {
 `;
 
 exports[`Helper should match a snapshot for the pipelines page 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e6p05ya-el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <span
-          class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
-          Pipeline
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          Apps Documentation
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
-          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-        </p>
-        <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
-          disabled=""
-        >
-          Deploy
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
-        >
-          API Keys
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
-        >
-          Delete Pipeline
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
+          <mock-styled.div />
+        </mock-styled.button>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e6p05ya-el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <span
-        class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <h2
-        class="e15ggth7-el-subtitle"
+      </mock-styled.span>
+      <mock-styled.h2
+        classname=""
       >
-        Pipeline
-      </h2>
-      <p
-        class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+        Apps Documentation
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
-        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-      </p>
-      <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
-        disabled=""
-      >
-        Deploy
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
-      >
-        API Keys
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
-      >
-        Delete Pipeline
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+      </mock-styled.p>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
       >
         View Docs
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </div>,
   "debug": [Function],

@@ -24,7 +24,7 @@ export const AppsTable: FC<AppsTableProps> = ({ devIdApps }) => {
 
   const [apps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams: {
       pageNumber,
       pageSize: 12,

@@ -52,7 +52,7 @@ export const CheckAWSButton: FC<CheckAWSButtonProps> = ({ appId, status }) => {
 
   const [subscriptions] = useReapitGet<WebhookModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getWebhookSubscriptions],
+    action: getActions[GetActionNames.getWebhookSubscriptions],
     queryParams: { applicationId: appId, pageSize: 999, active: true },
     fetchWhenTrue: [appId && awsStatus === AWSStatus.Fetching],
   })

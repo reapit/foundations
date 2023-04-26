@@ -1,60 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Statistics should render component with apps 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-inner"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Download CSV
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <button
-            class="el-intent-primary el-button"
+          <mock-styled.button
+            classname="mock-css."
             type="button"
           >
             Download CSV
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],
@@ -112,60 +104,52 @@ Object {
 `;
 
 exports[`Statistics should render component with billing 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-inner"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Download CSV
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <button
-            class="el-intent-primary el-button"
+          <mock-styled.button
+            classname="mock-css."
             type="button"
           >
             Download CSV
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],

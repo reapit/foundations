@@ -1,34 +1,29 @@
-import { navigate, openNewPage, handleLaunchApp, navigateBack, navigateExternal } from '../navigation'
-import { History } from 'history'
-import { Routes } from '../../constants/routes'
+import { navigateRoute, openNewPage, handleLaunchApp, navigateBack, navigateExternal } from '../navigation'
+import { RoutePaths } from '../../constants/routes'
 
 jest.mock('../../core/analytics')
 
 describe('navigate', () => {
   it('should open a new page', () => {
-    const mockHistory = {
-      push: jest.fn(),
-    } as unknown as History
+    const navigate = jest.fn()
 
-    const curried = navigate(mockHistory, Routes.HOME)
+    const curried = navigateRoute(navigate, RoutePaths.HOME)
 
     curried()
 
-    expect(mockHistory.push).toHaveBeenCalledWith(Routes.HOME)
+    expect(navigate).toHaveBeenCalledWith(RoutePaths.HOME)
   })
 })
 
 describe('navigateBack', () => {
   it('should navigate back', () => {
-    const mockHistory = {
-      goBack: jest.fn(),
-    } as unknown as History
+    const navigate = jest.fn()
 
-    const curried = navigateBack(mockHistory)
+    const curried = navigateBack(navigate)
 
     curried()
 
-    expect(mockHistory.goBack).toHaveBeenCalledTimes(1)
+    expect(navigate).toHaveBeenCalledTimes(1)
   })
 })
 
@@ -47,11 +42,11 @@ describe('navigateExternal', () => {
 describe('openNewPage', () => {
   it('should open a new page', () => {
     const windowSpy = ((window.open as any) = jest.fn())
-    const curried = openNewPage(Routes.HOME)
+    const curried = openNewPage(RoutePaths.HOME)
 
     curried()
 
-    expect(windowSpy).toHaveBeenCalledWith(Routes.HOME, '_blank', 'noopener, noreferrer')
+    expect(windowSpy).toHaveBeenCalledWith(RoutePaths.HOME, '_blank', 'noopener, noreferrer')
   })
 })
 

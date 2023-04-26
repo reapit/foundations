@@ -1,49 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toggle should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <input
-        class="el-toggle-checkbox"
+      <mock-styled.input
         type="checkbox"
       />
-      <label
-        class="el-toggle-label"
+      <mock-styled.label
+        classname=""
       >
-        <span
-          class="el-toggle-item"
-        >
+        <mock-styled.span>
           On
-        </span>
-        <span
-          class="el-toggle-item"
-        >
+        </mock-styled.span>
+        <mock-styled.span>
           Off
-        </span>
-      </label>
+        </mock-styled.span>
+      </mock-styled.label>
     </div>
   </body>,
   "container": <div>
-    <input
-      class="el-toggle-checkbox"
+    <mock-styled.input
       type="checkbox"
     />
-    <label
-      class="el-toggle-label"
+    <mock-styled.label
+      classname=""
     >
-      <span
-        class="el-toggle-item"
-      >
+      <mock-styled.span>
         On
-      </span>
-      <span
-        class="el-toggle-item"
-      >
+      </mock-styled.span>
+      <mock-styled.span>
         Off
-      </span>
-    </label>
+      </mock-styled.span>
+    </mock-styled.label>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -100,125 +90,129 @@ Object {
 `;
 
 exports[`ToggleRadio should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-toggle-full-width el-toggle-radio-wrap"
+      <mock-styled.div
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
       >
-        <input
-          checked=""
-          class="el-toggle-radio"
+        <mock-styled.input
           id="option-1"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-1"
         />
-        <label
-          class="el-toggle-full-width el-toggle-radio-label"
-          for="option-1"
+        <mock-styled.label
+          classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
+          htmlfor="option-1"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Option 1
-          </span>
-        </label>
-        <input
-          class="el-toggle-radio"
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
           id="option-2"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-2"
         />
-        <label
-          class="el-toggle-full-width el-toggle-radio-label"
-          for="option-2"
+        <mock-styled.label
+          classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
+          htmlfor="option-2"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Option 2
-          </span>
-        </label>
-        <input
-          class="el-toggle-radio"
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
           id="option-3"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-3"
         />
-        <label
-          class="el-toggle-full-width el-toggle-radio-label"
-          for="option-3"
+        <mock-styled.label
+          classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
+          htmlfor="option-3"
         >
-          <span
-            class="el-toggle-radio-item"
-          >
+          <mock-styled.span>
             Option 3
-          </span>
-        </label>
-      </div>
+          </mock-styled.span>
+        </mock-styled.label>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-toggle-full-width el-toggle-radio-wrap"
+    <mock-styled.div
+      classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
     >
-      <input
-        checked=""
-        class="el-toggle-radio"
+      <mock-styled.input
         id="option-1"
         name="my-cool-toggle-radio"
         type="radio"
         value="option-1"
       />
-      <label
-        class="el-toggle-full-width el-toggle-radio-label"
-        for="option-1"
+      <mock-styled.label
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
+        htmlfor="option-1"
       >
-        <span
-          class="el-toggle-radio-item"
-        >
+        <mock-styled.span>
           Option 1
-        </span>
-      </label>
-      <input
-        class="el-toggle-radio"
+        </mock-styled.span>
+      </mock-styled.label>
+      <mock-styled.input
         id="option-2"
         name="my-cool-toggle-radio"
         type="radio"
         value="option-2"
       />
-      <label
-        class="el-toggle-full-width el-toggle-radio-label"
-        for="option-2"
+      <mock-styled.label
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
+        htmlfor="option-2"
       >
-        <span
-          class="el-toggle-radio-item"
-        >
+        <mock-styled.span>
           Option 2
-        </span>
-      </label>
-      <input
-        class="el-toggle-radio"
+        </mock-styled.span>
+      </mock-styled.label>
+      <mock-styled.input
         id="option-3"
         name="my-cool-toggle-radio"
         type="radio"
         value="option-3"
       />
-      <label
-        class="el-toggle-full-width el-toggle-radio-label"
-        for="option-3"
+      <mock-styled.label
+        classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
+        htmlfor="option-3"
       >
-        <span
-          class="el-toggle-radio-item"
-        >
+        <mock-styled.span>
           Option 3
-        </span>
-      </label>
-    </div>
+        </mock-styled.span>
+      </mock-styled.label>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

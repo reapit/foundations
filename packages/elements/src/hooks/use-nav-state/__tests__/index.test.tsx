@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react'
+import React, { MouseEvent, PropsWithChildren } from 'react'
 import { render } from '@testing-library/react'
 import { UseNavState, NavStateProvider, useNavState } from '../index'
 import { renderHook, act } from '@testing-library/react-hooks'
@@ -12,7 +12,7 @@ describe('NavStateProvider', () => {
 describe('useNavState', () => {
   it('should return pwaNavState and setPwaNavState', async () => {
     const { result } = renderHook<{}, UseNavState>(() => useNavState(), {
-      wrapper: (props) => <NavStateProvider>{props.children}</NavStateProvider>,
+      wrapper: (props: PropsWithChildren) => <NavStateProvider>{props.children}</NavStateProvider>,
     })
 
     const newState = {

@@ -5,7 +5,7 @@ import { isDemo } from '@reapit/utils-react'
 export const handleDemoAuth = async (): Promise<null> => {
   if (!isDemo()) return null
 
-  const { appId, connectClientId, demoUser, platformApiUrl } = window.reapit.config
+  const { appId, connectClientId, demoUser, platformApiUrl } = process.env
   const reapitConnectSession: ReapitConnectSession | never = await fetcher({
     api: platformApiUrl,
     url: `/marketplace/apps/${appId}/demonstration`,

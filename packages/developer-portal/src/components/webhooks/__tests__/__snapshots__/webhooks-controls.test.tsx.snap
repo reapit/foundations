@@ -1,35 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WebhooksControls should match a snapshot for the /webhooks/about page 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <button
-        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+      <mock-styled.div />
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
       >
         Video
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <button
-      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+    <mock-styled.div />
+    <mock-styled.button
+      classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
     >
       Video
-      <div
-        class="e1q1vabn-el-button-loader"
-      />
-    </button>
+      <mock-styled.div />
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -86,25 +82,28 @@ Object {
 `;
 
 exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden ehvkknk-el-mb5"
+        class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
       >
-        <div
-          class="c1dc4ecv-controls-container"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <select
-              class="e1yw9yco-el-wfull e60u3kb-el-select"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select
+              classname="mock-css.
+  width: 100%;
+"
               name="applicationId"
+              value=""
             >
               <option
                 value=""
@@ -121,22 +120,21 @@ Object {
               >
                 MOCK_APP_NAME_ANOTHER
               </option>
-            </select>
-            <label
-              class="e1nbkkrq-el-label"
-            >
+            </mock-styled.select>
+            <mock-styled.label>
               App Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="c1dc4ecv-controls-container"
-        >
-          <div
-            class="iru95t9-input-full-width e1979rmu-el-input-group"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               max="2019-10-10"
               min="2019-04"
@@ -144,22 +142,22 @@ Object {
               type="date"
               value="2019-10-10"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Date From
-            </label>
-          </div>
-        </div>
-        <div
-          class="c1dc4ecv-controls-container"
-        >
-          <div
-            class="iru95t9-input-full-width e1979rmu-el-input-group"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               max="2019-10-10"
               min="2019-10-10"
@@ -167,23 +165,21 @@ Object {
               type="date"
               value="2019-10-10"
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Date To
-            </label>
-          </div>
-        </div>
-        <div
-          class="c1dc4ecv-controls-container"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <select
-              class="e1yw9yco-el-wfull e60u3kb-el-select"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select
+              classname="mock-css.
+  width: 100%;
+"
               name="topicId"
+              value=""
             >
               <option
                 value=""
@@ -200,91 +196,92 @@ Object {
               >
                 Property modified
               </option>
-            </select>
-            <label
-              class="e1nbkkrq-el-label"
-            >
+            </mock-styled.select>
+            <mock-styled.label>
               Topic Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="c1dc4ecv-controls-container"
-        >
-          <div
-            class="iru95t9-input-full-width e1979rmu-el-input-group"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               name="entityId"
               type="text"
               value=""
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Entity Id
-            </label>
-          </div>
-        </div>
-        <div
-          class="c1dc4ecv-controls-container"
-        >
-          <div
-            class="iru95t9-input-full-width e1979rmu-el-input-group"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
           >
-            <input
-              class="e1urjlvd-el-input"
+            <mock-styled.input
               id="test-static-id"
               name="eventId"
               type="text"
               value=""
             />
-            <label
-              class="e1nbkkrq-el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Event Id
-            </label>
-          </div>
-        </div>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
-      <button
-        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
       >
         View Docs
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
       >
         Video
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden ehvkknk-el-mb5"
+      class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
     >
-      <div
-        class="c1dc4ecv-controls-container"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <select
-            class="e1yw9yco-el-wfull e60u3kb-el-select"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.select
+            classname="mock-css.
+  width: 100%;
+"
             name="applicationId"
+            value=""
           >
             <option
               value=""
@@ -301,22 +298,21 @@ Object {
             >
               MOCK_APP_NAME_ANOTHER
             </option>
-          </select>
-          <label
-            class="e1nbkkrq-el-label"
-          >
+          </mock-styled.select>
+          <mock-styled.label>
             App Name
-          </label>
-        </div>
-      </div>
-      <div
-        class="c1dc4ecv-controls-container"
-      >
-        <div
-          class="iru95t9-input-full-width e1979rmu-el-input-group"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             max="2019-10-10"
             min="2019-04"
@@ -324,22 +320,22 @@ Object {
             type="date"
             value="2019-10-10"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Date From
-          </label>
-        </div>
-      </div>
-      <div
-        class="c1dc4ecv-controls-container"
-      >
-        <div
-          class="iru95t9-input-full-width e1979rmu-el-input-group"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             max="2019-10-10"
             min="2019-10-10"
@@ -347,23 +343,21 @@ Object {
             type="date"
             value="2019-10-10"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Date To
-          </label>
-        </div>
-      </div>
-      <div
-        class="c1dc4ecv-controls-container"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <select
-            class="e1yw9yco-el-wfull e60u3kb-el-select"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.select
+            classname="mock-css.
+  width: 100%;
+"
             name="topicId"
+            value=""
           >
             <option
               value=""
@@ -380,73 +374,71 @@ Object {
             >
               Property modified
             </option>
-          </select>
-          <label
-            class="e1nbkkrq-el-label"
-          >
+          </mock-styled.select>
+          <mock-styled.label>
             Topic Name
-          </label>
-        </div>
-      </div>
-      <div
-        class="c1dc4ecv-controls-container"
-      >
-        <div
-          class="iru95t9-input-full-width e1979rmu-el-input-group"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             name="entityId"
             type="text"
             value=""
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Entity Id
-          </label>
-        </div>
-      </div>
-      <div
-        class="c1dc4ecv-controls-container"
-      >
-        <div
-          class="iru95t9-input-full-width e1979rmu-el-input-group"
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             name="eventId"
             type="text"
             value=""
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Event Id
-          </label>
-        </div>
-      </div>
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
-    <button
-      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+    <mock-styled.button
+      classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
     >
       View Docs
-      <div
-        class="e1q1vabn-el-button-loader"
-      />
-    </button>
-    <button
-      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+      <mock-styled.div />
+    </mock-styled.button>
+    <mock-styled.button
+      classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
     >
       Video
-      <div
-        class="e1q1vabn-el-button-loader"
-      />
-    </button>
+      <mock-styled.div />
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -503,25 +495,28 @@ Object {
 `;
 
 exports[`WebhooksControls should match a snapshot for the /webhooks/manage page 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden ehvkknk-el-mb5"
+        class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
       >
-        <div
-          class="c1dc4ecv-controls-container"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <select
-              class="e1yw9yco-el-wfull e60u3kb-el-select"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select
+              classname="mock-css.
+  width: 100%;
+"
               name="applicationId"
+              value=""
             >
               <option
                 value=""
@@ -538,49 +533,50 @@ Object {
               >
                 MOCK_APP_NAME_ANOTHER
               </option>
-            </select>
-            <label
-              class="e1nbkkrq-el-label"
-            >
+            </mock-styled.select>
+            <mock-styled.label>
               App Name
-            </label>
-          </div>
-        </div>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
-      <button
-        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
       >
         View Docs
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
-      <button
-        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
       >
         Video
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden ehvkknk-el-mb5"
+      class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
     >
-      <div
-        class="c1dc4ecv-controls-container"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <select
-            class="e1yw9yco-el-wfull e60u3kb-el-select"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.select
+            classname="mock-css.
+  width: 100%;
+"
             name="applicationId"
+            value=""
           >
             <option
               value=""
@@ -597,31 +593,29 @@ Object {
             >
               MOCK_APP_NAME_ANOTHER
             </option>
-          </select>
-          <label
-            class="e1nbkkrq-el-label"
-          >
+          </mock-styled.select>
+          <mock-styled.label>
             App Name
-          </label>
-        </div>
-      </div>
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
-    <button
-      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+    <mock-styled.button
+      classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
     >
       View Docs
-      <div
-        class="e1q1vabn-el-button-loader"
-      />
-    </button>
-    <button
-      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+      <mock-styled.div />
+    </mock-styled.button>
+    <mock-styled.button
+      classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
     >
       Video
-      <div
-        class="e1q1vabn-el-button-loader"
-      />
-    </button>
+      <mock-styled.div />
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -678,35 +672,31 @@ Object {
 `;
 
 exports[`WebhooksControls should match a snapshot for the /webhooks/new page 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <button
-        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+      <mock-styled.div />
+      <mock-styled.button
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
       >
         Video
-        <div
-          class="e1q1vabn-el-button-loader"
-        />
-      </button>
+        <mock-styled.div />
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <button
-      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+    <mock-styled.div />
+    <mock-styled.button
+      classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
     >
       Video
-      <div
-        class="e1q1vabn-el-button-loader"
-      />
-    </button>
+      <mock-styled.div />
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -1,19 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TextArea component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <textarea
-        class="el-text-area"
-      />
+      <mock-styled.textarea />
     </div>
   </body>,
   "container": <div>
-    <textarea
-      class="el-text-area"
-    />
+    <mock-styled.textarea />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

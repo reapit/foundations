@@ -1,10 +1,9 @@
-import * as React from 'react'
+import React from 'react'
 import { render } from '../../tests/react-testing'
-import Router from '../router'
+import { RoutesComponent } from '../router'
 
-describe('Router', () => {
+describe('RoutesComponent', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<Router />)
-    expect(wrapper).toMatchSnapshot()
+    expect(render(<RoutesComponent />)).toMatchSnapshot()
   })
 })

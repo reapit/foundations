@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
-import { passwordRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { passwordRegex } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AccountCreateModel, AccountModel } from '../../types/accounts'
@@ -8,7 +8,13 @@ import { useGlobalState } from '../../core/use-global-state'
 import { object, ref, string } from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
+import {
+  SendFunction,
+  UpdateReturnTypeEnum,
+  useReapitUpdate,
+  UpdateActionNames,
+  updateActions,
+} from '@reapit/use-reapit-data'
 import { getAccountService } from '../../services/accounts'
 import { ReapitConnectSession } from '@reapit/connect-session'
 
@@ -133,7 +139,7 @@ export const AccountProvisionModal: FC<AccountProvisionModalProps> = ({
 
   const [, account, createAccount] = useReapitUpdate<AccountCreateModel, AccountModel>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createDwAccount],
+    action: updateActions[UpdateActionNames.createDwAccount],
     method: 'POST',
     returnType: UpdateReturnTypeEnum.LOCATION,
   })

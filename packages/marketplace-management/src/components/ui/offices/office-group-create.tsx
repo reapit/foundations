@@ -29,12 +29,11 @@ import { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, UseFormTrigger, UseFormGetValues } from 'react-hook-form'
-import { History } from 'history'
 import Routes from '../../../constants/routes'
-import { history } from '../../../core/router'
 import { useOrgId } from '../../../utils/use-org-id'
 import { fetcherWithClientCode } from '../../../utils/fetcher'
 import { ScopedMutator } from 'swr/dist/types'
+import { NavigateFunction, useNavigate } from 'react-router'
 
 export interface OfficeGroupCreateProps {}
 
@@ -52,7 +51,7 @@ interface CreateOfficeGroupSchema {
 
 export const onHandleSubmit =
   (
-    history: History,
+    navigate: NavigateFunction,
     orgId: string | null,
     mutate: ScopedMutator<any>,
     success: (message: string) => void,
@@ -74,7 +73,7 @@ export const onHandleSubmit =
         return setTimeout(() => {
           success(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
           mutate(`${URLS.ORGANISATIONS}/${orgId}/${URLS.OFFICES_GROUPS}`)
-          history.push(Routes.OFFICES_GROUPS)
+          navigate(Routes.OFFICES_GROUPS)
         }, 1000)
       }
 
@@ -138,6 +137,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
   const [searchString, setSearchString] = useState<string>('')
   const [options, setOptions] = useState<MultiSelectOption[]>([])
   const [selectedStep, setSelectedStep] = useState<string>('1')
+  const navigate = useNavigate()
   const { mutate } = useSWRConfig()
   const {
     orgIdState: { orgId, orgClientId, orgName },
@@ -154,7 +154,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
 
   const offices = data?._embedded ?? []
 
-  const onSubmit = onHandleSubmit(history, orgId, mutate, success, error)
+  const onSubmit = onHandleSubmit(navigate, orgId, mutate, success, error)
 
   const {
     register,

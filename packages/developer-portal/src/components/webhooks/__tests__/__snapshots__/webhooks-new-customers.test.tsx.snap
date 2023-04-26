@@ -1,189 +1,191 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WebhooksNewCustomers should match a snapshot where there are customers 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="ec47sgk-el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <p
-          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
-        </p>
+        </mock-styled.p>
       </div>
-      <div
-        class="e6p05ya-el-fade-in ee6e7by-el-form-layout"
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="ee8eqmp-el-input-wrap-med"
-        >
-          <div
-            class="e1979rmu-el-input-group"
-          >
-            <div
-              class="eooz7jy-el-multi-select-input-wrapper"
-            >
-              <input
-                class="eg4njbl-el-multi-select-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="customer-ids"
               />
-              <div
-                class="e12c6sou-el-multi-select-selected"
+              <mock-styled.div
+                classname=""
               />
-              <div
-                class="ef7odf0-el-multi-select-un-selected"
+              <mock-styled.div
+                classname=""
               >
-                <input
-                  class="e1wdkc9j-el-multi-select-checkbox"
+                <mock-styled.input
                   id="test-static-id"
                   type="checkbox"
                 />
-                <label
-                  class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
                 >
                   All Customers
-                </label>
-                <input
-                  class="e1wdkc9j-el-multi-select-checkbox"
+                </mock-styled.label>
+                <mock-styled.input
                   id="test-static-id"
                   type="checkbox"
                 />
-                <label
-                  class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
                 >
                   Sandbox Estates
-                </label>
-                <input
-                  class="e1wdkc9j-el-multi-select-checkbox"
+                </mock-styled.label>
+                <mock-styled.input
                   id="test-static-id"
                   type="checkbox"
                 />
-                <label
-                  class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
                 >
                   Reapit Sales
-                </label>
-                <input
-                  class="e1wdkc9j-el-multi-select-checkbox"
+                </mock-styled.label>
+                <mock-styled.input
                   id="test-static-id"
                   type="checkbox"
                 />
-                <label
-                  class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
                 >
                   Foo Bar
-                </label>
-              </div>
-            </div>
-            <label
-              class="e1nbkkrq-el-label"
-            >
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.label>
               Subscription Customers
-            </label>
-          </div>
-        </div>
-      </div>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="ec47sgk-el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <p
-        class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
+      <mock-styled.p
+        classname="mock-css. mock-css."
       >
         Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
-      </p>
+      </mock-styled.p>
     </div>
-    <div
-      class="e6p05ya-el-fade-in ee6e7by-el-form-layout"
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="ee8eqmp-el-input-wrap-med"
-      >
-        <div
-          class="e1979rmu-el-input-group"
-        >
-          <div
-            class="eooz7jy-el-multi-select-input-wrapper"
-          >
-            <input
-              class="eg4njbl-el-multi-select-input"
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="customer-ids"
             />
-            <div
-              class="e12c6sou-el-multi-select-selected"
+            <mock-styled.div
+              classname=""
             />
-            <div
-              class="ef7odf0-el-multi-select-un-selected"
+            <mock-styled.div
+              classname=""
             >
-              <input
-                class="e1wdkc9j-el-multi-select-checkbox"
+              <mock-styled.input
                 id="test-static-id"
                 type="checkbox"
               />
-              <label
-                class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-                for="test-static-id"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
               >
                 All Customers
-              </label>
-              <input
-                class="e1wdkc9j-el-multi-select-checkbox"
+              </mock-styled.label>
+              <mock-styled.input
                 id="test-static-id"
                 type="checkbox"
               />
-              <label
-                class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-                for="test-static-id"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
               >
                 Sandbox Estates
-              </label>
-              <input
-                class="e1wdkc9j-el-multi-select-checkbox"
+              </mock-styled.label>
+              <mock-styled.input
                 id="test-static-id"
                 type="checkbox"
               />
-              <label
-                class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-                for="test-static-id"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
               >
                 Reapit Sales
-              </label>
-              <input
-                class="e1wdkc9j-el-multi-select-checkbox"
+              </mock-styled.label>
+              <mock-styled.input
                 id="test-static-id"
                 type="checkbox"
               />
-              <label
-                class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
-                for="test-static-id"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
               >
                 Foo Bar
-              </label>
-            </div>
-          </div>
-          <label
-            class="e1nbkkrq-el-label"
-          >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.label>
             Subscription Customers
-          </label>
-        </div>
-      </div>
-    </div>
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

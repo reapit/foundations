@@ -7,14 +7,14 @@ import SettingsInstalled, {
   handleUninstallSuccess,
 } from '../settings-installed'
 import { render, setViewport } from '../../../tests/react-testing'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockInstallationModelPagedResult } from '../../../tests/__stubs__/installations'
 import { useReapitConnect } from '@reapit/connect-session'
 import { TrackingEvent } from '../../../core/analytics-events'
 import { trackEvent } from '../../../core/analytics'
 
-window.reapit.config.clientHiddenAppIds = {}
-window.reapit.config.orgAdminRestrictedAppIds = []
+process.env.clientHiddenAppIds = {}
+process.env.orgAdminRestrictedAppIds = []
 
 jest.mock('../../../core/analytics')
 jest.mock('@reapit/connect-session', () => ({
@@ -30,7 +30,8 @@ jest.mock('@reapit/connect-session', () => ({
   })),
 }))
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(),
   useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn()]),
 }))

@@ -51,6 +51,7 @@ const Routes = {
   ELEMENTS: '/elements',
   SELECT_ROLE: '/select-role',
   IAAS: '/iaas',
+  HOME: '/',
 }
 
 export default Routes

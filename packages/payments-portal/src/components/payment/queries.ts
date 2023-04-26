@@ -14,7 +14,7 @@ import {
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 
 export const useClientConfig = (session: string | null, clientCode: string | null, paymentId?: string) => {
-  const url = `${window.reapit.config.paymentsApiUrl}/config/public/${paymentId}`
+  const url = `${process.env.paymentsApiUrl}/config/public/${paymentId}`
 
   const { data, error: configError } = useQuery([url, clientCode, session], {
     queryFn: async () => {
@@ -22,8 +22,8 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
-          'reapit-app-id': window.reapit.config.appId,
-          'X-Api-Key': window.reapit.config.apiKey,
+          'reapit-app-id': process.env.appId,
+          'X-Api-Key': process.env.apiKey,
         },
       })
 
@@ -43,7 +43,7 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
 }
 
 export const usePayment = (session: string | null, clientCode: string | null, paymentId?: string) => {
-  const url = `${window.reapit.config.paymentsApiUrl}/payments/${paymentId}`
+  const url = `${process.env.paymentsApiUrl}/payments/${paymentId}`
 
   const { data, isLoading, refetch } = useQuery([url, clientCode, session, paymentId], {
     queryFn: async () => {
@@ -51,9 +51,9 @@ export const usePayment = (session: string | null, clientCode: string | null, pa
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
-          'reapit-app-id': window.reapit.config.appId,
+          'reapit-app-id': process.env.appId,
           'api-version': 'latest',
-          'X-Api-Key': window.reapit.config.apiKey,
+          'X-Api-Key': process.env.apiKey,
         },
       })
 
@@ -76,7 +76,7 @@ export const usePayment = (session: string | null, clientCode: string | null, pa
 export const useReceipt = (session: string | null, clientCode: string | null, paymentId?: string) => {
   const { error, success } = useSnack()
 
-  const url = `${window.reapit.config.paymentsApiUrl}/receipt/public/${paymentId}`
+  const url = `${process.env.paymentsApiUrl}/receipt/public/${paymentId}`
 
   const { mutateAsync, isLoading } = useMutation([url, clientCode, session, paymentId], {
     mutationFn: async (receipt: PaymentEmailReceipt) => {
@@ -86,8 +86,8 @@ export const useReceipt = (session: string | null, clientCode: string | null, pa
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
-          'reapit-app-id': window.reapit.config.appId,
-          'X-Api-Key': window.reapit.config.apiKey,
+          'reapit-app-id': process.env.appId,
+          'X-Api-Key': process.env.apiKey,
         },
       })
 
@@ -116,7 +116,7 @@ export const useStatusUpdate = (session: string | null, clientCode: string | nul
   const paymentId = payment?.id
   const eTag = payment?._eTag
 
-  const url = `${window.reapit.config.paymentsApiUrl}/payments/${paymentId}`
+  const url = `${process.env.paymentsApiUrl}/payments/${paymentId}`
 
   const { mutateAsync, isLoading } = useMutation([url, clientCode, session, payment], {
     mutationFn: async (receipt: UpdateStatusBody) => {
@@ -126,10 +126,10 @@ export const useStatusUpdate = (session: string | null, clientCode: string | nul
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
-          'reapit-app-id': window.reapit.config.appId,
+          'reapit-app-id': process.env.appId,
           'If-Match': eTag as string,
           'api-version': 'latest',
-          'X-Api-Key': window.reapit.config.apiKey,
+          'X-Api-Key': process.env.apiKey,
         },
       })
 
@@ -149,8 +149,8 @@ export const useStatusUpdate = (session: string | null, clientCode: string | nul
   }
 }
 
-export const useTransaction = (session: string | null, clientCode: string | null, paymentId: string | null) => {
-  const url = `${window.reapit.config.paymentsApiUrl}/opayo/public/transactions/${paymentId}`
+export const useTransaction = (session: string | null, clientCode: string | null, paymentId?: string | null) => {
+  const url = `${process.env.paymentsApiUrl}/opayo/public/transactions/${paymentId}`
 
   const { mutateAsync } = useMutation([url, clientCode, session, paymentId], {
     mutationFn: async (transaction: CreateTransactionModel) => {
@@ -158,8 +158,8 @@ export const useTransaction = (session: string | null, clientCode: string | null
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
-          'reapit-app-id': window.reapit.config.appId,
-          'X-Api-Key': window.reapit.config.apiKey,
+          'reapit-app-id': process.env.appId,
+          'X-Api-Key': process.env.apiKey,
         },
       })
 
@@ -177,8 +177,8 @@ export const useTransaction = (session: string | null, clientCode: string | null
   }
 }
 
-export const useMerchantKey = (session: string | null, config: ClientConfigModel | null, paymentId: string | null) => {
-  const url = `${window.reapit.config.paymentsApiUrl}/opayo/public/merchant-session-keys/${paymentId}`
+export const useMerchantKey = (session: string | null, config: ClientConfigModel | null, paymentId?: string | null) => {
+  const url = `${process.env.paymentsApiUrl}/opayo/public/merchant-session-keys/${paymentId}`
   const { clientCode, isConfigured } = config ?? {}
 
   const { data, isLoading, refetch } = useQuery([url, clientCode, session, paymentId], {
@@ -187,8 +187,8 @@ export const useMerchantKey = (session: string | null, config: ClientConfigModel
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
-          'reapit-app-id': window.reapit.config.appId,
-          'X-Api-Key': window.reapit.config.apiKey,
+          'reapit-app-id': process.env.appId,
+          'X-Api-Key': process.env.apiKey,
         },
       })
 

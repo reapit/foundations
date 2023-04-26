@@ -109,7 +109,7 @@ export const CreateSubscriptions: FC<CreateSubscriptionsProps> = ({ subscription
 
   const [subscriptions, , , subscriptionsRefresh] = useReapitGet<SubscriptionModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getSubscriptions],
+    action: getActions[GetActionNames.getSubscriptions],
     queryParams: {
       ...queryParams,
       pageSize: 999,
@@ -118,7 +118,7 @@ export const CreateSubscriptions: FC<CreateSubscriptionsProps> = ({ subscription
 
   const [, , cancelSubscription, subscriptionCancelled] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteSubscription],
+    action: updateActions[UpdateActionNames.deleteSubscription],
     method: 'DELETE',
     uriParams: {
       subscriptionId: currentSub?.id,
@@ -127,7 +127,7 @@ export const CreateSubscriptions: FC<CreateSubscriptionsProps> = ({ subscription
 
   const [, , createSubscription, subscriptionCreated] = useReapitUpdate<CreateSubscriptionModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createSubscription],
+    action: updateActions[UpdateActionNames.createSubscription],
     method: 'POST',
   })
 

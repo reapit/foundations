@@ -15,8 +15,8 @@ import {
   Subtitle,
   TableExpandableRow,
 } from '@reapit/elements'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { useReapitUpdate } from '@reapit/utils-react'
+import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
+import { useReapitUpdate } from '@reapit/use-reapit-data'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { object, SchemaOf, string } from 'yup'
@@ -43,7 +43,7 @@ export const PipelineEnvUpdateTableRow = ({
 }) => {
   const [sending, , func] = useReapitUpdate<{ key: string; value: string }, void>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.upsertPipelineEnvironment],
+    action: updateActions[UpdateActionNames.upsertPipelineEnvironment],
     uriParams: {
       pipelineId: appId,
     },

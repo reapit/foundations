@@ -1,28 +1,24 @@
-import { navigate, openNewPage } from '../navigation'
-import { History } from 'history'
-import { Routes } from '../../constants/routes'
+import { navigateRoute, openNewPage } from '../navigation'
+import { RoutePaths } from '../../constants/routes'
 
 describe('navigate', () => {
   it('should open a new page', () => {
-    const mockHistory = {
-      push: jest.fn(),
-    } as unknown as History
-
-    const curried = navigate(mockHistory, Routes.HOME)
+    const navigate = jest.fn()
+    const curried = navigateRoute(navigate, RoutePaths.HOME)
 
     curried()
 
-    expect(mockHistory.push).toHaveBeenCalledWith(Routes.HOME)
+    expect(navigate).toHaveBeenCalledWith(RoutePaths.HOME)
   })
 })
 
 describe('openNewPage', () => {
   it('should open a new page', () => {
     const windowSpy = ((window.open as any) = jest.fn())
-    const curried = openNewPage(Routes.HOME)
+    const curried = openNewPage(RoutePaths.HOME)
 
     curried()
 
-    expect(windowSpy).toHaveBeenCalledWith(Routes.HOME, '_blank')
+    expect(windowSpy).toHaveBeenCalledWith(RoutePaths.HOME, '_blank')
   })
 })

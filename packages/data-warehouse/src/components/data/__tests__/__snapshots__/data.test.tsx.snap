@@ -1,36 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Data should match a snapshot with data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-flex-auto el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="el-secondary-nav-container"
-        >
-          <h1
-            class="el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Data
-          </h1>
-          <span
-            class="el-mb5 el-icon-size-large el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             Support
-          </h2>
-          <p
-            class="el-has-grey-text el-small-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             Please see our
              
@@ -43,134 +45,378 @@ Object {
             </a>
              
             for further information on how to use these details to connect a number of popular BI applications.
-          </p>
-          <p
-            class="el-has-grey-text el-small-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             Please see below for more resources.
-          </p>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           >
             View Docs
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           >
             Video
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           >
             Help
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </aside>
-        <section
-          class="el-page-container"
-        >
-          <h1
-            class="el-title"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section>
+          <mock-styled.h1
+            classname=""
           >
             Sharing Data
-          </h1>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h1>
+          <mock-styled.p
+            classname="mock-css."
           >
             Our data warehouse solution can provide access to your data in a number of different formats. To get immediate access to your data in a particular format, click ‘Create Share’. The data will be published into your data warehouse and connectivity information will then be presented to you.
-          </p>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             Please note that creating a data share is a long running process and can take 30 seconds or more to complete.
-          </p>
-          <h2
-            class="el-subtitle"
+          </mock-styled.p>
+          <mock-styled.h2
+            classname=""
           >
             Available Data
-          </h2>
-          <div
-            class="el-mb11 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
+            data-has-call-to-action="false"
+            data-has-expandable-action="true"
+            data-num-columns-excl-action-col="3"
           >
-            <div
-              class="el-pn-icon"
-              data-testid="close-icon"
+            <mock-styled.div>
+              <mock-styled.div>
+                Name
+              </mock-styled.div>
+              <mock-styled.div>
+                Provider
+              </mock-styled.div>
+              <mock-styled.div>
+                Description
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
+                  style="font-size: 1.2rem;"
+                >
+                  <svg />
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-icon"
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
+                >
+                  <mock-styled.div
+                    data-narrow-label="Name"
+                  >
+                    RPS Database
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
+                >
+                  <mock-styled.div
+                    data-narrow-label="Provider"
+                  >
+                    Reapit Ltd
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div
+                    data-narrow-label="Description"
+                  >
+                    Access to legacy data
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.span
+                    classname="mock-css."
+                  >
+                    <svg />
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-pn-content"
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div
+                      classname="mock-css."
+                    >
+                      <mock-styled.button
+                        classname="mock-css."
+                        disabled="false"
+                      >
+                        Create Share
+                        <mock-styled.div />
+                      </mock-styled.button>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              No datasets available for your organisation
-            </div>
-          </div>
-          <h2
-            class="el-subtitle"
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
+                >
+                  <mock-styled.div
+                    data-narrow-label="Name"
+                  >
+                    RPS Views
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
+                >
+                  <mock-styled.div
+                    data-narrow-label="Provider"
+                  >
+                    Reapit Ltd
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div
+                    data-narrow-label="Description"
+                  >
+                    Access to legacy views
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.span
+                    classname="mock-css."
+                  >
+                    <svg />
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div
+                      classname="mock-css."
+                    >
+                      <mock-styled.button
+                        classname="mock-css."
+                        disabled="false"
+                      >
+                        Create Share
+                        <mock-styled.div />
+                      </mock-styled.button>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Data Shares
-          </h2>
-          <div
-            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
+            data-has-call-to-action="false"
+            data-has-expandable-action="true"
+            data-num-columns-excl-action-col="5"
           >
-            <div
-              class="el-pn-icon"
-              data-testid="close-icon"
+            <mock-styled.div>
+              <mock-styled.div>
+                Data Set Name
+              </mock-styled.div>
+              <mock-styled.div>
+                Database
+              </mock-styled.div>
+              <mock-styled.div>
+                Schema
+              </mock-styled.div>
+              <mock-styled.div>
+                Warehouse
+              </mock-styled.div>
+              <mock-styled.div>
+                Region
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname=""
+                  style="font-size: 1.2rem;"
+                >
+                  <svg />
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-icon"
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
+                >
+                  <mock-styled.div
+                    data-narrow-label="Data Set Name"
+                  >
+                    RPS Database
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
+                >
+                  <mock-styled.div
+                    data-narrow-label="Database"
+                  >
+                    reapit
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div
+                    data-narrow-label="Schema"
+                  >
+                    customers_rps_DEV
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div
+                    data-narrow-label="Warehouse"
+                  >
+                    STANDARD_WH
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div
+                    data-narrow-label="Region"
+                  >
+                    eu-west-1
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.span
+                    classname="mock-css."
+                  >
+                    <svg />
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-pn-content"
-            >
-              No data shares available for your organisation
-            </div>
-          </div>
-        </section>
-      </div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div
+                      classname="mock-css."
+                    >
+                      <mock-styled.button
+                        classname="mock-css."
+                      >
+                        Copy URL
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
+                      >
+                        Copy DSN
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
+                        disabled="false"
+                      >
+                        Delete Share
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
+                        disabled="false"
+                      >
+                        Refresh Share
+                        <mock-styled.div />
+                      </mock-styled.button>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-flex-auto el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Data
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Support
-        </h2>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           Please see our
            
@@ -183,105 +429,347 @@ Object {
           </a>
            
           for further information on how to use these details to connect a number of popular BI applications.
-        </p>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Please see below for more resources.
-        </p>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
         >
           View Docs
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
         >
           Video
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
         >
           Help
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           Sharing Data
-        </h1>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h1>
+        <mock-styled.p
+          classname="mock-css."
         >
           Our data warehouse solution can provide access to your data in a number of different formats. To get immediate access to your data in a particular format, click ‘Create Share’. The data will be published into your data warehouse and connectivity information will then be presented to you.
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Please note that creating a data share is a long running process and can take 30 seconds or more to complete.
-        </p>
-        <h2
-          class="el-subtitle"
+        </mock-styled.p>
+        <mock-styled.h2
+          classname=""
         >
           Available Data
-        </h2>
-        <div
-          class="el-mb11 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
+          data-has-call-to-action="false"
+          data-has-expandable-action="true"
+          data-num-columns-excl-action-col="3"
         >
-          <div
-            class="el-pn-icon"
-            data-testid="close-icon"
+          <mock-styled.div>
+            <mock-styled.div>
+              Name
+            </mock-styled.div>
+            <mock-styled.div>
+              Provider
+            </mock-styled.div>
+            <mock-styled.div>
+              Description
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
+                style="font-size: 1.2rem;"
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-icon"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.div
+                  data-narrow-label="Name"
+                >
+                  RPS Database
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.div
+                  data-narrow-label="Provider"
+                >
+                  Reapit Ltd
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.div
+                  data-narrow-label="Description"
+                >
+                  Access to legacy data
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.span
+                  classname="mock-css."
+                >
+                  <svg />
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <svg />
-            </span>
-          </div>
-          <div
-            class="el-pn-content"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
+                  >
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="false"
+                    >
+                      Create Share
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            No datasets available for your organisation
-          </div>
-        </div>
-        <h2
-          class="el-subtitle"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.div
+                  data-narrow-label="Name"
+                >
+                  RPS Views
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.div
+                  data-narrow-label="Provider"
+                >
+                  Reapit Ltd
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.div
+                  data-narrow-label="Description"
+                >
+                  Access to legacy views
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.span
+                  classname="mock-css."
+                >
+                  <svg />
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
+                  >
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="false"
+                    >
+                      Create Share
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Data Shares
-        </h2>
-        <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
+          data-has-call-to-action="false"
+          data-has-expandable-action="true"
+          data-num-columns-excl-action-col="5"
         >
-          <div
-            class="el-pn-icon"
-            data-testid="close-icon"
+          <mock-styled.div>
+            <mock-styled.div>
+              Data Set Name
+            </mock-styled.div>
+            <mock-styled.div>
+              Database
+            </mock-styled.div>
+            <mock-styled.div>
+              Schema
+            </mock-styled.div>
+            <mock-styled.div>
+              Warehouse
+            </mock-styled.div>
+            <mock-styled.div>
+              Region
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
+                style="font-size: 1.2rem;"
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <span
-              class="el-icon"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.div
+                  data-narrow-label="Data Set Name"
+                >
+                  RPS Database
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.div
+                  data-narrow-label="Database"
+                >
+                  reapit
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.div
+                  data-narrow-label="Schema"
+                >
+                  customers_rps_DEV
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.div
+                  data-narrow-label="Warehouse"
+                >
+                  STANDARD_WH
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.div
+                  data-narrow-label="Region"
+                >
+                  eu-west-1
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.span
+                  classname="mock-css."
+                >
+                  <svg />
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <svg />
-            </span>
-          </div>
-          <div
-            class="el-pn-content"
-          >
-            No data shares available for your organisation
-          </div>
-        </div>
-      </section>
-    </div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
+                  >
+                    <mock-styled.button
+                      classname="mock-css."
+                    >
+                      Copy URL
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                    >
+                      Copy DSN
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="false"
+                    >
+                      Delete Share
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="false"
+                    >
+                      Refresh Share
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -338,36 +826,38 @@ Object {
 `;
 
 exports[`Data should match a snapshot with no data and loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-flex-auto el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="el-secondary-nav-container"
-        >
-          <h1
-            class="el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Data
-          </h1>
-          <span
-            class="el-mb5 el-icon-size-large el-icon"
+          </mock-styled.h1>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             Support
-          </h2>
-          <p
-            class="el-has-grey-text el-small-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             Please see our
              
@@ -380,118 +870,114 @@ Object {
             </a>
              
             for further information on how to use these details to connect a number of popular BI applications.
-          </p>
-          <p
-            class="el-has-grey-text el-small-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             Please see below for more resources.
-          </p>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           >
             View Docs
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           >
             Video
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
           >
             Help
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </aside>
-        <section
-          class="el-page-container"
-        >
-          <h1
-            class="el-title"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section>
+          <mock-styled.h1
+            classname=""
           >
             Sharing Data
-          </h1>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.h1>
+          <mock-styled.p
+            classname="mock-css."
           >
             Our data warehouse solution can provide access to your data in a number of different formats. To get immediate access to your data in a particular format, click ‘Create Share’. The data will be published into your data warehouse and connectivity information will then be presented to you.
-          </p>
-          <p
-            class="el-has-grey-text el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             Please note that creating a data share is a long running process and can take 30 seconds or more to complete.
-          </p>
-          <h2
-            class="el-subtitle"
+          </mock-styled.p>
+          <mock-styled.h2
+            classname=""
           >
             Available Data
-          </h2>
-          <div
-            class="el-loader-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-mb11 el-loader"
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 2.5rem;
+"
             >
-              <div
-                class="el-loader-moving-bar"
-              />
-            </div>
-          </div>
-          <h2
-            class="el-subtitle"
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Data Shares
-          </h2>
-          <div
-            class="el-loader-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-loader"
-            >
-              <div
-                class="el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </section>
-      </div>
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-flex-auto el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Data
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <h2
-          class="el-subtitle"
+        </mock-styled.span>
+        <mock-styled.h2
+          classname=""
         >
           Support
-        </h2>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           Please see our
            
@@ -504,89 +990,83 @@ Object {
           </a>
            
           for further information on how to use these details to connect a number of popular BI applications.
-        </p>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Please see below for more resources.
-        </p>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
         >
           View Docs
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
         >
           Video
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
         >
           Help
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section>
+        <mock-styled.h1
+          classname=""
         >
           Sharing Data
-        </h1>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h1>
+        <mock-styled.p
+          classname="mock-css."
         >
           Our data warehouse solution can provide access to your data in a number of different formats. To get immediate access to your data in a particular format, click ‘Create Share’. The data will be published into your data warehouse and connectivity information will then be presented to you.
-        </p>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Please note that creating a data share is a long running process and can take 30 seconds or more to complete.
-        </p>
-        <h2
-          class="el-subtitle"
+        </mock-styled.p>
+        <mock-styled.h2
+          classname=""
         >
           Available Data
-        </h2>
-        <div
-          class="el-loader-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-mb11 el-loader"
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
           >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-        <h2
-          class="el-subtitle"
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Data Shares
-        </h2>
-        <div
-          class="el-loader-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
-    </div>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

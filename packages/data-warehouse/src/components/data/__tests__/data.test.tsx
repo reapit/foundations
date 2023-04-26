@@ -1,11 +1,12 @@
 import React from 'react'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { render } from '../../../tests/react-testing'
 import { mockDataSets } from '../../../tests/__stubs__/data-sets'
 import Data from '../data'
 import { mockShares } from '../../../tests/__stubs__/shares'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, false]),
 }))
 

@@ -32,7 +32,7 @@ export const AppsPage: FC = () => {
 
   const [apps, appsLoading, , appsRefresh] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams: {
       ...queryParams,
       pageNumber,

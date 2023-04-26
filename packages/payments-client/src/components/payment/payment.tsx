@@ -123,7 +123,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
 
   const [property, propertyLoading] = useReapitGet<PropertyModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPropertyById],
+    action: getActions[GetActionNames.getPropertyById],
     uriParams: {
       propertyId,
     },
@@ -132,12 +132,12 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
 
   const [receiptLoading, , receiptSubmit] = useReapitUpdate<PaymentEmailReceipt, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.submitPrivatePaymentReceipt],
+    action: updateActions[UpdateActionNames.submitPrivatePaymentReceipt],
     method: 'POST',
     headers: {
       Authorization: idToken,
       'reapit-customer': clientCode as string,
-      'reapit-app-id': window.reapit.config.appId,
+      'reapit-app-id': process.env.appId,
     },
     uriParams: {
       paymentId,
@@ -146,7 +146,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
 
   const [statusLoading, , statusSubmit] = useReapitUpdate<UpdateStatusBody, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.privatePaymentUpdate],
+    action: updateActions[UpdateActionNames.privatePaymentUpdate],
     method: 'PATCH',
     headers: {
       'if-match': payment?._eTag as string,
@@ -158,25 +158,25 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
 
   const [merchantKeyLoading, merchantKey, getMerchantKey] = useReapitUpdate<void, MerchantKey>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.getOpayoMerchantKey],
+    action: updateActions[UpdateActionNames.getOpayoMerchantKey],
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
     headers: {
       Authorization: idToken,
       'reapit-customer': clientCode as string,
-      'reapit-app-id': window.reapit.config.appId,
+      'reapit-app-id': process.env.appId,
     },
   })
 
   const [, , transactionSubmit] = useReapitUpdate<CreateTransactionModel, ThreeDSecureResponse>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.submitOpayoTransaction],
+    action: updateActions[UpdateActionNames.submitOpayoTransaction],
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
     headers: {
       Authorization: idToken,
       'reapit-customer': clientCode as string,
-      'reapit-app-id': window.reapit.config.appId,
+      'reapit-app-id': process.env.appId,
     },
   })
 

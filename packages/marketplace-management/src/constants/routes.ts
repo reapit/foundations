@@ -9,6 +9,7 @@ const Routes = {
   MARKETPLACE_APP: '/marketplace-apps/:appId',
   ACCESS_DENIED: '/access-denied',
   OK: '/ok',
+  HOME: '/',
 }
 
 export default Routes

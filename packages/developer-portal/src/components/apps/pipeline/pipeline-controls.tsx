@@ -2,8 +2,14 @@ import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { BodyText, Button, ButtonGroup, Subtitle, elMb3, elFadeIn, Icon, SmallText, useModal } from '@reapit/elements'
-import { httpsUrlRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
+import { httpsUrlRegex } from '@reapit/utils-common'
+import {
+  SendFunction,
+  UpdateReturnTypeEnum,
+  useReapitUpdate,
+  UpdateActionNames,
+  updateActions,
+} from '@reapit/use-reapit-data'
 import { useAppState } from '../state/use-app-state'
 import {
   AppDetailModel,
@@ -14,8 +20,8 @@ import {
   pipelinePreprovisionedFlow,
   pipelineProvisioning,
 } from '@reapit/foundations-ts-definitions'
-import { ExternalPages, navigate, openNewPage } from '../../../utils/navigation'
-import { useHistory, useLocation } from 'react-router'
+import { ExternalPages, navigateRoute, openNewPage } from '../../../utils/navigation'
+import { useNavigate, useLocation } from 'react-router'
 import { formatFormValues } from '../utils/format-form-values'
 import { formatAppFields } from '../utils/handle-default-form-values'
 import { AppEditFormSchema } from '../edit/form-schema/form-fields'
@@ -105,7 +111,7 @@ export const handleDeletePipeline =
 
 export const PipelineControls: FC = () => {
   const location = useLocation()
-  const history = useHistory()
+  const navigate = useNavigate()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState, appId, appsDataState } = useAppState()
   const { Modal, openModal, closeModal } = useModal()
@@ -122,7 +128,7 @@ export const PipelineControls: FC = () => {
 
   const [deleteLoading, , deleteFunc] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deletePipeline],
+    action: updateActions[UpdateActionNames.deletePipeline],
     uriParams: {
       appId: appPipeline?.id,
     },
@@ -134,7 +140,7 @@ export const PipelineControls: FC = () => {
 
   const [pipelineRunnerLoading, updatePipelineRunnerSuccess, updatePipelineRunner] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createPipelineDeployment],
+    action: updateActions[UpdateActionNames.createPipelineDeployment],
     uriParams: {
       pipelineId: appPipeline?.id,
     },
@@ -147,7 +153,7 @@ export const PipelineControls: FC = () => {
   const [, , sendPipelineUpdate] = useReapitUpdate<PipelineModelInterface, PipelineModelInterface>({
     reapitConnectBrowserSession,
     method: 'PUT',
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updatePipeline],
+    action: updateActions[UpdateActionNames.updatePipeline],
     uriParams: {
       pipelineId: appPipeline?.id,
     },
@@ -159,7 +165,7 @@ export const PipelineControls: FC = () => {
 
   const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createAppRevsion],
+    action: updateActions[UpdateActionNames.createAppRevsion],
     method: 'POST',
     uriParams: {
       appId,
@@ -243,7 +249,7 @@ export const PipelineControls: FC = () => {
         <Button
           className={elMb3}
           intent="secondary"
-          onClick={navigate(history, `${Routes.APPS}/${appId}/pipeline/configure`)}
+          onClick={navigateRoute(navigate, `${Routes.APPS}/${appId}/pipeline/configure`)}
         >
           Configure
         </Button>

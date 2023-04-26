@@ -1,29 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppConsents should match snapshot where nothing is returned 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <h2
-        class="el-mt5 el-subtitle"
+      <mock-styled.div />
+      <mock-styled.h2
+        classname="mock-css.
+  margin-top: 0.75rem;
+"
       >
          Consents
-      </h2>
+      </mock-styled.h2>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h2
-      class="el-mt5 el-subtitle"
+    <mock-styled.div />
+    <mock-styled.h2
+      classname="mock-css.
+  margin-top: 0.75rem;
+"
     >
        Consents
-    </h2>
+    </mock-styled.h2>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -80,51 +80,43 @@ Object {
 `;
 
 exports[`AppConsents should match snapshot where the app is loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <h2
-        class="el-mt5 el-subtitle"
+      <mock-styled.div />
+      <mock-styled.h2
+        classname="mock-css.
+  margin-top: 0.75rem;
+"
       >
          Consents
-      </h2>
-      <div
-        class="el-loader-container"
+      </mock-styled.h2>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h2
-      class="el-mt5 el-subtitle"
+    <mock-styled.div />
+    <mock-styled.h2
+      classname="mock-css.
+  margin-top: 0.75rem;
+"
     >
        Consents
-    </h2>
-    <div
-      class="el-loader-container"
+    </mock-styled.h2>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-loader"
-      >
-        <div
-          class="el-loader-moving-bar"
-        />
-      </div>
-    </div>
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -181,105 +173,131 @@ Object {
 `;
 
 exports[`AppConsents should match snapshot where there are no consents returned 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <h2
-        class="el-mt5 el-subtitle"
+      <mock-styled.div />
+      <mock-styled.h2
+        classname="mock-css.
+  margin-top: 0.75rem;
+"
       >
         Reapit Insights
          Consents
-      </h2>
+      </mock-styled.h2>
       <div>
-        <div
-          class="el-mb11 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             No record of any consents for this app - you can send these from the link below.
           </div>
-        </div>
+        </mock-styled.div>
       </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-center el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-primary el-button-fixed-width el-button"
+          <mock-styled.button
+            classname="mock-css. mock-css."
           >
             Send Requests
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h2
-      class="el-mt5 el-subtitle"
+    <mock-styled.div />
+    <mock-styled.h2
+      classname="mock-css.
+  margin-top: 0.75rem;
+"
     >
       Reapit Insights
        Consents
-    </h2>
+    </mock-styled.h2>
     <div>
-      <div
-        class="el-mb11 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css. mock-css. mock-css. mock-css."
       >
         <div
-          class="el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           No record of any consents for this app - you can send these from the link below.
         </div>
-      </div>
+      </mock-styled.div>
     </div>
-    <div
-      class="el-button-group"
-    >
-      <div
-        class="el-button-group-align-center el-button-group-inner"
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="el-intent-primary el-button-fixed-width el-button"
+        <mock-styled.button
+          classname="mock-css. mock-css."
         >
           Send Requests
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -336,263 +354,211 @@ Object {
 `;
 
 exports[`AppConsents should match snapshot with consents and an approval 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <h2
-        class="el-mt5 el-subtitle"
+      <mock-styled.div />
+      <mock-styled.h2
+        classname="mock-css.
+  margin-top: 0.75rem;
+"
       >
         Reapit Insights
          Consents
-      </h2>
-      <div
-        class="el-table"
+      </mock-styled.h2>
+      <mock-styled.div
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="5"
       >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             Client
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Email
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Date Sent
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Status
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Date Accepted
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Resend Email
-          </div>
-        </div>
-        <div
-          class="el-table-row-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Client"
               />
-            </div>
-            <div
-              class="el-table-cell"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Email"
               >
                 test@example.com
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Date Sent"
               >
                 22/09/2022 13:38
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Status"
               >
                 Pending
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Date Accepted"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="el-table-cta-cell"
-            >
-              <div
-                class="el-table-cta-icon-container"
-              >
-                <span
-                  class="el-intent-primary el-icon"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h2
-      class="el-mt5 el-subtitle"
+    <mock-styled.div />
+    <mock-styled.h2
+      classname="mock-css.
+  margin-top: 0.75rem;
+"
     >
       Reapit Insights
        Consents
-    </h2>
-    <div
-      class="el-table"
+    </mock-styled.h2>
+    <mock-styled.div
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="5"
     >
-      <div
-        class="el-table-headers-row"
-      >
-        <div
-          class="el-table-header"
-        >
+      <mock-styled.div>
+        <mock-styled.div>
           Client
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Email
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Date Sent
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Status
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Date Accepted
-        </div>
-        <div
-          class="el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Resend Email
-        </div>
-      </div>
-      <div
-        class="el-table-row-container"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-table-row"
-        >
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <span
-              class="el-intent-secondary el-icon"
+            <mock-styled.span
+              classname="mock-css."
             >
               <svg />
-            </span>
-            <div
-              class="el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Client"
             />
-          </div>
-          <div
-            class="el-table-cell"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Email"
             >
               test@example.com
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Date Sent"
             >
               22/09/2022 13:38
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Status"
             >
               Pending
-            </div>
-          </div>
-          <div
-            class="el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Date Accepted"
             >
               -
-            </div>
-          </div>
-          <div
-            class="el-table-cta-cell"
-          >
-            <div
-              class="el-table-cta-icon-container"
-            >
-              <span
-                class="el-intent-primary el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

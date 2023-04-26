@@ -1,11 +1,12 @@
 import React from 'react'
 import AppInstallations, { handleSetInstallationId, handleUninstallApp, handleUninstallSuccess } from '..'
 import { render, setViewport } from '../../../../tests/react-testing'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockInstallationModelPagedResult } from '../../../../tests/__stubs__/installations'
 
 jest.mock('../../state/use-app-state')
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(),
   useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn()]),
 }))

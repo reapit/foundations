@@ -1,29 +1,26 @@
-import * as React from 'react'
-import { Redirect, Route, Router as BrowserRouter, Switch } from 'react-router-dom'
+import React, { lazy } from 'react'
+import { Navigate, Route, BrowserRouter, Routes } from 'react-router-dom'
 import { catchChunkError } from '@reapit/utils-react'
-import Routes from '../constants/routes'
-import PrivateRoute from './private-route'
-import PrivateRouteWrapper from './private-route-wrapper'
-import { createBrowserHistory, History } from 'history'
+import RoutePaths from '../constants/routes'
+import { PrivateRouteWrapper } from './private-route-wrapper'
 import { OkayPage } from '@reapit/utils-react'
 import { PageContainer, PersistentNotification } from '@reapit/elements'
 import { FC } from 'react'
 
-export const history: History<any> = createBrowserHistory()
-const CustomerRegister = React.lazy(() => catchChunkError(() => import('../components/register/customer-register')))
-const Login = React.lazy(() => catchChunkError(() => import('../components/login')))
-const Register = React.lazy(() => catchChunkError(() => import('../components/register')))
-const Apps = React.lazy(() => catchChunkError(() => import('../components/apps')))
-const ApiPage = React.lazy(() => catchChunkError(() => import('../components/api')))
-const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/docs')))
-const AnalyticsPage = React.lazy(() => catchChunkError(() => import('../components/analytics')))
-const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/register/register-confirm')))
-const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/settings')))
-const Invite = React.lazy(() => catchChunkError(() => import('../components/register/invite')))
-const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/elements')))
-const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/login/select-role')))
-const IaaS = React.lazy(() => catchChunkError(() => import('../components/iaas')))
-const DeveloperEditionDownload = React.lazy(() =>
+const CustomerRegister = lazy(() => catchChunkError(() => import('../components/register/customer-register')))
+const Login = lazy(() => catchChunkError(() => import('../components/login')))
+const Register = lazy(() => catchChunkError(() => import('../components/register')))
+const Apps = lazy(() => catchChunkError(() => import('../components/apps')))
+const ApiPage = lazy(() => catchChunkError(() => import('../components/api')))
+const ApiDocsPage = lazy(() => catchChunkError(() => import('../components/docs')))
+const AnalyticsPage = lazy(() => catchChunkError(() => import('../components/analytics')))
+const RegisterConfirm = lazy(() => catchChunkError(() => import('../components/register/register-confirm')))
+const SettingsPage = lazy(() => catchChunkError(() => import('../components/settings')))
+const Invite = lazy(() => catchChunkError(() => import('../components/register/invite')))
+const ElementsPage = lazy(() => catchChunkError(() => import('../components/elements')))
+const SelectRolePage = lazy(() => catchChunkError(() => import('../components/login/select-role')))
+const IaaS = lazy(() => catchChunkError(() => import('../components/iaas')))
+const DeveloperEditionDownload = lazy(() =>
   catchChunkError(() => import('../components/desktop/developer-edition-download')),
 )
 
@@ -35,45 +32,130 @@ export const FourOFour: FC = () => (
   </PageContainer>
 )
 
-const Router = () => {
+export const RoutesComponent = () => {
   return (
-    <BrowserRouter history={history}>
-      <React.Suspense fallback={null}>
-        <Switch>
-          <Route path={Routes.OK} exact render={() => <OkayPage />} />
-          <Route path={Routes.LOGIN} exact render={() => <Login />} />
-          <Route path={Routes.REGISTER} exact render={() => <Register />} />
-          <Route path={Routes.REGISTER_LEGACY} render={() => <Redirect to={Routes.SELECT_ROLE} />} />
-          <Route path={Routes.SELECT_ROLE} exact component={SelectRolePage} />
-          <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
-          <Route path={Routes.FOUR_O_FOUR} exact render={() => <FourOFour />} />
-          <Route path={Routes.INVITE} component={Invite} />
-          <PrivateRouteWrapper path="/">
-            <Switch>
-              <PrivateRoute path={Routes.CUSTOMER_REGISTER} exact component={CustomerRegister} />
-              <PrivateRoute path={Routes.APPS} component={Apps} />
-              <PrivateRoute path={Routes.ANALYTICS} component={AnalyticsPage} />
-              <PrivateRoute path={Routes.API_DOCS} component={ApiDocsPage} />
-              <PrivateRoute path={Routes.ANALYTICS_SCHEMA_DOCS} component={ApiDocsPage} />
-              <PrivateRoute path={Routes.WEBHOOKS} component={ApiPage} />
-              <PrivateRoute path={Routes.WEBHOOKS_MANAGE} component={ApiPage} />
-              <PrivateRoute path={Routes.WEBHOOKS_ABOUT} component={ApiPage} />
-              <PrivateRoute path={Routes.WEBHOOKS_NEW} component={ApiPage} />
-              <PrivateRoute path={Routes.WEBHOOKS_LOGS} component={ApiPage} />
-              <PrivateRoute path={Routes.SWAGGER} exact component={ApiPage} />
-              <PrivateRoute path={Routes.DESKTOP} exact component={ApiPage} />
-              <PrivateRoute path={Routes.GRAPHQL} component={ApiPage} />
-              <PrivateRoute path={Routes.SETTINGS} component={SettingsPage} />
-              <PrivateRoute path={Routes.ELEMENTS} exact component={ElementsPage} />
-              <PrivateRoute path={Routes.IAAS} exact component={IaaS} />
-              <PrivateRoute path={Routes.DEVELOPER_EDITION_DOWNLOAD} exact component={DeveloperEditionDownload} />
-              <Route render={() => <FourOFour />} />
-            </Switch>
+    <Routes>
+      <Route path={RoutePaths.OK} element={<OkayPage />} />
+      <Route path={RoutePaths.LOGIN} element={<Login />} />
+      <Route path={RoutePaths.REGISTER} element={<Register />} />
+      <Route path={RoutePaths.REGISTER_LEGACY} element={<Navigate to={RoutePaths.SELECT_ROLE} />} />
+      <Route path={RoutePaths.SELECT_ROLE} element={<SelectRolePage />} />
+      <Route path={RoutePaths.REGISTER_CONFIRM} element={<RegisterConfirm />} />
+      <Route path={RoutePaths.FOUR_O_FOUR} element={<FourOFour />} />
+      <Route path={RoutePaths.INVITE} element={<Invite />} />
+      <Route
+        path={RoutePaths.CUSTOMER_REGISTER}
+        element={
+          <PrivateRouteWrapper>
+            <CustomerRegister />
           </PrivateRouteWrapper>
-        </Switch>
-      </React.Suspense>
-    </BrowserRouter>
+        }
+      />
+      <Route
+        path={`${RoutePaths.APPS}/*`}
+        element={
+          <PrivateRouteWrapper>
+            <Apps />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={`${RoutePaths.ANALYTICS}/*`}
+        element={
+          <PrivateRouteWrapper>
+            <AnalyticsPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.API_DOCS}
+        element={
+          <PrivateRouteWrapper>
+            <ApiDocsPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.ANALYTICS_SCHEMA_DOCS}
+        element={
+          <PrivateRouteWrapper>
+            <ApiDocsPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={`${RoutePaths.WEBHOOKS}/*`}
+        element={
+          <PrivateRouteWrapper>
+            <ApiPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.SWAGGER}
+        element={
+          <PrivateRouteWrapper>
+            <ApiPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.DESKTOP}
+        element={
+          <PrivateRouteWrapper>
+            <ApiPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.GRAPHQL}
+        element={
+          <PrivateRouteWrapper>
+            <ApiPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={`${RoutePaths.SETTINGS}/*`}
+        element={
+          <PrivateRouteWrapper>
+            <SettingsPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.ELEMENTS}
+        element={
+          <PrivateRouteWrapper>
+            <ElementsPage />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.IAAS}
+        element={
+          <PrivateRouteWrapper>
+            <IaaS />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route
+        path={RoutePaths.DEVELOPER_EDITION_DOWNLOAD}
+        element={
+          <PrivateRouteWrapper>
+            <DeveloperEditionDownload />
+          </PrivateRouteWrapper>
+        }
+      />
+      <Route path={RoutePaths.HOME} index element={<Navigate to={RoutePaths.APPS} replace />} />
+    </Routes>
   )
 }
+
+const Router: FC = () => (
+  <BrowserRouter>
+    <RoutesComponent />
+  </BrowserRouter>
+)
 
 export default Router

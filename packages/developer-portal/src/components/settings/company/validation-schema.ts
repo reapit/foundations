@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 import { emailRegex, isValidHttpsUrl, telephoneRegex } from '@reapit/utils-common'
-import errorMessage from '@/constants/error-messages'
+import errorMessage from '../../../constants/error-messages'
 import { boolean, object, string } from 'yup'
 import { specialCharsTest } from '../../../utils/yup'
 

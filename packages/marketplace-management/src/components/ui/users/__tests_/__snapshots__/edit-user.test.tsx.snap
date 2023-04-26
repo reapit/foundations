@@ -1,206 +1,210 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <form
-        class="el-p8"
+        class="mock-css.
+  padding: 1.5rem;
+"
       >
-        <h2
-          class="el-subtitle"
+        <mock-styled.h2
+          classname=""
         >
           Edit User
-        </h2>
-        <p
-          class="el-has-grey-text el-has-section-margin el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           Please use the section below to manage which groups this user belongs to:
-        </p>
-        <div
-          class="el-form-layout-has-margin el-fade-in el-form-layout"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="mock-css. mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <div
-            class="el-input-wrap-full"
-          >
-            <div
-              class="el-multi-select-input-wrapper"
-            >
-              <input
-                class="el-multi-select-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="user-groups-ids-GR1"
                 name="groupIds"
               />
-              <div
-                class="el-multi-select-selected"
+              <mock-styled.div
+                classname=""
               />
-              <div
-                class="el-multi-select-un-selected"
+              <mock-styled.div
+                classname=""
               >
-                <input
-                  class="el-multi-select-checkbox"
+                <mock-styled.input
                   id="test-static-id"
                   type="checkbox"
                 />
-                <label
-                  class="el-has-grey-chips el-multi-select-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
                 >
                   MarketplaceAdmin
-                </label>
-                <input
-                  class="el-multi-select-checkbox"
+                </mock-styled.label>
+                <mock-styled.input
                   id="test-static-id"
                   type="checkbox"
                 />
-                <label
-                  class="el-has-grey-chips el-multi-select-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
                 >
                   OrganisationAdmin
-                </label>
-                <input
-                  class="el-multi-select-checkbox"
+                </mock-styled.label>
+                <mock-styled.input
                   id="test-static-id"
                   type="checkbox"
                 />
-                <label
-                  class="el-has-grey-chips el-multi-select-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
                 >
                   ReapitUserAdmin
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-align-right el-button-group-inner"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="el-intent-secondary el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Cancel
-              <div
-                class="el-button-loader"
-              />
-            </button>
-            <button
-              class="el-intent-primary el-button"
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
               type="submit"
             >
               Submit
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
     <form
-      class="el-p8"
+      class="mock-css.
+  padding: 1.5rem;
+"
     >
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Edit User
-      </h2>
-      <p
-        class="el-has-grey-text el-has-section-margin el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css. mock-css."
       >
         Please use the section below to manage which groups this user belongs to:
-      </p>
-      <div
-        class="el-form-layout-has-margin el-fade-in el-form-layout"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css. mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="el-input-wrap-full"
-        >
-          <div
-            class="el-multi-select-input-wrapper"
-          >
-            <input
-              class="el-multi-select-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="user-groups-ids-GR1"
               name="groupIds"
             />
-            <div
-              class="el-multi-select-selected"
+            <mock-styled.div
+              classname=""
             />
-            <div
-              class="el-multi-select-un-selected"
+            <mock-styled.div
+              classname=""
             >
-              <input
-                class="el-multi-select-checkbox"
+              <mock-styled.input
                 id="test-static-id"
                 type="checkbox"
               />
-              <label
-                class="el-has-grey-chips el-multi-select-label"
-                for="test-static-id"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
               >
                 MarketplaceAdmin
-              </label>
-              <input
-                class="el-multi-select-checkbox"
+              </mock-styled.label>
+              <mock-styled.input
                 id="test-static-id"
                 type="checkbox"
               />
-              <label
-                class="el-has-grey-chips el-multi-select-label"
-                for="test-static-id"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
               >
                 OrganisationAdmin
-              </label>
-              <input
-                class="el-multi-select-checkbox"
+              </mock-styled.label>
+              <mock-styled.input
                 id="test-static-id"
                 type="checkbox"
               />
-              <label
-                class="el-has-grey-chips el-multi-select-label"
-                for="test-static-id"
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
               >
                 ReapitUserAdmin
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-right el-button-group-inner"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-secondary el-button"
+          <mock-styled.button
+            classname="mock-css."
             type="button"
           >
             Cancel
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-primary el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
             type="submit"
           >
             Submit
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

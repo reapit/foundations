@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export const onMarketplaceButtonClick = () => {
-  window.open(`${window.reapit.config.marketplaceUrl}/installed`, '_self')
+  window.open(`${process.env.marketplaceUrl}/installed`, '_self')
 }
 
 export const onLogoutButtonClick = () => {

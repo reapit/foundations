@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Col should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-col"
+      <mock-styled.div
+        classname=""
       >
         <p>
           I am child
         </p>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-col"
+    <mock-styled.div
+      classname=""
     >
       <p>
         I am child
       </p>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -78,27 +78,27 @@ Object {
 `;
 
 exports[`ColSplit should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-col-split"
+      <mock-styled.div
+        classname=""
       >
         <p>
           I am child
         </p>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-col-split"
+    <mock-styled.div
+      classname=""
     >
       <p>
         I am child
       </p>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -155,27 +155,27 @@ Object {
 `;
 
 exports[`Grid should match a snapshot and render children 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-grid"
+      <mock-styled.div
+        classname=""
       >
         <p>
           I am child
         </p>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-grid"
+    <mock-styled.div
+      classname=""
     >
       <p>
         I am child
       </p>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

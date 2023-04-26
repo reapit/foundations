@@ -75,7 +75,7 @@ export const HomePage: FC = () => {
 
   const [authenticators, authenticatorsLoading, , refreshAuthenticators] = useReapitGet<AuthenticatorModel[]>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getUserAuthenticators],
+    action: getActions[GetActionNames.getUserAuthenticators],
     uriParams: { userId },
     fetchWhenTrue: [userId],
   })
@@ -86,7 +86,7 @@ export const HomePage: FC = () => {
   >({
     reapitConnectBrowserSession,
     action: {
-      ...updateActions(window.reapit.config.appEnv)[UpdateActionNames.createUserAuthenticator],
+      ...updateActions[UpdateActionNames.createUserAuthenticator],
       successMessage: undefined, // no need for success toast
     },
     method: 'POST',

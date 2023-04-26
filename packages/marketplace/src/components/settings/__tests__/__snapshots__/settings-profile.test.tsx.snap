@@ -1,459 +1,403 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SettingsProfile should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-flex-justify-between el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="el-title"
+        <mock-styled.h1
+          classname=""
         >
           Profile
-        </h1>
-      </div>
-      <h2
-        class="el-has-bold-text el-subtitle"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname="mock-css."
       >
         Your Details
-      </h2>
-      <div
-        class="el-mb11 el-grid"
+      </mock-styled.h2>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-col"
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="el-has-no-margin el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Name
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             MOCK_NAME
-          </p>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="el-has-no-margin el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Email
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             foo@example.com
-          </p>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="el-has-no-margin el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Company Name
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             MOCK_ORG_NAME
-          </p>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="el-has-no-margin el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Customer Code
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             MOCK_CLIENT_ID
-          </p>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="el-has-no-margin el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Roles
-          </h2>
-          <div
-            class="roles-chip"
-          >
+          </mock-styled.h2>
+          <mock-styled.div>
             OrganisationAdmin
-          </div>
-        </div>
-      </div>
-      <h2
-        class="el-has-bold-text el-subtitle"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname="mock-css."
       >
         Update Your Password
-      </h2>
+      </mock-styled.h2>
       <form
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="password"
                 placeholder="Current Password"
                 type="password"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Current Password
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="newPassword"
                 placeholder="New Password"
                 type="password"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 New Password
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="confirmPassword"
                 placeholder="Confirm New Password"
                 type="password"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Confirm New Password
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-inner"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="submit"
             >
               Save Changes
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <h2
-        class="el-has-bold-text el-subtitle"
+      <mock-styled.h2
+        classname="mock-css."
       >
         Update Tracking Consent
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
-      </p>
-      <div
-        class="el-form-layout"
+      </mock-styled.p>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-input-wrap"
-        >
-          <input
-            checked=""
-            class="el-toggle-checkbox"
+        <mock-styled.div>
+          <mock-styled.input
             id="tracking-consent"
             type="checkbox"
           />
-          <label
-            class="el-has-grey-bg el-toggle-label"
-            for="tracking-consent"
+          <mock-styled.label
+            classname="mock-css."
+            htmlfor="tracking-consent"
           >
-            <span
-              class="el-toggle-item"
-            >
+            <mock-styled.span>
               Consent
-            </span>
-            <span
-              class="el-toggle-item"
-            >
+            </mock-styled.span>
+            <mock-styled.span>
               Deny
-            </span>
-          </label>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-flex-justify-between el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="el-title"
+      <mock-styled.h1
+        classname=""
       >
         Profile
-      </h1>
-    </div>
-    <h2
-      class="el-has-bold-text el-subtitle"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.h2
+      classname="mock-css."
     >
       Your Details
-    </h2>
-    <div
-      class="el-mb11 el-grid"
+    </mock-styled.h2>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="el-col"
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="el-has-no-margin el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Name
-        </h2>
-        <p
-          class="el-has-grey-text el-has-no-margin el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           MOCK_NAME
-        </p>
-      </div>
-      <div
-        class="el-col"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="el-has-no-margin el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Email
-        </h2>
-        <p
-          class="el-has-grey-text el-has-no-margin el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           foo@example.com
-        </p>
-      </div>
-      <div
-        class="el-col"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="el-has-no-margin el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Company Name
-        </h2>
-        <p
-          class="el-has-grey-text el-has-no-margin el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           MOCK_ORG_NAME
-        </p>
-      </div>
-      <div
-        class="el-col"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="el-has-no-margin el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Customer Code
-        </h2>
-        <p
-          class="el-has-grey-text el-has-no-margin el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           MOCK_CLIENT_ID
-        </p>
-      </div>
-      <div
-        class="el-col"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="el-has-no-margin el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Roles
-        </h2>
-        <div
-          class="roles-chip"
-        >
+        </mock-styled.h2>
+        <mock-styled.div>
           OrganisationAdmin
-        </div>
-      </div>
-    </div>
-    <h2
-      class="el-has-bold-text el-subtitle"
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.h2
+      classname="mock-css."
     >
       Update Your Password
-    </h2>
+    </mock-styled.h2>
     <form
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="password"
               placeholder="Current Password"
               type="password"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Current Password
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="newPassword"
               placeholder="New Password"
               type="password"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               New Password
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="confirmPassword"
               placeholder="Confirm New Password"
               type="password"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Confirm New Password
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-inner"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <button
-            class="el-intent-primary el-button"
+          <mock-styled.button
+            classname="mock-css."
             type="submit"
           >
             Save Changes
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
-    <h2
-      class="el-has-bold-text el-subtitle"
+    <mock-styled.h2
+      classname="mock-css."
     >
       Update Tracking Consent
-    </h2>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
-    </p>
-    <div
-      class="el-form-layout"
+    </mock-styled.p>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-input-wrap"
-      >
-        <input
-          checked=""
-          class="el-toggle-checkbox"
+      <mock-styled.div>
+        <mock-styled.input
           id="tracking-consent"
           type="checkbox"
         />
-        <label
-          class="el-has-grey-bg el-toggle-label"
-          for="tracking-consent"
+        <mock-styled.label
+          classname="mock-css."
+          htmlfor="tracking-consent"
         >
-          <span
-            class="el-toggle-item"
-          >
+          <mock-styled.span>
             Consent
-          </span>
-          <span
-            class="el-toggle-item"
-          >
+          </mock-styled.span>
+          <mock-styled.span>
             Deny
-          </span>
-        </label>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.label>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -510,491 +454,561 @@ Object {
 `;
 
 exports[`SettingsProfile should match snapshot in mobile 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-flex-justify-between el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="el-title"
+        <mock-styled.h1
+          classname=""
         >
           Profile
-        </h1>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-align-right el-button-group-inner"
+        </mock-styled.h1>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="el-intent-critical el-button-has-right-chevron el-button"
+            <mock-styled.button
+              classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
             >
               Logout
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-      <h2
-        class="el-has-bold-text el-subtitle"
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname="mock-css."
       >
         Your Details
-      </h2>
-      <div
-        class="el-mb11 el-grid"
+      </mock-styled.h2>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-col"
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="el-has-no-margin el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Name
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             MOCK_NAME
-          </p>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="el-has-no-margin el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Email
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             foo@example.com
-          </p>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="el-has-no-margin el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Company Name
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             MOCK_ORG_NAME
-          </p>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="el-has-no-margin el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Customer Code
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
           >
             MOCK_CLIENT_ID
-          </p>
-        </div>
-        <div
-          class="el-col"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <h2
-            class="el-has-no-margin el-subtitle"
+          <mock-styled.h2
+            classname="mock-css."
           >
             Roles
-          </h2>
-          <div
-            class="roles-chip"
-          >
+          </mock-styled.h2>
+          <mock-styled.div>
             OrganisationAdmin
-          </div>
-        </div>
-      </div>
-      <h2
-        class="el-has-bold-text el-subtitle"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname="mock-css."
       >
         Update Your Password
-      </h2>
+      </mock-styled.h2>
       <form
-        class="el-mb11"
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
       >
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="password"
                 placeholder="Current Password"
                 type="password"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Current Password
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="newPassword"
                 placeholder="New Password"
                 type="password"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 New Password
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="confirmPassword"
                 placeholder="Confirm New Password"
                 type="password"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Confirm New Password
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-inner"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="submit"
             >
               Save Changes
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <h2
-        class="el-has-bold-text el-subtitle"
+      <mock-styled.h2
+        classname="mock-css."
       >
         Update Tracking Consent
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
-      </p>
-      <div
-        class="el-form-layout"
+      </mock-styled.p>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-input-wrap"
-        >
-          <input
-            checked=""
-            class="el-toggle-checkbox"
+        <mock-styled.div>
+          <mock-styled.input
             id="tracking-consent"
             type="checkbox"
           />
-          <label
-            class="el-has-grey-bg el-toggle-label"
-            for="tracking-consent"
+          <mock-styled.label
+            classname="mock-css."
+            htmlfor="tracking-consent"
           >
-            <span
-              class="el-toggle-item"
-            >
+            <mock-styled.span>
               Consent
-            </span>
-            <span
-              class="el-toggle-item"
-            >
+            </mock-styled.span>
+            <mock-styled.span>
               Deny
-            </span>
-          </label>
-        </div>
-      </div>
+            </mock-styled.span>
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-flex-justify-between el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="el-title"
+      <mock-styled.h1
+        classname=""
       >
         Profile
-      </h1>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-right el-button-group-inner"
+      </mock-styled.h1>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-critical el-button-has-right-chevron el-button"
+          <mock-styled.button
+            classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
           >
             Logout
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-    <h2
-      class="el-has-bold-text el-subtitle"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.h2
+      classname="mock-css."
     >
       Your Details
-    </h2>
-    <div
-      class="el-mb11 el-grid"
+    </mock-styled.h2>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="el-col"
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="el-has-no-margin el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Name
-        </h2>
-        <p
-          class="el-has-grey-text el-has-no-margin el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           MOCK_NAME
-        </p>
-      </div>
-      <div
-        class="el-col"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="el-has-no-margin el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Email
-        </h2>
-        <p
-          class="el-has-grey-text el-has-no-margin el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           foo@example.com
-        </p>
-      </div>
-      <div
-        class="el-col"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="el-has-no-margin el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Company Name
-        </h2>
-        <p
-          class="el-has-grey-text el-has-no-margin el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           MOCK_ORG_NAME
-        </p>
-      </div>
-      <div
-        class="el-col"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="el-has-no-margin el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Customer Code
-        </h2>
-        <p
-          class="el-has-grey-text el-has-no-margin el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
         >
           MOCK_CLIENT_ID
-        </p>
-      </div>
-      <div
-        class="el-col"
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <h2
-          class="el-has-no-margin el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Roles
-        </h2>
-        <div
-          class="roles-chip"
-        >
+        </mock-styled.h2>
+        <mock-styled.div>
           OrganisationAdmin
-        </div>
-      </div>
-    </div>
-    <h2
-      class="el-has-bold-text el-subtitle"
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.h2
+      classname="mock-css."
     >
       Update Your Password
-    </h2>
+    </mock-styled.h2>
     <form
-      class="el-mb11"
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
     >
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="password"
               placeholder="Current Password"
               type="password"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Current Password
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="newPassword"
               placeholder="New Password"
               type="password"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               New Password
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="confirmPassword"
               placeholder="Confirm New Password"
               type="password"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Confirm New Password
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-inner"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <button
-            class="el-intent-primary el-button"
+          <mock-styled.button
+            classname="mock-css."
             type="submit"
           >
             Save Changes
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
-    <h2
-      class="el-has-bold-text el-subtitle"
+    <mock-styled.h2
+      classname="mock-css."
     >
       Update Tracking Consent
-    </h2>
-    <p
-      class="el-has-grey-text el-body-text"
+    </mock-styled.h2>
+    <mock-styled.p
+      classname="mock-css."
     >
       The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
-    </p>
-    <div
-      class="el-form-layout"
+    </mock-styled.p>
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="el-input-wrap"
-      >
-        <input
-          checked=""
-          class="el-toggle-checkbox"
+      <mock-styled.div>
+        <mock-styled.input
           id="tracking-consent"
           type="checkbox"
         />
-        <label
-          class="el-has-grey-bg el-toggle-label"
-          for="tracking-consent"
+        <mock-styled.label
+          classname="mock-css."
+          htmlfor="tracking-consent"
         >
-          <span
-            class="el-toggle-item"
-          >
+          <mock-styled.span>
             Consent
-          </span>
-          <span
-            class="el-toggle-item"
-          >
+          </mock-styled.span>
+          <mock-styled.span>
             Deny
-          </span>
-        </label>
-      </div>
-    </div>
+          </mock-styled.span>
+        </mock-styled.label>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

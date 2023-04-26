@@ -3,19 +3,44 @@
 exports[`Viewport should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="el-flex1 el-flex-column justify-stretch h-screen"
+    class="mock-css.
+  flex: 1 1 0%;
+ mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: stretch;
+ mock-css.
+  height: 100vh;
+"
   >
-    <div
-      class="el-flex-justify-center header el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: center;
+ mock-css.
+  background: #fff;
+  /* height: 52px; */
+  padding-top: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e3e3e3;
+"
     >
-      <div
-        class="el-flex-justify-end el-flex-align-center el-flex1 el-mt-auto el-mb-auto el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: flex-end;
+ mock-css.
+  align-items: center;
+ mock-css.
+  flex: 1 1 0%;
+ mock-css.
+  margin-top: auto;
+ mock-css.
+  margin-bottom: auto;
+"
         style="padding-left: 17px; padding-right: 17px;"
       >
-        <a
-          class="home"
-          href="/"
+        <mock-styled.div
           style="margin-right: 8px;"
+          to="/"
         >
           <svg
             fill="none"
@@ -44,30 +69,31 @@ exports[`Viewport should match a snapshot 1`] = `
               </clippath>
             </defs>
           </svg>
-        </a>
-        <div
-          class="app-name-container"
-        >
-          <span
-            class="developer-name"
-          >
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span>
              /
-          </span>
+          </mock-styled.span>
            
-          <input
-            class="app-name-input"
-            value=""
-          />
-        </div>
+          <mock-styled.input />
+        </mock-styled.div>
         <div
-          class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
+          class="mock-css.
+  flex: 1 1 0%;
+ mock-css.
+  display: flex;
+ mock-css.
+  align-items: center;
+ mock-css.
+  justify-content: flex-start;
+"
         >
-          <div
-            class="toggle-container"
-          >
-            <button
-              class="el-m2 app-builder-icon-button-with-text app-builder-icon-button el-button"
-              style="--awfk8ev-0: #f2f2f2; --a1p3rkwf-0: #646464; --a1p3rkwf-1: #bebebe; --a1p3rkwf-2: white;"
+          <mock-styled.div>
+            <mock-styled.mock-styled.div
+              classname="mock-css.
+  margin: 0.375rem;
+"
+              isactive="true"
             >
               <svg
                 fill="none"
@@ -84,144 +110,20 @@ exports[`Viewport should match a snapshot 1`] = `
                 />
               </svg>
               New Page
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
+            </mock-styled.mock-styled.div>
+          </mock-styled.div>
         </div>
-        <div
-          class="breakpoints"
-        >
-          <div
-            class="app-builder-toggle-radio el-toggle-full-width el-toggle-radio-wrap"
-          >
-            <input
-              class="el-toggle-radio"
-              id="1440"
-              name="responsive preview"
-              type="radio"
-              value="1440"
-            />
-            <label
-              class="el-toggle-full-width el-toggle-radio-label"
-              for="1440"
-            >
-              <span
-                class="el-toggle-radio-item"
-              >
-                <div
-                  class="toggle-radio-container"
-                >
-                  <svg
-                    fill="none"
-                    height="19"
-                    viewBox="0 0 20 19"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.17043 0.0239258H18.8296C19.4641 0.0239258 19.984 0.549426 19.984 1.1921V11.1279H0.0165263V1.1921C0.0165263 0.550017 0.535869 0.0239258 1.17102 0.0239258H1.17043ZM4.49857 17.1169H6.90335L7.19147 15.1936H12.8072L13.096 17.1169H15.5008V18.0712H4.49786V17.1169H4.49857ZM19.984 12.0824V13.0714C19.984 13.7135 19.4646 14.2395 18.8295 14.2395H1.17036C0.535796 14.2395 0.0158691 13.714 0.0158691 13.0714V12.0824H19.984Z"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                   Desktop
-                </div>
-              </span>
-            </label>
-            <input
-              checked=""
-              class="el-toggle-radio"
-              id="1024"
-              name="responsive preview"
-              type="radio"
-              value="1025"
-            />
-            <label
-              class="el-toggle-full-width el-toggle-radio-label"
-              for="1024"
-            >
-              <span
-                class="el-toggle-radio-item"
-              >
-                <div
-                  class="toggle-radio-container"
-                >
-                  <svg
-                    fill="none"
-                    height="17"
-                    viewBox="0 0 24 17"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M22.2949 0C23.2357 0 24 0.688477 24 1.53604V15.1596C24 16.0072 23.2357 16.6956 22.2949 16.6956H1.70508C0.764248 16.6956 0 16.0072 0 15.1596V1.53604C0 0.688477 0.764248 0 1.70508 0H22.2949ZM19.3043 7.30434C18.4399 7.30434 17.7391 8.00511 17.7391 8.86955C17.7391 9.734 18.4399 10.4348 19.3043 10.4348C20.1688 10.4348 20.8695 9.734 20.8695 8.86955C20.8695 8.00511 20.1688 7.30434 19.3043 7.30434Z"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                   Tablet
-                </div>
-              </span>
-            </label>
-            <input
-              class="el-toggle-radio"
-              id="768"
-              name="responsive preview"
-              type="radio"
-              value="767"
-            />
-            <label
-              class="el-toggle-full-width el-toggle-radio-label"
-              for="768"
-            >
-              <span
-                class="el-toggle-radio-item"
-              >
-                <div
-                  class="toggle-radio-container"
-                >
-                  <svg
-                    fill="none"
-                    height="20"
-                    viewBox="0 0 13 20"
-                    width="13"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g
-                      clip-path="url(#clip0_204_5115)"
-                    >
-                      <path
-                        clip-rule="evenodd"
-                        d="M12.2222 1.6356C12.2222 0.733102 11.5185 0 10.6522 0H1.57001C0.703707 0 0 0.733102 0 1.6356V18.3644C0 19.2669 0.703707 20 1.57001 20H10.6522C11.5185 20 12.2222 19.2669 12.2222 18.3644V1.6356ZM4.44444 17.2222C4.44444 16.3017 5.19064 15.5556 6.11111 15.5556C7.03159 15.5556 7.77778 16.3017 7.77778 17.2222C7.77778 18.1427 7.03159 18.8889 6.11111 18.8889C5.19064 18.8889 4.44444 18.1427 4.44444 17.2222ZM4.44444 1.11111C3.83079 1.11111 3.33333 1.60857 3.33333 2.22222C3.33333 2.83587 3.83079 3.33333 4.44444 3.33333H7.77778C8.39143 3.33333 8.88889 2.83587 8.88889 2.22222C8.88889 1.60857 8.39143 1.11111 7.77778 1.11111H4.44444Z"
-                        fill-rule="evenodd"
-                      />
-                    </g>
-                    <defs>
-                      <clippath
-                        id="clip0_204_5115"
-                      >
-                        <rect
-                          fill="white"
-                          height="20"
-                          width="12.2222"
-                        />
-                      </clippath>
-                    </defs>
-                  </svg>
-                   Mobile
-                </div>
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          class="select-or-input-small select-or-input-container"
-        >
-          <select
-            class="app-builder-select el-select"
+        <mock-styled.div>
+          <mock-styled.div
+            isfullwidth="true"
+            name="responsive preview"
+            options="[object Object],[object Object],[object Object]"
+          />
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
             style="max-width: 84px;"
+            value="1"
           >
             <option
               value="0.5"
@@ -238,16 +140,11 @@ exports[`Viewport should match a snapshot 1`] = `
             >
               150%
             </option>
-          </select>
-          <input
-            class="overlay-input"
-            data-form-type="other"
-            value="100%"
-          />
-        </div>
-        <button
-          class="app-builder-icon-button el-intent-primary el-button"
-          style="--awfk8ev-0: #23A4DE; margin-left: 21px; margin-right: 0px;"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          intent="primary"
+          style="margin-left: 21px; margin-right: 0px;"
         >
           <svg
             fill="none"
@@ -274,11 +171,8 @@ exports[`Viewport should match a snapshot 1`] = `
               </clippath>
             </defs>
           </svg>
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
       <div
         class="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-bottom type-dark"
         data-id="tooltip"
@@ -402,303 +296,214 @@ exports[`Viewport should match a snapshot 1`] = `
   
         </style>
       </div>
-    </div>
+    </mock-styled.div>
     <div
-      class="el-flex el-flex-row"
+      class="mock-css.
+  display: flex;
+ mock-css.
+  flex-direction: row;
+"
       style="height: calc(100vh - 56px); width: 100vw;"
     >
-      <div
-        class="transition bg-white el-w2 el-flex-column sidebar-div"
-        style="--s1xt9yg4-0: 0; overflow-y: initial;"
+      <mock-styled.div
+        classname="mock-css.
+  transition: all 0.3s;
+ mock-css.
+  background: white;
+ mock-css.
+  width: 16.6667%;
+ mock-css.
+  flex-direction: column;
+"
+        iscollapsed="false"
+        style="overflow-y: initial;"
       >
-        <div
-          class="bg-white el-border-grey-b el-flex el-flex-align-center el-px3 header-div"
+        <mock-styled.div
+          classname="mock-css.
+  background: white;
+ mock-css.
+  border-bottom: 1px solid var(--color-grey-light, '#dbdbdb');
+ mock-css.
+  display: flex;
+ mock-css.
+  align-items: center;
+ mock-css.
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+"
         >
-          <h2
-            class="subtitle-bold"
+          <mock-styled.h2
             style="margin-bottom: 0px;"
           >
             Create Page Wizard
-          </h2>
-        </div>
+          </mock-styled.h2>
+        </mock-styled.div>
         <div
           style="width: 100%; flex: 1; overflow-y: auto;"
         >
           <div
-            class="el-wfull el-flex1"
+            class="mock-css.
+  width: 100%;
+ mock-css.
+  flex: 1 1 0%;
+"
             style="padding: 20px;"
           >
-            <div
-              class="step-title"
-              style="--s1piua74-0: #23a4de; --s1piua74-1: #fff;"
+            <mock-styled.div
+              active="true"
             >
               1. Page type
-            </div>
-            <div
-              class="step-content"
-              style="--sgp7ezp-0: auto;"
+            </mock-styled.div>
+            <mock-styled.div
+              active="true"
             >
-              <div
-                class="info-box"
-              >
-                <svg
-                  class="info-bubble"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M18.4608 15.3295C19.4355 13.7866 20 11.9586 20 10C20 4.48095 15.5191 0 10 0C4.48086 0 0 4.48086 0 10C0 15.5191 4.48086 20 10 20C11.9587 20 13.7867 19.4355 15.3295 18.4608L19.3016 19.3017L18.4608 15.3295Z"
-                    fill="#23A4DE"
-                    fill-rule="evenodd"
-                  />
-                  <path
-                    clip-rule="evenodd"
-                    d="M8.06293 13.0447L8.65093 10.2688C8.7006 10.0813 8.72552 9.88174 8.72552 9.66968C8.72552 9.42005 8.66637 9.24223 8.5477 9.13602C8.42921 9.03017 8.23259 8.97717 7.95803 8.97717C7.73352 8.97717 7.53392 9.01437 7.35889 9.08933C7.40892 8.46509 7.63046 7.98814 8.02351 7.65724C8.41673 7.32632 8.88174 7.16095 9.41841 7.16095C10.0172 7.16095 10.501 7.34845 10.8693 7.72271C11.2372 8.09716 11.4214 8.6589 11.4214 9.40762C11.4214 9.71975 11.3714 10.125 11.2719 10.6243L10.6372 13.6219C10.5872 13.8088 10.5622 14.0084 10.5622 14.221C10.5622 14.4705 10.6218 14.6485 10.7401 14.7543C10.8589 14.8605 11.0552 14.9136 11.3297 14.9136C11.5548 14.9136 11.7544 14.876 11.9289 14.8014C11.8788 15.4251 11.6577 15.9026 11.2642 16.2335C10.8714 16.5638 10.4063 16.7292 9.86972 16.7292C9.27058 16.7292 8.78677 16.5423 8.41882 16.1676C8.05052 15.7934 7.86634 15.2318 7.86634 14.4831C7.86634 14.171 7.91638 13.7651 8.01645 13.266L8.06293 13.0447ZM11.1426 6.24611C10.7309 6.24611 10.3814 6.10233 10.0942 5.81531C9.80716 5.52829 9.66393 5.17897 9.66393 4.76693C9.66393 4.35528 9.80715 4.0024 10.0942 3.70945C10.3814 3.41611 10.7309 3.26953 11.1426 3.26953C11.5548 3.26953 11.9073 3.41611 12.2006 3.70945C12.4939 4.00242 12.6405 4.35526 12.6405 4.76693C12.6405 5.17894 12.4939 5.52826 12.2006 5.81531C11.9073 6.10232 11.5548 6.24611 11.1426 6.24611Z"
-                    fill="white"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-                <p
-                  class="info-text"
-                >
+              <mock-styled.div>
+                <mock-styled.div />
+                <mock-styled.p>
                   First tell us about the kind of app or integration you are building to ensure we get you authenticated correctly. By selecting an option, relevant documentation and links will appear on the right hand side of the page before progressing.
-                </p>
-              </div>
-              <div
-                class="buttons-container"
-              >
-                <div
-                  class="item-container"
+                </mock-styled.p>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  active="false"
+                  name="Table"
                 >
-                  <div
-                    class="el-m3 block cursor-move page-type-button item"
-                    style="--p4aw2t-0: #fff;"
-                  >
-                    <div
-                      class="item"
+                  <mock-styled.div>
+                    <svg
+                      fill="none"
+                      height="44"
+                      viewBox="0 0 51 44"
+                      width="51"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        fill="none"
-                        height="44"
-                        viewBox="0 0 51 44"
-                        width="51"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M2 6C2 3.79086 3.79086 2 6 2H45C47.2091 2 49 3.79086 49 6V16H2V6Z"
-                          fill="#F2F2F2"
-                        />
-                        <path
-                          d="M5.375 43H45.625C46.7852 43 47.898 42.5391 48.7188 41.7188C49.5391 40.8981 50 39.7852 50 38.625V5.375C50 4.2148 49.5391 3.102 48.7188 2.2812C47.8981 1.46089 46.7852 1 45.625 1H5.375C4.2148 1 3.102 1.46094 2.2812 2.2812C1.46089 3.1019 1 4.2148 1 5.375V38.625C1 39.7852 1.46094 40.898 2.2812 41.7188C3.1019 42.5391 4.2148 43 5.375 43ZM32.5 16.75V23.75H18.5V16.75H32.5ZM18.5 15V2.75H32.5V15H18.5ZM18.5 32.5V25.5H32.5V32.5H18.5ZM32.5 34.25V41.25H18.5V34.25H32.5ZM16.75 32.5H2.75V25.5H16.75V32.5ZM34.25 25.5H48.25V32.5H34.25V25.5ZM48.25 23.75H34.25V16.75H48.25V23.75ZM16.75 23.75H2.75V16.75H16.75V23.75ZM2.75 38.625V34.25H16.75V41.25H5.375C4.67891 41.25 4.0109 40.9734 3.5188 40.4813C3.0267 39.9891 2.75 39.321 2.75 38.625ZM45.625 41.25H34.25V34.25H48.25V38.625C48.25 39.3211 47.9734 39.9891 47.4813 40.4812C46.9891 40.9733 46.321 41.25 45.625 41.25ZM48.25 5.375V15H34.25V2.75H45.625C46.3211 2.75 46.9891 3.02656 47.4812 3.51875C47.9733 4.01094 48.25 4.679 48.25 5.375ZM5.375 2.75H16.75V15H2.75V5.375C2.75 4.67891 3.02656 4.0109 3.51875 3.5188C4.01094 3.0267 4.679 2.75 5.375 2.75Z"
-                          fill="#23A4DE"
-                          stroke="white"
-                          stroke-width="0.5"
-                        />
-                        <path
-                          d="M5.375 8C5.375 7.5168 5.7668 7.125 6.25 7.125H13.25C13.7332 7.125 14.125 7.5168 14.125 8C14.125 8.4832 13.7332 8.875 13.25 8.875H6.25C5.7668 8.875 5.375 8.4832 5.375 8ZM29.875 8C29.875 8.23203 29.7828 8.45469 29.6187 8.61875C29.4547 8.78281 29.232 8.875 29 8.875H22C21.5168 8.875 21.125 8.4832 21.125 8C21.125 7.5168 21.5168 7.125 22 7.125H29C29.232 7.125 29.4547 7.21719 29.6187 7.38125C29.7828 7.54531 29.875 7.76797 29.875 8ZM36.875 8C36.875 7.5168 37.2668 7.125 37.75 7.125H44.75C45.2332 7.125 45.625 7.5168 45.625 8C45.625 8.4832 45.2332 8.875 44.75 8.875H37.75C37.2668 8.875 36.875 8.4832 36.875 8Z"
-                          fill="#23A4DE"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    class="item-name"
-                  >
-                    Table
-                  </div>
-                </div>
-                <div
-                  class="item-container"
+                      <path
+                        d="M2 6C2 3.79086 3.79086 2 6 2H45C47.2091 2 49 3.79086 49 6V16H2V6Z"
+                        fill="#F2F2F2"
+                      />
+                      <path
+                        d="M5.375 43H45.625C46.7852 43 47.898 42.5391 48.7188 41.7188C49.5391 40.8981 50 39.7852 50 38.625V5.375C50 4.2148 49.5391 3.102 48.7188 2.2812C47.8981 1.46089 46.7852 1 45.625 1H5.375C4.2148 1 3.102 1.46094 2.2812 2.2812C1.46089 3.1019 1 4.2148 1 5.375V38.625C1 39.7852 1.46094 40.898 2.2812 41.7188C3.1019 42.5391 4.2148 43 5.375 43ZM32.5 16.75V23.75H18.5V16.75H32.5ZM18.5 15V2.75H32.5V15H18.5ZM18.5 32.5V25.5H32.5V32.5H18.5ZM32.5 34.25V41.25H18.5V34.25H32.5ZM16.75 32.5H2.75V25.5H16.75V32.5ZM34.25 25.5H48.25V32.5H34.25V25.5ZM48.25 23.75H34.25V16.75H48.25V23.75ZM16.75 23.75H2.75V16.75H16.75V23.75ZM2.75 38.625V34.25H16.75V41.25H5.375C4.67891 41.25 4.0109 40.9734 3.5188 40.4813C3.0267 39.9891 2.75 39.321 2.75 38.625ZM45.625 41.25H34.25V34.25H48.25V38.625C48.25 39.3211 47.9734 39.9891 47.4813 40.4812C46.9891 40.9733 46.321 41.25 45.625 41.25ZM48.25 5.375V15H34.25V2.75H45.625C46.3211 2.75 46.9891 3.02656 47.4812 3.51875C47.9733 4.01094 48.25 4.679 48.25 5.375ZM5.375 2.75H16.75V15H2.75V5.375C2.75 4.67891 3.02656 4.0109 3.51875 3.5188C4.01094 3.0267 4.679 2.75 5.375 2.75Z"
+                        fill="#23A4DE"
+                        stroke="white"
+                        stroke-width="0.5"
+                      />
+                      <path
+                        d="M5.375 8C5.375 7.5168 5.7668 7.125 6.25 7.125H13.25C13.7332 7.125 14.125 7.5168 14.125 8C14.125 8.4832 13.7332 8.875 13.25 8.875H6.25C5.7668 8.875 5.375 8.4832 5.375 8ZM29.875 8C29.875 8.23203 29.7828 8.45469 29.6187 8.61875C29.4547 8.78281 29.232 8.875 29 8.875H22C21.5168 8.875 21.125 8.4832 21.125 8C21.125 7.5168 21.5168 7.125 22 7.125H29C29.232 7.125 29.4547 7.21719 29.6187 7.38125C29.7828 7.54531 29.875 7.76797 29.875 8ZM36.875 8C36.875 7.5168 37.2668 7.125 37.75 7.125H44.75C45.2332 7.125 45.625 7.5168 45.625 8C45.625 8.4832 45.2332 8.875 44.75 8.875H37.75C37.2668 8.875 36.875 8.4832 36.875 8Z"
+                        fill="#23A4DE"
+                      />
+                    </svg>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  active="false"
+                  name="Form"
                 >
-                  <div
-                    class="el-m3 block cursor-move page-type-button item"
-                    style="--p4aw2t-0: #fff;"
-                  >
-                    <div
-                      class="item"
+                  <mock-styled.div>
+                    <svg
+                      fill="none"
+                      height="41"
+                      viewBox="0 0 45 41"
+                      width="45"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        fill="none"
-                        height="41"
-                        viewBox="0 0 45 41"
-                        width="45"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.5 9.5H44.5V37C44.5 38.933 42.933 40.5 41 40.5H4C2.067 40.5 0.5 38.933 0.5 37V9.5Z"
-                          fill="white"
-                          stroke="#23A4DE"
-                        />
-                        <path
-                          d="M2 12H43V28H2V12Z"
-                          fill="#F2F2F2"
-                        />
-                        <path
-                          d="M37.5 16.8475H7.01321C6.53458 16.8475 6.15 16.4657 6.15 15.9987C6.15 15.5318 6.53458 15.15 7.01321 15.15H37.5C37.9791 15.15 38.3632 15.5317 38.3632 15.9987C38.3632 16.4657 37.9791 16.8475 37.5 16.8475Z"
-                          fill="#23A4DE"
-                          stroke="#F2F2F2"
-                          stroke-width="0.3"
-                        />
-                        <path
-                          d="M35.5 24.8475H10.0132C9.53458 24.8475 9.15 24.4657 9.15 23.9987C9.15 23.5318 9.53458 23.15 10.0132 23.15H35.5C35.9791 23.15 36.3632 23.5317 36.3632 23.9987C36.3632 24.4657 35.9791 24.8475 35.5 24.8475Z"
-                          fill="#23A4DE"
-                          stroke="#F2F2F2"
-                          stroke-width="0.3"
-                        />
-                        <path
-                          d="M32.5 20.8475H13.0132C12.5346 20.8475 12.15 20.4657 12.15 19.9987C12.15 19.5318 12.5346 19.15 13.0132 19.15H32.5C32.9791 19.15 33.3632 19.5317 33.3632 19.9987C33.3632 20.4657 32.9791 20.8475 32.5 20.8475Z"
-                          fill="#23A4DE"
-                          stroke="#F2F2F2"
-                          stroke-width="0.3"
-                        />
-                        <path
-                          d="M14 35C14 33.8954 14.8954 33 16 33H30C31.1046 33 32 33.8954 32 35C32 36.1046 31.1046 37 30 37H16C14.8954 37 14 36.1046 14 35Z"
-                          fill="#23A4DE"
-                        />
-                        <path
-                          d="M0.5 4C0.5 2.067 2.067 0.5 4 0.5H41C42.933 0.5 44.5 2.067 44.5 4V9.5H0.5V4Z"
-                          fill="white"
-                          stroke="#23A4DE"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    class="item-name"
-                  >
-                    Form
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr
-              class="hr"
-            />
-            <div
-              class="step-title"
-              style="--s1piua74-0: #FFFFFF; --s1piua74-1: ##646464;"
+                      <path
+                        d="M0.5 9.5H44.5V37C44.5 38.933 42.933 40.5 41 40.5H4C2.067 40.5 0.5 38.933 0.5 37V9.5Z"
+                        fill="white"
+                        stroke="#23A4DE"
+                      />
+                      <path
+                        d="M2 12H43V28H2V12Z"
+                        fill="#F2F2F2"
+                      />
+                      <path
+                        d="M37.5 16.8475H7.01321C6.53458 16.8475 6.15 16.4657 6.15 15.9987C6.15 15.5318 6.53458 15.15 7.01321 15.15H37.5C37.9791 15.15 38.3632 15.5317 38.3632 15.9987C38.3632 16.4657 37.9791 16.8475 37.5 16.8475Z"
+                        fill="#23A4DE"
+                        stroke="#F2F2F2"
+                        stroke-width="0.3"
+                      />
+                      <path
+                        d="M35.5 24.8475H10.0132C9.53458 24.8475 9.15 24.4657 9.15 23.9987C9.15 23.5318 9.53458 23.15 10.0132 23.15H35.5C35.9791 23.15 36.3632 23.5317 36.3632 23.9987C36.3632 24.4657 35.9791 24.8475 35.5 24.8475Z"
+                        fill="#23A4DE"
+                        stroke="#F2F2F2"
+                        stroke-width="0.3"
+                      />
+                      <path
+                        d="M32.5 20.8475H13.0132C12.5346 20.8475 12.15 20.4657 12.15 19.9987C12.15 19.5318 12.5346 19.15 13.0132 19.15H32.5C32.9791 19.15 33.3632 19.5317 33.3632 19.9987C33.3632 20.4657 32.9791 20.8475 32.5 20.8475Z"
+                        fill="#23A4DE"
+                        stroke="#F2F2F2"
+                        stroke-width="0.3"
+                      />
+                      <path
+                        d="M14 35C14 33.8954 14.8954 33 16 33H30C31.1046 33 32 33.8954 32 35C32 36.1046 31.1046 37 30 37H16C14.8954 37 14 36.1046 14 35Z"
+                        fill="#23A4DE"
+                      />
+                      <path
+                        d="M0.5 4C0.5 2.067 2.067 0.5 4 0.5H41C42.933 0.5 44.5 2.067 44.5 4V9.5H0.5V4Z"
+                        fill="white"
+                        stroke="#23A4DE"
+                      />
+                    </svg>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.hr />
+            <mock-styled.div
+              active="false"
             >
               2. Entities
-            </div>
-            <div
-              class="step-content"
-              style="--sgp7ezp-0: 0px;"
+            </mock-styled.div>
+            <mock-styled.div
+              active="false"
             >
-              <div
-                class="info-box"
-              >
-                <svg
-                  class="info-bubble"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M18.4608 15.3295C19.4355 13.7866 20 11.9586 20 10C20 4.48095 15.5191 0 10 0C4.48086 0 0 4.48086 0 10C0 15.5191 4.48086 20 10 20C11.9587 20 13.7867 19.4355 15.3295 18.4608L19.3016 19.3017L18.4608 15.3295Z"
-                    fill="#23A4DE"
-                    fill-rule="evenodd"
-                  />
-                  <path
-                    clip-rule="evenodd"
-                    d="M8.06293 13.0447L8.65093 10.2688C8.7006 10.0813 8.72552 9.88174 8.72552 9.66968C8.72552 9.42005 8.66637 9.24223 8.5477 9.13602C8.42921 9.03017 8.23259 8.97717 7.95803 8.97717C7.73352 8.97717 7.53392 9.01437 7.35889 9.08933C7.40892 8.46509 7.63046 7.98814 8.02351 7.65724C8.41673 7.32632 8.88174 7.16095 9.41841 7.16095C10.0172 7.16095 10.501 7.34845 10.8693 7.72271C11.2372 8.09716 11.4214 8.6589 11.4214 9.40762C11.4214 9.71975 11.3714 10.125 11.2719 10.6243L10.6372 13.6219C10.5872 13.8088 10.5622 14.0084 10.5622 14.221C10.5622 14.4705 10.6218 14.6485 10.7401 14.7543C10.8589 14.8605 11.0552 14.9136 11.3297 14.9136C11.5548 14.9136 11.7544 14.876 11.9289 14.8014C11.8788 15.4251 11.6577 15.9026 11.2642 16.2335C10.8714 16.5638 10.4063 16.7292 9.86972 16.7292C9.27058 16.7292 8.78677 16.5423 8.41882 16.1676C8.05052 15.7934 7.86634 15.2318 7.86634 14.4831C7.86634 14.171 7.91638 13.7651 8.01645 13.266L8.06293 13.0447ZM11.1426 6.24611C10.7309 6.24611 10.3814 6.10233 10.0942 5.81531C9.80716 5.52829 9.66393 5.17897 9.66393 4.76693C9.66393 4.35528 9.80715 4.0024 10.0942 3.70945C10.3814 3.41611 10.7309 3.26953 11.1426 3.26953C11.5548 3.26953 11.9073 3.41611 12.2006 3.70945C12.4939 4.00242 12.6405 4.35526 12.6405 4.76693C12.6405 5.17894 12.4939 5.52826 12.2006 5.81531C11.9073 6.10232 11.5548 6.24611 11.1426 6.24611Z"
-                    fill="white"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-                <p
-                  class="info-text"
-                >
+              <mock-styled.div>
+                <mock-styled.div />
+                <mock-styled.p>
                   First tell us about the kind of app or integration you are building to ensure we get you authenticated correctly. By selecting an option, relevant documentation and links will appear on the right hand side of the page before progressing.
-                </p>
-              </div>
-              <div
-                class="entities-container"
-              >
-                <div
-                  class="el-loader-container"
+                </mock-styled.p>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-loader"
-                  >
-                    <div
-                      class="el-loader-moving-bar"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr
-              class="hr"
-            />
-            <div
-              class="step-title"
-              style="--s1piua74-0: #FFFFFF; --s1piua74-1: ##646464;"
+                  <mock-styled.div>
+                    <mock-styled.div />
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.hr />
+            <mock-styled.div
+              active="false"
             >
               3. Fields
-            </div>
-            <div
-              class="step-content"
-              style="--sgp7ezp-0: 0px;"
+            </mock-styled.div>
+            <mock-styled.div
+              active="false"
             >
-              <div
-                class="info-box"
-              >
-                <svg
-                  class="info-bubble"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M18.4608 15.3295C19.4355 13.7866 20 11.9586 20 10C20 4.48095 15.5191 0 10 0C4.48086 0 0 4.48086 0 10C0 15.5191 4.48086 20 10 20C11.9587 20 13.7867 19.4355 15.3295 18.4608L19.3016 19.3017L18.4608 15.3295Z"
-                    fill="#23A4DE"
-                    fill-rule="evenodd"
-                  />
-                  <path
-                    clip-rule="evenodd"
-                    d="M8.06293 13.0447L8.65093 10.2688C8.7006 10.0813 8.72552 9.88174 8.72552 9.66968C8.72552 9.42005 8.66637 9.24223 8.5477 9.13602C8.42921 9.03017 8.23259 8.97717 7.95803 8.97717C7.73352 8.97717 7.53392 9.01437 7.35889 9.08933C7.40892 8.46509 7.63046 7.98814 8.02351 7.65724C8.41673 7.32632 8.88174 7.16095 9.41841 7.16095C10.0172 7.16095 10.501 7.34845 10.8693 7.72271C11.2372 8.09716 11.4214 8.6589 11.4214 9.40762C11.4214 9.71975 11.3714 10.125 11.2719 10.6243L10.6372 13.6219C10.5872 13.8088 10.5622 14.0084 10.5622 14.221C10.5622 14.4705 10.6218 14.6485 10.7401 14.7543C10.8589 14.8605 11.0552 14.9136 11.3297 14.9136C11.5548 14.9136 11.7544 14.876 11.9289 14.8014C11.8788 15.4251 11.6577 15.9026 11.2642 16.2335C10.8714 16.5638 10.4063 16.7292 9.86972 16.7292C9.27058 16.7292 8.78677 16.5423 8.41882 16.1676C8.05052 15.7934 7.86634 15.2318 7.86634 14.4831C7.86634 14.171 7.91638 13.7651 8.01645 13.266L8.06293 13.0447ZM11.1426 6.24611C10.7309 6.24611 10.3814 6.10233 10.0942 5.81531C9.80716 5.52829 9.66393 5.17897 9.66393 4.76693C9.66393 4.35528 9.80715 4.0024 10.0942 3.70945C10.3814 3.41611 10.7309 3.26953 11.1426 3.26953C11.5548 3.26953 11.9073 3.41611 12.2006 3.70945C12.4939 4.00242 12.6405 4.35526 12.6405 4.76693C12.6405 5.17894 12.4939 5.52826 12.2006 5.81531C11.9073 6.10232 11.5548 6.24611 11.1426 6.24611Z"
-                    fill="white"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-                <p
-                  class="info-text"
-                >
+              <mock-styled.div>
+                <mock-styled.div />
+                <mock-styled.p>
                   First tell us about the kind of app or integration you are building to ensure we get you authenticated correctly. By selecting an option, relevant documentation and links will appear on the right hand side of the page before progressing.
-                </p>
-              </div>
-              <div
-                class="entities-container"
-              >
-                <div
-                  class="el-loader-container"
+                </mock-styled.p>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="el-loader"
-                  >
-                    <div
-                      class="el-loader-moving-bar"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+                  <mock-styled.div>
+                    <mock-styled.div />
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
         </div>
-      </div>
-      <div
-        class="container"
-      >
+      </mock-styled.div>
+      <mock-styled.div>
         <div
-          style="transition: width 350ms; width: 1025px; flex: 1; margin: 24px auto auto auto; display: flex; max-height: 32px; align-items: center; justify-content: center;"
+          style="transition: width 350ms; width: 1025px; flex: 1; margin: 24px auto auto auto; display: none; max-height: 32px; align-items: center; justify-content: center;"
         >
-          <div
-            class="tabs-container"
-          >
+          <mock-styled.div>
             <div
               class="react-horizontal-scrolling-menu--wrapper "
             >
@@ -717,9 +522,7 @@ exports[`Viewport should match a snapshot 1`] = `
                 <div
                   class="react-horizontal-scrolling-menu--arrow-right"
                 >
-                  <div
-                    class="arrow-container"
-                  >
+                  <mock-styled.div>
                     <svg
                       fill="none"
                       height="10"
@@ -734,17 +537,17 @@ exports[`Viewport should match a snapshot 1`] = `
                         stroke-width="0.3"
                       />
                     </svg>
-                  </div>
+                  </mock-styled.div>
                 </div>
               </div>
               <div
                 class="react-horizontal-scrolling-menu--footer"
               />
             </div>
-          </div>
-          <button
-            class="app-builder-icon-button el-button"
-            style="--awfk8ev-0: #f2f2f2; align-self: flex-end; background: none;"
+          </mock-styled.div>
+          <mock-styled.div
+            loading="false"
+            style="align-self: flex-end; background: none;"
           >
             <svg
               fill="none"
@@ -762,55 +565,65 @@ exports[`Viewport should match a snapshot 1`] = `
                 fill="#BEBEBE"
               />
             </svg>
-            <div
-              class="el-button-loader"
-            />
-          </button>
+          </mock-styled.div>
         </div>
         <div
-          class="el-flex el-flex1 el-hfull el-flex-column"
+          class="mock-css.
+  display: flex;
+ mock-css.
+  flex: 1 1 0%;
+ mock-css.
+  height: 100%;
+ mock-css.
+  flex-direction: column;
+"
           id="page-container"
           style="transition: transform 350ms; transform: scale(1); transform-origin: top left;"
         >
           <div
-            class="el-flex1 el-hfull el-wfull transition el-pb6 overflow-auto"
+            class="mock-css.
+  flex: 1 1 0%;
+ mock-css.
+  height: 100%;
+ mock-css.
+  width: 100%;
+ mock-css.
+  transition: all 0.3s;
+ mock-css.
+  padding-bottom: 1rem;
+ mock-css.
+  overflow: auto;
+"
             id="craftjs-renderer"
           >
             <div
-              class="el-flex el-flex-row flex-align-stretch relative el-mauto"
+              class="mock-css.
+  display: flex;
+ mock-css.
+  flex-direction: row;
+ mock-css.
+  align-items: stretch;
+ mock-css.
+  position: relative;
+ mock-css.
+  margin: auto;
+"
             >
-              <div>
-                <div
-                  class="el-is-full-page el-loader-container"
-                >
-                  <div
-                    class="el-loader"
-                  >
-                    <div
-                      class="el-loader-moving-bar"
-                    />
-                  </div>
-                </div>
-              </div>
+              <div />
             </div>
           </div>
         </div>
-        <div
-          class="page-builder-container"
-          style="display: none;"
+        <mock-styled.div
+          style="display: flex;"
         >
-          <div
-            class="placeholder-info-box"
-          >
+          <mock-styled.div>
             <h1>
               Add a table or a form
             </h1>
             <p>
               First tell us about the kind of app or integration you are building to ensure we get you authenticated correctly. By selecting an option, relevant documentation and links will appear on the right hand side of the page before progressing.
             </p>
-            <div
-              class="graphic-container"
-            >
+            <mock-styled.div>
               <svg
                 fill="none"
                 height="268"
@@ -971,15 +784,14 @@ exports[`Viewport should match a snapshot 1`] = `
                   fill="#23A4DE"
                 />
               </svg>
-            </div>
-          </div>
-        </div>
-        <svg
-          class="monitor-stand"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.svg
           fill="none"
           height="76"
-          style="display: none;"
-          viewBox="0 0 485 76"
+          style="display: flex;"
+          viewbox="0 0 485 76"
           width="485"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -997,37 +809,68 @@ exports[`Viewport should match a snapshot 1`] = `
             width="100"
             x="193"
           />
-        </svg>
-      </div>
-      <div
-        class="transition bg-white sidebar-div"
-        style="--s1xt9yg4-0: 337px;"
+        </mock-styled.svg>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  transition: all 0.3s;
+ mock-css.
+  background: white;
+"
+        iscollapsed="true"
       >
         <div
-          class="el-flex el-flex-column overflow-auto"
+          class="mock-css.
+  display: flex;
+ mock-css.
+  flex-direction: column;
+ mock-css.
+  overflow: auto;
+"
           style="height: calc(100vh - 45px); flex: 1;"
         >
-          <div
-            class="el-flex el-flex-column sidebar-item-div"
+          <mock-styled.div
+            classname="mock-css.
+  display: flex;
+ mock-css.
+  flex-direction: column;
+"
+            expanded="true"
             height="100%"
-            style="--s1re9lvo-0: unset;"
           >
-            <div
-              class="cursor-pointer bg-white el-border-grey-b el-flex el-flex-align-center el-px3 header-div"
+            <mock-styled.div
+              classname="mock-css.
+  cursor: pointer;
+ mock-css.
+  background: white;
+ mock-css.
+  border-bottom: 1px solid var(--color-grey-light, '#dbdbdb');
+ mock-css.
+  display: flex;
+ mock-css.
+  align-items: center;
+ mock-css.
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+"
             >
               <div
-                class="el-flex el-flex1 el-flex-align-center"
+                class="mock-css.
+  display: flex;
+ mock-css.
+  flex: 1 1 0%;
+ mock-css.
+  align-items: center;
+"
               >
-                <h2
-                  class="subtitle-bold"
+                <mock-styled.h2
                   style="margin-bottom: 0px;"
                 >
                   Components
-                </h2>
+                </mock-styled.h2>
               </div>
-              <a
-                class="chevron"
-                style="--ckrrxc3-0: 180deg;"
+              <mock-styled.a
+                expanded="true"
               >
                 <svg
                   viewBox="0 0 10 6"
@@ -1037,28 +880,49 @@ exports[`Viewport should match a snapshot 1`] = `
                     d="M9.99,1.01A.9999.9999,0,0,0,8.28266.30327L5,3.58594,1.71734.30327A.9999.9999,0,1,0,.30327,1.71734L4.29266,5.69673a.99965.99965,0,0,0,1.41468,0L9.69673,1.71734A.99669.99669,0,0,0,9.99,1.01Z"
                   />
                 </svg>
-              </a>
-            </div>
+              </mock-styled.a>
+            </mock-styled.div>
             <div
-              class="el-wfull el-flex1 overflow-auto"
+              class="mock-css.
+  width: 100%;
+ mock-css.
+  flex: 1 1 0%;
+ mock-css.
+  overflow: auto;
+"
             >
-              <div
-                class="toolbox-div"
-              >
-                <span
-                  class="category-title"
-                >
+              <mock-styled.div>
+                <mock-styled.span>
                   Commonly used
-                </span>
+                </mock-styled.span>
                 <div
-                  class="transition el-w12 el-flex el-flex-row el-flex-wrap el-flex-align-start el-flex-justify-start"
+                  class="mock-css.
+  transition: all 0.3s;
+ mock-css.
+  width: 100%;
+ mock-css.
+  display: flex;
+ mock-css.
+  flex-direction: row;
+ mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  align-items: flex-start;
+ mock-css.
+  justify-content: flex-start;
+"
                 >
-                  <div
-                    class="item-container"
+                  <mock-styled.div
                     draggable="true"
                   >
-                    <div
-                      class="el-m3 block cursor-move item"
+                    <mock-styled.div
+                      classname="mock-css.
+  margin: 0.5rem;
+ mock-css.
+  display: block;
+ mock-css.
+  cursor: move;
+"
                     >
                       <svg
                         fill="none"
@@ -1134,23 +998,24 @@ exports[`Viewport should match a snapshot 1`] = `
                           fill="#23A4DE"
                         />
                       </svg>
-                    </div>
-                    <div
-                      class="item-name"
-                    >
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Text
-                    </div>
-                  </div>
-                  <div
-                    class="item-container"
+                    </mock-styled.div>
+                  </mock-styled.div>
+                  <mock-styled.div
                     draggable="true"
                   >
-                    <div
-                      class="el-m3 block cursor-move item"
+                    <mock-styled.div
+                      classname="mock-css.
+  margin: 0.5rem;
+ mock-css.
+  display: block;
+ mock-css.
+  cursor: move;
+"
                     >
-                      <div
-                        class="item"
-                      >
+                      <mock-styled.div>
                         <svg
                           fill="none"
                           height="43"
@@ -1191,20 +1056,18 @@ exports[`Viewport should match a snapshot 1`] = `
                             fill-rule="evenodd"
                           />
                         </svg>
-                      </div>
-                    </div>
-                    <div
-                      class="item-name"
-                    >
+                      </mock-styled.div>
+                    </mock-styled.div>
+                    <mock-styled.div>
                       Link
-                    </div>
-                  </div>
+                    </mock-styled.div>
+                  </mock-styled.div>
                 </div>
-              </div>
+              </mock-styled.div>
             </div>
-          </div>
+          </mock-styled.div>
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </div>
 </DocumentFragment>

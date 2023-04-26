@@ -1,161 +1,205 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnalyticsPage should match a snapshot when apps are present 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="e93m1fg-el-secondary-nav-container"
-        >
-          <h1
-            class="e1byern-el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Analytics
-          </h1>
-          <div
-            class="e5lndhu-el-mb8 e6p05ya-el-fade-in e125gftx-el-secondary-nav"
+          </mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           >
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
+            <mock-styled.div
+              classname=""
             >
               API Usage
-            </div>
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Costs
-            </div>
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               Installations
-            </div>
-          </div>
+            </mock-styled.div>
+          </mock-styled.div>
           <div
-            class="e6p05ya-el-fade-in"
+            class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           >
-            <span
-              class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
             >
               <svg />
-            </span>
-            <h2
-              class="e15ggth7-el-subtitle"
+            </mock-styled.span>
+            <mock-styled.h2
+              classname=""
             >
               Filter By
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
             >
               Please use the filters below to search. Please note, we only hold transactional records for the last 12 months.
-            </p>
+            </mock-styled.p>
             <div
-              class="e1v6agxr-el-border-radius o1ft4rva-overflow-hidden"
+              class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+"
             >
               <form>
-                <div
-                  class="ck19x5o-controls-container"
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="i5zfqa4-input-full-width e1979rmu-el-input-group"
+                  <mock-styled.div
+                    classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
                   >
-                    <input
-                      class="e1urjlvd-el-input"
+                    <mock-styled.input
                       id="test-static-id"
                       max="2019-10-10"
                       min="2018-10-10"
                       name="dateFrom"
                       type="date"
                     />
-                    <label
-                      class="e1nbkkrq-el-label"
-                      for="test-static-id"
+                    <mock-styled.label
+                      htmlfor="test-static-id"
                     >
                       Date From
-                    </label>
-                  </div>
-                </div>
-                <div
-                  class="ck19x5o-controls-container"
+                    </mock-styled.label>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="i5zfqa4-input-full-width e1979rmu-el-input-group"
+                  <mock-styled.div
+                    classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
                   >
-                    <input
-                      class="e1urjlvd-el-input"
+                    <mock-styled.input
                       id="test-static-id"
                       max="2019-10-10"
                       min="2019-10-03"
                       name="dateTo"
                       type="date"
                     />
-                    <label
-                      class="e1nbkkrq-el-label"
-                      for="test-static-id"
+                    <mock-styled.label
+                      htmlfor="test-static-id"
                     >
                       Date To
-                    </label>
-                  </div>
-                </div>
-                <div
-                  class="ck19x5o-controls-container"
+                    </mock-styled.label>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="i5zfqa4-input-full-width e1979rmu-el-input-group"
+                  <mock-styled.div
+                    classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
                   >
-                    <input
-                      class="e1urjlvd-el-input"
+                    <mock-styled.input
                       id="test-static-id"
                       max="2019-10"
                       min="2018-10"
                       name="monthFrom"
                       type="month"
                     />
-                    <label
-                      class="e1nbkkrq-el-label"
-                      for="test-static-id"
+                    <mock-styled.label
+                      htmlfor="test-static-id"
                     >
                       Month From
-                    </label>
-                  </div>
-                </div>
-                <div
-                  class="ck19x5o-controls-container"
+                    </mock-styled.label>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="i5zfqa4-input-full-width e1979rmu-el-input-group"
+                  <mock-styled.div
+                    classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
                   >
-                    <input
-                      class="e1urjlvd-el-input"
+                    <mock-styled.input
                       id="test-static-id"
                       max="2019-10"
                       min="2019-10"
                       name="monthTo"
                       type="month"
                     />
-                    <label
-                      class="e1nbkkrq-el-label"
-                      for="test-static-id"
+                    <mock-styled.label
+                      htmlfor="test-static-id"
                     >
                       Month To
-                    </label>
-                  </div>
-                </div>
-                <div
-                  class="ck19x5o-controls-container"
+                    </mock-styled.label>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1979rmu-el-input-group"
-                  >
-                    <select
-                      class="e1yw9yco-el-wfull e60u3kb-el-select"
+                  <mock-styled.div>
+                    <mock-styled.select
+                      classname="mock-css.
+  width: 100%;
+"
                       name="appId"
                     >
                       <option
@@ -173,22 +217,20 @@ Object {
                       >
                         MOCK_APP_NAME_ANOTHER
                       </option>
-                    </select>
-                    <label
-                      class="e1nbkkrq-el-label"
-                    >
+                    </mock-styled.select>
+                    <mock-styled.label>
                       App
-                    </label>
-                  </div>
-                </div>
-                <div
-                  class="ck19x5o-controls-container"
+                    </mock-styled.label>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <div
-                    class="e1979rmu-el-input-group"
-                  >
-                    <select
-                      class="e1yw9yco-el-wfull e60u3kb-el-select"
+                  <mock-styled.div>
+                    <mock-styled.select
+                      classname="mock-css.
+  width: 100%;
+"
                       name="clientId"
                     >
                       <option
@@ -196,176 +238,220 @@ Object {
                       >
                         None selected
                       </option>
-                    </select>
-                    <label
-                      class="e1nbkkrq-el-label"
-                    >
+                    </mock-styled.select>
+                    <mock-styled.label>
                       Client
-                    </label>
-                  </div>
-                </div>
+                    </mock-styled.label>
+                  </mock-styled.div>
+                </mock-styled.div>
               </form>
             </div>
           </div>
-        </aside>
-        <section
-          class="e12d7zo5-el-hfull eukst9x-el-page-container"
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         />
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="e93m1fg-el-secondary-nav-container"
-      >
-        <h1
-          class="e1byern-el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Analytics
-        </h1>
-        <div
-          class="e5lndhu-el-mb8 e6p05ya-el-fade-in e125gftx-el-secondary-nav"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 1.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
+          <mock-styled.div
+            classname=""
           >
             API Usage
-          </div>
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Costs
-          </div>
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             Installations
-          </div>
-        </div>
+          </mock-styled.div>
+        </mock-styled.div>
         <div
-          class="e6p05ya-el-fade-in"
+          class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <span
-            class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             Filter By
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             Please use the filters below to search. Please note, we only hold transactional records for the last 12 months.
-          </p>
+          </mock-styled.p>
           <div
-            class="e1v6agxr-el-border-radius o1ft4rva-overflow-hidden"
+            class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+"
           >
             <form>
-              <div
-                class="ck19x5o-controls-container"
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="i5zfqa4-input-full-width e1979rmu-el-input-group"
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
                 >
-                  <input
-                    class="e1urjlvd-el-input"
+                  <mock-styled.input
                     id="test-static-id"
                     max="2019-10-10"
                     min="2018-10-10"
                     name="dateFrom"
                     type="date"
                   />
-                  <label
-                    class="e1nbkkrq-el-label"
-                    for="test-static-id"
+                  <mock-styled.label
+                    htmlfor="test-static-id"
                   >
                     Date From
-                  </label>
-                </div>
-              </div>
-              <div
-                class="ck19x5o-controls-container"
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="i5zfqa4-input-full-width e1979rmu-el-input-group"
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
                 >
-                  <input
-                    class="e1urjlvd-el-input"
+                  <mock-styled.input
                     id="test-static-id"
                     max="2019-10-10"
                     min="2019-10-03"
                     name="dateTo"
                     type="date"
                   />
-                  <label
-                    class="e1nbkkrq-el-label"
-                    for="test-static-id"
+                  <mock-styled.label
+                    htmlfor="test-static-id"
                   >
                     Date To
-                  </label>
-                </div>
-              </div>
-              <div
-                class="ck19x5o-controls-container"
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="i5zfqa4-input-full-width e1979rmu-el-input-group"
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
                 >
-                  <input
-                    class="e1urjlvd-el-input"
+                  <mock-styled.input
                     id="test-static-id"
                     max="2019-10"
                     min="2018-10"
                     name="monthFrom"
                     type="month"
                   />
-                  <label
-                    class="e1nbkkrq-el-label"
-                    for="test-static-id"
+                  <mock-styled.label
+                    htmlfor="test-static-id"
                   >
                     Month From
-                  </label>
-                </div>
-              </div>
-              <div
-                class="ck19x5o-controls-container"
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="i5zfqa4-input-full-width e1979rmu-el-input-group"
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
                 >
-                  <input
-                    class="e1urjlvd-el-input"
+                  <mock-styled.input
                     id="test-static-id"
                     max="2019-10"
                     min="2019-10"
                     name="monthTo"
                     type="month"
                   />
-                  <label
-                    class="e1nbkkrq-el-label"
-                    for="test-static-id"
+                  <mock-styled.label
+                    htmlfor="test-static-id"
                   >
                     Month To
-                  </label>
-                </div>
-              </div>
-              <div
-                class="ck19x5o-controls-container"
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="e1979rmu-el-input-group"
-                >
-                  <select
-                    class="e1yw9yco-el-wfull e60u3kb-el-select"
+                <mock-styled.div>
+                  <mock-styled.select
+                    classname="mock-css.
+  width: 100%;
+"
                     name="appId"
                   >
                     <option
@@ -383,22 +469,20 @@ Object {
                     >
                       MOCK_APP_NAME_ANOTHER
                     </option>
-                  </select>
-                  <label
-                    class="e1nbkkrq-el-label"
-                  >
+                  </mock-styled.select>
+                  <mock-styled.label>
                     App
-                  </label>
-                </div>
-              </div>
-              <div
-                class="ck19x5o-controls-container"
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="e1979rmu-el-input-group"
-                >
-                  <select
-                    class="e1yw9yco-el-wfull e60u3kb-el-select"
+                <mock-styled.div>
+                  <mock-styled.select
+                    classname="mock-css.
+  width: 100%;
+"
                     name="clientId"
                   >
                     <option
@@ -406,22 +490,22 @@ Object {
                     >
                       None selected
                     </option>
-                  </select>
-                  <label
-                    class="e1nbkkrq-el-label"
-                  >
+                  </mock-styled.select>
+                  <mock-styled.label>
                     Client
-                  </label>
-                </div>
-              </div>
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
             </form>
           </div>
         </div>
-      </aside>
-      <section
-        class="e12d7zo5-el-hfull eukst9x-el-page-container"
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       />
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

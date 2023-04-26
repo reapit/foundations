@@ -12,7 +12,7 @@ export const updateAppRestrictionsService = async (
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const response: any | undefined = await fetcher({
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         url: `${URLS.CUSTOMERS}/${orgClientId}/appRestrictions`,
         method: 'POST',
         headers,

@@ -1,5 +1,4 @@
-import { ExternalPages, navigate, openNewPage } from '../navigation'
-import { History } from 'history'
+import { ExternalPages, navigateRoute, openNewPage } from '../navigation'
 import Routes from '../../constants/routes'
 
 describe('openNewPage', () => {
@@ -12,16 +11,14 @@ describe('openNewPage', () => {
   })
 })
 
-describe('navigate', () => {
+describe('navigateRoute', () => {
   it('should open a new page', () => {
-    const mockHistory = {
-      push: jest.fn(),
-    } as unknown as History
+    const navigate = jest.fn()
 
-    const curried = navigate(mockHistory, Routes.APPS)
+    const curried = navigateRoute(navigate, Routes.APPS)
     curried()
 
-    expect(mockHistory.push).toHaveBeenCalledWith(Routes.APPS)
+    expect(navigate).toHaveBeenCalledWith(Routes.APPS)
     expect(document.title).toEqual('Developers')
   })
 })

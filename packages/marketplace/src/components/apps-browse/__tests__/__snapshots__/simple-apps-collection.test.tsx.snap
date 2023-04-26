@@ -1,27 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SimpleAppsCollection should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="simple-apps-col apps-col"
-      >
-        <div
-          class="el-flex-justify-between el-flex-container"
+      <mock-styled.div />
+      <mock-styled.mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
         >
-          <div
-            class="el-flex-column el-flex-justify-center el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-placeholder-image"
+              <mock-styled.div
                 style="font-size: 1.25em; width: 32px; height: 32px;"
               >
                 <svg
@@ -36,35 +37,34 @@ Object {
                     fill="#E3E3E3"
                   />
                 </svg>
-              </div>
-              <p
-                class="app-title el-body-text"
-              >
+              </mock-styled.div>
+              <mock-styled.mock-styled.p>
                 MOCK_APP_NAME
-              </p>
-            </div>
-            <p
-              class="simple-app-strapline el-body-text"
-            >
+              </mock-styled.mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.mock-styled.p>
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="simple-apps-col apps-col"
-      >
-        <div
-          class="el-flex-justify-between el-flex-container"
+            </mock-styled.mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.mock-styled.div>
+      <mock-styled.mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
         >
-          <div
-            class="el-flex-column el-flex-justify-center el-flex-container"
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
           >
-            <div
-              class="el-flex-container"
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-placeholder-image"
+              <mock-styled.div
                 style="font-size: 1.25em; width: 32px; height: 32px;"
               >
                 <svg
@@ -79,41 +79,38 @@ Object {
                     fill="#E3E3E3"
                   />
                 </svg>
-              </div>
-              <p
-                class="app-title el-body-text"
-              >
+              </mock-styled.div>
+              <mock-styled.mock-styled.p>
                 MOCK_APP_NAME_ANOTHER
-              </p>
-            </div>
-            <p
-              class="simple-app-strapline el-body-text"
-            >
+              </mock-styled.mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.mock-styled.p>
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </p>
-          </div>
-        </div>
-      </div>
+            </mock-styled.mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="simple-apps-col apps-col"
-    >
-      <div
-        class="el-flex-justify-between el-flex-container"
+    <mock-styled.div />
+    <mock-styled.mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <div
-          class="el-flex-column el-flex-justify-center el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-placeholder-image"
+            <mock-styled.div
               style="font-size: 1.25em; width: 32px; height: 32px;"
             >
               <svg
@@ -128,35 +125,34 @@ Object {
                   fill="#E3E3E3"
                 />
               </svg>
-            </div>
-            <p
-              class="app-title el-body-text"
-            >
+            </mock-styled.div>
+            <mock-styled.mock-styled.p>
               MOCK_APP_NAME
-            </p>
-          </div>
-          <p
-            class="simple-app-strapline el-body-text"
-          >
+            </mock-styled.mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.mock-styled.p>
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </p>
-        </div>
-      </div>
-    </div>
-    <div
-      class="simple-apps-col apps-col"
-    >
-      <div
-        class="el-flex-justify-between el-flex-container"
+          </mock-styled.mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.mock-styled.div>
+    <mock-styled.mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <div
-          class="el-flex-column el-flex-justify-center el-flex-container"
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
         >
-          <div
-            class="el-flex-container"
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-placeholder-image"
+            <mock-styled.div
               style="font-size: 1.25em; width: 32px; height: 32px;"
             >
               <svg
@@ -171,21 +167,17 @@ Object {
                   fill="#E3E3E3"
                 />
               </svg>
-            </div>
-            <p
-              class="app-title el-body-text"
-            >
+            </mock-styled.div>
+            <mock-styled.mock-styled.p>
               MOCK_APP_NAME_ANOTHER
-            </p>
-          </div>
-          <p
-            class="simple-app-strapline el-body-text"
-          >
+            </mock-styled.mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.mock-styled.p>
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </p>
-        </div>
-      </div>
-    </div>
+          </mock-styled.mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -242,19 +234,15 @@ Object {
 `;
 
 exports[`SimpleAppsCollection should match a snapshot when loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

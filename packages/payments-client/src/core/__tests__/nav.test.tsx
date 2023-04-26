@@ -1,8 +1,7 @@
 import React from 'react'
-import { render } from '@testing-library/react'
 import { Nav, callbackAppClick, getDefaultNavIndex, openNewPage } from '../nav'
-import { Routes } from '../../constants/routes'
-import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
+import { RoutePaths } from '../../constants/routes'
+import { render } from '../../tests/react-testing'
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
@@ -19,13 +18,7 @@ jest.mock('@reapit/connect-session', () => ({
 describe('Nav', () => {
   it('should match a snapshot', () => {
     window.location.pathname = '/'
-    const wrapper = render(
-      <NavStateProvider>
-        <MediaStateProvider>
-          <Nav />
-        </MediaStateProvider>
-      </NavStateProvider>,
-    )
+    const wrapper = render(<Nav />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -49,15 +42,15 @@ describe('Nav', () => {
   describe('getDefaultNavIndex', () => {
     const routes = [
       {
-        route: Routes.PAYMENTS,
+        route: RoutePaths.PAYMENTS,
         index: 1,
       },
       {
-        route: Routes.PAYMENT,
+        route: RoutePaths.PAYMENT,
         index: 1,
       },
       {
-        route: Routes.ADMIN,
+        route: RoutePaths.ADMIN,
         index: 2,
       },
       {

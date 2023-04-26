@@ -3,9 +3,9 @@ import Routes from '@/constants/routes'
 
 // Needs to be a singleton as the class is stateful
 export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
-  connectClientId: window.reapit.config.connectClientId,
-  connectOAuthUrl: window.reapit.config.connectOAuthUrl,
+  connectClientId: process.env.connectClientId,
+  connectOAuthUrl: process.env.connectOAuthUrl,
   connectLoginRedirectPath: Routes.WELCOME,
   connectLogoutRedirectPath: Routes.LOGIN,
-  connectUserPoolId: window.reapit.config.connectUserPoolId,
+  connectUserPoolId: process.env.connectUserPoolId,
 })

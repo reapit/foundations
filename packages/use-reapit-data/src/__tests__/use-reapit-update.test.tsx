@@ -6,6 +6,7 @@ import { ReapitUpdateState, UpdateReturnTypeEnum } from '../use-reapit-update'
 import axios from 'axios'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { UpdateActionNames, updateActions } from '../update-actions'
+import { MemoryRouter } from 'react-router-dom'
 
 jest.mock('axios', () => ({
   __esModule: true,
@@ -37,7 +38,9 @@ jest.mock('@reapit/elements', () => ({
 const createWrapper = () => {
   const queryClient = new QueryClient()
   const Wrapper: PropsWithChildren<any> = ({ children }) => (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <MemoryRouter>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </MemoryRouter>
   )
 
   return Wrapper
@@ -58,7 +61,7 @@ describe('useReapitUpdate', () => {
       () =>
         useReapitUpdate<{}, typeof mockData>({
           reapitConnectBrowserSession,
-          action: updateActions('local')[UpdateActionNames.updateDeveloper],
+          action: updateActions[UpdateActionNames.updateDeveloper],
           uriParams: {
             developerId: 'FOO',
           },
@@ -116,7 +119,7 @@ describe('useReapitUpdate', () => {
       () =>
         useReapitUpdate<{}, typeof mockData>({
           reapitConnectBrowserSession,
-          action: updateActions('local')[UpdateActionNames.updateDeveloper],
+          action: updateActions[UpdateActionNames.updateDeveloper],
           returnType: UpdateReturnTypeEnum.LOCATION,
         }),
       {

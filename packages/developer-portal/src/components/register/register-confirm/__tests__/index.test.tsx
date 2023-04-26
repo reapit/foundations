@@ -17,9 +17,9 @@ describe('RegisterConfirm', () => {
     const mockParams = {
       userName: 'mockUserName@gmail.com',
       verificationCode: '123',
-      replace: jest.fn(),
+      navigate: jest.fn(),
     }
-    const replaceSpy = jest.spyOn(mockParams, 'replace')
+    const replaceSpy = jest.spyOn(mockParams, 'navigate')
 
     it('should call replace on success with correct params', async () => {
       const curried = handleUseEffect(mockParams)

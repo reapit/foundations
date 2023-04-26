@@ -1,9 +1,9 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { PipelinePage } from './pipeline-page'
 import ErrorBoundary from '../../../core/error-boundary'
-import { Route, Switch, useParams } from 'react-router'
-import Routes from '../../../constants/routes'
-import { AppUriParams, useAppState } from '../state/use-app-state'
+import { Route, Routes, useParams } from 'react-router'
+import RoutePaths from '../../../constants/routes'
+import { useAppState } from '../state/use-app-state'
 import { handleSetAppId } from '../utils/handle-set-app-id'
 import { PipelineNew } from './pipeline-new'
 import { PersistentNotification } from '@reapit/elements'
@@ -26,9 +26,9 @@ export const AppPipeline: FC = () => {
   const { setAppId } = useAppState()
   const [betaBannerVisible, setBetaBannerVisible] = useState(true)
 
-  const { appId } = useParams<AppUriParams>()
+  const { appId } = useParams<'appId'>()
 
-  useEffect(handleSetAppId(appId, setAppId), [appId])
+  useEffect(handleSetAppId(setAppId, appId), [appId])
   useEffect(handleBetaBannerTimeout(setBetaBannerVisible), [])
 
   return (
@@ -51,10 +51,10 @@ export const AppPipeline: FC = () => {
           email.
         </a>
       </PersistentNotification>
-      <Switch>
-        <Route path={Routes.APP_PIPELINE_NEW} exact component={PipelineNew} />
-        <Route path={Routes.APP_PIPELINE} component={PipelinePage} />
-      </Switch>
+      <Routes>
+        <Route path={RoutePaths.APP_PIPELINE_NEW.split('pipeline/')[1]} element={<PipelineNew />} />
+        <Route path="*" element={<PipelinePage />} />
+      </Routes>
     </ErrorBoundary>
   )
 }

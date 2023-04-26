@@ -8,8 +8,8 @@ import { selectIsMarketplaceAdmin, selectIsOffGrouping, selectIsOrgAdmin } from 
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { Button, ButtonGroup, elMb11, BodyText, elMb6 } from '@reapit/elements'
-import { AcProcessType, DesktopLink, SendFunction, useReapitUpdate } from '@reapit/utils-react'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { AcProcessType, DesktopLink } from '@reapit/utils-react'
+import { UpdateActionNames, updateActions, SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { AppDetailPermissionChip } from './__styles__'
 import { trackEvent, trackEventHandler } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
@@ -83,7 +83,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
 
   const [appInstalling, , installApp] = useReapitUpdate<CreateInstallationModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.installApp],
+    action: updateActions[UpdateActionNames.installApp],
     method: 'POST',
   })
 
@@ -110,7 +110,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
             this, you need to visit the{' '}
             <DesktopLink
               onClick={trackNavigateMmApp}
-              uri={window.reapit.config.reapitConnectManagementUri}
+              uri={process.env.reapitConnectManagementUri}
               acProcess={AcProcessType.web}
               target="_blank"
               content="Reapit Connect Management App."

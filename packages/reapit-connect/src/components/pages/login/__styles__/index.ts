@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react'
+import { forMobileOnly } from '../../../../core/__styles__/media'
 
 export const LoginContainer = styled.div`
   min-width: 100vw;
@@ -9,7 +10,7 @@ export const LoginContainer = styled.div`
   height: 100vh;
   overflow-y: auto;
 
-  @media (max-width: 768px) {
+  ${forMobileOnly} {
     flex-direction: column;
     justify-content: center;
   }
@@ -54,14 +55,14 @@ export const LoginContentWrapper = styled.div`
     display: block;
   }
 
-  @media (max-width: 768px) {
+  ${forMobileOnly} {
     width: 100%;
     margin: 0 auto;
   }
 `
 
 export const LoginImageContainer = styled.div`
-  @media (max-width: 768px) {
+  ${forMobileOnly} {
     display: none;
   }
 `

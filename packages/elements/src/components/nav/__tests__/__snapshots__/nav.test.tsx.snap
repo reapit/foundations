@@ -1,19 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Nav component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <nav
-        class="el-nav-container"
-      />
+      <mock-styled.nav />
     </div>
   </body>,
   "container": <div>
-    <nav
-      class="el-nav-container"
-    />
+    <mock-styled.nav />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -70,18 +66,18 @@ Object {
 `;
 
 exports[`NavItem component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <a
-        class="el-nav-item"
+      <mock-styled.a
+        classname=""
       />
     </div>
   </body>,
   "container": <div>
-    <a
-      class="el-nav-item"
+    <mock-styled.a
+      classname=""
     />
   </div>,
   "debug": [Function],
@@ -139,18 +135,26 @@ Object {
 `;
 
 exports[`NavItem component should match a snapshot for a secondary item 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <a
-        class="el-nav-item-secondary el-nav-item"
+      <mock-styled.a
+        classname="mock-css.
+  @media screen and (min-width: 768px) {
+    margin-top: auto;
+  }
+"
       />
     </div>
   </body>,
   "container": <div>
-    <a
-      class="el-nav-item-secondary el-nav-item"
+    <mock-styled.a
+      classname="mock-css.
+  @media screen and (min-width: 768px) {
+    margin-top: auto;
+  }
+"
     />
   </div>,
   "debug": [Function],
@@ -208,19 +212,15 @@ Object {
 `;
 
 exports[`NavSubNav component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-nav-sub-container"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-nav-sub-container"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -277,19 +277,15 @@ Object {
 `;
 
 exports[`NavSubNavItem component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <a
-        class="el-nav-sub-item"
-      />
+      <mock-styled.a />
     </div>
   </body>,
   "container": <div>
-    <a
-      class="el-nav-sub-item"
-    />
+    <mock-styled.a />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

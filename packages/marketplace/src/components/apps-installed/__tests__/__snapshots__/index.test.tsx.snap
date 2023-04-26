@@ -1,25 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppsInstalledPage should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <div
-        class="installed-apps-container"
-      >
-        <div
-          class="installed-apps-inner-container"
-        >
-          <div
-            class="installed-apps-grid"
-          >
-            <div
-              class="install-more-apps installed-apps-col"
-            >
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.mock-styled.div>
               <svg
                 fill="none"
                 height="52"
@@ -47,28 +37,18 @@ Object {
                 />
               </svg>
               Install More Apps
-            </div>
-          </div>
-        </div>
-      </div>
+            </mock-styled.mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <div
-      class="installed-apps-container"
-    >
-      <div
-        class="installed-apps-inner-container"
-      >
-        <div
-          class="installed-apps-grid"
-        >
-          <div
-            class="install-more-apps installed-apps-col"
-          >
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.mock-styled.div>
             <svg
               fill="none"
               height="52"
@@ -96,10 +76,10 @@ Object {
               />
             </svg>
             Install More Apps
-          </div>
-        </div>
-      </div>
-    </div>
+          </mock-styled.mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

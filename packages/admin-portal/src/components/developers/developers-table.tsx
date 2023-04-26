@@ -162,13 +162,13 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
 
   const [, , updateDeveloper] = useReapitUpdate<UpdateDeveloperModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateDeveloper],
+    action: updateActions[UpdateActionNames.updateDeveloper],
     method: 'PUT',
   })
 
   const [, , deleteDeveloper] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteDeveloper],
+    action: updateActions[UpdateActionNames.deleteDeveloper],
     method: 'DELETE',
     uriParams: { developerId: devIdDelete },
   })

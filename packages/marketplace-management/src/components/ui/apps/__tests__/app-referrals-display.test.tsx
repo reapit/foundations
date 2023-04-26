@@ -5,7 +5,8 @@ import { mockReferralTypes } from '../../../../services/__stubs__/referral-types
 import { mockInstallationsList } from '../../../../services/__stubs__/installations'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockReferralTypes]),
 }))
 

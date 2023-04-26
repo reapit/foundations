@@ -6,7 +6,7 @@
     "sourceRoot": "/",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/elements": ["../elements/src"],
+      "@reapit/elements": ["../elements"],
       "@reapit/connect-session": ["../connect-session/src"],
       "@reapit/utils-common": ["../utils-common/src"]
     },
@@ -14,6 +14,11 @@
     "declarationDir": "dist"
   },
 
-  "include": ["src", "../utils-common/src/reapit-data/utils.ts", "../utils-common/src/reapit-data/actions", "src/types/global.d.ts"],
+  "include": [
+    "src",
+    "../utils-common/src/reapit-data/utils.ts",
+    "../utils-common/src/reapit-data/actions",
+    "src/types/global.d.ts"
+  ],
   "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
 }

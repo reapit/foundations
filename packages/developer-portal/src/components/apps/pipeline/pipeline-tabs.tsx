@@ -1,8 +1,7 @@
 import React, { ChangeEvent, FC } from 'react'
 import { useAppState } from '../state/use-app-state'
 import { Tabs } from '@reapit/elements'
-import { useHistory, useLocation } from 'react-router'
-import { History } from 'history'
+import { NavigateFunction, useLocation, useNavigate } from 'react-router'
 import Routes from '../../../constants/routes'
 
 export type PipelineTabs = 'configure' | 'deployments' | 'environment'
@@ -18,19 +17,20 @@ const resolveRoute = (tab: PipelineTabs): string => {
   }
 }
 
-export const handleChangeTab = (history: History, appId: string | null) => (event: ChangeEvent<HTMLInputElement>) => {
-  const tab = event.target.value as PipelineTabs
+export const handleChangeTab =
+  (navigate: NavigateFunction, appId: string | null) => (event: ChangeEvent<HTMLInputElement>) => {
+    const tab = event.target.value as PipelineTabs
 
-  const route = resolveRoute(tab)
+    const route = resolveRoute(tab)
 
-  if (appId) {
-    history.push(route.replace(':appId', appId))
+    if (appId) {
+      navigate(route.replace(':appId', appId))
+    }
   }
-}
 
 export const PipelineTabs: FC = () => {
   const location = useLocation()
-  const history = useHistory()
+  const navigate = useNavigate()
   const { appId } = useAppState()
   const { pathname } = location
 
@@ -38,7 +38,7 @@ export const PipelineTabs: FC = () => {
     <Tabs
       isFullWidth
       name="pipeline-tabs"
-      onChange={handleChangeTab(history, appId)}
+      onChange={handleChangeTab(navigate, appId)}
       options={[
         {
           id: 'deployments',

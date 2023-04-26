@@ -1,81 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PermissionsOptionsContent should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="s1cum27r-step-form-container"
-      >
-        <div
-          class="ehvkknk-el-mb5 e1979rmu-el-input-group"
+      <mock-styled.div />
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             placeholder="Search permissions to get started"
           />
-          <span
-            class="ej9yrfo-el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="eooz7jy-el-multi-select-input-wrapper"
-        >
-          <input
-            class="eg4njbl-el-multi-select-input"
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             id="select-permissions"
           />
-          <div
-            class="e12c6sou-el-multi-select-selected"
+          <mock-styled.div
+            classname=""
           />
-        </div>
-        <p
-          class="e19twfs3-el-input-error"
-        >
+        </mock-styled.div>
+        <mock-styled.p>
           Some error
-        </p>
-      </div>
+        </mock-styled.p>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="s1cum27r-step-form-container"
-    >
-      <div
-        class="ehvkknk-el-mb5 e1979rmu-el-input-group"
+    <mock-styled.div />
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+"
       >
-        <input
-          class="e1urjlvd-el-input"
+        <mock-styled.input
           id="test-static-id"
           placeholder="Search permissions to get started"
         />
-        <span
-          class="ej9yrfo-el-icon"
+        <mock-styled.span
+          classname=""
         >
           <svg />
-        </span>
-      </div>
-      <div
-        class="eooz7jy-el-multi-select-input-wrapper"
-      >
-        <input
-          class="eg4njbl-el-multi-select-input"
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.input
           id="select-permissions"
         />
-        <div
-          class="e12c6sou-el-multi-select-selected"
+        <mock-styled.div
+          classname=""
         />
-      </div>
-      <p
-        class="e19twfs3-el-input-error"
-      >
+      </mock-styled.div>
+      <mock-styled.p>
         Some error
-      </p>
-    </div>
+      </mock-styled.p>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -1,11 +1,11 @@
 import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { AcceptPermissionChangePage, handleApprove, handleCancel, handleOpenModal } from '../index'
-import { History } from 'history'
-import { Routes } from '../../../constants/routes'
+import { RoutePaths } from '../../../constants/routes'
 import { mockAppDetailModel } from '../../../tests/__stubs__/apps'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockAppDetailModel]),
   useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn()]),
 }))
@@ -23,34 +23,30 @@ describe('handleApprove', () => {
   it('should approve a permission change', async () => {
     const resendEmail = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
     const closeModal = jest.fn()
-    const history = {
-      push: jest.fn(),
-    } as unknown as History
+    const navigate = jest.fn()
     const email = 'mail@example.com'
 
-    const curried = handleApprove(resendEmail, closeModal, history, email)
+    const curried = handleApprove(resendEmail, closeModal, navigate, email)
 
     await curried()
 
     expect(resendEmail).toHaveBeenCalledWith({ approvedBy: email })
     expect(closeModal).toHaveBeenCalledTimes(1)
-    expect(history.push).toHaveBeenCalledWith(Routes.APPS_INSTALLED)
+    expect(navigate).toHaveBeenCalledWith(RoutePaths.APPS_INSTALLED)
   })
 })
 
 describe('handleCancel', () => {
   it('should ignore a permission change', () => {
     const closeModal = jest.fn()
-    const history = {
-      push: jest.fn(),
-    } as unknown as History
+    const navigate = jest.fn()
 
-    const curried = handleCancel(closeModal, history)
+    const curried = handleCancel(closeModal, navigate)
 
     curried()
 
     expect(closeModal).toHaveBeenCalledTimes(1)
-    expect(history.push).toHaveBeenCalledWith(Routes.APPS_INSTALLED)
+    expect(navigate).toHaveBeenCalledWith(RoutePaths.APPS_INSTALLED)
   })
 })
 

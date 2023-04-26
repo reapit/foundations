@@ -3,7 +3,7 @@ import { logger } from '@reapit/utils-react'
 
 export const getNewUser = (userName: string, connectClientId: string, userPoolId?: string) => {
   const poolData = {
-    UserPoolId: userPoolId || window?.reapit?.config?.connectUserPoolId,
+    UserPoolId: userPoolId || process.env.connectUserPoolId,
     ClientId: connectClientId,
   }
   const userPool = new CognitoUserPool(poolData)
@@ -37,7 +37,7 @@ export const changePasswordService = async ({
       Password: password,
     }
     const authenticationDetails = new AuthenticationDetails(authenticationData)
-    const cognitoUser = getNewUser(userName, window.reapit.config.connectClientId)
+    const cognitoUser = getNewUser(userName, process.env.connectClientId)
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: () => {
         cognitoUser.changePassword(password, newPassword, (err) => {

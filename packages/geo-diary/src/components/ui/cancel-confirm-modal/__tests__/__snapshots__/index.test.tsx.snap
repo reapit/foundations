@@ -1,83 +1,109 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CancelConfirmModal should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <div
-        class="el-mb6"
+        class="mock-css.
+  margin-bottom: 1rem;
+"
       >
-        <p
-          class="el-text-center el-body-text"
+        <mock-styled.p
+          classname="mock-css.
+  text-align: center;
+"
         >
           Are you sure you want to cancel this appointment?
-        </p>
+        </mock-styled.p>
       </div>
-      <div
-        class="el-flex-justify-evenly el-flex-container"
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-evenly;
+"
       >
-        <button
-          class="el-intent-secondary el-button-size2 el-button"
+        <mock-styled.button
+          classname="mock-css. mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
+          disabled="false"
           type="button"
         >
           No
-          <div
-            class="el-button-loader"
-          />
-        </button>
-        <button
-          class="el-intent-critical el-button-size2 el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css. mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
           type="button"
         >
           Yes
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <div
-      class="el-mb6"
+      class="mock-css.
+  margin-bottom: 1rem;
+"
     >
-      <p
-        class="el-text-center el-body-text"
+      <mock-styled.p
+        classname="mock-css.
+  text-align: center;
+"
       >
         Are you sure you want to cancel this appointment?
-      </p>
+      </mock-styled.p>
     </div>
-    <div
-      class="el-flex-justify-evenly el-flex-container"
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-evenly;
+"
     >
-      <button
-        class="el-intent-secondary el-button-size2 el-button"
+      <mock-styled.button
+        classname="mock-css. mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
+        disabled="false"
         type="button"
       >
         No
-        <div
-          class="el-button-loader"
-        />
-      </button>
-      <button
-        class="el-intent-critical el-button-size2 el-button"
+        <mock-styled.div />
+      </mock-styled.button>
+      <mock-styled.button
+        classname="mock-css. mock-css.
+  min-width: 8rem;
+
+  , {
+    min-width: 6rem;
+  }
+"
         type="button"
       >
         Yes
-        <div
-          class="el-button-loader"
-        />
-      </button>
-    </div>
+        <mock-styled.div />
+      </mock-styled.button>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

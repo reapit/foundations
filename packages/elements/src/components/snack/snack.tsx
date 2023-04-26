@@ -1,7 +1,6 @@
 import React, { FC, HTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
-import { ElSnack, elSnackIcon, elSnackCloseIcon } from './__styles__'
-import { ElSnackHolder } from './__styles__/snack-holder'
+import { ElSnack, elSnackIcon, elSnackCloseIcon, ElSnackHolder } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 

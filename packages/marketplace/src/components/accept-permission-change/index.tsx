@@ -1,25 +1,18 @@
 import { BodyText, Button, ButtonGroup, useModal } from '@reapit/elements'
 import { AppDetailModel, ApproveAppRevisionConsentModel } from '@reapit/foundations-ts-definitions'
-import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/use-reapit-data'
 import React, { FC, useEffect } from 'react'
-import { useHistory, useParams } from 'react-router'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { NavigateFunction, useNavigate, useParams } from 'react-router'
+import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { History } from 'history'
-import { Routes } from '../../constants/routes'
+import { RoutePaths } from '../../constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
-
-interface AcceptPermissionParams {
-  appId: string
-  revisionId: string
-  consentId: string
-}
 
 export const handleApprove =
   (
     approveConsent: SendFunction<ApproveAppRevisionConsentModel, boolean>,
     closeModal: () => void,
-    history: History,
+    navigate: NavigateFunction,
     email?: string,
   ) =>
   async () => {
@@ -27,13 +20,13 @@ export const handleApprove =
 
     if (response) {
       closeModal()
-      history.push(Routes.APPS_INSTALLED)
+      navigate(RoutePaths.APPS_INSTALLED)
     }
   }
 
-export const handleCancel = (closeModal: () => void, history: History) => () => {
+export const handleCancel = (closeModal: () => void, navigate: NavigateFunction) => () => {
   closeModal()
-  history.push(Routes.APPS_INSTALLED)
+  navigate(RoutePaths.APPS_INSTALLED)
 }
 
 export const handleOpenModal = (openModal: () => void) => () => {
@@ -43,13 +36,13 @@ export const handleOpenModal = (openModal: () => void) => () => {
 export const AcceptPermissionChangePage: FC = () => {
   const { Modal, openModal, closeModal } = useModal()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const history = useHistory()
-  const { appId, revisionId, consentId } = useParams<AcceptPermissionParams>()
+  const navigate = useNavigate()
+  const { appId, revisionId, consentId } = useParams<'appId' | 'revisionId' | 'consentId'>()
   const email = connectSession?.loginIdentity.email
 
   const [, , approveConsent] = useReapitUpdate<ApproveAppRevisionConsentModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.approveConsent],
+    action: updateActions[UpdateActionNames.approveConsent],
     method: 'POST',
     uriParams: {
       appId,
@@ -60,7 +53,7 @@ export const AcceptPermissionChangePage: FC = () => {
 
   const [appDetail] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
+    action: getActions[GetActionNames.getAppById],
     uriParams: { appId },
     fetchWhenTrue: [appId],
   })
@@ -73,10 +66,10 @@ export const AcceptPermissionChangePage: FC = () => {
         To accept the permissions as requested by {appDetail?.name} please click &lsquo;Accept&rsquo; below.
       </BodyText>
       <ButtonGroup alignment="center">
-        <Button fixedWidth intent="low" onClick={handleCancel(closeModal, history)}>
+        <Button fixedWidth intent="low" onClick={handleCancel(closeModal, navigate)}>
           Ignore
         </Button>
-        <Button fixedWidth intent="primary" onClick={handleApprove(approveConsent, closeModal, history, email)}>
+        <Button fixedWidth intent="primary" onClick={handleApprove(approveConsent, closeModal, navigate, email)}>
           Accept
         </Button>
       </ButtonGroup>

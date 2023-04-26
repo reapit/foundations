@@ -1,176 +1,136 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentRequestModal should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <p
-          class="el-has-grey-text el-body-text"
+        <mock-styled.p
+          classname="mock-css."
         >
           The below form will send an email request for payment to your customer with an embedded link to our card processing page. You should set an expiry for this payment request and an email address to receive the request. The default expiry is a week.
-        </p>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-input-wrap-full"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 name="receipientEmail"
                 type="email"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Receipient Email
-              </label>
-            </div>
-          </div>
-          <div
-            class="el-input-wrap-full"
-          >
-            <div
-              class="el-input-group"
-            >
-              <input
-                class="el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
                 id="test-static-id"
                 max="2019-11-10"
                 min="2019-10-10"
                 name="sessionExpiresAt"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Payment Expiry Date - Max 1 month from today
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-align-center el-button-group-inner"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="el-intent-low el-button"
+            <mock-styled.button
+              classname="mock-css."
               type="button"
             >
               Cancel
-              <div
-                class="el-button-loader"
-              />
-            </button>
-            <button
-              class="el-intent-primary el-button"
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
               type="submit"
             >
               Send Payment Request
-              <div
-                class="el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <p
-        class="el-has-grey-text el-body-text"
+      <mock-styled.p
+        classname="mock-css."
       >
         The below form will send an email request for payment to your customer with an embedded link to our card processing page. You should set an expiry for this payment request and an email address to receive the request. The default expiry is a week.
-      </p>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-input-wrap-full"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               name="receipientEmail"
               type="email"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Receipient Email
-            </label>
-          </div>
-        </div>
-        <div
-          class="el-input-wrap-full"
-        >
-          <div
-            class="el-input-group"
-          >
-            <input
-              class="el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               id="test-static-id"
               max="2019-11-10"
               min="2019-10-10"
               name="sessionExpiresAt"
               type="date"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Payment Expiry Date - Max 1 month from today
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-button-group"
-      >
-        <div
-          class="el-button-group-align-center el-button-group-inner"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="el-intent-low el-button"
+          <mock-styled.button
+            classname="mock-css."
             type="button"
           >
             Cancel
-            <div
-              class="el-button-loader"
-            />
-          </button>
-          <button
-            class="el-intent-primary el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
             type="submit"
           >
             Send Payment Request
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

@@ -8,7 +8,7 @@ jest.mock('react-color', () => ({
 
 describe('AppBrowseManageUpsert', () => {
   it('should match a snapshot', () => {
-    window.reapit.config.appEnv = 'development'
+    process.env.appEnv = 'development'
     expect(render(<AppBrowseUpsert />)).toMatchSnapshot()
   })
 })

@@ -1,571 +1,541 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="e93m1fg-el-secondary-nav-container"
-        >
-          <h1
-            class="e1byern-el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Apps
-          </h1>
-          <div
-            class="e5lndhu-el-mb8 e6p05ya-el-fade-in e125gftx-el-secondary-nav"
+          </mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           >
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
+            <mock-styled.div
+              classname=""
             >
               My Apps
-            </div>
-            <div
-              class="evmehgn-el-is-active e1ohezfm-el-secondary-nav-item"
-            >
-              App Details
-            </div>
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
-            >
-              Edit App
-            </div>
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
-            >
-              Installations
-            </div>
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
-            >
-              Pipeline
-            </div>
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
-            >
-              App Consents
-            </div>
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               New App
-            </div>
-          </div>
+            </mock-styled.div>
+          </mock-styled.div>
           <div
-            class="e6p05ya-el-fade-in"
+            class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           >
-            <span
-              class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
             >
               <svg />
-            </span>
-            <h2
-              class="e15ggth7-el-subtitle"
+            </mock-styled.span>
+            <mock-styled.h2
+              classname=""
             >
-              Preview in AppMarket
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+              Apps Documentation
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
             >
-              Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
-            </p>
-            <button
-              class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
+              This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+            </mock-styled.p>
+            <mock-styled.button
+              classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
             >
-              Preview
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
+              View Docs
+              <mock-styled.div />
+            </mock-styled.button>
           </div>
-        </aside>
-        <section
-          class="e12d7zo5-el-hfull eukst9x-el-page-container"
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <h1
-            class="e1byern-el-title"
+          <mock-styled.div
+            classname="mock-css.
+  justify-content: space-between;
+"
           >
-            will-test-dev-co-voracious-person
-          </h1>
-          <h2
-            class="e15ggth7-el-subtitle"
-          >
-            Authenticating Your App
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
-          >
-            Client-side Apps use our identity provider
-             
-            <a>
-              Reapit Connect
-            </a>
-             to authenticate against our API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn, re-direct back to your app with a code in the URL that you exchange for access and id JWTs, referred to as
-             
-            <a>
-              Authorization Code flow.
-            </a>
-             You will need the Client Id and Redirect Uris below to configure Reapit Connect.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
-          >
-            To make this process easier, we provide you with an authentication module for client-side apps,
-             
-            <a>
-              Connect Session
-            </a>
-            , which comes bundled with our
-             
-            <a>
-              Create React App Template
-            </a>
-             for quick start client-side development.
-          </p>
-          <div
-            class="e20pb60-el-grid"
-          >
-            <div
-              class="e14pp0yd-el-col"
+            <mock-styled.h1
+              classname=""
             >
-              <div
-                class="e2kmzjs-el-flex-container"
+              My Apps
+            </mock-styled.h1>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
+          >
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
               >
-                <span
-                  class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
-                >
-                  <svg />
-                </span>
-                <div>
-                  <h2
-                    class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    Authentication Client Id
-                  </h2>
-                  <p
-                    class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
+                      MOCK_APP_NAME
+                    </mock-styled.h5>
+                    <mock-styled.h6 />
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
+              >
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
                   >
-                    MOCK_EXTERNAL_ID
-                  </p>
-                </div>
-              </div>
-              <button
-                class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
-              >
-                Copy
-                <div
-                  class="e1q1vabn-el-button-loader"
-                />
-              </button>
-            </div>
-            <div
-              class="e14pp0yd-el-col"
-            >
-              <div
-                class="e2kmzjs-el-flex-container"
-              >
-                <span
-                  class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
+                      MOCK_APP_NAME_ANOTHER
+                    </mock-styled.h5>
+                    <mock-styled.h6 />
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  <svg />
-                </span>
-                <div>
-                  <h2
-                    class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-                  >
-                    App Id
-                  </h2>
-                  <p
-                    class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
-                  >
-                    MOCK_APP_ID
-                  </p>
-                </div>
-              </div>
-              <button
-                class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
-              >
-                Copy
-                <div
-                  class="e1q1vabn-el-button-loader"
-                />
-              </button>
-            </div>
-            <div
-              class="e14pp0yd-el-col"
-            >
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-              >
-                Redirect Uri(s)
-              </h2>
-              <p
-                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
-              >
-                https://foo.bar
-              </p>
-            </div>
-            <div
-              class="e14pp0yd-el-col"
-            >
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-              >
-                Sign Out Uri(s)
-              </h2>
-              <p
-                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
-              >
-                https://foo.bar
-              </p>
-            </div>
-            <div
-              class="e14pp0yd-el-col"
-            >
-              <div
-                class="e14pp0yd-el-col"
-              >
-                <h2
-                  class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-                >
-                  Integration Type
-                </h2>
-                <p
-                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
-                >
-                  You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
-                </p>
-              </div>
-            </div>
-            <div
-              class="e14pp0yd-el-col"
-            >
-              <div
-                class="e14pp0yd-el-col"
-              >
-                <h2
-                  class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-                >
-                  App Status
-                </h2>
-                <p
-                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
-                >
-                  Your app is live and public in the AppMarket with a pending revision under review
-                </p>
-              </div>
-            </div>
-            <div
-              class="e14pp0yd-el-col"
-            >
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-              >
-                Permissions
-              </h2>
-              <div
-                class="p11sa0f-permission-chip"
-              >
-                Read applicants
-              </div>
-              <div
-                class="p11sa0f-permission-chip"
-              >
-                Read properties
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="e93m1fg-el-secondary-nav-container"
-      >
-        <h1
-          class="e1byern-el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Apps
-        </h1>
-        <div
-          class="e5lndhu-el-mb8 e6p05ya-el-fade-in e125gftx-el-secondary-nav"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 1.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
+          <mock-styled.div
+            classname=""
           >
             My Apps
-          </div>
-          <div
-            class="evmehgn-el-is-active e1ohezfm-el-secondary-nav-item"
-          >
-            App Details
-          </div>
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
-          >
-            Edit App
-          </div>
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
-          >
-            Installations
-          </div>
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
-          >
-            Pipeline
-          </div>
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
-          >
-            App Consents
-          </div>
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             New App
-          </div>
-        </div>
+          </mock-styled.div>
+        </mock-styled.div>
         <div
-          class="e6p05ya-el-fade-in"
+          class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <span
-            class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
-            Preview in AppMarket
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+            Apps Documentation
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
-            Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
-          </p>
-          <button
-            class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
+            This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
           >
-            Preview
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
+            View Docs
+            <mock-styled.div />
+          </mock-styled.button>
         </div>
-      </aside>
-      <section
-        class="e12d7zo5-el-hfull eukst9x-el-page-container"
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
         >
-          will-test-dev-co-voracious-person
-        </h1>
-        <h2
-          class="e15ggth7-el-subtitle"
-        >
-          Authenticating Your App
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
-        >
-          Client-side Apps use our identity provider
-           
-          <a>
-            Reapit Connect
-          </a>
-           to authenticate against our API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn, re-direct back to your app with a code in the URL that you exchange for access and id JWTs, referred to as
-           
-          <a>
-            Authorization Code flow.
-          </a>
-           You will need the Client Id and Redirect Uris below to configure Reapit Connect.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
-        >
-          To make this process easier, we provide you with an authentication module for client-side apps,
-           
-          <a>
-            Connect Session
-          </a>
-          , which comes bundled with our
-           
-          <a>
-            Create React App Template
-          </a>
-           for quick start client-side development.
-        </p>
-        <div
-          class="e20pb60-el-grid"
-        >
-          <div
-            class="e14pp0yd-el-col"
+          <mock-styled.h1
+            classname=""
           >
-            <div
-              class="e2kmzjs-el-flex-container"
+            My Apps
+          </mock-styled.h1>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
             >
-              <span
-                class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
-              >
-                <svg />
-              </span>
-              <div>
-                <h2
-                  class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
+                    style="font-size: 1.25rem;"
+                  >
+                    <svg />
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  Authentication Client Id
-                </h2>
-                <p
-                  class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
+                    MOCK_APP_NAME
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
+                    style="font-size: 1.25rem;"
+                  >
+                    <svg />
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                 >
-                  MOCK_EXTERNAL_ID
-                </p>
-              </div>
-            </div>
-            <button
-              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
-            >
-              Copy
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-          </div>
-          <div
-            class="e14pp0yd-el-col"
-          >
-            <div
-              class="e2kmzjs-el-flex-container"
-            >
-              <span
-                class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
+                    MOCK_APP_NAME_ANOTHER
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <svg />
-              </span>
-              <div>
-                <h2
-                  class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-                >
-                  App Id
-                </h2>
-                <p
-                  class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
-                >
-                  MOCK_APP_ID
-                </p>
-              </div>
-            </div>
-            <button
-              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
-            >
-              Copy
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-          </div>
-          <div
-            class="e14pp0yd-el-col"
-          >
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-            >
-              Redirect Uri(s)
-            </h2>
-            <p
-              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
-            >
-              https://foo.bar
-            </p>
-          </div>
-          <div
-            class="e14pp0yd-el-col"
-          >
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-            >
-              Sign Out Uri(s)
-            </h2>
-            <p
-              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
-            >
-              https://foo.bar
-            </p>
-          </div>
-          <div
-            class="e14pp0yd-el-col"
-          >
-            <div
-              class="e14pp0yd-el-col"
-            >
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-              >
-                Integration Type
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
-              >
-                You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
-              </p>
-            </div>
-          </div>
-          <div
-            class="e14pp0yd-el-col"
-          >
-            <div
-              class="e14pp0yd-el-col"
-            >
-              <h2
-                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-              >
-                App Status
-              </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
-              >
-                Your app is live and public in the AppMarket with a pending revision under review
-              </p>
-            </div>
-          </div>
-          <div
-            class="e14pp0yd-el-col"
-          >
-            <h2
-              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
-            >
-              Permissions
-            </h2>
-            <div
-              class="p11sa0f-permission-chip"
-            >
-              Read applicants
-            </div>
-            <div
-              class="p11sa0f-permission-chip"
-            >
-              Read properties
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -622,75 +592,67 @@ Object {
 `;
 
 exports[`AppsPage should match a snapshot when apps are loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="e93m1fg-el-secondary-nav-container"
-        >
-          <h1
-            class="e1byern-el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Apps
-          </h1>
-        </aside>
-        <section
-          class="e12d7zo5-el-hfull eukst9x-el-page-container"
+          </mock-styled.h1>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
         >
-          <div
-            class="ebhrnzh-el-loader-container"
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </section>
-      </div>
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="e93m1fg-el-secondary-nav-container"
-      >
-        <h1
-          class="e1byern-el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Apps
-        </h1>
-      </aside>
-      <section
-        class="e12d7zo5-el-hfull eukst9x-el-page-container"
+        </mock-styled.h1>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
       >
-        <div
-          class="ebhrnzh-el-loader-container"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
-    </div>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -747,133 +709,541 @@ Object {
 `;
 
 exports[`AppsPage should match a snapshot when apps are present 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <aside
-          class="e93m1fg-el-secondary-nav-container"
-        >
-          <h1
-            class="e1byern-el-title"
+        <mock-styled.aside>
+          <mock-styled.h1
+            classname=""
           >
             Apps
-          </h1>
-          <div
-            class="e5lndhu-el-mb8 e6p05ya-el-fade-in e125gftx-el-secondary-nav"
+          </mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           >
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
+            <mock-styled.div
+              classname=""
             >
               My Apps
-            </div>
-            <div
-              class="e1ohezfm-el-secondary-nav-item"
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
               New App
-            </div>
-          </div>
+            </mock-styled.div>
+          </mock-styled.div>
           <div
-            class="e6p05ya-el-fade-in"
+            class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           >
-            <span
-              class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
             >
               <svg />
-            </span>
-            <h2
-              class="e15ggth7-el-subtitle"
+            </mock-styled.span>
+            <mock-styled.h2
+              classname=""
             >
               Apps Documentation
-            </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
             >
               This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-            </p>
-            <button
-              class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+            </mock-styled.p>
+            <mock-styled.button
+              classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
             >
               View Docs
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
+              <mock-styled.div />
+            </mock-styled.button>
           </div>
-        </aside>
-        <section
-          class="e12d7zo5-el-hfull eukst9x-el-page-container"
-        />
-      </div>
+        </mock-styled.aside>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
+        >
+          <mock-styled.div
+            classname="mock-css.
+  justify-content: space-between;
+"
+          >
+            <mock-styled.h1
+              classname=""
+            >
+              My Apps
+            </mock-styled.h1>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
+          >
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
+              >
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
+                      MOCK_APP_NAME
+                    </mock-styled.h5>
+                    <mock-styled.h6 />
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
+              >
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
+                      MOCK_APP_NAME_ANOTHER
+                    </mock-styled.h5>
+                    <mock-styled.h6 />
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <aside
-        class="e93m1fg-el-secondary-nav-container"
-      >
-        <h1
-          class="e1byern-el-title"
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Apps
-        </h1>
-        <div
-          class="e5lndhu-el-mb8 e6p05ya-el-fade-in e125gftx-el-secondary-nav"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 1.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
+          <mock-styled.div
+            classname=""
           >
             My Apps
-          </div>
-          <div
-            class="e1ohezfm-el-secondary-nav-item"
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
             New App
-          </div>
-        </div>
+          </mock-styled.div>
+        </mock-styled.div>
         <div
-          class="e6p05ya-el-fade-in"
+          class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         >
-          <span
-            class="esplruv-el-mb3 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css.
+  font-size: 5rem;
+"
           >
             <svg />
-          </span>
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
           >
             Apps Documentation
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-          </p>
-          <button
-            class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
           >
             View Docs
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
+            <mock-styled.div />
+          </mock-styled.button>
         </div>
-      </aside>
-      <section
-        class="e12d7zo5-el-hfull eukst9x-el-page-container"
-      />
-    </div>
+      </mock-styled.aside>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
+      >
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
+        >
+          <mock-styled.h1
+            classname=""
+          >
+            My Apps
+          </mock-styled.h1>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
+                    style="font-size: 1.25rem;"
+                  >
+                    <svg />
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
+                    MOCK_APP_NAME
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
+                    style="font-size: 1.25rem;"
+                  >
+                    <svg />
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
+                    MOCK_APP_NAME_ANOTHER
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -930,33 +1300,377 @@ Object {
 `;
 
 exports[`AppsPage should match a snapshot when no apps are created 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
       >
-        <section
-          class="e12d7zo5-el-hfull eukst9x-el-page-container"
-        />
-      </div>
+        <mock-styled.section
+          classname="mock-css.
+  height: 100%;
+"
+        >
+          <mock-styled.div
+            classname="mock-css.
+  justify-content: space-between;
+"
+          >
+            <mock-styled.h1
+              classname=""
+            >
+              My Apps
+            </mock-styled.h1>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+"
+          >
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
+              >
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
+                      MOCK_APP_NAME
+                    </mock-styled.h5>
+                    <mock-styled.h6 />
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
+              >
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname=""
+                        style="font-size: 1.25rem;"
+                      >
+                        <svg />
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.h5>
+                      MOCK_APP_NAME_ANOTHER
+                    </mock-styled.h5>
+                    <mock-styled.h6 />
+                    <mock-styled.h6 />
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
     >
-      <section
-        class="e12d7zo5-el-hfull eukst9x-el-page-container"
-      />
-    </div>
+      <mock-styled.section
+        classname="mock-css.
+  height: 100%;
+"
+      >
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
+        >
+          <mock-styled.h1
+            classname=""
+          >
+            My Apps
+          </mock-styled.h1>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+"
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
+                    style="font-size: 1.25rem;"
+                  >
+                    <svg />
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
+                    MOCK_APP_NAME
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  cursor: pointer;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.span
+                    classname=""
+                    style="font-size: 1.25rem;"
+                  >
+                    <svg />
+                  </mock-styled.span>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname=""
+                      style="font-size: 1.25rem;"
+                    >
+                      <svg />
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.h5>
+                    MOCK_APP_NAME_ANOTHER
+                  </mock-styled.h5>
+                  <mock-styled.h6 />
+                  <mock-styled.h6 />
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

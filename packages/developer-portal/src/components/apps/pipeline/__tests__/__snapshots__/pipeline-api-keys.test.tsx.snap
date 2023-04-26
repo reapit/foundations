@@ -1,271 +1,231 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApiKeys should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <p
-        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+      <mock-styled.div />
+      <mock-styled.p
+        classname="mock-css."
       >
         Manage your API keys here for use with the Reapit CLI tool. The CLI allows you to deploy your application as a zip folder from a local build on the command line, rather than having to grant access to your private repos.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         You only need an API key to use the Reapit CLI. If you prefer to use the web UI to manage your deployments, you can pass on this page.
-      </p>
-      <p
-        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         For more on the Reapit CLI visit 
         <a>
           the docs here.
         </a>
-      </p>
-      <div
-        class="ec47sgk-el-mb11 ejadz4k-el-table"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="2"
       >
-        <div
-          class="e1ijk5il-el-table-headers-row"
-        >
-          <div
-            class="e1co3p83-el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             API Key
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Expires
-          </div>
-          <div
-            class="e1co3p83-el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Delete Key
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="e1qy4g2u-el-table-row"
-          >
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="API Key"
               >
-                <div
-                  class="e2kmzjs-el-flex-container"
+                <mock-styled.div
+                  classname=""
                 >
                   <span
-                    class="ecwfd1d-el-mr3"
+                    class="mock-css.
+  margin-right: 0.5rem;
+"
                   >
                     MOCK_KEY
                   </span>
-                  <button
-                    class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+                  <mock-styled.button
+                    classname="mock-css."
                   >
                     Copy
-                    <div
-                      class="e1q1vabn-el-button-loader"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <div
-                class="e1t8i3z1-el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Expires"
               >
                 25 Apr 2023 04:28:25
-              </div>
-            </div>
-            <div
-              class="es3tf1j-el-table-cta-cell"
-            >
-              <div
-                class="ewmoxzc-el-table-cta-icon-container"
-              >
-                <span
-                  class="ebee6r1-el-intent-primary ej9yrfo-el-icon"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css. mock-css."
+            disabled="false"
           >
             Close
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-          <button
-            class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css. mock-css."
+            disabled="false"
           >
             Create API Key
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <p
-      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+    <mock-styled.div />
+    <mock-styled.p
+      classname="mock-css."
     >
       Manage your API keys here for use with the Reapit CLI tool. The CLI allows you to deploy your application as a zip folder from a local build on the command line, rather than having to grant access to your private repos.
-    </p>
-    <p
-      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+    </mock-styled.p>
+    <mock-styled.p
+      classname="mock-css."
     >
       You only need an API key to use the Reapit CLI. If you prefer to use the web UI to manage your deployments, you can pass on this page.
-    </p>
-    <p
-      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+    </mock-styled.p>
+    <mock-styled.p
+      classname="mock-css."
     >
       For more on the Reapit CLI visit 
       <a>
         the docs here.
       </a>
-    </p>
-    <div
-      class="ec47sgk-el-mb11 ejadz4k-el-table"
+    </mock-styled.p>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="2"
     >
-      <div
-        class="e1ijk5il-el-table-headers-row"
-      >
-        <div
-          class="e1co3p83-el-table-header"
-        >
+      <mock-styled.div>
+        <mock-styled.div>
           API Key
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Expires
-        </div>
-        <div
-          class="e1co3p83-el-table-header"
-        >
+        </mock-styled.div>
+        <mock-styled.div>
           Delete Key
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="e1qy4g2u-el-table-row"
-        >
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="API Key"
             >
-              <div
-                class="e2kmzjs-el-flex-container"
+              <mock-styled.div
+                classname=""
               >
                 <span
-                  class="ecwfd1d-el-mr3"
+                  class="mock-css.
+  margin-right: 0.5rem;
+"
                 >
                   MOCK_KEY
                 </span>
-                <button
-                  class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+                <mock-styled.button
+                  classname="mock-css."
                 >
                   Copy
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-          <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Expires"
             >
               25 Apr 2023 04:28:25
-            </div>
-          </div>
-          <div
-            class="es3tf1j-el-table-cta-cell"
-          >
-            <div
-              class="ewmoxzc-el-table-cta-icon-container"
-            >
-              <span
-                class="ebee6r1-el-intent-primary ej9yrfo-el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="ebqwrow-el-button-group"
-    >
-      <div
-        class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+        <mock-styled.button
+          classname="mock-css. mock-css."
+          disabled="false"
         >
           Close
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-        <button
-          class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+          <mock-styled.div />
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css. mock-css."
+          disabled="false"
         >
           Create API Key
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

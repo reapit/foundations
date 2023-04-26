@@ -1,69 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentsFilterControls should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-border-radius overflow-hidden el-mb5"
+        class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
       >
         <form>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 max="2019-10-10"
                 min="2017-10-10"
                 name="createdFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Created From
-              </label>
-            </div>
-          </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 max="2019-10-11"
                 min="2019-10-10"
                 name="createdTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Created To
-              </label>
-            </div>
-          </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-wfull el-select"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.select
+                classname="mock-css.
+  width: 100%;
+"
                 name="status"
               >
                 <option
@@ -91,98 +93,98 @@ Object {
                 >
                   Failed
                 </option>
-              </select>
-              <label
-                class="el-label"
-              >
+              </mock-styled.select>
+              <mock-styled.label>
                 Status
-              </label>
-            </div>
-          </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 name="description"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Description
-              </label>
-            </div>
-          </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-border-radius overflow-hidden el-mb5"
+      class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
     >
       <form>
-        <div
-          class="controls-container"
-        >
-          <div
-            class="input-full-width el-input-group"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
           >
-            <input
-              class="el-input"
+            <mock-styled.input
               id="test-static-id"
               max="2019-10-10"
               min="2017-10-10"
               name="createdFrom"
               type="date"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Created From
-            </label>
-          </div>
-        </div>
-        <div
-          class="controls-container"
-        >
-          <div
-            class="input-full-width el-input-group"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
           >
-            <input
-              class="el-input"
+            <mock-styled.input
               id="test-static-id"
               max="2019-10-11"
               min="2019-10-10"
               name="createdTo"
               type="date"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Created To
-            </label>
-          </div>
-        </div>
-        <div
-          class="controls-container"
-        >
-          <div
-            class="el-input-group"
-          >
-            <select
-              class="el-wfull el-select"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select
+              classname="mock-css.
+  width: 100%;
+"
               name="status"
             >
               <option
@@ -210,34 +212,32 @@ Object {
               >
                 Failed
               </option>
-            </select>
-            <label
-              class="el-label"
-            >
+            </mock-styled.select>
+            <mock-styled.label>
               Status
-            </label>
-          </div>
-        </div>
-        <div
-          class="controls-container"
-        >
-          <div
-            class="input-full-width el-input-group"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
           >
-            <input
-              class="el-input"
+            <mock-styled.input
               id="test-static-id"
               name="description"
               type="text"
             />
-            <label
-              class="el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Description
-            </label>
-          </div>
-        </div>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </div>,

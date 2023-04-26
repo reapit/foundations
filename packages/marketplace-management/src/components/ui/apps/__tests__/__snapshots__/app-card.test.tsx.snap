@@ -1,205 +1,167 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppCard should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-fade-in el-card-wrap"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <div
-          class="el-card-main-wrap"
-        >
-          <div
-            class="el-card-heading-wrap"
-          >
-            <h5
-              class="el-card-heading"
-            >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.h5>
               Geo Diary
-            </h5>
-            <h6
-              class="el-card-sub-heading"
-            >
+            </mock-styled.h5>
+            <mock-styled.h6>
               Reapit Ltd
-            </h6>
-            <h6
-              class="el-card-sub-heading-additional"
-            />
-          </div>
-        </div>
-        <div
-          class="el-mb5 el-card-body-wrap"
+            </mock-styled.h6>
+            <mock-styled.h6 />
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
         >
           GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
-        </div>
-        <div
-          class="el-card-list-main-wrap"
-        >
-          <h5
-            class="el-card-list-heading"
-          >
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h5>
             Installation and Visibility
-          </h5>
-          <h6
-            class="el-card-list-sub-heading"
-          />
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+          </mock-styled.h5>
+          <mock-styled.h6 />
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Installation Status
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Not installed
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-card-list-item"
-        >
-          <div
-            class="el-card-list-icon"
-          >
-            <span
-              class="el-icon"
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </div>
-          <div
-            class="el-card-list-item-text-wrap"
-          >
-            <div
-              class="el-card-list-item-text-primary"
-            >
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
               Marketplace Visibility
-            </div>
-            <div
-              class="el-card-list-item-text-secondary"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Marketplace visible
-            </div>
-          </div>
-        </div>
-      </div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-fade-in el-card-wrap"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <div
-        class="el-card-main-wrap"
-      >
-        <div
-          class="el-card-heading-wrap"
-        >
-          <h5
-            class="el-card-heading"
-          >
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h5>
             Geo Diary
-          </h5>
-          <h6
-            class="el-card-sub-heading"
-          >
+          </mock-styled.h5>
+          <mock-styled.h6>
             Reapit Ltd
-          </h6>
-          <h6
-            class="el-card-sub-heading-additional"
-          />
-        </div>
-      </div>
-      <div
-        class="el-mb5 el-card-body-wrap"
+          </mock-styled.h6>
+          <mock-styled.h6 />
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+"
       >
         GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
-      </div>
-      <div
-        class="el-card-list-main-wrap"
-      >
-        <h5
-          class="el-card-list-heading"
-        >
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h5>
           Installation and Visibility
-        </h5>
-        <h6
-          class="el-card-list-sub-heading"
-        />
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+        </mock-styled.h5>
+        <mock-styled.h6 />
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Installation Status
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Not installed
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-card-list-item"
-      >
-        <div
-          class="el-card-list-icon"
-        >
-          <span
-            class="el-icon"
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </div>
-        <div
-          class="el-card-list-item-text-wrap"
-        >
-          <div
-            class="el-card-list-item-text-primary"
-          >
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
             Marketplace Visibility
-          </div>
-          <div
-            class="el-card-list-item-text-secondary"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Marketplace visible
-          </div>
-        </div>
-      </div>
-    </div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

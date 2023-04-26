@@ -103,7 +103,7 @@ export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
 
   const [appDetail] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
+    action: getActions[GetActionNames.getAppById],
     uriParams: {
       appId,
     },
@@ -112,7 +112,7 @@ export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
 
   const [appRevision] = useReapitGet<AppRevisionModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getRevisionById],
+    action: getActions[GetActionNames.getRevisionById],
     uriParams: {
       revisionId,
       appId,
@@ -127,7 +127,7 @@ export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
 
   const [appConsents, appConsentsLoading, , appConsentsRefresh] = useReapitGet<AppRevisionConsentModel[]>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getRevisionConsents],
+    action: getActions[GetActionNames.getRevisionConsents],
     uriParams: {
       appId,
       revisionId,
@@ -137,7 +137,7 @@ export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
 
   const [, , createConsentEmails] = useReapitUpdate<CreateAppRevisionConsentsModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createConsentEmails],
+    action: updateActions[UpdateActionNames.createConsentEmails],
     method: 'POST',
     uriParams: {
       appId,
@@ -147,7 +147,7 @@ export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions[GetActionNames.getInstallations],
     queryParams: {
       appId,
       pageNumber: 1,
@@ -160,7 +160,7 @@ export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
 
   const [, , resendEmail, emailResent] = useReapitUpdate<ResendAppRevisionConsentModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.resendConsentEmail],
+    action: updateActions[UpdateActionNames.resendConsentEmail],
     method: 'POST',
     uriParams: {
       appId,

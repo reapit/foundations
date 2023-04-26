@@ -1,31 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OrgIdSelect should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="el-mb5"
+        class="mock-css.
+  margin-bottom: 0.75rem;
+"
       >
-        <h2
-          class="el-subtitle"
+        <mock-styled.h2
+          classname=""
         >
           Organisations
-        </h2>
-        <p
-          class="el-has-grey-text el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-        </p>
-        <div
-          class="el-border-radius controls-container"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="mock-css.
+  border-radius: 0.25rem;
+"
         >
-          <div
-            class="el-input-group"
-          >
-            <select
-              class="el-wfull el-select"
+          <mock-styled.div>
+            <mock-styled.select
+              classname="mock-css.
+  width: 100%;
+"
+              value="SOME_ID"
             >
               <option
                 value=""
@@ -42,40 +47,44 @@ Object {
               >
                 name
               </option>
-            </select>
-            <label
-              class="el-label"
-              for="myId"
+            </mock-styled.select>
+            <mock-styled.label
+              htmlfor="myId"
             >
               Select Organisation
-            </label>
-          </div>
-        </div>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="el-mb5"
+      class="mock-css.
+  margin-bottom: 0.75rem;
+"
     >
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         Organisations
-      </h2>
-      <p
-        class="el-has-grey-text el-body-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="mock-css."
       >
         You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-      </p>
-      <div
-        class="el-border-radius controls-container"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css.
+  border-radius: 0.25rem;
+"
       >
-        <div
-          class="el-input-group"
-        >
-          <select
-            class="el-wfull el-select"
+        <mock-styled.div>
+          <mock-styled.select
+            classname="mock-css.
+  width: 100%;
+"
+            value="SOME_ID"
           >
             <option
               value=""
@@ -92,15 +101,14 @@ Object {
             >
               name
             </option>
-          </select>
-          <label
-            class="el-label"
-            for="myId"
+          </mock-styled.select>
+          <mock-styled.label
+            htmlfor="myId"
           >
             Select Organisation
-          </label>
-        </div>
-      </div>
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],
@@ -158,7 +166,7 @@ Object {
 `;
 
 exports[`OrgIdSelect should match a snapshot where orgIdOptions are less than 2 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div />

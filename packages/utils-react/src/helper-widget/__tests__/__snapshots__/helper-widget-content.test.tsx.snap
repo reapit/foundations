@@ -1,107 +1,151 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="hcq1aa1"
-      >
-        <h2
-          class="eh96l6x ewfctk4 e15ggth7"
+      <mock-styled.div>
+        <mock-styled.h2
+          classname="mock-css. mock-css."
         >
           Webhooks
-        </h2>
-      </div>
-      <div
-        class="e6p05ya hhl1bas"
+        </mock-styled.h2>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <p
-          class="e1wasvgh"
+        <mock-styled.p
+          classname=""
         >
           Webhook Docs
-        </p>
-        <p
-          class="e11jaxfn elle7d2"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-        </p>
-        <a
-          class="h11lsmke"
-        >
+        </mock-styled.p>
+        <mock-styled.a>
           View in docs
-        </a>
-      </div>
-      <div
-        class="e6p05ya hhl1bas"
+        </mock-styled.a>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
-        <p
-          class="e1wasvgh"
+        <mock-styled.p
+          classname=""
         >
           Webhook Docs
-        </p>
-        <p
-          class="e11jaxfn elle7d2"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-        </p>
-        <a
-          class="h11lsmke"
-        >
+        </mock-styled.p>
+        <mock-styled.a>
           View in docs
-        </a>
-      </div>
+        </mock-styled.a>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="hcq1aa1"
-    >
-      <h2
-        class="eh96l6x ewfctk4 e15ggth7"
+    <mock-styled.div>
+      <mock-styled.h2
+        classname="mock-css. mock-css."
       >
         Webhooks
-      </h2>
-    </div>
-    <div
-      class="e6p05ya hhl1bas"
+      </mock-styled.h2>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <p
-        class="e1wasvgh"
+      <mock-styled.p
+        classname=""
       >
         Webhook Docs
-      </p>
-      <p
-        class="e11jaxfn elle7d2"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-      </p>
-      <a
-        class="h11lsmke"
-      >
+      </mock-styled.p>
+      <mock-styled.a>
         View in docs
-      </a>
-    </div>
-    <div
-      class="e6p05ya hhl1bas"
+      </mock-styled.a>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
-      <p
-        class="e1wasvgh"
+      <mock-styled.p
+        classname=""
       >
         Webhook Docs
-      </p>
-      <p
-        class="e11jaxfn elle7d2"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-      </p>
-      <a
-        class="h11lsmke"
-      >
+      </mock-styled.p>
+      <mock-styled.a>
         View in docs
-      </a>
-    </div>
+      </mock-styled.a>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -158,21 +202,33 @@ Object {
 `;
 
 exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="hcq1aa1"
-      >
-        <h2
-          class="eh96l6x ewfctk4 e15ggth7"
+      <mock-styled.div>
+        <mock-styled.h2
+          classname="mock-css. mock-css."
         >
           Webhooks
-        </h2>
-      </div>
-      <div
-        class="e6p05ya hhl1bas"
+        </mock-styled.h2>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
         <svg
           fill="none"
@@ -242,24 +298,36 @@ Object {
             fill="#FFB71B"
           />
         </svg>
-        <p
-          class="e1wasvgh"
+        <mock-styled.p
+          classname=""
         >
           Webhook Video
-        </p>
-        <p
-          class="e11jaxfn elle7d2"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-        </p>
-        <a
-          class="h11lsmke"
-        >
+        </mock-styled.p>
+        <mock-styled.a>
           View on Youtube
-        </a>
-      </div>
-      <div
-        class="e6p05ya hhl1bas"
+        </mock-styled.a>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
         <svg
           fill="none"
@@ -329,36 +397,46 @@ Object {
             fill="#FFB71B"
           />
         </svg>
-        <p
-          class="e1wasvgh"
+        <mock-styled.p
+          classname=""
         >
           Webhook Video
-        </p>
-        <p
-          class="e11jaxfn elle7d2"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-        </p>
-        <a
-          class="h11lsmke"
-        >
+        </mock-styled.p>
+        <mock-styled.a>
           View on Youtube
-        </a>
-      </div>
+        </mock-styled.a>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="hcq1aa1"
-    >
-      <h2
-        class="eh96l6x ewfctk4 e15ggth7"
+    <mock-styled.div>
+      <mock-styled.h2
+        classname="mock-css. mock-css."
       >
         Webhooks
-      </h2>
-    </div>
-    <div
-      class="e6p05ya hhl1bas"
+      </mock-styled.h2>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
       <svg
         fill="none"
@@ -428,24 +506,36 @@ Object {
           fill="#FFB71B"
         />
       </svg>
-      <p
-        class="e1wasvgh"
+      <mock-styled.p
+        classname=""
       >
         Webhook Video
-      </p>
-      <p
-        class="e11jaxfn elle7d2"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-      </p>
-      <a
-        class="h11lsmke"
-      >
+      </mock-styled.p>
+      <mock-styled.a>
         View on Youtube
-      </a>
-    </div>
-    <div
-      class="e6p05ya hhl1bas"
+      </mock-styled.a>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
       <svg
         fill="none"
@@ -515,22 +605,20 @@ Object {
           fill="#FFB71B"
         />
       </svg>
-      <p
-        class="e1wasvgh"
+      <mock-styled.p
+        classname=""
       >
         Webhook Video
-      </p>
-      <p
-        class="e11jaxfn elle7d2"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-      </p>
-      <a
-        class="h11lsmke"
-      >
+      </mock-styled.p>
+      <mock-styled.a>
         View on Youtube
-      </a>
-    </div>
+      </mock-styled.a>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

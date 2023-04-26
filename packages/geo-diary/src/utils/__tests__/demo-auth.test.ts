@@ -16,6 +16,8 @@ const mockConfig = {
   platformApiUrl: 'https://platform.example.com',
 }
 
+process.env = mockConfig as typeof process.env
+
 describe('handleDemoAuth', () => {
   it('should return null and not fetch credentials if no demo query is found', async () => {
     const result = await handleDemoAuth()

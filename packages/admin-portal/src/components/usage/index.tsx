@@ -27,7 +27,7 @@ export const UsagePage: FC = () => {
 
   const [billing, billingLoading] = useReapitGet<BillingBreakdownForMonthV2Model>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getBillingDataByMonth],
+    action: getActions[GetActionNames.getBillingDataByMonth],
     queryParams: {
       developerId,
       type: 'trafficEvents',
@@ -43,7 +43,7 @@ export const UsagePage: FC = () => {
 
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams: {
       developerId,
       pageSize: 999,
@@ -53,7 +53,7 @@ export const UsagePage: FC = () => {
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions[GetActionNames.getInstallations],
     queryParams: {
       appId,
       isInstalled: true,

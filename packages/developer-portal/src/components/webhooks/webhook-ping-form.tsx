@@ -27,9 +27,9 @@ import errorMessages from '../../constants/error-messages'
 import { handleCollapseRow } from './webhooks-manage-form'
 import { openNewPage } from '../../utils/navigation'
 import { ExpandableContentType } from './webhooks-manage'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { useWebhooksState } from './state/use-webhooks-state'
 
 interface WebhooksPingFormProps {
@@ -96,7 +96,7 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
 
   const [, pingingWebhook, pingWebhook, pingSuccess, pingError] = useReapitUpdate<PingEndpointModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.pingWebhook],
+    action: updateActions[UpdateActionNames.pingWebhook],
     method: 'POST',
     uriParams: {
       subscriptionId: webhookModel.id,

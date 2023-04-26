@@ -20,7 +20,7 @@ const props = (): EditUserFormProps => ({
 
 describe('UpdateUserModal', () => {
   it('should match a snapshot where there is data', () => {
-    window.reapit.config.groupIdsWhitelist = ['OF1', 'OF2']
+    process.env.groupIdsWhitelist = ['OF1', 'OF2']
     mockSWR.mockReturnValue({
       data: mockUserGroups,
       error: {},

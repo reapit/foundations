@@ -1,11 +1,10 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
-import { createBrowserHistory, History } from 'history'
 import Routes from '@/constants/routes'
 import UsersTab, { onPageChangeHandler } from '../users-tab'
 import useSWR from 'swr'
 import { useOrgId } from '../../../../utils/use-org-id'
 import { mockUsersList } from '../../../../services/__stubs__/users'
+import { render } from '../../../../tests/react-testing'
 
 jest.mock('react-router', () => ({
   ...(jest.requireActual('react-router') as Object),
@@ -22,7 +21,7 @@ const mockUseOrgId = useOrgId as jest.Mock
 
 describe('UsersTab', () => {
   it('should match a snapshot where there is data', () => {
-    window.reapit.config.groupIdsWhitelist = []
+    process.env.groupIdsWhitelist = []
     mockSWR.mockReturnValue({
       data: mockUsersList,
       error: {},
@@ -32,7 +31,7 @@ describe('UsersTab', () => {
   })
 
   it('should match a snapshot where there is data but no users', () => {
-    window.reapit.config.groupIdsWhitelist = []
+    process.env.groupIdsWhitelist = []
     mockSWR.mockReturnValue({
       data: { _embedded: [] },
       error: {},
@@ -42,7 +41,7 @@ describe('UsersTab', () => {
   })
 
   it('should match a snapshot where there is no orgId', () => {
-    window.reapit.config.groupIdsWhitelist = []
+    process.env.groupIdsWhitelist = []
     mockSWR.mockReturnValue({
       data: mockUsersList,
       error: {},
@@ -55,12 +54,11 @@ describe('UsersTab', () => {
 
 describe('onPageChangeHandler', () => {
   it('should return a function when executing', () => {
-    const history: History<any> = createBrowserHistory()
-    jest.spyOn(history, 'push')
-    const onPageChangeHandlerFn = onPageChangeHandler(history)
+    const navigate = jest.fn()
+    const onPageChangeHandlerFn = onPageChangeHandler(navigate)
     expect(onPageChangeHandlerFn).toBeDefined()
 
     onPageChangeHandlerFn(2)
-    expect(history.push).toHaveBeenLastCalledWith(`${Routes.USERS}?pageNumber=2`)
+    expect(navigate).toHaveBeenLastCalledWith(`${Routes.USERS}?pageNumber=2`)
   })
 })

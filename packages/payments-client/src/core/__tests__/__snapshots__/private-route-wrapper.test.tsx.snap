@@ -1,129 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PrivateRouter should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <main
-        class="el-main-container"
-      >
-        <nav
-          class="el-nav-container"
-        >
-          <a
-            class="el-nav-item-active el-nav-item"
-          >
-            <span
-              class="el-nav-item-icon el-icon"
-              style="font-size: 2.5rem;"
-            >
-              <svg />
-            </span>
-            <span
-              class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
-              style="font-size: 2rem;"
-            >
-              <svg />
-            </span>
-          </a>
-          <a
-            class="el-nav-item"
-          >
-            <span
-              class="el-nav-item-icon el-icon-size-medium el-icon"
-            >
-              <svg />
-            </span>
-            Payments
-          </a>
-          <a
-            class="el-nav-item"
-          >
-            <span
-              class="el-nav-item-icon el-icon-size-medium el-icon"
-            >
-              <svg />
-            </span>
-            Apps
-          </a>
-          <a
-            class="el-nav-item-secondary el-nav-item"
-          >
-            <span
-              class="el-nav-item-icon el-icon-size-medium el-icon"
-            >
-              <svg />
-            </span>
-            Logout
-          </a>
-        </nav>
-        <div />
-      </main>
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <main
-      class="el-main-container"
-    >
-      <nav
-        class="el-nav-container"
-      >
-        <a
-          class="el-nav-item-active el-nav-item"
-        >
-          <span
-            class="el-nav-item-icon el-icon"
-            style="font-size: 2.5rem;"
-          >
-            <svg />
-          </span>
-          <span
-            class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
-            style="font-size: 2rem;"
-          >
-            <svg />
-          </span>
-        </a>
-        <a
-          class="el-nav-item"
-        >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
-          >
-            <svg />
-          </span>
-          Payments
-        </a>
-        <a
-          class="el-nav-item"
-        >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
-          >
-            <svg />
-          </span>
-          Apps
-        </a>
-        <a
-          class="el-nav-item-secondary el-nav-item"
-        >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
-          >
-            <svg />
-          </span>
-          Logout
-        </a>
-      </nav>
-      <div />
-    </main>
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

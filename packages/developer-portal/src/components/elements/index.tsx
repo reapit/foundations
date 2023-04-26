@@ -29,7 +29,7 @@ export const ElementsPage: FC = () => {
         <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.elementsDocs)}>
           View Docs
         </Button>
-        <Button className={elMb5} intent="critical" onClick={openNewPage(window.reapit.config.elementsUri)}>
+        <Button className={elMb5} intent="critical" onClick={openNewPage(process.env.elementsUri)}>
           Storybook
         </Button>
       </SecondaryNavContainer>
@@ -37,7 +37,7 @@ export const ElementsPage: FC = () => {
         <Title>Elements</Title>
         <iframe
           className={iframeWrapper}
-          src={window.reapit.config.elementsUri}
+          src={process.env.elementsUri}
           frameBorder="0"
           allow="clipboard-write"
         ></iframe>

@@ -21,7 +21,7 @@ export const getOfficesService = async (
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const response: OfficeModelPagedResult | undefined = await fetcher({
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         url: `${URLS.OFFICES}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
         method: 'GET',
         headers: {
@@ -49,7 +49,7 @@ export const createOfficeGroup = async (
     const headers = await getPlatformHeaders(reapitConnectBrowserSession)
     if (headers) {
       const response = await fetcher({
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         url,
         method: 'POST',
         headers,
@@ -81,7 +81,7 @@ export const updateOfficeGroup = async (
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const response = await fetcher({
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         url,
         method: 'PUT',
         headers,

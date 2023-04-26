@@ -1,68 +1,75 @@
 import * as React from 'react'
-import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
-import { createBrowserHistory, History } from 'history'
-import Routes from '../constants/routes'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
+import RoutePaths from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
-import { SWRConfig } from 'swr'
-import { fetcher } from '../utils/fetcher'
-import { OkayPage } from '@reapit/utils-react'
+import { FC, lazy } from 'react'
+import { catchChunkError } from '@reapit/utils-react'
 
-export const history: History<any> = createBrowserHistory()
+const LoginPage = lazy(() => catchChunkError(() => import('../components/pages/login')))
+const Offices = lazy(() => catchChunkError(() => import('../components/pages/offices')))
+const Users = lazy(() => catchChunkError(() => import('../components/pages/users')))
+const Marketplace = lazy(() => catchChunkError(() => import('../components/pages/marketplace')))
+const AccessDenied = lazy(() => catchChunkError(() => import('../components/pages/access-denied')))
+const MarketplaceAppPage = lazy(() => catchChunkError(() => import('../components/pages/marketplace-app')))
 
-export const catchChunkError = (
-  fn: Function,
-  retriesLeft = 3,
-  interval = 500,
-): Promise<{ default: React.ComponentType<any> }> => {
-  return new Promise((resolve, reject) => {
-    fn()
-      .then(resolve)
-      .catch((error: Error) => {
-        // Ignore chunk cache error and retry to fetch, if cannot reload browser
-        console.info(error)
-        setTimeout(() => {
-          if (retriesLeft === 1) {
-            window.location.reload()
-            return
-          }
-          catchChunkError(fn, retriesLeft - 1, interval).then(resolve, reject)
-        }, interval)
-      })
-  })
-}
-
-const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const Offices = React.lazy(() => catchChunkError(() => import('../components/pages/offices')))
-const Users = React.lazy(() => catchChunkError(() => import('../components/pages/users')))
-const Marketplace = React.lazy(() => catchChunkError(() => import('../components/pages/marketplace')))
-const AccessDenied = React.lazy(() => catchChunkError(() => import('../components/pages/access-denied')))
-const MarketplaceAppPage = React.lazy(() => catchChunkError(() => import('../components/pages/marketplace-app')))
-
-const Router = () => (
-  <BrowserRouter history={history}>
-    <React.Suspense fallback={null}>
-      <Switch>
-        <Route path={Routes.OK} exact render={() => <OkayPage />} />
-        <Route path={Routes.LOGIN} component={LoginPage} />
+export const RoutesComponent: FC = () => (
+  <Routes>
+    <Route path={RoutePaths.LOGIN} element={<LoginPage />} />
+    <Route
+      path={`${RoutePaths.OFFICES}/*`}
+      element={
         <PrivateRouteWrapper>
-          <SWRConfig
-            value={{
-              revalidateOnFocus: false,
-              fetcher,
-            }}
-          >
-            <Switch>
-              <Route path={Routes.OFFICES} component={Offices} />
-              <Route path={Routes.USERS} component={Users} />
-              <Route path={Routes.MARKETPLACE} component={Marketplace} exact />
-              <Route path={Routes.MARKETPLACE_APP} component={MarketplaceAppPage} />
-              <Route path={Routes.ACCESS_DENIED} component={AccessDenied} />
-            </Switch>
-          </SWRConfig>
+          <Offices />
         </PrivateRouteWrapper>
-        <Redirect to={Routes.LOGIN} />
-      </Switch>
-    </React.Suspense>
+      }
+    />
+    <Route
+      path={`${RoutePaths.USERS}/*`}
+      element={
+        <PrivateRouteWrapper>
+          <Users />
+        </PrivateRouteWrapper>
+      }
+    />
+    <Route
+      path={RoutePaths.MARKETPLACE}
+      element={
+        <PrivateRouteWrapper>
+          <Marketplace />
+        </PrivateRouteWrapper>
+      }
+    />
+    <Route
+      path={RoutePaths.MARKETPLACE_APP}
+      element={
+        <PrivateRouteWrapper>
+          <MarketplaceAppPage />
+        </PrivateRouteWrapper>
+      }
+    />
+    <Route
+      path={RoutePaths.ACCESS_DENIED}
+      element={
+        <PrivateRouteWrapper>
+          <AccessDenied />
+        </PrivateRouteWrapper>
+      }
+    />
+    <Route
+      path={RoutePaths.HOME}
+      index
+      element={
+        <PrivateRouteWrapper>
+          <Users />
+        </PrivateRouteWrapper>
+      }
+    />
+  </Routes>
+)
+
+const Router: FC = () => (
+  <BrowserRouter>
+    <RoutesComponent />
   </BrowserRouter>
 )
 

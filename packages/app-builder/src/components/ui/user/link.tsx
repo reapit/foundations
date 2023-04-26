@@ -5,9 +5,9 @@ import Container from './container'
 import { usePageId } from '@/components/hooks/use-page-id'
 import { useAppPages } from '@/components/hooks/apps/use-app'
 import { Link as ELink } from './ejectable/link'
-import { styled } from '@linaria/react'
 import ContentEditable from 'react-contenteditable'
 import { elFlexAuto } from '@reapit/elements'
+import { DestinationPageContainer } from './__styles__'
 
 const defaultProps = {
   destination: '',
@@ -75,11 +75,6 @@ const Link = ({
     </div>
   )
 }
-
-const DestinationPageContainer = styled.div`
-  display: flex;
-  align-items: center;
-`
 
 export const DestinationPage = ({
   propKey,

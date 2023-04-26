@@ -1,12 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PlaceholderImage component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-placeholder-image"
+      <mock-styled.div
         style="font-size: 3.90625em; width: 100px; height: 100px;"
       >
         <svg
@@ -21,12 +20,11 @@ Object {
             fill="#E3E3E3"
           />
         </svg>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-placeholder-image"
+    <mock-styled.div
       style="font-size: 3.90625em; width: 100px; height: 100px;"
     >
       <svg
@@ -41,7 +39,7 @@ Object {
           fill="#E3E3E3"
         />
       </svg>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -98,7 +96,7 @@ Object {
 `;
 
 exports[`PlaceholderImage component should match a snapshot of image placeholderLarge 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -255,7 +253,7 @@ Object {
 `;
 
 exports[`PlaceholderImage component should match a snapshot of image placeholderSmall 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -342,15 +340,12 @@ Object {
 `;
 
 exports[`PlaceholderImage component should match a snapshot where fillAvailable is true 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-placeholder-image-wrapper"
-      >
-        <div
-          class="el-placeholder-image"
+      <mock-styled.div>
+        <mock-styled.div
           style="font-size: 3.90625em;"
         >
           <svg
@@ -365,16 +360,13 @@ Object {
               fill="#E3E3E3"
             />
           </svg>
-        </div>
-      </div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-placeholder-image-wrapper"
-    >
-      <div
-        class="el-placeholder-image"
+    <mock-styled.div>
+      <mock-styled.div
         style="font-size: 3.90625em;"
       >
         <svg
@@ -389,8 +381,8 @@ Object {
             fill="#E3E3E3"
           />
         </svg>
-      </div>
-    </div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

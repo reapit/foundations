@@ -2,7 +2,6 @@ import React, { ChangeEvent } from 'react'
 import { handleChangeTab, PipelineTabs } from '../pipeline-tabs'
 import { render } from '../../../../tests/react-testing'
 import Routes from '../../../../constants/routes'
-import { History } from 'history'
 
 describe('PipelineTabs', () => {
   it('should match snapshot', () => {
@@ -12,12 +11,10 @@ describe('PipelineTabs', () => {
 
 describe('handleChangeTab', () => {
   it('should handle change tab', () => {
-    const history = {
-      push: jest.fn(),
-    } as unknown as History
+    const navigate = jest.fn()
     const appId = 'MOCK_ID'
 
-    const curried = handleChangeTab(history, appId)
+    const curried = handleChangeTab(navigate, appId)
 
     curried({
       target: {
@@ -25,6 +22,6 @@ describe('handleChangeTab', () => {
       },
     } as unknown as ChangeEvent<HTMLInputElement>)
 
-    expect(history.push).toHaveBeenCalledWith(Routes.APP_PIPELINE_CONFIGURE.replace(':appId', appId))
+    expect(navigate).toHaveBeenCalledWith(Routes.APP_PIPELINE_CONFIGURE.replace(':appId', appId))
   })
 })

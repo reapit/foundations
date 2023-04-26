@@ -1,79 +1,153 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DiffRenderHTML should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="diff-html-container"
+        class="mock-css.
+  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-light);
+  border-radius: 3px;
+  padding: 10px;
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+
+  & a {
+    color: var(--intent-secondary);
+    font-weight: bold;
+  }
+
+  & ul,
+  & ol {
+    margin-top: 0;
+    margin-left: 0;
+    list-style-position: inside;
+
+    & li div {
+      display: inline-block;
+    }
+  }
+
+  & p {
+    margin: 1rem 0;
+  }
+"
       >
         <div
-          class="diff-render-block red-background"
+          class="mock-css.
+  overflow-wrap: break-word;
+  border-radius: 4px;
+  width: 48%;
+ mock-css.
+  background-color: var(--intent-danger-light);
+"
         >
-          <div
-            class="html-content-wrap"
-          >
+          <mock-styled.div>
             <h1>
               hello world
             </h1>
-          </div>
+          </mock-styled.div>
         </div>
         <span
-          class="arrow"
+          class="mock-css.
+  font-size: 18px;
+  color: var(--color-grey-dark);
+"
         >
           →
         </span>
         <div
-          class="diff-render-block green-background"
+          class="mock-css.
+  overflow-wrap: break-word;
+  border-radius: 4px;
+  width: 48%;
+ mock-css.
+  background-color: var(--intent-success-light);
+"
         >
-          <div
-            class="html-content-wrap"
-          >
+          <mock-styled.div>
             <p>
               hello galaxy
             </p>
-          </div>
+          </mock-styled.div>
         </div>
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="diff-html-container"
+      class="mock-css.
+  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-light);
+  border-radius: 3px;
+  padding: 10px;
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+
+  & a {
+    color: var(--intent-secondary);
+    font-weight: bold;
+  }
+
+  & ul,
+  & ol {
+    margin-top: 0;
+    margin-left: 0;
+    list-style-position: inside;
+
+    & li div {
+      display: inline-block;
+    }
+  }
+
+  & p {
+    margin: 1rem 0;
+  }
+"
     >
       <div
-        class="diff-render-block red-background"
+        class="mock-css.
+  overflow-wrap: break-word;
+  border-radius: 4px;
+  width: 48%;
+ mock-css.
+  background-color: var(--intent-danger-light);
+"
       >
-        <div
-          class="html-content-wrap"
-        >
+        <mock-styled.div>
           <h1>
             hello world
           </h1>
-        </div>
+        </mock-styled.div>
       </div>
       <span
-        class="arrow"
+        class="mock-css.
+  font-size: 18px;
+  color: var(--color-grey-dark);
+"
       >
         →
       </span>
       <div
-        class="diff-render-block green-background"
+        class="mock-css.
+  overflow-wrap: break-word;
+  border-radius: 4px;
+  width: 48%;
+ mock-css.
+  background-color: var(--intent-success-light);
+"
       >
-        <div
-          class="html-content-wrap"
-        >
+        <mock-styled.div>
           <p>
             hello galaxy
           </p>
-        </div>
+        </mock-styled.div>
       </div>
     </div>
   </div>,

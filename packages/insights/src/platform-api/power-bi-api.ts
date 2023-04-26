@@ -32,7 +32,7 @@ export const powerBiApiService = async (
 ): Promise<CredentialsModel | undefined | never> => {
   try {
     const response: CredentialsResponseModel | undefined = await fetcher({
-      api: window.reapit.config.platformApiUrl,
+      api: process.env.platformApiUrl,
       url: URLS.POWER_BI,
       method: 'POST',
       headers: {

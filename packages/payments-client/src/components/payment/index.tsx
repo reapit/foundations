@@ -19,19 +19,15 @@ import PaymentRequestModal from '../payments/payment-request-modal'
 import { useConfigState } from '../../core/use-config-state'
 import { Payment } from './payment'
 
-export interface PaymentUriParams {
-  paymentId: string
-}
-
 export const PaymentPage: FC = () => {
-  const { paymentId } = useParams<PaymentUriParams>()
+  const { paymentId } = useParams<'paymentId'>()
   const { Modal, openModal, closeModal } = useModal()
   const { config } = useConfigState()
   const configNotConfigured = !config?.isConfigured
 
   const paymentRequest = useReapitGet<PaymentModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPaymentById],
+    action: getActions[GetActionNames.getPaymentById],
     uriParams: {
       paymentId,
     },

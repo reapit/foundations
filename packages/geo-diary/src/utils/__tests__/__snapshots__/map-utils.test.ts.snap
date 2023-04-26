@@ -1,32 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GoogleMapComponent should match snapshot with an appointment 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
-      <div
-        class="map-content-container"
+      <mock-styled.div
+        classname=""
       />
-      <div
-        class="map-panel-container"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="map-panel-item"
-        >
-          <input
-            checked=""
-            class="toggle-travel-checkbox"
+        <mock-styled.div>
+          <mock-styled.input
+            checked="true"
             id="travel-mode"
             type="checkbox"
           />
-          <label
-            class="toggle-travel-label"
-            for="travel-mode"
+          <mock-styled.label
+            htmlfor="travel-mode"
           >
             <img
               src="[object Object]"
@@ -34,67 +28,53 @@ Object {
             <img
               src="[object Object]"
             />
-          </label>
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             ETA
-          </h2>
+          </mock-styled.h2>
           <p />
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="mock-css."
           >
             Distance
-          </h2>
+          </mock-styled.h2>
           <p />
-        </div>
-        <div
-          class="map-panel-item"
-        >
-          <button
-            class="el-intent-critical el-button"
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.button
+            classname="mock-css."
             type="button"
           >
             Start Journey
-            <div
-              class="el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
-    <div
-      class="map-content-container"
+    <mock-styled.div
+      classname=""
     />
-    <div
-      class="map-panel-container"
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="map-panel-item"
-      >
-        <input
-          checked=""
-          class="toggle-travel-checkbox"
+      <mock-styled.div>
+        <mock-styled.input
+          checked="true"
           id="travel-mode"
           type="checkbox"
         />
-        <label
-          class="toggle-travel-label"
-          for="travel-mode"
+        <mock-styled.label
+          htmlfor="travel-mode"
         >
           <img
             src="[object Object]"
@@ -102,42 +82,34 @@ Object {
           <img
             src="[object Object]"
           />
-        </label>
-      </div>
-      <div
-        class="map-panel-item"
-      >
-        <h2
-          class="el-has-bold-text el-subtitle"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname="mock-css."
         >
           ETA
-        </h2>
+        </mock-styled.h2>
         <p />
-      </div>
-      <div
-        class="map-panel-item"
-      >
-        <h2
-          class="el-has-bold-text el-subtitle"
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname="mock-css."
         >
           Distance
-        </h2>
+        </mock-styled.h2>
         <p />
-      </div>
-      <div
-        class="map-panel-item"
-      >
-        <button
-          class="el-intent-critical el-button"
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.button
+          classname="mock-css."
           type="button"
         >
           Start Journey
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

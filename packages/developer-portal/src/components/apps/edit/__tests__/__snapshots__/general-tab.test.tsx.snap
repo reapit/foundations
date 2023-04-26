@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GeneralTab should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e20pb60-el-grid"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="eb3z2eu-el-col-split"
+        <mock-styled.div
+          classname=""
         >
           <svg
-            class="e1ffzzrg-el-mb10"
+            class="mock-css.
+  margin-bottom: 2.25rem;
+"
             height="140px"
             id="erekCw3TbW21"
             shape-rendering="geometricPrecision"
@@ -112,40 +112,40 @@ Object {
               </g>
             </g>
           </svg>
-          <h2
-            class="e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname=""
           >
             Manage App Listing
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             This page is the starting point for completing your app listing, and initiating the approvals process for your app to go live with customer data.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             As an app developer, you need to provide us with a number of pieces of information about your integration and have it approved by our team, prior to going live with customer data. For apps that wish to integrate with the AgencyCloud CRM, and be publicly listed in the AppMarket, the approvals process is more involved than for simple server-side or single customer private apps. Regardless of your target audience, you should start to complete your app listing as soon as possible.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             You can check the status of your app listing at any time by using the button below, prior to submitting for approval.
-          </p>
-          <button
-            class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css."
           >
             Check Status
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-        <div
-          class="eb3z2eu-el-col-split"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
           <svg
-            class="e1ffzzrg-el-mb10"
+            class="mock-css.
+  margin-bottom: 2.25rem;
+"
             height="140px"
             id="e7CDlwhB8m51"
             shape-rendering="geometricPrecision"
@@ -286,7 +286,10 @@ Object {
                   </g>
                 </g>
                 <g
-                  class="o1em0cms-offset-style-one"
+                  class="mock-css.
+  offset-path: path('M37.255498,23.852076L39.921657,34.649638');
+  offset-rotate: auto;
+"
                   id="app-listing-docs-nine"
                 >
                   <g
@@ -309,7 +312,10 @@ Object {
                   </g>
                 </g>
                 <g
-                  class="o1juy2tl-offset-style-two"
+                  class="mock-css.
+  offset-path: path('M103.180305,18.127591L98.950013,25.52561');
+  offset-rotate: auto;
+"
                   id="app-listing-docs-twelve"
                 >
                   <g
@@ -345,58 +351,56 @@ Object {
               </clippath>
             </g>
           </svg>
-          <h2
-            class="e15ggth7-el-subtitle"
+          <mock-styled.h2
+            classname=""
           >
             App Listing Documentation
-          </h2>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
           >
             As you make changes, you should save your changes in the left hand side menu. You can do this as many times as you like until your app is listed, or live in the AppMarket.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             When you are ready for your app to be reviewed by a member of our team, click the ‘Submit Review’ button. If you are looking for guidance on what we look for when reviewing app, there is a dedicated page 
             <a>
               here.
             </a>
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             When your app is live, you will need to create revisions to your app for our team to review. You can only have one live revision outstanding at any given time.
-          </p>
-          <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
           >
             For guidelines on completing your app listing, visit the documentation link below before getting started.
-          </p>
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css."
           >
             View Docs
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e20pb60-el-grid"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="eb3z2eu-el-col-split"
+      <mock-styled.div
+        classname=""
       >
         <svg
-          class="e1ffzzrg-el-mb10"
+          class="mock-css.
+  margin-bottom: 2.25rem;
+"
           height="140px"
           id="erekCw3TbW21"
           shape-rendering="geometricPrecision"
@@ -493,40 +497,40 @@ Object {
             </g>
           </g>
         </svg>
-        <h2
-          class="e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname=""
         >
           Manage App Listing
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           This page is the starting point for completing your app listing, and initiating the approvals process for your app to go live with customer data.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           As an app developer, you need to provide us with a number of pieces of information about your integration and have it approved by our team, prior to going live with customer data. For apps that wish to integrate with the AgencyCloud CRM, and be publicly listed in the AppMarket, the approvals process is more involved than for simple server-side or single customer private apps. Regardless of your target audience, you should start to complete your app listing as soon as possible.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           You can check the status of your app listing at any time by using the button below, prior to submitting for approval.
-        </p>
-        <button
-          class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css."
         >
           Check Status
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-      <div
-        class="eb3z2eu-el-col-split"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
         <svg
-          class="e1ffzzrg-el-mb10"
+          class="mock-css.
+  margin-bottom: 2.25rem;
+"
           height="140px"
           id="e7CDlwhB8m51"
           shape-rendering="geometricPrecision"
@@ -667,7 +671,10 @@ Object {
                 </g>
               </g>
               <g
-                class="o1em0cms-offset-style-one"
+                class="mock-css.
+  offset-path: path('M37.255498,23.852076L39.921657,34.649638');
+  offset-rotate: auto;
+"
                 id="app-listing-docs-nine"
               >
                 <g
@@ -690,7 +697,10 @@ Object {
                 </g>
               </g>
               <g
-                class="o1juy2tl-offset-style-two"
+                class="mock-css.
+  offset-path: path('M103.180305,18.127591L98.950013,25.52561');
+  offset-rotate: auto;
+"
                 id="app-listing-docs-twelve"
               >
                 <g
@@ -726,44 +736,42 @@ Object {
             </clippath>
           </g>
         </svg>
-        <h2
-          class="e15ggth7-el-subtitle"
+        <mock-styled.h2
+          classname=""
         >
           App Listing Documentation
-        </h2>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
         >
           As you make changes, you should save your changes in the left hand side menu. You can do this as many times as you like until your app is listed, or live in the AppMarket.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           When you are ready for your app to be reviewed by a member of our team, click the ‘Submit Review’ button. If you are looking for guidance on what we look for when reviewing app, there is a dedicated page 
           <a>
             here.
           </a>
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           When your app is live, you will need to create revisions to your app for our team to review. You can only have one live revision outstanding at any given time.
-        </p>
-        <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           For guidelines on completing your app listing, visit the documentation link below before getting started.
-        </p>
-        <button
-          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="mock-css."
         >
           View Docs
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

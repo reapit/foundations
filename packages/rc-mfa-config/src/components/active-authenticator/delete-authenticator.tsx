@@ -26,7 +26,7 @@ export const DeleteAuthenticator: FC<DeleteAuthenticatorProps> = ({
 }) => {
   const [deleteAuthenticatorLoading, , deleteAuthenticator, hasDeleted] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteUserAuthenticator],
+    action: updateActions[UpdateActionNames.deleteUserAuthenticator],
     method: 'DELETE',
     uriParams: {
       userId,

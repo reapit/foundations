@@ -1,360 +1,233 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PrivateRouter should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
-      <main
-        class="el-main-container"
-      >
-        <nav
-          class="el-nav-container"
+      <mock-styled.main>
+        <mock-styled.nav
+          classname=""
         >
-          <a
-            class="el-nav-item"
+          <mock-styled.a
+            classname=""
           >
-            <span
-              class="el-nav-item-icon el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+"
               style="font-size: 2.5rem;"
             >
               <svg />
-            </span>
-            <span
-              class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
+            </mock-styled.span>
+            <mock-styled.span
+              classname="mock-css. mock-css.
+  margin-left: auto;
+ mock-css.
+  margin-right: 0.375rem;
+ mock-css.
+  @media screen and (min-width: 768px) {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+"
               style="font-size: 2rem;"
             >
               <svg />
-            </span>
-          </a>
-          <a
-            class="el-nav-item"
+            </mock-styled.span>
+          </mock-styled.a>
+          <mock-styled.a
+            classname=""
           >
-            <span
-              class="el-nav-item-icon el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             Apps
-          </a>
-          <a
-            class="el-nav-item-secondary el-nav-item"
+          </mock-styled.a>
+          <mock-styled.a
+            classname="mock-css.
+  @media screen and (min-width: 768px) {
+    margin-top: auto;
+  }
+"
           >
-            <span
-              class="el-nav-item-icon el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             Logout
-          </a>
-        </nav>
-        <section
-          class="el-page-container"
-        >
-          <div
-            class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          </mock-styled.a>
+        </mock-styled.nav>
+        <mock-styled.section>
+          <mock-styled.div
+            classname="mock-css. mock-css. mock-css. mock-css."
           >
             <div
-              class="el-pn-icon"
-              data-testid="close-icon"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </div>
-            <div
-              class="el-pn-content"
-            >
-              We could not detect that you are a negotiator for your organisation from your login. Try logging out and then back in again. If this does not work, please contact your Reapit administrator.
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-     
-    <main
-      class="el-main-container"
-    >
-      <nav
-        class="el-nav-container"
-      >
-        <a
-          class="el-nav-item"
-        >
-          <span
-            class="el-nav-item-icon el-icon"
-            style="font-size: 2.5rem;"
-          >
-            <svg />
-          </span>
-          <span
-            class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
-            style="font-size: 2rem;"
-          >
-            <svg />
-          </span>
-        </a>
-        <a
-          class="el-nav-item"
-        >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
-          >
-            <svg />
-          </span>
-          Apps
-        </a>
-        <a
-          class="el-nav-item-secondary el-nav-item"
-        >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
-          >
-            <svg />
-          </span>
-          Logout
-        </a>
-      </nav>
-      <section
-        class="el-page-container"
-      >
-        <div
-          class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-        >
-          <div
-            class="el-pn-icon"
-            data-testid="close-icon"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </div>
-          <div
-            class="el-pn-content"
-          >
-            We could not detect that you are a negotiator for your organisation from your login. Try logging out and then back in again. If this does not work, please contact your Reapit administrator.
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
+              class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
 
-exports[`PrivateRouter should match a snapshot 2`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="el-snack-holder"
-      />
-       
-      <main
-        class="el-main-container"
-      >
-        <nav
-          class="el-nav-container"
-        >
-          <a
-            class="el-nav-item"
-          >
-            <span
-              class="el-nav-item-icon el-icon"
-              style="font-size: 2.5rem;"
-            >
-              <svg />
-            </span>
-            <span
-              class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
-              style="font-size: 2rem;"
-            >
-              <svg />
-            </span>
-          </a>
-          <a
-            class="el-nav-item"
-          >
-            <span
-              class="el-nav-item-icon el-icon-size-medium el-icon"
-            >
-              <svg />
-            </span>
-            Apps
-          </a>
-          <a
-            class="el-nav-item-secondary el-nav-item"
-          >
-            <span
-              class="el-nav-item-icon el-icon-size-medium el-icon"
-            >
-              <svg />
-            </span>
-            Logout
-          </a>
-        </nav>
-        <section
-          class="el-page-container"
-        >
-          <div
-            class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-          >
-            <div
-              class="el-pn-icon"
+  , {
+    color: var(--color-white);
+  }
+"
               data-testid="close-icon"
             >
-              <span
-                class="el-icon"
+              <mock-styled.span
+                classname=""
               >
                 <svg />
-              </span>
+              </mock-styled.span>
             </div>
             <div
-              class="el-pn-content"
+              class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
             >
               We could not detect that you are a negotiator for your organisation from your login. Try logging out and then back in again. If this does not work, please contact your Reapit administrator.
             </div>
-          </div>
-        </section>
-      </main>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.main>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
-    <main
-      class="el-main-container"
-    >
-      <nav
-        class="el-nav-container"
+    <mock-styled.main>
+      <mock-styled.nav
+        classname=""
       >
-        <a
-          class="el-nav-item"
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+"
             style="font-size: 2.5rem;"
           >
             <svg />
-          </span>
-          <span
-            class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
+          </mock-styled.span>
+          <mock-styled.span
+            classname="mock-css. mock-css.
+  margin-left: auto;
+ mock-css.
+  margin-right: 0.375rem;
+ mock-css.
+  @media screen and (min-width: 768px) {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+"
             style="font-size: 2rem;"
           >
             <svg />
-          </span>
-        </a>
-        <a
-          class="el-nav-item"
+          </mock-styled.span>
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Apps
-        </a>
-        <a
-          class="el-nav-item-secondary el-nav-item"
+        </mock-styled.a>
+        <mock-styled.a
+          classname="mock-css.
+  @media screen and (min-width: 768px) {
+    margin-top: auto;
+  }
+"
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Logout
-        </a>
-      </nav>
-      <section
-        class="el-page-container"
-      >
-        <div
-          class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        </mock-styled.a>
+      </mock-styled.nav>
+      <mock-styled.section>
+        <mock-styled.div
+          classname="mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             We could not detect that you are a negotiator for your organisation from your login. Try logging out and then back in again. If this does not work, please contact your Reapit administrator.
           </div>
-        </div>
-      </section>
-    </main>
+        </mock-styled.div>
+      </mock-styled.section>
+    </mock-styled.main>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

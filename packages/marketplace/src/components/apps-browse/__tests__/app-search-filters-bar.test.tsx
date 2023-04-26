@@ -5,8 +5,7 @@ import { render } from '../../../tests/react-testing'
 import { mockCategoryModelPagedResult } from '../../../tests/__stubs__/categories'
 import { AppSearchFilters, handleClearSearch, handleSearch, handleSelectFilter } from '../app-search-filters-bar'
 import { MobileControlsState } from '../apps-browse'
-import { History } from 'history'
-import { Routes } from '../../../constants/routes'
+import { RoutePaths } from '../../../constants/routes'
 
 jest.mock('../../../core/use-apps-browse-state')
 jest.mock('../../../core/analytics')
@@ -124,15 +123,13 @@ describe('handleClearSearch', () => {
         value: 'FOO',
       },
     } as unknown as MutableRefObject<HTMLInputElement | null>
-    const history = {
-      push: jest.fn(),
-    } as unknown as History
-    const curried = handleClearSearch(setAppsBrowseFilterState, history, searchRef)
+    const navigate = jest.fn()
+    const curried = handleClearSearch(setAppsBrowseFilterState, navigate, searchRef)
 
     curried()
 
     expect(setAppsBrowseFilterState).toHaveBeenCalledWith(null)
-    expect(history.push).toHaveBeenCalledWith(Routes.APPS_BROWSE)
+    expect(navigate).toHaveBeenCalledWith(RoutePaths.APPS_BROWSE)
     expect(searchRef.current?.value).toEqual('')
   })
 })

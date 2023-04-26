@@ -7,7 +7,10 @@ import { Loader, Title, BodyText, PersistentNotification } from '@reapit/element
 import { cx } from '@linaria/core'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { StringMap } from '@reapit/utils-common'
+
+interface StringMap {
+  [key: string]: string
+}
 
 export type InterceptorParams = {
   url: string

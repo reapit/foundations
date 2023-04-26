@@ -98,7 +98,7 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
 
   const [qrCodeVerifyLoading, , verifyQrCode, hasVerified] = useReapitUpdate<VerifyQrCodeType, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.verifyUserAuthenticator],
+    action: updateActions[UpdateActionNames.verifyUserAuthenticator],
     method: 'POST',
     uriParams: {
       userId,

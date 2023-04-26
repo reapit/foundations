@@ -1,7 +1,7 @@
 import React, { FC, memo, useMemo } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { Button, elFadeIn, elMb7, FlexContainer, MediaType, PlaceholderImage, useMediaQuery } from '@reapit/elements'
 import { AppDetailModel, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import {
@@ -23,9 +23,9 @@ import {
   HeroAppsChipPlaceholder,
   HeroAppsChipContainer,
 } from './__styles__'
-import { navigate } from '../../utils/navigation'
-import { Routes } from '../../constants/routes'
-import { useHistory } from 'react-router-dom'
+import { navigateRoute } from '../../utils/navigation'
+import { RoutePaths } from '../../constants/routes'
+import { useNavigate } from 'react-router-dom'
 import { filterRestrictedAppDetail } from '../../utils/browse-app'
 import { useReapitConnect } from '@reapit/connect-session'
 
@@ -62,14 +62,14 @@ export const handleIconPlaceholderSize = (mediaQuery: MediaType) => () => {
 }
 
 export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = memo(({ configItem }) => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const mediaQuery = useMediaQuery()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { filters, content } = configItem ?? {}
 
   const [unfilteredAppDetail] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
+    action: getActions[GetActionNames.getAppById],
     uriParams: {
       appId: filters?.id && filters.id[0],
     },
@@ -85,7 +85,7 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
   const iconUri = media?.find((item) => item.type === 'icon')?.uri
 
   return (
-    <FeaturedHeroAppsItem onClick={id ? navigate(history, `${Routes.APPS_BROWSE}/${id}`) : undefined}>
+    <FeaturedHeroAppsItem onClick={id ? navigateRoute(navigate, `${RoutePaths.APPS_BROWSE}/${id}`) : undefined}>
       <FlexContainer isFlexColumn>
         <BrowseAppsSubtitle>{content?.title}</BrowseAppsSubtitle>
         <FeaturedHeroAppsContainer

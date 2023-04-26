@@ -1,6 +1,6 @@
 import React from 'react'
 import DocsPage, { parseIframeUrl } from '../index'
-import Routes from '@/constants/routes'
+import Routes from '../../../constants/routes'
 import { render } from '../../../tests/react-testing'
 
 jest.mock('react-router', () => ({

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnalyticsCosts should match snapshot for mobile view 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -10,225 +10,193 @@ Object {
       <div />
     </div>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Costs
-        </h1>
-        <div
-          class="ebqwrow-el-button-group"
-        >
-          <div
-            class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+        </mock-styled.h1>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+            <mock-styled.button
+              classname="mock-css."
             >
               Controls
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-      <h2
-        class="e15ggth7-el-subtitle"
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname=""
       >
         Total for period: £
         0
-      </h2>
-      <div
-        class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
+      </mock-styled.h2>
+      <mock-styled.div
+        classname="mock-css.
+  flex-wrap: wrap;
+"
       >
-        <div
-          class="c1r46xm1-chart-wrapper"
-        >
-          <h2
-            class="e15ggth7-el-subtitle"
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Costs By Month
-          </h2>
-          <div />
-        </div>
-        <div
-          class="c1r46xm1-chart-wrapper"
-        >
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Download Resources
-          </h2>
-          <div
-            class="ebhrnzh-el-loader-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="c1r46xm1-chart-wrapper"
-        >
-          <h2
-            class="e15ggth7-el-subtitle"
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             API Calls
-          </h2>
-          <div
-            class="ebhrnzh-el-loader-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="c1r46xm1-chart-wrapper"
-        >
-          <h2
-            class="e15ggth7-el-subtitle"
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Services and Subscriptions
-          </h2>
-          <div
-            class="ebhrnzh-el-loader-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         Costs
-      </h1>
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+      </mock-styled.h1>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
           >
             Controls
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-    <h2
-      class="e15ggth7-el-subtitle"
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.h2
+      classname=""
     >
       Total for period: £
       0
-    </h2>
-    <div
-      class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
+    </mock-styled.h2>
+    <mock-styled.div
+      classname="mock-css.
+  flex-wrap: wrap;
+"
     >
-      <div
-        class="c1r46xm1-chart-wrapper"
-      >
-        <h2
-          class="e15ggth7-el-subtitle"
+      <mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Costs By Month
-        </h2>
-        <div />
-      </div>
-      <div
-        class="c1r46xm1-chart-wrapper"
-      >
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Download Resources
-        </h2>
-        <div
-          class="ebhrnzh-el-loader-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="c1r46xm1-chart-wrapper"
-      >
-        <h2
-          class="e15ggth7-el-subtitle"
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           API Calls
-        </h2>
-        <div
-          class="ebhrnzh-el-loader-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="c1r46xm1-chart-wrapper"
-      >
-        <h2
-          class="e15ggth7-el-subtitle"
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Services and Subscriptions
-        </h2>
-        <div
-          class="ebhrnzh-el-loader-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -285,197 +253,173 @@ Object {
 `;
 
 exports[`AnalyticsCosts should match snapshot where billing is returned 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Costs
-        </h1>
-      </div>
-      <h2
-        class="e15ggth7-el-subtitle"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname=""
       >
         Total for period: £
         0
-      </h2>
-      <div
-        class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
+      </mock-styled.h2>
+      <mock-styled.div
+        classname="mock-css.
+  flex-wrap: wrap;
+"
       >
-        <div
-          class="c1r46xm1-chart-wrapper"
-        >
-          <h2
-            class="e15ggth7-el-subtitle"
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Costs By Month
-          </h2>
-          <div />
-        </div>
-        <div
-          class="c1r46xm1-chart-wrapper"
-        >
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Download Resources
-          </h2>
-          <div
-            class="ebhrnzh-el-loader-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="c1r46xm1-chart-wrapper"
-        >
-          <h2
-            class="e15ggth7-el-subtitle"
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             API Calls
-          </h2>
-          <div
-            class="ebhrnzh-el-loader-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="c1r46xm1-chart-wrapper"
-        >
-          <h2
-            class="e15ggth7-el-subtitle"
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Services and Subscriptions
-          </h2>
-          <div
-            class="ebhrnzh-el-loader-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         Costs
-      </h1>
-    </div>
-    <h2
-      class="e15ggth7-el-subtitle"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.h2
+      classname=""
     >
       Total for period: £
       0
-    </h2>
-    <div
-      class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
+    </mock-styled.h2>
+    <mock-styled.div
+      classname="mock-css.
+  flex-wrap: wrap;
+"
     >
-      <div
-        class="c1r46xm1-chart-wrapper"
-      >
-        <h2
-          class="e15ggth7-el-subtitle"
+      <mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Costs By Month
-        </h2>
-        <div />
-      </div>
-      <div
-        class="c1r46xm1-chart-wrapper"
-      >
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Download Resources
-        </h2>
-        <div
-          class="ebhrnzh-el-loader-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="c1r46xm1-chart-wrapper"
-      >
-        <h2
-          class="e15ggth7-el-subtitle"
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           API Calls
-        </h2>
-        <div
-          class="ebhrnzh-el-loader-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="c1r46xm1-chart-wrapper"
-      >
-        <h2
-          class="e15ggth7-el-subtitle"
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Services and Subscriptions
-        </h2>
-        <div
-          class="ebhrnzh-el-loader-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -532,197 +476,173 @@ Object {
 `;
 
 exports[`AnalyticsCosts should match snapshot where no billing is returned 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <div
-        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="e1byern-el-title"
+        <mock-styled.h1
+          classname=""
         >
           Costs
-        </h1>
-      </div>
-      <h2
-        class="e15ggth7-el-subtitle"
+        </mock-styled.h1>
+      </mock-styled.div>
+      <mock-styled.h2
+        classname=""
       >
         Total for period: £
         0
-      </h2>
-      <div
-        class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
+      </mock-styled.h2>
+      <mock-styled.div
+        classname="mock-css.
+  flex-wrap: wrap;
+"
       >
-        <div
-          class="c1r46xm1-chart-wrapper"
-        >
-          <h2
-            class="e15ggth7-el-subtitle"
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Costs By Month
-          </h2>
-          <div />
-        </div>
-        <div
-          class="c1r46xm1-chart-wrapper"
-        >
-          <h2
-            class="e15ggth7-el-subtitle"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Download Resources
-          </h2>
-          <div
-            class="ebhrnzh-el-loader-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="c1r46xm1-chart-wrapper"
-        >
-          <h2
-            class="e15ggth7-el-subtitle"
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             API Calls
-          </h2>
-          <div
-            class="ebhrnzh-el-loader-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="c1r46xm1-chart-wrapper"
-        >
-          <h2
-            class="e15ggth7-el-subtitle"
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.h2
+            classname=""
           >
             Services and Subscriptions
-          </h2>
-          <div
-            class="ebhrnzh-el-loader-container"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <div
-      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  justify-content: space-between;
+"
     >
-      <h1
-        class="e1byern-el-title"
+      <mock-styled.h1
+        classname=""
       >
         Costs
-      </h1>
-    </div>
-    <h2
-      class="e15ggth7-el-subtitle"
+      </mock-styled.h1>
+    </mock-styled.div>
+    <mock-styled.h2
+      classname=""
     >
       Total for period: £
       0
-    </h2>
-    <div
-      class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
+    </mock-styled.h2>
+    <mock-styled.div
+      classname="mock-css.
+  flex-wrap: wrap;
+"
     >
-      <div
-        class="c1r46xm1-chart-wrapper"
-      >
-        <h2
-          class="e15ggth7-el-subtitle"
+      <mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Costs By Month
-        </h2>
-        <div />
-      </div>
-      <div
-        class="c1r46xm1-chart-wrapper"
-      >
-        <h2
-          class="e15ggth7-el-subtitle"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Download Resources
-        </h2>
-        <div
-          class="ebhrnzh-el-loader-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="c1r46xm1-chart-wrapper"
-      >
-        <h2
-          class="e15ggth7-el-subtitle"
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           API Calls
-        </h2>
-        <div
-          class="ebhrnzh-el-loader-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="c1r46xm1-chart-wrapper"
-      >
-        <h2
-          class="e15ggth7-el-subtitle"
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.h2
+          classname=""
         >
           Services and Subscriptions
-        </h2>
-        <div
-          class="ebhrnzh-el-loader-container"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

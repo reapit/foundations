@@ -6,9 +6,18 @@ import {
   InstallationModelPagedResult,
   PipelineModelInterface,
 } from '@reapit/foundations-ts-definitions'
-import { useReapitGet } from '@reapit/utils-react'
-import React, { useState, Dispatch, SetStateAction, FC, createContext, useContext, useEffect } from 'react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet } from '@reapit/use-reapit-data'
+import React, {
+  useState,
+  Dispatch,
+  SetStateAction,
+  FC,
+  createContext,
+  useContext,
+  useEffect,
+  PropsWithChildren,
+} from 'react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { AppAuthFlow, AppNewStepId } from '../new/config'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -18,10 +27,6 @@ import { handleSetDefaultFormValues } from '../utils/handle-default-form-values'
 import { FieldNamesMarkedBoolean } from 'react-hook-form'
 import { handleSetInitialPipeline } from '../utils/handle-pipeline-event'
 import { useChannel } from '@harelpls/use-pusher'
-
-export interface AppUriParams {
-  appId: string
-}
 
 export interface AppSavingParams {
   isSaving: boolean
@@ -93,7 +98,7 @@ export const AppStateContext = createContext<AppStateHook>({} as AppStateHook)
 
 const { Provider } = AppStateContext
 
-export const AppProvider: FC = ({ children }) => {
+export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
   const [appWizardState, setAppWizardState] = useState<AppWizardState>(defaultAppWizardState as AppWizardState)
   const [appPipeline, setAppPipeline] = useState<PipelineModelInterface | null>(null)
   const [appsPageNumber, appsSetPageNumber] = useState<number>(1)
@@ -110,14 +115,14 @@ export const AppProvider: FC = ({ children }) => {
 
   const [apps, appsLoading, , appsRefresh, appsRefreshing] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 25, pageNumber: appsPageNumber },
     fetchWhenTrue: [developerId],
   })
 
   const [appDetail, appDetailLoading, , appsDetailRefresh, appDetailRefreshing] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
+    action: getActions[GetActionNames.getAppById],
     uriParams: { appId },
     fetchWhenTrue: [appId],
   })
@@ -125,7 +130,7 @@ export const AppProvider: FC = ({ children }) => {
   const [appRevisions, appRevisionsLoading, , appRefreshRevisions, appRevisionsRefreshing] =
     useReapitGet<AppRevisionModelPagedResult>({
       reapitConnectBrowserSession,
-      action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppRevisions],
+      action: getActions[GetActionNames.getAppRevisions],
       queryParams: { pageSize: 2 },
       uriParams: { appId },
       fetchWhenTrue: [appId],
@@ -133,7 +138,7 @@ export const AppProvider: FC = ({ children }) => {
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions[GetActionNames.getInstallations],
     queryParams: {
       appId,
       pageSize: 1,
@@ -145,7 +150,7 @@ export const AppProvider: FC = ({ children }) => {
 
   const [pipeline, appPipelineLoading, , appPipelineRefresh] = useReapitGet<PipelineModelInterface>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPipeline],
+    action: getActions[GetActionNames.getPipeline],
     uriParams: { appId },
     headers: {
       Authorization: connectSession?.idToken as string,

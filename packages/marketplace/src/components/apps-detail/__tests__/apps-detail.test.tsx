@@ -1,4 +1,4 @@
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import React from 'react'
 import { MediaType } from '@reapit/elements'
 import { render, setViewport, viewPortOptions } from '../../../tests/react-testing'
@@ -17,8 +17,8 @@ import { trackEvent } from '../../../core/analytics'
 import { TrackingEvent } from '../../../core/analytics-events'
 import { LoginIdentity } from '@reapit/connect-session'
 
-window.reapit.config.clientHiddenAppIds = {}
-window.reapit.config.orgAdminRestrictedAppIds = []
+process.env.clientHiddenAppIds = {}
+process.env.orgAdminRestrictedAppIds = []
 
 jest.useFakeTimers()
 jest.mock('../../../core/analytics')
@@ -36,8 +36,9 @@ jest.mock('@reapit/connect-session', () => ({
   })),
 }))
 
-jest.mock('@reapit/utils-react', () => ({
-  ...jest.requireActual('@reapit/utils-react'),
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, false]),
   HTMLRender: () => <div>Mock Component</div>,
 }))

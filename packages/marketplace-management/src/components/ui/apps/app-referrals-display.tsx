@@ -1,10 +1,8 @@
 import { InstallationModel, ReferralTypeModelPagedResult } from '@reapit/foundations-ts-definitions'
 import React, { FC, memo, useMemo } from 'react'
 import { BodyText } from '@reapit/elements'
-
-import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 
 interface ReferralsDisplayProps {
   installations: InstallationModel[]
@@ -45,7 +43,7 @@ export const handleReferralText =
 export const ReferralsDisplay: FC<ReferralsDisplayProps> = memo(({ installations, hasCurrentInstallations }) => {
   const [referralTypes] = useReapitGet<ReferralTypeModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getReferralTypes],
+    action: getActions[GetActionNames.getReferralTypes],
     queryParams: { pageSize: 100 },
     fetchWhenTrue: [hasCurrentInstallations],
   })

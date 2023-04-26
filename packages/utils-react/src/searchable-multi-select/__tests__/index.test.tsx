@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { handleSetInitialOptions, handleSetNewOptions, SearchableMultiSelect } from '..'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
 jest.mock('@reapit/utils-react', () => ({
@@ -31,7 +31,7 @@ xdescribe('SearchableMultiSelect', () => {
         nameKey="name"
         searchKey="appName"
         dataListKey="data"
-        action={getActions(window.reapit.config.appEnv)[GetActionNames.getApps]}
+        action={getActions[GetActionNames.getApps]}
         queryParams={{ pageSize: 100 }}
         noneSelectedLabel="No apps selected"
       />,

@@ -1,11 +1,19 @@
 import { useMemo } from 'react'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
-import { StringMap, getMergedHeaders, handleReapitError, getUrl } from './utils'
+import {
+  StringMap,
+  getMergedHeaders,
+  handleReapitError,
+  getUrl,
+  RC_SESSION_MISSING_ERROR,
+  NETWORK_ERROR,
+} from './utils'
 import { GetAction } from './get-actions'
 import { useSnack } from '@reapit/elements'
 import { useQuery, useQueryClient, UseQueryOptions } from '@tanstack/react-query'
 import axios, { AxiosError } from 'axios'
 import { logger } from '@reapit/utils-react'
+import { useNavigate } from 'react-router-dom'
 
 export type ReapitGetState<DataType> = [
   data: DataType | null,
@@ -41,6 +49,7 @@ export const useReapitGet = <DataType>({
 }: ReapitGetParams): ReapitGetState<DataType> => {
   const { success: successSnack, error: errorSnack } = useSnack()
   const queryClient = useQueryClient()
+  const navigate = useNavigate()
   const { successMessage, errorMessage } = action
   const url = useMemo(getUrl(action, queryParams, uriParams), [queryParams, uriParams, action])
   const isEnabled = fetchWhenTrue?.length
@@ -64,11 +73,19 @@ export const useReapitGet = <DataType>({
     },
     onError: async (error) => {
       const connectSession = await reapitConnectBrowserSession.connectSession()
+      const isRcError = error.message === RC_SESSION_MISSING_ERROR
+      const isFourOOne = error.code === NETWORK_ERROR
+
+      if (isRcError || isFourOOne || !connectSession) {
+        return navigate('/login')
+      }
+
       const errorString = handleReapitError(error, errorMessage)
+
       if (onError) onError(errorString)
       if (!onError) {
         errorSnack(errorString)
-        logger(new Error(errorString), connectSession ?? null)
+        logger(new Error(errorString), connectSession)
       }
     },
     retry: retry ? retry : 1,

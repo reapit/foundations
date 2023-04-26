@@ -1,146 +1,132 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SubmitReviewModal should match a snapshot where a customer and status is incomplete and user is an admin 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <p
-          class="e1wasvgh-el-body-text"
+        <mock-styled.p
+          classname=""
         >
           Any changes have been saved successfully.
-        </p>
-        <p
-          class="e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
-        </p>
-        <div
-          class="ez8nkuq-el-mb6 e1979rmu-el-input-group"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 1rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             name="reapitReference"
             placeholder="Enter your Reapit reference here"
             type="text"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Reapit Reference
-          </label>
-        </div>
-        <p
-          class="e1wasvgh-el-body-text"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.p
+          classname=""
         >
           You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
-        </p>
-        <p
-          class="e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
-        </p>
-        <div
-          class="ebqwrow-el-button-group"
-        >
-          <div
-            class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+        </mock-styled.p>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+            <mock-styled.button
+              classname="mock-css."
             >
               Close
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-            <button
-              class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+              disabled="false"
               type="submit"
             >
               Submit
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <p
-        class="e1wasvgh-el-body-text"
+      <mock-styled.p
+        classname=""
       >
         Any changes have been saved successfully.
-      </p>
-      <p
-        class="e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
-      </p>
-      <div
-        class="ez8nkuq-el-mb6 e1979rmu-el-input-group"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 1rem;
+"
       >
-        <input
-          class="e1urjlvd-el-input"
+        <mock-styled.input
           id="test-static-id"
           name="reapitReference"
           placeholder="Enter your Reapit reference here"
           type="text"
         />
-        <label
-          class="e1nbkkrq-el-label"
-          for="test-static-id"
+        <mock-styled.label
+          htmlfor="test-static-id"
         >
           Reapit Reference
-        </label>
-      </div>
-      <p
-        class="e1wasvgh-el-body-text"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.p
+        classname=""
       >
         You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
-      </p>
-      <p
-        class="e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
-      </p>
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+      </mock-styled.p>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
           >
             Close
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-          <button
-            class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
             type="submit"
           >
             Submit
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],
@@ -198,146 +184,132 @@ Object {
 `;
 
 exports[`SubmitReviewModal should match a snapshot where a customer and status is incomplete and user not an admin 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <p
-          class="e1wasvgh-el-body-text"
+        <mock-styled.p
+          classname=""
         >
           Any changes have been saved successfully.
-        </p>
-        <p
-          class="e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
-        </p>
-        <div
-          class="ez8nkuq-el-mb6 e1979rmu-el-input-group"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 1rem;
+"
         >
-          <input
-            class="e1urjlvd-el-input"
+          <mock-styled.input
             id="test-static-id"
             name="reapitReference"
             placeholder="Enter your Reapit reference here"
             type="text"
           />
-          <label
-            class="e1nbkkrq-el-label"
-            for="test-static-id"
+          <mock-styled.label
+            htmlfor="test-static-id"
           >
             Reapit Reference
-          </label>
-        </div>
-        <p
-          class="e1wasvgh-el-body-text"
+          </mock-styled.label>
+        </mock-styled.div>
+        <mock-styled.p
+          classname=""
         >
           You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
-        </p>
-        <p
-          class="e1wasvgh-el-body-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
         >
           The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
-        </p>
-        <div
-          class="ebqwrow-el-button-group"
-        >
-          <div
-            class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+        </mock-styled.p>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            <button
-              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+            <mock-styled.button
+              classname="mock-css."
             >
               Close
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-            <button
-              class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+              <mock-styled.div />
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+              disabled="false"
               type="submit"
             >
               Submit
-              <div
-                class="e1q1vabn-el-button-loader"
-              />
-            </button>
-          </div>
-        </div>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <p
-        class="e1wasvgh-el-body-text"
+      <mock-styled.p
+        classname=""
       >
         Any changes have been saved successfully.
-      </p>
-      <p
-        class="e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
-      </p>
-      <div
-        class="ez8nkuq-el-mb6 e1979rmu-el-input-group"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 1rem;
+"
       >
-        <input
-          class="e1urjlvd-el-input"
+        <mock-styled.input
           id="test-static-id"
           name="reapitReference"
           placeholder="Enter your Reapit reference here"
           type="text"
         />
-        <label
-          class="e1nbkkrq-el-label"
-          for="test-static-id"
+        <mock-styled.label
+          htmlfor="test-static-id"
         >
           Reapit Reference
-        </label>
-      </div>
-      <p
-        class="e1wasvgh-el-body-text"
+        </mock-styled.label>
+      </mock-styled.div>
+      <mock-styled.p
+        classname=""
       >
         You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
-      </p>
-      <p
-        class="e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
-      </p>
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+      </mock-styled.p>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
           >
             Close
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-          <button
-            class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
+            <mock-styled.div />
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
             type="submit"
           >
             Submit
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],
@@ -395,61 +367,49 @@ Object {
 `;
 
 exports[`SubmitReviewModal should match a snapshot where a customer and status is pending 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <p
-        class="e1wasvgh-el-body-text"
+      <mock-styled.div />
+      <mock-styled.p
+        classname=""
       >
         We are currently verifying your account information. This is typically done within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
-      </p>
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+      </mock-styled.p>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
           >
             Close
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <p
-      class="e1wasvgh-el-body-text"
+    <mock-styled.div />
+    <mock-styled.p
+      classname=""
     >
       We are currently verifying your account information. This is typically done within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
-    </p>
-    <div
-      class="ebqwrow-el-button-group"
-    >
-      <div
-        class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+    </mock-styled.p>
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+        <mock-styled.button
+          classname="mock-css."
         >
           Close
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -506,25 +466,23 @@ Object {
 `;
 
 exports[`SubmitReviewModal should match a snapshot where not a customer 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
-      <p
-        class="e1wasvgh-el-body-text"
+      <mock-styled.div />
+      <mock-styled.p
+        classname=""
       >
         Any changes have been saved successfully.
-      </p>
-      <p
-        class="e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         However, before you can list an app in the AppMarket ('Submit for approval'), you will first need to submit your account information.
-      </p>
-      <p
-        class="e1wasvgh-el-body-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname=""
       >
         Please
          
@@ -538,41 +496,35 @@ Object {
         </a>
          
         to contact a member of the team.
-      </p>
-      <div
-        class="ebqwrow-el-button-group"
-      >
-        <div
-          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+      </mock-styled.p>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <button
-            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+          <mock-styled.button
+            classname="mock-css."
           >
             Close
-            <div
-              class="e1q1vabn-el-button-loader"
-            />
-          </button>
-        </div>
-      </div>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <p
-      class="e1wasvgh-el-body-text"
+    <mock-styled.div />
+    <mock-styled.p
+      classname=""
     >
       Any changes have been saved successfully.
-    </p>
-    <p
-      class="e1wasvgh-el-body-text"
+    </mock-styled.p>
+    <mock-styled.p
+      classname=""
     >
       However, before you can list an app in the AppMarket ('Submit for approval'), you will first need to submit your account information.
-    </p>
-    <p
-      class="e1wasvgh-el-body-text"
+    </mock-styled.p>
+    <mock-styled.p
+      classname=""
     >
       Please
        
@@ -586,23 +538,19 @@ Object {
       </a>
        
       to contact a member of the team.
-    </p>
-    <div
-      class="ebqwrow-el-button-group"
-    >
-      <div
-        class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
+    </mock-styled.p>
+    <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <button
-          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
+        <mock-styled.button
+          classname="mock-css."
         >
           Close
-          <div
-            class="e1q1vabn-el-button-loader"
-          />
-        </button>
-      </div>
-    </div>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

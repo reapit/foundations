@@ -1,7 +1,7 @@
 import React, { FC, useMemo } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import {
   Card,
   Col,
@@ -16,9 +16,9 @@ import {
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { useReapitConnect } from '@reapit/connect-session'
 import { cx } from '@linaria/core'
-import { navigate } from '../../utils/navigation'
-import { Routes } from '../../constants/routes'
-import { useHistory } from 'react-router-dom'
+import { navigateRoute } from '../../utils/navigation'
+import { RoutePaths } from '../../constants/routes'
+import { useNavigate } from 'react-router-dom'
 import { BrowseAppsSubtitle, cardCursor, IsFreeNotice } from './__styles__'
 import { checkHasFilters } from './apps-browse'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
@@ -30,7 +30,7 @@ export interface FiltersAppsCollectionProps {
 
 export const FilteredAppsCollection: FC<FiltersAppsCollectionProps> = ({ collectionId }) => {
   const { appsBrowseFilterState, appsBrowseConfigState } = useAppsBrowseState()
-  const history = useHistory()
+  const navigate = useNavigate()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity.clientId
   const product = connectSession?.loginIdentity.orgProduct ?? 'agencyCloud'
@@ -40,7 +40,7 @@ export const FilteredAppsCollection: FC<FiltersAppsCollectionProps> = ({ collect
 
   const [unfilteredApps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions[GetActionNames.getApps],
     queryParams,
     fetchWhenTrue: [hasFilters],
   })
@@ -57,7 +57,7 @@ export const FilteredAppsCollection: FC<FiltersAppsCollectionProps> = ({ collect
           <Col key={id}>
             <Card
               className={cx(elFadeIn, cardCursor)}
-              onClick={navigate(history, `${Routes.APPS_BROWSE}/${id}`)}
+              onClick={navigateRoute(navigate, `${RoutePaths.APPS_BROWSE}/${id}`)}
               hasMainCard
               mainCardHeading={name}
               mainCardSubHeading={

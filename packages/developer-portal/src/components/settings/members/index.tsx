@@ -13,10 +13,10 @@ import {
   useMediaQuery,
   useModal,
 } from '@reapit/elements'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { useReapitConnect } from '@reapit/connect-session'
 import { MemberUpdateControls } from './member-update-controls'
 import { useGlobalState } from '../../../core/use-global-state'
@@ -52,7 +52,7 @@ export const SettingsMembersPage: FC = () => {
 
   const [members, membersLoading, , refreshMembers] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloperMembers],
+    action: getActions[GetActionNames.getDeveloperMembers],
     queryParams: { pageSize: 12, pageNumber },
     uriParams: { developerId },
     fetchWhenTrue: [developerId],

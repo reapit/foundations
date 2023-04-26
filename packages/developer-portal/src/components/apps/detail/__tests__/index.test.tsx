@@ -12,7 +12,8 @@ import {
 } from '../index'
 
 jest.mock('../../state/use-app-state')
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [{ clientSecret: 'MOCK_SECRET' }]),
 }))
 jest.useFakeTimers()

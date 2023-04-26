@@ -6,7 +6,8 @@ import { mockDeveloperModel } from '../../../../tests/__stubs__/developers'
 
 jest.mock('../../../../core/use-global-state')
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockSandboxModelPagedResult, true]),
   useReapitUpdate: jest.fn(() => []),
 }))
@@ -26,7 +27,7 @@ jest.mock('@reapit/connect-session', () => ({
 }))
 
 describe('ProfileForm', () => {
-  window.reapit.config.swaggerWhitelist = [mockDeveloperModel.id as string]
+  process.env.swaggerWhitelist = [mockDeveloperModel.id as string]
 
   it('should match snapshot', () => {
     expect(render(<ProfileForm />)).toMatchSnapshot()

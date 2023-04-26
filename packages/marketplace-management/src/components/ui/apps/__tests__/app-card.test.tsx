@@ -1,10 +1,8 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
-import AppCard, { handleInstallationsStringEffect, handleNavigation } from '../app-card'
-import { history } from '../../../../core/router'
-import Routes from '../../../../constants/routes'
+import AppCard, { handleInstallationsStringEffect } from '../app-card'
 import { mockAppDetail } from '../../../../services/__stubs__/apps'
 import { mockBrowserSession } from '../../../../services/__mocks__/session'
+import { render } from '../../../../tests/react-testing'
 
 jest.mock('../../../../utils/use-org-id', () => ({
   useOrgId: () => ({
@@ -19,17 +17,6 @@ jest.mock('../../../../utils/use-org-id', () => ({
 describe('AppCard', () => {
   it('should match a snapshot', () => {
     expect(render(<AppCard app={mockAppDetail} connectSession={mockBrowserSession} />)).toMatchSnapshot()
-  })
-})
-
-describe('handleNavigation', () => {
-  it('should navigate to the app/:id page', () => {
-    const historySpy = jest.spyOn(history, 'push')
-    const stubAppId = 'SOME_ID'
-
-    const curried = handleNavigation(stubAppId)
-    curried()
-    expect(historySpy).toHaveBeenCalledWith(`${Routes.MARKETPLACE}/${stubAppId}`)
   })
 })
 

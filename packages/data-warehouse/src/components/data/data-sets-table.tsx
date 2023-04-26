@@ -1,6 +1,5 @@
 import { Button, ButtonGroup, elMb11, Table } from '@reapit/elements'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { UpdateActionNames, updateActions, SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import React, { FC } from 'react'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -45,7 +44,7 @@ export const DataSetsTable: FC<DataSetsTableProps> = ({ dataSets, refreshShares 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [creatingShare, , createShare] = useReapitUpdate<CreateRequestModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createDwRequest],
+    action: updateActions[UpdateActionNames.createDwRequest],
     method: 'POST',
   })
 

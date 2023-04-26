@@ -20,7 +20,7 @@ describe('AccessDenied', () => {
     it('should correctly open a page', () => {
       const openSpy = jest.spyOn(window, 'open')
       onMarketplaceButtonClick()
-      expect(openSpy).toBeCalledWith(`${window.reapit.config.marketplaceUrl}/installed`, '_self')
+      expect(openSpy).toBeCalledWith(`${process.env.marketplaceUrl}/installed`, '_self')
       openSpy.mockReset()
     })
   })

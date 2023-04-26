@@ -1,8 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useCallback, useEffect, useMemo, useState } from 'react'
-import { useHistory, useLocation } from 'react-router'
-import { History } from 'history'
+import { useNavigate, useLocation, NavigateFunction } from 'react-router'
 import { OfficeModelPagedResult, OfficeModel } from '@reapit/foundations-ts-definitions'
-import ErrorBoundary from '@/components/hocs/error-boundary'
 import { cleanObject, DATE_TIME_FORMAT, setQueryParams, toLocalTime } from '@reapit/utils-common'
 import { combineAddress } from '@reapit/utils-common'
 import Routes from '@/constants/routes'
@@ -27,33 +25,34 @@ import { cx } from '@linaria/core'
 import { useOrgId } from '../../../utils/use-org-id'
 import { getOfficesService } from '../../../services/office'
 import { OrgIdSelect } from '../../hocs/org-id-select'
+import ErrorBoundary from '../../error-boundary'
 
 export const buildFilterValues = (queryParams: URLSearchParams): OfficesFormSchema => {
   const name = queryParams.get('name') || []
   return { name } as OfficesFormSchema
 }
 
-export const onPageChangeHandler = (history: History<any>, queryParams: OfficesFormSchema) => (page: number) => {
+export const onPageChangeHandler = (navigate: NavigateFunction, queryParams: OfficesFormSchema) => (page: number) => {
   const query = setQueryParams(queryParams)
   let queryString = `?pageNumber=${page}`
   if (query && query !== '') {
     queryString = queryString.concat(`&${query}`)
   }
-  return history.push(`${Routes.OFFICES}${queryString}`)
+  return navigate(`${Routes.OFFICES}${queryString}`)
 }
 
-export const onSearchHandler = (history: History<any>) => (queryParams: OfficesFormSchema) => {
+export const onSearchHandler = (navigate: NavigateFunction) => (queryParams: OfficesFormSchema) => {
   const cleanedValues = cleanObject(queryParams)
 
   if (isEmptyObject(cleanedValues)) {
-    history.push(`${Routes.OFFICES}`)
+    navigate(`${Routes.OFFICES}`)
     return
   }
 
   const query = setQueryParams(cleanedValues)
   if (query && query !== '') {
     const queryString = `?page=1&${query}`
-    history.push(`${Routes.OFFICES}${queryString}`)
+    navigate(`${Routes.OFFICES}${queryString}`)
   }
 }
 
@@ -114,15 +113,15 @@ export const handleFetchOffices =
   }
 
 const OfficesTab: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { Modal, openModal, closeModal } = useModal()
   const { isMobile } = useMediaQuery()
   const search = location.search
   const queryParams = new URLSearchParams(search)
   const filterValues = buildFilterValues(queryParams)
-  const onSearch = useCallback(onSearchHandler(history), [history])
-  const onPageChange = useCallback(onPageChangeHandler(history, filterValues), [history, filterValues])
+  const onSearch = useCallback(onSearchHandler(navigate), [navigate])
+  const onPageChange = useCallback(onPageChangeHandler(navigate, filterValues), [navigate, filterValues])
   const [officesResponse, setOfficesResponse] = useState<OfficeModelPagedResult>()
   const [officesLoading, setOfficesLoading] = useState<boolean>(false)
   const {

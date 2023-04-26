@@ -1,7 +1,9 @@
 import { Dispatch, SetStateAction } from 'react'
 
-export const handleSetAppId = (appId: string | null, setAppId: Dispatch<SetStateAction<string | null>>) => () => {
+export const handleSetAppId = (setAppId: Dispatch<SetStateAction<string | null>>, appId?: string) => () => {
   if (appId) {
     setAppId(appId)
+  } else {
+    setAppId(null)
   }
 }

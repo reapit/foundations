@@ -1,4 +1,4 @@
-import { History } from 'history'
+import { NavigateFunction } from 'react-router'
 import { trackEvent } from '../core/analytics'
 import { TrackingEvent } from '../core/analytics-events'
 export const DESKTOP_CONTEXT_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
@@ -13,16 +13,16 @@ export const openNewPage = (uri: string) => () => {
   }
 }
 
-export const navigate = (history: History, route: string) => (): void => {
+export const navigateRoute = (navigate: NavigateFunction, route: string) => (): void => {
   trackEvent(TrackingEvent.NavigateInternalPage, true, { route })
 
-  history.push(route)
+  navigate(route)
 }
 
-export const navigateBack = (history: History) => (): void => {
+export const navigateBack = (navigate: NavigateFunction) => (): void => {
   trackEvent(TrackingEvent.NavigateBack, true)
 
-  history.goBack()
+  navigate(-1)
 }
 
 export const navigateExternal = (uri: string) => (): void => {

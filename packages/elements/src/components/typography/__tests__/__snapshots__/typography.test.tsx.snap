@@ -1,23 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Typography components BodyText should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <p
-        class="el-body-text"
+      <mock-styled.p
+        classname=""
       >
         I am body text
-      </p>
+      </mock-styled.p>
     </div>
   </body>,
   "container": <div>
-    <p
-      class="el-body-text"
+    <mock-styled.p
+      classname=""
     >
       I am body text
-    </p>
+    </mock-styled.p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -74,23 +74,23 @@ Object {
 `;
 
 exports[`Typography components BodyText should match a snapshot with all modifiers 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <p
-        class="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text el-body-text"
+      <mock-styled.p
+        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am body text
-      </p>
+      </mock-styled.p>
     </div>
   </body>,
   "container": <div>
-    <p
-      class="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text el-body-text"
+    <mock-styled.p
+      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am body text
-    </p>
+    </mock-styled.p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -147,23 +147,23 @@ Object {
 `;
 
 exports[`Typography components SmallText should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <p
-        class="el-small-text"
+      <mock-styled.p
+        classname=""
       >
         I am small text
-      </p>
+      </mock-styled.p>
     </div>
   </body>,
   "container": <div>
-    <p
-      class="el-small-text"
+    <mock-styled.p
+      classname=""
     >
       I am small text
-    </p>
+    </mock-styled.p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -220,23 +220,23 @@ Object {
 `;
 
 exports[`Typography components SmallText should match a snapshot 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <p
-        class="el-small-text"
+      <mock-styled.p
+        classname=""
       >
         I am small text
-      </p>
+      </mock-styled.p>
     </div>
   </body>,
   "container": <div>
-    <p
-      class="el-small-text"
+    <mock-styled.p
+      classname=""
     >
       I am small text
-    </p>
+    </mock-styled.p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -293,23 +293,23 @@ Object {
 `;
 
 exports[`Typography components SmallText should match a snapshot with all modifiers 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <p
-        class="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text el-small-text"
+      <mock-styled.p
+        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am small text
-      </p>
+      </mock-styled.p>
     </div>
   </body>,
   "container": <div>
-    <p
-      class="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text el-small-text"
+    <mock-styled.p
+      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am small text
-    </p>
+    </mock-styled.p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -366,23 +366,23 @@ Object {
 `;
 
 exports[`Typography components SmallText should match a snapshot with all modifiers 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <p
-        class="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text el-small-text"
+      <mock-styled.p
+        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am small text
-      </p>
+      </mock-styled.p>
     </div>
   </body>,
   "container": <div>
-    <p
-      class="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text el-small-text"
+    <mock-styled.p
+      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am small text
-    </p>
+    </mock-styled.p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -439,23 +439,23 @@ Object {
 `;
 
 exports[`Typography components SmallText should match a snapshot with all modifiers 3`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <p
-        class="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text el-has-capitalised-text el-small-text"
+      <mock-styled.p
+        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         i am some text
-      </p>
+      </mock-styled.p>
     </div>
   </body>,
   "container": <div>
-    <p
-      class="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text el-has-capitalised-text el-small-text"
+    <mock-styled.p
+      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       i am some text
-    </p>
+    </mock-styled.p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -512,23 +512,23 @@ Object {
 `;
 
 exports[`Typography components SubTitle should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h2
-        class="el-subtitle"
+      <mock-styled.h2
+        classname=""
       >
         I am a subtitle
-      </h2>
+      </mock-styled.h2>
     </div>
   </body>,
   "container": <div>
-    <h2
-      class="el-subtitle"
+    <mock-styled.h2
+      classname=""
     >
       I am a subtitle
-    </h2>
+    </mock-styled.h2>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -585,23 +585,23 @@ Object {
 `;
 
 exports[`Typography components SubTitle should match a snapshot with all modifiers 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h2
-        class="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text el-subtitle"
+      <mock-styled.h2
+        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a subtitle
-      </h2>
+      </mock-styled.h2>
     </div>
   </body>,
   "container": <div>
-    <h2
-      class="el-has-grey-text el-has-bold-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text el-subtitle"
+    <mock-styled.h2
+      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a subtitle
-    </h2>
+    </mock-styled.h2>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -658,23 +658,23 @@ Object {
 `;
 
 exports[`Typography components Title should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h1
-        class="el-title"
+      <mock-styled.h1
+        classname=""
       >
         I am a title
-      </h1>
+      </mock-styled.h1>
     </div>
   </body>,
   "container": <div>
-    <h1
-      class="el-title"
+    <mock-styled.h1
+      classname=""
     >
       I am a title
-    </h1>
+    </mock-styled.h1>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -731,23 +731,23 @@ Object {
 `;
 
 exports[`Typography components Title should match a snapshot with all modifiers 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h1
-        class="el-has-grey-text el-has-regular-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text el-title"
+      <mock-styled.h1
+        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a title
-      </h1>
+      </mock-styled.h1>
     </div>
   </body>,
   "container": <div>
-    <h1
-      class="el-has-grey-text el-has-regular-text el-has-italic-text el-has-no-margin el-has-section-margin el-has-centered-text el-title"
+    <mock-styled.h1
+      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a title
-    </h1>
+    </mock-styled.h1>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

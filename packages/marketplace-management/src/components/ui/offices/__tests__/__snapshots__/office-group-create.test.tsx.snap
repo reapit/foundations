@@ -1,138 +1,140 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OfficeGroupCreate should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <form>
-        <h1
-          class="el-title"
+        <mock-styled.h1
+          classname=""
         >
           SOME_NAME
            Create Office Group
-        </h1>
-        <div
-          class="el-steps-vertical"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-step-vertical"
-          >
-            <div
-              class="el-step-vertical-item"
-            >
-              <div
-                class="el-is-active el-step"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
                 data-testid="step-0"
               >
                 1
-              </div>
-            </div>
-            <div
-              class="el-step-vertical-content"
-            >
-              <div
-                class="el-fade-in el-form-layout"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
               >
-                <div
-                  class="el-input-wrap-full"
-                >
-                  <p
-                    class="el-has-grey-text el-body-text"
+                <mock-styled.div>
+                  <mock-styled.p
+                    classname="mock-css."
                   >
                     Add a name for your office group.
-                  </p>
-                </div>
-                <div
-                  class="el-input-wrap"
-                >
-                  <div
-                    class="el-input-group"
-                  >
-                    <input
-                      class="el-input"
+                  </mock-styled.p>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.input
                       id="test-static-id"
                       name="name"
                       placeholder="Enter an office group name"
                     />
-                    <label
-                      class="el-label"
-                      for="test-static-id"
+                    <mock-styled.label
+                      htmlfor="test-static-id"
                     >
                       Office Group Name
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                    </mock-styled.label>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <form>
-      <h1
-        class="el-title"
+      <mock-styled.h1
+        classname=""
       >
         SOME_NAME
          Create Office Group
-      </h1>
-      <div
-        class="el-steps-vertical"
+      </mock-styled.h1>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-step-vertical"
-        >
-          <div
-            class="el-step-vertical-item"
-          >
-            <div
-              class="el-is-active el-step"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
               data-testid="step-0"
             >
               1
-            </div>
-          </div>
-          <div
-            class="el-step-vertical-content"
-          >
-            <div
-              class="el-fade-in el-form-layout"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="el-input-wrap-full"
-              >
-                <p
-                  class="el-has-grey-text el-body-text"
+              <mock-styled.div>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   Add a name for your office group.
-                </p>
-              </div>
-              <div
-                class="el-input-wrap"
-              >
-                <div
-                  class="el-input-group"
-                >
-                  <input
-                    class="el-input"
+                </mock-styled.p>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
                     id="test-static-id"
                     name="name"
                     placeholder="Enter an office group name"
                   />
-                  <label
-                    class="el-label"
-                    for="test-static-id"
+                  <mock-styled.label
+                    htmlfor="test-static-id"
                   >
                     Office Group Name
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],
@@ -190,138 +192,140 @@ Object {
 `;
 
 exports[`OfficeGroupCreate should match a snapshot where there is no orgId 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <form>
-        <h1
-          class="el-title"
+        <mock-styled.h1
+          classname=""
         >
           SOME_NAME
            Create Office Group
-        </h1>
-        <div
-          class="el-steps-vertical"
+        </mock-styled.h1>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-step-vertical"
-          >
-            <div
-              class="el-step-vertical-item"
-            >
-              <div
-                class="el-is-active el-step"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
                 data-testid="step-0"
               >
                 1
-              </div>
-            </div>
-            <div
-              class="el-step-vertical-content"
-            >
-              <div
-                class="el-fade-in el-form-layout"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
               >
-                <div
-                  class="el-input-wrap-full"
-                >
-                  <p
-                    class="el-has-grey-text el-body-text"
+                <mock-styled.div>
+                  <mock-styled.p
+                    classname="mock-css."
                   >
                     Add a name for your office group.
-                  </p>
-                </div>
-                <div
-                  class="el-input-wrap"
-                >
-                  <div
-                    class="el-input-group"
-                  >
-                    <input
-                      class="el-input"
+                  </mock-styled.p>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.input
                       id="test-static-id"
                       name="name"
                       placeholder="Enter an office group name"
                     />
-                    <label
-                      class="el-label"
-                      for="test-static-id"
+                    <mock-styled.label
+                      htmlfor="test-static-id"
                     >
                       Office Group Name
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                    </mock-styled.label>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <form>
-      <h1
-        class="el-title"
+      <mock-styled.h1
+        classname=""
       >
         SOME_NAME
          Create Office Group
-      </h1>
-      <div
-        class="el-steps-vertical"
+      </mock-styled.h1>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-step-vertical"
-        >
-          <div
-            class="el-step-vertical-item"
-          >
-            <div
-              class="el-is-active el-step"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
               data-testid="step-0"
             >
               1
-            </div>
-          </div>
-          <div
-            class="el-step-vertical-content"
-          >
-            <div
-              class="el-fade-in el-form-layout"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
             >
-              <div
-                class="el-input-wrap-full"
-              >
-                <p
-                  class="el-has-grey-text el-body-text"
+              <mock-styled.div>
+                <mock-styled.p
+                  classname="mock-css."
                 >
                   Add a name for your office group.
-                </p>
-              </div>
-              <div
-                class="el-input-wrap"
-              >
-                <div
-                  class="el-input-group"
-                >
-                  <input
-                    class="el-input"
+                </mock-styled.p>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
                     id="test-static-id"
                     name="name"
                     placeholder="Enter an office group name"
                   />
-                  <label
-                    class="el-label"
-                    for="test-static-id"
+                  <mock-styled.label
+                    htmlfor="test-static-id"
                   >
                     Office Group Name
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

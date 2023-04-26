@@ -1,29 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperEditionModal should match snapshot when has a subscription already 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
       id="root"
     >
       <div>
-        <div
-          class="evmehgn-el-is-active e8lauwf-el-modal-bg"
+        <mock-styled.div
+          classname="mock-css."
         />
-        <div
-          class="evmehgn-el-is-active e1ucftfo-el-modal"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="e1jrhqcv-el-modal-header"
-          >
+          <mock-styled.div>
             Existing Subscription
-          </div>
-          <div
-            class="egkth73-el-modal-body"
-          >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.p
+              classname="mock-css."
             >
               It looks as though you already have a subscription in place for the Developer Edition of Agency Cloud. To download, please use the ‘Download Now’ button below. For more information or support using the Developer Edition, please 
               <a
@@ -33,34 +29,28 @@ Object {
               >
                 click here
               </a>
-            </p>
-            <div
-              class="ebqwrow-el-button-group"
-            >
-              <div
-                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+            </mock-styled.p>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                <mock-styled.button
+                  classname="mock-css. mock-css."
                 >
                   Close
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css. mock-css."
                   type="submit"
                 >
                   Download
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
     <div
@@ -73,15 +63,11 @@ Object {
       id="root"
     />
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -138,52 +124,44 @@ Object {
 `;
 
 exports[`DeveloperEditionModal should match snapshot when has billing content and is a user 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
       id="root"
     >
       <div>
-        <div
-          class="evmehgn-el-is-active e8lauwf-el-modal-bg"
+        <mock-styled.div
+          classname="mock-css."
         />
-        <div
-          class="evmehgn-el-is-active e1ucftfo-el-modal"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="e1jrhqcv-el-modal-header"
-          >
+          <mock-styled.div>
             Account Information Required
-          </div>
-          <div
-            class="egkth73-el-modal-body"
-          >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.p
+              classname="mock-css."
             >
               <p>
                 Before you can subscribe to the Developer Edition of Agency Cloud, billing information will need to be submitted. Please ask the Admin of your organisation to visit this page to contact a member of the team.
               </p>
-            </p>
-            <div
-              class="ebqwrow-el-button-group"
-            >
-              <div
-                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+            </mock-styled.p>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                <mock-styled.button
+                  classname="mock-css. mock-css."
                 >
                   Cancel
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
     <div
@@ -202,15 +180,11 @@ Object {
       id="root"
     />
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -267,29 +241,25 @@ Object {
 `;
 
 exports[`DeveloperEditionModal should match snapshot when has billing content and is an admin 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
       id="root"
     >
       <div>
-        <div
-          class="evmehgn-el-is-active e8lauwf-el-modal-bg"
+        <mock-styled.div
+          classname="mock-css."
         />
-        <div
-          class="evmehgn-el-is-active e1ucftfo-el-modal"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="e1jrhqcv-el-modal-header"
-          >
+          <mock-styled.div>
             Account Information Required
-          </div>
-          <div
-            class="egkth73-el-modal-body"
-          >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.p
+              classname="mock-css."
             >
               <p>
                 Before you can subscribe to the Developer Edition of AgencyCloud, we will first need to verify your account information. Please
@@ -304,25 +274,21 @@ Object {
                  
                 to contact a member of the team.
               </p>
-            </p>
-            <div
-              class="ebqwrow-el-button-group"
-            >
-              <div
-                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+            </mock-styled.p>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                <mock-styled.button
+                  classname="mock-css. mock-css."
                 >
                   Cancel
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
     <div
@@ -338,15 +304,11 @@ Object {
       id="root"
     />
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -403,29 +365,25 @@ Object {
 `;
 
 exports[`DeveloperEditionModal should match snapshot when has client data 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
       id="root"
     >
       <div>
-        <div
-          class="evmehgn-el-is-active e8lauwf-el-modal-bg"
+        <mock-styled.div
+          classname="mock-css."
         />
-        <div
-          class="evmehgn-el-is-active e1ucftfo-el-modal"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="e1jrhqcv-el-modal-header"
-          >
+          <mock-styled.div>
             Unable to create subscription
-          </div>
-          <div
-            class="egkth73-el-modal-body"
-          >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.p
+              classname="mock-css."
             >
               Your account is currently set to use 
               <strong>
@@ -439,25 +397,21 @@ Object {
                 click here
               </a>
                to update your information.
-            </p>
-            <div
-              class="ebqwrow-el-button-group"
-            >
-              <div
-                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+            </mock-styled.p>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                <mock-styled.button
+                  classname="mock-css. mock-css."
                 >
                   Cancel
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
     <div
@@ -479,15 +433,11 @@ Object {
       id="root"
     />
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -544,34 +494,30 @@ Object {
 `;
 
 exports[`DeveloperEditionModal should match snapshot when has subscribed 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
       id="root"
     >
       <div>
-        <div
-          class="evmehgn-el-is-active e8lauwf-el-modal-bg"
+        <mock-styled.div
+          classname="mock-css."
         />
-        <div
-          class="evmehgn-el-is-active e1ucftfo-el-modal"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="e1jrhqcv-el-modal-header"
-          >
+          <mock-styled.div>
             Success
-          </div>
-          <div
-            class="egkth73-el-modal-body"
-          >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.p
+              classname="mock-css."
             >
               You have successfully subscribed 1 Agency Cloud user licence and an email has been sent to the following members of your organisation with instructions on how to get started.
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css."
             >
               Joe Dev
                - 
@@ -582,39 +528,33 @@ Object {
               >
                 example@email.com
               </a>
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css."
             >
               We have added your subscription to your monthly billing. To manage your subscriptions please visit the 'Billing' tab.
-            </p>
-            <div
-              class="ebqwrow-el-button-group"
-            >
-              <div
-                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+            </mock-styled.p>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                <mock-styled.button
+                  classname="mock-css. mock-css."
                 >
                   Close
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css. mock-css."
                   type="submit"
                 >
                   Download
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
     <div
@@ -624,15 +564,11 @@ Object {
       id="root"
     />
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -689,7 +625,7 @@ Object {
 `;
 
 exports[`DeveloperEditionModal should match snapshot when not visible 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -701,15 +637,11 @@ Object {
       id="root"
     />
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -766,29 +698,25 @@ Object {
 `;
 
 exports[`DeveloperEditionModal should match snapshot when visible 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
       id="root"
     >
       <div>
-        <div
-          class="evmehgn-el-is-active e8lauwf-el-modal-bg"
+        <mock-styled.div
+          classname="mock-css."
         />
-        <div
-          class="evmehgn-el-is-active e1ucftfo-el-modal"
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="e1jrhqcv-el-modal-header"
-          >
+          <mock-styled.div>
             Agency Cloud Developer Edition
-          </div>
-          <div
-            class="egkth73-el-modal-body"
-          >
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.p
+              classname="mock-css."
             >
               The Agency Cloud Developer Edition is a licensed product. 
               By confirming the subscription below, a subscription of £300 will automatically be added to your monthly billing.
@@ -801,54 +729,44 @@ Object {
               >
                 Terms and Conditions.
               </a>
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css."
             >
               To proceed, please confirm your subscription below for 
               <strong>
                 Joe Dev
               </strong>
-            </p>
-            <div
-              class="ebqwrow-el-button-group"
-            >
-              <div
-                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
+            </mock-styled.p>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                <mock-styled.button
+                  classname="mock-css. mock-css."
                 >
                   Cancel
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-                <button
-                  class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css. mock-css."
                   type="submit"
                 >
                   Confirm
-                  <div
-                    class="e1q1vabn-el-button-loader"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
     <div>
-      <div
-        class="ecbqyq6-el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

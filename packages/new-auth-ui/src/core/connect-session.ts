@@ -2,25 +2,25 @@ import { KeycloakProvider, OryProvider, ReapitConnectBrowserSession } from '@rea
 
 const defaultValues = {
   connectLoginRedirectPath: '',
-  connectUserPoolId: window.reapit.config.connectUserPoolId,
+  connectUserPoolId: process.env.connectUserPoolId,
   connectApplicationTimeout: 86400000, // 24hrs in ms
 }
 
 const ory = {
   ...defaultValues,
-  connectClientId: window.reapit.config.oryConnectClientId,
+  connectClientId: process.env.oryConnectClientId,
   connectOAuthUrl: 'https://reapit-connect-api.dev.paas.reapit.cloud',
 }
 
 const cognito = {
   ...defaultValues,
-  connectClientId: window.reapit.config.cognitoConnectClientId,
+  connectClientId: process.env.cognitoConnectClientId,
   connectOAuthUrl: 'https://connect.dev.paas.reapit.cloud',
 }
 
 const keycloak = {
   ...defaultValues,
-  connectClientId: window.reapit.config.keycloakConnectClientId,
+  connectClientId: process.env.keycloakConnectClientId,
   connectOAuthUrl: 'https://keycloak.dev.paas.reapit.cloud',
 }
 

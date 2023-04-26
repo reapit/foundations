@@ -26,7 +26,7 @@ export const getInstalledReportsService = async (
 ): Promise<InstalledReport[] | never | undefined> => {
   try {
     const response: InstalledReportPagedModel | never = await fetcher({
-      api: window.reapit.config.platformApiUrl,
+      api: process.env.platformApiUrl,
       url: `${URLS.INSTALLED_REPORTS}?pageSize=100`,
       method: 'GET',
       headers: {

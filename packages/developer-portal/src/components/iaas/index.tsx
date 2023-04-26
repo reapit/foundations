@@ -1,5 +1,5 @@
-import { URLS } from '@/constants/api'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { URLS } from '../../constants/api'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { PusherProvider } from '@harelpls/use-pusher'
 import { useReapitConnect } from '@reapit/connect-session'
 import {
@@ -18,8 +18,8 @@ import {
   elMb5,
 } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import React, { FC, useState } from 'react'
 import ErrorBoundary from '../../core/error-boundary'
 import { useGlobalState } from '../../core/use-global-state'
@@ -48,7 +48,7 @@ export const IaaS: FC = () => {
 
   const [pipelines, loading] = useReapitGet<Pagination<PipelineModelInterface>>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.paginatePipeline],
+    action: getActions[GetActionNames.paginatePipeline],
     headers: {
       Authorization: connectSession?.idToken as string,
     },
@@ -78,7 +78,7 @@ export const IaaS: FC = () => {
         <ErrorBoundary>
           <PusherProvider
             cluster="eu"
-            clientKey={window.reapit.config.PUSHER_KEY}
+            clientKey={process.env.PUSHER_KEY}
             authEndpoint={`${URLS.DEPLOYMENT_SERVICE_HOST}pusher/auth`}
             auth={{
               headers: {

@@ -37,7 +37,7 @@ describe('getAppFromPipeline', () => {
 
   options.forEach((option) => {
     it('should return the correct urls', () => {
-      window.reapit.config.appEnv = option.appEnv as 'production' | 'development' | 'local'
+      process.env.appEnv = option.appEnv as 'production' | 'development' | 'local'
       expect(getAppFromPipeline(option.isGithub)).toEqual(option.url)
     })
   })

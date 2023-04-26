@@ -26,7 +26,7 @@ import {
   MainContainer,
 } from '@reapit/elements'
 import React from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import formatDistance from 'date-fns/formatDistance'
 import { useCreateApp } from '../hooks/apps/use-create-app'
 import { useGetUserApps } from '../hooks/apps/use-user-apps'
@@ -38,7 +38,7 @@ import { useForm } from 'react-hook-form'
 import Nav from '../ui/nav'
 
 const getDeveloperId = async () => {
-  const session = await getReapitConnectBrowserSession(window.reapit.config).connectSession()
+  const session = await getReapitConnectBrowserSession(process.env).connectSession()
   const developerId = session?.loginIdentity.developerId
   return developerId || undefined
 }
@@ -60,7 +60,7 @@ const CreateNew = ({ className }: { className?: string }) => {
   const { createApp, loading } = useCreateApp()
   const { success, error } = useSnack()
   const developerId = useDeveloperId()
-  const history = useHistory()
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -94,7 +94,7 @@ const CreateNew = ({ className }: { className?: string }) => {
                   },
                 }) => {
                   success('App created successfully')
-                  history.push(id)
+                  navigate(id)
                 },
               )
               .catch((e: GraphQLError) => {
@@ -147,7 +147,7 @@ export const generateAppUrl = (subdomain: string) => {
 const AppSelector = () => {
   const developerId = useDeveloperId()
   const { loading, error, data } = useGetUserApps(developerId)
-  const history = useHistory()
+  const navigate = useNavigate()
   const { ejectApp } = useEjectApp()
   if (error) return <div>Error</div>
 
@@ -186,7 +186,7 @@ const AppSelector = () => {
                 <Card
                   className={elFadeIn}
                   style={{ cursor: 'pointer' }}
-                  onClick={() => history.push(id + '/')}
+                  onClick={() => navigate(id + '/')}
                   hasMainCard
                   mainContextMenuItems={[
                     {

@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <span
-        class="el-status-indicator"
+      <mock-styled.span
+        classname=""
       />
     </div>
   </body>,
   "container": <div>
-    <span
-      class="el-status-indicator"
+    <mock-styled.span
+      classname=""
     />
   </div>,
   "debug": [Function],
@@ -70,18 +70,18 @@ Object {
 `;
 
 exports[`Table component should match a snapshot 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <span
-        class="el-intent-primary el-status-indicator"
+      <mock-styled.span
+        classname="mock-css."
       />
     </div>
   </body>,
   "container": <div>
-    <span
-      class="el-intent-primary el-status-indicator"
+    <mock-styled.span
+      classname="mock-css."
     />
   </div>,
   "debug": [Function],
@@ -139,18 +139,18 @@ Object {
 `;
 
 exports[`Table component should match a snapshot 3`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <span
-        class="el-intent-secondary el-status-indicator"
+      <mock-styled.span
+        classname="mock-css."
       />
     </div>
   </body>,
   "container": <div>
-    <span
-      class="el-intent-secondary el-status-indicator"
+    <mock-styled.span
+      classname="mock-css."
     />
   </div>,
   "debug": [Function],
@@ -208,18 +208,18 @@ Object {
 `;
 
 exports[`Table component should match a snapshot 4`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <span
-        class="el-intent-danger el-status-indicator"
+      <mock-styled.span
+        classname="mock-css."
       />
     </div>
   </body>,
   "container": <div>
-    <span
-      class="el-intent-danger el-status-indicator"
+    <mock-styled.span
+      classname="mock-css."
     />
   </div>,
   "debug": [Function],
@@ -277,18 +277,18 @@ Object {
 `;
 
 exports[`Table component should match a snapshot 5`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <span
-        class="el-intent-success el-status-indicator"
+      <mock-styled.span
+        classname="mock-css."
       />
     </div>
   </body>,
   "container": <div>
-    <span
-      class="el-intent-success el-status-indicator"
+    <mock-styled.span
+      classname="mock-css."
     />
   </div>,
   "debug": [Function],
@@ -346,18 +346,18 @@ Object {
 `;
 
 exports[`Table component should match a snapshot 6`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <span
-        class="el-intent-critical el-status-indicator"
+      <mock-styled.span
+        classname="mock-css."
       />
     </div>
   </body>,
   "container": <div>
-    <span
-      class="el-intent-critical el-status-indicator"
+    <mock-styled.span
+      classname="mock-css."
     />
   </div>,
   "debug": [Function],
@@ -415,18 +415,18 @@ Object {
 `;
 
 exports[`Table component should match a snapshot 7`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <span
-        class="el-status-indicator"
+      <mock-styled.span
+        classname=""
       />
     </div>
   </body>,
   "container": <div>
-    <span
-      class="el-status-indicator"
+    <mock-styled.span
+      classname=""
     />
   </div>,
   "debug": [Function],

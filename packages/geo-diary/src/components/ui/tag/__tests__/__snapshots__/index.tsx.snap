@@ -1,28 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tag component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <span
-        class="tag-container"
+        class="mock-css.
+  display: inline-block;
+  background: ,;
+  font-size: ,;
+  font-weight: ,;
+  color: black;
+  border-radius: 100rem; // set a very high number to make sure it's always completely rounded
+  padding: , ,;
+  box-sizing: border-box;
+"
       >
         I am a tag
       </span>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <span
-      class="tag-container"
+      class="mock-css.
+  display: inline-block;
+  background: ,;
+  font-size: ,;
+  font-weight: ,;
+  color: black;
+  border-radius: 100rem; // set a very high number to make sure it's always completely rounded
+  padding: , ,;
+  box-sizing: border-box;
+"
     >
       I am a tag
     </span>

@@ -1,129 +1,185 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Router should match a snapshot 1`] = `
-Object {
+exports[`RoutesComponent should match a snapshot 1`] = `
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <main
-        class="el-main-container"
-      >
-        <nav
-          class="el-nav-container"
+      <mock-styled.div />
+      <mock-styled.main>
+        <mock-styled.nav
+          classname=""
         >
-          <a
-            class="el-nav-item-active el-nav-item"
+          <mock-styled.a
+            classname=""
           >
-            <span
-              class="el-nav-item-icon el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+"
               style="font-size: 2.5rem;"
             >
               <svg />
-            </span>
-            <span
-              class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
+            </mock-styled.span>
+            <mock-styled.span
+              classname="mock-css. mock-css.
+  margin-left: auto;
+ mock-css.
+  margin-right: 0.375rem;
+ mock-css.
+  @media screen and (min-width: 768px) {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+"
               style="font-size: 2rem;"
             >
               <svg />
-            </span>
-          </a>
-          <a
-            class="el-nav-item"
+            </mock-styled.span>
+          </mock-styled.a>
+          <mock-styled.a
+            classname="mock-css.
+  @media screen and (min-width: 768px) {
+    --nav-menu-icon-primary-accent: var(--color-white);
+    color: var(--nav-menu-text-hover);
+    background-color: var(--nav-menu-background-accent);
+  }
+"
           >
-            <span
-              class="el-nav-item-icon el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             Configure
-          </a>
-          <a
-            class="el-nav-item-secondary el-nav-item"
+          </mock-styled.a>
+          <mock-styled.a
+            classname="mock-css.
+  @media screen and (min-width: 768px) {
+    margin-top: auto;
+  }
+"
           >
-            <span
-              class="el-nav-item-icon el-icon-size-medium el-icon"
+            <mock-styled.span
+              classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
             >
               <svg />
-            </span>
+            </mock-styled.span>
             Logout
-          </a>
-        </nav>
-        <div
-          class="el-is-full-page el-loader-container"
+          </mock-styled.a>
+        </mock-styled.nav>
+        <mock-styled.div
+          classname="mock-css."
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </main>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.main>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <main
-      class="el-main-container"
-    >
-      <nav
-        class="el-nav-container"
+    <mock-styled.div />
+    <mock-styled.main>
+      <mock-styled.nav
+        classname=""
       >
-        <a
-          class="el-nav-item-active el-nav-item"
+        <mock-styled.a
+          classname=""
         >
-          <span
-            class="el-nav-item-icon el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+"
             style="font-size: 2.5rem;"
           >
             <svg />
-          </span>
-          <span
-            class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
+          </mock-styled.span>
+          <mock-styled.span
+            classname="mock-css. mock-css.
+  margin-left: auto;
+ mock-css.
+  margin-right: 0.375rem;
+ mock-css.
+  @media screen and (min-width: 768px) {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+"
             style="font-size: 2rem;"
           >
             <svg />
-          </span>
-        </a>
-        <a
-          class="el-nav-item"
+          </mock-styled.span>
+        </mock-styled.a>
+        <mock-styled.a
+          classname="mock-css.
+  @media screen and (min-width: 768px) {
+    --nav-menu-icon-primary-accent: var(--color-white);
+    color: var(--nav-menu-text-hover);
+    background-color: var(--nav-menu-background-accent);
+  }
+"
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Configure
-        </a>
-        <a
-          class="el-nav-item-secondary el-nav-item"
+        </mock-styled.a>
+        <mock-styled.a
+          classname="mock-css.
+  @media screen and (min-width: 768px) {
+    margin-top: auto;
+  }
+"
         >
-          <span
-            class="el-nav-item-icon el-icon-size-medium el-icon"
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
           >
             <svg />
-          </span>
+          </mock-styled.span>
           Logout
-        </a>
-      </nav>
-      <div
-        class="el-is-full-page el-loader-container"
+        </mock-styled.a>
+      </mock-styled.nav>
+      <mock-styled.div
+        classname="mock-css."
       >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
-    </main>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.main>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

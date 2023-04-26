@@ -1,27 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LandlordDrawer should match snapshot with landlords in state and an AML App 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
       <div
-        class="drawer-header"
+        class="mock-css.
+  margin-bottom: ,;
+  padding: ,;
+  border-bottom: 1px solid ,;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+"
       >
-        <h2
-          class="el-has-no-margin el-subtitle"
+        <mock-styled.h2
+          classname="mock-css."
         >
           Mr John Smith
-        </h2>
+        </mock-styled.h2>
         <button
-          class="icon-button-container small-button"
+          class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+ mock-css.
+  width: 2rem;
+  height: 2rem;
+
+  , {
+    font-size: 0.75rem;
+  }
+"
         >
           <span
-            class="icon-container"
+            class="mock-css.
+  display: flex;
+  color: black;
+"
           >
             <svg
               height="16px"
@@ -62,39 +96,89 @@ Object {
         </button>
       </div>
       <div
-        class="contact-option-row"
+        class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
       >
         <div
-          class="grid"
+          class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
         >
           <div
-            class="col span8"
+            class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
           >
-            <label
-              class="el-label"
-            >
+            <mock-styled.label>
               Mobile
-            </label>
+            </mock-styled.label>
             <div
-              class="contact-option-value"
+              class="mock-css.
+  text-align: left;
+"
             >
               07890 123456
             </div>
           </div>
           <div
-            class="col span8"
+            class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
           >
             <div
-              class="contact-option-icons"
+              class="mock-css.
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  , {
+    margin-left: ,;
+  }
+"
             >
               <a
                 href="https://wa.me/447890123456"
               >
                 <button
-                  class="icon-button-container"
+                  class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
                 >
                   <span
-                    class="icon-container"
+                    class="mock-css.
+  display: flex;
+  color: black;
+"
                   >
                     <svg
                       height="30px"
@@ -142,10 +226,32 @@ Object {
                 href="sms:07890 123456"
               >
                 <button
-                  class="icon-button-container"
+                  class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
                 >
                   <span
-                    class="icon-container"
+                    class="mock-css.
+  display: flex;
+  color: black;
+"
                   >
                     <svg
                       height="24px"
@@ -217,10 +323,32 @@ Object {
                 href="tel:07890 123456"
               >
                 <button
-                  class="icon-button-container"
+                  class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
                 >
                   <span
-                    class="icon-container"
+                    class="mock-css.
+  display: flex;
+  color: black;
+"
                   >
                     <svg
                       height="20px"
@@ -265,39 +393,89 @@ Object {
         </div>
       </div>
       <div
-        class="contact-option-row"
+        class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
       >
         <div
-          class="grid"
+          class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
         >
           <div
-            class="col span8"
+            class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
           >
-            <label
-              class="el-label"
-            >
+            <mock-styled.label>
               Home
-            </label>
+            </mock-styled.label>
             <div
-              class="contact-option-value"
+              class="mock-css.
+  text-align: left;
+"
             >
               01234 567890
             </div>
           </div>
           <div
-            class="col span8"
+            class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
           >
             <div
-              class="contact-option-icons"
+              class="mock-css.
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  , {
+    margin-left: ,;
+  }
+"
             >
               <a
                 href="tel:01234 567890"
               >
                 <button
-                  class="icon-button-container"
+                  class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
                 >
                   <span
-                    class="icon-container"
+                    class="mock-css.
+  display: flex;
+  color: black;
+"
                   >
                     <svg
                       height="20px"
@@ -342,39 +520,89 @@ Object {
         </div>
       </div>
       <div
-        class="contact-option-row"
+        class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
       >
         <div
-          class="grid"
+          class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
         >
           <div
-            class="col span8"
+            class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
           >
-            <label
-              class="el-label"
-            >
+            <mock-styled.label>
               Work
-            </label>
+            </mock-styled.label>
             <div
-              class="contact-option-value"
+              class="mock-css.
+  text-align: left;
+"
             >
               03242343244
             </div>
           </div>
           <div
-            class="col span8"
+            class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
           >
             <div
-              class="contact-option-icons"
+              class="mock-css.
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  , {
+    margin-left: ,;
+  }
+"
             >
               <a
                 href="tel:03242343244"
               >
                 <button
-                  class="icon-button-container"
+                  class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
                 >
                   <span
-                    class="icon-container"
+                    class="mock-css.
+  display: flex;
+  color: black;
+"
                   >
                     <svg
                       height="20px"
@@ -419,39 +647,89 @@ Object {
         </div>
       </div>
       <div
-        class="contact-option-row"
+        class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
       >
         <div
-          class="grid"
+          class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
         >
           <div
-            class="col span10"
+            class="mock-css. mock-css.
+  grid-column-end: span 10;
+"
           >
-            <label
-              class="el-label"
-            >
+            <mock-styled.label>
               Email
-            </label>
+            </mock-styled.label>
             <div
-              class="contact-option-value"
+              class="mock-css.
+  text-align: left;
+"
             >
               example@email.com
             </div>
           </div>
           <div
-            class="col span6"
+            class="mock-css. mock-css.
+  grid-column-end: span 6;
+"
           >
             <div
-              class="contact-option-icons"
+              class="mock-css.
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  , {
+    margin-left: ,;
+  }
+"
             >
               <a
                 href="mailto:example@email.com"
               >
                 <button
-                  class="icon-button-container"
+                  class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
                 >
                   <span
-                    class="icon-container"
+                    class="mock-css.
+  display: flex;
+  color: black;
+"
                   >
                     <svg
                       height="15px"
@@ -491,39 +769,89 @@ Object {
         </div>
       </div>
       <div
-        class="contact-option-row"
+        class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
       >
         <div
-          class="grid"
+          class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
         >
           <div
-            class="col span8"
+            class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
           >
-            <label
-              class="el-label"
-            >
+            <mock-styled.label>
               AML Check
-            </label>
+            </mock-styled.label>
             <div
-              class="contact-option-value"
+              class="mock-css.
+  text-align: left;
+"
             >
               Mr John Smith
             </div>
           </div>
           <div
-            class="col span8"
+            class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
           >
             <div
-              class="contact-option-icons"
+              class="mock-css.
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  , {
+    margin-left: ,;
+  }
+"
             >
               <a
                 href="undefined/OXF12300101"
               >
                 <button
-                  class="icon-button-container"
+                  class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
                 >
                   <span
-                    class="icon-container"
+                    class="mock-css.
+  display: flex;
+  color: black;
+"
                   >
                     <svg
                       height="21px"
@@ -575,23 +903,57 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
     <div
-      class="drawer-header"
+      class="mock-css.
+  margin-bottom: ,;
+  padding: ,;
+  border-bottom: 1px solid ,;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+"
     >
-      <h2
-        class="el-has-no-margin el-subtitle"
+      <mock-styled.h2
+        classname="mock-css."
       >
         Mr John Smith
-      </h2>
+      </mock-styled.h2>
       <button
-        class="icon-button-container small-button"
+        class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+ mock-css.
+  width: 2rem;
+  height: 2rem;
+
+  , {
+    font-size: 0.75rem;
+  }
+"
       >
         <span
-          class="icon-container"
+          class="mock-css.
+  display: flex;
+  color: black;
+"
         >
           <svg
             height="16px"
@@ -632,39 +994,89 @@ Object {
       </button>
     </div>
     <div
-      class="contact-option-row"
+      class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
     >
       <div
-        class="grid"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
       >
         <div
-          class="col span8"
+          class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
         >
-          <label
-            class="el-label"
-          >
+          <mock-styled.label>
             Mobile
-          </label>
+          </mock-styled.label>
           <div
-            class="contact-option-value"
+            class="mock-css.
+  text-align: left;
+"
           >
             07890 123456
           </div>
         </div>
         <div
-          class="col span8"
+          class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
         >
           <div
-            class="contact-option-icons"
+            class="mock-css.
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  , {
+    margin-left: ,;
+  }
+"
           >
             <a
               href="https://wa.me/447890123456"
             >
               <button
-                class="icon-button-container"
+                class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
               >
                 <span
-                  class="icon-container"
+                  class="mock-css.
+  display: flex;
+  color: black;
+"
                 >
                   <svg
                     height="30px"
@@ -712,10 +1124,32 @@ Object {
               href="sms:07890 123456"
             >
               <button
-                class="icon-button-container"
+                class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
               >
                 <span
-                  class="icon-container"
+                  class="mock-css.
+  display: flex;
+  color: black;
+"
                 >
                   <svg
                     height="24px"
@@ -787,10 +1221,32 @@ Object {
               href="tel:07890 123456"
             >
               <button
-                class="icon-button-container"
+                class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
               >
                 <span
-                  class="icon-container"
+                  class="mock-css.
+  display: flex;
+  color: black;
+"
                 >
                   <svg
                     height="20px"
@@ -835,39 +1291,89 @@ Object {
       </div>
     </div>
     <div
-      class="contact-option-row"
+      class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
     >
       <div
-        class="grid"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
       >
         <div
-          class="col span8"
+          class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
         >
-          <label
-            class="el-label"
-          >
+          <mock-styled.label>
             Home
-          </label>
+          </mock-styled.label>
           <div
-            class="contact-option-value"
+            class="mock-css.
+  text-align: left;
+"
           >
             01234 567890
           </div>
         </div>
         <div
-          class="col span8"
+          class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
         >
           <div
-            class="contact-option-icons"
+            class="mock-css.
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  , {
+    margin-left: ,;
+  }
+"
           >
             <a
               href="tel:01234 567890"
             >
               <button
-                class="icon-button-container"
+                class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
               >
                 <span
-                  class="icon-container"
+                  class="mock-css.
+  display: flex;
+  color: black;
+"
                 >
                   <svg
                     height="20px"
@@ -912,39 +1418,89 @@ Object {
       </div>
     </div>
     <div
-      class="contact-option-row"
+      class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
     >
       <div
-        class="grid"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
       >
         <div
-          class="col span8"
+          class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
         >
-          <label
-            class="el-label"
-          >
+          <mock-styled.label>
             Work
-          </label>
+          </mock-styled.label>
           <div
-            class="contact-option-value"
+            class="mock-css.
+  text-align: left;
+"
           >
             03242343244
           </div>
         </div>
         <div
-          class="col span8"
+          class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
         >
           <div
-            class="contact-option-icons"
+            class="mock-css.
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  , {
+    margin-left: ,;
+  }
+"
           >
             <a
               href="tel:03242343244"
             >
               <button
-                class="icon-button-container"
+                class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
               >
                 <span
-                  class="icon-container"
+                  class="mock-css.
+  display: flex;
+  color: black;
+"
                 >
                   <svg
                     height="20px"
@@ -989,39 +1545,89 @@ Object {
       </div>
     </div>
     <div
-      class="contact-option-row"
+      class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
     >
       <div
-        class="grid"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
       >
         <div
-          class="col span10"
+          class="mock-css. mock-css.
+  grid-column-end: span 10;
+"
         >
-          <label
-            class="el-label"
-          >
+          <mock-styled.label>
             Email
-          </label>
+          </mock-styled.label>
           <div
-            class="contact-option-value"
+            class="mock-css.
+  text-align: left;
+"
           >
             example@email.com
           </div>
         </div>
         <div
-          class="col span6"
+          class="mock-css. mock-css.
+  grid-column-end: span 6;
+"
         >
           <div
-            class="contact-option-icons"
+            class="mock-css.
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  , {
+    margin-left: ,;
+  }
+"
           >
             <a
               href="mailto:example@email.com"
             >
               <button
-                class="icon-button-container"
+                class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
               >
                 <span
-                  class="icon-container"
+                  class="mock-css.
+  display: flex;
+  color: black;
+"
                 >
                   <svg
                     height="15px"
@@ -1061,39 +1667,89 @@ Object {
       </div>
     </div>
     <div
-      class="contact-option-row"
+      class="mock-css.
+  margin-bottom: ,;
+  padding-bottom: ,;
+  border-bottom: 1px solid ,;
+  padding-left: ,;
+  padding-right: ,;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+"
     >
       <div
-        class="grid"
+        class="mock-css.
+  display: grid;
+  grid-template-columns: repeat(,, 1fr);
+"
       >
         <div
-          class="col span8"
+          class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
         >
-          <label
-            class="el-label"
-          >
+          <mock-styled.label>
             AML Check
-          </label>
+          </mock-styled.label>
           <div
-            class="contact-option-value"
+            class="mock-css.
+  text-align: left;
+"
           >
             Mr John Smith
           </div>
         </div>
         <div
-          class="col span8"
+          class="mock-css. mock-css.
+  grid-column-end: span 8;
+"
         >
           <div
-            class="contact-option-icons"
+            class="mock-css.
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  , {
+    margin-left: ,;
+  }
+"
           >
             <a
               href="undefined/OXF12300101"
             >
               <button
-                class="icon-button-container"
+                class="mock-css.
+  border: none;
+  background: #fff;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :active {
+    box-shadow: 0px 0px 15px 0px inset ,;
+  }
+
+  , {
+    color: black;
+    font-size: 1.375rem;
+  }
+"
               >
                 <span
-                  class="icon-container"
+                  class="mock-css.
+  display: flex;
+  color: black;
+"
                 >
                   <svg
                     height="21px"
@@ -1198,20 +1854,16 @@ Object {
 `;
 
 exports[`LandlordDrawer should match snapshot without landlords in state 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
        
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
      
   </div>,
   "debug": [Function],

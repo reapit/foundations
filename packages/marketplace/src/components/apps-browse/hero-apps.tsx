@@ -1,7 +1,7 @@
 import React, { FC, memo, useMemo } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/use-reapit-data'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { elFadeIn, elHFull, FlexContainer, MediaType, PlaceholderImage, useMediaQuery } from '@reapit/elements'
 import { AppDetailModel, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import {
@@ -22,11 +22,11 @@ import {
   HeroAppsChipPlaceholder,
 } from './__styles__'
 import { cx } from '@linaria/core'
-import { navigate } from '../../utils/navigation'
-import { Routes } from '../../constants/routes'
-import { useHistory } from 'react-router-dom'
+import { navigateRoute } from '../../utils/navigation'
+import { RoutePaths } from '../../constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
 import { filterRestrictedAppDetail } from '../../utils/browse-app'
+import { useNavigate } from 'react-router'
 
 interface HeroAppsCollectionProps {
   configItem?: AppsBrowseConfigItemInterface
@@ -47,7 +47,7 @@ export const handlePlaceholderSize = (mediaQuery: MediaType) => () => {
 }
 
 export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configItem }) => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const mediaQuery = useMediaQuery()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { filters, content } = configItem ?? {}
@@ -55,7 +55,7 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configIte
 
   const [unfilteredAppDetail] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
+    action: getActions[GetActionNames.getAppById],
     uriParams: {
       appId: filters?.id && filters.id[0],
     },
@@ -70,7 +70,7 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configIte
   const iconUri = media?.find((item) => item.type === 'icon')?.uri
 
   return (
-    <HeroAppsContainer onClick={id ? navigate(history, `${Routes.APPS_BROWSE}/${id}`) : undefined}>
+    <HeroAppsContainer onClick={id ? navigateRoute(navigate, `${RoutePaths.APPS_BROWSE}/${id}`) : undefined}>
       <BrowseAppsSubtitle className={cx(!content?.title && browseAppsSubtitlePlaceholder)}>
         {content?.title}
       </BrowseAppsSubtitle>

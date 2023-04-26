@@ -1,97 +1,101 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Payments
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.span>
+        <mock-styled.p
+          classname="mock-css."
         >
           From this dashboard you can use the below filters to locate payments held by Reapit.
-        </p>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-        </p>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Both options are available from the slide down on each payment item in the table.
-        </p>
+        </mock-styled.p>
         <div
-          class="el-border-radius overflow-hidden el-mb5"
+          class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
         >
           <form>
-            <div
-              class="controls-container"
-            >
-              <div
-                class="input-full-width el-input-group"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
                   id="test-static-id"
                   max="2019-10-11"
                   min="2017-10-10"
                   name="createdFrom"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Created From
-                </label>
-              </div>
-            </div>
-            <div
-              class="controls-container"
-            >
-              <div
-                class="input-full-width el-input-group"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
                   id="test-static-id"
                   max="2019-10-11"
                   min="2019-09-10"
                   name="createdTo"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Created To
-                </label>
-              </div>
-            </div>
-            <div
-              class="controls-container"
-            >
-              <div
-                class="el-input-group"
-              >
-                <select
-                  class="el-wfull el-select"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.select
+                  classname="mock-css.
+  width: 100%;
+"
                   name="status"
                 >
                   <option
@@ -119,174 +123,201 @@ Object {
                   >
                     Failed
                   </option>
-                </select>
-                <label
-                  class="el-label"
-                >
+                </mock-styled.select>
+                <mock-styled.label>
                   Status
-                </label>
-              </div>
-            </div>
-            <div
-              class="controls-container"
-            >
-              <div
-                class="input-full-width el-input-group"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
                   id="test-static-id"
                   name="description"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Description
-                </label>
-              </div>
-            </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
           </form>
         </div>
-        <button
-          class="el-intent-neutral el-button"
+        <mock-styled.button
+          classname="mock-css."
         >
           View Docs
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-page-container"
-      >
-        <div
-          class="el-flex-justify-between el-flex-container"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section>
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
         >
-          <h1
-            class="el-title"
+          <mock-styled.h1
+            classname=""
           >
             Payments Dashboard
-          </h1>
-          <div
-            class="logo"
-          >
+          </mock-styled.h1>
+          <mock-styled.div>
             <img
               src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
             />
-          </div>
-        </div>
-        <div
-          class="el-fade-in el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css. mock-css. mock-css. mock-css."
         >
           <div
-            class="el-pn-icon"
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            class="el-pn-content"
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
           >
             No payments match your search criteria
           </div>
-        </div>
-      </section>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <aside
-      class="el-secondary-nav-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.aside>
+      <mock-styled.h1
+        classname=""
       >
         Payments
-      </h1>
-      <span
-        class="el-mb5 el-icon-size-large el-icon"
+      </mock-styled.h1>
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <p
-        class="el-has-grey-text el-small-text"
+      </mock-styled.span>
+      <mock-styled.p
+        classname="mock-css."
       >
         From this dashboard you can use the below filters to locate payments held by Reapit.
-      </p>
-      <p
-        class="el-has-grey-text el-small-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-      </p>
-      <p
-        class="el-has-grey-text el-small-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Both options are available from the slide down on each payment item in the table.
-      </p>
+      </mock-styled.p>
       <div
-        class="el-border-radius overflow-hidden el-mb5"
+        class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
       >
         <form>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 max="2019-10-11"
                 min="2017-10-10"
                 name="createdFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Created From
-              </label>
-            </div>
-          </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 max="2019-10-11"
                 min="2019-09-10"
                 name="createdTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Created To
-              </label>
-            </div>
-          </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-wfull el-select"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.select
+                classname="mock-css.
+  width: 100%;
+"
                 name="status"
               >
                 <option
@@ -314,84 +345,107 @@ Object {
                 >
                   Failed
                 </option>
-              </select>
-              <label
-                class="el-label"
-              >
+              </mock-styled.select>
+              <mock-styled.label>
                 Status
-              </label>
-            </div>
-          </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 name="description"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Description
-              </label>
-            </div>
-          </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
       </div>
-      <button
-        class="el-intent-neutral el-button"
+      <mock-styled.button
+        classname="mock-css."
       >
         View Docs
-        <div
-          class="el-button-loader"
-        />
-      </button>
-    </aside>
-    <section
-      class="el-page-container"
-    >
-      <div
-        class="el-flex-justify-between el-flex-container"
+        <mock-styled.div />
+      </mock-styled.button>
+    </mock-styled.aside>
+    <mock-styled.section>
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="el-title"
+        <mock-styled.h1
+          classname=""
         >
           Payments Dashboard
-        </h1>
-        <div
-          class="logo"
-        >
+        </mock-styled.h1>
+        <mock-styled.div>
           <img
             src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
           />
-        </div>
-      </div>
-      <div
-        class="el-fade-in el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css. mock-css. mock-css. mock-css."
       >
         <div
-          class="el-pn-icon"
+          class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
           data-testid="close-icon"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          class="el-pn-content"
+          class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
         >
           No payments match your search criteria
         </div>
-      </div>
-    </section>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -448,97 +502,101 @@ Object {
 `;
 
 exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Payments
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.span>
+        <mock-styled.p
+          classname="mock-css."
         >
           From this dashboard you can use the below filters to locate payments held by Reapit.
-        </p>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-        </p>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Both options are available from the slide down on each payment item in the table.
-        </p>
+        </mock-styled.p>
         <div
-          class="el-border-radius overflow-hidden el-mb5"
+          class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
         >
           <form>
-            <div
-              class="controls-container"
-            >
-              <div
-                class="input-full-width el-input-group"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
                   id="test-static-id"
                   max="2019-10-11"
                   min="2017-10-10"
                   name="createdFrom"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Created From
-                </label>
-              </div>
-            </div>
-            <div
-              class="controls-container"
-            >
-              <div
-                class="input-full-width el-input-group"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
                   id="test-static-id"
                   max="2019-10-11"
                   min="2019-09-10"
                   name="createdTo"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Created To
-                </label>
-              </div>
-            </div>
-            <div
-              class="controls-container"
-            >
-              <div
-                class="el-input-group"
-              >
-                <select
-                  class="el-wfull el-select"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.select
+                  classname="mock-css.
+  width: 100%;
+"
                   name="status"
                 >
                   <option
@@ -566,389 +624,444 @@ Object {
                   >
                     Failed
                   </option>
-                </select>
-                <label
-                  class="el-label"
-                >
+                </mock-styled.select>
+                <mock-styled.label>
                   Status
-                </label>
-              </div>
-            </div>
-            <div
-              class="controls-container"
-            >
-              <div
-                class="input-full-width el-input-group"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
                   id="test-static-id"
                   name="description"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Description
-                </label>
-              </div>
-            </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
           </form>
         </div>
-        <button
-          class="el-intent-neutral el-button"
+        <mock-styled.button
+          classname="mock-css."
         >
           View Docs
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-page-container"
-      >
-        <div
-          class="el-flex-justify-between el-flex-container"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section>
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
         >
-          <h1
-            class="el-title"
+          <mock-styled.h1
+            classname=""
           >
             Payments Dashboard
-          </h1>
-          <div
-            class="logo"
-          >
+          </mock-styled.h1>
+          <mock-styled.div>
             <img
               src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
             />
-          </div>
-        </div>
-        <div
-          class="el-mb11 el-fade-in el-table"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="7"
         >
-          <div
-            class="el-table-headers-row"
-          >
-            <div
-              class="el-table-header"
-            >
+          <mock-styled.div>
+            <mock-styled.div>
               Property
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Amount
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Customer
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Description
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Client A/C
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Status
-            </div>
-            <div
-              class="el-table-header"
-            >
+            </mock-styled.div>
+            <mock-styled.div>
               Request Date
-            </div>
-            <div
-              class="el-table-header"
-            >
-              <span
-                class="el-icon"
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
                 style="font-size: 1.2rem;"
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="el-table-row-container"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-row"
-            >
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <span
-                  class="el-intent-secondary el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-                <div
-                  class="el-table-cell-content"
+                </mock-styled.span>
+                <mock-styled.div
                   data-narrow-label="Property"
                 >
                   <div
-                    class="el-fade-in"
+                    class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
                   >
                     15 Example street Solihull West Midlands B91 2XX
                   </div>
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <span
-                  class="el-intent-secondary el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-                <div
-                  class="el-table-cell-content"
+                </mock-styled.span>
+                <mock-styled.div
                   data-narrow-label="Amount"
                 >
                   £100.00
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
               >
-                <span
-                  class="el-intent-secondary el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-                <div
-                  class="el-table-cell-content"
+                </mock-styled.span>
+                <mock-styled.div
                   data-narrow-label="Customer"
                 >
                   Mr John Smith
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Description"
                 >
                   Tenancy Check Fee
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Client A/C"
                 >
                   Primary
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Status"
                 >
-                  <span
-                    class="el-intent-critical el-status-indicator"
+                  <mock-styled.span
+                    classname="mock-css."
                   />
                    
                   Awaiting Payment
-                </div>
-              </div>
-              <div
-                class="el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <div
-                  class="el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Request Date"
                 >
                   12 Dec 2018
-                </div>
-              </div>
-              <div
-                class="el-table-expandable-row-trigger-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
               >
-                <span
-                  class="el-intent-secondary el-icon"
+                <mock-styled.span
+                  classname="mock-css."
                 >
                   <svg />
-                </span>
-              </div>
-            </div>
-            <div
-              class="el-table-expandable-row"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-expandable-container"
-              >
-                <div
-                  class="el-button-group"
-                >
-                  <div
-                    class="el-button-group-align-center el-button-group-inner"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
                   >
-                    <button
-                      class="el-intent-primary el-button"
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="false"
                     >
                       Email Request
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                    <button
-                      class="el-intent-critical el-button-has-right-chevron el-button"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
+                      disabled="false"
                     >
                       Take Payment
-                      <div
-                        class="el-button-loader"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-pagination-wrap"
-        >
-          <div
-            class="el-pagination-text"
-          >
-            <input
-              class="el-pagination-input"
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
               value="1"
             />
              of 
             1
-          </div>
-          <button
-            class="el-pagination-button"
+          </mock-styled.div>
+          <mock-styled.button
             data-testid="back-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-          <button
-            class="el-pagination-button"
+            </mock-styled.span>
+          </mock-styled.button>
+          <mock-styled.button
             data-testid="forward-button"
             type="button"
           >
-            <span
-              class="el-icon"
+            <mock-styled.span
+              classname=""
             >
               <svg />
-            </span>
-          </button>
-        </div>
-      </section>
+            </mock-styled.span>
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <aside
-      class="el-secondary-nav-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.aside>
+      <mock-styled.h1
+        classname=""
       >
         Payments
-      </h1>
-      <span
-        class="el-mb5 el-icon-size-large el-icon"
+      </mock-styled.h1>
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <p
-        class="el-has-grey-text el-small-text"
+      </mock-styled.span>
+      <mock-styled.p
+        classname="mock-css."
       >
         From this dashboard you can use the below filters to locate payments held by Reapit.
-      </p>
-      <p
-        class="el-has-grey-text el-small-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-      </p>
-      <p
-        class="el-has-grey-text el-small-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Both options are available from the slide down on each payment item in the table.
-      </p>
+      </mock-styled.p>
       <div
-        class="el-border-radius overflow-hidden el-mb5"
+        class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
       >
         <form>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 max="2019-10-11"
                 min="2017-10-10"
                 name="createdFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Created From
-              </label>
-            </div>
-          </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 max="2019-10-11"
                 min="2019-09-10"
                 name="createdTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Created To
-              </label>
-            </div>
-          </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-wfull el-select"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.select
+                classname="mock-css.
+  width: 100%;
+"
                 name="status"
               >
                 <option
@@ -976,299 +1089,350 @@ Object {
                 >
                   Failed
                 </option>
-              </select>
-              <label
-                class="el-label"
-              >
+              </mock-styled.select>
+              <mock-styled.label>
                 Status
-              </label>
-            </div>
-          </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 name="description"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Description
-              </label>
-            </div>
-          </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
       </div>
-      <button
-        class="el-intent-neutral el-button"
+      <mock-styled.button
+        classname="mock-css."
       >
         View Docs
-        <div
-          class="el-button-loader"
-        />
-      </button>
-    </aside>
-    <section
-      class="el-page-container"
-    >
-      <div
-        class="el-flex-justify-between el-flex-container"
+        <mock-styled.div />
+      </mock-styled.button>
+    </mock-styled.aside>
+    <mock-styled.section>
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="el-title"
+        <mock-styled.h1
+          classname=""
         >
           Payments Dashboard
-        </h1>
-        <div
-          class="logo"
-        >
+        </mock-styled.h1>
+        <mock-styled.div>
           <img
             src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
           />
-        </div>
-      </div>
-      <div
-        class="el-mb11 el-fade-in el-table"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="7"
       >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-table-header"
-          >
+        <mock-styled.div>
+          <mock-styled.div>
             Property
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Amount
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Customer
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Description
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Client A/C
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Status
-          </div>
-          <div
-            class="el-table-header"
-          >
+          </mock-styled.div>
+          <mock-styled.div>
             Request Date
-          </div>
-          <div
-            class="el-table-header"
-          >
-            <span
-              class="el-icon"
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
               style="font-size: 1.2rem;"
             >
               <svg />
-            </span>
-          </div>
-        </div>
-        <div
-          class="el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Property"
               >
                 <div
-                  class="el-fade-in"
+                  class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
                 >
                   15 Example street Solihull West Midlands B91 2XX
                 </div>
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Amount"
               >
                 £100.00
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-              <div
-                class="el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Customer"
               >
                 Mr John Smith
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Description"
               >
                 Tenancy Check Fee
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Client A/C"
               >
                 Primary
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Status"
               >
-                <span
-                  class="el-intent-critical el-status-indicator"
+                <mock-styled.span
+                  classname="mock-css."
                 />
                  
                 Awaiting Payment
-              </div>
-            </div>
-            <div
-              class="el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <div
-                class="el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Request Date"
               >
                 12 Dec 2018
-              </div>
-            </div>
-            <div
-              class="el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
             >
-              <span
-                class="el-intent-secondary el-icon"
+              <mock-styled.span
+                classname="mock-css."
               >
                 <svg />
-              </span>
-            </div>
-          </div>
-          <div
-            class="el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <div
-              class="el-table-expandable-container"
-            >
-              <div
-                class="el-button-group"
-              >
-                <div
-                  class="el-button-group-align-center el-button-group-inner"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
                 >
-                  <button
-                    class="el-intent-primary el-button"
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="false"
                   >
                     Email Request
-                    <div
-                      class="el-button-loader"
-                    />
-                  </button>
-                  <button
-                    class="el-intent-critical el-button-has-right-chevron el-button"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css. mock-css.
+  background-size: 100%;
+  background-position-x: -0.5rem;
+  padding-right: ,rem;
+
+  &., {
+    background-size: 100%;
+    background-position-x: center;
+
+    padding-left: ,rem;
+    padding-right: ,rem;
+
+    &::after {
+      right: -1rem;
+    }
+
+    &::before {
+      left: -1rem;
+    }
+  }
+
+  , {
+    padding-right: 1.25rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url(',');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+
+  &., {
+    &::after {
+      background-image: url(',');
+    }
+  }
+"
+                    disabled="false"
                   >
                     Take Payment
-                    <div
-                      class="el-button-loader"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-pagination-wrap"
-      >
-        <div
-          class="el-pagination-text"
-        >
-          <input
-            class="el-pagination-input"
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
            of 
           1
-        </div>
-        <button
-          class="el-pagination-button"
+        </mock-styled.div>
+        <mock-styled.button
           data-testid="back-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-        <button
-          class="el-pagination-button"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
           data-testid="forward-button"
           type="button"
         >
-          <span
-            class="el-icon"
+          <mock-styled.span
+            classname=""
           >
             <svg />
-          </span>
-        </button>
-      </div>
-    </section>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1325,97 +1489,101 @@ Object {
 `;
 
 exports[`PaymentsPage  should match a snapshot where loading 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <aside
-        class="el-secondary-nav-container"
-      >
-        <h1
-          class="el-title"
+      <mock-styled.div />
+      <mock-styled.aside>
+        <mock-styled.h1
+          classname=""
         >
           Payments
-        </h1>
-        <span
-          class="el-mb5 el-icon-size-large el-icon"
+        </mock-styled.h1>
+        <mock-styled.span
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
         >
           <svg />
-        </span>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.span>
+        <mock-styled.p
+          classname="mock-css."
         >
           From this dashboard you can use the below filters to locate payments held by Reapit.
-        </p>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-        </p>
-        <p
-          class="el-has-grey-text el-small-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="mock-css."
         >
           Both options are available from the slide down on each payment item in the table.
-        </p>
+        </mock-styled.p>
         <div
-          class="el-border-radius overflow-hidden el-mb5"
+          class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
         >
           <form>
-            <div
-              class="controls-container"
-            >
-              <div
-                class="input-full-width el-input-group"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
                   id="test-static-id"
                   max="2019-10-11"
                   min="2017-10-10"
                   name="createdFrom"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Created From
-                </label>
-              </div>
-            </div>
-            <div
-              class="controls-container"
-            >
-              <div
-                class="input-full-width el-input-group"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
                   id="test-static-id"
                   max="2019-10-11"
                   min="2019-09-10"
                   name="createdTo"
                   type="date"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Created To
-                </label>
-              </div>
-            </div>
-            <div
-              class="controls-container"
-            >
-              <div
-                class="el-input-group"
-              >
-                <select
-                  class="el-wfull el-select"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.select
+                  classname="mock-css.
+  width: 100%;
+"
                   name="status"
                 >
                   <option
@@ -1443,166 +1611,160 @@ Object {
                   >
                     Failed
                   </option>
-                </select>
-                <label
-                  class="el-label"
-                >
+                </mock-styled.select>
+                <mock-styled.label>
                   Status
-                </label>
-              </div>
-            </div>
-            <div
-              class="controls-container"
-            >
-              <div
-                class="input-full-width el-input-group"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
               >
-                <input
-                  class="el-input"
+                <mock-styled.input
                   id="test-static-id"
                   name="description"
                   type="text"
                 />
-                <label
-                  class="el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Description
-                </label>
-              </div>
-            </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
           </form>
         </div>
-        <button
-          class="el-intent-neutral el-button"
+        <mock-styled.button
+          classname="mock-css."
         >
           View Docs
-          <div
-            class="el-button-loader"
-          />
-        </button>
-      </aside>
-      <section
-        class="el-page-container"
-      >
-        <div
-          class="el-flex-justify-between el-flex-container"
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.aside>
+      <mock-styled.section>
+        <mock-styled.div
+          classname="mock-css.
+  justify-content: space-between;
+"
         >
-          <h1
-            class="el-title"
+          <mock-styled.h1
+            classname=""
           >
             Payments Dashboard
-          </h1>
-          <div
-            class="logo"
-          >
+          </mock-styled.h1>
+          <mock-styled.div>
             <img
               src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
             />
-          </div>
-        </div>
-        <div
-          class="el-loader-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <aside
-      class="el-secondary-nav-container"
-    >
-      <h1
-        class="el-title"
+    <mock-styled.div />
+    <mock-styled.aside>
+      <mock-styled.h1
+        classname=""
       >
         Payments
-      </h1>
-      <span
-        class="el-mb5 el-icon-size-large el-icon"
+      </mock-styled.h1>
+      <mock-styled.span
+        classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
       >
         <svg />
-      </span>
-      <p
-        class="el-has-grey-text el-small-text"
+      </mock-styled.span>
+      <mock-styled.p
+        classname="mock-css."
       >
         From this dashboard you can use the below filters to locate payments held by Reapit.
-      </p>
-      <p
-        class="el-has-grey-text el-small-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-      </p>
-      <p
-        class="el-has-grey-text el-small-text"
+      </mock-styled.p>
+      <mock-styled.p
+        classname="mock-css."
       >
         Both options are available from the slide down on each payment item in the table.
-      </p>
+      </mock-styled.p>
       <div
-        class="el-border-radius overflow-hidden el-mb5"
+        class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
       >
         <form>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 max="2019-10-11"
                 min="2017-10-10"
                 name="createdFrom"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Created From
-              </label>
-            </div>
-          </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 max="2019-10-11"
                 min="2019-09-10"
                 name="createdTo"
                 type="date"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Created To
-              </label>
-            </div>
-          </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="el-input-group"
-            >
-              <select
-                class="el-wfull el-select"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.select
+                classname="mock-css.
+  width: 100%;
+"
                 name="status"
               >
                 <option
@@ -1630,76 +1792,66 @@ Object {
                 >
                   Failed
                 </option>
-              </select>
-              <label
-                class="el-label"
-              >
+              </mock-styled.select>
+              <mock-styled.label>
                 Status
-              </label>
-            </div>
-          </div>
-          <div
-            class="controls-container"
-          >
-            <div
-              class="input-full-width el-input-group"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
             >
-              <input
-                class="el-input"
+              <mock-styled.input
                 id="test-static-id"
                 name="description"
                 type="text"
               />
-              <label
-                class="el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Description
-              </label>
-            </div>
-          </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
       </div>
-      <button
-        class="el-intent-neutral el-button"
+      <mock-styled.button
+        classname="mock-css."
       >
         View Docs
-        <div
-          class="el-button-loader"
-        />
-      </button>
-    </aside>
-    <section
-      class="el-page-container"
-    >
-      <div
-        class="el-flex-justify-between el-flex-container"
+        <mock-styled.div />
+      </mock-styled.button>
+    </mock-styled.aside>
+    <mock-styled.section>
+      <mock-styled.div
+        classname="mock-css.
+  justify-content: space-between;
+"
       >
-        <h1
-          class="el-title"
+        <mock-styled.h1
+          classname=""
         >
           Payments Dashboard
-        </h1>
-        <div
-          class="logo"
-        >
+        </mock-styled.h1>
+        <mock-styled.div>
           <img
             src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
           />
-        </div>
-      </div>
-      <div
-        class="el-loader-container"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
-    </section>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1756,26 +1908,50 @@ Object {
 `;
 
 exports[`PropertyCell should match a snapshot for default status 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <mock-styled.div />
       <div
-        class="el-snack-holder"
-      />
-      <div
-        class="el-fade-in"
+        class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
       >
         15 Example street Solihull West Midlands B91 2XX
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <div
-      class="el-snack-holder"
-    />
-    <div
-      class="el-fade-in"
+      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
     >
       15 Example street Solihull West Midlands B91 2XX
     </div>
@@ -1835,26 +2011,22 @@ Object {
 `;
 
 exports[`StatusCell should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
-      <span
-        class="el-intent-success el-status-indicator"
+      <mock-styled.div />
+      <mock-styled.span
+        classname="mock-css."
       />
        
       Paid
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <span
-      class="el-intent-success el-status-indicator"
+    <mock-styled.div />
+    <mock-styled.span
+      classname="mock-css."
     />
      
     Paid
@@ -1914,19 +2086,15 @@ Object {
 `;
 
 exports[`StatusCell should match a snapshot for default status 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

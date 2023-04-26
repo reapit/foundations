@@ -1,7 +1,7 @@
 import React, { FC, useCallback } from 'react'
-import { useHistory, useLocation } from 'react-router'
+import { useNavigate, useLocation, Routes } from 'react-router'
 import { Route } from 'react-router-dom'
-import { Routes } from '../../constants/routes'
+import { RoutePaths } from '../../constants/routes'
 import SettingsInstalled from './settings-installed'
 import SettingsProfile from './settings-profile'
 import {
@@ -18,7 +18,7 @@ import {
   SmallText,
   Title,
 } from '@reapit/elements'
-import { navigate } from '../../utils/navigation'
+import { navigateRoute } from '../../utils/navigation'
 import { selectIsAdmin } from '../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -31,7 +31,7 @@ export const handleLogout = (connectLogoutRedirect: () => void) => () => {
 }
 
 export const SettingsPage: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { connectSession, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const { pathname } = location
@@ -46,14 +46,14 @@ export const SettingsPage: FC = () => {
         {isAdmin && (
           <SecondaryNav className={elMb9}>
             <SecondaryNavItem
-              onClick={navigate(history, Routes.SETTINGS_PROFILE)}
-              active={pathname === Routes.SETTINGS_PROFILE}
+              onClick={navigateRoute(navigate, RoutePaths.SETTINGS_PROFILE)}
+              active={pathname === RoutePaths.SETTINGS_PROFILE}
             >
               Profile
             </SecondaryNavItem>
             <SecondaryNavItem
-              onClick={navigate(history, Routes.SETTINGS_INSTALLED)}
-              active={pathname.includes(Routes.SETTINGS_INSTALLED)}
+              onClick={navigateRoute(navigate, RoutePaths.SETTINGS_INSTALLED)}
+              active={pathname.includes(RoutePaths.SETTINGS_INSTALLED)}
             >
               Installations
             </SecondaryNavItem>
@@ -75,8 +75,10 @@ export const SettingsPage: FC = () => {
         </Button>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
-        <Route path={Routes.SETTINGS_PROFILE} component={SettingsProfile} exact />
-        <Route path={Routes.SETTINGS_INSTALLED} component={SettingsInstalled} exact />
+        <Routes>
+          <Route path={RoutePaths.SETTINGS_PROFILE.replace('/settings/', '')} element={<SettingsProfile />} />
+          <Route path={RoutePaths.SETTINGS_INSTALLED.replace('/settings/', '')} element={<SettingsInstalled />} />
+        </Routes>
       </PageContainer>
     </FlexContainer>
   )

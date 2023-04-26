@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import ErrorBoundary from '../../../core/error-boundary'
-import Routes from '../../../constants/routes'
+import RoutePaths from '../../../constants/routes'
 import {
   elFadeIn,
   elHFull,
@@ -14,8 +14,8 @@ import {
   SecondaryNavItem,
   Title,
 } from '@reapit/elements'
-import { navigate } from '../../../utils/navigation'
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom'
+import { navigateRoute } from '../../../utils/navigation'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import AppsWelcomePage from '../welcome'
 import AppsListPage from '../list'
 import AppsNewPage from '../new'
@@ -33,7 +33,7 @@ import { checkShouldRenderConsents } from '../utils/consents'
 import { PusherEventWrapper } from './pusher-event-wrapper'
 
 export const AppsPage: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
   const { pathname } = location
   const { appsDataState, appId, appEditState } = useAppState()
@@ -55,7 +55,7 @@ export const AppsPage: FC = () => {
 
   const hasPipelines =
     currentDeveloper?.id &&
-    window.reapit.config.pipelineWhitelist.includes(currentDeveloper.id) &&
+    process.env.pipelineWhitelist.includes(currentDeveloper.id) &&
     appDetail?.authFlow !== 'clientCredentials'
 
   const shouldRenderConsents = checkShouldRenderConsents(appDetail, appLatestRevision, appHasInstallations)
@@ -74,36 +74,39 @@ export const AppsPage: FC = () => {
               </PageContainer>
             </>
           ) : !apps.totalCount && !isAppsWelcome && isAppsList ? (
-            <Redirect to={Routes.APPS_WELCOME} />
+            <Navigate to={RoutePaths.APPS_WELCOME} />
           ) : (
             <>
               {Boolean(apps.totalCount) && (
                 <SecondaryNavContainer>
                   <Title>Apps</Title>
                   <SecondaryNav className={cx(elMb8, elFadeIn)}>
-                    <SecondaryNavItem onClick={navigate(history, Routes.APPS)} active={isAppsList}>
+                    <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.APPS)} active={isAppsList}>
                       My Apps
                     </SecondaryNavItem>
                     {(isAppsEdit || isAppsDetail || isAppsInstallations || isAppPipelines || isAppConsents) && (
                       <>
-                        <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}`)} active={isAppsDetail}>
+                        <SecondaryNavItem
+                          onClick={navigateRoute(navigate, `${RoutePaths.APPS}/${appId}`)}
+                          active={isAppsDetail}
+                        >
                           App Details
                         </SecondaryNavItem>
                         <SecondaryNavItem
-                          onClick={navigate(history, `${Routes.APPS}/${appId}/edit/general`)}
+                          onClick={navigateRoute(navigate, `${RoutePaths.APPS}/${appId}/edit/general`)}
                           active={isAppsEdit}
                         >
                           Edit App
                         </SecondaryNavItem>
                         <SecondaryNavItem
-                          onClick={navigate(history, `${Routes.APPS}/${appId}/installations`)}
+                          onClick={navigateRoute(navigate, `${RoutePaths.APPS}/${appId}/installations`)}
                           active={isAppsInstallations}
                         >
                           Installations
                         </SecondaryNavItem>
                         {hasPipelines && (
                           <SecondaryNavItem
-                            onClick={navigate(history, `${Routes.APPS}/${appId}/pipeline`)}
+                            onClick={navigateRoute(navigate, `${RoutePaths.APPS}/${appId}/pipeline`)}
                             active={isAppPipelines}
                           >
                             Pipeline
@@ -111,7 +114,7 @@ export const AppsPage: FC = () => {
                         )}
                         {shouldRenderConsents && (
                           <SecondaryNavItem
-                            onClick={navigate(history, `${Routes.APPS}/${appId}/consents`)}
+                            onClick={navigateRoute(navigate, `${RoutePaths.APPS}/${appId}/consents`)}
                             active={isAppConsents}
                           >
                             App Consents
@@ -119,7 +122,7 @@ export const AppsPage: FC = () => {
                         )}
                       </>
                     )}
-                    <SecondaryNavItem onClick={navigate(history, Routes.APPS_NEW)} active={isAppsNew}>
+                    <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.APPS_NEW)} active={isAppsNew}>
                       New App
                     </SecondaryNavItem>
                   </SecondaryNav>
@@ -128,16 +131,24 @@ export const AppsPage: FC = () => {
               )}
               <PageContainer className={elHFull}>
                 <ErrorBoundary>
-                  <Switch>
-                    <Route path={Routes.APPS} exact component={AppsListPage} />
-                    <Route path={Routes.APPS_NEW} exact component={AppsNewPage} />
-                    <Route path={Routes.APPS_WELCOME} exact component={AppsWelcomePage} />
-                    <Route path={Routes.APP_INSTALLATIONS} exact component={AppInstallationsPage} />
-                    <Route path={Routes.APPS_EDIT} component={AppEditPage} />
-                    <Route path={Routes.APPS_CONSENTS} component={AppConsentsPage} />
-                    {hasPipelines && <Route path={Routes.APP_PIPELINE} component={AppPipelinePage} />}
-                    <Route path={Routes.APP_DETAIL} component={AppsDetailPage} />
-                  </Switch>
+                  <Routes>
+                    <Route index element={<AppsListPage />} />
+                    <Route path={RoutePaths.APPS_NEW.replace('/apps/', '')} element={<AppsNewPage />} />
+                    <Route path={RoutePaths.APPS_WELCOME.replace('/apps/', '')} element={<AppsWelcomePage />} />
+                    <Route
+                      path={RoutePaths.APP_INSTALLATIONS.replace('/apps/', '')}
+                      element={<AppInstallationsPage />}
+                    />
+                    <Route path={`${RoutePaths.APPS_EDIT.replace('/apps/', '')}/*`} element={<AppEditPage />} />
+                    <Route path={RoutePaths.APPS_CONSENTS.replace('/apps/', '')} element={<AppConsentsPage />} />
+                    {hasPipelines && (
+                      <Route
+                        path={`${RoutePaths.APP_PIPELINE.replace('/apps/', '')}/*`}
+                        element={<AppPipelinePage />}
+                      />
+                    )}
+                    <Route path={RoutePaths.APP_DETAIL.replace('/apps/', '')} element={<AppsDetailPage />} />
+                  </Routes>
                 </ErrorBoundary>
               </PageContainer>
             </>

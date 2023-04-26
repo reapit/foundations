@@ -1,11 +1,11 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { Button, ButtonGroup, elMb11, Loader, PersistentNotification, Table, Title } from '@reapit/elements'
-import { AppUriParams, useAppState } from '../state/use-app-state'
+import { useAppState } from '../state/use-app-state'
 import { useParams } from 'react-router-dom'
 import { handleSetAppId } from '../utils/handle-set-app-id'
-import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { useGlobalState } from '../../../core/use-global-state'
 import {
   AppRevisionConsentModel,
@@ -65,9 +65,9 @@ export const AppConsentsPage: FC = () => {
   const { currentDeveloper } = globalDataState
   const developerId = currentDeveloper?.id
   const developerEmail = currentDeveloper?.email
-  const { appId } = useParams<AppUriParams>()
+  const { appId } = useParams<'appId'>()
 
-  useEffect(handleSetAppId(appId, setAppId), [appId])
+  useEffect(handleSetAppId(setAppId, appId), [appId])
 
   const { appDetail, appRevisions } = appsDataState
   const { name } = appDetail ?? {}
@@ -75,7 +75,7 @@ export const AppConsentsPage: FC = () => {
 
   const [appConsents, appConsentsLoading, , appConsentsRefresh] = useReapitGet<AppRevisionConsentModel[]>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getRevisionConsents],
+    action: getActions[GetActionNames.getRevisionConsents],
     uriParams: {
       appId,
       revisionId: latestRevision?.id,
@@ -85,7 +85,7 @@ export const AppConsentsPage: FC = () => {
 
   const [, , createConsentEmails] = useReapitUpdate<CreateAppRevisionConsentsModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createConsentEmails],
+    action: updateActions[UpdateActionNames.createConsentEmails],
     method: 'POST',
     uriParams: {
       appId,
@@ -95,7 +95,7 @@ export const AppConsentsPage: FC = () => {
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    action: getActions[GetActionNames.getInstallations],
     queryParams: {
       appId,
       pageNumber: 1,
@@ -108,7 +108,7 @@ export const AppConsentsPage: FC = () => {
 
   const [, , resendEmail] = useReapitUpdate<ResendAppRevisionConsentModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.resendConsentEmail],
+    action: updateActions[UpdateActionNames.resendConsentEmail],
     method: 'POST',
     uriParams: {
       appId,

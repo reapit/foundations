@@ -1,12 +1,13 @@
 import React from 'react'
 import { Control } from 'react-hook-form'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { render } from '../../../../tests/react-testing'
 import { AppEditFormSchema } from '../form-schema/form-fields'
 import { PermissionsTab } from '../permissions-tab'
 
 jest.mock('../../state/use-app-state')
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(),
 }))
 jest.mock('react-hook-form', () => ({

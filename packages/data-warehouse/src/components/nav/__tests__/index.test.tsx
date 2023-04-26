@@ -13,7 +13,7 @@ describe('Nav', () => {
 describe('callbackAppClick', () => {
   it('should correctly navigate to marketplace', () => {
     const marketplaceUri = 'https://marketplace.reapit.cloud/installed'
-    window.reapit.config.marketplaceUrl = 'https://marketplace.reapit.cloud/installed'
+    process.env.marketplaceUrl = 'https://marketplace.reapit.cloud/installed'
     callbackAppClick()
     expect(window.location.href).toEqual(marketplaceUri)
   })

@@ -82,7 +82,7 @@ export const ToolbarItem: FC<ToolbarItemProps> = ({
               }
             },
           } as unknown as React.ReactElement<HTMLInputElement>)
-      })
+      }) as any
       break
     case ToolbarItemType.Select:
       component = (

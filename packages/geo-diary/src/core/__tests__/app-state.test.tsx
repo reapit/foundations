@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import { render } from '../../tests/react-testing'
 import { AppStateContextProps, AppStateProvider, defaultAppState, useAppState } from '../app-state'
 import { renderHook, act } from '@testing-library/react-hooks'
@@ -18,7 +18,7 @@ describe('AppStateProvider', () => {
 describe('useAppState', () => {
   it('should return appState and setAppState', async () => {
     const { result } = renderHook<{}, AppStateContextProps>(() => useAppState(), {
-      wrapper: (props) => <AppStateProvider>{props.children}</AppStateProvider>,
+      wrapper: (props: PropsWithChildren) => <AppStateProvider>{props.children}</AppStateProvider>,
     })
 
     expect(result.current.appState).toBe(defaultAppState)

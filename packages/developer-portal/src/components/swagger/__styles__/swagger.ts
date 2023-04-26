@@ -2,7 +2,7 @@
 // Can't add tests to this file because of the way Jest transpiles Swagger UI throws an error
 /* purgecss start ignore */
 import { css } from '@linaria/core'
-import { bluePrimaryMedium, greyDark, greyLight } from '@/core/__styles__/colors'
+import { bluePrimaryMedium, greyDark, greyLight } from '../../../core/__styles__/colors'
 
 /*
   Overrides file to make Swagger UI look more like the rest of the site.

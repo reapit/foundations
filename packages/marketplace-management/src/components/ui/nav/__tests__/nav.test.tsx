@@ -1,9 +1,8 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
-import { Nav, callbackAppClick, navigate, getDefaultNavIndex } from '../nav'
-import { History } from 'history'
+import { Nav, callbackAppClick, navigateRoute, getDefaultNavIndex } from '../nav'
 import Routes from '../../../../constants/routes'
 import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
+import { render } from '../../../../tests/react-testing'
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
@@ -28,14 +27,11 @@ describe('Nav', () => {
 
   describe('navigate', () => {
     it('should open a new page', () => {
-      const mockHistory = {
-        push: jest.fn(),
-      } as unknown as History
-
-      const curried = navigate(mockHistory, Routes.USERS)
+      const navigate = jest.fn()
+      const curried = navigateRoute(navigate, Routes.USERS)
       curried()
 
-      expect(mockHistory.push).toHaveBeenCalledWith(Routes.USERS)
+      expect(navigate).toHaveBeenCalledWith(Routes.USERS)
     })
   })
 

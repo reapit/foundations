@@ -13,13 +13,12 @@ import {
   useModal,
 } from '@reapit/elements'
 import { AppsBrowseConfigEnum, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
 import React, { FC, useEffect, useState } from 'react'
 import { openNewPage, ExternalPages } from '../../utils/navigation'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { AppBrowseManageTable } from './app-browse-manage-table'
 import { AppBrowseUpsertModal } from './app-browse-upsert-modal'
+import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 
 export const AppBrowseUpsert: FC<{}> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
@@ -32,7 +31,7 @@ export const AppBrowseUpsert: FC<{}> = () => {
     items: AppsBrowseConfigItemInterface[]
   }>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppMarketAdmin],
+    action: getActions[GetActionNames.getAppMarketAdmin],
     fetchWhenTrue: [connectSession],
     headers: {
       Authorization: connectSession?.idToken as string,

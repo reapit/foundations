@@ -1,19 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Label component should match a snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <label
-        class="el-label"
-      />
+      <mock-styled.label />
     </div>
   </body>,
   "container": <div>
-    <label
-      class="el-label"
-    />
+    <mock-styled.label />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

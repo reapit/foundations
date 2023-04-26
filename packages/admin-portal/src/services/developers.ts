@@ -26,7 +26,7 @@ export const fetchDeveloperBillingPeriod = async (params: FetchDeveloperBillingP
     if (headers) {
       return fetcherWithBlob({
         url: `${URLS.developers}/costs/${period}`,
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         method: 'GET',
         headers,
       })
@@ -44,7 +44,7 @@ export const fetchDevelopersList = async (
     if (headers) {
       return fetcher({
         url: `${URLS.developers}/?${setQueryParams(params)}`,
-        api: window.reapit.config.platformApiUrl,
+        api: process.env.platformApiUrl,
         method: 'GET',
         headers,
       })

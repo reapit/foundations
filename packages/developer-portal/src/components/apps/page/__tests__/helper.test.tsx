@@ -1,9 +1,7 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { AppRevisionModel, AppRevisionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import React from 'react'
-import { Router } from 'react-router-dom'
 import Routes from '../../../../constants/routes'
-import { history } from '../../../../core/router'
 import { render } from '../../../../tests/react-testing'
 import { mockAppSummaryModelPagedResult } from '../../../../tests/__stubs__/apps'
 import { defaultAppSavingParams } from '../../state/defaults'
@@ -24,28 +22,16 @@ const mockUseAppState = useAppState as jest.Mock
 
 describe('Helper', () => {
   it('should match a snapshot', () => {
-    expect(
-      render(
-        <Router history={history}>
-          <Helper />
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    expect(render(<Helper />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for the appsEdit page', () => {
-    history.push(`${Routes.APPS}/mock-id/edit`)
-    expect(
-      render(
-        <Router history={history}>
-          <Helper />
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    window.location.pathname = `${Routes.APPS}/mock-id/edit`
+    expect(render(<Helper />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for the appsEdit page where isListed', () => {
-    history.push(`${Routes.APPS}/mock-id/edit`)
+    window.location.pathname = `${Routes.APPS}/mock-id/edit`
 
     mockUseAppState.mockReturnValue({
       ...mockAppState,
@@ -57,17 +43,11 @@ describe('Helper', () => {
       },
     })
 
-    expect(
-      render(
-        <Router history={history}>
-          <Helper />
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    expect(render(<Helper />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for the appsEdit page where is completed and not publically listed', () => {
-    history.push(`${Routes.APPS}/mock-id/edit`)
+    window.location.pathname = `${Routes.APPS}/mock-id/edit`
 
     mockUseAppState.mockReturnValue({
       ...mockAppState,
@@ -79,17 +59,11 @@ describe('Helper', () => {
       },
     })
 
-    expect(
-      render(
-        <Router history={history}>
-          <Helper />
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    expect(render(<Helper />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for the appsEdit page where has unsaved changes', () => {
-    history.push(`${Routes.APPS}/mock-id/edit`)
+    window.location.pathname = `${Routes.APPS}/mock-id/edit`
 
     mockUseAppState.mockReturnValue({
       ...mockAppState,
@@ -105,17 +79,11 @@ describe('Helper', () => {
       },
     })
 
-    expect(
-      render(
-        <Router history={history}>
-          <Helper />
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    expect(render(<Helper />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for the appsEdit page where has unsaved changes and not listed', () => {
-    history.push(`${Routes.APPS}/mock-id/edit`)
+    window.location.pathname = `${Routes.APPS}/mock-id/edit`
 
     mockUseAppState.mockReturnValue({
       ...mockAppState,
@@ -129,17 +97,11 @@ describe('Helper', () => {
       },
     })
 
-    expect(
-      render(
-        <Router history={history}>
-          <Helper />
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    expect(render(<Helper />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for the appsEdit page where the app is loading', () => {
-    history.push(`${Routes.APPS}/mock-id/edit`)
+    window.location.pathname = `${Routes.APPS}/mock-id/edit`
 
     mockUseAppState.mockReturnValue({
       ...mockAppState,
@@ -149,46 +111,22 @@ describe('Helper', () => {
       },
     })
 
-    expect(
-      render(
-        <Router history={history}>
-          <Helper />
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    expect(render(<Helper />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for the appsDetail page', () => {
-    history.push(`${Routes.APPS}/mock-id`)
-    expect(
-      render(
-        <Router history={history}>
-          <Helper />
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    window.location.pathname = `${Routes.APPS}/mock-id`
+    expect(render(<Helper />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for the consents page', () => {
-    history.push(`${Routes.APPS}/mock-id/consents`)
-    expect(
-      render(
-        <Router history={history}>
-          <Helper />
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    window.location.pathname = `${Routes.APPS}/mock-id/consents`
+    expect(render(<Helper />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for the pipelines page', () => {
-    history.push(`${Routes.APPS}/mock-id/pipeline`)
-    expect(
-      render(
-        <Router history={history}>
-          <Helper />
-        </Router>,
-      ),
-    ).toMatchSnapshot()
+    window.location.pathname = `${Routes.APPS}/mock-id/pipeline`
+    expect(render(<Helper />)).toMatchSnapshot()
   })
 })
 
