@@ -11,14 +11,14 @@ custom:
   s3WebAppBucket: cloud-marketplace-web-app-${opt:stage, 'dev'}
   s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
   remover:
-     buckets:
-       - ${self:custom.s3WebAppBucket}
+    buckets:
+      - ${self:custom.s3WebAppBucket}
   assets:
     auto: true
     targets:
       - bucket: ${self:custom.s3WebAppBucket}
         files:
-          - source: ./public/dist/
+          - source: ./build
             globs: '**/*'
 provider:
   name: aws
@@ -50,17 +50,11 @@ resources:
           Statement:
             - Sid: PublicReadGetObject
               Effect: Allow
-              Principal: "*"
+              Principal: '*'
               Action:
-              - s3:GetObject
+                - s3:GetObject
               Resource:
-                Fn::Join: [
-                  "", [
-                    "arn:aws:s3:::",
-                    { "Ref": "WebAppS3Bucket" },
-                    "/*"
-                  ]
-                ]
+                Fn::Join: ['', ['arn:aws:s3:::', { 'Ref': 'WebAppS3Bucket' }, '/*']]
 
     ## Specifying the CloudFront Distribution to server your Web Application
     WebAppCloudFrontDistribution:
@@ -69,12 +63,7 @@ resources:
         DistributionConfig:
           Origins:
             - DomainName:
-                Fn::Join: [
-                  "", [
-                    { "Ref": "WebAppS3Bucket" },
-                    ".s3.amazonaws.com"
-                  ]
-                ]
+                Fn::Join: ['', [{ 'Ref': 'WebAppS3Bucket' }, '.s3.amazonaws.com']]
               Id: S3-${self:custom.s3WebAppBucket}
               CustomOriginConfig:
                 HTTPPort: 80
@@ -115,4 +104,4 @@ resources:
   Outputs:
     WebAppCloudFrontDistributionOutput:
       Value:
-        'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
+        'Fn::GetAtt': [WebAppCloudFrontDistribution, DomainName]
