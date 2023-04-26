@@ -6,6 +6,9 @@ Object {
   "baseElement": <body>
     <div>
       <div
+        class="el-snack-holder"
+      />
+      <div
         class="el-flex-justify-between el-flex-container"
       >
         <h1
@@ -15,6 +18,52 @@ Object {
            Office Groups
         </h1>
       </div>
+      <form>
+        <div
+          class="el-mb11 el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="name"
+                type="search"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Office Group Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="customerId"
+                type="search"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Office Group Id
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
       <div
         class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
@@ -38,6 +87,9 @@ Object {
   </body>,
   "container": <div>
     <div
+      class="el-snack-holder"
+    />
+    <div
       class="el-flex-justify-between el-flex-container"
     >
       <h1
@@ -47,6 +99,52 @@ Object {
          Office Groups
       </h1>
     </div>
+    <form>
+      <div
+        class="el-mb11 el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="name"
+              type="search"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Office Group Name
+            </label>
+          </div>
+        </div>
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="customerId"
+              type="search"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Office Group Id
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
     <div
       class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
     >
@@ -127,6 +225,9 @@ Object {
   "baseElement": <body>
     <div>
       <div
+        class="el-snack-holder"
+      />
+      <div
         class="el-flex-justify-between el-flex-container"
       >
         <h1
@@ -136,6 +237,52 @@ Object {
            Office Groups
         </h1>
       </div>
+      <form>
+        <div
+          class="el-mb11 el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="name"
+                type="search"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Office Group Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="customerId"
+                type="search"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Office Group Id
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
       <div
         class="el-loader-container"
       >
@@ -151,6 +298,9 @@ Object {
   </body>,
   "container": <div>
     <div
+      class="el-snack-holder"
+    />
+    <div
       class="el-flex-justify-between el-flex-container"
     >
       <h1
@@ -160,6 +310,52 @@ Object {
          Office Groups
       </h1>
     </div>
+    <form>
+      <div
+        class="el-mb11 el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="name"
+              type="search"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Office Group Name
+            </label>
+          </div>
+        </div>
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="customerId"
+              type="search"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Office Group Id
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
     <div
       class="el-loader-container"
     >
@@ -232,6 +428,9 @@ Object {
   "baseElement": <body>
     <div>
       <div
+        class="el-snack-holder"
+      />
+      <div
         class="el-flex-justify-between el-flex-container"
       >
         <h1
@@ -241,6 +440,52 @@ Object {
            Office Groups
         </h1>
       </div>
+      <form>
+        <div
+          class="el-mb11 el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="name"
+                type="search"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Office Group Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="customerId"
+                type="search"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Office Group Id
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
       <div
         class="el-fade-in el-mb11 el-table"
         data-has-call-to-action="false"
@@ -9980,6 +10225,9 @@ Object {
   </body>,
   "container": <div>
     <div
+      class="el-snack-holder"
+    />
+    <div
       class="el-flex-justify-between el-flex-container"
     >
       <h1
@@ -9989,6 +10237,52 @@ Object {
          Office Groups
       </h1>
     </div>
+    <form>
+      <div
+        class="el-mb11 el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="name"
+              type="search"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Office Group Name
+            </label>
+          </div>
+        </div>
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="customerId"
+              type="search"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Office Group Id
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
     <div
       class="el-fade-in el-mb11 el-table"
       data-has-call-to-action="false"
@@ -19785,6 +20079,9 @@ Object {
   "baseElement": <body>
     <div>
       <div
+        class="el-snack-holder"
+      />
+      <div
         class="el-flex-justify-between el-flex-container"
       >
         <h1
@@ -19815,6 +20112,9 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <div
+      class="el-snack-holder"
+    />
     <div
       class="el-flex-justify-between el-flex-container"
     >

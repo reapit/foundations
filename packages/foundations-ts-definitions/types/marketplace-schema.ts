@@ -1155,6 +1155,10 @@ export interface CreateDeveloperModel {
    * The maximum number of apps the developer can have unlisted
    */
   maxAppsUnlisted?: number // int32
+  /**
+   * The notes specified by the developer
+   */
+  notes?: string
 }
 /**
  * The model responsible for creation of installation metadata
@@ -1446,6 +1450,10 @@ export interface DeveloperModel {
    */
   developerEditionSubscriptionCost?: number // double
   companyAddress?: CompanyAddressModel
+  /**
+   * The notes specified by the developer
+   */
+  notes?: string
 }
 /**
  * Model to handle paged data and information
@@ -2102,6 +2110,10 @@ export interface UpdateDeveloperModel {
    * Sets the price this developer will pay for developer edition
    */
   developerEditionSubscriptionCost?: number // double
+  /**
+   * Sets the notes specified by the developer
+   */
+  notes?: string
 }
 /**
  * The model responsible for updating a member
@@ -2139,4 +2151,8 @@ export interface UpdateMemberModel {
    * The status of the member (active/inactive/pending/rejected)
    */
   status?: string
+  /**
+   * A flag to determine if the member is the main contact
+   */
+  isMainContact?: boolean
 }

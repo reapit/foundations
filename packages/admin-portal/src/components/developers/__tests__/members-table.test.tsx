@@ -6,6 +6,8 @@ import {
   handleSetUpdateMember,
   handleRefreshMembers,
   MembersTable,
+  handleMemberDelete,
+  handleDeleteMember,
 } from '../members-table'
 import { render } from '../../../tests/react-testing'
 import { mockMemberModelPagedResult } from '../../../tests/__stubs__/members'
@@ -80,5 +82,34 @@ describe('handleRefreshMembers', () => {
     curried()
 
     expect(refreshMembers).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleMemberDelete', () => {
+  it('handleMemberDelete should correctly set the delete member', () => {
+    const setMemberDelete = jest.fn()
+    const openModal = jest.fn()
+    const memberDelete = mockMemberModelPagedResult.data as UpdateMemberModel[][0]
+    const curried = handleMemberDelete(setMemberDelete, openModal, memberDelete)
+
+    curried()
+
+    expect(setMemberDelete).toHaveBeenCalledWith(memberDelete)
+    expect(openModal).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleDeleteMember', () => {
+  it('handleDeleteMember should correctly delete the member', async () => {
+    const setMemberDelete = jest.fn()
+    const closeModal = jest.fn()
+    const deleteMember = jest.fn(() => Promise.resolve(true))
+    const curried = handleDeleteMember(setMemberDelete, closeModal, deleteMember)
+
+    await curried()
+
+    expect(setMemberDelete).toHaveBeenCalledWith(null)
+    expect(closeModal).toHaveBeenCalledTimes(1)
+    expect(deleteMember).toHaveBeenCalledTimes(1)
   })
 })

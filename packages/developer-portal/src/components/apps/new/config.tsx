@@ -87,12 +87,7 @@ export const appWizardSteps: AppNewWizardSteps = {
     headerText:
       'Please supply relevant read/write, entity specific permissions for your application. You can add or remove these later and for server side apps only, at least one permission is required.',
     iconName: 'userAuthInfographic',
-    permissions: [
-      'agencyCloud/properties.read',
-      'agencyCloud/offices.read',
-      'agencyCloud/negotiators.read',
-      'agencyCloud/images.read',
-    ],
+    permissions: ['agencyCloud/properties.read', 'agencyCloud/offices.read', 'agencyCloud/negotiators.read'],
   },
   [AppNewStepId.permissionsStep]: {
     headingText: 'Permissions',

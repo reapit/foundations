@@ -1,10 +1,20 @@
-import React, { useState, useCallback, FC, useMemo } from 'react'
+import React, { useState, useCallback, FC, useMemo, Dispatch, SetStateAction, useEffect } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { OfficeGroupModelPagedResult, OfficeGroupModel } from '@reapit/foundations-ts-definitions'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Button, ButtonGroup, FlexContainer, Loader, useMediaQuery, useModal } from '@reapit/elements'
+import {
+  Button,
+  ButtonGroup,
+  FlexContainer,
+  FormLayout,
+  InputGroup,
+  InputWrap,
+  Loader,
+  useMediaQuery,
+  useModal,
+} from '@reapit/elements'
 import { toLocalTime, DATE_TIME_FORMAT } from '@reapit/utils-common'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
@@ -15,14 +25,32 @@ import { cx } from '@linaria/core'
 import { useOrgId } from '../../../utils/use-org-id'
 import { OrgIdSelect } from '../../hocs/org-id-select'
 import { fetcherWithClientCode } from '../../../utils/fetcher'
+import debounce from 'just-debounce-it'
+import { useForm } from 'react-hook-form'
+import qs from 'qs'
+
+export interface OfficeGroupFilters {
+  name?: string
+  pageNumber?: string
+  pageSize?: string
+  customerId?: string
+}
 
 export interface OfficeGroupWithOfficesModel extends OfficeGroupModel {
   offices?: OfficeModel[]
 }
 
-export const onPageChangeHandler = (history: History<any>) => (page: number) => {
-  const queryString = `?pageNumber=${page}`
-  return history.push(`${Routes.OFFICES_GROUPS}${queryString}`)
+export const onPageChangeHandler =
+  (setOfficeGroupFilters: Dispatch<SetStateAction<OfficeGroupFilters>>) => (page: number) => {
+    setOfficeGroupFilters((currentFilters) => ({
+      ...currentFilters,
+      pageNumber: String(page),
+    }))
+  }
+
+export const onFilterChangeHandler = (history: History<any>, officeGroupFilters: OfficeGroupFilters) => () => {
+  const queryString = qs.stringify(officeGroupFilters)
+  return history.push(`${Routes.OFFICES_GROUPS}?${queryString}`)
 }
 
 export const mergeOfficesGroups = (officeModels: OfficeModel[], officeGroupModels: OfficeGroupModel[]) =>
@@ -98,17 +126,16 @@ const OfficesGroupsTab: FC = () => {
   const location = useLocation()
   const { Modal, openModal, closeModal } = useModal()
   const { isMobile } = useMediaQuery()
+  const [officeGroupFilters, setOfficeGroupFilters] = useState<OfficeGroupFilters>({ pageSize: '12' })
   const search = location.search
-  const onPageChange = useCallback(onPageChangeHandler(history), [history])
+  const onPageChange = useCallback(onPageChangeHandler(setOfficeGroupFilters), [history])
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
   const {
     orgIdState: { orgId, orgName, orgClientId },
   } = useOrgId()
 
   const { data, mutate } = useSWR<OfficeGroupModelPagedResult>(
-    !orgId
-      ? null
-      : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
+    !orgId || !search ? null : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}${search}`,
   )
 
   const officeGroups = data?._embedded ?? []
@@ -139,6 +166,12 @@ const OfficesGroupsTab: FC = () => {
     setIndexExpandedRow(null)
   }
 
+  const { register, handleSubmit } = useForm<OfficeGroupFilters>({
+    mode: 'onChange',
+  })
+
+  useEffect(onFilterChangeHandler(history, officeGroupFilters), [officeGroupFilters])
+
   const rows = useMemo(handleSortTableData(groupsWithOffices, offices, onComplete), [groupsWithOffices, offices])
 
   return (
@@ -161,6 +194,18 @@ const OfficesGroupsTab: FC = () => {
           </ButtonGroup>
         )}
       </FlexContainer>
+      {orgId && (
+        <form onChange={handleSubmit(debounce(setOfficeGroupFilters, 500))}>
+          <FormLayout className={elMb11}>
+            <InputWrap>
+              <InputGroup {...register('name')} label="Office Group Name" type="search" />
+            </InputWrap>
+            <InputWrap>
+              <InputGroup {...register('customerId')} label="Office Group Id" type="search" />
+            </InputWrap>
+          </FormLayout>
+        </form>
+      )}
       {!data && orgId ? (
         <Loader />
       ) : officeGroups.length && orgId ? (

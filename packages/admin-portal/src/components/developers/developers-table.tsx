@@ -18,6 +18,7 @@ import { AppsTable } from './apps-table'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { usePermissionsState } from '../../core/use-permissions-state'
+import { InviteMemberModalForm } from './invite-member-modal-form'
 
 export interface DevelopersTableProps {
   developers: DeveloperModelPagedResult | null
@@ -82,6 +83,32 @@ export const handleDevIdSubs =
     }
   }
 
+export const handleDevIdDelete =
+  (setDevIdDelete: Dispatch<SetStateAction<string | null>>, openDeleteConfirmModal: () => void, devIdDelete?: string) =>
+  () => {
+    if (devIdDelete) {
+      setDevIdDelete(devIdDelete)
+      openDeleteConfirmModal()
+    }
+  }
+
+export const handleDeleteDev =
+  (
+    setDevIdDelete: Dispatch<SetStateAction<string | null>>,
+    closeDeleteConfirmModal: () => void,
+    deleteDeveloper: SendFunction<void, boolean>,
+    refreshDevelopers: () => void,
+  ) =>
+  async () => {
+    const deleted = await deleteDeveloper()
+
+    if (deleted) {
+      closeDeleteConfirmModal()
+      setDevIdDelete(null)
+      refreshDevelopers()
+    }
+  }
+
 export const handleToggleDevEdition =
   (
     developer: DeveloperModel,
@@ -102,18 +129,48 @@ export const handleToggleDevEdition =
     }
   }
 
+export const handleDevIdInvite =
+  (
+    setDevIdInvite: Dispatch<SetStateAction<string | null>>,
+    setDevIdMembers: Dispatch<SetStateAction<string | null>>,
+    openInviteMemberModal: () => void,
+    devIdInvite?: string,
+  ) =>
+  () => {
+    if (devIdInvite) {
+      setDevIdMembers(null)
+      setDevIdInvite(devIdInvite)
+      openInviteMemberModal()
+    }
+  }
+
 export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshDevelopers }) => {
   const { Modal, openModal, closeModal } = useModal()
+  const {
+    Modal: DeleteConfirmModal,
+    openModal: openDeleteConfirmModal,
+    closeModal: closeDeleteConfirmModal,
+  } = useModal()
+  const { Modal: InviteMemberModal, openModal: openInviteMemberModal, closeModal: closeInviteMemberModal } = useModal()
   const [developerUpdate, setDeveloperUpdate] = useState<DeveloperModel | null>(null)
   const [devIdMembers, setDevIdMembers] = useState<string | null>(null)
   const [devIdApps, setDevIdApps] = useState<string | null>(null)
   const [devIdSubs, setDevIdSubs] = useState<string | null>(null)
+  const [devIdDelete, setDevIdDelete] = useState<string | null>(null)
+  const [devIdInvite, setDevIdInvite] = useState<string | null>(null)
   const { hasReadAccess } = usePermissionsState()
 
   const [, , updateDeveloper] = useReapitUpdate<UpdateDeveloperModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateDeveloper],
     method: 'PUT',
+  })
+
+  const [, , deleteDeveloper] = useReapitUpdate<void, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteDeveloper],
+    method: 'DELETE',
+    uriParams: { developerId: devIdDelete },
   })
 
   return developers?.data?.length ? (
@@ -217,6 +274,13 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
                       Toggle Subscription {status !== 'confirmed' ? '(Status Not Confirmed)' : ''}
                     </Button>
                     <Button
+                      onClick={handleDevIdInvite(setDevIdInvite, setDevIdMembers, openInviteMemberModal, id)}
+                      intent="primary"
+                      disabled={hasReadAccess}
+                    >
+                      Invite Member
+                    </Button>
+                    <Button
                       intent="secondary"
                       onClick={handleDevIdMembers(setDevIdMembers, setDevIdSubs, setDevIdApps, id)}
                     >
@@ -227,6 +291,14 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
                       onClick={handleDevIdApps(setDevIdApps, setDevIdSubs, setDevIdMembers, id)}
                     >
                       Fetch Apps
+                    </Button>
+                    <Button
+                      type="button"
+                      intent="danger"
+                      disabled={hasReadAccess}
+                      onClick={handleDevIdDelete(setDevIdDelete, openDeleteConfirmModal, id)}
+                    >
+                      Delete Developer
                     </Button>
                   </ButtonGroup>
                   {devIdMembers && devIdMembers === id && <MembersTable devIdMembers={devIdMembers} />}
@@ -248,6 +320,23 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
           refreshDevelopers={refreshDevelopers}
         />
       </Modal>
+      <DeleteConfirmModal title="Delete Developer">
+        <BodyText hasGreyText>Are you sure you want to delete this developer? This action cannot be undone.</BodyText>
+        <ButtonGroup alignment="center">
+          <Button intent="low" onClick={closeDeleteConfirmModal}>
+            Cancel
+          </Button>
+          <Button
+            intent="danger"
+            onClick={handleDeleteDev(setDevIdDelete, closeDeleteConfirmModal, deleteDeveloper, refreshDevelopers)}
+          >
+            Delete
+          </Button>
+        </ButtonGroup>
+      </DeleteConfirmModal>
+      <InviteMemberModal title="Invite Developer Org Member">
+        {devIdInvite && <InviteMemberModalForm developerId={devIdInvite} closeModal={closeInviteMemberModal} />}
+      </InviteMemberModal>
     </div>
   ) : (
     <div className={elMb11}>

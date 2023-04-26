@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react'
+import React, { FC, HTMLAttributes, useEffect } from 'react'
 import { cx } from '@linaria/core'
 import { ElModalBg, ElModal, ElModalHeader, ElModalBody } from './__styles__'
 import { elIsActive } from '../../styles/states'
@@ -37,9 +37,22 @@ export const ModalBody: FC<ModalBaseProps> = ({ className, children, ...rest }: 
 )
 
 export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, children, ...rest }) => {
-  if (!isOpen) return null
+  useEffect(() => {
+    const onKeyUp = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onModalClose()
+      }
+    }
+    document.addEventListener('keyup', onKeyUp, false)
+
+    return () => {
+      document.removeEventListener('keyup', onKeyUp, false)
+    }
+  }, [onModalClose])
 
   const modalCombinedClassname = cx(className, elIsActive)
+
+  if (!isOpen) return null
 
   return (
     <>

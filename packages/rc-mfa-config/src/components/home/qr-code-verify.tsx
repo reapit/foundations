@@ -119,7 +119,12 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
       <FlexContainer isFlexJustifyCenter>
         <canvas className={cx(elMb7, elMxAuto)} ref={canvasRef} />
       </FlexContainer>
-      <form onSubmit={handleSubmit(handleVerifyQrCode(verifyQrCode))}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          handleSubmit(handleVerifyQrCode(verifyQrCode))(e)
+        }}
+      >
         <PersistentNotification className={elMb7} isFullWidth isExpanded isInline intent="secondary">
           Enter the code from your authenticator app below and hit submit to complete configuration of MFA.
         </PersistentNotification>
@@ -135,7 +140,7 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
           </InputWrapFull>
         </FormLayout>
         <ButtonGroup alignment="center">
-          <Button intent="low" onClick={closeModal}>
+          <Button type="button" intent="low" onClick={closeModal}>
             Cancel
           </Button>
           <Button intent="primary" type="submit" loading={qrCodeVerifyLoading} disabled={qrCodeVerifyLoading}>

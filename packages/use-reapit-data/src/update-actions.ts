@@ -14,6 +14,7 @@ export enum UpdateActionNames {
   createApp = 'createApp',
   createApiKeyByMember = 'createApiKeyByMember',
   updateDeveloper = 'updateDeveloper',
+  deleteDeveloper = 'deleteDeveloper',
   updateCustomer = 'updateCustomer',
   createDeveloper = 'createDeveloper',
   deleteApp = 'deleteApp',
@@ -24,6 +25,7 @@ export enum UpdateActionNames {
   terminateInstallation = 'terminateInstallation',
   cancelRevision = 'cancelRevision',
   updateMember = 'updateMember',
+  deleteMember = 'deleteMember',
   inviteMember = 'inviteMember',
   deleteSubscription = 'deleteSubscription',
   createSubscription = 'createSubscription',
@@ -107,6 +109,12 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     errorMessage: 'Developer update failed, please check for errors and try again.',
     successMessage: 'Your developer record has been successfully updated',
   },
+  [UpdateActionNames.deleteDeveloper]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.developerById,
+    errorMessage: 'Developer delete failed, please check for errors and try again.',
+    successMessage: 'Developer successfully deleted',
+  },
   [UpdateActionNames.updateCustomer]: {
     api: ApiNames(appEnv).platform,
     path: PathNames.customersById,
@@ -158,6 +166,12 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.memberById,
     errorMessage: 'Failed to update developer organisation member',
     successMessage: 'Successfully updated developer organisation member',
+  },
+  [UpdateActionNames.deleteMember]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.memberById,
+    errorMessage: 'Failed to delete developer organisation member',
+    successMessage: 'Successfully developer developer organisation member',
   },
   [UpdateActionNames.inviteMember]: {
     api: ApiNames(appEnv).platform,

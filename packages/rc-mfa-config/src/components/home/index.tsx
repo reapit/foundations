@@ -85,7 +85,10 @@ export const HomePage: FC = () => {
     CreateAuthenticatorReturnType
   >({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createUserAuthenticator],
+    action: {
+      ...updateActions(window.reapit.config.appEnv)[UpdateActionNames.createUserAuthenticator],
+      successMessage: undefined, // no need for success toast
+    },
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
     uriParams: {
