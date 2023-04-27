@@ -9,6 +9,9 @@ import {
   aws_s3_deployment as deploy,
 } from 'aws-cdk-lib'
 import { Certificate, ICertificate } from 'aws-cdk-lib/aws-certificatemanager'
+import { OriginAccessIdentity } from 'aws-cdk-lib/aws-cloudfront'
+import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam'
+import { BlockPublicAccess, BucketAccessControl, BucketEncryption, ObjectOwnership } from 'aws-cdk-lib/aws-s3'
 import { ACM } from 'aws-sdk'
 
 interface CreateSiteInterface {
@@ -59,8 +62,22 @@ export const createSite = async (
   const bucket = new s3.Bucket(stack, 'bucket', {
     websiteIndexDocument: defaultRootObject,
     websiteErrorDocument: defaultRootObject,
-    publicReadAccess: true,
+    publicReadAccess: false,
+    blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
+    accessControl: BucketAccessControl.PRIVATE,
+    objectOwnership: ObjectOwnership.BUCKET_OWNER_ENFORCED,
+    encryption: BucketEncryption.S3_MANAGED,
   })
+
+  const cloudfrontOAI = new OriginAccessIdentity(stack, 'CloudFrontOriginAccessIdentity')
+
+  bucket.addToResourcePolicy(
+    new PolicyStatement({
+      actions: ['s3:GetObject'],
+      resources: [bucket.arnForObjects('*')],
+      principals: [new CanonicalUserPrincipal(cloudfrontOAI.cloudFrontOriginAccessIdentityS3CanonicalUserId)],
+    }),
+  )
 
   const deploymentBucket = new deploy.BucketDeployment(stack, 'deployment', {
     sources: [deploy.Source.asset(location)],
@@ -72,9 +89,9 @@ export const createSite = async (
   const distro = createCloudfront(stack, 'front-distro', {
     originConfigs: [
       {
-        customOriginSource: {
-          domainName: bucket.bucketWebsiteDomainName,
-          originProtocolPolicy: cloudfront.OriginProtocolPolicy.HTTP_ONLY,
+        s3OriginSource: {
+          s3BucketSource: bucket,
+          originAccessIdentity: cloudfrontOAI,
         },
         behaviors: [{ isDefaultBehavior: true }],
       },
