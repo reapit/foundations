@@ -9,6 +9,7 @@ import {
   aws_s3_deployment as deploy,
 } from 'aws-cdk-lib'
 import { Certificate, ICertificate } from 'aws-cdk-lib/aws-certificatemanager'
+import { BlockPublicAccess, BucketAccessControl } from 'aws-cdk-lib/aws-s3'
 import { ACM } from 'aws-sdk'
 
 interface CreateSiteInterface {
@@ -60,6 +61,8 @@ export const createSite = async (
     websiteIndexDocument: defaultRootObject,
     websiteErrorDocument: defaultRootObject,
     publicReadAccess: true,
+    blockPublicAccess: BlockPublicAccess.BLOCK_ACLS,
+    accessControl: BucketAccessControl.BUCKET_OWNER_FULL_CONTROL,
   })
 
   const deploymentBucket = new deploy.BucketDeployment(stack, 'deployment', {
