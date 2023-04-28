@@ -51,7 +51,7 @@ describe('handlePipelineUpdate', () => {
     expect(updatePipeline).toHaveBeenCalledWith({
       ...values,
       appId,
-      packageManager: 'yarn',
+      packageManager: 'npm',
       appType: 'react',
     })
   })
@@ -97,7 +97,7 @@ describe('getDefaultValues', () => {
       repository,
       buildCommand,
       outDir,
-      packageManager: packageManager === PackageManagerEnum.YARN,
+      packageManager,
     })
   })
 
@@ -109,7 +109,7 @@ describe('getDefaultValues', () => {
       buildCommand: 'build',
       branch: 'main',
       outDir: 'build',
-      packageManager: true,
+      packageManager: PackageManagerEnum.NPM,
     })
   })
 })
