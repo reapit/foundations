@@ -16,8 +16,11 @@ export class TokenProvider implements AuthProviderInterface<any> {
 
   async resolve(request: Request): Promise<LoginIdentity> {
     try {
-      const authorization = request.headers?.authorization as string
-      const claim = await connectSessionVerifyDecodeIdTokenWithPublicKeys(authorization.replace('Bearer ', ''))
+      const authorization = request.headers?.authorization  
+
+      if (!authorization) throw new UnauthorizedException('Authorization header not found')
+
+      const claim = await connectSessionVerifyDecodeIdTokenWithPublicKeys(authorization?.replace('Bearer ', ''))
 
       if (!claim) {
         throw new Error('unauthorised')
