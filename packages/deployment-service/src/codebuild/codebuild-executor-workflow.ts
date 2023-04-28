@@ -126,8 +126,8 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     const params = await this.parameterProvider.obtainParameters(pipeline.id as string)
 
     const setupCommands = [
-      'n install 14',
-      'n use 14',
+      'n install 18',
+      'n use 18',
       'CACHE_FOLDER=$(find . -maxdepth 1 -mindepth 1 -type d)',
       'echo $CACHE_FOLDER',
       'mv $CACHE_FOLDER/* ./',
@@ -148,7 +148,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
         phases: {
           install: {
             'runtime-versions': {
-              nodejs: 12,
+              nodejs: 18,
             },
             commands: [
               ...setupCommands,
