@@ -152,25 +152,29 @@ exports[`PipelineNew Should match snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div>
-              <mock-styled.input
-                id="package-manager-toggle"
-                name="packageManager"
-                type="checkbox"
-              />
-              <mock-styled.label
-                classname="mock-css."
-                htmlfor="package-manager-toggle"
-              >
-                <mock-styled.span>
-                  Yarn
-                </mock-styled.span>
-                <mock-styled.span>
-                  NPM
-                </mock-styled.span>
-              </mock-styled.label>
               <mock-styled.label>
                 Package Manager
               </mock-styled.label>
+              <mock-styled.select
+                id="package-manager-select"
+                name="packageManager"
+              >
+                <option
+                  value="npm"
+                >
+                  NPM
+                </option>
+                <option
+                  value="yarn"
+                >
+                  YARN
+                </option>
+                <option
+                  value="yarn-berry"
+                >
+                  YARN BERRY
+                </option>
+              </mock-styled.select>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
@@ -345,25 +349,29 @@ exports[`PipelineNew Should match snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.input
-              id="package-manager-toggle"
-              name="packageManager"
-              type="checkbox"
-            />
-            <mock-styled.label
-              classname="mock-css."
-              htmlfor="package-manager-toggle"
-            >
-              <mock-styled.span>
-                Yarn
-              </mock-styled.span>
-              <mock-styled.span>
-                NPM
-              </mock-styled.span>
-            </mock-styled.label>
             <mock-styled.label>
               Package Manager
             </mock-styled.label>
+            <mock-styled.select
+              id="package-manager-select"
+              name="packageManager"
+            >
+              <option
+                value="npm"
+              >
+                NPM
+              </option>
+              <option
+                value="yarn"
+              >
+                YARN
+              </option>
+              <option
+                value="yarn-berry"
+              >
+                YARN BERRY
+              </option>
+            </mock-styled.select>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
@@ -612,25 +620,29 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div>
-              <mock-styled.input
-                id="package-manager-toggle"
-                name="packageManager"
-                type="checkbox"
-              />
-              <mock-styled.label
-                classname="mock-css."
-                htmlfor="package-manager-toggle"
-              >
-                <mock-styled.span>
-                  Yarn
-                </mock-styled.span>
-                <mock-styled.span>
-                  NPM
-                </mock-styled.span>
-              </mock-styled.label>
               <mock-styled.label>
                 Package Manager
               </mock-styled.label>
+              <mock-styled.select
+                id="package-manager-select"
+                name="packageManager"
+              >
+                <option
+                  value="npm"
+                >
+                  NPM
+                </option>
+                <option
+                  value="yarn"
+                >
+                  YARN
+                </option>
+                <option
+                  value="yarn-berry"
+                >
+                  YARN BERRY
+                </option>
+              </mock-styled.select>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
@@ -817,25 +829,29 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.input
-              id="package-manager-toggle"
-              name="packageManager"
-              type="checkbox"
-            />
-            <mock-styled.label
-              classname="mock-css."
-              htmlfor="package-manager-toggle"
-            >
-              <mock-styled.span>
-                Yarn
-              </mock-styled.span>
-              <mock-styled.span>
-                NPM
-              </mock-styled.span>
-            </mock-styled.label>
             <mock-styled.label>
               Package Manager
             </mock-styled.label>
+            <mock-styled.select
+              id="package-manager-select"
+              name="packageManager"
+            >
+              <option
+                value="npm"
+              >
+                NPM
+              </option>
+              <option
+                value="yarn"
+              >
+                YARN
+              </option>
+              <option
+                value="yarn-berry"
+              >
+                YARN BERRY
+              </option>
+            </mock-styled.select>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
