@@ -13,6 +13,6 @@ export const yarnNpmTest = {
   name: 'isYarnOrNpm',
   message: 'Package manager must be yarn or npm',
   test: (value?: string) => {
-    return value === 'yarn' || value === 'npm'
+    return value === 'yarn' || value === 'npm' || value === 'yarn-berry'
   },
 }

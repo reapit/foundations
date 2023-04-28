@@ -39,7 +39,7 @@ describe('handlePipelineUpdate', () => {
       name: 'MOCK_NAME',
       branch: 'master',
       repository: 'https://github.com/',
-      packageManager: true,
+      packageManager: PackageManagerEnum.NPM,
       buildCommand: 'build',
       outDir: 'build',
     }
