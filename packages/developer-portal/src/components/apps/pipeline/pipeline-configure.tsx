@@ -1,14 +1,13 @@
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import {
   BodyText,
-  ElToggleItem,
   FormLayout,
   Input,
   InputError,
   InputGroup,
   InputWrap,
   Label,
-  Toggle,
+  Select,
 } from '@reapit/elements'
 import { boolean, object, SchemaOf, string } from 'yup'
 import {
@@ -206,11 +205,12 @@ export const PipelineConfigure: FC = () => {
           </InputWrap>
           <InputWrap>
             <InputGroup>
-              <Toggle id="package-manager-toggle" hasGreyBg {...register('packageManager')}>
-                <ElToggleItem>Yarn</ElToggleItem>
-                <ElToggleItem>NPM</ElToggleItem>
-              </Toggle>
               <Label>Package Manager</Label>
+              <Select id="package-manager-select" {...register('packageManager')}>
+                <option value={PackageManagerEnum.NPM}>NPM</option>
+                <option value={PackageManagerEnum.YARN}>YARN</option>
+                <option value={PackageManagerEnum.YARN_BERRY}>YARN BERRY</option>
+              </Select>
               {errors.packageManager?.message && <InputError message={errors.packageManager.message} />}
             </InputGroup>
           </InputWrap>

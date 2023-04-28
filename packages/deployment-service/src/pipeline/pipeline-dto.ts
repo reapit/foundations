@@ -1,13 +1,9 @@
+import { PackageManagerEnum } from '@reapit/foundations-ts-definitions/deployment-schema'
 import { IsString, IsNotEmpty, IsOptional, IsEnum, MaxLength, IsUUID, Matches, IsUrl } from 'class-validator'
 
 export enum AppTypeEnum {
   REACT = 'react',
   NODE = 'node',
-}
-
-export enum PackageManagerEnum {
-  YARN = 'yarn',
-  NPM = 'npm',
 }
 
 export class PipelineDto {

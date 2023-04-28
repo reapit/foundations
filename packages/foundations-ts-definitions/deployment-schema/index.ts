@@ -98,6 +98,7 @@ export interface TaskModelInterface {
 export enum PackageManagerEnum {
   NPM = 'npm',
   YARN = 'yarn',
+  YARN_BERRY = 'yarn-berry',
 }
 
 export enum AppTypeEnum {
