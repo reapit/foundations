@@ -19046,6 +19046,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"aws-cdk@npm:^2.77.0":
+  version: 2.77.0
+  resolution: "aws-cdk@npm:2.77.0"
+  dependencies:
+    fsevents: 2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    cdk: bin/cdk
+  checksum: 4eb74b3fdfae7ab02446fa19aacfc94a78e9f87bf52bd761ecefe1189a1125f5ca38206f64e0085d48a4c25e43cf284a4a064bb9752d05562354a51a73bcacac
+  languageName: node
+  linkType: hard
+
 "aws-lambda@npm:^1.0.7":
   version: 1.0.7
   resolution: "aws-lambda@npm:1.0.7"
@@ -23744,6 +23758,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.54.0
     adm-zip: ^0.5.10
     atlassian-jwt: ^2.0.2
+    aws-cdk: ^2.77.0
     aws-serverless-express: ^3.4.0
     class-transformer: ^0.5.1
     class-validator: ^0.14.0

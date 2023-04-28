@@ -12,7 +12,7 @@ import { createSnsTopic, Topic } from './sns-topic'
 export const createCodeBuildProject = (stack: cdk.Stack, name: string): codebuild.Project => {
   const project = new codebuild.Project(stack, name, {
     environment: {
-      buildImage: LinuxBuildImage.AMAZON_LINUX_2_3,
+      buildImage: LinuxBuildImage.STANDARD_6_0,
     },
     projectName: PhysicalName.GENERATE_IF_NEEDED,
     buildSpec: codebuild.BuildSpec.fromObject({

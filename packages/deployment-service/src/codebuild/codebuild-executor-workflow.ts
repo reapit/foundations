@@ -148,12 +148,12 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
         phases: {
           install: {
             'runtime-versions': {
-              nodejs: 12,
+              nodejs: 16,
             },
             commands: [
               ...setupCommands,
-              pipeline.packageManager === PackageManagerEnum.YARN
-                ? pipeline.packageManager
+              pipeline.packageManager?.includes(PackageManagerEnum.YARN)
+                ? PackageManagerEnum.YARN
                 : `${pipeline.packageManager} install`,
             ],
           },
@@ -162,7 +162,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
               `${
                 pipeline.packageManager === PackageManagerEnum.NPM
                   ? `${pipeline.packageManager} run`
-                  : pipeline.packageManager
+                  : pipeline.packageManager?.includes(PackageManagerEnum.YARN) ? 'yarn' : pipeline.packageManager
               } ${pipeline.buildCommand}`,
             ],
           },

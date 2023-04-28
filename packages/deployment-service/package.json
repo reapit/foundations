@@ -18,6 +18,7 @@
     "@reapit/utils-node": "workspace:packages/utils-node",
     "adm-zip": "^0.5.10",
     "atlassian-jwt": "^2.0.2",
+    "aws-cdk": "^2.77.0",
     "aws-serverless-express": "^3.4.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
