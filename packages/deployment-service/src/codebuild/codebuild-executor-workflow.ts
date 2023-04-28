@@ -5,7 +5,6 @@ import { AbstractWorkflow, PusherProvider, SqsProvider, Workflow } from '../even
 import { SoruceProvider } from './source-provider'
 import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
-import { PackageManagerEnum } from '../pipeline/pipeline-dto'
 import { S3Provider } from '../s3'
 import { TaskEntity } from '../entities/task.entity'
 import { PipelineRunnerProvider } from '../pipeline-runner'
@@ -13,6 +12,7 @@ import { plainToClass } from 'class-transformer'
 import { BitbucketClientData } from '../entities/bitbucket-client.entity'
 import { BitBucketEvent } from '../bitbucket'
 import { ParameterProvider } from '../pipeline'
+import { PackageManagerEnum } from '@reapit/foundations-ts-definitions/deployment-schema'
 
 @Workflow(QueueNamesEnum.CODEBUILD_EXECUTOR)
 export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
@@ -125,6 +125,19 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
   }) {
     const params = await this.parameterProvider.obtainParameters(pipeline.id as string)
 
+    const setupCommands = [
+      'n install 18',
+      'n use 18',
+      'CACHE_FOLDER=$(find . -maxdepth 1 -mindepth 1 -type d)',
+      'echo $CACHE_FOLDER',
+      'mv $CACHE_FOLDER/* ./',
+      'rm -rf $CACHE_FOLDER',
+    ]
+
+    if (pipeline.packageManager && pipeline.packageManager === PackageManagerEnum.YARN_BERRY) {
+      setupCommands.push('yarn set version berry')
+    }
+
     const start = this.codeBuild.startBuild({
       projectName: process.env.CODE_BUILD_PROJECT_NAME as string,
       buildspecOverride: yaml.stringify({
@@ -135,17 +148,12 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
         phases: {
           install: {
             'runtime-versions': {
-              nodejs: 12,
+              nodejs: 16,
             },
             commands: [
-              'n install 14',
-              'n use 14',
-              'CACHE_FOLDER=$(find . -maxdepth 1 -mindepth 1 -type d)',
-              'echo $CACHE_FOLDER',
-              'mv $CACHE_FOLDER/* ./',
-              'rm -rf $CACHE_FOLDER',
-              pipeline.packageManager === PackageManagerEnum.YARN
-                ? pipeline.packageManager
+              ...setupCommands,
+              pipeline.packageManager?.includes(PackageManagerEnum.YARN)
+                ? PackageManagerEnum.YARN
                 : `${pipeline.packageManager} install`,
             ],
           },
@@ -154,7 +162,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
               `${
                 pipeline.packageManager === PackageManagerEnum.NPM
                   ? `${pipeline.packageManager} run`
-                  : pipeline.packageManager
+                  : pipeline.packageManager?.includes(PackageManagerEnum.YARN) ? 'yarn' : pipeline.packageManager
               } ${pipeline.buildCommand}`,
             ],
           },

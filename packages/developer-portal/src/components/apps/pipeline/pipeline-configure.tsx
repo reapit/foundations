@@ -1,16 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
-import {
-  BodyText,
-  ElToggleItem,
-  FormLayout,
-  Input,
-  InputError,
-  InputGroup,
-  InputWrap,
-  Label,
-  Toggle,
-} from '@reapit/elements'
-import { boolean, object, SchemaOf, string } from 'yup'
+import { BodyText, FormLayout, Input, InputError, InputGroup, InputWrap, Label, Select } from '@reapit/elements'
+import { object, SchemaOf, string } from 'yup'
 import {
   AppDetailModel,
   AppTypeEnum,
@@ -46,7 +36,7 @@ type PipelineModelSchema = Omit<
   | 'repositoryId'
   | 'bitbucketClientId'
 > & {
-  packageManager: boolean
+  packageManager: string
 }
 
 const schema: SchemaOf<PipelineModelSchema> = object().shape({
@@ -64,7 +54,7 @@ const schema: SchemaOf<PipelineModelSchema> = object().shape({
     })
     .test(specialCharsTest),
   buildCommand: string().trim().required('A build command is required eg "build" or "bundle"').test(specialCharsTest),
-  packageManager: boolean().required('Required - either yarn or NPM'),
+  packageManager: string().required('Required - Please select a package manager'),
   outDir: string().required('Required eg "dist" or "public').test(specialCharsTest),
 })
 
@@ -78,7 +68,12 @@ export const handlePipelineUpdate =
   async (values: PipelineModelSchema) => {
     const updateModel = {
       ...values,
-      packageManager: values.packageManager ? PackageManagerEnum.YARN : PackageManagerEnum.NPM,
+      packageManager:
+        values.packageManager === PackageManagerEnum.YARN_BERRY
+          ? PackageManagerEnum.YARN_BERRY
+          : values.packageManager === PackageManagerEnum.YARN
+          ? PackageManagerEnum.YARN
+          : PackageManagerEnum.NPM,
       appId: appId ?? '',
       appType: AppTypeEnum.REACT, // TODO make this an option
     }
@@ -120,7 +115,7 @@ export const getDefaultValues = (appPipeline: PipelineModelInterface | null, app
       repository,
       buildCommand,
       outDir,
-      packageManager: packageManager === PackageManagerEnum.YARN,
+      packageManager,
     }
   }
 
@@ -129,7 +124,7 @@ export const getDefaultValues = (appPipeline: PipelineModelInterface | null, app
     buildCommand: 'build',
     outDir: 'build',
     branch: 'main',
-    packageManager: true,
+    packageManager: PackageManagerEnum.NPM,
   }
 }
 
@@ -206,11 +201,12 @@ export const PipelineConfigure: FC = () => {
           </InputWrap>
           <InputWrap>
             <InputGroup>
-              <Toggle id="package-manager-toggle" hasGreyBg {...register('packageManager')}>
-                <ElToggleItem>Yarn</ElToggleItem>
-                <ElToggleItem>NPM</ElToggleItem>
-              </Toggle>
               <Label>Package Manager</Label>
+              <Select id="package-manager-select" {...register('packageManager')}>
+                <option value={PackageManagerEnum.NPM}>NPM</option>
+                <option value={PackageManagerEnum.YARN}>YARN</option>
+                <option value={PackageManagerEnum.YARN_BERRY}>YARN BERRY</option>
+              </Select>
               {errors.packageManager?.message && <InputError message={errors.packageManager.message} />}
             </InputGroup>
           </InputWrap>
