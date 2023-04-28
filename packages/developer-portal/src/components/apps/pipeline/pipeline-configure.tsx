@@ -1,7 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import {
   BodyText,
-  ElToggleItem,
   FormLayout,
   Input,
   InputError,
@@ -9,7 +8,6 @@ import {
   InputWrap,
   Label,
   Select,
-  Toggle,
 } from '@reapit/elements'
 import { boolean, object, SchemaOf, string } from 'yup'
 import {
