@@ -123,6 +123,7 @@ export const createSite = async (
     target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distro)),
     zone: hostedZone,
     recordName: subDomain,
+    deleteExisting: true,
   })
 
   return r53.domainName

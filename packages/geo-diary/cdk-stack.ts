@@ -3,9 +3,10 @@ import { join } from 'path'
 
 const createStack = async () => {
   const accountId = await getAccountId()
+
   const stack = createBaseStack({
     namespace: 'cloud',
-    appName: 'payments-portal',
+    appName: 'geo-diary-app',
     component: 'site',
     accountId,
     region: 'eu-west-2',
