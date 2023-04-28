@@ -148,7 +148,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
         phases: {
           install: {
             'runtime-versions': {
-              nodejs: 18,
+              nodejs: 12,
             },
             commands: [
               ...setupCommands,
