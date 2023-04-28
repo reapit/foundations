@@ -3,9 +3,10 @@ import { join } from 'path'
 
 const createStack = async () => {
   const accountId = await getAccountId()
+
   const stack = createBaseStack({
     namespace: 'cloud',
-    appName: 'payments-portal',
+    appName: 'elements',
     component: 'site',
     accountId,
     region: 'eu-west-2',
@@ -13,7 +14,7 @@ const createStack = async () => {
 
   await createSite(stack, {
     env: process.env.APP_STAGE === 'production' ? 'prod' : 'dev',
-    location: join(__dirname, 'build'),
+    location: join(__dirname, 'public', 'dist'),
   })
 }
 

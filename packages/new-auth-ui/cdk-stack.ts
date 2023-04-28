@@ -1,14 +1,13 @@
-import { execSync } from 'child_process'
-import { createBaseStack, createSite } from '@reapit/ts-scripts/src/cdk'
+import { createBaseStack, createSite, getAccountId } from '@reapit/ts-scripts/src/cdk'
 import { join } from 'path'
-import config from './config.json'
 
 const createStack = async () => {
+  const accountId = await getAccountId()
   const stack = createBaseStack({
     namespace: 'cloud',
     appName: 'new-auth-ui',
     component: 'site',
-    accountId: config.awsAccountId,
+    accountId,
     region: 'eu-west-2',
   })
 
@@ -19,10 +18,6 @@ const createStack = async () => {
 }
 
 const bootstrap = async () => {
-  execSync('yarn build', {
-    cwd: __dirname,
-    stdio: 'inherit',
-  })
   await createStack()
 }
 

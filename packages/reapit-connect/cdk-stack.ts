@@ -5,7 +5,7 @@ const createStack = async () => {
   const accountId = await getAccountId()
   const stack = createBaseStack({
     namespace: 'cloud',
-    appName: 'payments-portal',
+    appName: 'insights',
     component: 'site',
     accountId,
     region: 'eu-west-2',

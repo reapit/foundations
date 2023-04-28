@@ -3,9 +3,10 @@ import { join } from 'path'
 
 const createStack = async () => {
   const accountId = await getAccountId()
+
   const stack = createBaseStack({
     namespace: 'cloud',
-    appName: 'payments-portal',
+    appName: 'marketplace-management',
     component: 'site',
     accountId,
     region: 'eu-west-2',

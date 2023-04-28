@@ -16,8 +16,8 @@
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
-    "release": "serverless deploy",
-    "deploy": "echo '...skipping...'",
+    "release": "echo '...skipping...'",
+    "deploy": "serverless remove && rpt-cdk deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity insights --name local --mode fetch",
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"

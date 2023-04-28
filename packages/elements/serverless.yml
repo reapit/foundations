@@ -18,7 +18,7 @@ custom:
     targets:
       - bucket: ${self:custom.s3WebAppBucket}
         files:
-          - source: ./build
+          - source: ./public/dist
             globs: '**/*'
 
 provider:

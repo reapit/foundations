@@ -33,8 +33,8 @@
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "publish": "yarn npm publish --access public",
-    "release": "serverless deploy",
-    "deploy": "echo '...skipping...'",
+    "release": "echo '...skipping...'",
+    "deploy": "serverless remove && rpt-cdk deploy",
     "start": "start-storybook -p 6006",
     "test": "cross-env TZ=UTC jest --watch --colors --silent"
   },
