@@ -20,7 +20,7 @@ export class TokenProvider implements AuthProviderInterface<any> {
 
       if (!authorization) throw new UnauthorizedException('Authorization header not found')
 
-      const claim = await connectSessionVerifyDecodeIdTokenWithPublicKeys(authorization?.replace('Bearer ', ''))
+      const claim = await connectSessionVerifyDecodeIdTokenWithPublicKeys(authorization.replace('Bearer ', ''))
 
       if (!claim) {
         throw new Error('unauthorised')
