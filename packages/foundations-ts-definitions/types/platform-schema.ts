@@ -106,7 +106,7 @@ export interface ApiErrorModel {
   /**
    * The date and time that this error event occurred
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   dateTime?: string // date-time
   /**
@@ -317,13 +317,13 @@ export interface ApplicantContactRelationshipModel {
   /**
    * The date and time when the relationship was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the relationship was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -364,13 +364,13 @@ export interface ApplicantContactRelationshipModelPagedResult {
     /**
      * The date and time when the relationship was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the relationship was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -476,13 +476,13 @@ export interface ApplicantModel {
   /**
    * The date and time when the applicant was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the applicant was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -627,7 +627,7 @@ export interface ApplicantModel {
   /**
    * The date and time the applicant was archived
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   archivedOn?: string // date-time
   /**
@@ -909,13 +909,13 @@ export interface ApplicantModelPagedResult {
     /**
      * The date and time when the applicant was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the applicant was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -1060,7 +1060,7 @@ export interface ApplicantModelPagedResult {
     /**
      * The date and time the applicant was archived
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     archivedOn?: string // date-time
     /**
@@ -1613,25 +1613,25 @@ export interface AppointmentModel {
   /**
    * The date and time when the appointment was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the appointment was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
    * The date and time when the appointment will start
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   start?: string // date-time
   /**
    * The date and time when the appointment will end
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   end?: string // date-time
   /**
@@ -1661,7 +1661,7 @@ export interface AppointmentModel {
     /**
      * The date the appointment recurs until
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     until?: string // date-time
   }
@@ -1812,25 +1812,25 @@ export interface AppointmentModelPagedResult {
     /**
      * The date and time when the appointment was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the appointment was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
      * The date and time when the appointment will start
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     start?: string // date-time
     /**
      * The date and time when the appointment will end
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     end?: string // date-time
     /**
@@ -1860,7 +1860,7 @@ export interface AppointmentModelPagedResult {
       /**
        * The date the appointment recurs until
        * example:
-       * 2019-08-14T12:30:02.0000000Z
+       * 2019-08-14T12:30:02Z
        */
       until?: string // date-time
     }
@@ -2048,13 +2048,13 @@ export interface AreaModel {
   /**
    * The date and time when the area was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the area was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -2108,13 +2108,13 @@ export interface AreaModelPagedResult {
     /**
      * The date and time when the area was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the area was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -2195,13 +2195,13 @@ export interface CertificateModel {
   /**
    * The date and time when the certificate was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the certificate was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -2215,13 +2215,13 @@ export interface CertificateModel {
   /**
    * The certificate's start date
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   start?: string // date-time
   /**
    * The certificate's expiry date
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   expiry?: string // date-time
   /**
@@ -2262,13 +2262,13 @@ export interface CertificateModelPagedResult {
     /**
      * The date and time when the certificate was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the certificate was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -2282,13 +2282,13 @@ export interface CertificateModelPagedResult {
     /**
      * The certificate's start date
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     start?: string // date-time
     /**
      * The certificate's expiry date
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     expiry?: string // date-time
     /**
@@ -2410,13 +2410,13 @@ export interface CompanyModel {
   /**
    * The date and time when the company was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the company was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -2466,7 +2466,7 @@ export interface CompanyModel {
   /**
    * The date and time the company was archived
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   archivedOn?: string // date-time
   /**
@@ -2559,13 +2559,13 @@ export interface CompanyModelPagedResult {
     /**
      * The date and time when the company was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the company was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -2615,7 +2615,7 @@ export interface CompanyModelPagedResult {
     /**
      * The date and time the company was archived
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     archivedOn?: string // date-time
     /**
@@ -2721,13 +2721,13 @@ export interface CompanyRoleModel {
   /**
    * The date and time when the relationship was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the relationship was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -2764,13 +2764,13 @@ export interface CompanyRoleModelPagedResult {
     /**
      * The date and time when the relationship was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the relationship was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -2898,13 +2898,13 @@ export interface ContactModel {
   /**
    * The date and time when the contact was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the contact was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -2969,7 +2969,7 @@ export interface ContactModel {
   /**
    * The date and time the contact was archived
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   archivedOn?: string // date-time
   /**
@@ -3169,13 +3169,13 @@ export interface ContactModel {
     /**
      * The date and time when the relationship was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the relationship was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -3213,13 +3213,13 @@ export interface ContactModelPagedResult {
     /**
      * The date and time when the contact was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the contact was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -3284,7 +3284,7 @@ export interface ContactModelPagedResult {
     /**
      * The date and time the contact was archived
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     archivedOn?: string // date-time
     /**
@@ -3484,13 +3484,13 @@ export interface ContactModelPagedResult {
       /**
        * The date and time when the relationship was created
        * example:
-       * 2019-08-14T12:30:02.0000000Z
+       * 2019-08-14T12:30:02Z
        */
       created?: string // date-time
       /**
        * The date and time when the relationship was last modified
        * example:
-       * 2019-08-14T12:30:02.0000000Z
+       * 2019-08-14T12:30:02Z
        */
       modified?: string // date-time
       /**
@@ -3541,13 +3541,13 @@ export interface ContactRoleModel {
   /**
    * The date and time when the relationship was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the relationship was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -3584,13 +3584,13 @@ export interface ContactRoleModelPagedResult {
     /**
      * The date and time when the relationship was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the relationship was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -3673,13 +3673,13 @@ export interface ContactSubscriptionModel {
   /**
    * The date and time when the subscription was started for the associated contact
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   subscribedOn?: string // date-time
   /**
    * The date and time when the subscription was terminated for the associated contact
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   unsubscribedOn?: string // date-time
 }
@@ -3720,13 +3720,13 @@ export interface ContactSubscriptionModelPagedResult {
     /**
      * The date and time when the subscription was started for the associated contact
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     subscribedOn?: string // date-time
     /**
      * The date and time when the subscription was terminated for the associated contact
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     unsubscribedOn?: string // date-time
   }[]
@@ -3796,13 +3796,13 @@ export interface ConveyancingModel {
   /**
    * The date and time when the offer was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the offer was modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -4033,13 +4033,13 @@ export interface ConveyancingModelPagedResult {
     /**
      * The date and time when the offer was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the offer was modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -4707,13 +4707,13 @@ export interface CreateAppointmentModel {
   /**
    * The date and time when the appointment will start
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   start: string // date-time
   /**
    * The date and time when the appointment will end
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   end: string // date-time
   /**
@@ -4798,7 +4798,7 @@ export interface CreateAppointmentModel {
     /**
      * The date and time when the recurrence will stop. (Required if 'type' is provided)
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     until?: string // date-time
   }
@@ -4824,7 +4824,7 @@ export interface CreateAppointmentRecurrenceModel {
   /**
    * The date and time when the recurrence will stop. (Required if 'type' is provided)
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   until?: string // date-time
 }
@@ -7236,7 +7236,7 @@ export interface CreatePropertyModel {
   /**
    * The date when the ground rent payable on the property should be reviewed
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   groundRentReviewDate?: string // date-time
   /**
@@ -7847,6 +7847,10 @@ export interface CreateTenancyModel {
    */
   applicantId: string
   /**
+   * Financial notes set against the tenancy
+   */
+  feeNotes?: string
+  /**
    * Request body used to set the deposit of a new tenancy
    */
   deposit?: {
@@ -7914,13 +7918,13 @@ export interface CreateTenancyRenewalModel {
   /**
    * The proposed start date of the tenancy renewal
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   startDate?: string // date-time
   /**
    * The proposed end date of the tenancy renewal
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   endDate?: string // date-time
   /**
@@ -8257,13 +8261,13 @@ export interface DepartmentModel {
   /**
    * The date and time when the department was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the department was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -8350,13 +8354,13 @@ export interface DepartmentModelPagedResult {
     /**
      * The date and time when the department was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the department was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -8462,13 +8466,13 @@ export interface DocumentModel {
   /**
    * The date and time when the document was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the document was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -8519,13 +8523,13 @@ export interface DocumentModelPagedResult {
     /**
      * The date and time when the document was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the document was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -8684,13 +8688,13 @@ export interface EnquiryModel {
   /**
    * The date and time when the enquiry was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the enquiry was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -8842,13 +8846,13 @@ export interface EnquiryModelPagedResult {
     /**
      * The date and time when the enquiry was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the enquiry was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -9105,13 +9109,13 @@ export interface IdentityCheckModel {
   /**
    * The date and time when the identity check was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the identity check was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -9206,13 +9210,13 @@ export interface IdentityCheckModelPagedResult {
     /**
      * The date and time when the identity check was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the identity check was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -9478,7 +9482,7 @@ export interface JournalEntryModel {
   /**
    * The date and time when the journal entry was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
@@ -9519,7 +9523,7 @@ export interface JournalEntryModelPagedResult {
     /**
      * The date and time when the journal entry was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
@@ -9577,13 +9581,13 @@ export interface KeyMovementModel {
   /**
    * The date and time when the key movement was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the key movement was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -9605,7 +9609,7 @@ export interface KeyMovementModel {
   /**
    * The date and time of when the key set was checked out
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   checkOutAt?: string // date-time
   /**
@@ -9615,7 +9619,7 @@ export interface KeyMovementModel {
   /**
    * The date and time of when the key set was checked in
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   checkInAt?: string // date-time
   /**
@@ -9644,13 +9648,13 @@ export interface KeyMovementModelPagedResult {
     /**
      * The date and time when the key movement was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the key movement was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -9672,7 +9676,7 @@ export interface KeyMovementModelPagedResult {
     /**
      * The date and time of when the key set was checked out
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     checkOutAt?: string // date-time
     /**
@@ -9682,7 +9686,7 @@ export interface KeyMovementModelPagedResult {
     /**
      * The date and time of when the key set was checked in
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     checkInAt?: string // date-time
     /**
@@ -9724,13 +9728,13 @@ export interface KeysModel {
   /**
    * The date and time when the key was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the key was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -9784,13 +9788,13 @@ export interface KeysModelPagedResult {
     /**
      * The date and time when the key was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the key was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -9986,13 +9990,13 @@ export interface LandlordContactRelationshipModel {
   /**
    * The date and time when the relationship was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the relationship was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -10029,13 +10033,13 @@ export interface LandlordContactRelationshipModelPagedResult {
     /**
      * The date and time when the relationship was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the relationship was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -10081,13 +10085,13 @@ export interface LandlordModel {
   /**
    * The date and time when the landlord was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the landlord was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -10237,13 +10241,13 @@ export interface LandlordModelPagedResult {
     /**
      * The date and time when the landlord was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the landlord was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -10554,13 +10558,13 @@ export interface NegotiatorModel {
   /**
    * The date and time when the negotiator was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the negotiator was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -10623,13 +10627,13 @@ export interface NegotiatorModelPagedResult {
     /**
      * The date and time when the negotiator was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the negotiator was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -10721,13 +10725,13 @@ export interface NominalAccountModel {
   /**
    * The date and time when the nominal account was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the nominal account was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -10756,13 +10760,13 @@ export interface NominalAccountModelPagedResult {
     /**
      * The date and time when the nominal account was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the nominal account was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -10929,13 +10933,13 @@ export interface OfferModel {
   /**
    * The the date and time when the offer was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the offer was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -11096,13 +11100,13 @@ export interface OfferModelPagedResult {
     /**
      * The the date and time when the offer was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the offer was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -11334,13 +11338,13 @@ export interface OfficeModel {
   /**
    * The date and time when the office was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the office was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -11447,13 +11451,13 @@ export interface OfficeModelPagedResult {
     /**
      * The date and time when the office was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the office was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -11592,13 +11596,13 @@ export interface OpenHouseAttendeeModel {
   /**
    * The date and time when the open house attendee was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the open house attendee was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -11681,13 +11685,13 @@ export interface OpenHouseAttendeeModelPagedResult {
     /**
      * The date and time when the open house attendee was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the open house attendee was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -11987,13 +11991,13 @@ export interface PropertyCheckModel {
   /**
    * The date and time when the check was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the check was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -12034,13 +12038,13 @@ export interface PropertyCheckModelPagedResult {
     /**
      * The date and time when the check was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the check was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -12175,13 +12179,13 @@ export interface PropertyImageModel {
   /**
    * The date and time when the image was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the property image was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -12226,13 +12230,13 @@ export interface PropertyImageModelPagedResult {
     /**
      * The date and time when the image was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the property image was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -12504,13 +12508,13 @@ export interface PropertyModel {
   /**
    * The date and time when the property was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the property was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -12714,7 +12718,7 @@ export interface PropertyModel {
   /**
    * The date when the ground rent payable on the property should be reviewed
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   groundRentReviewDate?: string // date-time
   /**
@@ -12744,7 +12748,7 @@ export interface PropertyModel {
   /**
    * The date and time the property was archived
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   archivedOn?: string // date-time
   /**
@@ -13282,7 +13286,7 @@ export interface PropertyModel {
   /**
    * The date that this property became a lost instruction
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   lostInstructionDate?: string // date-time
   /**
@@ -13334,13 +13338,13 @@ export interface PropertyModelPagedResult {
     /**
      * The date and time when the property was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the property was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -13544,7 +13548,7 @@ export interface PropertyModelPagedResult {
     /**
      * The date when the ground rent payable on the property should be reviewed
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     groundRentReviewDate?: string // date-time
     /**
@@ -13574,7 +13578,7 @@ export interface PropertyModelPagedResult {
     /**
      * The date and time the property was archived
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     archivedOn?: string // date-time
     /**
@@ -14112,7 +14116,7 @@ export interface PropertyModelPagedResult {
     /**
      * The date that this property became a lost instruction
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     lostInstructionDate?: string // date-time
     /**
@@ -14437,7 +14441,7 @@ export interface RecurrenceModel {
   /**
    * The date the appointment recurs until
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   until?: string // date-time
 }
@@ -14486,13 +14490,13 @@ export interface ReferralModel {
   /**
    * The date and time when the referral was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the referral was amended
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -14526,13 +14530,13 @@ export interface ReferralModel {
   /**
    * The date and time when the referral was paid
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   paid?: string // date-time
   /**
    * The date and time when the referral was accepted
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   accepted?: string // date-time
   /**
@@ -14589,13 +14593,13 @@ export interface ReferralModelPagedResult {
     /**
      * The date and time when the referral was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the referral was amended
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -14629,13 +14633,13 @@ export interface ReferralModelPagedResult {
     /**
      * The date and time when the referral was paid
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     paid?: string // date-time
     /**
      * The date and time when the referral was accepted
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     accepted?: string // date-time
     /**
@@ -14826,13 +14830,13 @@ export interface SourceModel {
   /**
    * The date and time when the source was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the source was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -14873,13 +14877,13 @@ export interface SourceModelPagedResult {
     /**
      * The date and time when the source was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the source was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -15014,13 +15018,13 @@ export interface TaskModel {
   /**
    * The date and time when the task was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the task was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -15103,13 +15107,13 @@ export interface TaskModelPagedResult {
     /**
      * The date and time when the task was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the task was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -15275,13 +15279,13 @@ export interface TenancyAllowanceModel {
   /**
    * The date and time when the allowance was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the allowance last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -15335,13 +15339,13 @@ export interface TenancyAllowanceModelPagedResult {
     /**
      * The date and time when the allowance was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the allowance last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -15408,13 +15412,13 @@ export interface TenancyBreakClauseModel {
   /**
    * The date and time when the break clause was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the break clause last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -15474,13 +15478,13 @@ export interface TenancyBreakClauseModelPagedResult {
     /**
      * The date and time when the break clause was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the break clause last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -15553,13 +15557,13 @@ export interface TenancyCheckModel {
   /**
    * The date and time when the tenancy check was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the tenancy check was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -15611,13 +15615,13 @@ export interface TenancyCheckModelPagedResult {
     /**
      * The date and time when the tenancy check was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the tenancy check was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -15811,13 +15815,13 @@ export interface TenancyContactRelationshipModel {
   /**
    * The date and time when the relationship was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the relationship was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -15858,13 +15862,13 @@ export interface TenancyContactRelationshipModelPagedResult {
     /**
      * The date and time when the relationship was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the relationship was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -15948,13 +15952,13 @@ export interface TenancyExtensionAlterationModel {
   /**
    * The date and time when the extension or alteration was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the extension or alteration was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -16026,13 +16030,13 @@ export interface TenancyExtensionAlterationModelPagedResult {
     /**
      * The date and time when the extension or alteration was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the extension or alteration was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -16151,13 +16155,13 @@ export interface TenancyModel {
   /**
    * The date and time when the tenancy was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the tenancy was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -16418,6 +16422,10 @@ export interface TenancyModel {
     [name: string]: any
   }
   /**
+   * Financial notes set against the tenancy
+   */
+  feeNotes?: string
+  /**
    * The ETag for the current version of the tenancy. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -16439,13 +16447,13 @@ export interface TenancyModelPagedResult {
     /**
      * The date and time when the tenancy was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the tenancy was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -16706,6 +16714,10 @@ export interface TenancyModelPagedResult {
       [name: string]: any
     }
     /**
+     * Financial notes set against the tenancy
+     */
+    feeNotes?: string
+    /**
      * The ETag for the current version of the tenancy. Used for managing update concurrency
      */
     readonly _eTag?: string
@@ -16740,13 +16752,13 @@ export interface TenancyRenewalCheckModel {
   /**
    * The date and time when the tenancy renewal check was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the tenancy renewal check was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -16798,13 +16810,13 @@ export interface TenancyRenewalCheckModelPagedResult {
     /**
      * The date and time when the tenancy renewal check was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the tenancy renewal check was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -16869,13 +16881,13 @@ export interface TenancyRenewalModel {
   /**
    * The date and time when the renewal was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the renewal was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -16977,13 +16989,13 @@ export interface TenancyRenewalModelPagedResult {
     /**
      * The date and time when the renewal was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the renewal was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -17111,13 +17123,13 @@ export interface TenancyResponsibilityModel {
   /**
    * The date and time when the responsibility was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the responsibility last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -17171,13 +17183,13 @@ export interface TenancyResponsibilityModelPagedResult {
     /**
      * The date and time when the responsibility was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the responsibility last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -17257,13 +17269,13 @@ export interface TransactionModel {
   /**
    * The date and time when the transaction was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the transaction was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -17340,13 +17352,13 @@ export interface TransactionModelPagedResult {
     /**
      * The date and time when the transaction was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the transaction was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -18250,13 +18262,13 @@ export interface UpdateAppointmentModel {
   /**
    * The date and time when the appointment will start
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   start?: string // date-time
   /**
    * The date and time when the appointment will end
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   end?: string // date-time
   /**
@@ -18362,7 +18374,7 @@ export interface UpdateAppointmentModel {
     /**
      * The date and time when the recurrence will stop
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     until?: string // date-time
   }
@@ -18388,7 +18400,7 @@ export interface UpdateAppointmentRecurrenceModel {
   /**
    * The date and time when the recurrence will stop
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   until?: string // date-time
 }
@@ -18424,13 +18436,13 @@ export interface UpdateCertificateModel {
   /**
    * The certificate's start date
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   start?: string // date-time
   /**
    * The certificate's expiry date
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   expiry?: string // date-time
   /**
@@ -18998,7 +19010,7 @@ export interface UpdateConveyancingModel {
   /**
    * The date of the mortgage valuation/survey
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   mortgageSurveyDate?: string // date-time
   /**
@@ -20481,7 +20493,7 @@ export interface UpdatePropertyModel {
   /**
    * The date when the ground rent payable on the property should be reviewed
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   groundRentReviewDate?: string // date-time
   /**
@@ -21028,6 +21040,10 @@ export interface UpdateTenancyModel {
    */
   meterReadingWaterLastRead?: string // date
   /**
+   * Financial notes set against the tenancy
+   */
+  feeNotes?: string
+  /**
    * Request body used to set the deposit of a tenancy
    */
   deposit?: {
@@ -21073,13 +21089,13 @@ export interface UpdateTenancyRenewalModel {
   /**
    * The proposed start date of the tenancy renewal
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   startDate?: string // date-time
   /**
    * The proposed end date of the tenancy renewal
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   endDate?: string // date-time
   /**
@@ -21501,7 +21517,7 @@ export interface ValidationErrorModel {
   /**
    * The date and time that this error event occurred
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   dateTime?: string // date-time
   /**
@@ -21687,13 +21703,13 @@ export interface VendorContactRelationshipModel {
   /**
    * The date and time when the relationship was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the relationship was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -21730,13 +21746,13 @@ export interface VendorContactRelationshipModelPagedResult {
     /**
      * The date and time when the relationship was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the relationship was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -21782,13 +21798,13 @@ export interface VendorModel {
   /**
    * The date and time when the vendor was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the vendor was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -21935,7 +21951,7 @@ export interface VendorModel {
   /**
    * The date and time the vendor was archived
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   archivedOn?: string // date-time
   /**
@@ -21970,13 +21986,13 @@ export interface VendorModelPagedResult {
     /**
      * The date and time when the vendor was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the vendor was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -22123,7 +22139,7 @@ export interface VendorModelPagedResult {
     /**
      * The date and time the vendor was archived
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     archivedOn?: string // date-time
     /**
@@ -22314,13 +22330,13 @@ export interface WorksOrderItemModel {
   /**
    * The date and time when the works order item was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the works order item was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -22377,13 +22393,13 @@ export interface WorksOrderItemModelPagedResult {
     /**
      * The date and time when the works order item was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the works order item was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -22449,13 +22465,13 @@ export interface WorksOrderModel {
   /**
    * The date and time when the works order was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the works order was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -22547,13 +22563,13 @@ export interface WorksOrderModel {
     /**
      * The date and time when the works order item was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the works order item was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -22623,13 +22639,13 @@ export interface WorksOrderModelPagedResult {
     /**
      * The date and time when the works order was created
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     created?: string // date-time
     /**
      * The date and time when the works order was last modified
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -22721,13 +22737,13 @@ export interface WorksOrderModelPagedResult {
       /**
        * The date and time when the works order item was created
        * example:
-       * 2019-08-14T12:30:02.0000000Z
+       * 2019-08-14T12:30:02Z
        */
       created?: string // date-time
       /**
        * The date and time when the works order item was last modified
        * example:
-       * 2019-08-14T12:30:02.0000000Z
+       * 2019-08-14T12:30:02Z
        */
       modified?: string // date-time
       /**
