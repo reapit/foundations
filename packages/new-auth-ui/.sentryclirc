@@ -1,6 +1,0 @@
-[defaults]
-project=developer-portal
-org=reapit-ltd
-
-[http]
-keepalive=false
