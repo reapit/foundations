@@ -1,12 +1,12 @@
-import { STS } from 'aws-sdk'
+import { AWSError, STS } from 'aws-sdk'
 const sts = new STS()
 
 export const getAccountId = async () => {
   return new Promise<string>((resolve, reject) => {
-    sts.getCallerIdentity(async (err, account) => {
-      if (err) reject(err)
+    sts.getCallerIdentity(async (err: AWSError, data: STS.Types.GetCallerIdentityResponse) => {
+      if (err || !data.Account) reject(err)
 
-      resolve(account.Account)
+      resolve(data.Account as string)
     })
   })
 }
