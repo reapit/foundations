@@ -15,7 +15,6 @@
       "packages/cli",
       "packages/config-manager",
       "packages/connect-session",
-      "packages/connect-session-next",
       "packages/cognito-custom-mail-lambda",
       "packages/cra-template-foundations",
       "packages/create-node-app-generator",
@@ -46,8 +45,7 @@
       "packages/utils-common",
       "packages/utils-node",
       "packages/utils-react",
-      "packages/utils-nest",
-      "packages/new-auth-ui"
+      "packages/utils-nest"
     ]
   },
   "scripts": {
