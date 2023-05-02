@@ -9,8 +9,7 @@
       "@/*": ["src/*"],
       "@reapit/elements": ["../elements/src"]
     },
-    "declaration": true,
-    "declarationDir": "dist"
+    "declaration": true
   },
   "include": ["src"],
   "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
