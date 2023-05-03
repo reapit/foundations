@@ -34,7 +34,7 @@
     "check": "tsc --noEmit --skipLibCheck",
     "publish": "yarn npm publish --access public",
     "release": "echo '...skipping...'",
-    "deploy": "serverless remove && rpt-cdk deploy",
+    "deploy": "rpt-cdk deploy",
     "start": "start-storybook -p 6006",
     "test": "cross-env TZ=UTC jest --watch --colors --silent"
   },

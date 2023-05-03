@@ -76,6 +76,10 @@ jobs:
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
 
+      - name: Remove Serverless
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} run serverless remove --stage prod
+
       - name: Deploy
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run deploy
