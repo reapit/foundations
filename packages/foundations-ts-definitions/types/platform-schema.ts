@@ -1755,6 +1755,10 @@ export interface AppointmentModel {
    */
   accompanied?: boolean
   /**
+   * A flag denoting whether or not the appointment is a subsequent appointment to a previous one (a repeat appointment for the same attendee)
+   */
+  isRepeat?: boolean
+  /**
    * A flag denoting whether or not the appointment is virtual
    */
   virtual?: boolean
@@ -1953,6 +1957,10 @@ export interface AppointmentModelPagedResult {
      * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
      */
     accompanied?: boolean
+    /**
+     * A flag denoting whether or not the appointment is a subsequent appointment to a previous one (a repeat appointment for the same attendee)
+     */
+    isRepeat?: boolean
     /**
      * A flag denoting whether or not the appointment is virtual
      */
@@ -3754,6 +3762,7 @@ export interface Contacts {
   address?: string
   identityCheck?: ('pass' | 'fail' | 'pending' | 'warnings' | 'unchecked')[]
   name?: string
+  nameType?: string
   marketingConsent?: ('grant' | 'deny' | 'notAsked')[]
   active?: boolean
   fromArchive?: boolean
@@ -4783,6 +4792,10 @@ export interface CreateAppointmentModel {
    * A flag denoting whether or not the appointment is virtual
    */
   virtual?: boolean
+  /**
+   * A flag denoting whether or not the appointment is a subsequent appointment to a previous one (a repeat appointment for the same attendee)
+   */
+  isRepeat?: boolean
   /**
    * Details of an appointment's recurrence pattern
    */
@@ -18334,6 +18347,10 @@ export interface UpdateAppointmentModel {
    * A flag denoting whether or not the appointment is virtual
    */
   virtual?: boolean
+  /**
+   * A flag denoting whether or not the appointment is a subsequent appointment to a previous one (a repeat appointment for the same attendee)
+   */
+  isRepeat?: boolean
   /**
    * A flag denoting whether or not the main negotiator has confirmed their attendance
    */
