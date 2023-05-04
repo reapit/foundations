@@ -95,6 +95,22 @@ export interface CreateIdentitySourceModel {
    * The identifier of the organisation to associate with the identity source
    */
   organisationId?: string
+  /**
+   * The issuer of tokens in third party IdP. Used to setup identity provider
+   */
+  tokenIssuerUrl?: string
+  /**
+   * The id of the client in the organisation's own identity provider
+   */
+  clientId?: string
+  /**
+   * The secret associated with the OIDC client in the organisation's own identity provider. This is not stored but is passed through to Reapit Connect
+   */
+  clientSecret?: string
+  /**
+   * The email domains used by the organisation associated to this identity provider when signing in
+   */
+  domainIdentifiers?: string[]
 }
 /**
  * Request body used to create a new office group
@@ -560,6 +576,18 @@ export interface IdentitySourceModel {
    * The unique identifier of the organisation that the identity source is associated with
    */
   organisationId?: string
+  /**
+   * The issuer of tokens in third party IdP. Used to setup identity provider
+   */
+  tokenIssuerUrl?: string
+  /**
+   * The id of the client in the organisation's own identity provider
+   */
+  clientId?: string
+  /**
+   * The email domains used by the organisation associated to this identity provider when signing in
+   */
+  domainIdentifiers?: string[]
   organisation?: OrganisationModel
 }
 export interface IdentitySourceModelPagedResult {
