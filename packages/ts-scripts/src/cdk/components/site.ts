@@ -13,6 +13,7 @@ import { OriginAccessIdentity } from 'aws-cdk-lib/aws-cloudfront'
 import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam'
 import { BlockPublicAccess, BucketAccessControl, BucketEncryption, ObjectOwnership } from 'aws-cdk-lib/aws-s3'
 import { ACM } from 'aws-sdk'
+import { InvalidateCloudfrontDistribution } from '../utils/cf-innvalidate'
 
 interface CreateSiteInterface {
   env?: 'dev' | 'prod'
@@ -86,7 +87,7 @@ export const createSite = async (
 
   console.log('deployment', deploymentBucket.deployedBucket.bucketDomainName)
 
-  const distro = createCloudfront(stack, 'front-distro', {
+  const distribution = createCloudfront(stack, 'front-distro', {
     originConfigs: [
       {
         s3OriginSource: {
@@ -120,10 +121,15 @@ export const createSite = async (
   })
 
   const r53 = createRoute(stack, 'route', {
-    target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distro)),
+    target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
     zone: hostedZone,
     recordName: subDomain,
     deleteExisting: true,
+  })
+
+  new InvalidateCloudfrontDistribution(stack, 'invalidation', {
+    distribution,
+    items: ['/index.html'],
   })
 
   return r53.domainName

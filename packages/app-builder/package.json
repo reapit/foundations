@@ -72,6 +72,6 @@
     "jest-coverage-badges": "^1.1.2",
     "ts-jest": "^29.1.0",
     "typescript": "^4.9.5",
-    "vite": "^4.2.2"
+    "vite": "^4.3.4"
   }
 }

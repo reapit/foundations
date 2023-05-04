@@ -1,6 +1,6 @@
 const { defineConfig, splitVendorChunkPlugin } = require('vite')
 const react = require('@vitejs/plugin-react-swc')
-const svgrPlugin = require('vite-plugin-svgr')
+const svgrPlugin = require('vite-plugin-svgr').default
 const linaria = require('@linaria/vite').default
 const checker = require('vite-plugin-checker').default
 const { VitePWA } = require('vite-plugin-pwa')
@@ -8,6 +8,7 @@ const { nodePolyfills } = require('vite-plugin-node-polyfills')
 const gql = require('vite-plugin-graphql-loader').default
 const path = require('path')
 const topLevelAwait = require('vite-plugin-top-level-await').default
+const { sentryVitePlugin } = require('@sentry/vite-plugin')
 
 module.exports = (config, appName) =>
   defineConfig(({ mode }) => ({
@@ -36,6 +37,7 @@ module.exports = (config, appName) =>
           ],
         },
       }),
+
       mode === 'development' &&
         checker({
           typescript: true,
@@ -78,10 +80,22 @@ module.exports = (config, appName) =>
             ],
           },
         }),
+      process.env.IS_RELEASE &&
+        sentryVitePlugin({
+          include: `${process.cwd()}//build/**/*`,
+          ignore: ['node_modules', `${process.cwd()}/build/**/*.svg`],
+          configFile: `${process.cwd()}/.sentryclirc`,
+          authToken: process.env.SENTRY_AUTH_TOKEN,
+          silent: true,
+          setCommits: {
+            auto: true,
+          },
+          telemetry: false,
+        }),
     ],
     build: {
       outDir: 'build',
-      rollupOptions: {},
+      sourcemap: true,
     },
     define: {
       'process.env': {

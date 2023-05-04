@@ -13,7 +13,7 @@ const createStack = async () => {
   })
 
   await createSite(stack, {
-    env: process.env.APP_STAGE === 'production' ? 'prod' : 'dev',
+    env: process.env.APP_STAGE !== 'production' ? 'prod' : 'dev',
     location: join(__dirname, 'build'),
   })
 }
