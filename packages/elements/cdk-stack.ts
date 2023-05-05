@@ -23,3 +23,11 @@ const bootstrap = async () => {
 }
 
 bootstrap()
+  .then(() => {
+    console.log('Site deployed successfully')
+    process.exit(0)
+  })
+  .catch((err) => {
+    console.error('Build error: ', err)
+    process.exit(1)
+  })

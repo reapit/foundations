@@ -13,7 +13,7 @@ const createStack = async () => {
   })
 
   await createSite(stack, {
-    env: process.env.APP_STAGE !== 'production' ? 'dev' : 'prod',
+    env: process.env.APP_STAGE === 'production' ? 'prod' : 'dev',
     location: join(__dirname, 'build'),
   })
 }
@@ -23,3 +23,11 @@ const bootstrap = async () => {
 }
 
 bootstrap()
+  .then(() => {
+    console.log('Site deployed successfully')
+    process.exit(0)
+  })
+  .catch((err) => {
+    console.error('Build error: ', err)
+    process.exit(1)
+  })
