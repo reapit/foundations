@@ -433,6 +433,14 @@ export interface AppRevisionModel {
    * Gets a collection of media objects associated with the app
    */
   media?: MediaModel[]
+  /**
+   * Gets the X axis size of the launched window in AgencyCloud for an app with one or more desktopIntegrationTypeIds set
+   */
+  launchWindowSizeX?: number // int32
+  /**
+   * Gets the Y axis size of the launched window in AgencyCloud for an app with one or more desktopIntegrationTypeIds set
+   */
+  launchWindowSizeY?: number // int32
 }
 /**
  * Model to handle paged data and information
@@ -1059,6 +1067,14 @@ export interface CreateAppRevisionModel {
    * Sets a flag to determine if the app is free to use
    */
   isFree?: boolean
+  /**
+   * Sets the X axis size of the launched window in AgencyCloud for an app with one or more desktopIntegrationTypeIds set
+   */
+  launchWindowSizeX?: number // int32
+  /**
+   * Sets the Y axis size of the launched window in AgencyCloud for an app with one or more desktopIntegrationTypeIds set
+   */
+  launchWindowSizeY?: number // int32
 }
 /**
  * The model responsible for creation of a category
@@ -1562,6 +1578,14 @@ export interface InstallationModel {
    * Gets the email address of the user who uninstalled the app
    */
   uninstalledBy?: string
+  /**
+   * Gets the X axis size of the pop up window
+   */
+  launchWindowSizeX?: number // int32
+  /**
+   * Gets the Y axis size of the pop up window
+   */
+  launchWindowSizeY?: number // int32
   customerAddress?: AddressModel
   /**
    * Gets the installations metadata
