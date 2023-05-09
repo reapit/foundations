@@ -136,6 +136,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
 
     if (pipeline.packageManager && pipeline.packageManager === PackageManagerEnum.YARN_BERRY) {
       setupCommands.push('yarn set version berry')
+      setupCommands.push('yarn config set nodeLinker node-modules')
     }
 
     const start = this.codeBuild.startBuild({
@@ -152,7 +153,9 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
             },
             commands: [
               ...setupCommands,
-              pipeline.packageManager?.includes(PackageManagerEnum.YARN)
+              pipeline.packageManager === PackageManagerEnum.YARN_BERRY
+                ? 'yarn'
+                : pipeline.packageManager === PackageManagerEnum.YARN
                 ? PackageManagerEnum.YARN
                 : `${pipeline.packageManager} install`,
             ],
@@ -162,7 +165,9 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
               `${
                 pipeline.packageManager === PackageManagerEnum.NPM
                   ? `${pipeline.packageManager} run`
-                  : pipeline.packageManager?.includes(PackageManagerEnum.YARN) ? 'yarn' : pipeline.packageManager
+                  : pipeline.packageManager?.includes(PackageManagerEnum.YARN)
+                  ? 'yarn'
+                  : pipeline.packageManager
               } ${pipeline.buildCommand}`,
             ],
           },
