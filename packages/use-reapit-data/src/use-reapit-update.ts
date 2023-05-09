@@ -125,8 +125,11 @@ export const useReapitUpdate = <ParamsType, DataType>({
   })
 
   const errorString = error?.message ? error.message : null
-  const sendFunc: SendFunction<ParamsType, DataType> = (data: ParamsType, options?: Options) =>
-    mutateAsync({ data, options })
+  const sendFunc = ((data: ParamsType, options?: Options) =>
+    mutateAsync({ data, options }).catch((err) => console.info('Caught error', err.message))) as SendFunction<
+    ParamsType,
+    DataType
+  >
 
   return [isLoading, data, sendFunc, isSuccess, errorString]
 }
