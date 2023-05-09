@@ -67,6 +67,11 @@ export const ElTabsWrap = styled.div`
   align-items: flex-start;
   height: auto;
   overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &.${elTabsFullWidth} {
     width: 100%;
@@ -84,6 +89,6 @@ export const ElTabsFooter = styled.div`
   border-top: 1px solid var(--color-grey-medium);
 
   &.${elTabsFullWidth} {
-    width: 100vw;
+    width: 100%;
   }
 `
