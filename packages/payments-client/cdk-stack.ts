@@ -21,12 +21,7 @@ const bootstrap = async () => {
   await createStack()
 }
 
-bootstrap()
-  .then(() => {
-    console.log('Site deployed successfully')
-    process.exit(0)
-  })
-  .catch((err) => {
-    console.error('Build error: ', err)
-    process.exit(1)
-  })
+bootstrap().catch((err) => {
+  console.error('Build error: ', err)
+  process.exit(1)
+})
