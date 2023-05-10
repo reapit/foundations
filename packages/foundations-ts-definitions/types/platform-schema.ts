@@ -12617,6 +12617,10 @@ export interface PropertyModel {
    */
   localAuthorityCompanyId?: string
   /**
+   * The name of the property's local authority
+   */
+  localAuthorityCompanyName?: string
+  /**
    * The summary of accommodation, typically short phrases or bullet points describing the key features of the property
    */
   summary?: string
@@ -13446,6 +13450,10 @@ export interface PropertyModelPagedResult {
      * The property's local authority
      */
     localAuthorityCompanyId?: string
+    /**
+     * The name of the property's local authority
+     */
+    localAuthorityCompanyName?: string
     /**
      * The summary of accommodation, typically short phrases or bullet points describing the key features of the property
      */
