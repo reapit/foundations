@@ -7,6 +7,7 @@ import {
   InputGroup,
   InputWrapFull,
   Label,
+  TextArea,
   ToggleRadio,
 } from '@reapit/elements'
 import { DeveloperModel, UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
@@ -26,6 +27,7 @@ interface DeveloperStatusModalProps {
 interface UpdateDeveloperForm {
   status?: string
   reapitReference?: string
+  notes?: string
 }
 
 export const validationSchema = object().shape({
@@ -36,6 +38,7 @@ export const validationSchema = object().shape({
       is: (val) => val == 'confirmed',
       then: string().required().max(50, 'Maximum of 50 characters allowed'),
     }),
+  notes: string().trim().max(200, 'Maximum of 200 characters allowed'),
 })
 
 export const handleUpdateDevStatus =
@@ -81,6 +84,7 @@ export const DeveloperStatusModal: FC<DeveloperStatusModalProps> = ({
     defaultValues: {
       status: developer?.status,
       reapitReference: developer?.reapitReference,
+      notes: developer?.notes,
     },
   })
 
@@ -154,6 +158,12 @@ export const DeveloperStatusModal: FC<DeveloperStatusModalProps> = ({
             intent="danger"
             disabled={status !== 'confirmed'}
           />
+        </InputWrapFull>
+        <InputWrapFull>
+          <InputGroup>
+            <TextArea type="text" {...register('notes')} placeholder="Notes on developer" />
+            <Label>Notes</Label>
+          </InputGroup>
         </InputWrapFull>
       </FormLayout>
       <ButtonGroup alignment="center">
