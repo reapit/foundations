@@ -2821,6 +2821,14 @@ export interface ConfigurationContactCategories {
 export interface ConfigurationPortalTypes {
   id?: string[]
 }
+export interface ConfigurationPreTenancyCheckTypes {
+  active?: boolean
+  officeId?: string[]
+}
+export interface ConfigurationRenewalCheckTypes {
+  active?: boolean
+  officeId?: string[]
+}
 export interface ConfigurationTypes {
   type?: (
     | 'agencyTypes'
