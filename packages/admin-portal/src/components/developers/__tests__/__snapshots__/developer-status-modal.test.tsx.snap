@@ -106,6 +106,18 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
               </mock-styled.label>
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.textarea
+                name="notes"
+                placeholder="Notes on developer"
+                type="text"
+              />
+              <mock-styled.label>
+                Notes
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
@@ -228,6 +240,18 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
               htmlfor="test-static-id"
             >
               Reapit Reference
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.textarea
+              name="notes"
+              placeholder="Notes on developer"
+              type="text"
+            />
+            <mock-styled.label>
+              Notes
             </mock-styled.label>
           </mock-styled.div>
         </mock-styled.div>
