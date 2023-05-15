@@ -99,4 +99,5 @@ export enum PathNames {
   paymentRequest = '/request/{paymentId}',
   opayoTransactions = '/opayo/private/transactions',
   opayoMerchantKeys = '/opayo/private/merchant-session-keys',
+  authClient = '/marketplace/apps/{appId}/authClient',
 }

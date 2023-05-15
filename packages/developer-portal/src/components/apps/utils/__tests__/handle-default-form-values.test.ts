@@ -44,6 +44,8 @@ describe('handleSetDefaultFormValues', () => {
       isPrivateApp: false,
       videoUrl1: 'https://www.youtube.com/embed/iKdil7liAts',
       videoUrl2: '',
+      launchWindowSizeX: 750,
+      launchWindowSizeY: 950,
     }
 
     expect(setAppEditForm).toHaveBeenCalledWith(formValues)
@@ -91,6 +93,8 @@ describe('handleSetDefaultFormValues', () => {
       deletionProtection: false,
       videoUrl1: '',
       videoUrl2: '',
+      launchWindowSizeX: 950,
+      launchWindowSizeY: 750,
     }
 
     expect(setAppEditForm).toHaveBeenCalledWith(formValues)

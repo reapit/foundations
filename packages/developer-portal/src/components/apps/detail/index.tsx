@@ -2,7 +2,11 @@ import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import {
   BodyText,
   Button,
+  CardWrap,
   Col,
+  elHFull,
+  elMb11,
+  elMb7,
   elMr4,
   FlexContainer,
   Grid,
@@ -17,23 +21,28 @@ import { useParams } from 'react-router-dom'
 import { handleSetAppId } from '../utils/handle-set-app-id'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { AppClientSecretModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { useReapitGet } from '@reapit/use-reapit-data'
+import { SendFunction, UpdateActionNames, updateActions, useReapitGet, useReapitUpdate } from '@reapit/use-reapit-data'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { LinkChip, PermissionChip, textOverflow, textOverflowContainer } from './__styles__'
 import { ExternalPages, openNewPage } from '../../../utils/navigation'
 import { selectIsDeveloperAdmin } from '../../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
+import { cx } from '@linaria/core'
 
 export interface CopyState {
   externalId: string
+  rotatingExternalId: string
   clientSecret: string
+  rotatingClientSecret: string
   appId: string
 }
 
 export const defaultCopyState = {
   externalId: 'Copy',
+  rotatingExternalId: 'Copy',
   clientSecret: 'Copy',
+  rotatingClientSecret: 'Copy',
   appId: 'Copy',
 }
 
@@ -81,6 +90,25 @@ export const handleSetShouldFetchSecret = (setShouldFetchSecret: Dispatch<SetSta
   setShouldFetchSecret(true)
 }
 
+export const handleAuthClient =
+  (
+    authClientAction: SendFunction<void, boolean>,
+    appsDetailRefresh: () => void,
+    appSecret: AppClientSecretModel | null,
+    refreshAppSecret: () => void,
+  ) =>
+  async () => {
+    const authClientRes = await authClientAction()
+
+    if (authClientRes) {
+      appsDetailRefresh()
+    }
+
+    if (appSecret) {
+      refreshAppSecret()
+    }
+  }
+
 export const AppDetail: FC = () => {
   const { appsDataState, setAppId } = useAppState()
   const [copyState, setCopyState] = useState<CopyState>(defaultCopyState)
@@ -91,14 +119,32 @@ export const AppDetail: FC = () => {
 
   useEffect(handleSetAppId(setAppId, appId), [appId])
 
-  const { appDetail, appDetailLoading } = appsDataState
-  const { id, name, externalId, authFlow, redirectUris, signoutUris, scopes } = appDetail ?? {}
+  const { appDetail, appDetailLoading, appsDetailRefresh } = appsDataState
+  const { id, name, externalId, authFlow, redirectUris, signoutUris, scopes, rotatingExternalId } = appDetail ?? {}
 
-  const [appSecret, appSecretLoading] = useReapitGet<AppClientSecretModel>({
+  const [appSecret, appSecretLoading, , refreshAppSecret] = useReapitGet<AppClientSecretModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getAppSecret],
     uriParams: { appId },
     fetchWhenTrue: [appId, authFlow === 'clientCredentials', shouldFetchSecret],
+  })
+
+  const [creatingAuthClient, , createAuthClient] = useReapitUpdate<void, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions[UpdateActionNames.createAuthClient],
+    method: 'POST',
+    uriParams: {
+      appId,
+    },
+  })
+
+  const [deleteingAuthClient, , deleteAuthClient] = useReapitUpdate<void, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions[UpdateActionNames.deleteAuthClient],
+    method: 'DELETE',
+    uriParams: {
+      appId,
+    },
   })
 
   return appDetailLoading ? (
@@ -145,8 +191,135 @@ export const AppDetail: FC = () => {
           </BodyText>
         </>
       )}
+      {authFlow === 'clientCredentials' && (
+        <CardWrap className={elMb11}>
+          <Grid className={cx(rotatingExternalId && elMb7)}>
+            {externalId && (
+              <Col>
+                <FlexContainer>
+                  <Icon className={elMr4} icon="lockedInfographic" iconSize="medium" />
+                  <div>
+                    <Subtitle hasNoMargin>Authentication Client Id</Subtitle>
+                    <BodyText hasGreyText>{externalId}</BodyText>
+                  </div>
+                </FlexContainer>
+                <CopyToClipboard text={externalId} onCopy={handleCopyCode(setCopyState, 'externalId')}>
+                  <Button intent="low">{copyState.externalId}</Button>
+                </CopyToClipboard>
+              </Col>
+            )}
+            <Col>
+              <FlexContainer>
+                <Icon className={elMr4} icon="doorLockInfographic" iconSize="medium" />
+                <div className={textOverflowContainer}>
+                  <Subtitle hasNoMargin>Authentication Client Secret</Subtitle>
+                  <BodyText className={textOverflow} hasGreyText>
+                    {appSecret?.clientSecret && isAdmin
+                      ? '*********************************'
+                      : !isAdmin
+                      ? 'You need to be an admin to view this secret'
+                      : 'Click to load client secret'}
+                  </BodyText>
+                </div>
+              </FlexContainer>
+              {appSecret?.clientSecret ? (
+                <CopyToClipboard text={appSecret?.clientSecret} onCopy={handleCopyCode(setCopyState, 'clientSecret')}>
+                  <Button intent="low">{copyState.clientSecret}</Button>
+                </CopyToClipboard>
+              ) : (
+                <Button
+                  onClick={handleSetShouldFetchSecret(setShouldFetchSecret)}
+                  intent="low"
+                  disabled={appSecretLoading || !isAdmin}
+                  loading={appDetailLoading}
+                >
+                  Load Secret
+                </Button>
+              )}
+            </Col>
+            <Col>
+              <FlexContainer className={elHFull} isFlexAlignCenter>
+                <Button
+                  onClick={handleAuthClient(createAuthClient, appsDetailRefresh, appSecret, refreshAppSecret)}
+                  intent="primary"
+                  disabled={creatingAuthClient || deleteingAuthClient || !isAdmin}
+                  loading={creatingAuthClient}
+                >
+                  Rotate Authentication
+                </Button>
+              </FlexContainer>
+            </Col>
+          </Grid>
+          {rotatingExternalId && (
+            <>
+              <Subtitle>New Authentication Credentials</Subtitle>
+              <Grid>
+                <Col>
+                  <FlexContainer>
+                    <Icon className={elMr4} icon="lockedInfographic" iconSize="medium" />
+                    <div>
+                      <Subtitle hasNoMargin>Authentication Client Id</Subtitle>
+                      <BodyText hasGreyText>{rotatingExternalId}</BodyText>
+                    </div>
+                  </FlexContainer>
+                  <CopyToClipboard
+                    text={rotatingExternalId}
+                    onCopy={handleCopyCode(setCopyState, 'rotatingExternalId')}
+                  >
+                    <Button intent="low">{copyState.rotatingExternalId}</Button>
+                  </CopyToClipboard>
+                </Col>
+                <Col>
+                  <FlexContainer>
+                    <Icon className={elMr4} icon="doorLockInfographic" iconSize="medium" />
+                    <div className={textOverflowContainer}>
+                      <Subtitle hasNoMargin>Authentication Client Secret</Subtitle>
+                      <BodyText className={textOverflow} hasGreyText>
+                        {appSecret?.rotatingClientSecret && isAdmin
+                          ? '*********************************'
+                          : !isAdmin
+                          ? 'You need to be an admin to view this secret'
+                          : 'Click to load client secret'}
+                      </BodyText>
+                    </div>
+                  </FlexContainer>
+                  {appSecret?.rotatingClientSecret ? (
+                    <CopyToClipboard
+                      text={appSecret?.rotatingClientSecret}
+                      onCopy={handleCopyCode(setCopyState, 'rotatingClientSecret')}
+                    >
+                      <Button intent="low">{copyState.rotatingClientSecret}</Button>
+                    </CopyToClipboard>
+                  ) : (
+                    <Button
+                      onClick={handleSetShouldFetchSecret(setShouldFetchSecret)}
+                      intent="low"
+                      disabled={appSecretLoading || !isAdmin}
+                      loading={appDetailLoading}
+                    >
+                      Load Secret
+                    </Button>
+                  )}
+                </Col>
+                <Col>
+                  <FlexContainer className={elHFull} isFlexAlignCenter>
+                    <Button
+                      onClick={handleAuthClient(deleteAuthClient, appsDetailRefresh, appSecret, refreshAppSecret)}
+                      intent="success"
+                      disabled={creatingAuthClient || deleteingAuthClient || !isAdmin}
+                      loading={deleteingAuthClient}
+                    >
+                      Use
+                    </Button>
+                  </FlexContainer>
+                </Col>
+              </Grid>
+            </>
+          )}
+        </CardWrap>
+      )}
       <Grid>
-        {externalId && (
+        {externalId && authFlow === 'authorisationCode' && (
           <Col>
             <FlexContainer>
               <Icon className={elMr4} icon="lockedInfographic" iconSize="medium" />
@@ -158,37 +331,6 @@ export const AppDetail: FC = () => {
             <CopyToClipboard text={externalId} onCopy={handleCopyCode(setCopyState, 'externalId')}>
               <Button intent="low">{copyState.externalId}</Button>
             </CopyToClipboard>
-          </Col>
-        )}
-        {authFlow === 'clientCredentials' && (
-          <Col>
-            <FlexContainer>
-              <Icon className={elMr4} icon="doorLockInfographic" iconSize="medium" />
-              <div className={textOverflowContainer}>
-                <Subtitle hasNoMargin>Authentication Client Secret</Subtitle>
-                <BodyText className={textOverflow} hasGreyText>
-                  {appSecret?.clientSecret && isAdmin
-                    ? '*********************************'
-                    : !isAdmin
-                    ? 'You need to be an admin to view this secret'
-                    : 'Click to load client secret'}
-                </BodyText>
-              </div>
-            </FlexContainer>
-            {appSecret?.clientSecret ? (
-              <CopyToClipboard text={appSecret?.clientSecret} onCopy={handleCopyCode(setCopyState, 'clientSecret')}>
-                <Button intent="low">{copyState.clientSecret}</Button>
-              </CopyToClipboard>
-            ) : (
-              <Button
-                onClick={handleSetShouldFetchSecret(setShouldFetchSecret)}
-                intent="low"
-                disabled={appSecretLoading || !isAdmin}
-                loading={appDetailLoading}
-              >
-                Load Secret
-              </Button>
-            )}
           </Col>
         )}
         {id && (

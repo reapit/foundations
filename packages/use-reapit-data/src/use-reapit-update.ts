@@ -90,7 +90,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
 
       if (returnType === UpdateReturnTypeEnum.LOCATION && res.headers) {
         const headers = res.headers as AxiosResponseHeaders
-        const location = headers.get('Location')?.valueOf() as string
+        const location = headers.location
 
         if (!location) throw new Error('Location was not returned by server')
 

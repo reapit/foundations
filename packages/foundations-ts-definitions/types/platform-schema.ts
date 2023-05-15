@@ -14456,6 +14456,19 @@ export interface PropertyTenureModel {
   expiry?: string // date
 }
 /**
+ * Terminologies associated with the properties
+ */
+export interface PropertyTerminologyModel {
+  /**
+   * A flag denoting whether the agent's CRM is configured to use "Sold STC/SSTC" terminology instead of "Under Offer"
+   */
+  useSoldStc?: boolean
+  /**
+   * A flag denoting whether the agent's CRM is configured to use "Market Appraisal" terminology instead of "Valuation"
+   */
+  useMarketAppraisal?: boolean
+}
+/**
  * Representation of an appointments recurrence details
  */
 export interface RecurrenceModel {
@@ -17278,6 +17291,24 @@ export interface TenancySourceModel {
    * The source type (office/source)
    */
   type?: string
+}
+/**
+ * Representation of the configuration settings for terminology
+ */
+export interface TerminologyModel {
+  /**
+   * Terminologies associated with the properties
+   */
+  properties?: {
+    /**
+     * A flag denoting whether the agent's CRM is configured to use "Sold STC/SSTC" terminology instead of "Under Offer"
+     */
+    useSoldStc?: boolean
+    /**
+     * A flag denoting whether the agent's CRM is configured to use "Market Appraisal" terminology instead of "Valuation"
+     */
+    useMarketAppraisal?: boolean
+  }
 }
 /**
  * Model representing a transaction
