@@ -18,6 +18,8 @@
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
+    "aws-cdk": "^2.66.1",
+    "aws-cdk-lib": "^2.66.1",
     "eslint": "8.35.0",
     "eslint-plugin-prettier": "^4.2.1",
     "serverless": "^2.72.3",
@@ -42,5 +44,9 @@
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity security-header-lambda --name local --mode fetch",
     "commit": "yarn lint"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cloudfront": "^3.332.0",
+    "aws-sdk": "^2.1377.0"
   }
 }
