@@ -1,6 +1,5 @@
 import { createBaseStack, getAccountId } from '@reapit/ts-scripts/src/cdk'
 import { join } from 'path'
-import config from './config.json'
 import cdk from 'aws-cdk-lib'
 import { execSync } from 'child_process'
 
