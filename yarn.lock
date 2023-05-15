@@ -11857,6 +11857,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@reapit/security-header-lambda@workspace:packages/security-header-lambda":
+  version: 0.0.0-use.local
+  resolution: "@reapit/security-header-lambda@workspace:packages/security-header-lambda"
+  dependencies:
+    "@aws-sdk/client-cloudfront": ^3.332.0
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
+    "@typescript-eslint/eslint-plugin": ^5.54.0
+    "@typescript-eslint/parser": ^5.54.0
+    aws-cdk: ^2.66.1
+    aws-cdk-lib: ^2.66.1
+    eslint: 8.35.0
+    eslint-plugin-prettier: ^4.2.1
+    serverless: ^2.72.3
+    serverless-deployment-bucket: ^1.6.0
+    serverless-lambda-edge-pre-existing-cloudfront: ^1.2.0
+    serverless-offline: ^8.8.1
+    serverless-plugin-log-retention: ^2.0.0
+    serverless-webpack: ^5.11.0
+    snyk: ^1.1110.0
+    ts-loader: ^9.4.2
+    typescript: ^4.9.5
+    webpack: ^5.75.0
+  languageName: unknown
+  linkType: soft
+
 "@reapit/storybook-addon-html@npm:^5.0.1":
   version: 5.0.1
   resolution: "@reapit/storybook-addon-html@npm:5.0.1"
@@ -19795,24 +19822,6 @@ __metadata:
     uuid: 8.0.0
     xml2js: 0.4.19
   checksum: 88af4020a8b3eeb49d3b1eaf3a3895b781cd8820f293dabd8365bdc602dee26a250c6a6c4807926f5fe9dac40be30ba3046474cbfa52171b8b141b96b03f00b2
-  languageName: node
-  linkType: hard
-
-"aws-sdk@npm:^2.1377.0":
-  version: 2.1377.0
-  resolution: "aws-sdk@npm:2.1377.0"
-  dependencies:
-    buffer: 4.9.2
-    events: 1.1.1
-    ieee754: 1.1.13
-    jmespath: 0.16.0
-    querystring: 0.2.0
-    sax: 1.2.1
-    url: 0.10.3
-    util: ^0.12.4
-    uuid: 8.0.0
-    xml2js: 0.5.0
-  checksum: 4ebc5ad4feb72219febd751dce320e940323acaa3de7e047bd2e2f4497e03651a99924dff4be9a86ea3362e5a3f3e407784cbbdd09a8d1b91fb7b0d2e05d8b35
   languageName: node
   linkType: hard
 
@@ -41876,34 +41885,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"security-header-lambda@workspace:packages/security-header-lambda":
-  version: 0.0.0-use.local
-  resolution: "security-header-lambda@workspace:packages/security-header-lambda"
-  dependencies:
-    "@aws-sdk/client-cloudfront": ^3.332.0
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
-    "@typescript-eslint/eslint-plugin": ^5.54.0
-    "@typescript-eslint/parser": ^5.54.0
-    aws-cdk: ^2.66.1
-    aws-cdk-lib: ^2.66.1
-    aws-sdk: ^2.1377.0
-    eslint: 8.35.0
-    eslint-plugin-prettier: ^4.2.1
-    serverless: ^2.72.3
-    serverless-deployment-bucket: ^1.6.0
-    serverless-lambda-edge-pre-existing-cloudfront: ^1.2.0
-    serverless-offline: ^8.8.1
-    serverless-plugin-log-retention: ^2.0.0
-    serverless-webpack: ^5.11.0
-    snyk: ^1.1110.0
-    ts-loader: ^9.4.2
-    typescript: ^4.9.5
-    webpack: ^5.75.0
-  languageName: unknown
-  linkType: soft
-
 "seed-data-workflow@workspace:packages/seed-data-workflow":
   version: 0.0.0-use.local
   resolution: "seed-data-workflow@workspace:packages/seed-data-workflow"
@@ -48747,16 +48728,6 @@ fsevents@^1.2.7:
     sax: ">=0.6.0"
     xmlbuilder: ~9.0.1
   checksum: ca8b2fee430d450a18947786bfd7cd1a353ee00fc6fd550acbc8a8e65f1b4df5e9786fcb2990c1a5514ecd554d445fb74e1d716b3a4fcfffc10554aeb5db482b
-  languageName: node
-  linkType: hard
-
-"xml2js@npm:0.5.0":
-  version: 0.5.0
-  resolution: "xml2js@npm:0.5.0"
-  dependencies:
-    sax: ">=0.6.0"
-    xmlbuilder: ~11.0.0
-  checksum: 1aa71d62e5bc2d89138e3929b9ea46459157727759cbc62ef99484b778641c0cd21fb637696c052d901a22f82d092a3e740a16b4ce218e81ac59b933535124ea
   languageName: node
   linkType: hard
 

@@ -1,5 +1,5 @@
 {
-  "name": "security-header-lambda",
+  "name": "@reapit/security-header-lambda",
   "version": "1.0.6",
   "homepage": "https://github.com/reapit/foundations",
   "license": "MIT",
@@ -46,7 +46,6 @@
     "commit": "yarn lint"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudfront": "^3.332.0",
-    "aws-sdk": "^2.1377.0"
+    "@aws-sdk/client-cloudfront": "^3.332.0"
   }
 }

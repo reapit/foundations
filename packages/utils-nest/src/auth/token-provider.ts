@@ -16,7 +16,7 @@ export class TokenProvider implements AuthProviderInterface<any> {
 
   async resolve(request: Request): Promise<LoginIdentity> {
     try {
-      const authorization = request.headers?.authorization  
+      const authorization = request.headers?.authorization
 
       if (!authorization) throw new UnauthorizedException('Authorization header not found')
 
