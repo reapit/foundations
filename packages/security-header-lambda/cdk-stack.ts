@@ -20,8 +20,8 @@ export const createSecurityHeaderLambdaStack = async () => {
 
   const edgeLambda = new cdk.aws_cloudfront.experimental.EdgeFunction(stack, 'securityHeaderLambda', {
     runtime: cdk.aws_lambda.Runtime.NODEJS_14_X,
-    handler: 'index.securityHeaderLambda',
-    code: cdk.aws_lambda.Code.fromAsset(join(__dirname, 'dist/main')),
+    handler: 'main.securityHeaderLambda',
+    code: cdk.aws_lambda.Code.fromAsset(join(__dirname, 'dist/main.js')),
   })
 
   return { edgeLambda }
