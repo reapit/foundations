@@ -8,6 +8,11 @@ export const createSecurityHeaderLambdaStack = async () => {
     cwd: __dirname,
     stdio: 'inherit',
   })
+
+  execSync('yarn bundle', {
+    cwd: __dirname,
+    stdio: 'inherit',
+  })
   
   const accountId = await getAccountId()
   const stack = createBaseStack({
