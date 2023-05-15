@@ -58,6 +58,8 @@ export const formatAppFields = (appDetail: AppDetailModel | null, developerId?: 
       products: appDetail.products?.join(',') ?? '',
       iconImageUrl: icon?.uri ?? '',
       deletionProtection: appDetail.deletionProtection ?? false,
+      launchWindowSizeX: appDetail.launchWindowSizeX ?? defaultValues.launchWindowSizeX,
+      launchWindowSizeY: appDetail.launchWindowSizeY ?? defaultValues.launchWindowSizeY,
       ...images,
       ...videos,
     }

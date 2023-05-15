@@ -23,7 +23,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
       <mock-styled.p
         classname="mock-css."
       >
-        The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only.
+        The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
       </mock-styled.p>
       <mock-styled.div
         classname="mock-css."
@@ -93,6 +93,38 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
             An Error
           </mock-styled.p>
         </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              disabled="true"
+              id="test-static-id"
+              name="launchWindowSizeX"
+              placeholder="Width of window your app will be launched in AgencyCloud"
+              type="text"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Default App Window Width
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              disabled="true"
+              id="test-static-id"
+              name="launchWindowSizeY"
+              placeholder="Height of window your app will be launched in AgencyCloud"
+              type="text"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Default App Window Height
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
@@ -115,7 +147,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
     <mock-styled.p
       classname="mock-css."
     >
-      The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only.
+      The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
     </mock-styled.p>
     <mock-styled.div
       classname="mock-css."
@@ -184,6 +216,38 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
         <mock-styled.p>
           An Error
         </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
+            disabled="true"
+            id="test-static-id"
+            name="launchWindowSizeX"
+            placeholder="Width of window your app will be launched in AgencyCloud"
+            type="text"
+          />
+          <mock-styled.label
+            htmlfor="test-static-id"
+          >
+            Default App Window Width
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
+            disabled="true"
+            id="test-static-id"
+            name="launchWindowSizeY"
+            placeholder="Height of window your app will be launched in AgencyCloud"
+            type="text"
+          />
+          <mock-styled.label
+            htmlfor="test-static-id"
+          >
+            Default App Window Height
+          </mock-styled.label>
+        </mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>
   </div>,
@@ -264,7 +328,7 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
       <mock-styled.p
         classname="mock-css."
       >
-        The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only.
+        The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
       </mock-styled.p>
       <mock-styled.div
         classname="mock-css."
@@ -300,6 +364,38 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              disabled="true"
+              id="test-static-id"
+              name="launchWindowSizeX"
+              placeholder="Width of window your app will be launched in AgencyCloud"
+              type="text"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Default App Window Width
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              disabled="true"
+              id="test-static-id"
+              name="launchWindowSizeY"
+              placeholder="Height of window your app will be launched in AgencyCloud"
+              type="text"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Default App Window Height
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
@@ -322,7 +418,7 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
     <mock-styled.p
       classname="mock-css."
     >
-      The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only.
+      The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
     </mock-styled.p>
     <mock-styled.div
       classname="mock-css."
@@ -356,6 +452,38 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div />
           </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
+            disabled="true"
+            id="test-static-id"
+            name="launchWindowSizeX"
+            placeholder="Width of window your app will be launched in AgencyCloud"
+            type="text"
+          />
+          <mock-styled.label
+            htmlfor="test-static-id"
+          >
+            Default App Window Width
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
+            disabled="true"
+            id="test-static-id"
+            name="launchWindowSizeY"
+            placeholder="Height of window your app will be launched in AgencyCloud"
+            type="text"
+          />
+          <mock-styled.label
+            htmlfor="test-static-id"
+          >
+            Default App Window Height
+          </mock-styled.label>
         </mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>
@@ -437,7 +565,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
       <mock-styled.p
         classname="mock-css."
       >
-        The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only.
+        The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
       </mock-styled.p>
       <mock-styled.div
         classname="mock-css."
@@ -490,6 +618,38 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              disabled="true"
+              id="test-static-id"
+              name="launchWindowSizeX"
+              placeholder="Width of window your app will be launched in AgencyCloud"
+              type="text"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Default App Window Width
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              disabled="true"
+              id="test-static-id"
+              name="launchWindowSizeY"
+              placeholder="Height of window your app will be launched in AgencyCloud"
+              type="text"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Default App Window Height
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
@@ -512,7 +672,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
     <mock-styled.p
       classname="mock-css."
     >
-      The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only.
+      The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
     </mock-styled.p>
     <mock-styled.div
       classname="mock-css."
@@ -563,6 +723,38 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
               Please select from the options below
             </p>
           </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
+            disabled="true"
+            id="test-static-id"
+            name="launchWindowSizeX"
+            placeholder="Width of window your app will be launched in AgencyCloud"
+            type="text"
+          />
+          <mock-styled.label
+            htmlfor="test-static-id"
+          >
+            Default App Window Width
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
+            disabled="true"
+            id="test-static-id"
+            name="launchWindowSizeY"
+            placeholder="Height of window your app will be launched in AgencyCloud"
+            type="text"
+          />
+          <mock-styled.label
+            htmlfor="test-static-id"
+          >
+            Default App Window Height
+          </mock-styled.label>
         </mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>

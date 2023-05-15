@@ -7,14 +7,16 @@ import {
   defaultCopyState,
   getAppStatus,
   getIntegrationType,
+  handleAuthClient,
   handleCopyCode,
   handleSetShouldFetchSecret,
 } from '../index'
+import { AppClientSecretModel } from '@reapit/foundations-ts-definitions'
 
 jest.mock('../../state/use-app-state')
 jest.mock('@reapit/use-reapit-data', () => ({
   ...jest.requireActual('@reapit/use-reapit-data'),
-  useReapitGet: jest.fn(() => [{ clientSecret: 'MOCK_SECRET' }]),
+  useReapitGet: jest.fn(() => [{ clientSecret: 'MOCK_SECRET', rotatingClientSecret: 'MOCK_ROTATED_SECRET' }]),
 }))
 jest.useFakeTimers()
 
@@ -85,6 +87,23 @@ describe('handleSetShouldFetchSecret', () => {
     curried()
 
     expect(setShouldFetchSecret).toHaveBeenCalledWith(true)
+  })
+})
+
+describe('handleAuthClient', () => {
+  it('should handle an auth client action', async () => {
+    const authClientAction = jest.fn(() => Promise.resolve(true))
+    const appsDetailRefresh = jest.fn()
+    const appSecret = {} as AppClientSecretModel
+    const refreshAppSecret = jest.fn()
+
+    const curried = handleAuthClient(authClientAction, appsDetailRefresh, appSecret, refreshAppSecret)
+
+    await curried()
+
+    expect(authClientAction).toHaveBeenCalledTimes(1)
+    expect(appsDetailRefresh).toHaveBeenCalledTimes(1)
+    expect(refreshAppSecret).toHaveBeenCalledTimes(1)
   })
 })
 

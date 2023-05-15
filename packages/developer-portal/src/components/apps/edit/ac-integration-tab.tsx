@@ -30,6 +30,11 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
     control,
     name: 'isAgencyCloudIntegrated',
   })
+  const desktopIntegrationTypeIdsValue = useWatch({
+    control,
+    name: 'desktopIntegrationTypeIds',
+  })
+
   const [desktopIntegrationTypes, desktopIntegrationTypesLoading] =
     useReapitGet<DesktopIntegrationTypeModelPagedResult>({
       reapitConnectBrowserSession,
@@ -37,7 +42,7 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
       fetchWhenTrue: [isAgencyCloudIntegratedValue],
     })
 
-  const { desktopIntegrationTypeIds, isAgencyCloudIntegrated } = formFields
+  const { desktopIntegrationTypeIds, isAgencyCloudIntegrated, launchWindowSizeX, launchWindowSizeY } = formFields
   const { name } = desktopIntegrationTypeIds
 
   const filteredDesktopIntegrationTypes = desktopIntegrationTypes?.data?.filter(
@@ -58,7 +63,8 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
       </BodyText>
       <BodyText hasGreyText>
         The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen.
-        You should select the ones that are relevant to your app only.
+        You should select the ones that are relevant to your app only. You can also select the default height and width
+        of the window you wish your app to launch in within AgencyCloud.
       </BodyText>
       <FormLayout hasMargin>
         <InputWrap>
@@ -94,6 +100,26 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
             )}
           </InputWrapFull>
         )}
+        <InputWrap>
+          <InputGroup
+            {...launchWindowSizeX}
+            {...register('launchWindowSizeX')}
+            disabled={!desktopIntegrationTypeIdsValue.length}
+            errorMessage={errors?.launchWindowSizeX?.message}
+            icon={errors?.launchWindowSizeX?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup
+            {...launchWindowSizeY}
+            {...register('launchWindowSizeY')}
+            disabled={!desktopIntegrationTypeIdsValue.length}
+            errorMessage={errors?.launchWindowSizeY?.message}
+            icon={errors?.launchWindowSizeY?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
+        </InputWrap>
       </FormLayout>
     </>
   )

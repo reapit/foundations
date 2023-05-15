@@ -33,6 +33,8 @@ export interface AppEditFormSchema {
   deletionProtection: boolean
   videoUrl1: string
   videoUrl2: string
+  launchWindowSizeX: number
+  launchWindowSizeY: number
 }
 
 export const defaultValues: AppEditFormSchema = {
@@ -68,6 +70,8 @@ export const defaultValues: AppEditFormSchema = {
   deletionProtection: false,
   videoUrl1: '',
   videoUrl2: '',
+  launchWindowSizeX: 950,
+  launchWindowSizeY: 750,
 }
 
 export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { name: string }> = {
@@ -246,6 +250,18 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
     name: 'videoUrl2',
     label: 'Why Use Us Video URL',
     placeholder: 'YouTube embed preferred or any https hosted video',
+    type: 'text',
+  },
+  launchWindowSizeX: {
+    name: 'launchWindowSizeX',
+    label: 'Default App Window Width',
+    placeholder: 'Width of window your app will be launched in AgencyCloud',
+    type: 'text',
+  },
+  launchWindowSizeY: {
+    name: 'launchWindowSizeY',
+    label: 'Default App Window Height',
+    placeholder: 'Height of window your app will be launched in AgencyCloud',
     type: 'text',
   },
 }

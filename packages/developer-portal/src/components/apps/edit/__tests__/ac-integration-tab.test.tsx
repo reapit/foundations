@@ -11,7 +11,7 @@ jest.mock('@reapit/use-reapit-data', () => ({
   useReapitGet: jest.fn(() => [{ data: [{ name: 'MOCK_NAME', id: 'MOCK_ID' }] }]),
 }))
 jest.mock('react-hook-form', () => ({
-  useWatch: jest.fn(),
+  useWatch: jest.fn(() => []),
 }))
 
 const mockUseReapitGet = useReapitGet as jest.Mock

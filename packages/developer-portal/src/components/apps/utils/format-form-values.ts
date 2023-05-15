@@ -41,6 +41,12 @@ export const sanitizeAppData = (appData: CreateAppRevisionModel): CreateAppRevis
   if (sanitizedAppData.signoutUris && !sanitizedAppData.signoutUris.length) {
     delete sanitizedAppData.signoutUris
   }
+
+  if (!sanitizedAppData.desktopIntegrationTypeIds?.length) {
+    delete sanitizedAppData.launchWindowSizeX
+    delete sanitizedAppData.launchWindowSizeY
+  }
+
   return sanitizedAppData
 }
 
@@ -76,6 +82,8 @@ export const formatFormValues = ({
   desktopIntegrationTypeIds,
   products,
   isPrivateApp,
+  launchWindowSizeX,
+  launchWindowSizeY,
 }: AppEditFormSchema): CreateAppRevisionModel => {
   const appData = {
     name,
@@ -108,6 +116,8 @@ export const formatFormValues = ({
     limitToClientIds: isPrivateApp ? limitToClientIds.split(',').filter(Boolean) : [],
     desktopIntegrationTypeIds: desktopIntegrationTypeIds.split(',').filter(Boolean),
     products: products.split(',').filter(Boolean),
+    launchWindowSizeX: Number(launchWindowSizeX),
+    launchWindowSizeY: Number(launchWindowSizeY),
   }
 
   return sanitizeAppData(appData)

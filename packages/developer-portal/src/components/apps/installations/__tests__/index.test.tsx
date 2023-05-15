@@ -1,5 +1,10 @@
 import React from 'react'
-import AppInstallations, { handleSetInstallationId, handleUninstallApp, handleUninstallSuccess } from '..'
+import AppInstallations, {
+  handleSetInstallationId,
+  handleSetOffices,
+  handleUninstallApp,
+  handleUninstallSuccess,
+} from '..'
 import { render, setViewport } from '../../../../tests/react-testing'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockInstallationModelPagedResult } from '../../../../tests/__stubs__/installations'
@@ -50,9 +55,9 @@ describe('AppInstallations', () => {
 })
 
 describe('handleUninstallApp', () => {
-  it('should handle uninstallation', () => {
+  it('should handle uninstallation', async () => {
     const email = 'mock@mail.com'
-    const uninstallApp = jest.fn()
+    const uninstallApp = jest.fn(() => Promise.resolve(true))
     const setInstallationId = jest.fn()
     const formValues = {
       appId: 'MOCK_ID',
@@ -62,7 +67,7 @@ describe('handleUninstallApp', () => {
 
     const curried = handleUninstallApp(email, uninstallApp, setInstallationId)
 
-    curried(formValues)
+    await curried(formValues)
 
     expect(uninstallApp).toHaveBeenCalledWith({
       ...formValues,
@@ -100,5 +105,18 @@ describe('handleSetInstallationId', () => {
 
     expect(setInstallationId).toHaveBeenCalledWith(installationId)
     expect(openModal).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleSetOffices', () => {
+  it('should handle setting offices', () => {
+    const setOffices = jest.fn()
+    const offices = [{ id: 'ASX', name: 'asd' }]
+
+    const curried = handleSetOffices(setOffices, offices)
+
+    curried()
+
+    expect(setOffices).toHaveBeenCalledWith(offices)
   })
 })
