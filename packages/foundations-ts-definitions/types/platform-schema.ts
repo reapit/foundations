@@ -2342,6 +2342,25 @@ export interface CheckInKeyModel {
    */
   checkInNegotiatorId?: string
 }
+/**
+ * Representation of a check list item
+ */
+export interface CheckListItemModel {
+  /**
+   * The name of the check list item
+   */
+  name?: string
+  /**
+   * A flag to determine if the item is completed
+   */
+  completed?: boolean
+  /**
+   * The date when the item was completed
+   * example:
+   * 2019-08-14
+   */
+  completedDate?: string // date
+}
 export interface Companies {
   pageSize?: number
   pageNumber?: number
@@ -4023,6 +4042,25 @@ export interface ConveyancingModel {
    */
   completion?: string // date
   /**
+   * Check list items to be completed as part of the sales progression process
+   */
+  checkListItems?: {
+    /**
+     * The name of the check list item
+     */
+    name?: string
+    /**
+     * A flag to determine if the item is completed
+     */
+    completed?: boolean
+    /**
+     * The date when the item was completed
+     * example:
+     * 2019-08-14
+     */
+    completedDate?: string // date
+  }[]
+  /**
    * The ETag for the current version of this conveyancing record. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -4259,6 +4297,25 @@ export interface ConveyancingModelPagedResult {
      * 2019-08-14
      */
     completion?: string // date
+    /**
+     * Check list items to be completed as part of the sales progression process
+     */
+    checkListItems?: {
+      /**
+       * The name of the check list item
+       */
+      name?: string
+      /**
+       * A flag to determine if the item is completed
+       */
+      completed?: boolean
+      /**
+       * The date when the item was completed
+       * example:
+       * 2019-08-14
+       */
+      completedDate?: string // date
+    }[]
     /**
      * The ETag for the current version of this conveyancing record. Used for managing update concurrency
      */
@@ -14456,6 +14513,19 @@ export interface PropertyTenureModel {
   expiry?: string // date
 }
 /**
+ * Terminologies associated with the properties
+ */
+export interface PropertyTerminologyModel {
+  /**
+   * A flag denoting whether the agent's CRM is configured to use "Sold STC/SSTC" terminology instead of "Under Offer"
+   */
+  useSoldStc?: boolean
+  /**
+   * A flag denoting whether the agent's CRM is configured to use "Market Appraisal" terminology instead of "Valuation"
+   */
+  useMarketAppraisal?: boolean
+}
+/**
  * Representation of an appointments recurrence details
  */
 export interface RecurrenceModel {
@@ -17278,6 +17348,24 @@ export interface TenancySourceModel {
    * The source type (office/source)
    */
   type?: string
+}
+/**
+ * Representation of the configuration settings for terminology
+ */
+export interface TerminologyModel {
+  /**
+   * Terminologies associated with the properties
+   */
+  properties?: {
+    /**
+     * A flag denoting whether the agent's CRM is configured to use "Sold STC/SSTC" terminology instead of "Under Offer"
+     */
+    useSoldStc?: boolean
+    /**
+     * A flag denoting whether the agent's CRM is configured to use "Market Appraisal" terminology instead of "Valuation"
+     */
+    useMarketAppraisal?: boolean
+  }
 }
 /**
  * Model representing a transaction

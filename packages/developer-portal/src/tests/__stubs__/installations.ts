@@ -23,6 +23,14 @@ export const mockInstallationModelPagedResult: InstallationModelPagedResult = {
         postcode: 'BB1 1BB',
         countryId: 'GB',
       },
+      officeGroup: {
+        offices: [
+          {
+            name: 'Office One',
+            id: 'MOCK_OFFICE_ID_ONE',
+          },
+        ],
+      },
     },
     {
       id: 'MOCK_ID_TWO',

@@ -43,6 +43,7 @@ export const mockAppDetailModel: AppDetailModel = {
   developerId: 'MOCK_DEVELOPER_ID',
   installationId: 'MOCK_INSTALL_ID',
   externalId: 'MOCK_EXTERNAL_ID',
+  rotatingExternalId: 'MOCK_ROTATING_EXTERNAL_ID',
   authFlow: 'authorisationCode',
   name: 'will-test-dev-co-voracious-person',
   summary: 'Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar',
@@ -69,6 +70,8 @@ export const mockAppDetailModel: AppDetailModel = {
   pricingUrl: 'https://foo.bar',
   isFree: false,
   isHidden: false,
+  launchWindowSizeX: 750,
+  launchWindowSizeY: 950,
   scopes: [
     {
       name: 'agencyCloud/applicants.read',

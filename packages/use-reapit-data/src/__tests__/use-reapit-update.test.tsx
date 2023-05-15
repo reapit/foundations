@@ -107,8 +107,9 @@ describe('useReapitUpdate', () => {
       test: true,
     }
 
-    const headers = new Headers()
-    headers.append('Location', 'https://api.test.reapit.com/path')
+    const headers = {
+      location: 'https://api.test.reapit.com/path',
+    }
 
     mockAxios.mockReturnValue({
       headers,
