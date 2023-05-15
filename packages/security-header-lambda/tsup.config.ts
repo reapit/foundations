@@ -9,7 +9,6 @@ export default defineConfig({
   esbuildOptions: (opts) => {
     opts.resolveExtensions = ['.ts', '.mjs', '.js']
   },
-  // noExternal: Object.keys(pkgJson.dependencies),
   external: [
     
   ],
