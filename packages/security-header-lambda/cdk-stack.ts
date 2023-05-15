@@ -1,6 +1,6 @@
 import { createBaseStack, getAccountId } from '@reapit/ts-scripts/src/cdk'
 import { join } from 'path'
-import cdk from 'aws-cdk-lib'
+import * as cdk from 'aws-cdk-lib'
 import { execSync } from 'child_process'
 
 export const createSecurityHeaderLambdaStack = async () => {

@@ -38,8 +38,5 @@
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity security-header-lambda --name local --mode fetch",
     "commit": "yarn lint"
-  },
-  "dependencies": {
-    "@aws-sdk/client-cloudfront": "^3.332.0"
   }
 }
