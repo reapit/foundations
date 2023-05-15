@@ -30,9 +30,7 @@ export const bootstrap = async () => {
     code: cdk.aws_lambda.Code.fromAsset(join(__dirname, 'bundle.zip')),
   })
 
-  output(stack, SecurityCDKLambdaValueEnums.EDGE_LAMBDA_ARN, edgeLambda.functionArn)
   output(stack, SecurityCDKLambdaValueEnums.EDGE_LAMBDA_VERSION, edgeLambda.currentVersion.version)
-  output(stack, SecurityCDKLambdaValueEnums.EDGE_VERSION, edgeLambda.edgeArn)
 }
 
 bootstrap().catch((err) => {
