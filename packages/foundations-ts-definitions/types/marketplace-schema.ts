@@ -225,6 +225,14 @@ export interface AppDetailModel {
    * Gets a collection of media objects associated with the app
    */
   media?: MediaModel[]
+  /**
+   * Gets the X axis size of the launched window for apps with one or more configured desktop integration types
+   */
+  launchWindowSizeX?: number // int32
+  /**
+   * Gets the Y axis size of the launched window for apps with one or more configured desktop integration types
+   */
+  launchWindowSizeY?: number // int32
 }
 /**
  * Model to expose app restriction info
@@ -567,6 +575,14 @@ export interface AppSummaryModel {
    * Gets the unique identifier of clients that the app is visible to
    */
   limitToClientIds?: string[]
+  /**
+   * Gets the X axis size of the launched window for apps with one or more configured desktop integration types
+   */
+  launchWindowSizeX?: number // int32
+  /**
+   * Gets the Y axis size of the launched window for apps with one or more configured desktop integration types
+   */
+  launchWindowSizeY?: number // int32
 }
 /**
  * Model to handle paged data and information
@@ -1591,6 +1607,7 @@ export interface InstallationModel {
    * Gets the installations metadata
    */
   metadata?: InstallationMetadataModel[]
+  officeGroup?: InstallationOfficeGroupModel
 }
 /**
  * Model to handle paged data and information
@@ -1604,6 +1621,32 @@ export interface InstallationModelPagedResult {
   pageSize?: number // int32
   pageCount?: number // int32
   totalCount?: number // int32
+}
+/**
+ * Office group representation
+ */
+export interface InstallationOfficeGroupModel {
+  /**
+   * Gets the name of the office group
+   */
+  name?: string
+  /**
+   * Gets the list of offices associated to the group
+   */
+  offices?: InstallationOfficeModel[]
+}
+/**
+ * Office representation
+ */
+export interface InstallationOfficeModel {
+  /**
+   * Gets the unique identifier of the office
+   */
+  id?: string
+  /**
+   * Gets the name of the office
+   */
+  name?: string
 }
 /**
  * The model responsible for inviting a recipient to a developer organisation

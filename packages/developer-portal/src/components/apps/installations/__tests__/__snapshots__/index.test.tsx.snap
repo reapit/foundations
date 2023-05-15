@@ -30,8 +30,8 @@ exports[`AppInstallations should match a snapshot 1`] = `
         classname="mock-css.
   margin-bottom: 2.5rem;
 "
-        data-has-call-to-action="true"
-        data-has-expandable-action="false"
+        data-has-call-to-action="false"
+        data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
       >
         <mock-styled.div>
@@ -51,7 +51,12 @@ exports[`AppInstallations should match a snapshot 1`] = `
             Installed By
           </mock-styled.div>
           <mock-styled.div>
-            Uninstall
+            <mock-styled.span
+              classname=""
+              style="font-size: 1.2rem;"
+            >
+              <svg />
+            </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
@@ -114,14 +119,38 @@ exports[`AppInstallations should match a snapshot 1`] = `
                 </a>
               </mock-styled.div>
             </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
             <mock-styled.div>
               <mock-styled.div>
-                <mock-styled.span
+                <mock-styled.div
                   classname="mock-css."
-                  style="font-size: 1.2rem;"
                 >
-                  <svg />
-                </mock-styled.span>
+                  <mock-styled.button
+                    classname="mock-css."
+                  >
+                    Show Installed Offices
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    type="button"
+                  >
+                    Uninstall
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -186,14 +215,32 @@ exports[`AppInstallations should match a snapshot 1`] = `
                 </a>
               </mock-styled.div>
             </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
             <mock-styled.div>
               <mock-styled.div>
-                <mock-styled.span
+                <mock-styled.div
                   classname="mock-css."
-                  style="font-size: 1.2rem;"
                 >
-                  <svg />
-                </mock-styled.span>
+                  <mock-styled.button
+                    classname="mock-css."
+                    type="button"
+                  >
+                    Uninstall
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -256,8 +303,8 @@ exports[`AppInstallations should match a snapshot 1`] = `
       classname="mock-css.
   margin-bottom: 2.5rem;
 "
-      data-has-call-to-action="true"
-      data-has-expandable-action="false"
+      data-has-call-to-action="false"
+      data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
     >
       <mock-styled.div>
@@ -277,7 +324,12 @@ exports[`AppInstallations should match a snapshot 1`] = `
           Installed By
         </mock-styled.div>
         <mock-styled.div>
-          Uninstall
+          <mock-styled.span
+            classname=""
+            style="font-size: 1.2rem;"
+          >
+            <svg />
+          </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
@@ -340,14 +392,38 @@ exports[`AppInstallations should match a snapshot 1`] = `
               </a>
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div>
-              <mock-styled.span
+              <mock-styled.div
                 classname="mock-css."
-                style="font-size: 1.2rem;"
               >
-                <svg />
-              </mock-styled.span>
+                <mock-styled.button
+                  classname="mock-css."
+                >
+                  Show Installed Offices
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css."
+                  type="button"
+                >
+                  Uninstall
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -412,14 +488,32 @@ exports[`AppInstallations should match a snapshot 1`] = `
               </a>
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div>
-              <mock-styled.span
+              <mock-styled.div
                 classname="mock-css."
-                style="font-size: 1.2rem;"
               >
-                <svg />
-              </mock-styled.span>
+                <mock-styled.button
+                  classname="mock-css."
+                  type="button"
+                >
+                  Uninstall
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -900,8 +994,8 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
         classname="mock-css.
   margin-bottom: 2.5rem;
 "
-        data-has-call-to-action="true"
-        data-has-expandable-action="false"
+        data-has-call-to-action="false"
+        data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
       >
         <mock-styled.div>
@@ -921,7 +1015,12 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
             Installed By
           </mock-styled.div>
           <mock-styled.div>
-            Uninstall
+            <mock-styled.span
+              classname=""
+              style="font-size: 1.2rem;"
+            >
+              <svg />
+            </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
@@ -984,14 +1083,38 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
                 </a>
               </mock-styled.div>
             </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
             <mock-styled.div>
               <mock-styled.div>
-                <mock-styled.span
+                <mock-styled.div
                   classname="mock-css."
-                  style="font-size: 1.2rem;"
                 >
-                  <svg />
-                </mock-styled.span>
+                  <mock-styled.button
+                    classname="mock-css."
+                  >
+                    Show Installed Offices
+                    <mock-styled.div />
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    type="button"
+                  >
+                    Uninstall
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -1056,14 +1179,32 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
                 </a>
               </mock-styled.div>
             </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
             <mock-styled.div>
               <mock-styled.div>
-                <mock-styled.span
+                <mock-styled.div
                   classname="mock-css."
-                  style="font-size: 1.2rem;"
                 >
-                  <svg />
-                </mock-styled.span>
+                  <mock-styled.button
+                    classname="mock-css."
+                    type="button"
+                  >
+                    Uninstall
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -1138,8 +1279,8 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
       classname="mock-css.
   margin-bottom: 2.5rem;
 "
-      data-has-call-to-action="true"
-      data-has-expandable-action="false"
+      data-has-call-to-action="false"
+      data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
     >
       <mock-styled.div>
@@ -1159,7 +1300,12 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
           Installed By
         </mock-styled.div>
         <mock-styled.div>
-          Uninstall
+          <mock-styled.span
+            classname=""
+            style="font-size: 1.2rem;"
+          >
+            <svg />
+          </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
@@ -1222,14 +1368,38 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
               </a>
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div>
-              <mock-styled.span
+              <mock-styled.div
                 classname="mock-css."
-                style="font-size: 1.2rem;"
               >
-                <svg />
-              </mock-styled.span>
+                <mock-styled.button
+                  classname="mock-css."
+                >
+                  Show Installed Offices
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css."
+                  type="button"
+                >
+                  Uninstall
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -1294,14 +1464,32 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
               </a>
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div>
-              <mock-styled.span
+              <mock-styled.div
                 classname="mock-css."
-                style="font-size: 1.2rem;"
               >
-                <svg />
-              </mock-styled.span>
+                <mock-styled.button
+                  classname="mock-css."
+                  type="button"
+                >
+                  Uninstall
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>

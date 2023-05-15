@@ -28,7 +28,11 @@ import {
   UpdateActionNames,
   updateActions,
 } from '@reapit/use-reapit-data'
-import { InstallationModelPagedResult, TerminateInstallationModel } from '@reapit/foundations-ts-definitions'
+import {
+  InstallationModelPagedResult,
+  OfficeModel,
+  TerminateInstallationModel,
+} from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { combineAddress } from '@reapit/utils-common'
 import dayjs from 'dayjs'
@@ -40,6 +44,7 @@ import { object, SchemaOf, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { specialCharsTest } from '../../../utils/yup'
 import { Helper } from '../page/helper'
+import { OfficesTable } from './offices-table'
 
 const uninstallAppSchema: SchemaOf<TerminateInstallationModel> = object().shape({
   appId: string().trim().required(errorMessages.FIELD_REQUIRED),
@@ -58,12 +63,15 @@ export const handleUninstallApp =
     uninstallApp: SendFunction<TerminateInstallationModel, boolean | null>,
     setInstallationId: Dispatch<SetStateAction<string | null>>,
   ) =>
-  (values: TerminateInstallationModel) => {
-    uninstallApp({
+  async (values: TerminateInstallationModel) => {
+    const uninstall = await uninstallApp({
       ...values,
       terminatedBy: email,
     })
-    setInstallationId(null)
+
+    if (uninstall) {
+      setInstallationId(null)
+    }
   }
 
 export const handleUninstallSuccess =
@@ -83,10 +91,16 @@ export const handleSetInstallationId =
     }
   }
 
+export const handleSetOffices =
+  (setOffices: Dispatch<SetStateAction<OfficeModel[] | null>>, offices: OfficeModel[]) => () => {
+    setOffices(offices)
+  }
+
 export const AppInstallations: FC = () => {
   const { appId } = useParams<'appId'>()
   const { setAppId } = useAppState()
   const [installationId, setInstallationId] = useState<null | string>(null)
+  const [offices, setOffices] = useState<OfficeModel[] | null>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal } = useModal()
@@ -108,7 +122,7 @@ export const AppInstallations: FC = () => {
     fetchWhenTrue: [developerId],
   })
 
-  const [, , uninstallApp, uninstallSuccess] = useReapitUpdate<TerminateInstallationModel, null>({
+  const [uninstalling, , uninstallApp, uninstallSuccess] = useReapitUpdate<TerminateInstallationModel, null>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.terminateInstallation],
     uriParams: {
@@ -167,10 +181,9 @@ export const AppInstallations: FC = () => {
             <a onClick={openNewPage(ExternalPages.installationsTableDocs)}> see here</a>.
           </BodyText>
           <Table
-            numberColumns={6}
             className={elMb11}
             rows={installations?.data?.map(
-              ({ customerName, appName, client, customerAddress, created, installedBy, id }) => ({
+              ({ customerName, appName, client, customerAddress, created, installedBy, id, officeGroup }) => ({
                 cells: [
                   {
                     label: 'Customer Name',
@@ -218,10 +231,26 @@ export const AppInstallations: FC = () => {
                     },
                   },
                 ],
-                ctaContent: {
-                  headerContent: 'Uninstall',
-                  icon: 'trashSystem',
-                  onClick: handleSetInstallationId(setInstallationId, openModal, id),
+                expandableContent: {
+                  content: (
+                    <>
+                      <ButtonGroup alignment="center">
+                        {officeGroup?.offices?.length ? (
+                          <Button intent="secondary" onClick={handleSetOffices(setOffices, officeGroup.offices)}>
+                            Show Installed Offices
+                          </Button>
+                        ) : null}
+                        <Button
+                          type="button"
+                          intent="danger"
+                          onClick={handleSetInstallationId(setInstallationId, openModal, id)}
+                        >
+                          Uninstall
+                        </Button>
+                      </ButtonGroup>
+                      {offices && officeGroup?.offices === offices && <OfficesTable offices={offices} />}
+                    </>
+                  ),
                 },
               }),
             )}
@@ -249,7 +278,7 @@ export const AppInstallations: FC = () => {
                 <Button intent="low" type="button" onClick={closeModal}>
                   Close
                 </Button>
-                <Button intent="danger" type="submit">
+                <Button disabled={uninstalling} loading={uninstalling} intent="danger" type="submit">
                   Uninstall
                 </Button>
               </ButtonGroup>

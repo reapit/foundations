@@ -1,11 +1,12 @@
-import React, { lazy } from 'react'
+import React, { Suspense, lazy } from 'react'
 import { Navigate, Route, BrowserRouter, Routes } from 'react-router-dom'
 import { catchChunkError } from '@reapit/utils-react'
 import RoutePaths from '../constants/routes'
 import { PrivateRouteWrapper } from './private-route-wrapper'
 import { OkayPage } from '@reapit/utils-react'
-import { PageContainer, PersistentNotification } from '@reapit/elements'
+import { Loader, PageContainer, PersistentNotification } from '@reapit/elements'
 import { FC } from 'react'
+import ErrorBoundary from './error-boundary'
 
 const CustomerRegister = lazy(() => catchChunkError(() => import('../components/register/customer-register')))
 const Login = lazy(() => catchChunkError(() => import('../components/login')))
@@ -154,7 +155,11 @@ export const RoutesComponent = () => {
 
 const Router: FC = () => (
   <BrowserRouter>
-    <RoutesComponent />
+    <ErrorBoundary>
+      <Suspense fallback={<Loader fullPage />}>
+        <RoutesComponent />
+      </Suspense>
+    </ErrorBoundary>
   </BrowserRouter>
 )
 

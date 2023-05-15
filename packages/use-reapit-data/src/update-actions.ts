@@ -64,6 +64,8 @@ export enum UpdateActionNames {
   paymentsClientConfigDelete = 'paymentsClientConfigDelete',
   getOpayoMerchantKey = 'getOpayoMerchantKey',
   submitOpayoTransaction = 'submitOpayoTransaction',
+  createAuthClient = 'createAuthClient',
+  deleteAuthClient = 'deleteAuthClient',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -396,5 +398,15 @@ export const updateActions = {
     api: ApiNames.payments,
     path: PathNames.opayoMerchantKeys,
     errorMessage: 'Failed to configure app for payments. This error has been logged',
+  },
+  [UpdateActionNames.createAuthClient]: {
+    api: ApiNames.platform,
+    path: PathNames.authClient,
+    errorMessage: 'Failed to create new auth credentials. This error has been logged',
+  },
+  [UpdateActionNames.deleteAuthClient]: {
+    api: ApiNames.platform,
+    path: PathNames.authClient,
+    errorMessage: 'Failed to delete old auth credentials. This error has been logged',
   },
 }

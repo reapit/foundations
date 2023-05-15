@@ -40,6 +40,8 @@ const {
   products,
   videoUrl1,
   videoUrl2,
+  launchWindowSizeX,
+  launchWindowSizeY,
 } = formFields
 
 export const appEditValidationSchema = object().shape({
@@ -278,4 +280,8 @@ export const appEditValidationSchema = object().shape({
     }),
 
   [products.name]: string().required('At least one product must be selected'),
+
+  [launchWindowSizeX.name]: string().trim().max(4, MAXIMUM_CHARACTER_LENGTH(4)).test(specialCharsTest),
+
+  [launchWindowSizeY.name]: string().trim().max(4, MAXIMUM_CHARACTER_LENGTH(4)).test(specialCharsTest),
 })
