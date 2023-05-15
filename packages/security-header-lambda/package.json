@@ -33,7 +33,7 @@
     "build": "webpack build",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
-    "release": "rpt-cdk deploy",
+    "release": "echo '...skipping...'",
     "deploy": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity security-header-lambda --name local --mode fetch",
