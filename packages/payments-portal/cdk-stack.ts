@@ -1,6 +1,6 @@
 import { createBaseStack, createSite, getAccountId } from '@reapit/ts-scripts/src/cdk'
 import { join } from 'path'
-import { createSecurityHeaderLambdaStack } from '@reapit/security-header-lambda/cdk-stack'
+import { getSecurityLambdaOutputs } from '@reapit/security-header-lambda/cdk'
 
 
 const createStack = async () => {
@@ -12,12 +12,12 @@ const createStack = async () => {
     accountId,
     region: 'eu-west-2',
   })
-  const { edgeLambda } = await createSecurityHeaderLambdaStack()
+  const securityHeaderLambda = getSecurityLambdaOutputs()
 
   await createSite(stack, {
     env: process.env.APP_STAGE === 'production' ? 'prod' : 'dev',
     location: join(__dirname, 'build'),
-    edgeLambda,
+    securityHeaderLambda,
   })
 }
 

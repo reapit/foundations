@@ -1,9 +1,10 @@
-import { createBaseStack, getAccountId } from '@reapit/ts-scripts/src/cdk'
+import { createBaseStack, getAccountId, output } from '@reapit/ts-scripts/src/cdk'
 import { join } from 'path'
 import * as cdk from 'aws-cdk-lib'
 import { execSync } from 'child_process'
+import { SecurityCDKLambdaValueEnums } from './consts'
 
-export const createSecurityHeaderLambdaStack = async () => {
+export const bootstrap = async () => {
   execSync('yarn build', {
     cwd: __dirname,
     stdio: 'inherit',
@@ -29,5 +30,12 @@ export const createSecurityHeaderLambdaStack = async () => {
     code: cdk.aws_lambda.Code.fromAsset(join(__dirname, 'bundle.zip')),
   })
 
-  return { edgeLambda }
+  output(stack, SecurityCDKLambdaValueEnums.EDGE_LAMBDA_ARN, edgeLambda.functionArn)
+  output(stack, SecurityCDKLambdaValueEnums.EDGE_LAMBDA_VERSION, edgeLambda.currentVersion.version)
+  output(stack, SecurityCDKLambdaValueEnums.EDGE_VERSION, edgeLambda.edgeArn)
 }
+
+bootstrap().catch((err) => {
+  console.error('Build error: ', err)
+  process.exit(1)
+})

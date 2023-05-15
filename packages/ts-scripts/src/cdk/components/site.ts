@@ -6,6 +6,7 @@ import {
   aws_route53_targets as targets,
   aws_s3 as s3,
   aws_s3_deployment as deploy,
+  aws_lambda as lambda,
 } from 'aws-cdk-lib'
 import { Certificate, ICertificate } from 'aws-cdk-lib/aws-certificatemanager'
 import { LambdaEdgeEventType, OriginAccessIdentity } from 'aws-cdk-lib/aws-cloudfront'
@@ -13,14 +14,14 @@ import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam'
 import { BlockPublicAccess, BucketAccessControl, BucketEncryption, ObjectOwnership } from 'aws-cdk-lib/aws-s3'
 import { ACM } from 'aws-sdk'
 import { InvalidateCloudfrontDistribution } from '../utils/cf-innvalidate'
-import { EdgeFunction } from 'aws-cdk-lib/aws-cloudfront/lib/experimental'
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins'
+import { SecurityHeaderLambdaConfigurations } from '@reapit/security-header-lambda/cdk'
 
 interface CreateSiteInterface {
   env?: 'dev' | 'prod'
   defaultRootObject?: string
   location: string
-  edgeLambda?: EdgeFunction
+  securityHeaderLambda?: SecurityHeaderLambdaConfigurations
 }
 
 const findCert = async (stack: Stack, domain: string): Promise<ICertificate> => {
@@ -50,7 +51,7 @@ const findCert = async (stack: Stack, domain: string): Promise<ICertificate> => 
 
 export const createSite = async (
   stack: Stack,
-  { defaultRootObject = 'index.html', env = 'dev', location, edgeLambda }: CreateSiteInterface,
+  { defaultRootObject = 'index.html', env = 'dev', location, securityHeaderLambda }: CreateSiteInterface,
 ) => {
   const stackNamePieces = stack.stackName.split('-')
   stackNamePieces.pop()
@@ -89,16 +90,22 @@ export const createSite = async (
 
   console.log('deployment', deploymentBucket.deployedBucket.bucketDomainName)
 
+  const edgeLambdaVersion = securityHeaderLambda
+    ? lambda.Version.fromVersionArn(stack, 'edge-lambda-version', securityHeaderLambda.edgeLambdaVersion)
+    : undefined
+
   const distribution = createCloudfront(stack, 'front-distro', {
     defaultBehavior: {
       origin: new S3Origin(bucket),
-      edgeLambdas: edgeLambda && [
+      edgeLambdas: edgeLambdaVersion && [
         {
-          functionVersion: edgeLambda.currentVersion,
+          functionVersion: edgeLambdaVersion,
           eventType: LambdaEdgeEventType.ORIGIN_RESPONSE,
+          includeBody: false,
         },
       ],
     },
+    domainNames: [subDomain],
     defaultRootObject,
     certificate,
     errorResponses: [

@@ -34,7 +34,7 @@
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
-    "deploy": "echo '...skipping...'",
+    "deploy": "rpt-cdk cdk/cdk-stack.ts",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity security-header-lambda --name local --mode fetch",
     "commit": "yarn lint"
