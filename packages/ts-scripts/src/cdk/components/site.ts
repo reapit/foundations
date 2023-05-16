@@ -3,22 +3,25 @@ import { createRoute } from './r53'
 import {
   Stack,
   aws_route53 as route53,
-  aws_cloudfront as cloudfront,
   aws_route53_targets as targets,
   aws_s3 as s3,
   aws_s3_deployment as deploy,
+  aws_lambda as lambda,
 } from 'aws-cdk-lib'
 import { Certificate, ICertificate } from 'aws-cdk-lib/aws-certificatemanager'
-import { OriginAccessIdentity } from 'aws-cdk-lib/aws-cloudfront'
+import { LambdaEdgeEventType, OriginAccessIdentity } from 'aws-cdk-lib/aws-cloudfront'
 import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam'
 import { BlockPublicAccess, BucketAccessControl, BucketEncryption, ObjectOwnership } from 'aws-cdk-lib/aws-s3'
 import { ACM } from 'aws-sdk'
 import { InvalidateCloudfrontDistribution } from '../utils/cf-innvalidate'
+import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins'
+import { SecurityHeaderLambdaConfigurations } from '@reapit/security-header-lambda/cdk'
 
 interface CreateSiteInterface {
   env?: 'dev' | 'prod'
   defaultRootObject?: string
   location: string
+  securityHeaderLambda?: SecurityHeaderLambdaConfigurations
 }
 
 const findCert = async (stack: Stack, domain: string): Promise<ICertificate> => {
@@ -48,7 +51,7 @@ const findCert = async (stack: Stack, domain: string): Promise<ICertificate> => 
 
 export const createSite = async (
   stack: Stack,
-  { defaultRootObject = 'index.html', env = 'dev', location }: CreateSiteInterface,
+  { defaultRootObject = 'index.html', env = 'dev', location, securityHeaderLambda }: CreateSiteInterface,
 ) => {
   const stackNamePieces = stack.stackName.split('-')
   stackNamePieces.pop()
@@ -87,34 +90,38 @@ export const createSite = async (
 
   console.log('deployment', deploymentBucket.deployedBucket.bucketDomainName)
 
+  const edgeLambdaVersion = securityHeaderLambda
+    ? lambda.Version.fromVersionArn(stack, 'edge-lambda-version', securityHeaderLambda.edgeLambdaVersion)
+    : undefined
+
   const distribution = createCloudfront(stack, 'front-distro', {
-    originConfigs: [
-      {
-        s3OriginSource: {
-          s3BucketSource: bucket,
-          originAccessIdentity: cloudfrontOAI,
+    defaultBehavior: {
+      origin: new S3Origin(bucket),
+      edgeLambdas: edgeLambdaVersion && [
+        {
+          functionVersion: edgeLambdaVersion,
+          eventType: LambdaEdgeEventType.ORIGIN_RESPONSE,
+          includeBody: false,
         },
-        behaviors: [{ isDefaultBehavior: true }],
-      },
-    ],
+      ],
+    },
+    domainNames: [subDomain],
     defaultRootObject,
-    viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(certificate, {
-      aliases: [subDomain],
-    }),
-    errorConfigurations: [
+    certificate,
+    errorResponses: [
       {
-        errorCode: 404,
-        responseCode: 200,
+        httpStatus: 404,
+        responseHttpStatus: 200,
         responsePagePath: '/index.html',
       },
       {
-        errorCode: 403,
-        responseCode: 200,
+        httpStatus: 403,
+        responseHttpStatus: 200,
         responsePagePath: '/index.html',
       },
       {
-        errorCode: 400,
-        responseCode: 200,
+        httpStatus: 400,
+        responseHttpStatus: 200,
         responsePagePath: '/index.html',
       },
     ],

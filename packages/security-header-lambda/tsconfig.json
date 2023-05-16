@@ -13,7 +13,8 @@
     "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@reapit/*": ["../*"]
     }
   },
   "include": ["./src/**/*"],
