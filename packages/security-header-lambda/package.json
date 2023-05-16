@@ -14,18 +14,20 @@
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
-    "@reapit/ts-bundler": "workspace:packages/ts-bundler",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
-    "aws-cdk": "^2.66.1",
-    "aws-cdk-lib": "^2.66.1",
     "eslint": "8.35.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "serverless": "^3.30.1",
+    "serverless-deployment-bucket": "^1.6.0",
+    "serverless-offline": "^12.0.4",
+    "serverless-plugin-log-retention": "^2.0.0",
+    "serverless-webpack": "^5.11.0",
     "snyk": "^1.1110.0",
-    "tsup": "^6.7.0",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "webpack": "^5.82.1"
   },
   "scripts": {
     "start": "echo '...skipping...'",
