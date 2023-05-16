@@ -22,10 +22,12 @@
     "eslint-plugin-prettier": "^4.2.1",
     "serverless": "^3.30.1",
     "serverless-deployment-bucket": "^1.6.0",
+    "serverless-lambda-edge-pre-existing-cloudfront": "^1.2.0",
     "serverless-offline": "^12.0.4",
     "serverless-plugin-log-retention": "^2.0.0",
     "serverless-webpack": "^5.11.0",
     "snyk": "^1.1110.0",
+    "ts-loader": "^9.4.2",
     "typescript": "^4.9.5",
     "webpack": "^5.82.1"
   },
@@ -35,8 +37,8 @@
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
-    "release": "echo '...skipping...'",
-    "deploy": "sls deploy",
+    "release": "serverless deploy",
+    "deploy": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity security-header-lambda --name local --mode fetch",
     "commit": "yarn lint"
