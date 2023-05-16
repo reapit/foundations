@@ -5433,7 +5433,7 @@ export interface CreateContactSourceModel {
  */
 export interface CreateDocumentModel {
   /**
-   * The type of entity that the document is associated with (appliance/applicant/bankStatement/batch/certificate/contact/depositCertificate/estate/estateUnit/idCheck/keySet/landlord/nominalTransaction/property/tenancy/tenancyCheck/tenancyRenewal/worksOrder)
+   * The type of entity that the document is associated with (appliance/applicant/bankStatement/batch/certificate/contact/depositCertificate/estate/estateUnit/idCheck/keySet/landlord/nominalTransaction/property/supplierInvoice/tenancy/tenancyCheck/tenancyRenewal/worksOrder)
    */
   associatedType: string
   /**
@@ -18005,6 +18005,15 @@ export interface UpdateApplicantExternalAreaModel {
   amountTo?: number // double
 }
 /**
+ * Details of regional information specific to Guernsey
+ */
+export interface UpdateApplicantGuernseyModel {
+  /**
+   * Requirements describing which markets the applicant is looking for properties in (local/openA/openB/openC/openD)
+   */
+  market?: string[]
+}
+/**
  * The applicant's indoor space requirements
  */
 export interface UpdateApplicantInternalAreaModel {
@@ -18278,6 +18287,20 @@ export interface UpdateApplicantModel {
     type?: string
   }
   /**
+   * Details relating to the real estate market in specific countries. Child models are named based on the ISO3166 country code that the data inside the model relates to
+   */
+  regional?: {
+    /**
+     * Details of regional information specific to Guernsey
+     */
+    ggy?: {
+      /**
+       * Requirements describing which markets the applicant is looking for properties in (local/openA/openB/openC/openD)
+       */
+      market?: string[]
+    }
+  }
+  /**
    * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
@@ -18290,6 +18313,20 @@ export interface UpdateApplicantModel {
    */
   metadata?: {
     [name: string]: any
+  }
+}
+/**
+ * Details relating to the real estate market in specific countries. Child models are named based on the ISO3166 country code that the data inside the model relates to
+ */
+export interface UpdateApplicantRegionalModel {
+  /**
+   * Details of regional information specific to Guernsey
+   */
+  ggy?: {
+    /**
+     * Requirements describing which markets the applicant is looking for properties in (local/openA/openB/openC/openD)
+     */
+    market?: string[]
   }
 }
 /**
