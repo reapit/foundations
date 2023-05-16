@@ -32,12 +32,11 @@
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "echo '...skipping...'",
-    "build": "tsup",
-    "bundle": "ts-bundler",
+    "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
-    "deploy": "rpt-cdk deploy cdk/cdk-stack.ts",
+    "deploy": "sls deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity security-header-lambda --name local --mode fetch",
     "commit": "yarn lint"
