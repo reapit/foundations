@@ -1,5 +1,5 @@
 import { Duration } from 'aws-cdk-lib'
-import { Distribution } from 'aws-cdk-lib/aws-cloudfront'
+import { CloudFrontWebDistribution } from 'aws-cdk-lib/aws-cloudfront'
 import { Rule, RuleTargetInput } from 'aws-cdk-lib/aws-events'
 import { SfnStateMachine } from 'aws-cdk-lib/aws-events-targets'
 import { JsonPath, StateMachine } from 'aws-cdk-lib/aws-stepfunctions'
@@ -10,7 +10,7 @@ export class InvalidateCloudfrontDistribution extends Construct {
   constructor(
     scope: Construct,
     id: string,
-    { distribution, items = ['/index.html'] }: { distribution: Distribution; items?: string[] },
+    { distribution, items = ['/index.html'] }: { distribution: CloudFrontWebDistribution; items?: string[] },
   ) {
     super(scope, id)
 
