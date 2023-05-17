@@ -33,7 +33,7 @@ export const handleLogout = (connectLogoutRedirect: () => void) => () => {
 export const SettingsPage: FC = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const { connectSession, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession, connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const { pathname } = location
   const isAdmin = selectIsAdmin(connectSession)
 
@@ -61,8 +61,8 @@ export const SettingsPage: FC = () => {
         )}
         <Icon className={elMb5} icon="reapitConnectInfographic" iconSize="large" />
         <SmallText hasGreyText>
-          Here you can change your password and find out your current logged in profile. This can be useful if you are
-          experiencing any permission related issues with your account.
+          Here you can {!connectIsDesktop && 'change your password and '}find out about your current logged in profile.
+          This can be useful if you are experiencing any permission related issues with your account.
         </SmallText>
         {isAdmin && (
           <SmallText hasGreyText>
