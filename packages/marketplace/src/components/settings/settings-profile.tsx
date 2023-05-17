@@ -74,7 +74,7 @@ export const handleUserUpdate =
 
 export const SettingsProfile: FC = () => {
   const { currentUserState, refreshCurrentUser } = useAppsBrowseState()
-  const { connectSession, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession, connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const snacks = useSnack()
   const { isMobile } = useMediaQuery()
   const loginIdentity = connectSession?.loginIdentity ?? ({} as LoginIdentity)
@@ -169,49 +169,53 @@ export const SettingsProfile: FC = () => {
           </Col>
         )}
       </Grid>
-      <Subtitle hasBoldText>Update Your Password</Subtitle>
-      <form className={elMb11} onSubmit={handleSubmit(handleChangePassword(email, snacks))}>
-        <FormLayout hasMargin>
-          <InputWrap>
-            <InputGroup
-              {...register('password')}
-              type="password"
-              label="Current Password"
-              placeholder="Current Password"
-              errorMessage={errors?.password?.message}
-              icon={errors?.password?.message ? 'asteriskSystem' : null}
-              intent="danger"
-            />
-          </InputWrap>
-          <InputWrap>
-            <InputGroup
-              {...register('newPassword')}
-              type="password"
-              label="New Password"
-              placeholder="New Password"
-              errorMessage={errors?.newPassword?.message}
-              icon={errors?.newPassword?.message ? 'asteriskSystem' : null}
-              intent="danger"
-            />
-          </InputWrap>
-          <InputWrap>
-            <InputGroup
-              {...register('confirmPassword')}
-              type="password"
-              label="Confirm New Password"
-              placeholder="Confirm New Password"
-              errorMessage={errors?.confirmPassword?.message}
-              icon={errors?.confirmPassword?.message ? 'asteriskSystem' : null}
-              intent="danger"
-            />
-          </InputWrap>
-        </FormLayout>
-        <ButtonGroup>
-          <Button intent="primary" type="submit">
-            Save Changes
-          </Button>
-        </ButtonGroup>
-      </form>
+      {!connectIsDesktop && (
+        <>
+          <Subtitle hasBoldText>Update Your Password</Subtitle>
+          <form className={elMb11} onSubmit={handleSubmit(handleChangePassword(email, snacks))}>
+            <FormLayout hasMargin>
+              <InputWrap>
+                <InputGroup
+                  {...register('password')}
+                  type="password"
+                  label="Current Password"
+                  placeholder="Current Password"
+                  errorMessage={errors?.password?.message}
+                  icon={errors?.password?.message ? 'asteriskSystem' : null}
+                  intent="danger"
+                />
+              </InputWrap>
+              <InputWrap>
+                <InputGroup
+                  {...register('newPassword')}
+                  type="password"
+                  label="New Password"
+                  placeholder="New Password"
+                  errorMessage={errors?.newPassword?.message}
+                  icon={errors?.newPassword?.message ? 'asteriskSystem' : null}
+                  intent="danger"
+                />
+              </InputWrap>
+              <InputWrap>
+                <InputGroup
+                  {...register('confirmPassword')}
+                  type="password"
+                  label="Confirm New Password"
+                  placeholder="Confirm New Password"
+                  errorMessage={errors?.confirmPassword?.message}
+                  icon={errors?.confirmPassword?.message ? 'asteriskSystem' : null}
+                  intent="danger"
+                />
+              </InputWrap>
+            </FormLayout>
+            <ButtonGroup>
+              <Button intent="primary" type="submit">
+                Save Changes
+              </Button>
+            </ButtonGroup>
+          </form>
+        </>
+      )}
       <Subtitle hasBoldText>Update Tracking Consent</Subtitle>
       <BodyText hasGreyText>
         The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and

@@ -242,7 +242,7 @@ export const AppDetail: FC = () => {
                 <Button
                   onClick={handleAuthClient(createAuthClient, appsDetailRefresh, appSecret, refreshAppSecret)}
                   intent="primary"
-                  disabled={creatingAuthClient || deleteingAuthClient || !isAdmin}
+                  disabled={creatingAuthClient || deleteingAuthClient || !isAdmin || Boolean(rotatingExternalId)}
                   loading={creatingAuthClient}
                 >
                   Rotate Authentication

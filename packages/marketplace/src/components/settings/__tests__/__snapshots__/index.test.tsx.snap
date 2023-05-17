@@ -45,7 +45,9 @@ exports[`SettingsPage should match a snapshot 1`] = `
           <mock-styled.p
             classname="mock-css."
           >
-            Here you can change your password and find out your current logged in profile. This can be useful if you are experiencing any permission related issues with your account.
+            Here you can 
+            change your password and 
+            find out about your current logged in profile. This can be useful if you are experiencing any permission related issues with your account.
           </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
@@ -175,7 +177,9 @@ exports[`SettingsPage should match a snapshot 1`] = `
         <mock-styled.p
           classname="mock-css."
         >
-          Here you can change your password and find out your current logged in profile. This can be useful if you are experiencing any permission related issues with your account.
+          Here you can 
+          change your password and 
+          find out about your current logged in profile. This can be useful if you are experiencing any permission related issues with your account.
         </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
