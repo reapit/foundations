@@ -2,6 +2,11 @@ import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from
 import { CredsType } from './cred-types'
 import { isReadonlyAdmin } from '../helpers'
 
+/**
+ * Implement this guard after a cred guard (id-token guard or access-token guard)
+ *
+ * @UseGuard(IdTokenGuard, AdminReadonlyGuard)
+ */
 @Injectable()
 export class AdminReadonlyGuard implements CanActivate {
   async canActivate(context: ExecutionContext): Promise<boolean> {
