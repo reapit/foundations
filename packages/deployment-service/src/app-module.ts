@@ -52,7 +52,11 @@ process.env = {
       inject: [ConfigService],
       imports: [ConfigModule],
     }),
-    AuthModule.forRootAsync(),
+    AuthModule.forRootAsync({
+      useFactory: () => ({
+        env: process.env.NODE_ENV === 'production' ? 'prod' : 'dev',
+      }),
+    }),
     EventModule,
     PipelineModule,
     PipelineRunnerModule,

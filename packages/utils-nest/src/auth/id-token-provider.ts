@@ -5,7 +5,7 @@ import { AuthProviderInterface } from './auth-provider-interface'
 import { CredAuthTokenProvider } from './token.provider.decorator'
 
 @CredAuthTokenProvider(1)
-export class TokenProvider implements AuthProviderInterface<any> {
+export class IdTokenProvider implements AuthProviderInterface<any> {
   applies() {
     return true
   }

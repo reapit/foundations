@@ -17,9 +17,9 @@ import { PipelineDto } from './pipeline-dto'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { EventDispatcher, PusherProvider } from '../events'
-import { CredGuard, Creds, CredsType, isReadonlyAdmin, OwnershipProvider } from '@reapit/utils-nest'
+import { IdTokenGuard, Creds, CredsType, isReadonlyAdmin, OwnershipProvider } from '@reapit/utils-nest'
 
-@UseGuards(CredGuard)
+@UseGuards(IdTokenGuard)
 @Controller('pipeline')
 export class PipelineController {
   constructor(

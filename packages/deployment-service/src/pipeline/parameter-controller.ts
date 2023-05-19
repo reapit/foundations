@@ -1,11 +1,11 @@
-import { CredGuard, OwnershipProvider, Creds, CredsType } from '@reapit/utils-nest'
+import { IdTokenGuard, OwnershipProvider, Creds, CredsType } from '@reapit/utils-nest'
 import { PipelineProvider } from './pipeline-provider'
 import { Controller, Get, UseGuards, Param, NotFoundException, Put, Body } from '@nestjs/common'
 import { ParameterDto } from './parameter-dto'
 import { ParameterProvider } from './parameter-provider'
 
 @Controller('/pipeline/:pipelineId/parameter')
-@UseGuards(CredGuard)
+@UseGuards(IdTokenGuard)
 export class ParameterController {
   constructor(
     private readonly pipelineProvider: PipelineProvider,

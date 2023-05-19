@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { PipelineController } from '../pipeline-controller'
 import { PipelineProvider } from '../pipeline-provider'
-import { OwnershipProvider, CredGuard, CredsType } from '@reapit/utils-nest'
+import { OwnershipProvider, IdTokenGuard, CredsType } from '@reapit/utils-nest'
 import { EventDispatcher, PusherProvider } from '../../events'
 import { v4 as uuid } from 'uuid'
 import { PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions/deployment-schema'
@@ -61,7 +61,7 @@ describe('PipelineController', () => {
         },
       ],
     })
-      .overrideGuard(CredGuard)
+      .overrideGuard(IdTokenGuard)
       .useValue(mockCredGuard)
       .compile()
   })
