@@ -42,7 +42,8 @@ export class IdTokenGuard implements CanActivate {
               priority,
               provider: injectable,
             })
-            // Logger.log(`added [${injectable.constructor.name}] to IdTokenGuard. Priority [${priority}]`, 'IdTokenGuard')
+            // Logger.log(`added [${injectable.constructor.name}] to IdTokenGuard. Priority [${priority}]`, 
+            // 'IdTokenGuard')
           }
         }
       })
