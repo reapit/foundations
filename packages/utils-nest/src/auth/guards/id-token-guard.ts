@@ -42,7 +42,7 @@ export class IdTokenGuard implements CanActivate {
               priority,
               provider: injectable,
             })
-            // Logger.log(`added [${injectable.constructor.name}] to CredGuard. Priority [${priority}]`, 'CredGuard')
+            // Logger.log(`added [${injectable.constructor.name}] to IdTokenGuard. Priority [${priority}]`, 'IdTokenGuard')
           }
         }
       })
@@ -50,7 +50,7 @@ export class IdTokenGuard implements CanActivate {
 
     if (!this.idTokenProvider)
       throw new Error(
-        '[IdTokenProvider] was not found by CredGuard. Please make sure IdTokenProvider is finable by CredGuard. Likely CredGuard provider is injected outside of AuthModule',
+        '[IdTokenProvider] was not found by IdTokenGuard. Please make sure IdTokenProvider is finable by IdTokenGuard. Likely IdTokenGuard provider is injected outside of AuthModule',
       )
 
     unsortedProviders.sort((a, b) => b.priority - a.priority)
@@ -64,7 +64,7 @@ export class IdTokenGuard implements CanActivate {
     const providers = this.authProviders.filter((provider) => provider.applies(request))
     const priorityProvider = providers[0] || this.idTokenProvider
     // TODO should IdTokenProvider be instanced here instead of through container? To avoid exceptions in cases where
-    // developer breaks usage and creates CredGuard provider without AuthModule
+    // developer breaks usage and creates IdTokenGuard provider without AuthModule
 
     const credentials = await priorityProvider.resolve(request)
 
