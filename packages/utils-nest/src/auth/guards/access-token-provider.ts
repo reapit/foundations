@@ -6,6 +6,20 @@ export interface AccessTokenProviderConfigInterface {
   env: 'dev' | 'prod'
 }
 
+interface UserInfoModel {
+  agencyCloudNegotiatorId: string
+  agencyCloudOfficeId: string
+  userEmail: string
+  organisationId: string
+  organisationName: string
+  userGroups: string[]
+  officeGroupName: string | null
+  customerId: string
+  timeZoneId: string
+  defaultLanguage: string
+  defaultCurrency: string
+}
+
 @Injectable()
 export class AccessTokenProvider {
   constructor(
@@ -13,15 +27,28 @@ export class AccessTokenProvider {
     private readonly config: AccessTokenProviderConfigInterface,
   ) {}
 
-  async fetchIdentity(accessToken: string): Promise<LoginIdentity> {
+  async fetchIdentity(accessToken: string): Promise<Partial<LoginIdentity>> {
     const result = await fetch(`https://platform.${this.config.env}.paas.reapit.cloud/userInfo`, {
       headers: {
         authorization: `Bearer ${accessToken}`,
+        'api-version': 'latest',
       },
     })
 
     if (result.status !== 200) throw new UnauthorizedException()
 
-    return result.json() // TODO if axios, result is typed
+    const userInfo: UserInfoModel = await result.json()
+
+    return {
+      ...userInfo,
+      email: userInfo.userEmail,
+      clientId: '', // not provided from userInfo?
+      userCode: userInfo.customerId,
+      orgId: userInfo.organisationId,
+      groups: userInfo.userGroups,
+      orgName: userInfo.organisationName,
+      offGroupIds: '', // not provided from userInfo?
+      agencyCloudId: userInfo.agencyCloudOfficeId,
+    }
   }
 }
