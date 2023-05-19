@@ -12,7 +12,11 @@ import { AuthModule } from '@reapit/utils-nest'
     ConfigModule.forRoot({
       load: [databaseConfig],
     }),
-    AuthModule,
+    AuthModule.forRootAsync({
+      useFactory: () => ({
+        env: process.env.NODE_ENV === 'production' ? 'prod' : 'dev',
+      }),
+    }),
   ],
   providers: [
     {

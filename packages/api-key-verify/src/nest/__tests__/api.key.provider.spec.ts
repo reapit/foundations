@@ -50,7 +50,11 @@ describe('ApiKeyProvider', () => {
       tokenProvider.resolve = jest.fn(() => ({}))
 
       module = await Test.createTestingModule({
-        imports: [AuthModule],
+        imports: [
+          AuthModule.forRootAsync({
+            useFactory: () => ({ env: 'dev' }),
+          }),
+        ],
         providers: [ApiKeyProvider],
       })
         .overrideProvider(ApiKeyProvider)
