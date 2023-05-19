@@ -1,26 +1,78 @@
-import { DynamicModule, Global, Module } from '@nestjs/common'
-import { AdminWriteGuard, AdminReadonlyGuard, CredGuard } from './guards'
+import {
+  DynamicModule,
+  ForwardReference,
+  Global,
+  InjectionToken,
+  Module,
+  OptionalFactoryDependency,
+  Type,
+} from '@nestjs/common'
+import { AdminWriteGuard, AdminReadonlyGuard, IdTokenGuard } from './guards'
 import { OwnershipProvider } from './ownership-provider'
-import { TokenProvider } from './token-provider'
+import { IdTokenProvider } from './id-token-provider'
+import { AccessTokenGuard } from './guards/access-token-guard'
+import { AccessTokenProvider, AccessTokenProviderConfigInterface } from './guards/access-token-provider'
+import { ACCESS_TOKEN_PROVIDER_CONFIG_PROVIDE } from './consts'
+import { CredentialsRequestAppendProvider } from './guards/credentials-request-append-provider'
 
 @Module({
-  providers: [TokenProvider],
+  providers: [
+    OwnershipProvider,
+    IdTokenProvider,
+    IdTokenGuard,
+    AdminWriteGuard,
+    AdminReadonlyGuard,
+    AccessTokenGuard,
+    AccessTokenProvider,
+    CredentialsRequestAppendProvider,
+  ],
+  exports: [
+    OwnershipProvider,
+    IdTokenGuard,
+    IdTokenProvider,
+    AdminWriteGuard,
+    AdminReadonlyGuard,
+    AccessTokenGuard,
+    AccessTokenProvider,
+    CredentialsRequestAppendProvider,
+  ],
 })
 @Global()
 export class AuthModule {
-  static forRoot(): DynamicModule {
+  static forRootAsync(options: {
+    useFactory: (...args: any[]) => AccessTokenProviderConfigInterface | Promise<AccessTokenProviderConfigInterface>
+    inject?: Array<InjectionToken | OptionalFactoryDependency>
+    imports?: Array<Type<any> | DynamicModule | Promise<DynamicModule> | ForwardReference>
+  }): DynamicModule {
     return {
       module: AuthModule,
-      providers: [OwnershipProvider, TokenProvider, CredGuard, AdminWriteGuard, AdminReadonlyGuard],
-      exports: [OwnershipProvider, CredGuard, TokenProvider, AdminWriteGuard, AdminReadonlyGuard],
-    }
-  }
-
-  static forRootAsync(): DynamicModule {
-    return {
-      module: AuthModule,
-      providers: [OwnershipProvider, TokenProvider, CredGuard, AdminWriteGuard, AdminReadonlyGuard],
-      exports: [OwnershipProvider, CredGuard, TokenProvider, AdminWriteGuard, AdminReadonlyGuard],
+      imports: [...(options.imports || [])],
+      providers: [
+        {
+          provide: ACCESS_TOKEN_PROVIDER_CONFIG_PROVIDE,
+          useFactory: options.useFactory,
+          inject: options.inject,
+        },
+        OwnershipProvider,
+        IdTokenGuard,
+        IdTokenProvider,
+        AdminWriteGuard,
+        AdminReadonlyGuard,
+        AccessTokenGuard,
+        AccessTokenProvider,
+        CredentialsRequestAppendProvider,
+      ],
+      exports: [
+        ACCESS_TOKEN_PROVIDER_CONFIG_PROVIDE,
+        OwnershipProvider,
+        IdTokenGuard,
+        IdTokenProvider,
+        AdminWriteGuard,
+        AdminReadonlyGuard,
+        AccessTokenGuard,
+        AccessTokenProvider,
+        CredentialsRequestAppendProvider,
+      ],
     }
   }
 }
