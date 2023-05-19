@@ -1,9 +1,9 @@
-import { CredGuard } from '@reapit/utils-nest'
+import { IdTokenGuard } from '@reapit/utils-nest'
 import { Body, Controller, HttpCode, HttpStatus, Post, UseGuards, BadRequestException } from '@nestjs/common'
 import { PusherProvider } from './pusher-provider'
 
 @Controller('pusher')
-@UseGuards(CredGuard)
+@UseGuards(IdTokenGuard)
 export class PusherWebhookController {
   constructor(private readonly pusherProvider: PusherProvider) {}
 

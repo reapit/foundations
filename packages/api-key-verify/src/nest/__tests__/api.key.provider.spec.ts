@@ -2,8 +2,8 @@ import { resolveApiKey } from '../../api-key'
 import { TestingModule, Test } from '@nestjs/testing'
 import { createApiKeyInvokeConfigProvide } from '../api.key.invoke.config'
 import { ApiKeyProvider } from './../api.key.provider'
-import { AuthModule, CredGuard } from '@reapit/utils-nest'
-import { TokenProvider } from '@reapit/utils-nest/src/auth/token-provider'
+import { AuthModule, IdTokenGuard } from '@reapit/utils-nest'
+import { IdTokenProvider } from '@reapit/utils-nest/src/auth/id-token-provider'
 
 jest.mock('../../api-key', () => ({
   resolveApiKey: jest.fn(() => {
@@ -41,7 +41,7 @@ describe('ApiKeyProvider', () => {
   describe('Within AuthModule', () => {
     let module: TestingModule
     const apiKeyProvider = new ApiKeyProvider({ apiKeyInvoke: { enabled: true, invokeArn: '' } })
-    const tokenProvider = new TokenProvider()
+    const tokenProvider = new IdTokenProvider()
 
     beforeAll(async () => {
       // @ts-ignore
@@ -50,12 +50,12 @@ describe('ApiKeyProvider', () => {
       tokenProvider.resolve = jest.fn(() => ({}))
 
       module = await Test.createTestingModule({
-        imports: [AuthModule.forRoot()],
+        imports: [AuthModule],
         providers: [ApiKeyProvider],
       })
         .overrideProvider(ApiKeyProvider)
         .useValue(apiKeyProvider)
-        .overrideProvider(TokenProvider)
+        .overrideProvider(IdTokenProvider)
         .useValue(tokenProvider)
         .compile()
 
@@ -67,7 +67,7 @@ describe('ApiKeyProvider', () => {
     })
 
     it('Expect ApiKeyProvider to be invoked when x-api-key exists', async () => {
-      const provider = module.get(CredGuard)
+      const provider = module.get(IdTokenGuard)
 
       await provider.canActivate({
         // @ts-ignore
@@ -85,7 +85,7 @@ describe('ApiKeyProvider', () => {
     })
 
     it('Expect ApiKeyProvider not not have been called when x-api-key does not exist', async () => {
-      const provider = module.get(CredGuard)
+      const provider = module.get(IdTokenGuard)
 
       await provider.canActivate({
         // @ts-ignore
