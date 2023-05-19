@@ -11342,7 +11342,8 @@ __metadata:
     "@nestjs/common": ^9.3.9
     "@nestjs/core": ^9.3.9
     "@nestjs/testing": ^9.3.11
-    "@reapit/foundations-ts-definitions": "workspace:^"
+    "@reapit/connect-session": "workspace:packages/connect-session"
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     eslint: ^8.35.0
     express: ^4.18.2

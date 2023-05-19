@@ -1,11 +1,11 @@
 import { AuthProviderInterface } from '../../auth-provider-interface'
-import { TokenProvider } from '../../token-provider'
+import { IdTokenProvider } from '../../id-token-provider'
 import { Test, TestingModule } from '@nestjs/testing'
-import { CredGuard } from '../cred-guard'
+import { IdTokenGuard } from '../id-token-guard'
 import { CredAuthTokenProvider } from '../../token.provider.decorator'
 import { Module } from '@nestjs/common'
 
-describe('CredGuard', () => {
+describe('IdTokenGuard', () => {
   describe('Module Init', () => {
     it('Cred Guard will find all AuthProviders', async () => {
       @CredAuthTokenProvider(2)
@@ -30,14 +30,14 @@ describe('CredGuard', () => {
         }
       }
 
-      class TestCredGuard extends CredGuard {
+      class TestCredGuard extends IdTokenGuard {
         getAuthProviders() {
           return this.authProviders
         }
       }
 
       const module = await Test.createTestingModule({
-        providers: [TestProvider, AnotherTestProvider, TestCredGuard, TokenProvider],
+        providers: [TestProvider, AnotherTestProvider, TestCredGuard, IdTokenProvider],
       }).compile()
 
       await module.init()
@@ -45,11 +45,11 @@ describe('CredGuard', () => {
       const provider = module.get(TestCredGuard)
 
       provider.getAuthProviders().forEach((inst) => {
-        expect(['TestProvider', 'AnotherTestProvider', 'TokenProvider'].includes(inst.constructor.name)).toBeTruthy()
+        expect(['TestProvider', 'AnotherTestProvider', 'IdTokenProvider'].includes(inst.constructor.name)).toBeTruthy()
       })
     })
 
-    it('CredGuard will find all AuthProviders in different modules', async () => {
+    it('IdTokenGuard will find all AuthProviders in different modules', async () => {
       @CredAuthTokenProvider(2)
       class TestProvider implements AuthProviderInterface<any> {
         type() {
@@ -70,14 +70,14 @@ describe('CredGuard', () => {
       })
       class ChildModule {}
 
-      class TestCredGuard extends CredGuard {
+      class TestCredGuard extends IdTokenGuard {
         getAuthProviders() {
           return this.authProviders
         }
       }
 
       @Module({
-        providers: [TestCredGuard, TokenProvider],
+        providers: [TestCredGuard, IdTokenProvider],
       })
       class AuthModule {}
 
@@ -97,7 +97,7 @@ describe('CredGuard', () => {
     describe('Can resolve with priority', () => {
       let module: TestingModule
 
-      class TestCredGuard extends CredGuard {
+      class TestCredGuard extends IdTokenGuard {
         getAuthProviders() {
           return this.authProviders
         }
@@ -121,9 +121,9 @@ describe('CredGuard', () => {
           }
         }
 
-        // DefaultProvider, TokenProvider required for import
+        // DefaultProvider, IdTokenProvider required for import
         @CredAuthTokenProvider(1)
-        class TokenProvider implements AuthProviderInterface<any> {
+        class IdTokenProvider implements AuthProviderInterface<any> {
           type() {
             return 'default'
           }
@@ -140,7 +140,7 @@ describe('CredGuard', () => {
         }
 
         module = await Test.createTestingModule({
-          providers: [TestCredGuard, TokenProvider, TestProvider],
+          providers: [TestCredGuard, IdTokenProvider, TestProvider],
         }).compile()
 
         await module.init()

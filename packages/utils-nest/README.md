@@ -2,7 +2,9 @@
 
 ## Authentication
 
-### Basic 
+### IdToken Guard
+
+This Guard will use an id-token for the authentication token and will be verified and decoded for credentials
 
 Include the module with the below example
 
@@ -12,7 +14,9 @@ import { Module } from '@nestjs/common'
 
 @Module({
   imports: [
-    AuthModule.forRoot(),
+    AuthModule.forRootAsync({
+      useFactory: () => ({ env: 'dev' }),
+    }),
   ],
 })
 export class AppModule {}
@@ -23,10 +27,10 @@ export class AppModule {}
 Usage within controller below.
 
 ```ts
-import { CredGuard, Creds, CredsType } from '@reapit/utils-nest'
+import { IdTokenGuard, Creds, CredsType } from '@reapit/utils-nest'
 import { UseGuards, Controller, Get, UnauthorizedException } from '@nestjs/common'
 
-@UseGuards(CredGuard) // or (AdminReadonlyGuard || AdminWriteGuard) (for admin verification)
+@UseGuards(IdTokenGuard)
 @Controller()
 export class ExampleController {
   @Get()
@@ -37,6 +41,27 @@ export class ExampleController {
   }
 }
 ```
+
+### Access Token Guard
+
+The access token guard will use the userInfo platform endpoint to verify that the user is logged in and set the response (user info) as the credentials 
+
+```ts
+import { AccessTokenGuard, Creds, CredsType } from '@reapit/utils-nest'
+import { UseGuards, Controller, Get, UnauthorizedException } from '@nestjs/common'
+
+@UseGuards(AccessTokenGuard)
+@Controller()
+export class ExampleController {
+  @Get()
+  async getExample(
+    @Creds() creds: CredType,
+  ): Promise<LoginIdentity> {
+    if (creds.type === 'jwt') return creds
+  }
+}
+```
+
 
 ### CredsType
 
@@ -85,18 +110,21 @@ This guard makes sure the user has a `ReapitEmployee` scope. Notice that the gua
 
 ```ts
 import { Controller, Get, UseGuards } from '@nestjs/common'
-import { AdminReadonlyGuard } from '@reapit/utils-nest'
+import { AdminReadonlyGuard, IdTokenGuard } from '@reapit/utils-nest'
 
 @Controller('pipeline')
 export class PipelineController {
 
   @Get('')
-  @UseGaurds(AdminReadonlyGuard)
+  @UseGaurds(IdTokenGuard, AdminReadonlyGuard)
   async paginate() {
     // Here the user is a readonly admin
   }
 }
 ```
+
+> When using AdminReadonlyGuard, make sure to use either IdTokenGuard or AccessTokenGuard beforehand
+> @UseGuard(AccessTokenGuard, AdminReadonlyGuard)
 
 #### Write Guard
 
@@ -104,18 +132,21 @@ This guard makes sure the user has a `ReapitEmployeeFoundationsAdmin` scope. Not
 
 ```ts
 import { Controller, Get, UseGuards } from '@nestjs/common'
-import { AdminWriteGuard } from '@nestjs/utils-nest'
+import { AdminWriteGuard, IdTokenGuard } from '@nestjs/utils-nest'
 
 @Controller('pipeline')
 export class PipelineController {
 
   @Post('')
-  @UseGaurds(AdminWriteGuard)
+  @UseGaurds(IdTokenGuard, AdminWriteGuard)
   async create() {
     // Here the user is a write admin
   }
 }
 ```
+
+> When using AdminWriteGuard, make sure to use either IdTokenGuard or AccessTokenGuard beforehand
+> @UseGuard(AccessTokenGuard, AdminWriteGuard)
 
 ### Ownership
 

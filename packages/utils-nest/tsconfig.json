@@ -7,7 +7,7 @@
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
-      "@reapit/connect-sesssion": ["../connect-session"],
+      "@reapit/connect-session": ["../connect-session"],
       "@reapit/foundations-ts-definitions": ["../foundations-ts-definitions"]
     },
     "declaration": true,

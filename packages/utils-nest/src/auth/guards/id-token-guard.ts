@@ -5,12 +5,12 @@ import { ModuleRef, ModulesContainer } from '@nestjs/core'
 import { MODULE_METADATA } from '@nestjs/common/constants'
 import { TOKEN_PROVIDER_INJECTABLE } from '../token.provider.decorator'
 import { CredsType } from './cred-types'
-import { TokenProvider } from '../token-provider'
+import { IdTokenProvider } from '../id-token-provider'
 
 @Injectable()
-export class CredGuard implements CanActivate {
+export class IdTokenGuard implements CanActivate {
   protected authProviders: AuthProviderInterface<any>[] = []
-  protected tokenProvider: TokenProvider | undefined = undefined
+  protected idTokenProvider: IdTokenProvider | undefined = undefined
 
   constructor(private readonly moduleContainer: ModulesContainer, private readonly moduleRef: ModuleRef) {}
 
@@ -29,8 +29,8 @@ export class CredGuard implements CanActivate {
       providers.forEach((provider) => {
         if (Reflect.hasOwnMetadata(TOKEN_PROVIDER_INJECTABLE, provider)) {
           const injectable = this.moduleRef.get(provider, { strict: false })
-          if (injectable.constructor.name === TokenProvider.name) {
-            this.tokenProvider = injectable
+          if (injectable.constructor.name === IdTokenProvider.name) {
+            this.idTokenProvider = injectable
           }
           if (
             !unsortedProviders.find(
@@ -42,15 +42,16 @@ export class CredGuard implements CanActivate {
               priority,
               provider: injectable,
             })
-            // Logger.log(`added [${injectable.constructor.name}] to CredGuard. Priority [${priority}]`, 'CredGuard')
+            // Logger.log(`added [${injectable.constructor.name}] to IdTokenGuard. Priority [${priority}]`,
+            // 'IdTokenGuard')
           }
         }
       })
     })
 
-    if (!this.tokenProvider)
+    if (!this.idTokenProvider)
       throw new Error(
-        '[TokenProvider] was not found by CredGuard. Please make sure TokenProvider is finable by CredGuard. Likely CredGuard provider is injected outside of AuthModule',
+        '[IdTokenProvider] was not found by IdTokenGuard. Please make sure IdTokenProvider is finable by IdTokenGuard. Likely IdTokenGuard provider is injected outside of AuthModule',
       )
 
     unsortedProviders.sort((a, b) => b.priority - a.priority)
@@ -62,9 +63,9 @@ export class CredGuard implements CanActivate {
     const request = context.switchToHttp().getRequest<Request & { credentials?: CredsType }>()
 
     const providers = this.authProviders.filter((provider) => provider.applies(request))
-    const priorityProvider = providers[0] || this.tokenProvider
-    // TODO should tokenProvider be instanced here instead of through container? To avoid exceptions in cases where
-    // developer breaks usage and creates CredGuard provider without AuthModule
+    const priorityProvider = providers[0] || this.idTokenProvider
+    // TODO should IdTokenProvider be instanced here instead of through container? To avoid exceptions in cases where
+    // developer breaks usage and creates IdTokenGuard provider without AuthModule
 
     const credentials = await priorityProvider.resolve(request)
 

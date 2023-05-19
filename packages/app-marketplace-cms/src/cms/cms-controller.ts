@@ -1,6 +1,6 @@
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
 import { Body, Controller, Delete, Get, NotFoundException, Param, Post, Put, UseGuards } from '@nestjs/common'
-import { AdminReadonlyGuard } from '@reapit/utils-nest'
+import { AdminReadonlyGuard, IdTokenGuard } from '@reapit/utils-nest'
 import { CmsProvider } from './cms-provider'
 import { MarketplaceAppModelDto } from './marketplace-app-dto'
 import { MarketplaceAppModel } from './marketplace-app-model'
@@ -33,19 +33,19 @@ export class CmsController {
   }
 
   @Get()
-  @UseGuards(AdminReadonlyGuard)
+  @UseGuards(IdTokenGuard, AdminReadonlyGuard)
   async fetch(): Promise<Pagination<MarketplaceAppModel>> {
     return this.resolvePaginationObject(await this.cmsProvider.findAll({}))
   }
 
   @Post()
-  @UseGuards(AdminReadonlyGuard)
+  @UseGuards(IdTokenGuard, AdminReadonlyGuard)
   async create(@Body() dto: MarketplaceAppModelDto): Promise<MarketplaceAppModel> {
     return this.cmsProvider.create(dto)
   }
 
   @Put(':id')
-  @UseGuards(AdminReadonlyGuard)
+  @UseGuards(IdTokenGuard, AdminReadonlyGuard)
   async update(@Param('id') id: string, @Body() dto: MarketplaceAppModelDto): Promise<MarketplaceAppModel> {
     const marketplaceApp = await this.cmsProvider.findOne({ id })
 
@@ -57,13 +57,13 @@ export class CmsController {
   }
 
   @Put('')
-  @UseGuards(AdminReadonlyGuard)
+  @UseGuards(IdTokenGuard, AdminReadonlyGuard)
   async updateBatch(@Body() dtos: MarketplaceAppModelDto[]): Promise<MarketplaceAppModel[]> {
     return this.cmsProvider.updateBatch(dtos)
   }
 
   @Delete(':id')
-  @UseGuards(AdminReadonlyGuard)
+  @UseGuards(IdTokenGuard, AdminReadonlyGuard)
   async delete(@Param('id') id: string): Promise<any> {
     const marketplaceApp = await this.cmsProvider.findOne({ id })
 
