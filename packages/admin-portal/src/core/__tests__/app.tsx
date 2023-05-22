@@ -15,7 +15,7 @@ describe('App', () => {
     // @ts-ignore
     delete global.window.location
     // @ts-ignore
-    global.window = Object.create(window)
+    global.window ??= Object.create(window)
     // @ts-ignore
     global.window.location = {
       reload: {
