@@ -17448,17 +17448,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zeit/ncc@npm:^0.22.3":
-  version: 0.22.3
-  resolution: "@zeit/ncc@npm:0.22.3"
-  dependencies:
-    node-gyp: latest
-  bin:
-    ncc: dist/ncc/cli.js
-  checksum: 5528bff2fe0d10437bfaac68f344069627b9cd4babb4181b92721b85150463cbc80b55d86b4282f807326193d92d6cfaabf124d9d9029cc036feba6841179369
-  languageName: node
-  linkType: hard
-
 "abab@npm:^2.0.6":
   version: 2.0.6
   resolution: "abab@npm:2.0.6"
@@ -18989,7 +18978,7 @@ __metadata:
     "@types/node": ^16.18.32
     "@typescript-eslint/eslint-plugin": ^5.54.0
     "@typescript-eslint/parser": ^5.54.0
-    "@zeit/ncc": ^0.22.3
+    "@vercel/ncc": ^0.36.1
     eslint: 8.35.0
     eslint-plugin-prettier: ^4.2.1
     serverless-deployment-bucket: ^1.6.0
