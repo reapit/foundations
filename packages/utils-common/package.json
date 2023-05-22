@@ -29,7 +29,7 @@
     "isomorphic-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "@linaria/shaker": "^4.2.9",
+    "@linaria/shaker": "^4.2.11",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",

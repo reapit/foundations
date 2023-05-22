@@ -29,7 +29,7 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.281.0",
     "@graphql-tools/delegate": "^8.8.1",
-    "@graphql-tools/stitch": "^8.7.42",
+    "@graphql-tools/stitch": "^8.7.50",
     "@reapit/cra-template-foundations": "workspace:packages/cra-template-foundations",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
@@ -57,7 +57,7 @@
     "pluralize": "^8.0.0",
     "project-name-generator": "^2.1.9",
     "reflect-metadata": "^0.1.13",
-    "slugify": "^1.6.5",
+    "slugify": "^1.6.6",
     "type-graphql": "^1.1.1",
     "typescript": "^4.9.5",
     "uuid": "^8.3.2"
@@ -67,7 +67,7 @@
     "@reapit/ts-bundler": "workspace:packages/ts-bundler",
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@types/fs-extra": "^9.0.13",
-    "@types/jest": "^29.5.0",
+    "@types/jest": "^29.5.1",
     "@types/jszip": "^3.4.1",
     "adm-zip": "^0.5.10",
     "concurrently": "^6.5.1",

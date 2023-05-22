@@ -4,7 +4,7 @@
     "@probot/adapter-github-actions": "3.1.3"
   },
   "devDependencies": {
-    "@types/node": "^16.18.13",
+    "@types/node": "^16.18.32",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
     "@zeit/ncc": "^0.22.3",

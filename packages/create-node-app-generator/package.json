@@ -2,9 +2,9 @@
   "name": "@reapit/create-node-app-generator",
   "version": "1.0.0",
   "dependencies": {
-    "@nestjs/common": "^9.3.11",
-    "@nestjs/core": "^9.3.11",
-    "@nestjs/platform-express": "^9.3.11",
+    "@nestjs/common": "^9.4.1",
+    "@nestjs/core": "^9.4.1",
+    "@nestjs/platform-express": "^9.4.1",
     "yeoman-generator": "^5.8.0",
     "yo": "^4.3.1",
     "yosay": "^2.0.2"

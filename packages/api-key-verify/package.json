@@ -29,8 +29,8 @@
     "aws": "^0.0.3-2"
   },
   "devDependencies": {
-    "@nestjs/common": "^9.3.11",
-    "@nestjs/testing": "^9.3.12",
+    "@nestjs/common": "^9.4.1",
+    "@nestjs/testing": "^9.4.1",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@reapit/utils-nest": "workspace:packages/utils-nest",

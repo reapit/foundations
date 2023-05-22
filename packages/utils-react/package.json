@@ -23,12 +23,12 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "@linaria/core": "^4.2.8",
-    "@linaria/react": "^4.3.6",
+    "@linaria/core": "^4.2.10",
+    "@linaria/react": "^4.3.8",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/utils-common": "workspace:packages/utils-common",
-    "@sentry/node": "^7.48.0",
+    "@sentry/node": "^7.52.1",
     "error-polyfill": "^0.1.3",
     "himalaya": "^1.1.0",
     "pell": "^1.0.6",
@@ -36,7 +36,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@linaria/shaker": "^4.2.9",
+    "@linaria/shaker": "^4.2.11",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",

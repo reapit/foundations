@@ -23,16 +23,16 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "@apollo/client": "^3.8.0-alpha.12",
-    "@craftjs/core": "0.2.0-beta.8",
-    "@linaria/core": "^4.2.8",
-    "@linaria/react": "^4.3.6",
+    "@apollo/client": "^3.8.0-alpha.15",
+    "@craftjs/core": "0.2.0-beta.10",
+    "@linaria/core": "^4.2.10",
+    "@linaria/react": "^4.3.8",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",
-    "@sentry/browser": "^7.48.0",
-    "date-fns": "^2.29.3",
+    "@sentry/browser": "^7.52.1",
+    "date-fns": "^2.30.0",
     "dayjs": "^1.11.7",
     "debounce": "^1.2.1",
     "graphql": "^15.8.0",
@@ -43,18 +43,18 @@
     "react-dom": "^18.2.0",
     "react-frame-component": "^5.2.6",
     "react-horizontal-scrolling-menu": "^3.2.5",
-    "react-router": "^6.10.0",
-    "react-router-dom": "^6.10.0",
+    "react-router": "^6.11.2",
+    "react-router-dom": "^6.11.2",
     "react-tooltip": "^4.5.1",
-    "slugify": "^1.6.5",
-    "snyk": "^1.1110.0",
-    "styled-components": "^5.3.6",
+    "slugify": "^1.6.6",
+    "snyk": "^1.1159.0",
+    "styled-components": "^5.3.10",
     "throttle-debounce": "^3.0.1",
     "uuid": "^8.3.2",
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@linaria/shaker": "^4.2.9",
+    "@linaria/shaker": "^4.2.11",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
@@ -72,6 +72,6 @@
     "jest-coverage-badges": "^1.1.2",
     "ts-jest": "^29.1.0",
     "typescript": "^4.9.5",
-    "vite": "^4.3.4"
+    "vite": "^4.3.8"
   }
 }

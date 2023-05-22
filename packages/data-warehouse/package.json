@@ -20,23 +20,23 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "@linaria/core": "^4.2.8",
-    "@linaria/react": "^4.3.6",
+    "@linaria/core": "^4.2.10",
+    "@linaria/react": "^4.3.8",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
-    "@sentry/browser": "^7.48.0",
+    "@sentry/browser": "^7.52.1",
     "dayjs": "^1.11.7",
     "diff": "^4.0.2",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
-    "react-router": "^6.10.0",
-    "react-router-dom": "^6.10.0",
-    "snyk": "^1.1110.0",
+    "react-router": "^6.11.2",
+    "react-router-dom": "^6.11.2",
+    "snyk": "^1.1159.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@linaria/shaker": "^4.2.9",
+    "@linaria/shaker": "^4.2.11",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
@@ -51,6 +51,6 @@
     "jest-coverage-badges": "^1.1.2",
     "ts-jest": "^29.1.0",
     "typescript": "^4.9.5",
-    "vite": "^4.3.4"
+    "vite": "^4.3.8"
   }
 }
