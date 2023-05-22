@@ -89,6 +89,8 @@ export interface CreateIdentitySourceModel {
   /**
    * The external identifier of the identity source in the third party IdP
    * For AWS identity federation, this must match the "Provider Name" exactly
+   * When not provided, a sanitized version of the organisation name will be used
+   * to setup the identity provider in the third party IdP
    */
   externalId?: string
   /**
@@ -111,6 +113,12 @@ export interface CreateIdentitySourceModel {
    * The email domains used by the organisation associated to this identity provider when signing in
    */
   domainIdentifiers?: string[]
+  /**
+   * The OAuth client ids that this identity source should be immediately attached to
+   * If not specified (null), the configured whitelist will be used if there is one
+   * If an empty collection is specified ( [] ), the identity source will not be attached to any OAuth clients
+   */
+  attachedClients?: string[]
 }
 /**
  * Request body used to create a new office group
