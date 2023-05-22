@@ -1,4 +1,4 @@
-import { CredGuard, Creds, CredsType, OwnershipProvider } from '@reapit/utils-nest'
+import { IdTokenGuard, Creds, CredsType, OwnershipProvider } from '@reapit/utils-nest'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import {
@@ -24,7 +24,7 @@ import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deploymen
 import { S3Provider } from '../s3'
 import { DeployProvider } from '../deployment'
 
-@UseGuards(CredGuard)
+@UseGuards(IdTokenGuard)
 @Controller('pipeline/:pipelineId/pipeline-runner')
 export class PipelineRunnerController {
   constructor(

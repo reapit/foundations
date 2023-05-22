@@ -1,6 +1,6 @@
 {
   "name": "@reapit/utils-nest",
-  "version": "0.0.9",
+  "version": "1.0.2",
   "description": "Common Package for Reapit Foundation for Nestjs",
   "repository": {
     "type": "git",
@@ -38,7 +38,8 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "@reapit/foundations-ts-definitions": "workspace:^",
+    "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "jwt-decode": "^3.1.2"
   },
   "peerDependencies": {

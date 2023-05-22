@@ -7,7 +7,7 @@ import { PipelineRunnerController } from '../pipeline-runner-controller'
 import { PipelineRunnerProvider } from '../pipeline-runner-provider'
 import { PipelineProvider } from '../../pipeline/pipeline-provider'
 import { DeployProvider } from '../../deployment'
-import { OwnershipProvider, CredGuard, CredsType } from '@reapit/utils-nest'
+import { OwnershipProvider, IdTokenGuard, CredsType } from '@reapit/utils-nest'
 import { plainToInstance } from 'class-transformer'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { UnprocessableEntityException } from '@nestjs/common'
@@ -88,7 +88,7 @@ describe('PipelineRunnerController', () => {
         },
       ],
     })
-      .overrideGuard(CredGuard)
+      .overrideGuard(IdTokenGuard)
       .useValue(mockCredGuard)
       .compile()
   })
