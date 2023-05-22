@@ -31,7 +31,7 @@
         <mj-text mj-class="body-text">Please see below your username and verification code. When you click the verification link, you will be re-directed to a screen where you will be asked to change your password.</mj-text>
         <mj-button href="{url}?userName={userName}&verificationCode={####}">VERIFY ACCOUNT</mj-button>
         <mj-text mj-class="body-text">Once your account has been verified, you will be redirected to the login page.</mj-text>
-        <mj-text mj-class="body-text">Please do not reply to this email as this mailbox is not monitored. If you are a Reapit Customer and you are having an issue or if you have a question about Reapit Connect, please visit the Reapit Service Desk Portal.</mj-text>
+        <mj-text mj-class="body-text">Please do not reply to this email as this mailbox is not monitored. If you are having an issue or if you have a question about Reapit Connect, please reach out to your help or service desk for support.</mj-text>
         <mj-text mj-class="body-text">Best Regards,</mj-text>
         <mj-text mj-class="body-text">Reapit Team</mj-text>
       </mj-column>
