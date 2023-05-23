@@ -7,16 +7,12 @@
     "allowSyntheticDefaultImports": true,
     "target": "es6",
     "noImplicitAny": false,
+    "skipLibCheck": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "types": ["jest", "node"],
-    "outDir": "./dist",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "@reapit/*": ["../*"]
-    }
+    "sourceMap": true,
+    "typeRoots": ["./node_modules/@types", "../../node_modules/@types"]
   },
   "include": ["./src/**/*"],
-  "exclude": ["./dist", "./node_modules", "./src/tests/coverage", "./src/**/*.test.ts"]
+  "exclude": ["./dist", "./node_modules"]
 }

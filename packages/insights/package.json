@@ -53,10 +53,6 @@
     "jest-coverage-badges": "^1.1.2",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "rimraf": "^3.0.2",
-    "serverless": "^2.72.3",
-    "serverless-s3-deploy": "^0.10.1",
-    "serverless-s3-remover": "^0.6.0",
-    "serverless-single-page-app-plugin": "^1.0.4",
     "ts-jest": "^29.1.0",
     "typescript": "^4.9.5",
     "vite": "^4.3.4"

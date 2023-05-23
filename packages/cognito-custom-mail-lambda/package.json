@@ -2,7 +2,6 @@
   "name": "cognito-custom-mail-lambda",
   "version": "1.1.0",
   "description": "Lambda Mailer Function",
-  "main": "public/app.js",
   "files": [
     "dist"
   ],
@@ -10,7 +9,7 @@
     "generate-html": "yarn ts-node src/scripts/generate.ts",
     "start": "yarn serverless offline start --runtime nodejs12.x --stage local --printOutput",
     "test": "cross-env TZ=UTC jest --watch --colors --silent --passWithNoTests",
-    "build": "echo '...skipping...'",
+    "build": "tsup && cd dist && zip -r app.zip app.js",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "echo '...skipping...'",
     "release": "yarn generate-html && serverless deploy",
@@ -32,6 +31,7 @@
   "homepage": "https://github.com/reapit/foundations#readme",
   "dependencies": {
     "aws-lambda": "^1.0.7",
+    "crc32-stream": "^4.0.2",
     "events": "^3.3.0",
     "snyk": "^1.1110.0",
     "string-template": "^1.0.0"
@@ -57,14 +57,13 @@
     "mjml": "^4.13.0",
     "ncp": "^2.0.0",
     "rimraf": "^3.0.2",
-    "serverless": "^3.28.1",
+    "serverless": "^3.31.0",
     "serverless-deployment-bucket": "^1.6.0",
     "serverless-offline": "^12.0.4",
     "serverless-plugin-log-retention": "^2.0.0",
-    "serverless-webpack": "^5.11.0",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
-    "webpack": "^5.75.0"
+    "tsup": "^6.7.0"
   },
   "snyk": true
 }

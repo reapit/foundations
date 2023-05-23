@@ -59,7 +59,6 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
         event.response.emailMessage = useOldTemplates
           ? oldTemplates.forgotPasswordTemplate(obj)
           : format(forgotPasswordTemplate, obj)
-
         break
       }
 
