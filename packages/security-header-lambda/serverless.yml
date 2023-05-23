@@ -11,7 +11,7 @@ custom:
 
 provider:
   name: aws
-  runtime: ${opt:runtime, 'nodejs14.x' }
+  runtime: ${opt:runtime, 'nodejs18.x' }
   stage: ${opt:stage, 'dev'}
   region: 'us-east-1'
   lambdaHashingVersion: '20201221'
@@ -35,6 +35,7 @@ resources:
               Action: sts:AssumeRole
 
 package:
+  individually: true
   artifact: './dist/index.zip'
 
 functions:
