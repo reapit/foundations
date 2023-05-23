@@ -1,21 +1,11 @@
 service: cloud-custom-mailer
 plugins:
-  - serverless-webpack
-  - serverless-offline
   - serverless-deployment-bucket
   - serverless-plugin-log-retention
 
 custom:
   s3CloudFormBucket: cloud-custom-mailer-${opt:stage, 'dev'}
   env: ${file(./config.json)}
-  webpack:
-    webpackConfig: 'webpack.config.js'
-    includeModules: true
-    packager: 'yarn'
-    packagerOptions:
-      noFrozenLockfile: false
-    excludeFiles: src/**/*.test.ts
-    keepOutputDirectory: true
   logRetentionInDays: 30
 
 provider:
@@ -29,29 +19,29 @@ provider:
     securityGroupIds:
       - Fn::ImportValue:
           Fn::Join:
-            - ""
-            -  - 'rpt-paas-'
-               - ${self:provider.stage}
-               - '-sg-LambdaSecurityGroup'
+            - ''
+            - - 'rpt-paas-'
+              - ${self:provider.stage}
+              - '-sg-LambdaSecurityGroup'
     subnetIds:
       - Fn::ImportValue:
           Fn::Join:
-            - ""
-            -  - 'rpt-paas-'
-               - ${self:provider.stage}
-               - '-vpc-PrivateSubnet1'
+            - ''
+            - - 'rpt-paas-'
+              - ${self:provider.stage}
+              - '-vpc-PrivateSubnet1'
       - Fn::ImportValue:
           Fn::Join:
-            - ""
-            -  - 'rpt-paas-'
-               - ${self:provider.stage}
-               - '-vpc-PrivateSubnet2'
+            - ''
+            - - 'rpt-paas-'
+              - ${self:provider.stage}
+              - '-vpc-PrivateSubnet2'
       - Fn::ImportValue:
           Fn::Join:
-            - ""
-            -  - 'rpt-paas-'
-               - ${self:provider.stage}
-               - '-vpc-PrivateSubnet3'
+            - ''
+            - - 'rpt-paas-'
+              - ${self:provider.stage}
+              - '-vpc-PrivateSubnet3'
   environment:
     COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}
     MARKET_PLACE_URL: ${self:custom.env.MARKET_PLACE_URL}
@@ -59,23 +49,7 @@ provider:
     AGENTBOX_URL: ${self:custom.env.AGENTBOX_URL}
 
 package:
-  include:
-    - dist/**
-  exclude:
-    - .git/**
-    - .github/**
-    - .serverless/**
-    - src/**
-    - coverage/**
-    - .gitignore
-    - package.json
-    - jest.config.js
-    - README.md
-    - serverless.yml
-    - config.example.json
-    - tsconfig.json
-    - yarn.lock
-    - .snyk
+  artifact: './dist/app.zip'
 
 functions:
   cognitoCustomMailerHandler:

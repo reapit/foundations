@@ -4,7 +4,6 @@
   "homepage": "https://github.com/reapit/foundations",
   "license": "MIT",
   "author": "reapit global",
-  "main": "dist/index.js",
   "bugs": {
     "url": "https://github.com/reapit/foundations/issues"
   },
@@ -20,21 +19,18 @@
     "@typescript-eslint/parser": "^5.54.0",
     "eslint": "8.35.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "serverless": "^2.72.3",
+    "serverless": "^3.31.0",
     "serverless-deployment-bucket": "^1.6.0",
     "serverless-lambda-edge-pre-existing-cloudfront": "^1.2.0",
-    "serverless-offline": "^8.8.1",
     "serverless-plugin-log-retention": "^2.0.0",
-    "serverless-webpack": "^5.11.0",
     "snyk": "^1.1110.0",
-    "ts-loader": "^9.4.2",
-    "typescript": "^4.9.5",
-    "webpack": "^5.82.1"
+    "tsup": "^6.7.0",
+    "typescript": "^4.9.5"
   },
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "echo '...skipping...'",
-    "build": "echo '...skipping...'",
+    "build": "tsup && cd dist && zip -r index.zip index.js",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "release": "serverless deploy",
@@ -42,5 +38,8 @@
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity security-header-lambda --name local --mode fetch",
     "commit": "yarn lint"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.7"
   }
 }

@@ -40,3 +40,5 @@ export const securityHeaderLambda = (
 
   callback(null, response)
 }
+
+export default securityHeaderLambda

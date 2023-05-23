@@ -1,6 +1,5 @@
 service: cloud-security-header-lambda
 plugins:
-  - serverless-webpack
   - serverless-offline
   - serverless-deployment-bucket
   - serverless-lambda-edge-pre-existing-cloudfront
@@ -8,14 +7,6 @@ plugins:
 
 custom:
   env: ${file(./config.json)}
-  webpack:
-    webpackConfig: 'webpack.config.js'
-    includeModules: true
-    packager: 'yarn'
-    packagerOptions:
-      noFrozenLockFile: false
-    excludeFiles: src/**/*.test.ts
-    keepOutputDirectory: true
   logRetentionInDays: 30
 
 provider:
@@ -44,18 +35,7 @@ resources:
               Action: sts:AssumeRole
 
 package:
-  individually: true
-  patterns:
-    - 'dist/**'
-    - '!package.json'
-    - '!node_modules/**'
-    - '!error.log'
-    - '!info.log'
-    - '!jest.config.js'
-    - '!serverless.yml'
-    - '!src/**'
-    - '!tsconfig.json'
-    - '!yml-helpers.js'
+  artifact: './dist/index.zip'
 
 functions:
   securityHeaderLambda:
