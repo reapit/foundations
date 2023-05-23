@@ -31,7 +31,6 @@
   "homepage": "https://github.com/reapit/foundations#readme",
   "dependencies": {
     "aws-lambda": "^1.0.7",
-    "crc32-stream": "^4.0.2",
     "events": "^3.3.0",
     "snyk": "^1.1110.0",
     "string-template": "^1.0.0"
