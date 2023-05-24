@@ -1,4 +1,5 @@
-import { IdTokenGuard, Creds, CredsType, OwnershipProvider } from '@reapit/utils-nest'
+import { IdTokenGuard, Creds, OwnershipProvider } from '@reapit/utils-nest'
+import type { CredsType } from '@reapit/utils-nest'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import {

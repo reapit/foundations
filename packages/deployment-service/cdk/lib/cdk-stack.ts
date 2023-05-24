@@ -17,7 +17,7 @@ import {
   createSecret,
 } from '@reapit/ts-scripts/src/cdk'
 import fs from 'fs/promises'
-import { aws_sqs as sqs } from 'aws-cdk-lib'
+import { aws_sqs as sqs, aws_lambda } from 'aws-cdk-lib'
 
 import { createLambda } from './create-lambda'
 import { createS3Buckets } from './create-S3-bucket'
@@ -93,7 +93,8 @@ export const createStack = async () => {
     githubPemSecretArn: githubPemSecret.ref,
   })
 
-  const createFileLoc = (file: string, func: string) => `packages/deployment-service/src/${file}.${func}`
+  // ./bundle/... here?
+  const createFileLoc = (file: string, func: string) => `packages/deployment-service/dist/${file}.${func}`
 
   const functionSetups: { [s: string]: FunctionSetup } = {
     sqs: {
@@ -191,6 +192,7 @@ export const createStack = async () => {
       vpc,
       duration: options.timeout,
       ram: options.RAM,
+      runtime: aws_lambda.Runtime.NODEJS_18_X,
     })
     options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 

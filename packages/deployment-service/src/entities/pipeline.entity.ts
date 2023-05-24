@@ -4,8 +4,8 @@ import {
   pipelineDeploymentDisabled,
   PipelineModelInterface,
   pipelineNotDeletable,
-  PipelineBuildStatus,
 } from '@reapit/foundations-ts-definitions'
+import type { PipelineBuildStatus } from '@reapit/foundations-ts-definitions'
 import { Column, Entity, ManyToOne, OneToMany } from 'typeorm'
 import { AbstractEntity } from './abstract-entity'
 import { PipelineRunnerEntity } from './pipeline-runner.entity'

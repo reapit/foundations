@@ -1,4 +1,7 @@
 import { createFunction, Function, Vpc, Stack } from '@reapit/ts-scripts/src/cdk'
+import {
+  aws_lambda as lambda,
+} from 'aws-cdk-lib'
 
 import environment from '../../config.json'
 
@@ -25,6 +28,7 @@ export const createLambda = ({
   env,
   duration,
   ram,
+  runtime,
 }: {
   stack: Stack
   name: string
@@ -34,6 +38,7 @@ export const createLambda = ({
   env?: { [s: string]: any }
   duration?: number
   ram?: number
+  runtime?: lambda.Runtime
 }): Function => {
   return createFunction(
     stack,
@@ -47,5 +52,6 @@ export const createLambda = ({
     vpc,
     duration,
     ram,
+    runtime,
   )
 }
