@@ -29,12 +29,12 @@ describe('Subscriptions', () => {
 })
 
 describe('handleCancelSub', () => {
-  it('handleCancelSub should  correctly set the cancel sub id', () => {
-    const cancelSub = jest.fn()
+  it('handleCancelSub should  correctly set the cancel sub id', async () => {
+    const cancelSub = jest.fn(() => Promise.resolve(true))
     const setCancelSubId = jest.fn()
     const curried = handleCancelSub(cancelSub, setCancelSubId)
 
-    curried()
+    await curried()
 
     expect(cancelSub).toHaveBeenCalledTimes(1)
     expect(setCancelSubId).toHaveBeenCalledWith(null)
