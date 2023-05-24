@@ -136,7 +136,7 @@ export const RenderNode = ({ render, iframeRef }) => {
             <a
               className={cx(littleButton, elMr3, cursorPointer)}
               onClick={() => {
-                actions.selectNode(parent)
+                actions.selectNode(parent ? parent : undefined)
               }}
             >
               <ArrowUp />
