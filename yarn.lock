@@ -16012,6 +16012,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vercel/ncc@npm:^0.36.1":
+  version: 0.36.1
+  resolution: "@vercel/ncc@npm:0.36.1"
+  dependencies:
+    node-gyp: latest
+  bin:
+    ncc: dist/ncc/cli.js
+  checksum: dcb8db089b07a8fad64c24eef25be6bc2db7ba30582a03236e3a6d332c8653d93a45aba7fe0e01b6d64f3c5b54d23467539ac3664c113f54a9e59341ded79bf9
+  languageName: node
+  linkType: hard
+
 "@vitejs/plugin-react-swc@npm:^3.3.0":
   version: 3.3.0
   resolution: "@vitejs/plugin-react-swc@npm:3.3.0"
@@ -16623,17 +16634,6 @@ __metadata:
   version: 1.1.0
   resolution: "@yarnpkg/lockfile@npm:1.1.0"
   checksum: 05b881b4866a3546861fee756e6d3812776ea47fa6eb7098f983d6d0eefa02e12b66c3fff931574120f196286a7ad4879ce02743c8bb2be36c6a576c7852083a
-  languageName: node
-  linkType: hard
-
-"@zeit/ncc@npm:^0.22.3":
-  version: 0.22.3
-  resolution: "@zeit/ncc@npm:0.22.3"
-  dependencies:
-    node-gyp: latest
-  bin:
-    ncc: dist/ncc/cli.js
-  checksum: 5528bff2fe0d10437bfaac68f344069627b9cd4babb4181b92721b85150463cbc80b55d86b4282f807326193d92d6cfaabf124d9d9029cc036feba6841179369
   languageName: node
   linkType: hard
 
@@ -18094,7 +18094,7 @@ __metadata:
     "@types/node": ^16.18.32
     "@typescript-eslint/eslint-plugin": ^5.59.7
     "@typescript-eslint/parser": ^5.59.7
-    "@zeit/ncc": ^0.22.3
+    "@vercel/ncc": ^0.36.1
     eslint: 8.41.0
     eslint-plugin-prettier: ^4.2.1
     serverless-deployment-bucket: ^1.6.0
@@ -18109,7 +18109,7 @@ __metadata:
     "@types/node": ^16.18.32
     "@typescript-eslint/eslint-plugin": ^5.59.7
     "@typescript-eslint/parser": ^5.59.7
-    "@zeit/ncc": ^0.22.3
+    "@vercel/ncc": ^0.36.1
     eslint: 8.41.0
     eslint-plugin-prettier: ^4.2.1
     serverless-deployment-bucket: ^1.6.0
