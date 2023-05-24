@@ -38788,7 +38788,6 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    "@apollo/client": ^3.7.14
     husky: ^7.0.4
     json: ^11.0.0
   languageName: unknown
