@@ -37,9 +37,12 @@ export interface SubscriptionsFilters {
 }
 
 export const handleCancelSub =
-  (cancelSub: SendFunction<void, boolean | null>, setCancelSubId: Dispatch<SetStateAction<string | null>>) => () => {
-    cancelSub()
-    setCancelSubId(null)
+  (cancelSub: SendFunction<void, boolean | null>, setCancelSubId: Dispatch<SetStateAction<string | null>>) =>
+  async () => {
+    const cancelled = await cancelSub()
+    if (cancelled) {
+      setCancelSubId(null)
+    }
   }
 
 export const handleCancelSubSuccess = (refetchSubs: () => void, closeModal: () => void, success?: boolean) => () => {
