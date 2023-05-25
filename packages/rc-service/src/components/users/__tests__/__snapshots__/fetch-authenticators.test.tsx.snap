@@ -1,0 +1,476 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FetchAuthenticators should render component with data 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 1.25rem;
+"
+      >
+        <mock-styled.div
+          classname="mock-css."
+        >
+          <mock-styled.button
+            classname="mock-css."
+            disabled="true"
+          >
+            Fetch Current Authenticators
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.h2
+            classname="mock-css."
+          >
+            Authenticator Type
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
+          >
+            Authenticator App
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.h2
+            classname="mock-css."
+          >
+            Status
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
+          >
+            Active
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.h2
+            classname="mock-css."
+          >
+            Created
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
+          >
+            11/11/2022 11:03
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.h2
+            classname="mock-css."
+          >
+            Last Updated
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css. mock-css."
+          >
+            11/11/2022 11:03
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.button
+        classname="mock-css."
+      >
+        Reset Authenticator
+        <mock-styled.div />
+      </mock-styled.button>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 1.25rem;
+"
+    >
+      <mock-styled.div
+        classname="mock-css."
+      >
+        <mock-styled.button
+          classname="mock-css."
+          disabled="true"
+        >
+          Fetch Current Authenticators
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.h2
+          classname="mock-css."
+        >
+          Authenticator Type
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Authenticator App
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.h2
+          classname="mock-css."
+        >
+          Status
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Active
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.h2
+          classname="mock-css."
+        >
+          Created
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          11/11/2022 11:03
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.h2
+          classname="mock-css."
+        >
+          Last Updated
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          11/11/2022 11:03
+        </mock-styled.p>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.button
+      classname="mock-css."
+    >
+      Reset Authenticator
+      <mock-styled.div />
+    </mock-styled.button>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`FetchAuthenticators should render component with no data 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 1.25rem;
+"
+      >
+        <mock-styled.div
+          classname="mock-css."
+        >
+          <mock-styled.button
+            classname="mock-css."
+            disabled="true"
+          >
+            Fetch Current Authenticators
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 1.25rem;
+"
+    >
+      <mock-styled.div
+        classname="mock-css."
+      >
+        <mock-styled.button
+          classname="mock-css."
+          disabled="true"
+        >
+          Fetch Current Authenticators
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`FetchAuthenticators should render component with props and loading 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 1.25rem;
+"
+      >
+        <mock-styled.div
+          classname="mock-css."
+        >
+          <mock-styled.button
+            classname="mock-css. mock-css."
+            disabled="true"
+          >
+            Fetch Current Authenticators
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 1.25rem;
+"
+    >
+      <mock-styled.div
+        classname="mock-css."
+      >
+        <mock-styled.button
+          classname="mock-css. mock-css."
+          disabled="true"
+        >
+          Fetch Current Authenticators
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
