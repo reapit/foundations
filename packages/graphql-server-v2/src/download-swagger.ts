@@ -17,3 +17,4 @@ const download = async () => {
 }
 
 download()
+  .catch(error => console.error(error))
