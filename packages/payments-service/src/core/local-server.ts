@@ -10,3 +10,4 @@ const bootstrap = async () => {
 }
 
 bootstrap()
+.catch(error => console.error(error))
