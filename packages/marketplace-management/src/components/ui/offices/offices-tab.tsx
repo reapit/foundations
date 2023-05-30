@@ -110,6 +110,7 @@ export const handleFetchOffices =
     }
 
     fetchOffices()
+      .catch(error => console.error(error))
   }
 
 const OfficesTab: FC = () => {
