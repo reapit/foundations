@@ -26628,7 +26628,6 @@ fsevents@^1.2.7:
   dependencies:
     "@graphql-tools/graphql-file-loader": ^8.0.0
     "@graphql-tools/load": ^8.0.0
-    "@graphql-tools/schema": ^10.0.0
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"

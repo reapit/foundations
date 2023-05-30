@@ -7,7 +7,6 @@ import { ApolloServerPluginLandingPageGraphQLPlayground, Config } from 'apollo-s
 import { LambdaContextFunctionParams } from 'apollo-server-lambda/dist/ApolloServer'
 import { loadSchemaSync } from '@graphql-tools/load'
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader'
-import { addResolversToSchema } from '@graphql-tools/schema'
 
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
