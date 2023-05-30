@@ -39,6 +39,6 @@ export abstract class AbstractWorkflow<T extends any> {
   }
 
   protected async deleteMessage() {
-    this.sqsProvider.deleteMessage(this.record.receiptHandle, this.url)
+    await this.sqsProvider.deleteMessage(this.record.receiptHandle, this.url)
   }
 }

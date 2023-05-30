@@ -2,7 +2,7 @@ import { ReapitConnectServerSession } from '../index'
 import { mockTokenResponse, mockServerInitializers, createMockToken } from '../../__mocks__/session'
 import axios from 'axios'
 
-jest.mock('bashleigh-idtoken-verifier', () => ({
+jest.mock('idtoken-verifier', () => ({
   decode: (token: string) => {
     return JSON.parse(token)
   },
