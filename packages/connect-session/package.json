@@ -39,7 +39,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "base-64": "^1.0.0",
-    "bashleigh-idtoken-verifier": "2.2.3",
+    "idtoken-verifier": "^2.2.3",
     "isomorphic-fetch": "^3.0.0",
     "jwk-to-pem": "^2.0.5",
     "jwt-decode": "^3.1.2",
