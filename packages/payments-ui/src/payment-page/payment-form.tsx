@@ -116,6 +116,7 @@ export const handleThreeDSecureResponse =
     if (threeDSecureMessage && modalIsOpen && cachedTransaction) {
       const { transaction, cardDetails } = cachedTransaction
       handleUpdateStatus(transaction, cardDetails)
+        .catch(error => console.error(error))
       setCachedTransaction(null)
       closeModal()
     } else if (cachedTransaction && !modalIsOpen) {
