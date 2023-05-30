@@ -19018,6 +19018,10 @@ export interface UpdateContactModel {
    */
   communicationPreferenceSMS?: boolean
   /**
+   * A flag determining whether the contact is archived
+   */
+  fromArchive?: boolean
+  /**
    * App specific metadata to set against the contact
    */
   metadata?: {
