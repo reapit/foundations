@@ -109,7 +109,7 @@ export const handleFetchOffices =
       setOfficesLoading(false)
     }
 
-    fetchOffices()
+    fetchOffices().catch((error) => console.error(error))
   }
 
 const OfficesTab: FC = () => {

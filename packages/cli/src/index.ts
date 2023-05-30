@@ -96,4 +96,6 @@ const boot = async (
   }
 }
 
-boot(IntroCommand, [AuthCommand, ConfigCommand, PipelineCommand, BootstrapCommand, ReleaseCommand])
+boot(IntroCommand, [AuthCommand, ConfigCommand, PipelineCommand, BootstrapCommand, ReleaseCommand]).catch((error) =>
+  console.error(error),
+)

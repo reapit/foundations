@@ -30,5 +30,5 @@ export const handleSetIncompletedFields =
       }
     }
 
-    validate()
+    validate().catch((error) => console.error(error))
   }

@@ -110,7 +110,7 @@ export const handleAccountCreated =
     }
 
     if (accountId) {
-      pollAccount()
+      pollAccount().catch((error) => console.error(error))
     }
   }
 

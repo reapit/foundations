@@ -16,4 +16,4 @@ const download = async () => {
   fs.writeFileSync(dest, JSON.stringify(body), 'utf8')
 }
 
-download()
+download().catch((error) => console.error(error))

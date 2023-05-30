@@ -111,7 +111,7 @@ export const handleSwitchStep =
         setSelectedStep(step)
       }
     }
-    validateStep()
+    validateStep().catch((error) => console.error(error))
   }
 
 export const handleSetOptions =
