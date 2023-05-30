@@ -9,4 +9,4 @@ const bootstrap = async () => {
   app.listen(3000)
 }
 
-bootstrap()
+bootstrap().catch((error) => console.error(error))

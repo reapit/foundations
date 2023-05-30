@@ -90,4 +90,6 @@ const fetchSchema = async (apiVersion) => {
   return Promise.all(apiSchema.map(fetchDefinitionsForSchema))
 }
 
-fetchSchema().then(createIndexFile)
+fetchSchema()
+  .then(createIndexFile)
+  .catch(error => console.error(error))

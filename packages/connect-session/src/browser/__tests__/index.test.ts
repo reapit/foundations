@@ -3,7 +3,7 @@ import { ReapitConnectBrowserSession } from '../index'
 import { mockTokenResponse, mockBrowserSession, createMockToken } from '../../__mocks__/session'
 import { mockBrowserInitializers } from '../../__mocks__/session'
 
-jest.mock('bashleigh-idtoken-verifier', () => ({
+jest.mock('idtoken-verifier', () => ({
   decode: (token: string) => {
     return JSON.parse(token)
   },

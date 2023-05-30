@@ -54,4 +54,4 @@ const run = async () => {
   }
 }
 
-run()
+run().catch((error) => console.error(error))

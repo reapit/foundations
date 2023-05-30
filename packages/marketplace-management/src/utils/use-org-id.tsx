@@ -69,7 +69,7 @@ export const handleFetchInitialState =
       }
     }
 
-    fetchUserInfo()
+    fetchUserInfo().catch((error) => console.error(error))
   }
 
 export const useOrgId = (): UseOrgIdState => {
