@@ -91,6 +91,7 @@ export const handleCreateApiKey =
 
     if (developerId && email) {
       handleCreate()
+        .catch(error => console.error(error))
     }
   }
 
