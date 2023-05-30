@@ -19,7 +19,7 @@ export const appointmentsCreate = async (accessToken: string) => {
   console.log('Creating appointments')
 
   try {
-    payloads.forEach(async (payload: CreateAppointmentModel) => {
+    await Promise.all(payloads.map(async (payload: CreateAppointmentModel) => {
       await axios.post<AppointmentModelPagedResult>(`${platformBaseUri}/appointments`, payload, {
         headers: {
           ...BASE_HEADERS,
@@ -27,7 +27,7 @@ export const appointmentsCreate = async (accessToken: string) => {
         },
       })
       console.log(`Appointment for property ${payload.propertyId} created`)
-    })
+    }))
   } catch (error) {
     console.error('Error creating appointments', error.message)
     process.exit(1)
