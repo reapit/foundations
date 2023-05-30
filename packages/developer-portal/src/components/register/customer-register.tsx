@@ -44,6 +44,7 @@ export const handleCreateAccount =
       }
     }
     registerCustomer()
+      .catch(error => console.error(error))
   }
 
 export const handleSetModal =
