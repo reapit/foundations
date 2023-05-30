@@ -69,6 +69,7 @@ export const handleInstalledReports =
       }
 
       fetchInstalledReports()
+        .catch(error => console.error(error))
     }
   }
 
