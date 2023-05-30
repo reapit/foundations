@@ -258,6 +258,10 @@ export interface CreateOrganisationModel {
    */
   billingReference?: string
   /**
+   * The MFA status of the organisation (inactive/optional/enforced)
+   */
+  mfaStatus?: string
+  /**
    * A flag specifying if the organisation has registered tax
    */
   noTaxRegistration?: boolean
@@ -866,6 +870,10 @@ export interface OrganisationModel {
    */
   noTaxRegistration?: boolean
   /**
+   * The MFA status of the organisation (inactive/optional/enforced)
+   */
+  mfaStatus?: string
+  /**
    * The National Insurance number of the organisation
    */
   nationalInsurance?: string
@@ -1080,6 +1088,10 @@ export interface UpdateOrganisationModel {
    * The reference that our accounts department use internally for billing this organisation
    */
   billingReference?: string
+  /**
+   * The MFA status of the organisation (inactive/optional/enforced)
+   */
+  mfaStatus?: string
   /**
    * A flag specifying if the organisation has registered tax
    */
