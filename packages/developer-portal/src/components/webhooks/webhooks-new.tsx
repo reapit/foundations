@@ -77,6 +77,7 @@ export const handleSwitchStep =
       }
     }
     validateStep()
+      .catch(error => console.error(error))
   }
 
 export const handleSubmitWebhook =
