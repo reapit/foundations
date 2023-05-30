@@ -22,7 +22,7 @@ export const handleOnSubmit =
       paymentReason: payment?.description ?? 'No Reason Provided',
       paymentAmount: payment?.amount ?? 0,
       paymentCurrency: 'GBP',
-    })
+    }).catch((error) => console.error(error))
   }
 
 export const ResendConfirmButton: FC<ResendConfirmButtonProps> = ({ paymentFormValues, paymentProvider }) => {

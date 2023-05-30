@@ -68,7 +68,7 @@ export const handleInstalledReports =
         setLoading(false)
       }
 
-      fetchInstalledReports()
+      fetchInstalledReports().catch((error) => console.error(error))
     }
   }
 

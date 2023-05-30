@@ -69,3 +69,4 @@ const replaceFile = async (commit, src, dest) => {
 }
 
 fetchTSDefinitions()
+  .catch(error => console.error(error))
