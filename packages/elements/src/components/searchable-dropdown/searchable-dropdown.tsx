@@ -111,7 +111,7 @@ export const SearchableDropdownInner = <T extends unknown>(
           setLoading(false)
           setResultsVisible(true)
         })
-        .catch(error => console.error(error))
+        .catch((error) => console.error(error))
     }
   }, [value])
 

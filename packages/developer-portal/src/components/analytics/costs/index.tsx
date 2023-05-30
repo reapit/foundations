@@ -66,8 +66,7 @@ export const handleFetchBilling =
     }
 
     if (monthRequests.length && developerId) {
-      fetchBilling()
-        .catch(error => console.error(error))
+      fetchBilling().catch((error) => console.error(error))
     }
   }
 

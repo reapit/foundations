@@ -96,8 +96,7 @@ export const AppStateProvider: React.FC<PropsWithChildren> = ({ children }) => {
         ...geoCoords,
       }))
     }
-    getAppState()
-      .catch(error => console.error(error))
+    getAppState().catch((error) => console.error(error))
   }, [])
 
   return (

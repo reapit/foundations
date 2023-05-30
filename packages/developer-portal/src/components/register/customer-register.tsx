@@ -43,8 +43,7 @@ export const handleCreateAccount =
         window.location.href = `${process.env.connectOAuthUrl}/authorize?response_type=code&client_id=${process.env.connectClientId}&redirect_uri=${window.location.origin}${Routes.APPS}&state=${Routes.SETTINGS_COMPANY}`
       }
     }
-    registerCustomer()
-      .catch(error => console.error(error))
+    registerCustomer().catch((error) => console.error(error))
   }
 
 export const handleSetModal =

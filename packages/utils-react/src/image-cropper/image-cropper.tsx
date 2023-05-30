@@ -96,7 +96,7 @@ export const handleFileCrop =
       }
     }
 
-    uploadFile().catch(error => console.error(error))
+    uploadFile().catch((error) => console.error(error))
   }
 
 export const ImageCropperFileInput: ImageCropperWithInputPropsWrapped = forwardRef(

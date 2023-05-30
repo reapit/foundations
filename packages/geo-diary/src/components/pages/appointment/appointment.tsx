@@ -176,8 +176,7 @@ export const handleGetAmlInstallation =
     }
 
     if (accessToken && clientId) {
-      getAmlInstallations()
-        .catch(error => console.error(error))
+      getAmlInstallations().catch((error) => console.error(error))
     }
   }
 

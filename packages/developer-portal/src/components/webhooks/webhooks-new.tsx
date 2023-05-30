@@ -76,8 +76,7 @@ export const handleSwitchStep =
         setSelectedStep(step)
       }
     }
-    validateStep()
-      .catch(error => console.error(error))
+    validateStep().catch((error) => console.error(error))
   }
 
 export const handleSubmitWebhook =

@@ -57,11 +57,13 @@ export const handle3DSecure = async (
   if (status === '3DAuth') {
     setThreeDSecureRes({ transaction, cardDetails })
   } else if (status === 'Ok') {
-    onUpdateStatus('posted', paymentProvider, cardDetails, setTransactionProcessing, transactionId)
-      .catch(error => console.error(error))
+    onUpdateStatus('posted', paymentProvider, cardDetails, setTransactionProcessing, transactionId).catch((error) =>
+      console.error(error),
+    )
   } else {
-    onUpdateStatus('rejected', paymentProvider, cardDetails, setTransactionProcessing, transactionId)
-      .catch(error => console.error(error))
+    onUpdateStatus('rejected', paymentProvider, cardDetails, setTransactionProcessing, transactionId).catch((error) =>
+      console.error(error),
+    )
   }
 }
 

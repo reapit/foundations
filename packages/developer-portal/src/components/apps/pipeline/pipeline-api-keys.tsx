@@ -60,8 +60,7 @@ export const handleDeleteApiKey =
     }
 
     if (apiKeyId) {
-      handleDelete()
-        .catch(error => console.error(error))
+      handleDelete().catch((error) => console.error(error))
     }
   }
 
@@ -90,8 +89,7 @@ export const handleCreateApiKey =
     }
 
     if (developerId && email) {
-      handleCreate()
-        .catch(error => console.error(error))
+      handleCreate().catch((error) => console.error(error))
     }
   }
 
