@@ -1,11 +1,12 @@
-import { importSchema } from 'graphql-import'
-import path from 'path'
 import resolvers from './resolvers'
 import depthLimit from 'graphql-depth-limit'
 import * as Sentry from '@sentry/node'
+import { resolve } from 'path'
 import { handleContext, formatError } from './utils'
 import { ApolloServerPluginLandingPageGraphQLPlayground, Config } from 'apollo-server-core'
 import { LambdaContextFunctionParams } from 'apollo-server-lambda/dist/ApolloServer'
+import { loadSchemaSync } from '@graphql-tools/load'
+import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader'
 
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
@@ -15,7 +16,7 @@ if (process.env.NODE_ENV !== 'development') {
   })
 }
 
-const typeDefs = importSchema(path.resolve(__dirname, 'schema.graphql'))
+const typeDefs = loadSchemaSync(resolve(__dirname, 'schema.graphql'), { loaders: [new GraphQLFileLoader()] })
 
 export const config: Config<LambdaContextFunctionParams> = {
   typeDefs,
