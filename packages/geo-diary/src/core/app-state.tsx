@@ -97,6 +97,7 @@ export const AppStateProvider: React.FC<PropsWithChildren> = ({ children }) => {
       }))
     }
     getAppState()
+      .catch(error => console.error(error))
   }, [])
 
   return (
