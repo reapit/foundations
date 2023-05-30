@@ -61,6 +61,7 @@ export const handleDeleteApiKey =
 
     if (apiKeyId) {
       handleDelete()
+        .catch(error => console.error(error))
     }
   }
 
