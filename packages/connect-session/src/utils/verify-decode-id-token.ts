@@ -6,7 +6,7 @@ import 'isomorphic-fetch'
 import { LoginIdentity } from '../types'
 // We wanted to use idtoken-verifier, currently using bashleigh-idtoken-verifier
 // as the types are incorrect in root package
-import IdTokenVerifier from 'bashleigh-idtoken-verifier'
+import IdTokenVerifier from 'idtoken-verifier'
 import decode from 'jwt-decode'
 
 // Util to verify integrity of AWS tokens for client side applications. Allows Connect Session module to check a
@@ -39,9 +39,8 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
       leeway: 300,
     })
 
-    // TODO what is state?
     const claim = (await new Promise<Claim>((resolve, reject) =>
-      verifier.verify(token, undefined, (err: Error | null, payload: object | null) => {
+      verifier.verify(token, (err: Error | null, payload: object | null) => {
         if (err) {
           reject(err)
         }
