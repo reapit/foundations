@@ -21,3 +21,4 @@ const releaseProd = async () => {
 }
 
 releaseProd()
+  .catch(error => console.error(error))

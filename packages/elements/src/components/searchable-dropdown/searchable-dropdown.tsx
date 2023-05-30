@@ -105,11 +105,13 @@ export const SearchableDropdownInner = <T extends unknown>(
   useEffect(() => {
     if (value.length > 2 && !resultsList.map(getResultLabel).includes(value)) {
       setLoading(true)
-      getResults(value).then((results) => {
-        setResultsList(results)
-        setLoading(false)
-        setResultsVisible(true)
-      })
+      getResults(value)
+        .then((results) => {
+          setResultsList(results)
+          setLoading(false)
+          setResultsVisible(true)
+        })
+        .catch((error) => console.error(error))
     }
   }, [value])
 

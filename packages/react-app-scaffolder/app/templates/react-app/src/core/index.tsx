@@ -63,3 +63,4 @@ const run = async () => {
 }
 
 run()
+.catch(error => console.error(error))

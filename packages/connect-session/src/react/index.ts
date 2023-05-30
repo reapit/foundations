@@ -13,7 +13,7 @@ export const useReapitConnect = (reapitConnectBrowserSession: ReapitConnectBrows
       }
     }
 
-    connectGetSession()
+    connectGetSession().catch((error) => console.error(error))
   }, [])
 
   const connectAuthorizeRedirect = React.useCallback(() => {
