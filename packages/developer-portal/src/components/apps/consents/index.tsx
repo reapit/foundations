@@ -35,6 +35,7 @@ export const handleResendEmail =
 
     if (consentId) {
       sentEmail()
+        .catch(error => console.error(error))
     }
   }
 
