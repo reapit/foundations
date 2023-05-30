@@ -40,10 +40,14 @@ export class ReapitConnectBrowserSession {
     // Instantiate my private variables from the constructor params
     this.connectOAuthUrl = connectOAuthUrl
     this.connectClientId = connectClientId
-    this.connectLoginRedirectPath = `${window.location.origin}${connectLoginRedirectPath || ''}`
-    this.connectLogoutRedirectPath = `${window.location.origin}${
-      connectLogoutRedirectPath || connectLogoutRedirectPath === '' ? connectLogoutRedirectPath : '/login'
-    }`
+    this.connectLoginRedirectPath = connectLoginRedirectPath?.startsWith('https://')
+      ? connectLoginRedirectPath
+      : `${window.location.origin}${connectLoginRedirectPath || ''}`
+    this.connectLogoutRedirectPath = connectLogoutRedirectPath?.startsWith('https://')
+      ? connectLogoutRedirectPath
+      : `${window.location.origin}${
+          connectLogoutRedirectPath || connectLogoutRedirectPath === '' ? connectLogoutRedirectPath : '/login'
+        }`
     this.connectApplicationTimeout = connectApplicationTimeout ?? ReapitConnectBrowserSession.APP_DEFAULT_TIMEOUT
     this.refreshTokenStorage = this.connectIsDesktop ? window.localStorage : window.sessionStorage
     this.fetching = false
