@@ -127,6 +127,7 @@ export const handleSetSteps =
       }
     }
     handleStep()
+      .catch(error => console.error(error))
   }
 
 export const handleSubmitApp =
