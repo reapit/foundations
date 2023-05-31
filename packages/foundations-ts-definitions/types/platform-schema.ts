@@ -297,6 +297,19 @@ export interface ApplicantContactModel {
      */
     countryId?: string
   }
+  /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    /**
+     * The type of contact detail
+     */
+    type?: string
+    /**
+     * The contact detail
+     */
+    value?: string
+  }[]
 }
 /**
  * Representation of a relationship between an applicant and a contact or company
@@ -880,6 +893,19 @@ export interface ApplicantModel {
        */
       countryId?: string
     }
+    /**
+     * A collection of additional contact details
+     */
+    additionalContactDetails?: {
+      /**
+       * The type of contact detail
+       */
+      type?: string
+      /**
+       * The contact detail
+       */
+      value?: string
+    }[]
   }[]
   /**
    * App specific metadata that has been set against the applicant
@@ -1313,6 +1339,19 @@ export interface ApplicantModelPagedResult {
          */
         countryId?: string
       }
+      /**
+       * A collection of additional contact details
+       */
+      additionalContactDetails?: {
+        /**
+         * The type of contact detail
+         */
+        type?: string
+        /**
+         * The contact detail
+         */
+        value?: string
+      }[]
     }[]
     /**
      * App specific metadata that has been set against the applicant
@@ -10053,6 +10092,19 @@ export interface LandlordContactModel {
      */
     countryId?: string
   }
+  /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    /**
+     * The type of contact detail
+     */
+    type?: string
+    /**
+     * The contact detail
+     */
+    value?: string
+  }[]
 }
 /**
  * Representation of relationship between a landlord and a contact or company
@@ -10293,6 +10345,19 @@ export interface LandlordModel {
        */
       countryId?: string
     }
+    /**
+     * A collection of additional contact details
+     */
+    additionalContactDetails?: {
+      /**
+       * The type of contact detail
+       */
+      type?: string
+      /**
+       * The contact detail
+       */
+      value?: string
+    }[]
   }[]
   /**
    * App specific metadata that has been set against the landlord
@@ -10449,6 +10514,19 @@ export interface LandlordModelPagedResult {
          */
         countryId?: string
       }
+      /**
+       * A collection of additional contact details
+       */
+      additionalContactDetails?: {
+        /**
+         * The type of contact detail
+         */
+        type?: string
+        /**
+         * The contact detail
+         */
+        value?: string
+      }[]
     }[]
     /**
      * App specific metadata that has been set against the landlord
@@ -11000,6 +11078,19 @@ export interface OfferContactModel {
      */
     countryId?: string
   }
+  /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    /**
+     * The type of contact detail
+     */
+    type?: string
+    /**
+     * The contact detail
+     */
+    value?: string
+  }[]
 }
 /**
  * Representation of an offer
@@ -11158,6 +11249,19 @@ export interface OfferModel {
        */
       countryId?: string
     }
+    /**
+     * A collection of additional contact details
+     */
+    additionalContactDetails?: {
+      /**
+       * The type of contact detail
+       */
+      type?: string
+      /**
+       * The contact detail
+       */
+      value?: string
+    }[]
   }[]
   /**
    * App specific metadata that has been set against the offer
@@ -11325,6 +11429,19 @@ export interface OfferModelPagedResult {
          */
         countryId?: string
       }
+      /**
+       * A collection of additional contact details
+       */
+      additionalContactDetails?: {
+        /**
+         * The type of contact detail
+         */
+        type?: string
+        /**
+         * The contact detail
+         */
+        value?: string
+      }[]
     }[]
     /**
      * App specific metadata that has been set against the offer
@@ -15903,6 +16020,19 @@ export interface TenancyContactModel {
      */
     countryId?: string
   }
+  /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    /**
+     * The type of contact detail
+     */
+    type?: string
+    /**
+     * The contact detail
+     */
+    value?: string
+  }[]
 }
 /**
  * Representation of a relationship between a tenancy and a contact or company
@@ -16518,6 +16648,19 @@ export interface TenancyModel {
        */
       countryId?: string
     }
+    /**
+     * A collection of additional contact details
+     */
+    additionalContactDetails?: {
+      /**
+       * The type of contact detail
+       */
+      type?: string
+      /**
+       * The contact detail
+       */
+      value?: string
+    }[]
   }[]
   /**
    * A flag denoting whether or not this tenancy is archived
@@ -16810,6 +16953,19 @@ export interface TenancyModelPagedResult {
          */
         countryId?: string
       }
+      /**
+       * A collection of additional contact details
+       */
+      additionalContactDetails?: {
+        /**
+         * The type of contact detail
+         */
+        type?: string
+        /**
+         * The contact detail
+         */
+        value?: string
+      }[]
     }[]
     /**
      * A flag denoting whether or not this tenancy is archived
@@ -21850,6 +22006,19 @@ export interface VendorContactModel {
      */
     countryId?: string
   }
+  /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    /**
+     * The type of contact detail
+     */
+    type?: string
+    /**
+     * The contact detail
+     */
+    value?: string
+  }[]
 }
 /**
  * Representation of a relationship between a vendor and a contact or company
@@ -22110,6 +22279,19 @@ export interface VendorModel {
        */
       countryId?: string
     }
+    /**
+     * A collection of additional contact details
+     */
+    additionalContactDetails?: {
+      /**
+       * The type of contact detail
+       */
+      type?: string
+      /**
+       * The contact detail
+       */
+      value?: string
+    }[]
   }[]
   /**
    * The unique identifier of the negotiator attached to the vendor. The first item in the collection is considered the primary negotiator
@@ -22298,6 +22480,19 @@ export interface VendorModelPagedResult {
          */
         countryId?: string
       }
+      /**
+       * A collection of additional contact details
+       */
+      additionalContactDetails?: {
+        /**
+         * The type of contact detail
+         */
+        type?: string
+        /**
+         * The contact detail
+         */
+        value?: string
+      }[]
     }[]
     /**
      * The unique identifier of the negotiator attached to the vendor. The first item in the collection is considered the primary negotiator
