@@ -1268,7 +1268,6 @@ type PagedResultAreaModel {
   _links: JSON
 }
 
-# Representation of a company
 """
 Representation of a company
 """
@@ -1468,7 +1467,6 @@ enum ContactQueryEmbed {
   source
 }
 
-# Representation of an offers sales progression information
 """
 Representation of an offers sales progression information
 """
