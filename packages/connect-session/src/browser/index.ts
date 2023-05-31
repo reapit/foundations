@@ -42,12 +42,12 @@ export class ReapitConnectBrowserSession {
     this.connectClientId = connectClientId
     this.connectLoginRedirectPath = connectLoginRedirectPath?.startsWith('https://')
       ? connectLoginRedirectPath
-      : `${window.location.origin}${connectLoginRedirectPath || ''}`
+      : `${window.location.origin}${connectLoginRedirectPath ?? ''}`
+    const logoutPath =
+      connectLogoutRedirectPath || connectLogoutRedirectPath === '' ? connectLogoutRedirectPath : '/login'
     this.connectLogoutRedirectPath = connectLogoutRedirectPath?.startsWith('https://')
       ? connectLogoutRedirectPath
-      : `${window.location.origin}${
-          connectLogoutRedirectPath || connectLogoutRedirectPath === '' ? connectLogoutRedirectPath : '/login'
-        }`
+      : `${window.location.origin}${logoutPath}`
     this.connectApplicationTimeout = connectApplicationTimeout ?? ReapitConnectBrowserSession.APP_DEFAULT_TIMEOUT
     this.refreshTokenStorage = this.connectIsDesktop ? window.localStorage : window.sessionStorage
     this.fetching = false
