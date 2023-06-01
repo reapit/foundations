@@ -13,7 +13,7 @@
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "jest",
-    "build": "echo '...skipping...'",
+    "build": "tsup",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
@@ -44,6 +44,7 @@
     "jest-coverage-badges": "^1.1.2",
     "reflect-metadata": "^0.1.13",
     "ts-jest": "^29.1.0",
+    "tsup": "^6.7.0",
     "typescript": "^4.9.5"
   }
 }

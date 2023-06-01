@@ -10108,6 +10108,7 @@ __metadata:
     jest-coverage-badges: ^1.1.2
     reflect-metadata: ^0.1.13
     ts-jest: ^29.1.0
+    tsup: ^6.7.0
     typescript: ^4.9.5
   languageName: unknown
   linkType: soft
