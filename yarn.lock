@@ -10108,6 +10108,7 @@ __metadata:
     jest-coverage-badges: ^1.1.2
     reflect-metadata: ^0.1.13
     ts-jest: ^29.1.0
+    tsup: ^6.7.0
     typescript: ^4.9.5
   languageName: unknown
   linkType: soft
@@ -10572,6 +10573,7 @@ __metadata:
     vite-plugin-top-level-await: ^1.3.0
   bin:
     rpt-cdk: ./bin/rpt-cdk.js
+    tsup-zip: ./bin/tsup-zip.js
   languageName: unknown
   linkType: soft
 
@@ -22278,7 +22280,6 @@ __metadata:
     "@reapit/api-key-verify": "workspace:packages/api-key-verify"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
-    "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-nest": "workspace:packages/utils-nest"
     "@reapit/utils-node": "workspace:packages/utils-node"
@@ -22317,6 +22318,7 @@ __metadata:
     rxjs: ^7.8.1
     ts-jest: ^29.1.0
     ts-node: ^10.9.1
+    tsup: ^6.7.0
     typeorm: ^0.3.12
     typescript: ^4.9.5
     yaml: ^2.2.1

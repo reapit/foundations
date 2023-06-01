@@ -22,6 +22,7 @@ export const createFunction = (
   vpc?: ec2.Vpc,
   duration?: number,
   ram?: number,
+  runtime?: lambda.Runtime,
 ): lambda.Function => {
   return new lambda.Function(scope, functionName, {
     timeout: cdk.Duration.seconds(duration || 30),
@@ -30,7 +31,7 @@ export const createFunction = (
     handler,
     vpc,
     code: typeof entry === 'string' ? lambda.Code.fromAsset(entry) : entry,
-    runtime: lambda.Runtime.NODEJS_14_X,
+    runtime: runtime || lambda.Runtime.NODEJS_14_X,
     logRetention: logs.RetentionDays.ONE_MONTH,
   })
 }

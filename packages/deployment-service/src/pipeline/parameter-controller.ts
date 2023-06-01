@@ -1,4 +1,5 @@
-import { IdTokenGuard, OwnershipProvider, Creds, CredsType } from '@reapit/utils-nest'
+import { IdTokenGuard, OwnershipProvider, Creds } from '@reapit/utils-nest'
+import type { CredsType } from '@reapit/utils-nest'
 import { PipelineProvider } from './pipeline-provider'
 import { Controller, Get, UseGuards, Param, NotFoundException, Put, Body } from '@nestjs/common'
 import { ParameterDto } from './parameter-dto'
