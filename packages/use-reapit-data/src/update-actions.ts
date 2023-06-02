@@ -66,6 +66,11 @@ export enum UpdateActionNames {
   submitOpayoTransaction = 'submitOpayoTransaction',
   createAuthClient = 'createAuthClient',
   deleteAuthClient = 'deleteAuthClient',
+  deleteUserPassword = 'deleteUserPassword',
+  deleteUserSuppressionList = 'deleteUserSuppressionList',
+  removeMemberFromGroup = 'removeMemberFromGroup',
+  addMemberToGroup = 'addMemberToGroup',
+  updatePlatformConfig = 'updatePlatformConfig',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -408,5 +413,35 @@ export const updateActions = {
     api: ApiNames.platform,
     path: PathNames.authClient,
     errorMessage: 'Failed to delete old auth credentials. This error has been logged',
+  },
+  [UpdateActionNames.deleteUserPassword]: {
+    api: ApiNames.platform,
+    path: PathNames.userByIdPassword,
+    successMessage: 'Successfully reset password.',
+    errorMessage: 'Failed to reset password.',
+  },
+  [UpdateActionNames.deleteUserSuppressionList]: {
+    api: ApiNames.platform,
+    path: PathNames.userEmailSuppressions,
+    successMessage: 'Successfully removed user from list.',
+    errorMessage: 'Failed to remove user from list.',
+  },
+  [UpdateActionNames.removeMemberFromGroup]: {
+    api: ApiNames.platform,
+    path: PathNames.groupIdMembersDelete,
+    successMessage: 'Successfully removed user from group.',
+    errorMessage: 'Failed to remove user from group.',
+  },
+  [UpdateActionNames.addMemberToGroup]: {
+    api: ApiNames.platform,
+    path: PathNames.groupIdMembers,
+    successMessage: 'Successfully added user to group.',
+    errorMessage: 'Failed to remove user from group.',
+  },
+  [UpdateActionNames.updatePlatformConfig]: {
+    api: ApiNames.platform,
+    path: PathNames.getOrgConfig,
+    successMessage: 'Successfully updated platform config.',
+    errorMessage: 'Failed to update platform config.',
   },
 }
