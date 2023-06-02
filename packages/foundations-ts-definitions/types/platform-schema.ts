@@ -11129,6 +11129,14 @@ export interface OfferModel {
    */
   applicantId?: string
   /**
+   * The unique identifier of the company associated to the offer
+   */
+  companyId?: string
+  /**
+   * The unique identifier of the contact associated to the offer
+   */
+  contactId?: string
+  /**
    * The unique identifier of the property associated to the offer
    */
   propertyId?: string
@@ -11308,6 +11316,14 @@ export interface OfferModelPagedResult {
      * The unique identifier of the applicant associated to the offer
      */
     applicantId?: string
+    /**
+     * The unique identifier of the company associated to the offer
+     */
+    companyId?: string
+    /**
+     * The unique identifier of the contact associated to the offer
+     */
+    contactId?: string
     /**
      * The unique identifier of the property associated to the offer
      */
@@ -22734,6 +22750,10 @@ export interface WorksOrderItemModel {
    */
   grossAmount?: number // double
   /**
+   * The unique identifier of the nominal account the works order financial transactions are allocated to
+   */
+  nominalAccountId?: string
+  /**
    * The ETag for the current version of the works order item. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -22796,6 +22816,10 @@ export interface WorksOrderItemModelPagedResult {
      * The gross cost of the work to be carried out
      */
     grossAmount?: number // double
+    /**
+     * The unique identifier of the nominal account the works order financial transactions are allocated to
+     */
+    nominalAccountId?: string
     /**
      * The ETag for the current version of the works order item. Used for managing update concurrency
      */
@@ -22966,6 +22990,10 @@ export interface WorksOrderModel {
      * The gross cost of the work to be carried out
      */
     grossAmount?: number // double
+    /**
+     * The unique identifier of the nominal account the works order financial transactions are allocated to
+     */
+    nominalAccountId?: string
     /**
      * The ETag for the current version of the works order item. Used for managing update concurrency
      */
@@ -23140,6 +23168,10 @@ export interface WorksOrderModelPagedResult {
        * The gross cost of the work to be carried out
        */
       grossAmount?: number // double
+      /**
+       * The unique identifier of the nominal account the works order financial transactions are allocated to
+       */
+      nominalAccountId?: string
       /**
        * The ETag for the current version of the works order item. Used for managing update concurrency
        */
