@@ -1,0 +1,6 @@
+[defaults]
+project=rc-service
+org=reapit-ltd
+
+[http]
+keepalive=false

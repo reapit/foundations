@@ -1,0 +1,516 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrgsPage should match a snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <form>
+        <mock-styled.div
+          classname="mock-css."
+        >
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="test-static-id"
+                name="name"
+                placeholder="Search by org name"
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Org Name
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="test-static-id"
+                name="agencyCloudId"
+                placeholder="Search Client Code"
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Client Code
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </form>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  margin-bottom: 2.5rem;
+"
+        data-has-call-to-action="false"
+        data-has-expandable-action="true"
+        data-num-columns-excl-action-col="5"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            Org Name
+          </mock-styled.div>
+          <mock-styled.div>
+            Client Code
+          </mock-styled.div>
+          <mock-styled.div>
+            Date Created
+          </mock-styled.div>
+          <mock-styled.div>
+            Address
+          </mock-styled.div>
+          <mock-styled.div>
+            Active
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
+              style="font-size: 1.2rem;"
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+              <mock-styled.div
+                data-narrow-label="Org Name"
+              >
+                test again 2
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+              <mock-styled.div
+                data-narrow-label="Client Code"
+              />
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+              <mock-styled.div
+                data-narrow-label="Date Created"
+              >
+                23-02-2023
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.div
+                data-narrow-label="Address"
+              />
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.div
+                data-narrow-label="Active"
+              >
+                <mock-styled.span
+                  classname="mock-css."
+                >
+                  <svg />
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 1.25rem;
+"
+              >
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.h2
+                    classname=""
+                  >
+                    Manage Platform Config
+                  </mock-styled.h2>
+                  <mock-styled.div>
+                    <mock-styled.div
+                      classname="mock-css."
+                    >
+                      <mock-styled.button
+                        classname="mock-css."
+                        disabled="true"
+                      >
+                        Load Management Form
+                        <mock-styled.div />
+                      </mock-styled.button>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
+            value="1"
+          />
+           of 
+          24
+        </mock-styled.div>
+        <mock-styled.button
+          data-testid="back-button"
+          type="button"
+        >
+          <mock-styled.span
+            classname=""
+          >
+            <svg />
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
+          data-testid="forward-button"
+          type="button"
+        >
+          <mock-styled.span
+            classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
+          >
+            <svg />
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <form>
+      <mock-styled.div
+        classname="mock-css."
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              name="name"
+              placeholder="Search by org name"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Org Name
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              name="agencyCloudId"
+              placeholder="Search Client Code"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Client Code
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </form>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  margin-bottom: 2.5rem;
+"
+      data-has-call-to-action="false"
+      data-has-expandable-action="true"
+      data-num-columns-excl-action-col="5"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          Org Name
+        </mock-styled.div>
+        <mock-styled.div>
+          Client Code
+        </mock-styled.div>
+        <mock-styled.div>
+          Date Created
+        </mock-styled.div>
+        <mock-styled.div>
+          Address
+        </mock-styled.div>
+        <mock-styled.div>
+          Active
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.span
+            classname=""
+            style="font-size: 1.2rem;"
+          >
+            <svg />
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.div
+              data-narrow-label="Org Name"
+            >
+              test again 2
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.div
+              data-narrow-label="Client Code"
+            />
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.div
+              data-narrow-label="Date Created"
+            >
+              23-02-2023
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div
+              data-narrow-label="Address"
+            />
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div
+              data-narrow-label="Active"
+            >
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 1.25rem;
+"
+            >
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.h2
+                  classname=""
+                >
+                  Manage Platform Config
+                </mock-styled.h2>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
+                  >
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="true"
+                    >
+                      Load Management Form
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.input
+          value="1"
+        />
+         of 
+        24
+      </mock-styled.div>
+      <mock-styled.button
+        data-testid="back-button"
+        type="button"
+      >
+        <mock-styled.span
+          classname=""
+        >
+          <svg />
+        </mock-styled.span>
+      </mock-styled.button>
+      <mock-styled.button
+        data-testid="forward-button"
+        type="button"
+      >
+        <mock-styled.span
+          classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
+        >
+          <svg />
+        </mock-styled.span>
+      </mock-styled.button>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

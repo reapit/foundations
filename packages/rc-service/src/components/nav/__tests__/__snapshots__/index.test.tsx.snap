@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should match a snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <mock-styled.nav
+        classname=""
+      >
+        <mock-styled.a
+          classname="mock-css.
+  @media screen and (min-width: 768px) {
+    --nav-menu-icon-primary-accent: var(--color-white);
+    color: var(--nav-menu-text-hover);
+    background-color: var(--nav-menu-background-accent);
+  }
+"
+        >
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+"
+            style="font-size: 2.5rem;"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.span
+            classname="mock-css. mock-css.
+  margin-left: auto;
+ mock-css.
+  margin-right: 0.375rem;
+ mock-css.
+  @media screen and (min-width: 768px) {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+"
+            style="font-size: 2rem;"
+          >
+            <svg />
+          </mock-styled.span>
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
+        >
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          Users
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
+        >
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          Orgs
+        </mock-styled.a>
+        <mock-styled.a
+          classname="mock-css.
+  @media screen and (min-width: 768px) {
+    margin-top: auto;
+  }
+"
+        >
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          Logout
+        </mock-styled.a>
+      </mock-styled.nav>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.nav
+      classname=""
+    >
+      <mock-styled.a
+        classname="mock-css.
+  @media screen and (min-width: 768px) {
+    --nav-menu-icon-primary-accent: var(--color-white);
+    color: var(--nav-menu-text-hover);
+    background-color: var(--nav-menu-background-accent);
+  }
+"
+      >
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+"
+          style="font-size: 2.5rem;"
+        >
+          <svg />
+        </mock-styled.span>
+        <mock-styled.span
+          classname="mock-css. mock-css.
+  margin-left: auto;
+ mock-css.
+  margin-right: 0.375rem;
+ mock-css.
+  @media screen and (min-width: 768px) {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+"
+          style="font-size: 2rem;"
+        >
+          <svg />
+        </mock-styled.span>
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
+      >
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
+        >
+          <svg />
+        </mock-styled.span>
+        Users
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
+      >
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
+        >
+          <svg />
+        </mock-styled.span>
+        Orgs
+      </mock-styled.a>
+      <mock-styled.a
+        classname="mock-css.
+  @media screen and (min-width: 768px) {
+    margin-top: auto;
+  }
+"
+      >
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
+        >
+          <svg />
+        </mock-styled.span>
+        Logout
+      </mock-styled.a>
+    </mock-styled.nav>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
