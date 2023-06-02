@@ -1,4 +1,4 @@
-import { UserModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { GroupModelPagedResult, UserModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export const mockUserModelPagedResult: UserModelPagedResult = {
   _embedded: [
@@ -23,4 +23,21 @@ export const mockUserModelPagedResult: UserModelPagedResult = {
   pageCount: 1,
   totalPageCount: 1,
   totalCount: 1,
+}
+
+export const mockGroupModelPagedResult: GroupModelPagedResult = {
+  _embedded: [
+    {
+      id: 'MyTestGroup',
+      created: '2022-02-07T20:17:36.0000000Z',
+      modified: '2022-02-07T20:18:05.0000000Z',
+      description: 'Update group desc',
+      memberCount: 1,
+    },
+  ],
+  pageNumber: 1,
+  pageSize: 100,
+  pageCount: 20,
+  totalPageCount: 1,
+  totalCount: 20,
 }

@@ -1,5 +1,5 @@
 [defaults]
-project=rc-mfa-config
+project=rc-service
 org=reapit-ltd
 
 [http]
