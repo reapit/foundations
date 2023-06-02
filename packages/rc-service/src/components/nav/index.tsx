@@ -4,14 +4,13 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { RoutePaths } from '../../constants/routes'
 import { navigateRoute } from '../../utils/navigation'
-import { getIsAdmin } from '../../utils/is-admin'
 import { useNavigate } from 'react-router'
 
 export const getDefaultNavIndex = (pathname: string) => {
   switch (pathname) {
-    case RoutePaths.HOME:
+    case RoutePaths.USERS:
       return 1
-    case RoutePaths.ADMIN:
+    case RoutePaths.ORGS:
       return 2
     default:
       return 0
@@ -20,29 +19,24 @@ export const getDefaultNavIndex = (pathname: string) => {
 
 export const Nav: FC = () => {
   const navigate = useNavigate()
-  const { connectLogoutRedirect, connectIsDesktop, connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const isAdmin = getIsAdmin(connectSession)
-
+  const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const navOptions: NavResponsiveOption[] = [
     {
       itemIndex: 0,
     },
     {
       itemIndex: 1,
-      text: 'Configure',
-      iconId: 'myAccountMenu',
-      callback: navigateRoute(navigate, RoutePaths.HOME),
+      text: 'Users',
+      iconId: 'usersMenu',
+      callback: navigateRoute(navigate, RoutePaths.USERS),
+    },
+    {
+      itemIndex: 2,
+      text: 'Orgs',
+      iconId: 'officesMenu',
+      callback: navigateRoute(navigate, RoutePaths.ORGS),
     },
   ]
-
-  if (isAdmin) {
-    navOptions.push({
-      itemIndex: 2,
-      text: 'Admin',
-      iconId: 'manageMenu',
-      callback: navigateRoute(navigate, RoutePaths.ADMIN),
-    })
-  }
 
   if (!connectIsDesktop) {
     navOptions.push({

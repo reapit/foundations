@@ -6,6 +6,7 @@ import { catchChunkError } from '@reapit/utils-react'
 
 const LoginPage = lazy(() => catchChunkError(() => import('../components/login')))
 const UsersPage = lazy(() => catchChunkError(() => import('../components/users')))
+const OrgsPage = lazy(() => catchChunkError(() => import('../components/orgs')))
 
 export const RoutesComponent: FC = () => (
   <Routes>
@@ -15,6 +16,14 @@ export const RoutesComponent: FC = () => (
       element={
         <PrivateRouteWrapper>
           <UsersPage />
+        </PrivateRouteWrapper>
+      }
+    />
+    <Route
+      path={RoutePaths.ORGS}
+      element={
+        <PrivateRouteWrapper>
+          <OrgsPage />
         </PrivateRouteWrapper>
       }
     />

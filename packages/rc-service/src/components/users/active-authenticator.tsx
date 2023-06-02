@@ -39,8 +39,10 @@ export const ActiveAuthenticator: FC<ActiveAuthenticatorProps> = ({ activeAuthen
             {modified ? dayjs(modified).format('DD/MM/YYYY HH:mm') : '-'}
           </BodyText>
         </Col>
+        <Col>
+          <DeleteAuthenticator authenticatorId={id} userId={userId} refreshAuthenticators={refreshAuthenticators} />
+        </Col>
       </Grid>
-      <DeleteAuthenticator authenticatorId={id} userId={userId} refreshAuthenticators={refreshAuthenticators} />
     </>
   )
 }

@@ -10,7 +10,13 @@ exports[`Nav should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.a
-          classname=""
+          classname="mock-css.
+  @media screen and (min-width: 768px) {
+    --nav-menu-icon-primary-accent: var(--color-white);
+    color: var(--nav-menu-text-hover);
+    background-color: var(--nav-menu-background-accent);
+  }
+"
         >
           <mock-styled.span
             classname="mock-css.
@@ -40,13 +46,7 @@ exports[`Nav should match a snapshot 1`] = `
           </mock-styled.span>
         </mock-styled.a>
         <mock-styled.a
-          classname="mock-css.
-  @media screen and (min-width: 768px) {
-    --nav-menu-icon-primary-accent: var(--color-white);
-    color: var(--nav-menu-text-hover);
-    background-color: var(--nav-menu-background-accent);
-  }
-"
+          classname=""
         >
           <mock-styled.span
             classname="mock-css.
@@ -59,7 +59,23 @@ exports[`Nav should match a snapshot 1`] = `
           >
             <svg />
           </mock-styled.span>
-          Configure
+          Users
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
+        >
+          <mock-styled.span
+            classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          Orgs
         </mock-styled.a>
         <mock-styled.a
           classname="mock-css.
@@ -90,7 +106,13 @@ exports[`Nav should match a snapshot 1`] = `
       classname=""
     >
       <mock-styled.a
-        classname=""
+        classname="mock-css.
+  @media screen and (min-width: 768px) {
+    --nav-menu-icon-primary-accent: var(--color-white);
+    color: var(--nav-menu-text-hover);
+    background-color: var(--nav-menu-background-accent);
+  }
+"
       >
         <mock-styled.span
           classname="mock-css.
@@ -120,13 +142,7 @@ exports[`Nav should match a snapshot 1`] = `
         </mock-styled.span>
       </mock-styled.a>
       <mock-styled.a
-        classname="mock-css.
-  @media screen and (min-width: 768px) {
-    --nav-menu-icon-primary-accent: var(--color-white);
-    color: var(--nav-menu-text-hover);
-    background-color: var(--nav-menu-background-accent);
-  }
-"
+        classname=""
       >
         <mock-styled.span
           classname="mock-css.
@@ -139,7 +155,23 @@ exports[`Nav should match a snapshot 1`] = `
         >
           <svg />
         </mock-styled.span>
-        Configure
+        Users
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
+      >
+        <mock-styled.span
+          classname="mock-css.
+  @media screen and (max-width: 767px) {
+    margin-left: 0.75rem;
+  }
+ mock-css.
+  font-size: 2.5rem;
+"
+        >
+          <svg />
+        </mock-styled.span>
+        Orgs
       </mock-styled.a>
       <mock-styled.a
         classname="mock-css.

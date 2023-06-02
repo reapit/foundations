@@ -100,4 +100,11 @@ export enum PathNames {
   opayoTransactions = '/opayo/private/transactions',
   opayoMerchantKeys = '/opayo/private/merchant-session-keys',
   authClient = '/marketplace/apps/{appId}/authClient',
+  userGroups = '/organisations/groups',
+  userByIdPassword = '/organisations/users/{userId}/password',
+  userEmailSuppressions = '/organisations/emailSuppressions/{userId}',
+  orgs = '/organisations/organisations',
+  groupIdMembers = '/organisations/groups/{groupId}/members',
+  groupIdMembersDelete = '/organisations/groups/{groupId}/members/{userId}',
+  getOrgConfig = '/organisations/organisations/{orgId}/configuration/platform',
 }

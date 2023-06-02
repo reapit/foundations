@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { Button } from '@reapit/elements'
-import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { SendFunction, UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
 
 interface DeleteAuthenticatorProps {
   authenticatorId?: string
@@ -9,14 +9,14 @@ interface DeleteAuthenticatorProps {
   userId?: string
 }
 
-export const handleDeleteAuthenticator = (deleteAuthenticator: SendFunction<void, boolean>) => () => {
-  deleteAuthenticator()
-}
-
 export const handleRefresh = (refreshAuthenticators: () => void, hasDeleted?: boolean) => () => {
   if (hasDeleted) {
     refreshAuthenticators()
   }
+}
+
+export const handleDeleteAuthenticator = (deleteAuthenticator: SendFunction<void, boolean>) => () => {
+  deleteAuthenticator()
 }
 
 export const DeleteAuthenticator: FC<DeleteAuthenticatorProps> = ({
@@ -33,7 +33,6 @@ export const DeleteAuthenticator: FC<DeleteAuthenticatorProps> = ({
       authenticatorId,
     },
   })
-
   useEffect(handleRefresh(refreshAuthenticators, hasDeleted), [hasDeleted])
 
   return (

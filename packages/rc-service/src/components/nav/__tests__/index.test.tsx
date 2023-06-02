@@ -14,11 +14,11 @@ describe('Nav', () => {
 describe('getDefaultNavIndex', () => {
   const routes = [
     {
-      route: RoutePaths.HOME,
+      route: RoutePaths.USERS,
       index: 1,
     },
     {
-      route: RoutePaths.ADMIN,
+      route: RoutePaths.ORGS,
       index: 2,
     },
     {
