@@ -358,6 +358,10 @@ export interface AppRevisionModel {
    */
   summary?: string
   /**
+   * Gets the email of the user who created the revision
+   */
+  createdBy?: string
+  /**
    * Gets a detailed description of the app revision
    */
   description?: string
