@@ -60,6 +60,10 @@ export enum GetActionNames {
   getReferralTypes = 'getReferralTypes',
   getGroupsByOrgId = 'getGroupsByOrgId',
   getPaymentsClientConfig = 'getPaymentsClientConfig',
+  getUserGroups = 'getUserGroups',
+  getUserSuppressionList = 'getUserSuppressionList',
+  getOrgs = 'getOrgs',
+  getOrgConfig = 'getOrgConfig',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -317,5 +321,25 @@ export const getActions = {
     api: ApiNames.payments,
     path: PathNames.paymentsConfigPrivate,
     errorMessage: 'Failed to fetch client config this has been logged.',
+  },
+  [GetActionNames.getUserGroups]: {
+    api: ApiNames.platform,
+    path: PathNames.userGroups,
+    errorMessage: 'Failed to fetch groups, this has been logged.',
+  },
+  [GetActionNames.getUserSuppressionList]: {
+    api: ApiNames.platform,
+    path: PathNames.userEmailSuppressions,
+    errorMessage: 'Failed to fetch email suppression list, this has been logged.',
+  },
+  [GetActionNames.getOrgs]: {
+    api: ApiNames.platform,
+    path: PathNames.orgs,
+    errorMessage: 'Failed to fetch orgs list, this has been logged.',
+  },
+  [GetActionNames.getOrgConfig]: {
+    api: ApiNames.platform,
+    path: PathNames.getOrgConfig,
+    errorMessage: 'Failed to fetch org config, this has been logged.',
   },
 }
