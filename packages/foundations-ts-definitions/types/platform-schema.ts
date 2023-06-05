@@ -2907,6 +2907,7 @@ export interface ConfigurationTypes {
     | 'rentingPositions'
     | 'supplierTypes'
     | 'taskTypes'
+    | 'tenancyLegalStatuses'
     | 'tenancyTypes'
     | 'vendorTypes'
     | 'worksOrderTypes'
@@ -18051,6 +18052,19 @@ export interface TypeModel {
    * A list of configurable task types
    */
   taskTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable tenancy legal status
+   */
+  tenancyLegalStatuses?: {
     /**
      * The unique identifier of the list item
      */
