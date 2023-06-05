@@ -13,7 +13,8 @@ import {
 import { ApiKeyDto } from './api-key-dto'
 import { ApiKeyMemberDto } from './api-key-member-dto'
 import { ApiKeyProvider } from './api-key-provider'
-import { IdTokenGuard, Creds, CredsType } from '@reapit/utils-nest'
+import { IdTokenGuard, Creds } from '@reapit/utils-nest'
+import type { CredsType } from '@reapit/utils-nest'
 import { ApiKeyModel } from '@reapit/api-key-verify'
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
 
