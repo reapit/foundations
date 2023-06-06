@@ -16694,6 +16694,10 @@ export interface TenancyModel {
    */
   feeNotes?: string
   /**
+   * The identifier of the legal status to set against the tenancy
+   */
+  legalStatusId?: string
+  /**
    * The ETag for the current version of the tenancy. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -16998,6 +17002,10 @@ export interface TenancyModelPagedResult {
      * Financial notes set against the tenancy
      */
     feeNotes?: string
+    /**
+     * The identifier of the legal status to set against the tenancy
+     */
+    legalStatusId?: string
     /**
      * The ETag for the current version of the tenancy. Used for managing update concurrency
      */
@@ -21400,6 +21408,10 @@ export interface UpdateTenancyModel {
    * Financial notes set against the tenancy
    */
   feeNotes?: string
+  /**
+   * The identifier of the legal status to set against the tenancy
+   */
+  legalStatusId?: string
   /**
    * Request body used to set the deposit of a tenancy
    */
