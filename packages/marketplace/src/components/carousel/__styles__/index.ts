@@ -28,7 +28,9 @@ export const CarouselGrid = styled.div<CarouselGridProps>`
   grid-template-columns: repeat(
     ${({ numberItems }) => numberItems},
     calc(
-      ${({ percentageWidth }) => percentageWidth}% -
+      ${({ percentageWidth }) => {
+          return `${percentageWidth}%`
+        }} -
         ${({ numberCols }) => {
           return `${0.75 - 0.75 / numberCols}rem`
         }}
@@ -44,7 +46,9 @@ export const CarouselGrid = styled.div<CarouselGridProps>`
     grid-template-columns: repeat(
       ${({ numberItems }) => numberItems},
       calc(
-        ${({ percentageWidth }) => percentageWidth}% -
+        ${({ percentageWidth }) => {
+            return `${percentageWidth}%`
+          }} -
           ${({ numberCols }) => {
             return `${1.25 - 1.25 / numberCols}rem`
           }}
