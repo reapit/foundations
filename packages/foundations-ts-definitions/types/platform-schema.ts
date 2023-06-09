@@ -6137,9 +6137,7 @@ export interface CreateMetadataRequest {
   /**
    * The JSON document to store
    */
-  metadata: {
-    [name: string]: any
-  }
+  metadata: string
 }
 /**
  * Request body used to create a new negotiator
@@ -10649,7 +10647,7 @@ export interface MetadataModel {
   /**
    * The date and time of when this metadata record was last updated
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -10663,9 +10661,7 @@ export interface MetadataModel {
   /**
    * The JSON document content
    */
-  metadata?: {
-    [name: string]: any
-  }
+  metadata?: string
 }
 export interface MetadataModelPagedResult {
   _embedded?: {
@@ -10676,7 +10672,7 @@ export interface MetadataModelPagedResult {
     /**
      * The date and time of when this metadata record was last updated
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -10690,9 +10686,7 @@ export interface MetadataModelPagedResult {
     /**
      * The JSON document content
      */
-    metadata?: {
-      [name: string]: any
-    }
+    metadata?: string
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -11990,11 +11984,24 @@ export interface OpenHouseAttendeeModelPagedResult {
  * [object Object]
  */
 export interface Operation {
+  value?: any
   operationType?: 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
   path?: string
   op?: string
   from?: string
+}
+/**
+ * example:
+ * [object Object]
+ */
+export interface Operation1 {
   value?: any
+}
+export interface OperationBase {
+  operationType?: 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
+  path?: string
+  op?: string
+  from?: string
 }
 export type OperationType = 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
 export interface PagingLinkModel {
@@ -15017,7 +15024,7 @@ export interface SchemaModel {
   /**
    * The date and time of when this JSON schema was last updated
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -15034,7 +15041,7 @@ export interface SchemaModelPagedResult {
     /**
      * The date and time of when this JSON schema was last updated
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -19710,9 +19717,7 @@ export interface UpdateMetadataRequest {
   /**
    * The updated JSON document to store
    */
-  metadata: {
-    [name: string]: any
-  }
+  metadata: string
 }
 /**
  * Request body used to update an existing negotiator
