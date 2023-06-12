@@ -10568,7 +10568,7 @@ __metadata:
     vite-plugin-checker: ^0.6.0
     vite-plugin-graphql-loader: ^2.0.0
     vite-plugin-node-polyfills: ^0.8.2
-    vite-plugin-pwa: ^0.14.7
+    vite-plugin-pwa: ^0.15.0
     vite-plugin-svgr: ^3.2.0
     vite-plugin-top-level-await: ^1.3.0
   bin:
@@ -10899,21 +10899,6 @@ __metadata:
   peerDependencies:
     rollup: ^1.20.0 || ^2.0.0
   checksum: b2f1618ee5526d288e2f8ae328dcb326e20e8dc8bd1f60d3e14d6708a5832e4aa44811f7d493f4aed2deeadca86e3b6b0503cd39bf50cfb4b595bb9da027fad0
-  languageName: node
-  linkType: hard
-
-"@rollup/plugin-replace@npm:^5.0.1":
-  version: 5.0.2
-  resolution: "@rollup/plugin-replace@npm:5.0.2"
-  dependencies:
-    "@rollup/pluginutils": ^5.0.1
-    magic-string: ^0.27.0
-  peerDependencies:
-    rollup: ^1.20.0||^2.0.0||^3.0.0
-  peerDependenciesMeta:
-    rollup:
-      optional: true
-  checksum: 3a91b5fa2ce5acfe67c1faf8d479585da30f398f29499cf8a2d2153c899af0b2ef0363012db0e6edc2ebbb3d9fad6dd7ad591c9d977c1ae2ca3256b52e86d950
   languageName: node
   linkType: hard
 
@@ -38508,20 +38493,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.7.2":
-  version: 3.20.2
-  resolution: "rollup@npm:3.20.2"
-  dependencies:
-    fsevents: ~2.3.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    rollup: dist/bin/rollup
-  checksum: 34b0932839b7c2a5d1742fb21ce95a47e0b49a0849f4abee2dccf25833187aa7babb898ca90d4fc761cffa4102b9ed0ac6ad7f6f6b96c8b8e2d67305abc5da65
-  languageName: node
-  linkType: hard
-
 "root-check@npm:^1.0.0":
   version: 1.0.0
   resolution: "root-check@npm:1.0.0"
@@ -43657,22 +43628,20 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"vite-plugin-pwa@npm:^0.14.7":
-  version: 0.14.7
-  resolution: "vite-plugin-pwa@npm:0.14.7"
+"vite-plugin-pwa@npm:^0.15.0":
+  version: 0.15.2
+  resolution: "vite-plugin-pwa@npm:0.15.2"
   dependencies:
-    "@rollup/plugin-replace": ^5.0.1
     debug: ^4.3.4
     fast-glob: ^3.2.12
     pretty-bytes: ^6.0.0
-    rollup: ^3.7.2
     workbox-build: ^6.5.4
     workbox-window: ^6.5.4
   peerDependencies:
     vite: ^3.1.0 || ^4.0.0
     workbox-build: ^6.5.4
     workbox-window: ^6.5.4
-  checksum: e0358940655733569af0f28860ed71f33a1eeec2d7486c2a233684a43e38b9de47da437875797972072f6e9c7246bbd8198b7e877b6bf5633affeb168f93a88a
+  checksum: 0430d3fd95cc6e293bc95c227736a6f43fa79aa2ed4f2560aa29086b81b58a807a2926cd56887fc5c8a89fbe98c079c8ec6e8e1a6da6d67c0cf00608f79148e7
   languageName: node
   linkType: hard
 
