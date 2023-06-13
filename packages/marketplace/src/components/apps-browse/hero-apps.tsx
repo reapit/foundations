@@ -62,7 +62,10 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configIte
     fetchWhenTrue: [filters?.id?.length],
   })
 
-  const appDetail = useMemo(filterRestrictedAppDetail(unfilteredAppDetail, connectSession), [unfilteredAppDetail])
+  const appDetail = useMemo(filterRestrictedAppDetail(unfilteredAppDetail, connectSession), [
+    unfilteredAppDetail,
+    connectSession,
+  ])
 
   const placeholderSize = useMemo(handlePlaceholderSize(mediaQuery), [mediaQuery])
   const app = appDetail ?? {}
