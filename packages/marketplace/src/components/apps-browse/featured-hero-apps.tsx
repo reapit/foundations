@@ -76,7 +76,10 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
     fetchWhenTrue: [filters?.id?.length],
   })
 
-  const appDetail = useMemo(filterRestrictedAppDetail(unfilteredAppDetail, connectSession), [unfilteredAppDetail])
+  const appDetail = useMemo(filterRestrictedAppDetail(unfilteredAppDetail, connectSession), [
+    unfilteredAppDetail,
+    connectSession,
+  ])
 
   const placeholderSize = useMemo(handlePlaceholderSize(mediaQuery), [mediaQuery])
   const iconPlaceholderSize = useMemo(handleIconPlaceholderSize(mediaQuery), [mediaQuery])
