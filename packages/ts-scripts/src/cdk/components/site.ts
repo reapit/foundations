@@ -19,6 +19,7 @@ interface CreateSiteInterface {
   env?: 'dev' | 'prod'
   defaultRootObject?: string
   location: string
+  viewerCertificateOverride?: cloudfront.ViewerCertificate
 }
 
 const findCert = async (stack: Stack, domain: string): Promise<ICertificate> => {
@@ -48,7 +49,7 @@ const findCert = async (stack: Stack, domain: string): Promise<ICertificate> => 
 
 export const createSite = async (
   stack: Stack,
-  { defaultRootObject = 'index.html', env = 'dev', location }: CreateSiteInterface,
+  { defaultRootObject = 'index.html', env = 'dev', location, viewerCertificateOverride }: CreateSiteInterface,
 ) => {
   const stackNamePieces = stack.stackName.split('-')
   stackNamePieces.pop()
@@ -98,9 +99,11 @@ export const createSite = async (
       },
     ],
     defaultRootObject,
-    viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(certificate, {
-      aliases: [subDomain],
-    }),
+    viewerCertificate:
+      viewerCertificateOverride ||
+      cloudfront.ViewerCertificate.fromAcmCertificate(certificate, {
+        aliases: [subDomain],
+      }),
     errorConfigurations: [
       {
         errorCode: 404,
@@ -120,7 +123,7 @@ export const createSite = async (
     ],
   })
 
-  const r53 = createRoute(stack, 'route', {
+  createRoute(stack, 'route', {
     target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
     zone: hostedZone,
     recordName: subDomain,
@@ -132,5 +135,7 @@ export const createSite = async (
     items: ['/index.html'],
   })
 
-  return r53.domainName
+  return {
+    distribution,
+  }
 }
