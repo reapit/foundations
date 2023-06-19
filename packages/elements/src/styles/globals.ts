@@ -267,6 +267,15 @@ export const elGlobals = css`
       --nav-menu-text-hover: var(--color-white);
       --nav-menu-icon-primary-accent: var(--color-white);
       --nav-menu-icon-secondary-accent: var(--intent-secondary);
+
+      /** InfoGraphic variables */
+      --info-graphic-accent-color-darkest: #415161; // Neutral 700
+      --info-graphic-accent-color-dark: #607890; // Neutral 500
+      --info-graphic-accent-color-med: #9faebc; // Neutral 300
+      --info-graphic-accent-color-light: #e5e9ed; // Neutral 100
+      --info-graphic-accent-color-lightest: #f2f4f6; // Neutral 50
+      --info-graphic-accent-color-white: #fff; // White
+      --info-graphic-accent-color-bright: #7bc9eb; // Secondary lightest blue
     }
   }
 `

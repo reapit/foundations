@@ -1,8 +1,8 @@
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_5905_4457)">
-<path d="M3 16.8L20 0L37 16.8V40H3V16.8Z" fill="#262F69"/>
-<path d="M3 16.8L20 0L37 16.8V30L3 16.8Z" fill="#7BC9EB"/>
-<path d="M37 40H27.0488L12.9512 6.96585L20 0L37 16.8V40Z" fill="#0061A8"/>
+<path d="M3 16.8L20 0L37 16.8V40H3V16.8Z" fill="var(--info-graphic-accent-color-darkest)"/>
+<path d="M3 16.8L20 0L37 16.8V30L3 16.8Z" fill="var(--info-graphic-accent-color-lightest)"/>
+<path d="M37 40H27.0488L12.9512 6.96585L20 0L37 16.8V40Z" fill="var(--info-graphic-accent-color-light)"/>
 <path d="M37 16.8V30L20 23.4829L12.9512 6.96585L20 0L37 16.8Z" fill="#36BCF9"/>
 </g>
 <defs>
