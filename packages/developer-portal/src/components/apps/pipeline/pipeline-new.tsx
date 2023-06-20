@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Button, ButtonGroup, FlexContainer, Title, useMediaQuery, useModal } from '@reapit/elements'
+import { Button, ButtonGroup, MobileControls, Title, useMediaQuery, useModal } from '@reapit/elements'
 import { PipelineConfigure } from './pipeline-configure'
 import { Helper } from '../page/helper'
 
@@ -9,16 +9,7 @@ export const PipelineNew: FC = () => {
 
   return (
     <>
-      <FlexContainer isFlexJustifyBetween>
-        <Title>New Pipeline</Title>
-        {isMobile && (
-          <ButtonGroup alignment="right">
-            <Button intent="low" onClick={openModal}>
-              Controls
-            </Button>
-          </ButtonGroup>
-        )}
-      </FlexContainer>
+      <Title>New Pipeline</Title>
       {isMobile && (
         <Modal title="Controls">
           <Helper />
@@ -30,6 +21,7 @@ export const PipelineNew: FC = () => {
         </Modal>
       )}
       <PipelineConfigure />
+      <MobileControls buttonOnClick={openModal} />
     </>
   )
 }

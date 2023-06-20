@@ -98,17 +98,11 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
   height: 100%;
 "
         >
-          <mock-styled.div
-            classname="mock-css.
-  justify-content: space-between;
-"
+          <mock-styled.h1
+            classname=""
           >
-            <mock-styled.h1
-              classname=""
-            >
-              My Apps
-            </mock-styled.h1>
-          </mock-styled.div>
+            My Apps
+          </mock-styled.h1>
           <mock-styled.div
             classname="mock-css.
   margin-bottom: 2.5rem;
@@ -267,6 +261,25 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          />
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.button
+              classname="mock-css. mock-css."
+            >
+              <mock-styled.span
+                classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+              >
+                <svg />
+              </mock-styled.span>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
         </mock-styled.section>
       </mock-styled.div>
     </div>
@@ -365,17 +378,11 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
   height: 100%;
 "
       >
-        <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+        <mock-styled.h1
+          classname=""
         >
-          <mock-styled.h1
-            classname=""
-          >
-            My Apps
-          </mock-styled.h1>
-        </mock-styled.div>
+          My Apps
+        </mock-styled.h1>
         <mock-styled.div
           classname="mock-css.
   margin-bottom: 2.5rem;
@@ -533,6 +540,25 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        />
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css. mock-css."
+          >
+            <mock-styled.span
+              classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.div />
+          </mock-styled.button>
         </mock-styled.div>
       </mock-styled.section>
     </mock-styled.div>
@@ -806,17 +832,11 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
   height: 100%;
 "
         >
-          <mock-styled.div
-            classname="mock-css.
-  justify-content: space-between;
-"
+          <mock-styled.h1
+            classname=""
           >
-            <mock-styled.h1
-              classname=""
-            >
-              My Apps
-            </mock-styled.h1>
-          </mock-styled.div>
+            My Apps
+          </mock-styled.h1>
           <mock-styled.div
             classname="mock-css.
   margin-bottom: 2.5rem;
@@ -974,6 +994,25 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          />
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.button
+              classname="mock-css. mock-css."
+            >
+              <mock-styled.span
+                classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+              >
+                <svg />
+              </mock-styled.span>
+              <mock-styled.div />
+            </mock-styled.button>
           </mock-styled.div>
         </mock-styled.section>
       </mock-styled.div>
@@ -1073,17 +1112,11 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
   height: 100%;
 "
       >
-        <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+        <mock-styled.h1
+          classname=""
         >
-          <mock-styled.h1
-            classname=""
-          >
-            My Apps
-          </mock-styled.h1>
-        </mock-styled.div>
+          My Apps
+        </mock-styled.h1>
         <mock-styled.div
           classname="mock-css.
   margin-bottom: 2.5rem;
@@ -1242,6 +1275,25 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        />
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css. mock-css."
+          >
+            <mock-styled.span
+              classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.div />
+          </mock-styled.button>
+        </mock-styled.div>
       </mock-styled.section>
     </mock-styled.div>
   </div>,
@@ -1315,17 +1367,11 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
   height: 100%;
 "
         >
-          <mock-styled.div
-            classname="mock-css.
-  justify-content: space-between;
-"
+          <mock-styled.h1
+            classname=""
           >
-            <mock-styled.h1
-              classname=""
-            >
-              My Apps
-            </mock-styled.h1>
-          </mock-styled.div>
+            My Apps
+          </mock-styled.h1>
           <mock-styled.div
             classname="mock-css.
   margin-bottom: 2.5rem;
@@ -1484,6 +1530,25 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          />
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.button
+              classname="mock-css. mock-css."
+            >
+              <mock-styled.span
+                classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+              >
+                <svg />
+              </mock-styled.span>
+              <mock-styled.div />
+            </mock-styled.button>
+          </mock-styled.div>
         </mock-styled.section>
       </mock-styled.div>
     </div>
@@ -1500,17 +1565,11 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
   height: 100%;
 "
       >
-        <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+        <mock-styled.h1
+          classname=""
         >
-          <mock-styled.h1
-            classname=""
-          >
-            My Apps
-          </mock-styled.h1>
-        </mock-styled.div>
+          My Apps
+        </mock-styled.h1>
         <mock-styled.div
           classname="mock-css.
   margin-bottom: 2.5rem;
@@ -1668,6 +1727,25 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        />
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css. mock-css."
+          >
+            <mock-styled.span
+              classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.div />
+          </mock-styled.button>
         </mock-styled.div>
       </mock-styled.section>
     </mock-styled.div>
