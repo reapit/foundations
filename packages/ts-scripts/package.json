@@ -30,6 +30,8 @@
     "commit": "yarn lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.354.0",
+    "@aws-sdk/client-sts": "^3.354.0",
     "@babel/core": "^7.21.4",
     "@babel/plugin-proposal-decorators": "^7.21.0",
     "@babel/plugin-transform-runtime": "^7.21.4",
@@ -77,6 +79,7 @@
     "jest-fetch-mock": "^3.0.3",
     "mini-css-extract-plugin": "^2.7.6",
     "mockdate": "^2.0.5",
+    "octokit-plugin-create-pull-request": "^5.1.0",
     "postcss": "^8.4.23",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^7.1.0",
