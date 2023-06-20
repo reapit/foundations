@@ -6,31 +6,57 @@ exports[`SettingsCompanyPage should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
-      >
-        <mock-styled.h1
-          classname=""
-        >
-          Company
-        </mock-styled.h1>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
-    >
       <mock-styled.h1
         classname=""
       >
         Company
       </mock-styled.h1>
+      <mock-styled.div
+        classname=""
+      />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css. mock-css."
+        >
+          <mock-styled.span
+            classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.h1
+      classname=""
+    >
+      Company
+    </mock-styled.h1>
+    <mock-styled.div
+      classname=""
+    />
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.button
+        classname="mock-css. mock-css."
+      >
+        <mock-styled.span
+          classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+        >
+          <svg />
+        </mock-styled.span>
+        <mock-styled.div />
+      </mock-styled.button>
     </mock-styled.div>
   </div>,
   "debug": [Function],
@@ -98,55 +124,57 @@ exports[`SettingsCompanyPage should match snapshot for mobile view 1`] = `
     </div>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
-      >
-        <mock-styled.h1
-          classname=""
-        >
-          Company
-        </mock-styled.h1>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css."
-          >
-            <mock-styled.button
-              classname="mock-css."
-            >
-              Controls
-              <mock-styled.div />
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
-    >
       <mock-styled.h1
         classname=""
       >
         Company
       </mock-styled.h1>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="mock-css."
+      <mock-styled.div
+        classname=""
+      />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css. mock-css."
         >
-          <mock-styled.button
-            classname="mock-css."
+          <mock-styled.span
+            classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
           >
-            Controls
-            <mock-styled.div />
-          </mock-styled.button>
-        </mock-styled.div>
+            <svg />
+          </mock-styled.span>
+          <mock-styled.div />
+        </mock-styled.button>
       </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.h1
+      classname=""
+    >
+      Company
+    </mock-styled.h1>
+    <mock-styled.div
+      classname=""
+    />
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.button
+        classname="mock-css. mock-css."
+      >
+        <mock-styled.span
+          classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+        >
+          <svg />
+        </mock-styled.span>
+        <mock-styled.div />
+      </mock-styled.button>
     </mock-styled.div>
   </div>,
   "debug": [Function],

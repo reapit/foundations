@@ -6,17 +6,11 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+      <mock-styled.h1
+        classname=""
       >
-        <mock-styled.h1
-          classname=""
-        >
-          Password
-        </mock-styled.h1>
-      </mock-styled.div>
+        Password
+      </mock-styled.h1>
       <form>
         <mock-styled.div
           classname="mock-css."
@@ -81,21 +75,34 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
       </form>
+      <mock-styled.div
+        classname=""
+      />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css. mock-css."
+        >
+          <mock-styled.span
+            classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
+    <mock-styled.h1
+      classname=""
     >
-      <mock-styled.h1
-        classname=""
-      >
-        Password
-      </mock-styled.h1>
-    </mock-styled.div>
+      Password
+    </mock-styled.h1>
     <form>
       <mock-styled.div
         classname="mock-css."
@@ -160,6 +167,25 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
     </form>
+    <mock-styled.div
+      classname=""
+    />
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.button
+        classname="mock-css. mock-css."
+      >
+        <mock-styled.span
+          classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+        >
+          <svg />
+        </mock-styled.span>
+        <mock-styled.div />
+      </mock-styled.button>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -226,29 +252,11 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
     </div>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+      <mock-styled.h1
+        classname=""
       >
-        <mock-styled.h1
-          classname=""
-        >
-          Password
-        </mock-styled.h1>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css."
-          >
-            <mock-styled.button
-              classname="mock-css."
-            >
-              Controls
-              <mock-styled.div />
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+        Password
+      </mock-styled.h1>
       <form>
         <mock-styled.div
           classname="mock-css."
@@ -313,33 +321,34 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
           </mock-styled.div>
         </mock-styled.div>
       </form>
+      <mock-styled.div
+        classname=""
+      />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css. mock-css."
+        >
+          <mock-styled.span
+            classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
+    <mock-styled.h1
+      classname=""
     >
-      <mock-styled.h1
-        classname=""
-      >
-        Password
-      </mock-styled.h1>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="mock-css."
-        >
-          <mock-styled.button
-            classname="mock-css."
-          >
-            Controls
-            <mock-styled.div />
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+      Password
+    </mock-styled.h1>
     <form>
       <mock-styled.div
         classname="mock-css."
@@ -404,6 +413,25 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
         </mock-styled.div>
       </mock-styled.div>
     </form>
+    <mock-styled.div
+      classname=""
+    />
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.button
+        classname="mock-css. mock-css."
+      >
+        <mock-styled.span
+          classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+        >
+          <svg />
+        </mock-styled.span>
+        <mock-styled.div />
+      </mock-styled.button>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

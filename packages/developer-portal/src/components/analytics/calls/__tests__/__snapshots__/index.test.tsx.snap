@@ -6,17 +6,11 @@ exports[`AnalyticsCalls should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+      <mock-styled.h1
+        classname=""
       >
-        <mock-styled.h1
-          classname=""
-        >
-          API Calls
-        </mock-styled.h1>
-      </mock-styled.div>
+        API Calls
+      </mock-styled.h1>
       <mock-styled.div
         classname="mock-css.
   flex-wrap: wrap;
@@ -51,21 +45,34 @@ exports[`AnalyticsCalls should match snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css. mock-css."
+        >
+          <mock-styled.span
+            classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
+    <mock-styled.h1
+      classname=""
     >
-      <mock-styled.h1
-        classname=""
-      >
-        API Calls
-      </mock-styled.h1>
-    </mock-styled.div>
+      API Calls
+    </mock-styled.h1>
     <mock-styled.div
       classname="mock-css.
   flex-wrap: wrap;
@@ -99,6 +106,25 @@ exports[`AnalyticsCalls should match snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
+    />
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.button
+        classname="mock-css. mock-css."
+      >
+        <mock-styled.span
+          classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+        >
+          <svg />
+        </mock-styled.span>
+        <mock-styled.div />
+      </mock-styled.button>
     </mock-styled.div>
   </div>,
   "debug": [Function],
@@ -166,29 +192,11 @@ exports[`AnalyticsCalls should match snapshot for mobile view 1`] = `
     </div>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+      <mock-styled.h1
+        classname=""
       >
-        <mock-styled.h1
-          classname=""
-        >
-          API Calls
-        </mock-styled.h1>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css."
-          >
-            <mock-styled.button
-              classname="mock-css."
-            >
-              Controls
-              <mock-styled.div />
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+        API Calls
+      </mock-styled.h1>
       <mock-styled.div
         classname="mock-css.
   flex-wrap: wrap;
@@ -223,33 +231,34 @@ exports[`AnalyticsCalls should match snapshot for mobile view 1`] = `
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css. mock-css."
+        >
+          <mock-styled.span
+            classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.div />
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
+    <mock-styled.h1
+      classname=""
     >
-      <mock-styled.h1
-        classname=""
-      >
-        API Calls
-      </mock-styled.h1>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="mock-css."
-        >
-          <mock-styled.button
-            classname="mock-css."
-          >
-            Controls
-            <mock-styled.div />
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+      API Calls
+    </mock-styled.h1>
     <mock-styled.div
       classname="mock-css.
   flex-wrap: wrap;
@@ -283,6 +292,25 @@ exports[`AnalyticsCalls should match snapshot for mobile view 1`] = `
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
+    />
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.button
+        classname="mock-css. mock-css."
+      >
+        <mock-styled.span
+          classname="mock-css. mock-css.
+  font-size: 1.25rem;
+"
+        >
+          <svg />
+        </mock-styled.span>
+        <mock-styled.div />
+      </mock-styled.button>
     </mock-styled.div>
   </div>,
   "debug": [Function],

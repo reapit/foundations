@@ -3,13 +3,13 @@ import {
   Button,
   ButtonGroup,
   Col,
-  FlexContainer,
   Title,
   useMediaQuery,
   Grid,
   useModal,
   Pagination,
   elMb11,
+  MobileControls,
 } from '@reapit/elements'
 import { AppCard } from './app-card'
 import { useAppState } from '../state/use-app-state'
@@ -27,16 +27,7 @@ export const AppsList: FC = () => {
   const numberPages = Math.ceil((totalCount ?? 1) / (pageSize ?? 1))
   return (
     <>
-      <FlexContainer isFlexJustifyBetween>
-        <Title>My Apps</Title>
-        {isMobile && (
-          <ButtonGroup alignment="right">
-            <Button intent="low" onClick={openModal}>
-              Controls
-            </Button>
-          </ButtonGroup>
-        )}
-      </FlexContainer>
+      <Title>My Apps</Title>
       {isMobile && (
         <Modal title="Controls">
           <Helper />
@@ -57,6 +48,7 @@ export const AppsList: FC = () => {
       {numberPages > 1 && (
         <Pagination callback={appsSetPageNumber} currentPage={pageNumber} numberPages={numberPages} />
       )}
+      <MobileControls onClick={openModal} />
     </>
   )
 }
