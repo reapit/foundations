@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { MobileControls } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+<Meta title="Mobile Controls" component={MobileControls} />
+
+# Mobile Controls
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage">
+    <MobileControls
+      mobileControlItems={[
+        {
+          label: 'Item One',
+        },
+        {
+          label: 'Item Two',
+        },
+        {
+          label: 'Item Three',
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="MobileControls" story="Basic Usage" />
