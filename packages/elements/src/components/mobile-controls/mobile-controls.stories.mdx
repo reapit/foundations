@@ -2,24 +2,40 @@ import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { MobileControls } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
-<Meta title="Mobile Controls" component={MobileControls} />
+<Meta title="MobileControls" component={MobileControls} />
 
 # Mobile Controls
 
+The `MobileControls` component provides a mechanism to render a floating button at the bottom right of the screen for controls typically hidden in mobile e.g. those rendered in the `SecondaryNavContainer` (See Layout Story).
+
+By default the controls are only shown below a resolution of 768px however you can override this by setting the `isVisible` prop.
+
+You can either use the component as a regular floating button to trigger an action like opening a `Modal` or navigating by setting the `buttonOnClick` prop.
+
+Passing a list of `MobileControlItem` objects as per the example will render a list of items above the button you can assign actions to.
+
+Finally you can upfate the icon on the button by passing any `IconName`.
+
 ## Basic Usage
+
+<ArgsTable of={MobileControls} />
 
 <Canvas>
   <Story name="Basic Usage">
     <MobileControls
+      isVisible
       mobileControlItems={[
         {
           label: 'Item One',
+          onClick: () => console.log('Clicked Item One'),
         },
         {
           label: 'Item Two',
+          onClick: () => console.log('Clicked Item Two'),
         },
         {
           label: 'Item Three',
+          onClick: () => console.log('Clicked Item Three'),
         },
       ]}
     />

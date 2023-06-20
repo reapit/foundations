@@ -4,11 +4,10 @@ import { IconNames } from '../icon'
 import { FloatingButton } from '../button'
 import { cx } from '@linaria/core'
 import { elIsActive } from '../../styles/states'
-import { elFadeIn } from '../../styles/helpers'
 
 export interface MobileControlItem extends HTMLAttributes<HTMLAnchorElement> {
   onClick?: () => void
-  label: string
+  label?: string
 }
 
 export interface MobileControlsProps extends HTMLAttributes<HTMLDivElement> {
@@ -57,7 +56,7 @@ export const MobileControls: FC<MobileControlsProps> = ({
             {label}
           </ElMobileControlItem>
         ))}
-        <FloatingButton intent="primary" icon={buttonIcon ? buttonIcon : 'filterSystem'} />
+        <FloatingButton intent="critical" icon={buttonIcon ? buttonIcon : 'filterSystem'} />
       </ElMobileControls>
     </>
   )

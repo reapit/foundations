@@ -15,13 +15,11 @@ export const ElMobileControlsBg = styled.div`
   top: 0;
   left: 0;
   background: var(--color-grey-dark);
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+  opacity: 0.2;
 
   &.${elIsActive} {
     display: block;
     position: fixed;
-    opacity: 0.2;
   }
 `
 
@@ -53,8 +51,9 @@ export const ElMobileControlItem = styled.a`
   border-radius: 100px;
   margin: 0 0.5rem 1.25rem 0;
   display: none;
-  opacity: 0;
-  transition: opacity 0.1s ease-in-out;
+  opacity: 1;
+  font-weight: bold;
+  text-transform: uppercase;
 
   &:last-of-type {
     margin: 0 0.5rem 0.75rem 0;
@@ -62,6 +61,5 @@ export const ElMobileControlItem = styled.a`
 
   &.${elIsActive} {
     display: block;
-    opacity: 1;
   }
 `
