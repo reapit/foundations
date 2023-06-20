@@ -3,9 +3,10 @@ import { join } from 'path'
 import {
   aws_route53 as route53,
   aws_route53_targets as targets,
-  // aws_cloudfront as cloudfront,
-  // aws_certificatemanager as acm,
+  aws_cloudfront as cloudfront,
+  aws_certificatemanager as acm,
 } from 'aws-cdk-lib'
+import * as cdk from 'aws-cdk-lib'
 
 const getAnzSubdomain = (stack: Stack, env: string) => {
   const stackNamePieces = stack.stackName.split('-')
@@ -30,25 +31,33 @@ const createStack = async () => {
   const auZone = new route53.HostedZone(stack, 'au-zone', {
     zoneName: auSubDomain,
   })
+  const domain = `${env}.paas.reapit.cloud`
+  const subDomain = `${appName}.${domain}`
 
-  // const hostedZone = route53.HostedZone.fromLookup(stack, 'hosted-zone', { domainName: domain })
+  const hostedZone = route53.HostedZone.fromLookup(stack, 'hosted-zone', { domainName: domain })
 
-  // const cert = new acm.Certificate(stack, 'multi-domain-cert', {
-  //   domainName: subDomain,
-  //   subjectAlternativeNames: [subDomain, auSubDomain],
-  //   validation: acm.CertificateValidation.fromDnsMultiZone({
-  //     [subDomain]: hostedZone,
-  //     [auSubDomain]: auZone,
-  //   }),
-  // })
+  const certStack = new cdk.Stack(stack, 'cert-stack', {
+    env: {
+      region: 'us-east-1',
+      account: stack.account,
+    },
+  })
+  const cert = new acm.Certificate(certStack, 'multi-domain-cert', {
+    domainName: subDomain,
+    subjectAlternativeNames: [subDomain, auSubDomain],
+    validation: acm.CertificateValidation.fromDnsMultiZone({
+      [subDomain]: hostedZone,
+      [auSubDomain]: auZone,
+    }),
+  })
 
-  // const viewerCertificateOverride = cloudfront.ViewerCertificate.fromAcmCertificate(cert, {
-  //   aliases: [subDomain, auSubDomain],
-  // })
+  const viewerCertificateOverride = cloudfront.ViewerCertificate.fromAcmCertificate(cert, {
+    aliases: [subDomain, auSubDomain],
+  })
 
   const { distribution } = await createSite(stack, {
     location: join(__dirname, 'build'),
-    // viewerCertificateOverride,
+    viewerCertificateOverride,
     env,
   })
 
