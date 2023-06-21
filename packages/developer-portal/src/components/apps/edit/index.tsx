@@ -2,8 +2,8 @@ import React, { ChangeEvent, FC, useEffect } from 'react'
 import {
   Button,
   ButtonGroup,
-  FlexContainer,
   Loader,
+  MobileControls,
   PersistentNotification,
   Tabs,
   TabsOption,
@@ -43,16 +43,7 @@ export const AppEditPage: FC = () => {
     <Loader />
   ) : appDetail ? (
     <>
-      <FlexContainer isFlexJustifyBetween>
-        <Title>{appDetail.name}</Title>
-        {isMobile && (
-          <ButtonGroup alignment="right">
-            <Button intent="low" onClick={openModal}>
-              Controls
-            </Button>
-          </ButtonGroup>
-        )}
-      </FlexContainer>
+      <Title>{appDetail.name}</Title>
       {isMobile && (
         <Modal title="Controls">
           <Helper />
@@ -104,6 +95,7 @@ export const AppEditPage: FC = () => {
         }
       />
       <AppEditForm />
+      <MobileControls onClick={openModal} />
     </>
   ) : (
     <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>

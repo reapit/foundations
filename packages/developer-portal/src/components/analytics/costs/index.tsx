@@ -4,6 +4,7 @@ import {
   ButtonGroup,
   FlexContainer,
   Loader,
+  MobileControls,
   Subtitle,
   Title,
   useMediaQuery,
@@ -91,16 +92,7 @@ export const AnalyticsCosts: FC = () => {
 
   return (
     <>
-      <FlexContainer isFlexJustifyBetween>
-        <Title>Costs</Title>
-        {isMobile && (
-          <ButtonGroup alignment="right">
-            <Button intent="low" onClick={openModal}>
-              Controls
-            </Button>
-          </ButtonGroup>
-        )}
-      </FlexContainer>
+      <Title>Costs</Title>
       {isMobile && (
         <Modal title="Controls">
           <Controls />
@@ -131,6 +123,7 @@ export const AnalyticsCosts: FC = () => {
           <Subtitle>Services and Subscriptions</Subtitle>
           {loading ? <Loader /> : <ServicesTable billing={aggregatedBilling} />}
         </ChartWrapper>
+        <MobileControls onClick={openModal} />
       </FlexContainer>
     </>
   )

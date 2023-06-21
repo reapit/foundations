@@ -4,8 +4,8 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import {
   Button,
   ButtonGroup,
-  FlexContainer,
   Loader,
+  MobileControls,
   PersistentNotification,
   Title,
   useMediaQuery,
@@ -38,16 +38,7 @@ export const PipelinePage: FC = () => {
 
   return (
     <>
-      <FlexContainer isFlexJustifyBetween>
-        <Title>App Pipeline</Title>
-        {isMobile && (
-          <ButtonGroup alignment="right">
-            <Button intent="low" onClick={openModal}>
-              Controls
-            </Button>
-          </ButtonGroup>
-        )}
-      </FlexContainer>
+      <Title>App Pipeline</Title>
       {isMobile && (
         <Modal title="Controls">
           <Helper />
@@ -77,6 +68,7 @@ export const PipelinePage: FC = () => {
           No record of this app found, please select an app from the My Apps page.
         </PersistentNotification>
       )}
+      <MobileControls onClick={openModal} />
     </>
   )
 }
