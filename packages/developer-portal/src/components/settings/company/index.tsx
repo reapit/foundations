@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Button, ButtonGroup, FlexContainer, Loader, Title, useMediaQuery, useModal } from '@reapit/elements'
+import { Button, ButtonGroup, Loader, MobileControls, Title, useMediaQuery, useModal } from '@reapit/elements'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
@@ -23,16 +23,7 @@ export const SettingsCompanyPage: FC = () => {
 
   return (
     <>
-      <FlexContainer isFlexJustifyBetween>
-        <Title>Company</Title>
-        {isMobile && (
-          <ButtonGroup alignment="right">
-            <Button intent="low" onClick={openModal}>
-              Controls
-            </Button>
-          </ButtonGroup>
-        )}
-      </FlexContainer>
+      <Title>Company</Title>
       {isMobile && (
         <Modal title="Controls">
           <Controls />
@@ -45,6 +36,7 @@ export const SettingsCompanyPage: FC = () => {
       )}
       {developerLoading && <Loader />}
       {developer && <CompanyForm developer={developer} refreshDeveloper={refreshDeveloper} />}
+      <MobileControls onClick={openModal} />
     </>
   )
 }

@@ -1,16 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SettingsCompanyPage should match snapshot 1`] = `
+exports[`MobileControls component should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname=""
-      >
-        Company
-      </mock-styled.h1>
       <mock-styled.div
         classname=""
       />
@@ -33,12 +27,6 @@ exports[`SettingsCompanyPage should match snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname=""
-    >
-      Company
-    </mock-styled.h1>
     <mock-styled.div
       classname=""
     />
@@ -113,28 +101,34 @@ exports[`SettingsCompanyPage should match snapshot 1`] = `
 }
 `;
 
-exports[`SettingsCompanyPage should match snapshot for mobile view 1`] = `
+exports[`MobileControls component should match a snapshot with full props 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
-    <div
-      id="root"
-    >
-      <div />
-    </div>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname=""
-      >
-        Company
-      </mock-styled.h1>
       <mock-styled.div
         classname=""
       />
       <mock-styled.div
-        classname=""
+        classname="mock-css.
+  display: flex;
+"
       >
+        <mock-styled.a
+          classname=""
+        >
+          Item One
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
+        >
+          Item Two
+        </mock-styled.a>
+        <mock-styled.a
+          classname=""
+        >
+          Item Three
+        </mock-styled.a>
         <mock-styled.button
           classname="mock-css. mock-css."
         >
@@ -151,18 +145,29 @@ exports[`SettingsCompanyPage should match snapshot for mobile view 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname=""
-    >
-      Company
-    </mock-styled.h1>
     <mock-styled.div
       classname=""
     />
     <mock-styled.div
-      classname=""
+      classname="mock-css.
+  display: flex;
+"
     >
+      <mock-styled.a
+        classname=""
+      >
+        Item One
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
+      >
+        Item Two
+      </mock-styled.a>
+      <mock-styled.a
+        classname=""
+      >
+        Item Three
+      </mock-styled.a>
       <mock-styled.button
         classname="mock-css. mock-css."
       >

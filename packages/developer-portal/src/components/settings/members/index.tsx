@@ -3,9 +3,9 @@ import {
   Button,
   ButtonGroup,
   elMb11,
-  FlexContainer,
   Icon,
   Loader,
+  MobileControls,
   Pagination,
   StatusIndicator,
   Table,
@@ -62,16 +62,7 @@ export const SettingsMembersPage: FC = () => {
 
   return (
     <>
-      <FlexContainer isFlexJustifyBetween>
-        <Title>Members</Title>
-        {isMobile && (
-          <ButtonGroup alignment="right">
-            <Button intent="low" onClick={openModal}>
-              Controls
-            </Button>
-          </ButtonGroup>
-        )}
-      </FlexContainer>
+      <Title>Members</Title>
       {isMobile && (
         <Modal title="Controls">
           <Controls />
@@ -149,6 +140,7 @@ export const SettingsMembersPage: FC = () => {
         currentPage={pageNumber}
         numberPages={Math.ceil((members?.totalCount ?? 1) / (members?.pageSize ?? 1))}
       />
+      <MobileControls onClick={openModal} />
     </>
   )
 }

@@ -7,6 +7,7 @@ import {
   FlexContainer,
   GridResponsive,
   Icon,
+  MobileControls,
   SmallText,
   Subtitle,
   Title,
@@ -227,16 +228,7 @@ export const AppsNewPage: FC = () => {
         spanSuperWideScreen={5}
         span4KScreen={7}
       >
-        <FlexContainer isFlexJustifyBetween>
-          <Title>Create App</Title>
-          {isMobile && (
-            <ButtonGroup alignment="right">
-              <Button intent="low" onClick={openModal}>
-                Controls
-              </Button>
-            </ButtonGroup>
-          )}
-        </FlexContainer>
+        <Title>Create App</Title>
         {isMobile && (
           <Modal title="Controls">
             <Helper />
@@ -308,6 +300,7 @@ export const AppsNewPage: FC = () => {
       >
         <HelperContent />
       </ColResponsive>
+      <MobileControls onClick={openModal} />
     </GridResponsive>
   )
 }

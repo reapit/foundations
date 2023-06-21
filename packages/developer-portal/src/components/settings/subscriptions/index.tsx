@@ -4,8 +4,8 @@ import {
   ButtonGroup,
   elMb11,
   elSpan2,
-  FlexContainer,
   Loader,
+  MobileControls,
   Pagination,
   PersistentNotification,
   StatusIndicator,
@@ -83,16 +83,7 @@ export const SettingsSubscriptionsPage: FC = () => {
 
   return (
     <>
-      <FlexContainer isFlexJustifyBetween>
-        <Title>Subscriptions</Title>
-        {isMobile && (
-          <ButtonGroup alignment="right">
-            <Button intent="low" onClick={openModal}>
-              Controls
-            </Button>
-          </ButtonGroup>
-        )}
-      </FlexContainer>
+      <Title>Subscriptions</Title>
       {isMobile && (
         <Modal title="Controls">
           <Controls />
@@ -188,6 +179,7 @@ export const SettingsSubscriptionsPage: FC = () => {
           No subscriptions available for this account
         </PersistentNotification>
       )}
+      <MobileControls onClick={openModal} />
     </>
   )
 }

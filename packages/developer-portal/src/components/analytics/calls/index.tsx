@@ -1,5 +1,15 @@
 import React, { FC } from 'react'
-import { Button, ButtonGroup, FlexContainer, Loader, Subtitle, Title, useMediaQuery, useModal } from '@reapit/elements'
+import {
+  Button,
+  ButtonGroup,
+  FlexContainer,
+  Loader,
+  MobileControls,
+  Subtitle,
+  Title,
+  useMediaQuery,
+  useModal,
+} from '@reapit/elements'
 import { HitsPerDayChart } from './hits-per-day-chart'
 import { useAnalyticsState } from '../state/use-analytics-state'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
@@ -34,16 +44,7 @@ export const AnalyticsCalls: FC = () => {
 
   return (
     <>
-      <FlexContainer isFlexJustifyBetween>
-        <Title>API Calls</Title>
-        {isMobile && (
-          <ButtonGroup alignment="right">
-            <Button intent="low" onClick={openModal}>
-              Controls
-            </Button>
-          </ButtonGroup>
-        )}
-      </FlexContainer>
+      <Title>API Calls</Title>
       {isMobile && (
         <Modal title="Controls">
           <Controls />
@@ -66,6 +67,7 @@ export const AnalyticsCalls: FC = () => {
           {trafficEvents && <HitsByResourceChart trafficEvents={trafficEvents} />}
         </ChartWrapper>
       </FlexContainer>
+      <MobileControls onClick={openModal} />
     </>
   )
 }
