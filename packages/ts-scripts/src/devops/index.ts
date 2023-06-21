@@ -27,6 +27,7 @@ if (!GH_PAT || !DEVOPS_OIDC_ROLE || !DEVOPS_BUCKET_ROLE || !DEVOPS_PRIMARY_REGIO
 export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; stage: string }) => {
   const { assets, devopsProjectName } = config
   const cdkJson = await getCdkJson(GH_PAT, devopsProjectName)
+  console.log('Found project in devops repo')
 
   if (!cdkJson.context) {
     throw new Error('cdkJson has no context')
@@ -40,6 +41,7 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
     if (!cdkJson.context[stage][asset.devopsKey]) {
       throw new Error(`component ${asset.devopsKey} not found in cdkJson stage ${stage} context`)
     }
+    console.log(`Found ${asset.devopsKey} to deploy`)
   })
 
   const credentials = await getCredentials({
@@ -47,6 +49,8 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
     oidcRoleArn: DEVOPS_OIDC_ROLE,
     region: DEVOPS_PRIMARY_REGION,
   })
+
+  console.log('Assumed devops role')
 
   const uploadedFiles = await uploadFiles({
     bucket: DEVOPS_ARTIFACT_BUCKET,
@@ -56,9 +60,13 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
     region: DEVOPS_PRIMARY_REGION,
   })
 
+  console.log('Uploaded assets to S3 bucket')
+
   uploadedFiles.forEach((asset) => {
     cdkJson.context[stage][asset.devopsKey]['codeZipName'] = asset.objectKey
   })
 
   await updateCdkJson(GH_PAT, devopsProjectName, JSON.stringify(cdkJson, null, 2), stage)
+
+  console.log('Completed Successfully')
 }

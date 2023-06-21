@@ -7,6 +7,7 @@
     "url": "https://github.com/reapit/foundations/issues"
   },
   "bin": {
+    "devops-release": "./bin/devops-release.js",
     "rpt-cdk": "./bin/rpt-cdk.js",
     "tsup-zip": "./bin/tsup-zip.js"
   },

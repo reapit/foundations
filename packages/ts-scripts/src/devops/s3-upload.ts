@@ -86,6 +86,11 @@ export const uploadFiles = async ({
 
   return await Promise.all(
     filePaths.map(async ({ filePath, devopsKey }) => {
+      try {
+        fs.statSync(path.resolve(filePath))
+      } catch (e) {
+        throw new Error(`[${devopsKey}] file not found ${path.resolve(filePath)}`)
+      }
       const ext = path.extname(filePath)
       const sha = await hashFile(filePath)
       const objectKey = `${folder}/${devopsKey}.${sha}.${ext}`
@@ -106,10 +111,11 @@ export const uploadFiles = async ({
           new PutObjectCommand({
             Bucket: bucket,
             Key: objectKey,
-            Body: fs.createReadStream(filePath),
+            Body: fs.createReadStream(path.resolve(filePath)),
           }),
         )
       }
+      console.log(`[${devopsKey}] Uploaded ${filePath} to ${objectKey}`)
       return {
         filePath,
         objectKey,

@@ -42,6 +42,7 @@ export const updateCdkJson = async (
   const api = new CreatePR({
     auth,
   })
+  console.log('Creating PR')
 
   const result = await api.createPullRequest({
     owner: 'reapit',
@@ -66,8 +67,10 @@ export const updateCdkJson = async (
   })
 
   if (!result) {
-    throw new Error('pr creation failed')
+    throw new Error('PR creation failed')
   }
+
+  console.log(`Created PR ${result.data.url}`)
 
   return result?.data.number
 }

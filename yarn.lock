@@ -11648,6 +11648,7 @@ __metadata:
     vite-plugin-svgr: ^3.2.0
     vite-plugin-top-level-await: ^1.3.0
   bin:
+    devops-release: ./bin/devops-release.js
     rpt-cdk: ./bin/rpt-cdk.js
     tsup-zip: ./bin/tsup-zip.js
   languageName: unknown
@@ -21549,7 +21550,7 @@ __metadata:
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/foundations-ts-definitions": "workspace:^"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-scripts": "workspace:^"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@types/mjml": ^4.7.0
     "@types/node": ^18.16.14

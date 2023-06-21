@@ -6,4 +6,4 @@ const tsConfigLocation = path.resolve(__dirname, '../tsconfig.json')
 const config = JSON.parse(fs.readFileSync(tsConfigLocation, 'utf-8'))
 
 require('ts-node').register(config)
-require('../src/devops-release/bin/devops-release.ts')
+require('../src/devops/bin/devops-release.ts')
