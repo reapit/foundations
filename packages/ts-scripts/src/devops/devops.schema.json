@@ -1,0 +1,27 @@
+{
+  "title": "DevopsConfig",
+  "description": "Config for a Devops Release",
+  "type": "object",
+  "properties": {
+    "projectName": {
+      "type": "string"
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "devopsKey": {
+            "type": "string"
+          },
+          "filePath": {
+            "type": "string"
+          }
+        },
+        "required": ["devopsKey", "filePath"]
+      },
+      "minItems": 1
+    }
+  },
+  "required": ["projectName", "assets"]
+}

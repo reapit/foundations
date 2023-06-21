@@ -1,4 +1,5 @@
 import { getCdkJson, updateCdkJson } from './github'
+import { DevopsConfig } from './project-config'
 import { getCredentials, uploadFiles } from './s3-upload'
 
 const { GH_PAT, DEVOPS_OIDC_ROLE, DEVOPS_BUCKET_ROLE, DEVOPS_PRIMARY_REGION, DEVOPS_ARTIFACT_BUCKET } = process.env
@@ -23,22 +24,8 @@ if (!GH_PAT || !DEVOPS_OIDC_ROLE || !DEVOPS_BUCKET_ROLE || !DEVOPS_PRIMARY_REGIO
   throw new Error('Required env not present')
 }
 
-type DevopsAsset = {
-  devopsKey: string
-  filePath: string
-}
-
-export const devopsRelease = async ({
-  assets,
-  devopsProjectName,
-  stage,
-}: {
-  devopsProjectName: string
-  stage: string
-  assets: DevopsAsset[]
-}) => {
-  // for each asset validate obj.context[stage][devopsKey] exists
-
+export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; stage: string }) => {
+  const { assets, devopsProjectName } = config
   const cdkJson = await getCdkJson(GH_PAT, devopsProjectName)
 
   if (!cdkJson.context) {
@@ -69,7 +56,6 @@ export const devopsRelease = async ({
     region: DEVOPS_PRIMARY_REGION,
   })
 
-  // update obj with uploadedFiles
   uploadedFiles.forEach((asset) => {
     cdkJson.context[stage][asset.devopsKey]['codeZipName'] = asset.objectKey
   })

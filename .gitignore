@@ -25,7 +25,6 @@
 .env.development.local
 .env.test.local
 .env.production.local
-.vscode
 reapit-config.json
 config.source.json
 config.json

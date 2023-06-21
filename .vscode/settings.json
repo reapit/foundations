@@ -1,4 +1,8 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "deepscan.enable": true
+  "deepscan.enable": true,
+  "json.schemas": [{
+    "fileMatch": ["devops.json"],
+    "url": "/packages/ts-scripts/src/devops/devops.schema.json"
+  }]
 }
