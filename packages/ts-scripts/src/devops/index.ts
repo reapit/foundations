@@ -1,8 +1,27 @@
 import { getCdkJson, updateCdkJson } from './github'
 import { getCredentials, uploadFiles } from './s3-upload'
 
-const { API_TOKEN_GITHUB, DEVOPS_OIDC_ROLE, DEVOPS_BUCKET_ROLE, DEVOPS_PRIMARY_REGION, DEVOPS_ARTIFACT_BUCKET } =
-  process.env
+const { GH_PAT, DEVOPS_OIDC_ROLE, DEVOPS_BUCKET_ROLE, DEVOPS_PRIMARY_REGION, DEVOPS_ARTIFACT_BUCKET } = process.env
+
+if (!GH_PAT) {
+  console.error('GH_PAT not defined')
+}
+if (!DEVOPS_OIDC_ROLE) {
+  console.error('DEVOPS_OIDC_ROLE not defined')
+}
+if (!DEVOPS_BUCKET_ROLE) {
+  console.error('DEVOPS_BUCKET_ROLE not defined')
+}
+if (!DEVOPS_PRIMARY_REGION) {
+  console.error('DEVOPS_PRIMARY_REGION not defined')
+}
+if (!DEVOPS_ARTIFACT_BUCKET) {
+  console.error('DEVOPS_ARTIFACT_BUCKET not defined')
+}
+
+if (!GH_PAT || !DEVOPS_OIDC_ROLE || !DEVOPS_BUCKET_ROLE || !DEVOPS_PRIMARY_REGION || !DEVOPS_ARTIFACT_BUCKET) {
+  throw new Error('Required env not present')
+}
 
 type DevopsAsset = {
   devopsKey: string
@@ -20,7 +39,7 @@ export const devopsRelease = async ({
 }) => {
   // for each asset validate obj.context[stage][devopsKey] exists
 
-  const cdkJson = await getCdkJson(API_TOKEN_GITHUB, devopsProjectName)
+  const cdkJson = await getCdkJson(GH_PAT, devopsProjectName)
 
   if (!cdkJson.context) {
     throw new Error('cdkJson has no context')
@@ -47,6 +66,7 @@ export const devopsRelease = async ({
     credentials,
     folder: devopsProjectName,
     filePaths: assets,
+    region: DEVOPS_PRIMARY_REGION,
   })
 
   // update obj with uploadedFiles
@@ -54,5 +74,5 @@ export const devopsRelease = async ({
     cdkJson.context[stage][asset.devopsKey]['codeZipName'] = asset.objectKey
   })
 
-  await updateCdkJson(API_TOKEN_GITHUB, devopsProjectName, JSON.stringify(cdkJson, null, 2), stage)
+  await updateCdkJson(GH_PAT, devopsProjectName, JSON.stringify(cdkJson, null, 2), stage)
 }
