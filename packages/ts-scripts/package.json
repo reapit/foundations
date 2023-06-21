@@ -7,6 +7,7 @@
     "url": "https://github.com/reapit/foundations/issues"
   },
   "bin": {
+    "devops-release": "./bin/devops-release.js",
     "rpt-cdk": "./bin/rpt-cdk.js",
     "tsup-zip": "./bin/tsup-zip.js"
   },
@@ -30,6 +31,8 @@
     "commit": "yarn lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.354.0",
+    "@aws-sdk/client-sts": "^3.354.0",
     "@babel/core": "^7.21.4",
     "@babel/plugin-proposal-decorators": "^7.21.0",
     "@babel/plugin-transform-runtime": "^7.21.4",
@@ -50,6 +53,7 @@
     "@typescript-eslint/eslint-plugin": "^5.59.7",
     "@typescript-eslint/parser": "^5.59.7",
     "@vitejs/plugin-react-swc": "^3.3.0",
+    "ajv": "^8.12.0",
     "autoprefixer": "^10.4.14",
     "aws-cdk": "^2.66.1",
     "aws-cdk-lib": "^2.66.1",
@@ -77,6 +81,7 @@
     "jest-fetch-mock": "^3.0.3",
     "mini-css-extract-plugin": "^2.7.6",
     "mockdate": "^2.0.5",
+    "octokit-plugin-create-pull-request": "^5.1.0",
     "postcss": "^8.4.23",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^7.1.0",
