@@ -24,6 +24,7 @@ const createStack = async () => {
     component: 'site',
     accountId,
     region: 'eu-west-2',
+    crossRegionReferences: true,
   })
   const env = process.env.APP_STAGE === 'production' ? 'prod' : 'dev'
 
