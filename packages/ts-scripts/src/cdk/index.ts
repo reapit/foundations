@@ -15,6 +15,7 @@ export * from './components/secret'
 export * from './components/cloudfront'
 export * from './components/r53'
 export * from './components/site'
+export * from './components/multi-region-site'
 
 export * from './utils/sts'
 export * from './utils/output'
