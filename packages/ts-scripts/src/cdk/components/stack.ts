@@ -8,15 +8,20 @@ export const createBaseStack = ({
   component,
   accountId,
   region,
+  crossRegionReferences,
 }: {
   namespace: string
   appName: string
   component: string
   accountId?: string
   region?: string
+  crossRegionReferences?: boolean
 }): cdk.Stack => {
   const name = `${namespace}-${appName}-${component}`
-  return new cdk.Stack(scope, name, { env: { account: accountId, region: region || 'eu-west-2' } })
+  return new cdk.Stack(scope, name, {
+    env: { account: accountId, region: region || 'eu-west-2' },
+    crossRegionReferences,
+  })
 }
 
 export type Stack = cdk.Stack
