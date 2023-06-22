@@ -15,7 +15,6 @@ const createStack = async () => {
   await createMultiRegionSite(stack, {
     env: process.env.APP_STAGE === 'production' ? 'prod' : 'dev',
     location: join(__dirname, 'build'),
-    onlyZone: true,
   })
 }
 
