@@ -15,7 +15,7 @@ import { BlockPublicAccess, BucketAccessControl, BucketEncryption, ObjectOwnersh
 import { ACM } from 'aws-sdk'
 import { InvalidateCloudfrontDistribution } from '../utils/cf-innvalidate'
 
-interface CreateSiteInterface {
+export interface CreateSiteInterface {
   env?: 'dev' | 'prod'
   defaultRootObject?: string
   location: string
