@@ -34,7 +34,7 @@ const createStack = async () => {
   const domain = `${env}.paas.reapit.cloud`
   const subDomain = `${appName}.${domain}`
 
-  const hostedZone = route53.HostedZone.fromLookup(stack, 'hosted-zone', { domainName: domain })
+  const hostedZone = route53.HostedZone.fromLookup(stack, 'hosted-zone-2', { domainName: domain })
 
   const certStack = new cdk.Stack(stack, 'cert-stack', {
     env: {
