@@ -41,6 +41,7 @@ const createStack = async () => {
       region: 'us-east-1',
       account: stack.account,
     },
+    crossRegionReferences: true,
   })
   const cert = new acm.Certificate(certStack, 'multi-domain-cert', {
     domainName: subDomain,
