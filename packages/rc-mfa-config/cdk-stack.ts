@@ -62,7 +62,14 @@ const createStack = async () => {
     env,
   })
 
-  new route53.ARecord(certStack, 'au-arecord', {
+  const auArecordStack = new cdk.Stack(certStack, 'arecord', {
+    crossRegionReferences: true,
+    env: {
+      region: 'us-east-1',
+      account: stack.account,
+    },
+  })
+  new route53.ARecord(auArecordStack, 'au-arecord', {
     zone: auZone,
     target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
   })
