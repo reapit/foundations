@@ -20,14 +20,12 @@ const getAnzSubdomain = (stack: Stack, env: 'dev' | 'prod') => {
   return `${appName}.au.${env}.rc.reapit.cloud`
 }
 
-interface MultiRegionSiteInterface extends CreateSiteInterface {
+interface MultiRegionSiteInterface extends Omit<CreateSiteInterface, 'viewerCertificateOverride'> {
   onlyZone?: boolean
 }
 
-export const createMultiRegionSite = async (
-  stack: cdk.Stack,
-  { onlyZone, location, env = 'dev' }: MultiRegionSiteInterface,
-) => {
+export const createMultiRegionSite = async (stack: cdk.Stack, props: MultiRegionSiteInterface) => {
+  const { onlyZone, env = 'dev' } = props
   if (!stack._crossRegionReferences) {
     throw new Error('Multi region site requires input stack to have crossRegionReferences set to true')
   }
@@ -64,9 +62,8 @@ export const createMultiRegionSite = async (
       )
 
   const { distribution } = await createSite(stack, {
-    location,
+    ...props,
     viewerCertificateOverride,
-    env,
   })
 
   const auArecordStack = new cdk.Stack(certStack, 'arecord', {
