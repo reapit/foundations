@@ -1,4 +1,4 @@
-import { createBaseStack, createSite, getAccountId } from '@reapit/ts-scripts/src/cdk'
+import { createBaseStack, createMultiRegionSite, getAccountId } from '@reapit/ts-scripts/src/cdk'
 import { join } from 'path'
 
 const createStack = async () => {
@@ -9,11 +9,13 @@ const createStack = async () => {
     component: 'site',
     accountId,
     region: 'eu-west-2',
+    crossRegionReferences: true,
   })
 
-  await createSite(stack, {
+  await createMultiRegionSite(stack, {
     env: process.env.APP_STAGE === 'production' ? 'prod' : 'dev',
     location: join(__dirname, 'build'),
+    onlyZone: true,
   })
 }
 
