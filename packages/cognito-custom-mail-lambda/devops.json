@@ -1,7 +1,7 @@
 {
-  "projectName": "cloud-custom-mailer",
+  "projectName": "rc_anz",
   "assets": [{
-    "devopsKey": "CognitoCustomMailerHandler",
+    "devopsKey": "custom_mailer",
     "filePath": "./dist/app.zip"
   }]
 }

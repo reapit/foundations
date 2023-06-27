@@ -38,7 +38,7 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
   }
 
   assets.forEach((asset) => {
-    if (!cdkJson.context[stage][asset.devopsKey]) {
+    if (!cdkJson.context[stage][asset.devopsKey] || cdkJson.context[stage]['lambda'][asset.devopsKey]) {
       throw new Error(`component ${asset.devopsKey} not found in cdkJson stage ${stage} context`)
     }
     console.log(`Found ${asset.devopsKey} to deploy`)
@@ -63,7 +63,11 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
   console.log('Uploaded assets to S3 bucket')
 
   uploadedFiles.forEach((asset) => {
-    cdkJson.context[stage][asset.devopsKey]['codeZipName'] = asset.objectKey
+    if (cdkJson.context[stage][asset.devopsKey]) {
+      cdkJson.context[stage][asset.devopsKey]['codeZipName'] = asset.objectKey
+    } else if (cdkJson.context[stage]['lambda'][asset.devopsKey]) {
+      cdkJson.context[stage][asset.devopsKey]['codeZipName'] = asset.objectKey
+    }
   })
 
   await updateCdkJson(GH_PAT, devopsProjectName, JSON.stringify(cdkJson, null, 2), stage)
