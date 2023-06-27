@@ -143,6 +143,12 @@ export interface ApplicantBuyingModel {
    */
   tenure?: string[]
   /**
+   * The date when the applicant's current mortgage expires/is due for renewal
+   * example:
+   * 2019-08-14
+   */
+  mortgageExpiry?: string // date
+  /**
    * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
    */
   leaseRemaining?: {
@@ -676,6 +682,12 @@ export interface ApplicantModel {
      */
     tenure?: string[]
     /**
+     * The date when the applicant's current mortgage expires/is due for renewal
+     * example:
+     * 2019-08-14
+     */
+    mortgageExpiry?: string // date
+    /**
      * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
      */
     leaseRemaining?: {
@@ -1121,6 +1133,12 @@ export interface ApplicantModelPagedResult {
        * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
        */
       tenure?: string[]
+      /**
+       * The date when the applicant's current mortgage expires/is due for renewal
+       * example:
+       * 2019-08-14
+       */
+      mortgageExpiry?: string // date
       /**
        * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
        */
@@ -2369,6 +2387,32 @@ export interface CertificateModelPagedResult {
       href?: string
     }
   }
+}
+/**
+ * Representation of a certificate type
+ */
+export interface CertificateTypeModel {
+  /**
+   * The unique identifier of the list item
+   */
+  id?: string
+  /**
+   * The textual value for the list item
+   */
+  value?: string
+  /**
+   * The configurable statuses associated to the certificate type
+   */
+  statuses?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
 }
 /**
  * Request body used for checking in a key
@@ -4407,6 +4451,12 @@ export interface CreateApplicantBuyingModel {
    */
   tenure?: string[]
   /**
+   * The date when the applicant's current mortgage expires/is due for renewal
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  mortgageExpiry?: string // date-time
+  /**
    * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
    */
   leaseRemaining?: {
@@ -4632,6 +4682,12 @@ export interface CreateApplicantModel {
      */
     tenure?: string[]
     /**
+     * The date when the applicant's current mortgage expires/is due for renewal
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    mortgageExpiry?: string // date-time
+    /**
      * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
      */
     leaseRemaining?: {
@@ -4726,11 +4782,11 @@ export interface CreateApplicantModel {
   /**
    * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
    */
-  officeIds?: string[]
+  officeIds: string[]
   /**
    * A collection of unique identifiers of negotiators attached to the applicant. The first item in the collection is considered the primary negotiator
    */
-  negotiatorIds?: string[]
+  negotiatorIds: string[]
   /**
    * A collection of contacts and/or companies associated to the applicant. The first item in the collection is considered the primary relationship
    */
@@ -6137,9 +6193,7 @@ export interface CreateMetadataRequest {
   /**
    * The JSON document to store
    */
-  metadata: {
-    [name: string]: any
-  }
+  metadata: string
 }
 /**
  * Request body used to create a new negotiator
@@ -6878,6 +6932,18 @@ export interface CreatePropertyModel {
    * The long description of the property
    */
   longDescription?: string
+  /**
+   * The floor level the property is on. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  floorLevel?: number // int32
+  /**
+   * The number of internal floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  internalFloors?: number // int32
+  /**
+   * The total number of floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  totalFloors?: number // int32
   /**
    * The status of the advertising board sited outside or near to the property
    */
@@ -8460,6 +8526,18 @@ export interface DepartmentModel {
    */
   hasParkingSpaces?: boolean
   /**
+   * A flag to determing if the department allows the floor level property to be set
+   */
+  hasFloorLevelEnabled?: boolean
+  /**
+   * A flag to determing if the department allows the internal floors property to be set
+   */
+  hasInternalFloorsEnabled?: boolean
+  /**
+   * A flag to determing if the department allows the total floors property to be set
+   */
+  hasTotalFloorsEnabled?: boolean
+  /**
    * The ETag for the current version of the department. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -8552,6 +8630,18 @@ export interface DepartmentModelPagedResult {
      * A flag to determing if the department has parking spaces configured
      */
     hasParkingSpaces?: boolean
+    /**
+     * A flag to determing if the department allows the floor level property to be set
+     */
+    hasFloorLevelEnabled?: boolean
+    /**
+     * A flag to determing if the department allows the internal floors property to be set
+     */
+    hasInternalFloorsEnabled?: boolean
+    /**
+     * A flag to determing if the department allows the total floors property to be set
+     */
+    hasTotalFloorsEnabled?: boolean
     /**
      * The ETag for the current version of the department. Used for managing update concurrency
      */
@@ -10649,7 +10739,7 @@ export interface MetadataModel {
   /**
    * The date and time of when this metadata record was last updated
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -10663,9 +10753,7 @@ export interface MetadataModel {
   /**
    * The JSON document content
    */
-  metadata?: {
-    [name: string]: any
-  }
+  metadata?: string
 }
 export interface MetadataModelPagedResult {
   _embedded?: {
@@ -10676,7 +10764,7 @@ export interface MetadataModelPagedResult {
     /**
      * The date and time of when this metadata record was last updated
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -10690,9 +10778,7 @@ export interface MetadataModelPagedResult {
     /**
      * The JSON document content
      */
-    metadata?: {
-      [name: string]: any
-    }
+    metadata?: string
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -11990,11 +12076,24 @@ export interface OpenHouseAttendeeModelPagedResult {
  * [object Object]
  */
 export interface Operation {
+  value?: any
   operationType?: 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
   path?: string
   op?: string
   from?: string
+}
+/**
+ * example:
+ * [object Object]
+ */
+export interface Operation1 {
   value?: any
+}
+export interface OperationBase {
+  operationType?: 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
+  path?: string
+  op?: string
+  from?: string
 }
 export type OperationType = 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
 export interface PagingLinkModel {
@@ -12959,6 +13058,18 @@ export interface PropertyModel {
    */
   serviceChargeComment?: string
   /**
+   * The total number of parking spaces the property has. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  floorLevel?: number // int32
+  /**
+   * The number of internal floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  internalFloors?: number // int32
+  /**
+   * The total number of floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  totalFloors?: number // int32
+  /**
    * The date the advertising board was last updated (or should be updated when the date is in the future)
    * example:
    * 2019-08-14
@@ -13792,6 +13903,18 @@ export interface PropertyModelPagedResult {
      * Comments regarding the service charge of the property
      */
     serviceChargeComment?: string
+    /**
+     * The total number of parking spaces the property has. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+     */
+    floorLevel?: number // int32
+    /**
+     * The number of internal floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+     */
+    internalFloors?: number // int32
+    /**
+     * The total number of floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+     */
+    totalFloors?: number // int32
     /**
      * The date the advertising board was last updated (or should be updated when the date is in the future)
      * example:
@@ -15017,7 +15140,7 @@ export interface SchemaModel {
   /**
    * The date and time of when this JSON schema was last updated
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -15034,7 +15157,7 @@ export interface SchemaModelPagedResult {
     /**
      * The date and time of when this JSON schema was last updated
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -18177,6 +18300,12 @@ export interface UpdateApplicantBuyingModel {
    */
   tenure?: string[]
   /**
+   * The date when the applicant's current mortgage expires/is due for renewal
+   * example:
+   * 2019-08-14
+   */
+  mortgageExpiry?: string // date
+  /**
    * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
    */
   leaseRemaining?: {
@@ -18397,6 +18526,12 @@ export interface UpdateApplicantModel {
      * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
      */
     tenure?: string[]
+    /**
+     * The date when the applicant's current mortgage expires/is due for renewal
+     * example:
+     * 2019-08-14
+     */
+    mortgageExpiry?: string // date
     /**
      * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
      */
@@ -19710,9 +19845,7 @@ export interface UpdateMetadataRequest {
   /**
    * The updated JSON document to store
    */
-  metadata: {
-    [name: string]: any
-  }
+  metadata: string
 }
 /**
  * Request body used to update an existing negotiator
@@ -20395,6 +20528,18 @@ export interface UpdatePropertyModel {
    * The long description of the property
    */
   longDescription?: string
+  /**
+   * The floor level the property is on. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  floorLevel?: number // int32
+  /**
+   * The number of internal floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  internalFloors?: number // int32
+  /**
+   * The total number of floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  totalFloors?: number // int32
   /**
    * The status of the advertising board sited outside or near to the property
    */
