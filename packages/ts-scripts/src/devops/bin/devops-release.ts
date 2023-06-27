@@ -4,7 +4,7 @@ import { getProjectConfig } from '../project-config'
 const go = async () => {
   const config = await getProjectConfig()
   console.log('Validated project config')
-  const stage = process.env.STAGE
+  const stage = process.env.APP_STAGE
   if (!stage) {
     throw new Error('STAGE env var not defined')
   }
