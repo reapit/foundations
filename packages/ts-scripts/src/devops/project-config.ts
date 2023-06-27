@@ -12,7 +12,7 @@ type DevopsAsset = {
 }
 
 export type DevopsConfig = {
-  devopsProjectName: string
+  projectName: string
   assets: DevopsAsset[]
 }
 

@@ -4,7 +4,7 @@ import { createPullRequest } from 'octokit-plugin-create-pull-request'
 
 const CreatePR = OctokitCore.plugin(createPullRequest)
 
-export const getCdkJson = async (auth: string, devopsProjectName: string) => {
+export const getCdkJson = async (auth: string, projectName: string) => {
   const api = new Octokit({
     auth,
   })
@@ -12,7 +12,7 @@ export const getCdkJson = async (auth: string, devopsProjectName: string) => {
   const cdkJsonFile = await api.repos.getContents({
     owner: 'reapit',
     repo: 'devops-infrastructure-core',
-    path: `aws_cdk_apps/${devopsProjectName}/cdk.json`,
+    path: `aws_cdk_apps/${projectName}/cdk.json`,
     mediaType: {
       format: 'application/vnd.github.raw',
     },
@@ -33,12 +33,7 @@ export const getCdkJson = async (auth: string, devopsProjectName: string) => {
   return cdkJson
 }
 
-export const updateCdkJson = async (
-  auth: string,
-  devopsProjectName: string,
-  newFileContents: string,
-  stage: string,
-) => {
+export const updateCdkJson = async (auth: string, projectName: string, newFileContents: string, stage: string) => {
   const api = new CreatePR({
     auth,
   })
@@ -50,9 +45,9 @@ export const updateCdkJson = async (
     changes: [
       {
         files: {
-          [`aws_cdk_apps/${devopsProjectName}/cdk.json`]: newFileContents,
+          [`aws_cdk_apps/${projectName}/cdk.json`]: newFileContents,
         },
-        commit: `Deploy ${devopsProjectName} to ${stage}`,
+        commit: `Deploy ${projectName} to ${stage}`,
         author: {
           name: 'Foundations DeployBot',
           email: 'foundations@reapit.com',
@@ -60,10 +55,10 @@ export const updateCdkJson = async (
         },
       },
     ],
-    title: `Deploy ${devopsProjectName} to ${stage}`,
-    body: `Deploy ${devopsProjectName} to ${stage}`,
-    head: `${devopsProjectName}-deploy-${stage}`,
-    labels: ['deployment', devopsProjectName, stage],
+    title: `Deploy ${projectName} to ${stage}`,
+    body: `Deploy ${projectName} to ${stage}`,
+    head: `${projectName}-deploy-${stage}`,
+    labels: ['deployment', projectName, stage],
   })
 
   if (!result) {

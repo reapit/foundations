@@ -25,8 +25,8 @@ if (!GH_PAT || !DEVOPS_OIDC_ROLE || !DEVOPS_BUCKET_ROLE || !DEVOPS_PRIMARY_REGIO
 }
 
 export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; stage: string }) => {
-  const { assets, devopsProjectName } = config
-  const cdkJson = await getCdkJson(GH_PAT, devopsProjectName)
+  const { assets, projectName } = config
+  const cdkJson = await getCdkJson(GH_PAT, projectName)
   console.log('Found project in devops repo')
 
   if (!cdkJson.context) {
@@ -55,7 +55,7 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
   const uploadedFiles = await uploadFiles({
     bucket: DEVOPS_ARTIFACT_BUCKET,
     credentials,
-    folder: devopsProjectName,
+    folder: projectName,
     filePaths: assets,
     region: DEVOPS_PRIMARY_REGION,
   })
@@ -70,7 +70,7 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
     }
   })
 
-  await updateCdkJson(GH_PAT, devopsProjectName, JSON.stringify(cdkJson, null, 2), stage)
+  await updateCdkJson(GH_PAT, projectName, JSON.stringify(cdkJson, null, 2), stage)
 
   console.log('Completed Successfully')
 }
