@@ -15,6 +15,11 @@ env:
   CI: true
   IS_RELEASE: true
   APP_STAGE: 'production'
+  GH_PAT: ${{ secrets.GH_PAT }}
+  DEVOPS_OIDC_ROLE: ${{ secrets.DEVOPS_OIDC_ROLE }}
+  DEVOPS_BUCKET_ROLE: ${{ secrets.DEVOPS_BUCKET_ROLE }}
+  DEVOPS_PRIMARY_REGION: ${{ secrets.DEVOPS_PRIMARY_REGION }}
+  DEVOPS_ARTIFACT_BUCKET: ${{ secrets.DEVOPS_ARTIFACT_BUCKET }}
 
 jobs:
   release-prod:
