@@ -2,6 +2,7 @@ import {
   AssumeRoleCommand,
   AssumeRoleCommandOutput,
   AssumeRoleWithWebIdentityCommand,
+  GetCallerIdentityCommand,
   STSClient,
   STSClientConfig,
 } from '@aws-sdk/client-sts'
@@ -59,7 +60,16 @@ export const getCredentials = async ({
     }),
   )
 
-  return stsCredentialsToCredentials(bucketRoleAssumed.Credentials)
+  const credentials = stsCredentialsToCredentials(bucketRoleAssumed.Credentials)
+  const assumedClient = new STSClient({
+    credentials,
+    region,
+  })
+
+  const identity = await assumedClient.send(new GetCallerIdentityCommand({}))
+
+  console.log('Identity: ' + JSON.stringify(identity))
+  return credentials
 }
 
 const hashFile = (filePath: string) => {
