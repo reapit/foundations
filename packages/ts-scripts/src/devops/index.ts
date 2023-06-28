@@ -2,7 +2,14 @@ import { getCdkJson, updateCdkJson } from './github'
 import { DevopsConfig } from './project-config'
 import { getCredentials, uploadFiles } from './s3-upload'
 
-const { GH_PAT, DEVOPS_OIDC_ROLE, DEVOPS_BUCKET_ROLE, DEVOPS_PRIMARY_REGION, DEVOPS_ARTIFACT_BUCKET } = process.env
+const {
+  GH_PAT,
+  DEVOPS_OIDC_ROLE,
+  DEVOPS_BUCKET_ROLE,
+  DEVOPS_PRIMARY_REGION,
+  DEVOPS_ARTIFACT_BUCKET,
+  GITHUB_REPOSITORY,
+} = process.env
 
 if (!GH_PAT) {
   console.error('GH_PAT not defined')
@@ -20,7 +27,18 @@ if (!DEVOPS_ARTIFACT_BUCKET) {
   console.error('DEVOPS_ARTIFACT_BUCKET not defined')
 }
 
-if (!GH_PAT || !DEVOPS_OIDC_ROLE || !DEVOPS_BUCKET_ROLE || !DEVOPS_PRIMARY_REGION || !DEVOPS_ARTIFACT_BUCKET) {
+if (!GITHUB_REPOSITORY) {
+  console.error('GITHUB_REPOSITORY not defined')
+}
+
+if (
+  !GH_PAT ||
+  !DEVOPS_OIDC_ROLE ||
+  !DEVOPS_BUCKET_ROLE ||
+  !DEVOPS_PRIMARY_REGION ||
+  !DEVOPS_ARTIFACT_BUCKET ||
+  !GITHUB_REPOSITORY
+) {
   throw new Error('Required env not present')
 }
 
@@ -55,7 +73,7 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
   const uploadedFiles = await uploadFiles({
     bucket: DEVOPS_ARTIFACT_BUCKET,
     credentials,
-    folder: projectName,
+    folder: GITHUB_REPOSITORY,
     filePaths: assets,
     region: DEVOPS_PRIMARY_REGION,
   })
