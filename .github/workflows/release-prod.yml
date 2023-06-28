@@ -21,6 +21,10 @@ env:
   DEVOPS_PRIMARY_REGION: ${{ secrets.DEVOPS_PRIMARY_REGION }}
   DEVOPS_ARTIFACT_BUCKET: ${{ secrets.DEVOPS_ARTIFACT_BUCKET }}
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   release-prod:
     name: Release
