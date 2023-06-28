@@ -38,7 +38,7 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
   }
 
   assets.forEach((asset) => {
-    if (!cdkJson.context[stage][asset.devopsKey] || cdkJson.context[stage]['lambda'][asset.devopsKey]) {
+    if (!cdkJson.context[stage][asset.devopsKey] && !cdkJson.context[stage]['lambda'][asset.devopsKey]) {
       throw new Error(`component ${asset.devopsKey} not found in cdkJson stage ${stage} context`)
     }
     console.log(`Found ${asset.devopsKey} to deploy`)
