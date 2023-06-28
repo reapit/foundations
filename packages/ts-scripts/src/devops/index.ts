@@ -2,8 +2,7 @@ import { getCdkJson, updateCdkJson } from './github'
 import { DevopsConfig } from './project-config'
 import { getCredentials, uploadFiles } from './s3-upload'
 
-const { GH_PAT, DEVOPS_OIDC_ROLE, DEVOPS_BUCKET_ROLE, DEVOPS_PRIMARY_REGION, DEVOPS_ARTIFACT_BUCKET, GITHUB_TOKEN } =
-  process.env
+const { GH_PAT, DEVOPS_OIDC_ROLE, DEVOPS_BUCKET_ROLE, DEVOPS_PRIMARY_REGION, DEVOPS_ARTIFACT_BUCKET } = process.env
 
 if (!GH_PAT) {
   console.error('GH_PAT not defined')
@@ -20,18 +19,8 @@ if (!DEVOPS_PRIMARY_REGION) {
 if (!DEVOPS_ARTIFACT_BUCKET) {
   console.error('DEVOPS_ARTIFACT_BUCKET not defined')
 }
-if (!GITHUB_TOKEN) {
-  console.error('GITHUB_TOKEN not defined')
-}
 
-if (
-  !GH_PAT ||
-  !DEVOPS_OIDC_ROLE ||
-  !DEVOPS_BUCKET_ROLE ||
-  !DEVOPS_PRIMARY_REGION ||
-  !DEVOPS_ARTIFACT_BUCKET ||
-  !GITHUB_TOKEN
-) {
+if (!GH_PAT || !DEVOPS_OIDC_ROLE || !DEVOPS_BUCKET_ROLE || !DEVOPS_PRIMARY_REGION || !DEVOPS_ARTIFACT_BUCKET) {
   throw new Error('Required env not present')
 }
 
@@ -59,7 +48,6 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
     bucketRole: DEVOPS_BUCKET_ROLE,
     oidcRoleArn: DEVOPS_OIDC_ROLE,
     region: DEVOPS_PRIMARY_REGION,
-    githubAccessToken: GITHUB_TOKEN,
   })
 
   console.log('Assumed devops role')

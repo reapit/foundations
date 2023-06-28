@@ -9,6 +9,7 @@ import { randomUUID, createHash } from 'crypto'
 import { HeadObjectCommand, PutObjectCommand, S3Client, S3ClientConfig } from '@aws-sdk/client-s3'
 import fs from 'fs'
 import path from 'path'
+import { getIDToken } from '@actions/core'
 
 const stsCredentialsToCredentials = (
   stsCredentials?: AssumeRoleCommandOutput['Credentials'],
@@ -32,19 +33,17 @@ export const getCredentials = async ({
   region,
   oidcRoleArn,
   bucketRole,
-  githubAccessToken,
 }: {
   region: string
-  githubAccessToken: string
   oidcRoleArn: string
   bucketRole: string
 }) => {
   const oidcClient = new STSClient({ region })
-
+  
   const oidcRoleAssumed = await oidcClient.send(
     new AssumeRoleWithWebIdentityCommand({
       RoleArn: oidcRoleArn,
-      WebIdentityToken: githubAccessToken,
+      WebIdentityToken: await getIDToken(),
       RoleSessionName: randomUUID(),
     }),
   )
