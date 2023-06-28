@@ -22,7 +22,11 @@ export const getCdkJson = async (auth: string, projectName: string) => {
     throw new Error('got multiple files back')
   }
 
-  const cdkJsonStr = cdkJsonFile.data.content
+  if (!cdkJsonFile.data.content) {
+    throw new Error('no file contents found')
+  }
+
+  const cdkJsonStr = Buffer.from(cdkJsonFile.data.content, 'base64').toString('utf-8')
 
   if (!cdkJsonStr) {
     throw new Error('cdkJsonStr undefined')
