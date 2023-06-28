@@ -136,7 +136,7 @@ export const uploadFiles = async ({
             }),
           )
         } catch (e) {
-          console.error(`[${devopsKey}] Error uploading ${filePath} to ${objectKey}`)
+          console.error(`[${devopsKey}] Error uploading ${filePath} to ${objectKey} in bucket ${bucket}`)
           console.error(e)
           throw e
         }
