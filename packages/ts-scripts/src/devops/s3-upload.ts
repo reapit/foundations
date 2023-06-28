@@ -101,7 +101,7 @@ export const uploadFiles = async ({
       }
       const ext = path.extname(filePath)
       const sha = await hashFile(filePath)
-      const objectKey = `${folder}/${devopsKey}.${sha}.${ext}`
+      const objectKey = `${folder}/${devopsKey}.${sha}${ext}`
       let exists
       try {
         await client.send(
