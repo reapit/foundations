@@ -117,13 +117,19 @@ export const uploadFiles = async ({
       if (exists) {
         console.log(`[${devopsKey}] File already exists, skipping upload`)
       } else {
-        await client.send(
-          new PutObjectCommand({
-            Bucket: bucket,
-            Key: objectKey,
-            Body: fs.createReadStream(path.resolve(filePath)),
-          }),
-        )
+        try {
+          await client.send(
+            new PutObjectCommand({
+              Bucket: bucket,
+              Key: objectKey,
+              Body: fs.createReadStream(path.resolve(filePath)),
+            }),
+          )
+        } catch (e) {
+          console.error(`[${devopsKey}] Error uploading ${filePath} to ${objectKey}`)
+          console.error(e)
+          throw e
+        }
         console.log(`[${devopsKey}] Uploaded ${filePath} to ${objectKey}`)
       }
 
