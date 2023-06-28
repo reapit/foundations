@@ -66,6 +66,7 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
     bucketRole: DEVOPS_BUCKET_ROLE,
     oidcRoleArn: DEVOPS_OIDC_ROLE,
     region: DEVOPS_PRIMARY_REGION,
+    repository: GITHUB_REPOSITORY,
   })
 
   console.log('Assumed devops role')
