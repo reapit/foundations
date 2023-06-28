@@ -39,11 +39,11 @@ export const getCredentials = async ({
   bucketRole: string
 }) => {
   const oidcClient = new STSClient({ region })
-  
+
   const oidcRoleAssumed = await oidcClient.send(
     new AssumeRoleWithWebIdentityCommand({
       RoleArn: oidcRoleArn,
-      WebIdentityToken: await getIDToken(),
+      WebIdentityToken: await getIDToken('sts.amazonaws.com'),
       RoleSessionName: randomUUID(),
     }),
   )
