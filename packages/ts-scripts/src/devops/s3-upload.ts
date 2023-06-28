@@ -1,4 +1,10 @@
-import { AssumeRoleCommand, AssumeRoleCommandOutput, STSClient, STSClientConfig } from '@aws-sdk/client-sts'
+import {
+  AssumeRoleCommand,
+  AssumeRoleCommandOutput,
+  AssumeRoleWithWebIdentityCommand,
+  STSClient,
+  STSClientConfig,
+} from '@aws-sdk/client-sts'
 import { randomUUID, createHash } from 'crypto'
 import { HeadObjectCommand, PutObjectCommand, S3Client, S3ClientConfig } from '@aws-sdk/client-s3'
 import fs from 'fs'
@@ -26,16 +32,19 @@ export const getCredentials = async ({
   region,
   oidcRoleArn,
   bucketRole,
+  githubAccessToken,
 }: {
   region: string
+  githubAccessToken: string
   oidcRoleArn: string
   bucketRole: string
 }) => {
   const oidcClient = new STSClient({ region })
 
   const oidcRoleAssumed = await oidcClient.send(
-    new AssumeRoleCommand({
+    new AssumeRoleWithWebIdentityCommand({
       RoleArn: oidcRoleArn,
+      WebIdentityToken: githubAccessToken,
       RoleSessionName: randomUUID(),
     }),
   )
