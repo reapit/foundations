@@ -85,7 +85,7 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
     if (cdkJson.context[stage][asset.devopsKey]) {
       cdkJson.context[stage][asset.devopsKey]['codeZipName'] = asset.objectKey
     } else if (cdkJson.context[stage]['lambda'][asset.devopsKey]) {
-      cdkJson.context[stage][asset.devopsKey]['codeZipName'] = asset.objectKey
+      cdkJson.context[stage][asset.devopsKey]['lambda']['codeZipName'] = asset.objectKey
     }
   })
 
