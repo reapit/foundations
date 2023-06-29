@@ -38,8 +38,8 @@ export const getCredentials = async ({
 }: {
   region: string
   oidcRoleArn: string
-  bucketRole: string,
-  repository: string,
+  bucketRole: string
+  repository: string
 }) => {
   const oidcClient = new STSClient({ region })
 
@@ -59,10 +59,12 @@ export const getCredentials = async ({
     new AssumeRoleCommand({
       RoleArn: bucketRole,
       RoleSessionName: randomUUID(),
-      Tags: [{
-        Key: "Repository",
-        Value: repository,
-      }]
+      Tags: [
+        {
+          Key: 'Repository',
+          Value: repository,
+        },
+      ],
     }),
   )
 
