@@ -1,8 +1,9 @@
+import { getPlatformApiUrl } from './api-regions'
+
 export type AppEnv = 'local' | 'development' | 'production'
 
 export const ApiNames = {
-  platform:
-    process.env.appEnv !== 'production' ? 'https://platform.dev.paas.reapit.cloud' : 'https://platform.reapit.cloud',
+  platform: getPlatformApiUrl(),
   pipeline:
     process.env.appEnv !== 'production'
       ? 'https://deployments.dev.paas.reapit.cloud'
