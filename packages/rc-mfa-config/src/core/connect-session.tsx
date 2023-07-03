@@ -22,6 +22,9 @@ const getRCConfig = (): ReapitConnectBrowserSessionInitializers => {
   if (isReapitConnectBrowserSessionInitializers(process.env)) {
     return process.env
   }
+  if (process.env.NODE_ENV === 'test') {
+    return process.env as ReapitConnectBrowserSessionInitializers
+  }
   throw new Error('Invalid RC Config')
 }
 
