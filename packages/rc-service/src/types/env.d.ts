@@ -10,11 +10,10 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       appEnv: 'local' | 'development' | 'production'
-      connectClientId: string
-      connectOAuthUrl: string
-      connectUserPoolId: string
-      platformApiUrl: string
-      marketplaceUrl: string
+      connectClientId?: string
+      connectOAuthUrl?: string
+      connectUserPoolId?: string
+      domainMappings?: string
       sentryDsn: string
     }
   }
