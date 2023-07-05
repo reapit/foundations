@@ -143,6 +143,12 @@ export interface ApplicantBuyingModel {
    */
   tenure?: string[]
   /**
+   * The date when the applicant's current mortgage expires/is due for renewal
+   * example:
+   * 2019-08-14
+   */
+  mortgageExpiry?: string // date
+  /**
    * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
    */
   leaseRemaining?: {
@@ -676,6 +682,12 @@ export interface ApplicantModel {
      */
     tenure?: string[]
     /**
+     * The date when the applicant's current mortgage expires/is due for renewal
+     * example:
+     * 2019-08-14
+     */
+    mortgageExpiry?: string // date
+    /**
      * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
      */
     leaseRemaining?: {
@@ -1121,6 +1133,12 @@ export interface ApplicantModelPagedResult {
        * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
        */
       tenure?: string[]
+      /**
+       * The date when the applicant's current mortgage expires/is due for renewal
+       * example:
+       * 2019-08-14
+       */
+      mortgageExpiry?: string // date
       /**
        * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
        */
@@ -2371,6 +2389,32 @@ export interface CertificateModelPagedResult {
   }
 }
 /**
+ * Representation of a certificate type
+ */
+export interface CertificateTypeModel {
+  /**
+   * The unique identifier of the list item
+   */
+  id?: string
+  /**
+   * The textual value for the list item
+   */
+  value?: string
+  /**
+   * The configurable statuses associated to the certificate type
+   */
+  statuses?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+}
+/**
  * Request body used for checking in a key
  * example:
  * [object Object]
@@ -2904,6 +2948,7 @@ export interface ConfigurationTypes {
     | 'keyTypes'
     | 'followUpResponses'
     | 'sellingReasons'
+    | 'rentInsuranceCancellationReasons'
     | 'rentingPositions'
     | 'supplierTypes'
     | 'taskTypes'
@@ -4407,6 +4452,12 @@ export interface CreateApplicantBuyingModel {
    */
   tenure?: string[]
   /**
+   * The date when the applicant's current mortgage expires/is due for renewal
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  mortgageExpiry?: string // date-time
+  /**
    * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
    */
   leaseRemaining?: {
@@ -4449,6 +4500,15 @@ export interface CreateApplicantExternalAreaModel {
    * The maximum unit value of outside space that the applicant is looking for
    */
   amountTo?: number // double
+}
+/**
+ * Details of regional information specific to Guernsey
+ */
+export interface CreateApplicantGuernseyModel {
+  /**
+   * Requirements describing which markets the applicant is looking for properties in (local/openA/openB/openC/openD)
+   */
+  market?: string[]
 }
 /**
  * The applicant's indoor space requirements
@@ -4632,6 +4692,12 @@ export interface CreateApplicantModel {
      */
     tenure?: string[]
     /**
+     * The date when the applicant's current mortgage expires/is due for renewal
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    mortgageExpiry?: string // date-time
+    /**
      * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
      */
     leaseRemaining?: {
@@ -4724,13 +4790,27 @@ export interface CreateApplicantModel {
     type?: string
   }
   /**
+   * Details relating to the real estate market in specific countries. Child models are named based on the ISO3166 country code that the data inside the model relates to
+   */
+  regional?: {
+    /**
+     * Details of regional information specific to Guernsey
+     */
+    ggy?: {
+      /**
+       * Requirements describing which markets the applicant is looking for properties in (local/openA/openB/openC/openD)
+       */
+      market?: string[]
+    }
+  }
+  /**
    * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
    */
-  officeIds?: string[]
+  officeIds: string[]
   /**
    * A collection of unique identifiers of negotiators attached to the applicant. The first item in the collection is considered the primary negotiator
    */
-  negotiatorIds?: string[]
+  negotiatorIds: string[]
   /**
    * A collection of contacts and/or companies associated to the applicant. The first item in the collection is considered the primary relationship
    */
@@ -4749,6 +4829,20 @@ export interface CreateApplicantModel {
    */
   metadata?: {
     [name: string]: any
+  }
+}
+/**
+ * Details relating to the real estate market in specific countries. Child models are named based on the ISO3166 country code that the data inside the model relates to
+ */
+export interface CreateApplicantRegionalModel {
+  /**
+   * Details of regional information specific to Guernsey
+   */
+  ggy?: {
+    /**
+     * Requirements describing which markets the applicant is looking for properties in (local/openA/openB/openC/openD)
+     */
+    market?: string[]
   }
 }
 /**
@@ -6137,9 +6231,7 @@ export interface CreateMetadataRequest {
   /**
    * The JSON document to store
    */
-  metadata: {
-    [name: string]: any
-  }
+  metadata: string
 }
 /**
  * Request body used to create a new negotiator
@@ -6878,6 +6970,18 @@ export interface CreatePropertyModel {
    * The long description of the property
    */
   longDescription?: string
+  /**
+   * The floor level the property is on. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  floorLevel?: number // int32
+  /**
+   * The number of internal floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  internalFloors?: number // int32
+  /**
+   * The total number of floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  totalFloors?: number // int32
   /**
    * The status of the advertising board sited outside or near to the property
    */
@@ -7904,7 +8008,7 @@ export interface CreateTenancyModel {
   /**
    * The amount of rent required, returned in relation to the collection frequency
    */
-  rent: number // int32
+  rent: number // double
   /**
    * The rent collection frequency (weekly/monthly/annually)
    */
@@ -8460,6 +8564,18 @@ export interface DepartmentModel {
    */
   hasParkingSpaces?: boolean
   /**
+   * A flag to determing if the department allows the floor level property to be set
+   */
+  hasFloorLevelEnabled?: boolean
+  /**
+   * A flag to determing if the department allows the internal floors property to be set
+   */
+  hasInternalFloorsEnabled?: boolean
+  /**
+   * A flag to determing if the department allows the total floors property to be set
+   */
+  hasTotalFloorsEnabled?: boolean
+  /**
    * The ETag for the current version of the department. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -8552,6 +8668,18 @@ export interface DepartmentModelPagedResult {
      * A flag to determing if the department has parking spaces configured
      */
     hasParkingSpaces?: boolean
+    /**
+     * A flag to determing if the department allows the floor level property to be set
+     */
+    hasFloorLevelEnabled?: boolean
+    /**
+     * A flag to determing if the department allows the internal floors property to be set
+     */
+    hasInternalFloorsEnabled?: boolean
+    /**
+     * A flag to determing if the department allows the total floors property to be set
+     */
+    hasTotalFloorsEnabled?: boolean
     /**
      * The ETag for the current version of the department. Used for managing update concurrency
      */
@@ -10649,7 +10777,7 @@ export interface MetadataModel {
   /**
    * The date and time of when this metadata record was last updated
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -10663,9 +10791,7 @@ export interface MetadataModel {
   /**
    * The JSON document content
    */
-  metadata?: {
-    [name: string]: any
-  }
+  metadata?: string
 }
 export interface MetadataModelPagedResult {
   _embedded?: {
@@ -10676,7 +10802,7 @@ export interface MetadataModelPagedResult {
     /**
      * The date and time of when this metadata record was last updated
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -10690,9 +10816,7 @@ export interface MetadataModelPagedResult {
     /**
      * The JSON document content
      */
-    metadata?: {
-      [name: string]: any
-    }
+    metadata?: string
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -11990,11 +12114,24 @@ export interface OpenHouseAttendeeModelPagedResult {
  * [object Object]
  */
 export interface Operation {
+  value?: any
   operationType?: 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
   path?: string
   op?: string
   from?: string
+}
+/**
+ * example:
+ * [object Object]
+ */
+export interface Operation1 {
   value?: any
+}
+export interface OperationBase {
+  operationType?: 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
+  path?: string
+  op?: string
+  from?: string
 }
 export type OperationType = 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
 export interface PagingLinkModel {
@@ -12700,6 +12837,80 @@ export interface PropertyLettingModel {
      */
     amount?: number // double
   }
+  /**
+   * Representation of property details specific to rent insurance associated with a lettings property
+   */
+  rentInsurance?: {
+    /**
+     * Status indicating whether or not rent protection insurance has been taken out (notAsked/cancelled/declined/quoted/taken)
+     */
+    status?: string
+    /**
+     * The reference number of the insurance policy when rent protection insurance has been taken out
+     */
+    referenceNumber?: string
+    /**
+     * The insurance policy start date
+     * example:
+     * 2019-08-14
+     */
+    start?: string // date
+    /**
+     * The insurance policy end date
+     * example:
+     * 2019-08-14
+     */
+    end?: string // date
+    /**
+     * The identifier of the reason the insurance policy was cancelled, to be used in conjunction with the relevant configuration API endpoint
+     */
+    cancelledReasonId?: string
+    /**
+     * A textual comment or note entered by the agent when an insurance policy was cancelled
+     */
+    cancelledComment?: string
+    /**
+     * Flag indicating whether or not the insurance policy should auto renew
+     */
+    autoRenew?: boolean
+  }
+}
+/**
+ * Representation of property details specific to rent insurance associated with a lettings property
+ */
+export interface PropertyLettingRentInsuranceModel {
+  /**
+   * Status indicating whether or not rent protection insurance has been taken out (notAsked/cancelled/declined/quoted/taken)
+   */
+  status?: string
+  /**
+   * The reference number of the insurance policy when rent protection insurance has been taken out
+   */
+  referenceNumber?: string
+  /**
+   * The insurance policy start date
+   * example:
+   * 2019-08-14
+   */
+  start?: string // date
+  /**
+   * The insurance policy end date
+   * example:
+   * 2019-08-14
+   */
+  end?: string // date
+  /**
+   * The identifier of the reason the insurance policy was cancelled, to be used in conjunction with the relevant configuration API endpoint
+   */
+  cancelledReasonId?: string
+  /**
+   * A textual comment or note entered by the agent when an insurance policy was cancelled
+   */
+  cancelledComment?: string
+  /**
+   * Flag indicating whether or not the insurance policy should auto renew
+   */
+  autoRenew?: boolean
 }
 /**
  * Representation of a property details related to deposit
@@ -12958,6 +13169,18 @@ export interface PropertyModel {
    * Comments regarding the service charge of the property
    */
   serviceChargeComment?: string
+  /**
+   * The total number of parking spaces the property has. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  floorLevel?: number // int32
+  /**
+   * The number of internal floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  internalFloors?: number // int32
+  /**
+   * The total number of floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  totalFloors?: number // int32
   /**
    * The date the advertising board was last updated (or should be updated when the date is in the future)
    * example:
@@ -13378,6 +13601,43 @@ export interface PropertyModel {
        */
       amount?: number // double
     }
+    /**
+     * Representation of property details specific to rent insurance associated with a lettings property
+     */
+    rentInsurance?: {
+      /**
+       * Status indicating whether or not rent protection insurance has been taken out (notAsked/cancelled/declined/quoted/taken)
+       */
+      status?: string
+      /**
+       * The reference number of the insurance policy when rent protection insurance has been taken out
+       */
+      referenceNumber?: string
+      /**
+       * The insurance policy start date
+       * example:
+       * 2019-08-14
+       */
+      start?: string // date
+      /**
+       * The insurance policy end date
+       * example:
+       * 2019-08-14
+       */
+      end?: string // date
+      /**
+       * The identifier of the reason the insurance policy was cancelled, to be used in conjunction with the relevant configuration API endpoint
+       */
+      cancelledReasonId?: string
+      /**
+       * A textual comment or note entered by the agent when an insurance policy was cancelled
+       */
+      cancelledComment?: string
+      /**
+       * Flag indicating whether or not the insurance policy should auto renew
+       */
+      autoRenew?: boolean
+    }
   }
   /**
    * An properties commercial details
@@ -13792,6 +14052,18 @@ export interface PropertyModelPagedResult {
      * Comments regarding the service charge of the property
      */
     serviceChargeComment?: string
+    /**
+     * The total number of parking spaces the property has. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+     */
+    floorLevel?: number // int32
+    /**
+     * The number of internal floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+     */
+    internalFloors?: number // int32
+    /**
+     * The total number of floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+     */
+    totalFloors?: number // int32
     /**
      * The date the advertising board was last updated (or should be updated when the date is in the future)
      * example:
@@ -14211,6 +14483,43 @@ export interface PropertyModelPagedResult {
          * The deposit amount. This can be the number of weeks or months rent or a monetary amount based on the `type`
          */
         amount?: number // double
+      }
+      /**
+       * Representation of property details specific to rent insurance associated with a lettings property
+       */
+      rentInsurance?: {
+        /**
+         * Status indicating whether or not rent protection insurance has been taken out (notAsked/cancelled/declined/quoted/taken)
+         */
+        status?: string
+        /**
+         * The reference number of the insurance policy when rent protection insurance has been taken out
+         */
+        referenceNumber?: string
+        /**
+         * The insurance policy start date
+         * example:
+         * 2019-08-14
+         */
+        start?: string // date
+        /**
+         * The insurance policy end date
+         * example:
+         * 2019-08-14
+         */
+        end?: string // date
+        /**
+         * The identifier of the reason the insurance policy was cancelled, to be used in conjunction with the relevant configuration API endpoint
+         */
+        cancelledReasonId?: string
+        /**
+         * A textual comment or note entered by the agent when an insurance policy was cancelled
+         */
+        cancelledComment?: string
+        /**
+         * Flag indicating whether or not the insurance policy should auto renew
+         */
+        autoRenew?: boolean
       }
     }
     /**
@@ -15017,7 +15326,7 @@ export interface SchemaModel {
   /**
    * The date and time of when this JSON schema was last updated
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -15034,7 +15343,7 @@ export interface SchemaModelPagedResult {
     /**
      * The date and time of when this JSON schema was last updated
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
     /**
@@ -15997,6 +16306,10 @@ export interface TenancyContactModel {
    */
   email?: string
   /**
+   * An optional payment reference to be used for transactions related to this tenancy associated with this tenant
+   */
+  paymentReference?: string
+  /**
    * A flag denoting whether or not this roie on the system is now archived
    */
   fromArchive?: boolean
@@ -16515,6 +16828,10 @@ export interface TenancyModel {
    */
   applicantId?: string
   /**
+   * An optional payment reference to be used for transactions related to this tenancy associated with all tenants in the property
+   */
+  groupPaymentReference?: string
+  /**
    * Representation of the tenancy letting fee
    */
   lettingFee?: {
@@ -16624,6 +16941,10 @@ export interface TenancyModel {
      * The email address of the contact or company
      */
     email?: string
+    /**
+     * An optional payment reference to be used for transactions related to this tenancy associated with this tenant
+     */
+    paymentReference?: string
     /**
      * A flag denoting whether or not this roie on the system is now archived
      */
@@ -16824,6 +17145,10 @@ export interface TenancyModelPagedResult {
      */
     applicantId?: string
     /**
+     * An optional payment reference to be used for transactions related to this tenancy associated with all tenants in the property
+     */
+    groupPaymentReference?: string
+    /**
      * Representation of the tenancy letting fee
      */
     lettingFee?: {
@@ -16933,6 +17258,10 @@ export interface TenancyModelPagedResult {
        * The email address of the contact or company
        */
       email?: string
+      /**
+       * An optional payment reference to be used for transactions related to this tenancy associated with this tenant
+       */
+      paymentReference?: string
       /**
        * A flag denoting whether or not this roie on the system is now archived
        */
@@ -18031,6 +18360,19 @@ export interface TypeModel {
     value?: string
   }[]
   /**
+   * A list of configurable rent insurance cancellation reasons
+   */
+  rentInsuranceCancellationReasons?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
    * A list of configurable renting positions
    */
   rentingPositions?: {
@@ -18176,6 +18518,12 @@ export interface UpdateApplicantBuyingModel {
    * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
    */
   tenure?: string[]
+  /**
+   * The date when the applicant's current mortgage expires/is due for renewal
+   * example:
+   * 2019-08-14
+   */
+  mortgageExpiry?: string // date
   /**
    * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
    */
@@ -18397,6 +18745,12 @@ export interface UpdateApplicantModel {
      * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
      */
     tenure?: string[]
+    /**
+     * The date when the applicant's current mortgage expires/is due for renewal
+     * example:
+     * 2019-08-14
+     */
+    mortgageExpiry?: string // date
     /**
      * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
      */
@@ -19710,9 +20064,7 @@ export interface UpdateMetadataRequest {
   /**
    * The updated JSON document to store
    */
-  metadata: {
-    [name: string]: any
-  }
+  metadata: string
 }
 /**
  * Request body used to update an existing negotiator
@@ -20237,6 +20589,80 @@ export interface UpdatePropertyLettingModel {
      */
     amount?: number // double
   }
+  /**
+   * Request body used to update details specific to rent insurance associated with a lettings property
+   */
+  rentInsurance?: {
+    /**
+     * Status indicating whether or not rent protection insurance has been taken out (notAsked/cancelled/declined/quoted/taken)
+     */
+    status?: string
+    /**
+     * The reference number of the insurance policy when rent protection insurance has been taken out
+     */
+    referenceNumber?: string
+    /**
+     * The insurance policy start date
+     * example:
+     * 2019-08-14
+     */
+    start?: string // date
+    /**
+     * The insurance policy end date
+     * example:
+     * 2019-08-14
+     */
+    end?: string // date
+    /**
+     * The identifier of the reason the insurance policy was cancelled, to be used in conjunction with the relevant configuration API endpoint
+     */
+    cancelledReasonId?: string
+    /**
+     * A textual comment or note entered by the agent when an insurance policy was cancelled
+     */
+    cancelledComment?: string
+    /**
+     * Flag indicating whether or not the insurance policy should auto renew
+     */
+    autoRenew?: boolean
+  }
+}
+/**
+ * Request body used to update details specific to rent insurance associated with a lettings property
+ */
+export interface UpdatePropertyLettingRentInsuranceModel {
+  /**
+   * Status indicating whether or not rent protection insurance has been taken out (notAsked/cancelled/declined/quoted/taken)
+   */
+  status?: string
+  /**
+   * The reference number of the insurance policy when rent protection insurance has been taken out
+   */
+  referenceNumber?: string
+  /**
+   * The insurance policy start date
+   * example:
+   * 2019-08-14
+   */
+  start?: string // date
+  /**
+   * The insurance policy end date
+   * example:
+   * 2019-08-14
+   */
+  end?: string // date
+  /**
+   * The identifier of the reason the insurance policy was cancelled, to be used in conjunction with the relevant configuration API endpoint
+   */
+  cancelledReasonId?: string
+  /**
+   * A textual comment or note entered by the agent when an insurance policy was cancelled
+   */
+  cancelledComment?: string
+  /**
+   * Flag indicating whether or not the insurance policy should auto renew
+   */
+  autoRenew?: boolean
 }
 /**
  * Representation of a property details related to deposit
@@ -20395,6 +20821,18 @@ export interface UpdatePropertyModel {
    * The long description of the property
    */
   longDescription?: string
+  /**
+   * The floor level the property is on. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  floorLevel?: number // int32
+  /**
+   * The number of internal floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  internalFloors?: number // int32
+  /**
+   * The total number of floors the property has. Note that this field can only be set when certain configuration settings are enabled on the property's department. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  totalFloors?: number // int32
   /**
    * The status of the advertising board sited outside or near to the property
    */
@@ -20757,6 +21195,43 @@ export interface UpdatePropertyModel {
        * The deposit amount. This can be the number of weeks or months rent or a monetry amount based on the `type`
        */
       amount?: number // double
+    }
+    /**
+     * Request body used to update details specific to rent insurance associated with a lettings property
+     */
+    rentInsurance?: {
+      /**
+       * Status indicating whether or not rent protection insurance has been taken out (notAsked/cancelled/declined/quoted/taken)
+       */
+      status?: string
+      /**
+       * The reference number of the insurance policy when rent protection insurance has been taken out
+       */
+      referenceNumber?: string
+      /**
+       * The insurance policy start date
+       * example:
+       * 2019-08-14
+       */
+      start?: string // date
+      /**
+       * The insurance policy end date
+       * example:
+       * 2019-08-14
+       */
+      end?: string // date
+      /**
+       * The identifier of the reason the insurance policy was cancelled, to be used in conjunction with the relevant configuration API endpoint
+       */
+      cancelledReasonId?: string
+      /**
+       * A textual comment or note entered by the agent when an insurance policy was cancelled
+       */
+      cancelledComment?: string
+      /**
+       * Flag indicating whether or not the insurance policy should auto renew
+       */
+      autoRenew?: boolean
     }
   }
   /**
