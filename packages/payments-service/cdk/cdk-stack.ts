@@ -7,7 +7,7 @@ import {
   output,
   getAuthorizer,
 } from '@reapit/ts-scripts/src/cdk'
-import { aws_apigateway as apigateway, aws_iam as iam } from 'aws-cdk-lib'
+import { aws_apigateway as apigateway, aws_iam as iam, aws_lambda } from 'aws-cdk-lib'
 import config from '../config.json'
 import { PolicyStatement } from 'aws-cdk-lib/aws-iam'
 
@@ -56,6 +56,10 @@ export const createStack = async () => {
     path.resolve(__dirname, '..', 'dist'),
     'packages/payments-service/src/core/server.handler',
     env,
+    undefined,
+    undefined,
+    undefined,
+    aws_lambda.Runtime.NODEJS_18_X,
   )
 
   paymentsSessionTable.grantReadWriteData(lambda)
