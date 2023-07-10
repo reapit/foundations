@@ -10221,6 +10221,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/platform-express@npm:^9.4.3":
+  version: 9.4.3
+  resolution: "@nestjs/platform-express@npm:9.4.3"
+  dependencies:
+    body-parser: 1.20.2
+    cors: 2.8.5
+    express: 4.18.2
+    multer: 1.4.4-lts.1
+    tslib: 2.5.3
+  peerDependencies:
+    "@nestjs/common": ^9.0.0
+    "@nestjs/core": ^9.0.0
+  checksum: d7fc96a979e4f65a6d1482e517a957b763f307d634a1c98353f3f2d3197366797f9f5cb4968886279308c1b6c22597090a522b3587687cb44f63d462b567958c
+  languageName: node
+  linkType: hard
+
 "@nestjs/testing@npm:^9.4.2":
   version: 9.4.2
   resolution: "@nestjs/testing@npm:9.4.2"
@@ -36051,7 +36067,7 @@ fsevents@^1.2.7:
     "@nestjs/common": ^9.4.2
     "@nestjs/config": ^2.3.2
     "@nestjs/core": ^9.4.2
-    "@nestjs/platform-express": ^8.4.7
+    "@nestjs/platform-express": ^9.4.3
     "@nestjs/testing": ^9.4.2
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"

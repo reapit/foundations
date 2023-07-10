@@ -6,7 +6,7 @@ const pkgJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 
 export default defineConfig({
   entry: ['src/core/server.ts'],
-  target: 'node14',
+  target: 'node18',
   clean: true,
   minify: config.NODE_ENV === 'production',
   esbuildOptions: (opts) => {
@@ -17,6 +17,7 @@ export default defineConfig({
     '@nestjs/platform-express',
     '@nestjs/common',
     '@nestjs/core',
+    '@nestjs/config',
     '@nestjs/microservices',
     '@nestjs/websockets',
     'cache-manager',
