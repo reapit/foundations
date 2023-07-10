@@ -280,6 +280,31 @@ export interface CreateOrganisationModel {
   claims?: CreateOrganisationClaimModel[]
 }
 /**
+ * Model to create a new product
+ */
+export interface CreateProductModel {
+  /**
+   * Gets or sets the identifier (as it will appear in the IDP)
+   */
+  id: string
+  /**
+   * The name of this group
+   */
+  name: string
+  /**
+   * The grant type associated to the product (authorizationCode/clientCredentials)
+   */
+  grant?: string
+  /**
+   * A list of callback urls
+   */
+  callbackUrls?: string[]
+  /**
+   * A list of signout urls
+   */
+  signoutUrls?: string[]
+}
+/**
  * Request body used to create a new user authenticator
  */
 export interface CreateUserAuthenticatorModel {
@@ -939,6 +964,44 @@ export interface PlatformConfigModelPagedResult {
   }
 }
 /**
+ * Representation of a product
+ */
+export interface ProductModel {
+  /**
+   * The unique identifier of the product
+   */
+  id?: string
+  /**
+   * The name of the product
+   */
+  name?: string
+  /**
+   * The identifier of the product within the IDP
+   */
+  externalId?: string
+  /**
+   * The gateway usage keys identifier
+   */
+  usageKeyId?: string
+  /**
+   * The date and time when the product was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+}
+export interface ProductModelPagedResult {
+  _embedded?: ProductModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: PagingLinkModel
+  }
+}
+/**
  * Outward representation of JWK item
  */
 export interface PublicKeyModel {
@@ -1265,6 +1328,10 @@ export interface UserInfoModel {
    */
   organisationProduct?: string
   /**
+   * The website of the user's primary organisation
+   */
+  organisationWebsite?: string
+  /**
    * Flag indicating whether or not the user has given consent for their actions to be tracked whilst using Reapit products
    */
   consentToTrack?: boolean
@@ -1456,6 +1523,10 @@ export interface UserOrganisationModel {
    * The organisations name
    */
   name?: string
+  /**
+   * The organisation's website address
+   */
+  website?: string
   /**
    * The groups associated to this organisation
    */

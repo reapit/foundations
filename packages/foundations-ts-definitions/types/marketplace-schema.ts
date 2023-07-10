@@ -2067,6 +2067,15 @@ export interface UpdateAddressModel {
   countryId?: string
 }
 /**
+ * The model responsible for updating an app
+ */
+export interface UpdateAppModel {
+  /**
+   * Sets the fixed api consumption cost for the app
+   */
+  fixedApiConsumptionCost?: number // double
+}
+/**
  * The model responsible for updating a customer
  */
 export interface UpdateCustomerModel {
@@ -2185,6 +2194,15 @@ export interface UpdateDeveloperModel {
    * Sets the notes specified by the developer
    */
   notes?: string
+}
+/**
+ * The model responsible for updating an installation
+ */
+export interface UpdateInstallationModel {
+  /**
+   * Sets the fixed api consumption cost for the installation
+   */
+  fixedApiConsumptionCost?: number // double
 }
 /**
  * The model responsible for updating a member
