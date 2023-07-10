@@ -11,9 +11,9 @@ export const ElMainContainer = styled.main`
   overflow-x: hidden;
   background: var(--color-grey-light);
 
-  ${isTablet} {
+  /* ${isTablet} {
     flex-direction: row;
-  }
+  } */
 `
 
 export const ElPageContainer = styled.section`
@@ -38,11 +38,12 @@ export const ElSecondaryNavContainer = styled.aside`
   display: block;
   width: 14rem;
   flex: 0 0 14rem;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem;
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: none;
-  background: var(--color-grey-light);
+  background: var(--color-white);
+  border-right: 1px solid var(--color-grey-light);
 
   &::-webkit-scrollbar {
     display: none;

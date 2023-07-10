@@ -12,7 +12,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname=""
-              style="font-size: 1.25rem;"
+              style="font-size: var(--font-size-subheading);"
             >
               <svg />
             </mock-styled.span>
@@ -23,7 +23,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname=""
-                style="font-size: 1.25rem;"
+                style="font-size: var(--font-size-subheading);"
               >
                 <svg />
               </mock-styled.span>
@@ -31,7 +31,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname=""
-                style="font-size: 1.25rem;"
+                style="font-size: var(--font-size-subheading);"
               >
                 <svg />
               </mock-styled.span>
@@ -39,7 +39,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname=""
-                style="font-size: 1.25rem;"
+                style="font-size: var(--font-size-subheading);"
               >
                 <svg />
               </mock-styled.span>
@@ -76,7 +76,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname=""
-                style="font-size: 1.25rem;"
+                style="font-size: var(--font-size-subheading);"
               >
                 <svg />
               </mock-styled.span>
@@ -87,7 +87,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               <mock-styled.div>
                 <mock-styled.span
                   classname=""
-                  style="font-size: 1.25rem;"
+                  style="font-size: var(--font-size-subheading);"
                 >
                   <svg />
                 </mock-styled.span>
@@ -95,7 +95,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               <mock-styled.div>
                 <mock-styled.span
                   classname=""
-                  style="font-size: 1.25rem;"
+                  style="font-size: var(--font-size-subheading);"
                 >
                   <svg />
                 </mock-styled.span>
@@ -103,7 +103,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               <mock-styled.div>
                 <mock-styled.span
                   classname=""
-                  style="font-size: 1.25rem;"
+                  style="font-size: var(--font-size-subheading);"
                 >
                   <svg />
                 </mock-styled.span>
@@ -162,7 +162,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
         <mock-styled.div>
           <mock-styled.span
             classname=""
-            style="font-size: 1.25rem;"
+            style="font-size: var(--font-size-subheading);"
           >
             <svg />
           </mock-styled.span>
@@ -173,7 +173,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname=""
-              style="font-size: 1.25rem;"
+              style="font-size: var(--font-size-subheading);"
             >
               <svg />
             </mock-styled.span>
@@ -181,7 +181,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname=""
-              style="font-size: 1.25rem;"
+              style="font-size: var(--font-size-subheading);"
             >
               <svg />
             </mock-styled.span>
@@ -189,7 +189,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname=""
-              style="font-size: 1.25rem;"
+              style="font-size: var(--font-size-subheading);"
             >
               <svg />
             </mock-styled.span>
@@ -226,7 +226,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname=""
-              style="font-size: 1.25rem;"
+              style="font-size: var(--font-size-subheading);"
             >
               <svg />
             </mock-styled.span>
@@ -237,7 +237,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname=""
-                style="font-size: 1.25rem;"
+                style="font-size: var(--font-size-subheading);"
               >
                 <svg />
               </mock-styled.span>
@@ -245,7 +245,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname=""
-                style="font-size: 1.25rem;"
+                style="font-size: var(--font-size-subheading);"
               >
                 <svg />
               </mock-styled.span>
@@ -253,7 +253,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname=""
-                style="font-size: 1.25rem;"
+                style="font-size: var(--font-size-subheading);"
               >
                 <svg />
               </mock-styled.span>
@@ -435,7 +435,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
         <mock-styled.div>
           <mock-styled.span
             classname=""
-            style="font-size: 1.25rem;"
+            style="font-size: var(--font-size-subheading);"
           >
             <svg />
           </mock-styled.span>
@@ -446,7 +446,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
           <mock-styled.div>
             <mock-styled.span
               classname=""
-              style="font-size: 1.25rem;"
+              style="font-size: var(--font-size-subheading);"
             >
               <svg />
             </mock-styled.span>
@@ -454,7 +454,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
           <mock-styled.div>
             <mock-styled.span
               classname=""
-              style="font-size: 1.25rem;"
+              style="font-size: var(--font-size-subheading);"
             >
               <svg />
             </mock-styled.span>
@@ -462,7 +462,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
           <mock-styled.div>
             <mock-styled.span
               classname=""
-              style="font-size: 1.25rem;"
+              style="font-size: var(--font-size-subheading);"
             >
               <svg />
             </mock-styled.span>
@@ -476,7 +476,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
       <mock-styled.div>
         <mock-styled.span
           classname=""
-          style="font-size: 1.25rem;"
+          style="font-size: var(--font-size-subheading);"
         >
           <svg />
         </mock-styled.span>
@@ -487,7 +487,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
         <mock-styled.div>
           <mock-styled.span
             classname=""
-            style="font-size: 1.25rem;"
+            style="font-size: var(--font-size-subheading);"
           >
             <svg />
           </mock-styled.span>
@@ -495,7 +495,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
         <mock-styled.div>
           <mock-styled.span
             classname=""
-            style="font-size: 1.25rem;"
+            style="font-size: var(--font-size-subheading);"
           >
             <svg />
           </mock-styled.span>
@@ -503,7 +503,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
         <mock-styled.div>
           <mock-styled.span
             classname=""
-            style="font-size: 1.25rem;"
+            style="font-size: var(--font-size-subheading);"
           >
             <svg />
           </mock-styled.span>

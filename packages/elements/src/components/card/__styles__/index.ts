@@ -53,7 +53,7 @@ export const ElCardHeading = styled.h5`
   margin-bottom: 1.25rem;
 
   ${isTablet} {
-    font-size: 20px;
+    font-size: var(--font-size-subheading);
     -webkit-line-clamp: 2;
     height: 3rem;
   }
@@ -64,10 +64,10 @@ export const ElCardSubHeading = styled.h6`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 0.875rem;
+  font-size: var(--font-size-small);
 
   ${isTablet} {
-    font-size: 1rem;
+    font-size: var(--font-size-default);
   }
 `
 
@@ -76,7 +76,7 @@ export const elCardSubHeadingAdditionalExpanded = css``
 export const ElCardSubHeadingAdditional = styled.h6`
   color: var(--color-grey-dark);
   font-weight: bold;
-  font-size: 0.875rem;
+  font-size: var(--font-size-small);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -96,13 +96,13 @@ export const ElCardBodyWrap = styled.div`
   overflow: hidden;
   white-space: normal;
   height: 3rem;
-  font-size: 0.875rem;
+  font-size: var(--font-size-small);
   transition: height 0.2s linear;
   transition: margin-bottom 0.2s linear;
 
   ${isTablet} {
     height: 3.5rem;
-    font-size: 1rem;
+    font-size: var(--font-size-default);
   }
 `
 
@@ -182,13 +182,13 @@ export const ElCardListHeading = styled.h5`
   overflow: hidden;
 
   ${isTablet} {
-    font-size: 20px;
+    font-size: var(--font-size-subheading);
     line-height: 24px;
   }
 `
 
 export const ElCardListSubHeading = styled.h6`
-  font-size: 0.875rem;
+  font-size: var(--font-size-small);
   color: var(--color-grey-dark);
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -197,7 +197,7 @@ export const ElCardListSubHeading = styled.h6`
   transition: margin-bottom 0.2s linear;
 
   ${isTablet} {
-    font-size: 1rem;
+    font-size: var(--font-size-default);
   }
 `
 
@@ -228,7 +228,7 @@ export const ElCardListItemTextWrap = styled.div`
   cursor: pointer;
 
   ${isTablet} {
-    font-size: 1rem;
+    font-size: var(--font-size-default);
   }
 `
 

@@ -27,7 +27,7 @@ export const ElProgressBarContainer = styled.div`
 `
 
 export const ElProgressBarLabel = styled.div`
-  font-size: 0.875rem;
+  font-size: var(--font-size-small);
   flex-shrink: 0;
 `
 

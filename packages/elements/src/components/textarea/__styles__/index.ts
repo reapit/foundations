@@ -10,7 +10,7 @@ export const ElTextArea = styled.textarea`
   border-bottom: var(--component-input-border-bottom);
   min-height: 8rem;
   font-family: var(--font-sans-serif);
-  font-size: 1rem;
+  font-size: var(--font-size-default);
 
   &:focus {
     outline: none;
@@ -21,6 +21,6 @@ export const ElTextArea = styled.textarea`
   &::placeholder {
     color: var(--color-grey-dark);
     font-family: var(--font-sans-serif);
-    font-size: 1rem;
+    font-size: var(--font-size-default);
   }
 `

@@ -1,4 +1,4 @@
-import { Button, elFadeIn, elMb3, Icon, SmallText, Subtitle } from '@reapit/elements'
+import { Button, elFadeIn, elMb3, Icon, SmallText, BodyText } from '@reapit/elements'
 import { AppRevisionModelPagedResult, RejectRevisionModel } from '@reapit/foundations-ts-definitions'
 import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
@@ -130,7 +130,7 @@ export const Helper: FC = () => {
         <Icon className={elMb3} icon="editAppInfographic" iconSize="large" />
         {isCompleted && !isPublicallyListed && !appDetailLoading && !hasRevisions ? (
           <>
-            <Subtitle>Ready For Review</Subtitle>
+            <BodyText>Ready For Review</BodyText>
             <SmallText hasGreyText>
               As your app listing is now complete, you can submit it for review by one of our team, so you can go live
               with customer data. For more on this process{' '}
@@ -161,7 +161,7 @@ export const Helper: FC = () => {
           </>
         ) : hasRevisions ? (
           <>
-            <Subtitle>Revision Outstanding</Subtitle>
+            <BodyText>Revision Outstanding</BodyText>
             <SmallText hasGreyText>You have recently submitted an app listing revision for approval.</SmallText>
             <SmallText hasGreyText>
               For more on this process <a onClick={openNewPage(ExternalPages.appApprovalDocs)}>visit here.</a>
@@ -180,7 +180,7 @@ export const Helper: FC = () => {
           </>
         ) : isPublicallyListed ? (
           <>
-            <Subtitle>Listed Application</Subtitle>
+            <BodyText>Listed Application</BodyText>
             <SmallText hasGreyText>
               As your app is live with customer data, you will need to submit any app changes for approval by one of our
               team. For more on this process <a onClick={openNewPage(ExternalPages.appApprovalDocs)}>visit here.</a>
@@ -210,7 +210,7 @@ export const Helper: FC = () => {
           </>
         ) : hasUnsavedChanges ? (
           <>
-            <Subtitle>Unsaved Changes</Subtitle>
+            <BodyText>Unsaved Changes</BodyText>
             <SmallText hasGreyText>
               Before you list your app you can save the details at any point below. After app listing, you will have to
               create an app revision for our team to review.
@@ -226,7 +226,7 @@ export const Helper: FC = () => {
           </>
         ) : (
           <>
-            <Subtitle>App Listings</Subtitle>
+            <BodyText>App Listings</BodyText>
             <SmallText hasGreyText>Actions will appear below as you perform tasks on this page</SmallText>
           </>
         )}
@@ -247,7 +247,7 @@ export const Helper: FC = () => {
     return (
       <div className={elFadeIn}>
         <Icon className={elMb3} icon="appMarketInfographic" iconSize="large" />
-        <Subtitle>Preview in AppMarket</Subtitle>
+        <BodyText>Preview in AppMarket</BodyText>
         <SmallText hasGreyText>
           Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
         </SmallText>
@@ -266,7 +266,7 @@ export const Helper: FC = () => {
     return (
       <div className={elFadeIn}>
         <Icon className={elMb3} icon="editAppInfographic" iconSize="large" />
-        <Subtitle>App Consents</Subtitle>
+        <BodyText>App Consents</BodyText>
         <SmallText hasGreyText>
           This page is visible because you have requested new permissions as part of your current outstanding app
           revision. An email will be sent to each of the customers who installed your app, requesting they agree to the
@@ -288,7 +288,7 @@ export const Helper: FC = () => {
     return (
       <div className={elFadeIn}>
         <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
-        <Subtitle>Apps Documentation</Subtitle>
+        <BodyText>Apps Documentation</BodyText>
         <SmallText hasGreyText>
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not
           created an app before or you need help, please take the time to view our getting started guide.
@@ -304,7 +304,7 @@ export const Helper: FC = () => {
   return (
     <div className={elFadeIn}>
       <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
-      <Subtitle>Apps Documentation</Subtitle>
+      <BodyText>Apps Documentation</BodyText>
       <SmallText hasGreyText>
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not
         created an app before or you need help, please take the time to view our getting started guide.

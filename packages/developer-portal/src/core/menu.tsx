@@ -222,7 +222,6 @@ export const Menu: FC = () => {
       itemIndex: 8,
       callback: navigateRoute(navigate, Routes.SETTINGS_PROFILE),
       iconId: 'myAccountMenu',
-      text: 'Settings',
       isSecondary: true,
       subItems: [
         {

@@ -10,11 +10,11 @@ export const ElPaginationWrap = styled.div`
 
 export const ElPaginationText = styled.div`
   margin-right: 1rem;
-  font-size: 0.875rem;
+  font-size: var(--font-size-small);
 `
 
 export const ElPaginationInput = styled.input`
-  font-size: 0.875rem;
+  font-size: var(--font-size-small);
   text-align: center;
   font-weight: bold;
   padding: 0 0.5rem;

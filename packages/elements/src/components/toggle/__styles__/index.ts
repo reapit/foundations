@@ -8,7 +8,7 @@ export const ElToggleItem = styled.span`
   height: 100%;
   text-align: center;
   border-radius: 1.2rem;
-  font-size: 14px;
+  font-size: var(--font-size-small);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +19,7 @@ export const ElToggleRadioItem = styled.span`
   width: 100%;
   height: 100%;
   text-align: center;
-  font-size: 14px;
+  font-size: var(--font-size-small);
   padding: 0 0.75rem;
   border-radius: 1.2rem;
   display: flex;

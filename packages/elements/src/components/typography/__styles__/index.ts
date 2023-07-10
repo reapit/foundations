@@ -13,7 +13,7 @@ export const elHasCapitalisedText = css``
 
 export const ElTitle = styled.h1`
   font-family: var(--font-sans-serif);
-  font-weight: bold;
+  font-weight: 600;
   color: var(--color-black);
   font-size: var(--font-size-heading);
   line-height: 2.25rem;
@@ -79,7 +79,7 @@ export const ElSubtitle = styled.h2`
   }
 
   &.${elHasBoldText} {
-    font-weight: bold;
+    font-weight: 600;
   }
 
   &.${elHasItalicText} {
@@ -125,7 +125,7 @@ export const ElBodyText = styled.p`
   }
 
   &.${elHasBoldText} {
-    font-weight: bold;
+    font-weight: 600;
   }
 
   &.${elHasItalicText} {
@@ -171,7 +171,7 @@ export const ElSmallText = styled.p`
   }
 
   &.${elHasBoldText} {
-    font-weight: bold;
+    font-weight: 600;
   }
 
   &.${elHasItalicText} {

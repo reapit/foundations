@@ -81,7 +81,7 @@ exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
           classname="mock-css.
   margin-right: 0.5rem;
  mock-css."
-          style="font-size: 1.25rem;"
+          style="font-size: var(--font-size-subheading);"
         >
           <svg />
         </mock-styled.span>
@@ -96,7 +96,7 @@ exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
         classname="mock-css.
   margin-right: 0.5rem;
  mock-css."
-        style="font-size: 1.25rem;"
+        style="font-size: var(--font-size-subheading);"
       >
         <svg />
       </mock-styled.span>
@@ -169,7 +169,7 @@ exports[`SnackHolder component should match a snapshot 1`] = `
             classname="mock-css.
   margin-right: 0.5rem;
  mock-css."
-            style="font-size: 1.25rem;"
+            style="font-size: var(--font-size-subheading);"
           >
             <svg />
           </mock-styled.span>
@@ -197,7 +197,7 @@ exports[`SnackHolder component should match a snapshot 1`] = `
           classname="mock-css.
   margin-right: 0.5rem;
  mock-css."
-          style="font-size: 1.25rem;"
+          style="font-size: var(--font-size-subheading);"
         >
           <svg />
         </mock-styled.span>

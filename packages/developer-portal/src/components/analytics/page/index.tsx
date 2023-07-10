@@ -10,7 +10,6 @@ import {
   SecondaryNav,
   SecondaryNavContainer,
   SecondaryNavItem,
-  Title,
 } from '@reapit/elements'
 import { navigateRoute } from '../../../utils/navigation'
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
@@ -34,7 +33,6 @@ export const AnalyticsPage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Analytics</Title>
         <SecondaryNav className={cx(elMb8, elFadeIn)}>
           <SecondaryNavItem
             onClick={navigateRoute(navigate, RoutePaths.ANALYTICS_API_CALLS)}

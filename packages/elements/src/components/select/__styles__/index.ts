@@ -16,7 +16,7 @@ export const ElSelect = styled.select`
   background-position: right 0.5rem center;
   background-repeat: no-repeat;
   font-family: var(--font-sans-serif);
-  font-size: 1rem;
+  font-size: var(--font-size-default);
   height: 2rem;
 
   &:focus {

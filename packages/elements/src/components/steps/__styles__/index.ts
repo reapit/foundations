@@ -9,7 +9,7 @@ export const ElStep = styled.div`
   background-color: var(--intent-primary);
   color: var(--color-white);
   font-weight: bold;
-  font-size: 1rem;
+  font-size: var(--font-size-default);
   border-radius: 100%;
   width: 2rem;
   height: 2rem;

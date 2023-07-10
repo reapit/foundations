@@ -8,7 +8,7 @@ export const ElInput = styled.input`
   border: none;
   margin: 0;
   font-family: var(--font-sans-serif);
-  font-size: 1rem;
+  font-size: var(--font-size-default);
 
   &:not([type='checkbox']):not([type='radio']) {
     flex-grow: 1;
@@ -29,7 +29,7 @@ export const ElInput = styled.input`
   &::placeholder {
     color: var(--color-grey-dark);
     font-family: var(--font-sans-serif);
-    font-size: 1rem;
+    font-size: var(--font-size-default);
   }
 
   &:disabled {

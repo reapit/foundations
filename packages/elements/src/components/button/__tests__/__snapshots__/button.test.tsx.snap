@@ -91,7 +91,7 @@ exports[`Button should match a snapshot 2`] = `
       >
         <mock-styled.span
           classname="mock-css. mock-css.
-  font-size: 1.25rem;
+  font-size: var(--font-size-subheading);
 "
         >
           <svg />
@@ -108,7 +108,7 @@ exports[`Button should match a snapshot 2`] = `
     >
       <mock-styled.span
         classname="mock-css. mock-css.
-  font-size: 1.25rem;
+  font-size: var(--font-size-subheading);
 "
       >
         <svg />

@@ -4,7 +4,7 @@ import { css } from '@linaria/core'
 export const stepOptionItemSelected = css``
 
 export const StepContainer = styled.div`
-  background-color: var(--color-grey-light);
+  background-color: var(--color-white);
   border-radius: 0.25rem;
   padding: 2rem 1.25rem 0 1.25rem;
   height: calc(100vh - 8.25rem);
@@ -67,7 +67,7 @@ export const stepIsHidden = css`
 export const ControlsContainer = styled.div`
   position: sticky;
   bottom: 0;
-  background-color: var(--color-grey-light);
+  background-color: var(--color-white);
   padding: 2rem 2.5rem 2rem 2.5rem;
   width: calc(100% + 2.5rem);
   margin-left: -1.25rem;

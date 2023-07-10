@@ -14,7 +14,7 @@ export const elIconSizeSmallest = css`
 `
 
 export const elIconSizeSmall = css`
-  font-size: 1.25rem;
+  font-size: var(--font-size-subheading);
 `
 
 export const elIconSizeMedium = css`

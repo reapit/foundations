@@ -77,7 +77,7 @@ export const ElMultiSelectLabel = styled.label`
   border: 1px solid var(--color-grey-light);
   padding: 0.2rem 1.5rem;
   position: relative;
-  font-size: 14px;
+  font-size: var(--font-size-small);
   transition: all 0.2s linear;
   display: flex;
   align-items: center;
@@ -115,7 +115,7 @@ export const ElMultiSelectSelected = styled.div`
 
   p {
     margin-left: 0.375rem;
-    font-size: 14px;
+    font-size: var(--font-size-small);
   }
 `
 

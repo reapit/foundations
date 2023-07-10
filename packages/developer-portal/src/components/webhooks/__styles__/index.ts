@@ -15,7 +15,7 @@ export const searchMinWidth = css`
 `
 
 export const ControlsContainer = styled.div`
-  padding: 0.75rem 0.5rem;
+  padding: 0.75rem 0;
   background-color: #fff;
 `
 

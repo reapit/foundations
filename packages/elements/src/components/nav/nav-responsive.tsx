@@ -6,7 +6,6 @@ import { elIntentNeutral } from '../../styles/intent'
 import { Icon, IconNames } from '../icon'
 import { Nav, NavItem, NavSubNav, NavSubNavItem } from './nav'
 import {
-  elNavIsDesktop,
   elNavItemActive,
   elNavItemExpanded,
   elNavItemHideDesktop,
@@ -15,7 +14,7 @@ import {
   elNavSubItemExpanded,
 } from './__styles__'
 import { elMlAuto, elMr2 } from '../../styles/spacing'
-import { v4 as uuid } from 'uuid'
+import { generateRandomId } from '../../storybook/random-id'
 
 export type NavResponsiveItemType = 'ICON' | 'ITEM' | 'SECONDARY'
 
@@ -54,10 +53,9 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
   const [logoState, setLogoState] = useState<LogoIcon>('reapitLogoMenu')
   const { isMobile } = useMediaQuery()
   const { navItemIndex, navMenuOpen, navSubItemIndex, navSubMenuIndex } = navState
-  const isDesktop = Boolean(window['__REAPIT_MARKETPLACE_GLOBALS__'])
 
   return (
-    <Nav className={cx(isDesktop && elNavIsDesktop, className)} {...rest}>
+    <Nav className={cx(className)} {...rest}>
       {options.map(
         (
           { icon, iconId, href, callback, isSecondary, text, subItems, itemIndex }: NavResponsiveOption,
@@ -128,7 +126,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 )}
               </NavItem>
               {subItems && subItems.length > 0 && (
-                <NavSubNav key={uuid()}>
+                <NavSubNav key={generateRandomId()}>
                   {subItems.map(
                     ({
                       callback: innerCallback,

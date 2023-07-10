@@ -12,7 +12,6 @@ import {
   SecondaryNav,
   SecondaryNavContainer,
   SecondaryNavItem,
-  Title,
 } from '@reapit/elements'
 import { navigateRoute } from '../../../utils/navigation'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
@@ -66,9 +65,6 @@ export const AppsPage: FC = () => {
         <FlexContainer isFlexAuto>
           {appsLoading || !apps ? (
             <>
-              <SecondaryNavContainer>
-                <Title>Apps</Title>
-              </SecondaryNavContainer>
               <PageContainer className={elHFull}>
                 <Loader />
               </PageContainer>
@@ -79,7 +75,6 @@ export const AppsPage: FC = () => {
             <>
               {Boolean(apps.totalCount) && (
                 <SecondaryNavContainer>
-                  <Title>Apps</Title>
                   <SecondaryNav className={cx(elMb8, elFadeIn)}>
                     <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.APPS)} active={isAppsList}>
                       My Apps

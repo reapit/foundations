@@ -21,8 +21,7 @@ import {
   SecondaryNavItem,
   Select,
   SmallText,
-  Subtitle,
-  Title,
+  BodyText,
   useModal,
 } from '@reapit/elements'
 import { ExternalPages, navigateRoute, openNewPage } from '../../utils/navigation'
@@ -93,7 +92,6 @@ export const ApiPage: FC = () => {
     <ErrorBoundary>
       <FlexContainer isFlexAuto>
         <SecondaryNavContainer>
-          <Title>API</Title>
           <SecondaryNav className={elMb9}>
             <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.SWAGGER)} active={isSwaggerPage}>
               REST API
@@ -111,7 +109,7 @@ export const ApiPage: FC = () => {
           {isSwaggerPage && (
             <>
               <Icon className={elMb5} icon="apiInfographic" iconSize="large" />
-              <Subtitle>Open API Specification</Subtitle>
+              <BodyText>Open API Specification</BodyText>
               <div>
                 <Label>API Version</Label>
                 <p className={elMb5}>2020-01-31</p>
@@ -176,7 +174,7 @@ export const ApiPage: FC = () => {
           {isGrapQlPage && (
             <>
               <Icon className={elMb5} icon="graphQlInfographic" iconSize="large" />
-              <Subtitle>GraphQL Playground</Subtitle>
+              <BodyText>GraphQL Playground</BodyText>
               <SmallText hasGreyText>
                 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
                 GraphQL gives clients the power to ask for exactly what they need and nothing more, makes it easier to
@@ -193,7 +191,7 @@ export const ApiPage: FC = () => {
           {(isAboutPage || isNewPage) && (
             <>
               <Icon className={elMb5} icon="webhooksInfographic" iconSize="large" />
-              <Subtitle>Webhooks Documentation</Subtitle>
+              <BodyText>Webhooks Documentation</BodyText>
               <SmallText hasGreyText>
                 This system is designed to flexibly work with how your application is built and deployed. If you wish,
                 you can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to
@@ -208,7 +206,7 @@ export const ApiPage: FC = () => {
           {(isManagePage || isLogsPage) && (
             <>
               <Icon className={elMb5} icon="webhooksInfographic" iconSize="large" />
-              <Subtitle>Filters</Subtitle>
+              <BodyText>Filters</BodyText>
               <div className={elMb8}>
                 <Label>
                   {isManagePage

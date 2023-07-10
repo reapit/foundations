@@ -16,7 +16,7 @@ exports[`MobileControls component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css. mock-css.
-  font-size: 1.25rem;
+  font-size: var(--font-size-subheading);
 "
           >
             <svg />
@@ -38,7 +38,7 @@ exports[`MobileControls component should match a snapshot 1`] = `
       >
         <mock-styled.span
           classname="mock-css. mock-css.
-  font-size: 1.25rem;
+  font-size: var(--font-size-subheading);
 "
         >
           <svg />
@@ -134,7 +134,7 @@ exports[`MobileControls component should match a snapshot with full props 1`] = 
         >
           <mock-styled.span
             classname="mock-css. mock-css.
-  font-size: 1.25rem;
+  font-size: var(--font-size-subheading);
 "
           >
             <svg />
@@ -173,7 +173,7 @@ exports[`MobileControls component should match a snapshot with full props 1`] = 
       >
         <mock-styled.span
           classname="mock-css. mock-css.
-  font-size: 1.25rem;
+  font-size: var(--font-size-subheading);
 "
         >
           <svg />

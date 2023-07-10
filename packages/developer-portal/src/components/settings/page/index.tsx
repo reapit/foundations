@@ -11,7 +11,6 @@ import {
   SecondaryNav,
   SecondaryNavContainer,
   SecondaryNavItem,
-  Title,
 } from '@reapit/elements'
 import { navigateRoute } from '../../../utils/navigation'
 import { Route, Routes, useLocation } from 'react-router-dom'
@@ -36,7 +35,6 @@ export const SettingsPage: FC = () => {
     <ErrorBoundary>
       <FlexContainer isFlexAuto>
         <SecondaryNavContainer>
-          <Title>Settings</Title>
           <SecondaryNav className={cx(elMb8, elFadeIn)}>
             <SecondaryNavItem
               onClick={navigateRoute(navigate, RoutePaths.SETTINGS_PROFILE)}
