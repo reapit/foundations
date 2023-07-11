@@ -5,7 +5,7 @@ import {
   aws_events as events,
   PhysicalName,
 } from 'aws-cdk-lib'
-import { LinuxBuildImage } from 'aws-cdk-lib/aws-codebuild'
+import { ComputeType, LinuxBuildImage } from 'aws-cdk-lib/aws-codebuild'
 
 import { createSnsTopic, Topic } from './sns-topic'
 
@@ -13,6 +13,7 @@ export const createCodeBuildProject = (stack: cdk.Stack, name: string): codebuil
   const project = new codebuild.Project(stack, name, {
     environment: {
       buildImage: LinuxBuildImage.STANDARD_6_0,
+      computeType: ComputeType.MEDIUM,
     },
     projectName: PhysicalName.GENERATE_IF_NEEDED,
     buildSpec: codebuild.BuildSpec.fromObject({
