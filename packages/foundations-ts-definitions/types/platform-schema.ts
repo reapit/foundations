@@ -11917,6 +11917,7 @@ export interface Offices {
   id?: string[]
   address?: string
   name?: string
+  active?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
