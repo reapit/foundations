@@ -12659,6 +12659,93 @@ export interface PropertyInternalAreaModel {
   max?: number // double
 }
 /**
+ * Representation of property details specific to property license application
+ */
+export interface PropertyLettingLicenseApplicationModel {
+  /**
+   * The status of the license application (applied/granted/landlordApplying/notApplicable)
+   */
+  status?: string
+  /**
+   * The license application reference number
+   */
+  referenceNumber?: string
+  /**
+   * The date the license was applied for
+   * example:
+   * 2019-08-14
+   */
+  date?: string // date
+  /**
+   * The date the license application was granted
+   * example:
+   * 2019-08-14
+   */
+  granted?: string // date
+  /**
+   * The date the license will expire
+   * example:
+   * 2019-08-14
+   */
+  expiry?: string // date
+}
+/**
+ * Representation of property details specific to property licensing
+ */
+export interface PropertyLettingLicensingModel {
+  /**
+   * A flag determining whether or not a license is required to let the property. Typically required for houses of multiple occupancy (HMOs)
+   */
+  licenseRequired?: boolean
+  /**
+   * the type of license associated
+   */
+  licenseType?: string
+  /**
+   * The number of households that the license permits in the property
+   */
+  households?: number // int32
+  /**
+   * The number of occupants that the license permits in the property
+   */
+  occupants?: number // int32
+  /**
+   * A flag determining whether or not the property is above commercial premises
+   */
+  aboveCommercialPremises?: boolean
+  /**
+   * Representation of property details specific to property license application
+   */
+  application?: {
+    /**
+     * The status of the license application (applied/granted/landlordApplying/notApplicable)
+     */
+    status?: string
+    /**
+     * The license application reference number
+     */
+    referenceNumber?: string
+    /**
+     * The date the license was applied for
+     * example:
+     * 2019-08-14
+     */
+    date?: string // date
+    /**
+     * The date the license application was granted
+     * example:
+     * 2019-08-14
+     */
+    granted?: string // date
+    /**
+     * The date the license will expire
+     * example:
+     * 2019-08-14
+     */
+    expiry?: string // date
+  }
+}
+/**
  * Representation of property details specific to lettings marketing
  */
 export interface PropertyLettingModel {
@@ -12867,6 +12954,62 @@ export interface PropertyLettingModel {
      * Flag indicating whether or not the insurance policy should auto renew
      */
     autoRenew?: boolean
+  }
+  /**
+   * Representation of property details specific to property licensing
+   */
+  licensing?: {
+    /**
+     * A flag determining whether or not a license is required to let the property. Typically required for houses of multiple occupancy (HMOs)
+     */
+    licenseRequired?: boolean
+    /**
+     * the type of license associated
+     */
+    licenseType?: string
+    /**
+     * The number of households that the license permits in the property
+     */
+    households?: number // int32
+    /**
+     * The number of occupants that the license permits in the property
+     */
+    occupants?: number // int32
+    /**
+     * A flag determining whether or not the property is above commercial premises
+     */
+    aboveCommercialPremises?: boolean
+    /**
+     * Representation of property details specific to property license application
+     */
+    application?: {
+      /**
+       * The status of the license application (applied/granted/landlordApplying/notApplicable)
+       */
+      status?: string
+      /**
+       * The license application reference number
+       */
+      referenceNumber?: string
+      /**
+       * The date the license was applied for
+       * example:
+       * 2019-08-14
+       */
+      date?: string // date
+      /**
+       * The date the license application was granted
+       * example:
+       * 2019-08-14
+       */
+      granted?: string // date
+      /**
+       * The date the license will expire
+       * example:
+       * 2019-08-14
+       */
+      expiry?: string // date
+    }
   }
 }
 /**
@@ -13631,6 +13774,62 @@ export interface PropertyModel {
        * Flag indicating whether or not the insurance policy should auto renew
        */
       autoRenew?: boolean
+    }
+    /**
+     * Representation of property details specific to property licensing
+     */
+    licensing?: {
+      /**
+       * A flag determining whether or not a license is required to let the property. Typically required for houses of multiple occupancy (HMOs)
+       */
+      licenseRequired?: boolean
+      /**
+       * the type of license associated
+       */
+      licenseType?: string
+      /**
+       * The number of households that the license permits in the property
+       */
+      households?: number // int32
+      /**
+       * The number of occupants that the license permits in the property
+       */
+      occupants?: number // int32
+      /**
+       * A flag determining whether or not the property is above commercial premises
+       */
+      aboveCommercialPremises?: boolean
+      /**
+       * Representation of property details specific to property license application
+       */
+      application?: {
+        /**
+         * The status of the license application (applied/granted/landlordApplying/notApplicable)
+         */
+        status?: string
+        /**
+         * The license application reference number
+         */
+        referenceNumber?: string
+        /**
+         * The date the license was applied for
+         * example:
+         * 2019-08-14
+         */
+        date?: string // date
+        /**
+         * The date the license application was granted
+         * example:
+         * 2019-08-14
+         */
+        granted?: string // date
+        /**
+         * The date the license will expire
+         * example:
+         * 2019-08-14
+         */
+        expiry?: string // date
+      }
     }
   }
   /**
@@ -14514,6 +14713,62 @@ export interface PropertyModelPagedResult {
          * Flag indicating whether or not the insurance policy should auto renew
          */
         autoRenew?: boolean
+      }
+      /**
+       * Representation of property details specific to property licensing
+       */
+      licensing?: {
+        /**
+         * A flag determining whether or not a license is required to let the property. Typically required for houses of multiple occupancy (HMOs)
+         */
+        licenseRequired?: boolean
+        /**
+         * the type of license associated
+         */
+        licenseType?: string
+        /**
+         * The number of households that the license permits in the property
+         */
+        households?: number // int32
+        /**
+         * The number of occupants that the license permits in the property
+         */
+        occupants?: number // int32
+        /**
+         * A flag determining whether or not the property is above commercial premises
+         */
+        aboveCommercialPremises?: boolean
+        /**
+         * Representation of property details specific to property license application
+         */
+        application?: {
+          /**
+           * The status of the license application (applied/granted/landlordApplying/notApplicable)
+           */
+          status?: string
+          /**
+           * The license application reference number
+           */
+          referenceNumber?: string
+          /**
+           * The date the license was applied for
+           * example:
+           * 2019-08-14
+           */
+          date?: string // date
+          /**
+           * The date the license application was granted
+           * example:
+           * 2019-08-14
+           */
+          granted?: string // date
+          /**
+           * The date the license will expire
+           * example:
+           * 2019-08-14
+           */
+          expiry?: string // date
+        }
       }
     }
     /**
@@ -20033,6 +20288,37 @@ export interface UpdateLettingFeeRenewalModel {
   frequency?: string
 }
 /**
+ * Representation of property details specific to property license application
+ */
+export interface UpdateLicenseApplicationModel {
+  /**
+   * The status of the license application (applied/granted/landlordApplying/notApplicable)
+   */
+  status?: string
+  /**
+   * The license application reference number
+   */
+  referenceNumber?: string
+  /**
+   * The date the license was applied for
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  date?: string // date-time
+  /**
+   * The date the license application was granted
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  granted?: string // date-time
+  /**
+   * The date the license will expire
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  expiry?: string // date-time
+}
+/**
  * Request body used to update a tenancy renewals management fee
  */
 export interface UpdateManagementFeeRenewalModel {
@@ -20426,6 +20712,62 @@ export interface UpdatePropertyInternalAreaModel {
   max?: number // double
 }
 /**
+ * Representation of property details specific to property licensing
+ */
+export interface UpdatePropertyLettingLicensingModel {
+  /**
+   * is license required
+   */
+  licenseRequired?: boolean
+  /**
+   * the Type of license (additional/mandatory/none/selective)
+   */
+  licenseType?: string
+  /**
+   * The number of households that the license permits in the property
+   */
+  households?: number // int32
+  /**
+   * The number of occupants that the license permits in the property
+   */
+  occupants?: number // int32
+  /**
+   * A flag determining whether or not the property is above commercial premises
+   */
+  aboveCommercialPremises?: boolean
+  /**
+   * Representation of property details specific to property license application
+   */
+  application?: {
+    /**
+     * The status of the license application (applied/granted/landlordApplying/notApplicable)
+     */
+    status?: string
+    /**
+     * The license application reference number
+     */
+    referenceNumber?: string
+    /**
+     * The date the license was applied for
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    date?: string // date-time
+    /**
+     * The date the license application was granted
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    granted?: string // date-time
+    /**
+     * The date the license will expire
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    expiry?: string // date-time
+  }
+}
+/**
  * Request body used to update details specific to lettings marketing on an existing property
  */
 export interface UpdatePropertyLettingModel {
@@ -20621,6 +20963,62 @@ export interface UpdatePropertyLettingModel {
      * Flag indicating whether or not the insurance policy should auto renew
      */
     autoRenew?: boolean
+  }
+  /**
+   * Representation of property details specific to property licensing
+   */
+  licensing?: {
+    /**
+     * is license required
+     */
+    licenseRequired?: boolean
+    /**
+     * the Type of license (additional/mandatory/none/selective)
+     */
+    licenseType?: string
+    /**
+     * The number of households that the license permits in the property
+     */
+    households?: number // int32
+    /**
+     * The number of occupants that the license permits in the property
+     */
+    occupants?: number // int32
+    /**
+     * A flag determining whether or not the property is above commercial premises
+     */
+    aboveCommercialPremises?: boolean
+    /**
+     * Representation of property details specific to property license application
+     */
+    application?: {
+      /**
+       * The status of the license application (applied/granted/landlordApplying/notApplicable)
+       */
+      status?: string
+      /**
+       * The license application reference number
+       */
+      referenceNumber?: string
+      /**
+       * The date the license was applied for
+       * example:
+       * 2019-08-14T12:30:02Z
+       */
+      date?: string // date-time
+      /**
+       * The date the license application was granted
+       * example:
+       * 2019-08-14T12:30:02Z
+       */
+      granted?: string // date-time
+      /**
+       * The date the license will expire
+       * example:
+       * 2019-08-14T12:30:02Z
+       */
+      expiry?: string // date-time
+    }
   }
 }
 /**
@@ -21228,6 +21626,62 @@ export interface UpdatePropertyModel {
        * Flag indicating whether or not the insurance policy should auto renew
        */
       autoRenew?: boolean
+    }
+    /**
+     * Representation of property details specific to property licensing
+     */
+    licensing?: {
+      /**
+       * is license required
+       */
+      licenseRequired?: boolean
+      /**
+       * the Type of license (additional/mandatory/none/selective)
+       */
+      licenseType?: string
+      /**
+       * The number of households that the license permits in the property
+       */
+      households?: number // int32
+      /**
+       * The number of occupants that the license permits in the property
+       */
+      occupants?: number // int32
+      /**
+       * A flag determining whether or not the property is above commercial premises
+       */
+      aboveCommercialPremises?: boolean
+      /**
+       * Representation of property details specific to property license application
+       */
+      application?: {
+        /**
+         * The status of the license application (applied/granted/landlordApplying/notApplicable)
+         */
+        status?: string
+        /**
+         * The license application reference number
+         */
+        referenceNumber?: string
+        /**
+         * The date the license was applied for
+         * example:
+         * 2019-08-14T12:30:02Z
+         */
+        date?: string // date-time
+        /**
+         * The date the license application was granted
+         * example:
+         * 2019-08-14T12:30:02Z
+         */
+        granted?: string // date-time
+        /**
+         * The date the license will expire
+         * example:
+         * 2019-08-14T12:30:02Z
+         */
+        expiry?: string // date-time
+      }
     }
   }
   /**
