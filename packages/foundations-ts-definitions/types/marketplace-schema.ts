@@ -233,6 +233,10 @@ export interface AppDetailModel {
    * Gets the Y axis size of the launched window for apps with one or more configured desktop integration types
    */
   launchWindowSizeY?: number // int32
+  /**
+   * Gets the fixed api consumption cost for the app
+   */
+  fixedApiConsumptionCost?: number // double
 }
 /**
  * Model to expose app restriction info
@@ -587,6 +591,10 @@ export interface AppSummaryModel {
    * Gets the Y axis size of the launched window for apps with one or more configured desktop integration types
    */
   launchWindowSizeY?: number // int32
+  /**
+   * Gets the fixed api consumption cost for the app
+   */
+  fixedApiConsumptionCost?: number // double
 }
 /**
  * Model to handle paged data and information
@@ -1606,6 +1614,10 @@ export interface InstallationModel {
    * Gets the Y axis size of the pop up window
    */
   launchWindowSizeY?: number // int32
+  /**
+   * Gets the fixed api consumption cost for the installation
+   */
+  fixedApiConsumptionCost?: number // double
   customerAddress?: AddressModel
   /**
    * Gets the installations metadata
