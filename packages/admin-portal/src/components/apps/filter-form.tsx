@@ -144,6 +144,33 @@ export const FilterForm: FC<FilterFormProps> = ({ setAppsFilters }) => {
             ]}
           />
         </InputWrap>
+        <InputWrap>
+          <Label>Is Charged Consumption</Label>
+          <ToggleRadio
+            {...register('isChargedConsumption')}
+            hasGreyBg
+            options={[
+              {
+                id: 'option-consumption-all',
+                value: '',
+                text: 'All',
+                isChecked: true,
+              },
+              {
+                id: 'option-consumption-true',
+                value: 'true',
+                text: 'Charged',
+                isChecked: false,
+              },
+              {
+                id: 'option-consumption-false',
+                value: 'false',
+                text: 'Free',
+                isChecked: false,
+              },
+            ]}
+          />
+        </InputWrap>
         {appsBrowseCategoriesCollection && (
           <>
             <Label>Categories</Label>

@@ -269,6 +269,57 @@ exports[`AppsPage should render a component when has data 1`] = `
                 </mock-styled.label>
               </mock-styled.div>
             </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
+                Is Charged Consumption
+              </mock-styled.label>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.input
+                  id="option-consumption-all"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value=""
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-all"
+                >
+                  <mock-styled.span>
+                    All
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-true"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value="true"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-true"
+                >
+                  <mock-styled.span>
+                    Charged
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-false"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value="false"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-false"
+                >
+                  <mock-styled.span>
+                    Free
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
           </mock-styled.div>
         </form>
         <div
@@ -514,6 +565,12 @@ exports[`AppsPage should render a component when has data 1`] = `
                         classname="mock-css."
                       >
                         Togggle Featured
+                        <mock-styled.div />
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
+                      >
+                        Togggle API Consumption
                         <mock-styled.div />
                       </mock-styled.button>
                     </mock-styled.div>
@@ -820,6 +877,57 @@ exports[`AppsPage should render a component when has data 1`] = `
               </mock-styled.label>
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Is Charged Consumption
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.input
+                id="option-consumption-all"
+                name="isChargedConsumption"
+                type="radio"
+                value=""
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-all"
+              >
+                <mock-styled.span>
+                  All
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-consumption-true"
+                name="isChargedConsumption"
+                type="radio"
+                value="true"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-true"
+              >
+                <mock-styled.span>
+                  Charged
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-consumption-false"
+                name="isChargedConsumption"
+                type="radio"
+                value="false"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-false"
+              >
+                <mock-styled.span>
+                  Free
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
         </mock-styled.div>
       </form>
       <div
@@ -1065,6 +1173,12 @@ exports[`AppsPage should render a component when has data 1`] = `
                       classname="mock-css."
                     >
                       Togggle Featured
+                      <mock-styled.div />
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                    >
+                      Togggle API Consumption
                       <mock-styled.div />
                     </mock-styled.button>
                   </mock-styled.div>
@@ -1428,6 +1542,57 @@ exports[`AppsPage should render a component when loading 1`] = `
                 </mock-styled.label>
               </mock-styled.div>
             </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
+                Is Charged Consumption
+              </mock-styled.label>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.input
+                  id="option-consumption-all"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value=""
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-all"
+                >
+                  <mock-styled.span>
+                    All
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-true"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value="true"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-true"
+                >
+                  <mock-styled.span>
+                    Charged
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-false"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value="false"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-false"
+                >
+                  <mock-styled.span>
+                    Free
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
           </mock-styled.div>
         </form>
         <mock-styled.div
@@ -1701,6 +1866,57 @@ exports[`AppsPage should render a component when loading 1`] = `
               >
                 <mock-styled.span>
                   Development
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Is Charged Consumption
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.input
+                id="option-consumption-all"
+                name="isChargedConsumption"
+                type="radio"
+                value=""
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-all"
+              >
+                <mock-styled.span>
+                  All
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-consumption-true"
+                name="isChargedConsumption"
+                type="radio"
+                value="true"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-true"
+              >
+                <mock-styled.span>
+                  Charged
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-consumption-false"
+                name="isChargedConsumption"
+                type="radio"
+                value="false"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-false"
+              >
+                <mock-styled.span>
+                  Free
                 </mock-styled.span>
               </mock-styled.label>
             </mock-styled.div>

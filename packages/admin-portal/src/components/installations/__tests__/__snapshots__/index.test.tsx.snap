@@ -146,6 +146,57 @@ exports[`Installations should render component when loading 1`] = `
                 </mock-styled.label>
               </mock-styled.div>
             </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
+                Is Charged Consumption
+              </mock-styled.label>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.input
+                  id="option-consumption-all"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value=""
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-all"
+                >
+                  <mock-styled.span>
+                    All
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-true"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value="true"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-true"
+                >
+                  <mock-styled.span>
+                    Charged
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-false"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value="false"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-false"
+                >
+                  <mock-styled.span>
+                    Free
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
           </mock-styled.div>
         </form>
         <div
@@ -316,6 +367,57 @@ exports[`Installations should render component when loading 1`] = `
                 htmlfor="test-static-id"
               >
                 Installed Date To
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Is Charged Consumption
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.input
+                id="option-consumption-all"
+                name="isChargedConsumption"
+                type="radio"
+                value=""
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-all"
+              >
+                <mock-styled.span>
+                  All
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-consumption-true"
+                name="isChargedConsumption"
+                type="radio"
+                value="true"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-true"
+              >
+                <mock-styled.span>
+                  Charged
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-consumption-false"
+                name="isChargedConsumption"
+                type="radio"
+                value="false"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-false"
+              >
+                <mock-styled.span>
+                  Free
+                </mock-styled.span>
               </mock-styled.label>
             </mock-styled.div>
           </mock-styled.div>
@@ -549,6 +651,57 @@ exports[`Installations should render component with data 1`] = `
                 </mock-styled.label>
               </mock-styled.div>
             </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
+                Is Charged Consumption
+              </mock-styled.label>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.input
+                  id="option-consumption-all"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value=""
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-all"
+                >
+                  <mock-styled.span>
+                    All
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-true"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value="true"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-true"
+                >
+                  <mock-styled.span>
+                    Charged
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-false"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value="false"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-false"
+                >
+                  <mock-styled.span>
+                    Free
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
           </mock-styled.div>
         </form>
         <div
@@ -575,7 +728,8 @@ exports[`Installations should render component with data 1`] = `
   margin-bottom: 2.5rem;
 "
           data-has-call-to-action="false"
-          data-has-expandable-action="false"
+          data-has-expandable-action="true"
+          data-num-columns-excl-action-col="8"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -601,6 +755,14 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               Uninstalled By
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
+                style="font-size: 1.2rem;"
+              >
+                <svg />
+              </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
@@ -686,6 +848,33 @@ exports[`Installations should render component with data 1`] = `
                 <mock-styled.div
                   data-narrow-label="Uninstalled By"
                 />
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.span
+                  classname="mock-css."
+                >
+                  <svg />
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
+                  >
+                    <mock-styled.button
+                      classname="mock-css."
+                    >
+                      Togggle API Consumption
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -864,6 +1053,57 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.label>
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Is Charged Consumption
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.input
+                id="option-consumption-all"
+                name="isChargedConsumption"
+                type="radio"
+                value=""
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-all"
+              >
+                <mock-styled.span>
+                  All
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-consumption-true"
+                name="isChargedConsumption"
+                type="radio"
+                value="true"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-true"
+              >
+                <mock-styled.span>
+                  Charged
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-consumption-false"
+                name="isChargedConsumption"
+                type="radio"
+                value="false"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-false"
+              >
+                <mock-styled.span>
+                  Free
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
         </mock-styled.div>
       </form>
       <div
@@ -890,7 +1130,8 @@ exports[`Installations should render component with data 1`] = `
   margin-bottom: 2.5rem;
 "
         data-has-call-to-action="false"
-        data-has-expandable-action="false"
+        data-has-expandable-action="true"
+        data-num-columns-excl-action-col="8"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -916,6 +1157,14 @@ exports[`Installations should render component with data 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             Uninstalled By
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
+              style="font-size: 1.2rem;"
+            >
+              <svg />
+            </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
@@ -1001,6 +1250,33 @@ exports[`Installations should render component with data 1`] = `
               <mock-styled.div
                 data-narrow-label="Uninstalled By"
               />
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
+                >
+                  <mock-styled.button
+                    classname="mock-css."
+                  >
+                    Togggle API Consumption
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>

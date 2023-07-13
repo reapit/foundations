@@ -6,6 +6,7 @@ import {
   handleAppIdFeatured,
   AppsTable,
   handleAppIdSubs,
+  handleAppIdConsumption,
 } from '../apps-table'
 import { render } from '../../../tests/react-testing'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
@@ -78,12 +79,14 @@ describe('handleAppIdFeatured', () => {
   it('handleAppIdFeatured should correctly set an appId', () => {
     const setAppIdFeatured = jest.fn()
     const setAppIdSubs = jest.fn()
+    const setAppIdConsumption = jest.fn()
     const appId = 'MOCK_ID'
 
-    const curried = handleAppIdFeatured(setAppIdFeatured, setAppIdSubs, appId)
+    const curried = handleAppIdFeatured(setAppIdFeatured, setAppIdSubs, setAppIdConsumption, appId)
 
     curried()
 
+    expect(setAppIdConsumption).toHaveBeenCalledWith(null)
     expect(setAppIdFeatured).toHaveBeenCalledWith(appId)
     expect(setAppIdSubs).toHaveBeenCalledWith(null)
   })
@@ -93,13 +96,32 @@ describe('handleAppIdSubs', () => {
   it('handleAppIdSubs should correctly set an appId', () => {
     const setAppIdFeatured = jest.fn()
     const setAppIdSubs = jest.fn()
+    const setAppIdConsumption = jest.fn()
     const appId = 'MOCK_ID'
 
-    const curried = handleAppIdSubs(setAppIdSubs, setAppIdFeatured, appId)
+    const curried = handleAppIdSubs(setAppIdSubs, setAppIdFeatured, setAppIdConsumption, appId)
 
     curried()
 
+    expect(setAppIdConsumption).toHaveBeenCalledWith(null)
     expect(setAppIdFeatured).toHaveBeenCalledWith(null)
     expect(setAppIdSubs).toHaveBeenCalledWith(appId)
+  })
+})
+
+describe('handleAppIdConsumption', () => {
+  it('handleAppIdConsumption should correctly set an appId', () => {
+    const setAppIdFeatured = jest.fn()
+    const setAppIdSubs = jest.fn()
+    const setAppIdConsumption = jest.fn()
+    const appId = 'MOCK_ID'
+
+    const curried = handleAppIdConsumption(setAppIdConsumption, setAppIdSubs, setAppIdFeatured, appId)
+
+    curried()
+
+    expect(setAppIdConsumption).toHaveBeenCalledWith(appId)
+    expect(setAppIdFeatured).toHaveBeenCalledWith(null)
+    expect(setAppIdSubs).toHaveBeenCalledWith(null)
   })
 })

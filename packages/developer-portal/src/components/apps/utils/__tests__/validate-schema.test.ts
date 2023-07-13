@@ -13,7 +13,6 @@ describe('handleSetIncompletedFields', () => {
         'name',
         'telephone',
         'supportEmail',
-        'launchUri',
         'iconImageUrl',
         'screen1ImageUrl',
         'homePage',

@@ -54,6 +54,7 @@ import devEditionImgThree from '../../assets/images/desktop/developer-edition/de
 import { IFRAME_URLS } from '../../constants/iframe-urls'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { useGlobalState } from '../../core/use-global-state'
 
 export type SubscribingState = 'INITIAL' | 'SUBSCRIBE_NOW' | 'CONFIRMING'
 
@@ -150,9 +151,11 @@ export const VideoSection: FC = () => {
 
 export const SubscribeSection: FC = () => {
   const [subscribingState, setSubscribingState] = useState<SubscribingState>('INITIAL')
+  const { globalDataState } = useGlobalState()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity?.clientId
-  const desktopIsFree = clientId && clientId !== 'SBOX'
+  const desktopIsFree =
+    (clientId && clientId !== 'SBOX') || globalDataState.currentDeveloper?.developerEditionSubscriptionCost === 0
   const isInitial = subscribingState === 'INITIAL'
   return (
     <div className={elFadeIn}>

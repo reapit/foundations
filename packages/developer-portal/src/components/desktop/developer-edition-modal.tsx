@@ -193,8 +193,8 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
       ) : isClientAndClientData ? (
         <>
           <BodyText hasGreyText>
-            Your account is currently set to use <strong>{currentDeveloper?.name}</strong>. In order to subscribe to the
-            developer edition you will need to change your profile setting. Please{' '}
+            Your account is currently set to use <strong>{currentDeveloper?.company}</strong>. In order to subscribe to
+            the developer edition you will need to change your profile setting. Please{' '}
             <Link to={Routes.SETTINGS_PROFILE}>click here</Link> to update your information.
           </BodyText>
           <ButtonGroup alignment="center">
@@ -203,7 +203,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
             </Button>
           </ButtonGroup>
         </>
-      ) : billingContent ? (
+      ) : billingContent && !desktopIsFree ? (
         <>
           <BodyText hasGreyText>{billingContent}</BodyText>
           <ButtonGroup alignment="center">

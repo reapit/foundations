@@ -5,6 +5,7 @@ import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { RoutePaths } from '../../constants/routes'
 import { navigateRoute } from '../../utils/navigation'
 import { useNavigate } from 'react-router'
+import { getIsAdmin } from '../../utils/is-admin'
 
 export const getDefaultNavIndex = (pathname: string) => {
   switch (pathname) {
@@ -19,7 +20,9 @@ export const getDefaultNavIndex = (pathname: string) => {
 
 export const Nav: FC = () => {
   const navigate = useNavigate()
-  const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectLogoutRedirect, connectIsDesktop, connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { isFoundationsAdmin } = getIsAdmin(connectSession)
+
   const navOptions: NavResponsiveOption[] = [
     {
       itemIndex: 0,
@@ -30,13 +33,16 @@ export const Nav: FC = () => {
       iconId: 'usersMenu',
       callback: navigateRoute(navigate, RoutePaths.USERS),
     },
-    {
+  ]
+
+  if (isFoundationsAdmin) {
+    navOptions.push({
       itemIndex: 2,
       text: 'Orgs',
       iconId: 'officesMenu',
       callback: navigateRoute(navigate, RoutePaths.ORGS),
-    },
-  ]
+    })
+  }
 
   if (!connectIsDesktop) {
     navOptions.push({

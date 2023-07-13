@@ -22,7 +22,7 @@ export const getOfficesService = async (
     if (headers) {
       const response: OfficeModelPagedResult | undefined = await fetcher({
         api: process.env.platformApiUrl,
-        url: `${URLS.OFFICES}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
+        url: `${URLS.OFFICES}${search ? search + '&pageSize=12&active=true' : '?pageSize=12&active=true'}`,
         method: 'GET',
         headers: {
           ...headers,

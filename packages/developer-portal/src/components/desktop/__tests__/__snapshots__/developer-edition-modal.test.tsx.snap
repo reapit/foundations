@@ -387,7 +387,7 @@ exports[`DeveloperEditionModal should match snapshot when has client data 1`] = 
             >
               Your account is currently set to use 
               <strong>
-                MOCK_NAME
+                MOCK_COMPANY
               </strong>
               . In order to subscribe to the developer edition you will need to change your profile setting. Please
                

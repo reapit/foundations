@@ -10,11 +10,16 @@ import {
   Loader,
   PersistantNotification,
   Subtitle,
+  Table,
+  TableCell,
+  TableHeader,
+  TableHeadersRow,
+  TableRow,
   Toggle,
   elMb7,
   useModal,
 } from '@reapit/elements'
-import { DisplayChip } from './__styles__'
+import { DisplayChip, twoColTable } from './__styles__'
 import {
   GetActionNames,
   SendFunction,
@@ -123,6 +128,9 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
     action: getActions[GetActionNames.getUserSuppressionList],
     uriParams: { userId: user.id },
     fetchWhenTrue: [user.id, shouldFetch.suppressionList],
+    onError: () => {
+      // suppress error
+    },
   })
 
   const [userUpdateLoading, , updateUser] = useReapitUpdate<UpdateUserModel, boolean>({
@@ -167,7 +175,7 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
         <Col>
           <Subtitle>Groups</Subtitle>
           <BodyText hasGreyText>
-            {user?.groups?.map((group, index) => (
+            {user?.groups?.sort().map((group, index) => (
               <DisplayChip key={index}>{group!}</DisplayChip>
             ))}
           </BodyText>
@@ -276,7 +284,7 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
           <ButtonGroup alignment="left">
             <Button
               intent="primary"
-              disabled={!isFoundationsAdmin || !userGroups}
+              disabled={(!isSupport && !isFoundationsAdmin) || !userGroups}
               onClick={handleShouldFetch(setShouldFetch, { userGroups: true })}
             >
               Load Group Management
@@ -293,16 +301,25 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
         </PersistantNotification>
       ) : null}
       {userInfo && shouldFetch.officeGroups && userInfo.officeGroupIds ? (
-        <DisplayChip>
-          {userInfo.officeGroupIds}: {userInfo.officeGroupName}
-        </DisplayChip>
+        <>
+          <Table>
+            <TableHeadersRow className={twoColTable}>
+              <TableHeader>Group Name</TableHeader>
+              <TableHeader>Office Ids</TableHeader>
+            </TableHeadersRow>
+            <TableRow className={twoColTable}>
+              <TableCell>{userInfo.officeGroupName}</TableCell>
+              <TableCell>{userInfo.officeGroupIds}</TableCell>
+            </TableRow>
+          </Table>
+        </>
       ) : shouldFetch.officeGroups ? (
         <PersistantNotification isFullWidth isExpanded isInline intent="secondary">
-          No info available for this user.
+          User not part of an office group.
         </PersistantNotification>
       ) : null}
       {userInfo && shouldFetch.loginLogs && userInfo.idpData?.authEvents?.length ? (
-        userInfo.idpData?.authEvents.map((event) => <DisplayChip key={event}>{event}</DisplayChip>)
+        userInfo.idpData?.authEvents.slice(0, 5).map((event) => <DisplayChip key={event}>{event}</DisplayChip>)
       ) : shouldFetch.loginLogs ? (
         <PersistantNotification isFullWidth isExpanded isInline intent="secondary">
           No info available for this user.

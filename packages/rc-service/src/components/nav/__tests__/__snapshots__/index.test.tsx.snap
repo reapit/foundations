@@ -62,22 +62,6 @@ exports[`Nav should match a snapshot 1`] = `
           Users
         </mock-styled.a>
         <mock-styled.a
-          classname=""
-        >
-          <mock-styled.span
-            classname="mock-css.
-  @media screen and (max-width: 767px) {
-    margin-left: 0.75rem;
-  }
- mock-css.
-  font-size: 2.5rem;
-"
-          >
-            <svg />
-          </mock-styled.span>
-          Orgs
-        </mock-styled.a>
-        <mock-styled.a
           classname="mock-css.
   @media screen and (min-width: 768px) {
     margin-top: auto;
@@ -156,22 +140,6 @@ exports[`Nav should match a snapshot 1`] = `
           <svg />
         </mock-styled.span>
         Users
-      </mock-styled.a>
-      <mock-styled.a
-        classname=""
-      >
-        <mock-styled.span
-          classname="mock-css.
-  @media screen and (max-width: 767px) {
-    margin-left: 0.75rem;
-  }
- mock-css.
-  font-size: 2.5rem;
-"
-        >
-          <svg />
-        </mock-styled.span>
-        Orgs
       </mock-styled.a>
       <mock-styled.a
         classname="mock-css.

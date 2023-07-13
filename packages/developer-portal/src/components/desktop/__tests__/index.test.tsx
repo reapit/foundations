@@ -2,6 +2,8 @@ import * as React from 'react'
 import { DeveloperDesktopPage, handleSetSubscribingState, handleToggleModal } from '..'
 import { render } from '../../../tests/react-testing'
 
+jest.mock('../../../core/use-global-state')
+
 describe('DeveloperDesktopPage', () => {
   afterEach(() => {
     jest.clearAllMocks()

@@ -65,13 +65,31 @@ export const UsersPage: FC = () => {
       <form>
         <FormLayout hasMargin>
           <InputWrap>
-            <InputGroup {...register('email')} placeholder="Search by email" label="Email" />
+            <InputGroup
+              {...register('email')}
+              type="search"
+              icon="searchSystem"
+              placeholder="Search by email"
+              label="Email"
+            />
           </InputWrap>
           <InputWrap>
-            <InputGroup {...register('name')} placeholder="Search by user name" label="Name" />
+            <InputGroup
+              {...register('name')}
+              type="search"
+              icon="searchSystem"
+              placeholder="Search by user name"
+              label="Name"
+            />
           </InputWrap>
           <InputWrap>
-            <InputGroup {...register('organisationName')} placeholder="Search by organisation name" label="Org Name" />
+            <InputGroup
+              {...register('organisationName')}
+              type="search"
+              icon="searchSystem"
+              placeholder="Search by organisation name"
+              label="Org Name"
+            />
           </InputWrap>
           <InputWrap>
             <Label>User Active</Label>
