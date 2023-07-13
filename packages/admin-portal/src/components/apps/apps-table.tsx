@@ -65,12 +65,14 @@ export const handleAppIdFeatured =
   (
     setAppIdFeatured: Dispatch<SetStateAction<string | null>>,
     setAppIdSubs: Dispatch<SetStateAction<string | null>>,
+    setAppIdConsumption: Dispatch<SetStateAction<string | null>>,
     appId?: string,
   ) =>
   () => {
     if (appId) {
       setAppIdFeatured(appId)
       setAppIdSubs(null)
+      setAppIdConsumption(null)
     }
   }
 
@@ -78,11 +80,28 @@ export const handleAppIdSubs =
   (
     setAppIdSubs: Dispatch<SetStateAction<string | null>>,
     setAppIdFeatured: Dispatch<SetStateAction<string | null>>,
+    setAppIdConsumption: Dispatch<SetStateAction<string | null>>,
     appId?: string,
   ) =>
   () => {
     if (appId) {
       setAppIdSubs(appId)
+      setAppIdFeatured(null)
+      setAppIdConsumption(null)
+    }
+  }
+
+export const handleAppIdConsumption =
+  (
+    setAppIdConsumption: Dispatch<SetStateAction<string | null>>,
+    setAppIdSubs: Dispatch<SetStateAction<string | null>>,
+    setAppIdFeatured: Dispatch<SetStateAction<string | null>>,
+    appId?: string,
+  ) =>
+  () => {
+    if (appId) {
+      setAppIdConsumption(appId)
+      setAppIdSubs(null)
       setAppIdFeatured(null)
     }
   }
@@ -92,6 +111,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
   const { hasReadAccess } = usePermissionsState()
   const [appIdDelete, setAppIdDelete] = useState<string | null>(null)
   const [appIdFeatured, setAppIdFeatured] = useState<string | null>(null)
+  const [appIdConsumption, setAppIdConsumption] = useState<string | null>(null)
   const [appIdSubs, setAppIdSubs] = useState<string | null>(null)
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
   const appName = apps?.data?.find((app) => app.id === appIdDelete)?.name
@@ -241,7 +261,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                       Delete
                     </Button>
                     <Button
-                      onClick={handleAppIdSubs(setAppIdSubs, setAppIdFeatured, id)}
+                      onClick={handleAppIdSubs(setAppIdSubs, setAppIdFeatured, setAppIdConsumption, id)}
                       intent="primary"
                       disabled={hasReadAccess}
                     >
@@ -250,7 +270,14 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                     <Button
                       intent="primary"
                       disabled={hasReadAccess}
-                      onClick={handleAppIdFeatured(setAppIdFeatured, setAppIdSubs, id)}
+                      onClick={handleAppIdFeatured(setAppIdFeatured, setAppIdSubs, setAppIdConsumption, id)}
+                    >
+                      Togggle Featured
+                    </Button>
+                    <Button
+                      intent="primary"
+                      disabled={hasReadAccess}
+                      onClick={handleAppIdConsumption(setAppIdConsumption, setAppIdSubs, setAppIdFeatured, id)}
                     >
                       Togggle Featured
                     </Button>
@@ -260,6 +287,9 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                   )}
                   {appIdSubs && appIdSubs === id && (
                     <CreateSubscriptions appId={id} developerId={developerId} subscriptionType="applicationListing" />
+                  )}
+                  {appIdConsumption && appIdConsumption === id && (
+                    <ToggleConsumption appIdConsumption={appIdConsumption} apps={apps} appsRefresh={appsRefresh} />
                   )}
                 </>
               ),
