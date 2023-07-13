@@ -24,9 +24,10 @@ const findConfig = () => {
   return JSON.parse(fs.readFileSync(path.resolve('tsup-zip.config.json')).toString())
 }
 
-const bundle = (includes: string[], packageFolder: string) => {
+const bundle = (packageFolder: string, split: boolean = false) => {
   const tmpDir = fs.mkdtempSync([os.tmpdir(), `${packageFolder}-build-`].join(path.sep))
   const config = findConfig()
+  const includes = config.bundleFiles || ['dist']
 
   fs.mkdirSync(`${tmpDir}/node_modules`)
   ;(config['bundle-packages'] || []).forEach((folder) => {
@@ -37,12 +38,36 @@ const bundle = (includes: string[], packageFolder: string) => {
   fs.mkdirSync(`${tmpDir}/packages/${packageFolder}`)
 
   includes.forEach((folder) => {
+    if (folder.includes('/')) {
+      const resolveEndFolder = folder.split('/')
+      resolveEndFolder.pop()
+      if (!fs.existsSync(path.resolve(tmpDir, 'packages', packageFolder, resolveEndFolder.join('/')))) {
+        fs.mkdirSync(path.resolve(tmpDir, 'packages', packageFolder, resolveEndFolder.join('/')))
+      }
+    }
     execSync(`cp -r ${path.resolve(process.cwd(), folder)} ${tmpDir}/packages/${packageFolder}/${folder}`)
   })
 
-  execSync(`cd ${tmpDir} && zip -q -r ${path.resolve('bundle.zip')} .`)
+  if (includes.length >= 2) {
+    if (fs.existsSync(`${process.cwd()}/bundle`)) {
+      fs.rmSync(`${process.cwd()}/bundle`, {
+        force: true,
+        recursive: true,
+      })
+    }
+    fs.mkdirSync(`${process.cwd()}/bundle`)
+    includes.forEach(file => {
+      const parts = file.split('/')
+      const fullFileName = parts.pop()
+      const [fileName] = fullFileName.split('.')
+      execSync(`cd ${tmpDir} && zip -q -r ${path.resolve('bundle', fileName)} ./packages/${packageFolder}/${parts.join('/')} ./node_modules`)
+    })
+  } else {
+    execSync(`cd ${tmpDir} && zip -q -r ${path.resolve('bundle.zip')} .`)
+  }
 }
 
 const [folderPackage] = process.argv.slice(2)
+const [splitRequest] = process.argv.slice(3)
 
-bundle(['dist'], folderPackage)
+bundle(folderPackage, splitRequest === 'split')
