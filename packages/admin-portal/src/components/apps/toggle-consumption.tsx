@@ -3,10 +3,10 @@ import { elMt5, FormLayout, InputWrap, Label, ToggleRadio } from '@reapit/elemen
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { AppSummaryModelPagedResult, UpdateAppModel } from '@reapit/foundations-ts-definitions'
 
 export interface ToggleConsumptionForm {
-  isFeatured?: 'FEATURED' | 'NOT_FEATURED'
+  fixedApiConsumptionCost?: 'FREE' | 'NOT_FREE'
 }
 
 export interface ToggleConsumptionProps {
@@ -16,55 +16,39 @@ export interface ToggleConsumptionProps {
 }
 
 export const handleToggleConsumption =
-  (featureApp: SendFunction<void, boolean>, unFeatureApp: SendFunction<void, boolean>) =>
-  ({ isFeatured }: ToggleConsumptionForm) => {
-    const featured = isFeatured === 'FEATURED'
-    const updateFeatured = featured ? featureApp : unFeatureApp
-
-    updateFeatured()
+  (updateApp: SendFunction<UpdateAppModel, boolean>) =>
+  ({ fixedApiConsumptionCost }: ToggleConsumptionForm) => {
+    const value = fixedApiConsumptionCost === 'FREE' ? 0 : undefined
+    updateApp({ fixedApiConsumptionCost: value })
   }
 
-export const handleRefreshAppsFeatured = (appsRefresh: () => void, shouldRefresh?: boolean) => () => {
+export const handleRefreshApps = (appsRefresh: () => void, shouldRefresh?: boolean) => () => {
   if (shouldRefresh) {
     appsRefresh()
   }
 }
 
 export const handleWatchToggle =
-  (
-    featureApp: SendFunction<void, boolean>,
-    unFeatureApp: SendFunction<void, boolean>,
-    watch: UseFormWatch<ToggleConsumptionForm>,
-  ) =>
-  () => {
-    const subscription = watch(handleToggleConsumption(featureApp, unFeatureApp))
+  (updateApp: SendFunction<UpdateAppModel, boolean>, watch: UseFormWatch<ToggleConsumptionForm>) => () => {
+    const subscription = watch(handleToggleConsumption(updateApp))
     return () => subscription.unsubscribe()
   }
 
 export const ToggleConsumption: FC<ToggleConsumptionProps> = ({ appIdConsumption, apps, appsRefresh }) => {
   const { register, watch } = useForm<ToggleConsumptionForm>()
-  const currentConsumption = Boolean(apps?.data?.find((app) => app.id === appIdConsumption)?.)
+  const currentConsumptionPaid = apps?.data?.find((app) => app.id === appIdConsumption)?.fixedApiConsumptionCost !== 0
 
-  const [, , featureApp, appFeatured] = useReapitUpdate<void, boolean>({
+  const [, , updateApp, appUpdated] = useReapitUpdate<UpdateAppModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions[UpdateActionNames.featureApp],
+    action: updateActions[UpdateActionNames.updateApp],
     method: 'PUT',
     uriParams: {
       appId: appIdConsumption,
     },
   })
 
-  const [, , unFeatureApp, appUnfeatured] = useReapitUpdate<void, boolean>({
-    reapitConnectBrowserSession,
-    action: updateActions[UpdateActionNames.unFeatureApp],
-    method: 'DELETE',
-    uriParams: {
-      appId: appIdConsumption,
-    },
-  })
-
-  useEffect(handleRefreshAppsFeatured(appsRefresh, appFeatured || appUnfeatured), [appFeatured, appUnfeatured])
-  useEffect(handleWatchToggle(featureApp, unFeatureApp, watch), [featureApp, unFeatureApp])
+  useEffect(handleRefreshApps(appsRefresh, Boolean(appUpdated)), [appUpdated])
+  useEffect(handleWatchToggle(updateApp, watch), [updateApp])
 
   return (
     <form>
@@ -72,20 +56,20 @@ export const ToggleConsumption: FC<ToggleConsumptionProps> = ({ appIdConsumption
         <InputWrap>
           <Label>Is Featured In AppMarket</Label>
           <ToggleRadio
-            {...register('isFeatured')}
+            {...register('fixedApiConsumptionCost')}
             hasGreyBg
             options={[
               {
-                id: 'option-featured-true',
-                value: 'FEATURED',
-                text: 'Featured',
-                isChecked: Boolean(currentConsumption),
+                id: 'option-free-false',
+                value: 'NOT_FREE',
+                text: 'Pays for API consumption',
+                isChecked: currentConsumptionPaid,
               },
               {
-                id: 'option-featured-false',
-                value: 'NOT_FEATURED',
-                text: 'Not Featured',
-                isChecked: !currentConsumption,
+                id: 'option-free-true',
+                value: 'FREE',
+                text: 'Does not pay for API consumption',
+                isChecked: !currentConsumptionPaid,
               },
             ]}
           />

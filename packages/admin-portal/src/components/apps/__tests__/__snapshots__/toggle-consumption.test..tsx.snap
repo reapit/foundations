@@ -1,0 +1,311 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleConsumption should match a snapshot with apps 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <form>
+        <mock-styled.div
+          classname="mock-css.
+  margin-top: 0.75rem;
+"
+        >
+          <mock-styled.div>
+            <mock-styled.label>
+              Is Featured In AppMarket
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.input
+                id="option-free-false"
+                name="fixedApiConsumptionCost"
+                type="radio"
+                value="NOT_FREE"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-free-false"
+              >
+                <mock-styled.span>
+                  Pays for API consumption
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-free-true"
+                name="fixedApiConsumptionCost"
+                type="radio"
+                value="FREE"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-free-true"
+              >
+                <mock-styled.span>
+                  Does not pay for API consumption
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <form>
+      <mock-styled.div
+        classname="mock-css.
+  margin-top: 0.75rem;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.label>
+            Is Featured In AppMarket
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.input
+              id="option-free-false"
+              name="fixedApiConsumptionCost"
+              type="radio"
+              value="NOT_FREE"
+            />
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-free-false"
+            >
+              <mock-styled.span>
+                Pays for API consumption
+              </mock-styled.span>
+            </mock-styled.label>
+            <mock-styled.input
+              id="option-free-true"
+              name="fixedApiConsumptionCost"
+              type="radio"
+              value="FREE"
+            />
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-free-true"
+            >
+              <mock-styled.span>
+                Does not pay for API consumption
+              </mock-styled.span>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <form>
+        <mock-styled.div
+          classname="mock-css.
+  margin-top: 0.75rem;
+"
+        >
+          <mock-styled.div>
+            <mock-styled.label>
+              Is Featured In AppMarket
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.input
+                id="option-free-false"
+                name="fixedApiConsumptionCost"
+                type="radio"
+                value="NOT_FREE"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-free-false"
+              >
+                <mock-styled.span>
+                  Pays for API consumption
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-free-true"
+                name="fixedApiConsumptionCost"
+                type="radio"
+                value="FREE"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-free-true"
+              >
+                <mock-styled.span>
+                  Does not pay for API consumption
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <form>
+      <mock-styled.div
+        classname="mock-css.
+  margin-top: 0.75rem;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.label>
+            Is Featured In AppMarket
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.input
+              id="option-free-false"
+              name="fixedApiConsumptionCost"
+              type="radio"
+              value="NOT_FREE"
+            />
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-free-false"
+            >
+              <mock-styled.span>
+                Pays for API consumption
+              </mock-styled.span>
+            </mock-styled.label>
+            <mock-styled.input
+              id="option-free-true"
+              name="fixedApiConsumptionCost"
+              type="radio"
+              value="FREE"
+            />
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-free-true"
+            >
+              <mock-styled.span>
+                Does not pay for API consumption
+              </mock-styled.span>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

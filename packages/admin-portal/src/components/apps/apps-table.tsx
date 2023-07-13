@@ -19,6 +19,7 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { CreateSubscriptions } from '../subscriptions/create-subscriptions'
 import { usePermissionsState } from '../../core/use-permissions-state'
 import { ToggleFeatured } from './toggle-featured'
+import { ToggleConsumption } from './toggle-consumption'
 
 export interface AppsTableProps {
   apps: AppSummaryModelPagedResult | null
@@ -279,7 +280,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                       disabled={hasReadAccess}
                       onClick={handleAppIdConsumption(setAppIdConsumption, setAppIdSubs, setAppIdFeatured, id)}
                     >
-                      Togggle Featured
+                      Togggle API Consumption
                     </Button>
                   </ButtonGroup>
                   {appIdFeatured && appIdFeatured === id && (
