@@ -575,7 +575,8 @@ exports[`Installations should render component with data 1`] = `
   margin-bottom: 2.5rem;
 "
           data-has-call-to-action="false"
-          data-has-expandable-action="false"
+          data-has-expandable-action="true"
+          data-num-columns-excl-action-col="8"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -601,6 +602,14 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               Uninstalled By
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.span
+                classname=""
+                style="font-size: 1.2rem;"
+              >
+                <svg />
+              </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
@@ -686,6 +695,33 @@ exports[`Installations should render component with data 1`] = `
                 <mock-styled.div
                   data-narrow-label="Uninstalled By"
                 />
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.span
+                  classname="mock-css."
+                >
+                  <svg />
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css."
+                  >
+                    <mock-styled.button
+                      classname="mock-css."
+                    >
+                      Togggle API Consumption
+                      <mock-styled.div />
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -890,7 +926,8 @@ exports[`Installations should render component with data 1`] = `
   margin-bottom: 2.5rem;
 "
         data-has-call-to-action="false"
-        data-has-expandable-action="false"
+        data-has-expandable-action="true"
+        data-num-columns-excl-action-col="8"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -916,6 +953,14 @@ exports[`Installations should render component with data 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             Uninstalled By
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.span
+              classname=""
+              style="font-size: 1.2rem;"
+            >
+              <svg />
+            </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
@@ -1001,6 +1046,33 @@ exports[`Installations should render component with data 1`] = `
               <mock-styled.div
                 data-narrow-label="Uninstalled By"
               />
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
+                >
+                  <mock-styled.button
+                    classname="mock-css."
+                  >
+                    Togggle API Consumption
+                    <mock-styled.div />
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>

@@ -19,6 +19,7 @@ export interface AppsFilters {
   isDirectApi?: string
   isListed?: string
   category?: string
+  isChargedConsumption?: string
 }
 
 export const AppsPage: FC = () => {

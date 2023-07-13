@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
   PageContainer,
@@ -13,6 +13,8 @@ import {
   InputWrapFull,
   Label,
   SearchableDropdown,
+  ButtonGroup,
+  Button,
 } from '@reapit/elements'
 import { useForm } from 'react-hook-form'
 import dayjs from 'dayjs'
@@ -23,6 +25,8 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { Statistics } from '../statistics'
 import { fetchDevelopersList } from '../../services/developers'
 import { fetchCustomersList } from '../../services/customers'
+import { usePermissionsState } from '../../core/use-permissions-state'
+import { ToggleConsumption } from './toggle-consumption'
 
 export interface InstallationFilters {
   installedDateFrom?: string
@@ -58,10 +62,19 @@ export const formatFilters = (installationsFilters: InstallationFilters) => {
   }
 }
 
+export const handleInstallIdConsumption =
+  (setInstallIdConsumption: Dispatch<SetStateAction<string | null>>, installId?: string) => () => {
+    if (installId) {
+      setInstallIdConsumption(installId)
+    }
+  }
+
 export const Installations: FC = () => {
   const [installationsFilters, setInstallationsFilters] = useState<InstallationFilters>(defaultValues)
+  const { hasReadAccess } = usePermissionsState()
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [pageSize, setPageSize] = useState<number>(12)
+  const [installIdConsumption, setInstallIdConsumption] = useState<string | null>(null)
 
   const {
     register,
@@ -73,7 +86,7 @@ export const Installations: FC = () => {
     defaultValues,
   })
 
-  const [installations, installationsLoading] = useReapitGet<InstallationModelPagedResult>({
+  const [installations, installationsLoading, , installationsRefresh] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getInstallations],
     queryParams: {
@@ -156,6 +169,7 @@ export const Installations: FC = () => {
                 uninstalledBy,
                 terminatesOn,
                 appName,
+                id,
               }) => ({
                 cells: [
                   {
@@ -219,6 +233,28 @@ export const Installations: FC = () => {
                     },
                   },
                 ],
+                expandableContent: {
+                  content: (
+                    <>
+                      <ButtonGroup alignment="center">
+                        <Button
+                          intent="primary"
+                          disabled={hasReadAccess}
+                          onClick={handleInstallIdConsumption(setInstallIdConsumption, id)}
+                        >
+                          Togggle API Consumption
+                        </Button>
+                      </ButtonGroup>
+                      {installIdConsumption && installIdConsumption === id && (
+                        <ToggleConsumption
+                          installIdConsumption={installIdConsumption}
+                          installations={installations}
+                          installationsRefresh={installationsRefresh}
+                        />
+                      )}
+                    </>
+                  ),
+                },
               }),
             )}
           />

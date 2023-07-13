@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ToggleConsumption should match a snapshot with apps 1`] = `
+exports[`ToggleConsumption should match a snapshot with installations 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -14,7 +14,7 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
         >
           <mock-styled.div>
             <mock-styled.label>
-              Is Featured In AppMarket
+              API Consumption Charges
             </mock-styled.label>
             <mock-styled.div
               classname="mock-css."
@@ -44,7 +44,7 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
                 htmlfor="option-free-true"
               >
                 <mock-styled.span>
-                  Does not pay for API consumption
+                  API consumption free
                 </mock-styled.span>
               </mock-styled.label>
             </mock-styled.div>
@@ -63,7 +63,7 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
       >
         <mock-styled.div>
           <mock-styled.label>
-            Is Featured In AppMarket
+            API Consumption Charges
           </mock-styled.label>
           <mock-styled.div
             classname="mock-css."
@@ -93,7 +93,7 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
               htmlfor="option-free-true"
             >
               <mock-styled.span>
-                Does not pay for API consumption
+                API consumption free
               </mock-styled.span>
             </mock-styled.label>
           </mock-styled.div>
@@ -155,7 +155,7 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
 }
 `;
 
-exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
+exports[`ToggleConsumption should match a snapshot with no installations 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -169,7 +169,7 @@ exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
         >
           <mock-styled.div>
             <mock-styled.label>
-              Is Featured In AppMarket
+              API Consumption Charges
             </mock-styled.label>
             <mock-styled.div
               classname="mock-css."
@@ -199,7 +199,7 @@ exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
                 htmlfor="option-free-true"
               >
                 <mock-styled.span>
-                  Does not pay for API consumption
+                  API consumption free
                 </mock-styled.span>
               </mock-styled.label>
             </mock-styled.div>
@@ -218,7 +218,7 @@ exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
       >
         <mock-styled.div>
           <mock-styled.label>
-            Is Featured In AppMarket
+            API Consumption Charges
           </mock-styled.label>
           <mock-styled.div
             classname="mock-css."
@@ -248,7 +248,7 @@ exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
               htmlfor="option-free-true"
             >
               <mock-styled.span>
-                Does not pay for API consumption
+                API consumption free
               </mock-styled.span>
             </mock-styled.label>
           </mock-styled.div>

@@ -263,6 +263,57 @@ exports[`FilterForm should render component with apps and categories 1`] = `
               </mock-styled.label>
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Is Charged Consumption
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.input
+                id="option-consumption-all"
+                name="isChargedConsumption"
+                type="radio"
+                value=""
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-all"
+              >
+                <mock-styled.span>
+                  All
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-consumption-true"
+                name="isChargedConsumption"
+                type="radio"
+                value="true"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-true"
+              >
+                <mock-styled.span>
+                  Charged
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-consumption-false"
+                name="isChargedConsumption"
+                type="radio"
+                value="false"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-false"
+              >
+                <mock-styled.span>
+                  Free
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
           <mock-styled.label>
             Categories
           </mock-styled.label>
@@ -653,6 +704,57 @@ exports[`FilterForm should render component with apps and categories 1`] = `
             >
               <mock-styled.span>
                 Development
+              </mock-styled.span>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Is Charged Consumption
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.input
+              id="option-consumption-all"
+              name="isChargedConsumption"
+              type="radio"
+              value=""
+            />
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-consumption-all"
+            >
+              <mock-styled.span>
+                All
+              </mock-styled.span>
+            </mock-styled.label>
+            <mock-styled.input
+              id="option-consumption-true"
+              name="isChargedConsumption"
+              type="radio"
+              value="true"
+            />
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-consumption-true"
+            >
+              <mock-styled.span>
+                Charged
+              </mock-styled.span>
+            </mock-styled.label>
+            <mock-styled.input
+              id="option-consumption-false"
+              name="isChargedConsumption"
+              type="radio"
+              value="false"
+            />
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-consumption-false"
+            >
+              <mock-styled.span>
+                Free
               </mock-styled.span>
             </mock-styled.label>
           </mock-styled.div>
@@ -1108,6 +1210,57 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
               </mock-styled.label>
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
+              Is Charged Consumption
+            </mock-styled.label>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.input
+                id="option-consumption-all"
+                name="isChargedConsumption"
+                type="radio"
+                value=""
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-all"
+              >
+                <mock-styled.span>
+                  All
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-consumption-true"
+                name="isChargedConsumption"
+                type="radio"
+                value="true"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-true"
+              >
+                <mock-styled.span>
+                  Charged
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="option-consumption-false"
+                name="isChargedConsumption"
+                type="radio"
+                value="false"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="option-consumption-false"
+              >
+                <mock-styled.span>
+                  Free
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
         </mock-styled.div>
       </form>
     </div>
@@ -1367,6 +1520,57 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
             >
               <mock-styled.span>
                 Development
+              </mock-styled.span>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label>
+            Is Charged Consumption
+          </mock-styled.label>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.input
+              id="option-consumption-all"
+              name="isChargedConsumption"
+              type="radio"
+              value=""
+            />
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-consumption-all"
+            >
+              <mock-styled.span>
+                All
+              </mock-styled.span>
+            </mock-styled.label>
+            <mock-styled.input
+              id="option-consumption-true"
+              name="isChargedConsumption"
+              type="radio"
+              value="true"
+            />
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-consumption-true"
+            >
+              <mock-styled.span>
+                Charged
+              </mock-styled.span>
+            </mock-styled.label>
+            <mock-styled.input
+              id="option-consumption-false"
+              name="isChargedConsumption"
+              type="radio"
+              value="false"
+            />
+            <mock-styled.label
+              classname="mock-css."
+              htmlfor="option-consumption-false"
+            >
+              <mock-styled.span>
+                Free
               </mock-styled.span>
             </mock-styled.label>
           </mock-styled.div>

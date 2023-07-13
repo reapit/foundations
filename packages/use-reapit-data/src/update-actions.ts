@@ -71,6 +71,8 @@ export enum UpdateActionNames {
   removeMemberFromGroup = 'removeMemberFromGroup',
   addMemberToGroup = 'addMemberToGroup',
   updatePlatformConfig = 'updatePlatformConfig',
+  updateApp = 'updateApp',
+  updateInstallation = 'updateInstallation',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -443,5 +445,17 @@ export const updateActions = {
     path: PathNames.getOrgConfig,
     successMessage: 'Successfully updated platform config.',
     errorMessage: 'Failed to update platform config.',
+  },
+  [UpdateActionNames.updateApp]: {
+    api: ApiNames.platform,
+    path: PathNames.appsId,
+    successMessage: 'Successfully updated app',
+    errorMessage: 'Failed to update app',
+  },
+  [UpdateActionNames.updateInstallation]: {
+    api: ApiNames.platform,
+    path: PathNames.installationsId,
+    successMessage: 'Successfully updated installation',
+    errorMessage: 'Failed to update installation',
   },
 }

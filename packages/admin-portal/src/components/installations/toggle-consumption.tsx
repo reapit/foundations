@@ -3,52 +3,58 @@ import { elMt5, FormLayout, InputWrap, Label, ToggleRadio } from '@reapit/elemen
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { AppSummaryModelPagedResult, UpdateAppModel } from '@reapit/foundations-ts-definitions'
+import { InstallationModelPagedResult, UpdateInstallationModel } from '@reapit/foundations-ts-definitions'
 
 export interface ToggleConsumptionForm {
   fixedApiConsumptionCost?: 'FREE' | 'NOT_FREE'
 }
 
 export interface ToggleConsumptionProps {
-  appIdConsumption: string
-  apps: AppSummaryModelPagedResult | null
-  appsRefresh: () => void
+  installIdConsumption: string
+  installations: InstallationModelPagedResult | null
+  installationsRefresh: () => void
 }
 
 export const handleToggleConsumption =
-  (updateApp: SendFunction<UpdateAppModel, boolean>) =>
+  (updateInstallation: SendFunction<UpdateInstallationModel, boolean>) =>
   ({ fixedApiConsumptionCost }: ToggleConsumptionForm) => {
     const value = fixedApiConsumptionCost === 'FREE' ? 0 : undefined
-    updateApp({ fixedApiConsumptionCost: value })
+    updateInstallation({ fixedApiConsumptionCost: value })
   }
 
-export const handleRefreshApps = (appsRefresh: () => void, shouldRefresh?: boolean) => () => {
+export const handleRefreshInstallations = (installationsRefresh: () => void, shouldRefresh?: boolean) => () => {
   if (shouldRefresh) {
-    appsRefresh()
+    installationsRefresh()
   }
 }
 
 export const handleWatchToggle =
-  (updateApp: SendFunction<UpdateAppModel, boolean>, watch: UseFormWatch<ToggleConsumptionForm>) => () => {
-    const subscription = watch(handleToggleConsumption(updateApp))
+  (updateInstallation: SendFunction<UpdateInstallationModel, boolean>, watch: UseFormWatch<ToggleConsumptionForm>) =>
+  () => {
+    const subscription = watch(handleToggleConsumption(updateInstallation))
     return () => subscription.unsubscribe()
   }
 
-export const ToggleConsumption: FC<ToggleConsumptionProps> = ({ appIdConsumption, apps, appsRefresh }) => {
+export const ToggleConsumption: FC<ToggleConsumptionProps> = ({
+  installIdConsumption,
+  installations,
+  installationsRefresh,
+}) => {
   const { register, watch } = useForm<ToggleConsumptionForm>()
-  const currentConsumptionPaid = apps?.data?.find((app) => app.id === appIdConsumption)?.fixedApiConsumptionCost !== 0
+  const currentConsumptionPaid =
+    installations?.data?.find((install) => install.id === installIdConsumption)?.fixedApiConsumptionCost !== 0
 
-  const [, , updateApp, appUpdated] = useReapitUpdate<UpdateAppModel, boolean>({
+  const [, , updateInstallation, appUpdated] = useReapitUpdate<UpdateInstallationModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions[UpdateActionNames.updateApp],
+    action: updateActions[UpdateActionNames.updateInstallation],
     method: 'PUT',
     uriParams: {
-      appId: appIdConsumption,
+      installationId: installIdConsumption,
     },
   })
 
-  useEffect(handleRefreshApps(appsRefresh, Boolean(appUpdated)), [appUpdated])
-  useEffect(handleWatchToggle(updateApp, watch), [updateApp])
+  useEffect(handleRefreshInstallations(installationsRefresh, Boolean(appUpdated)), [appUpdated])
+  useEffect(handleWatchToggle(updateInstallation, watch), [updateInstallation])
 
   return (
     <form>
