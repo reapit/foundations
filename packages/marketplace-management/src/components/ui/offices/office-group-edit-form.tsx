@@ -170,7 +170,7 @@ export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup,
   const { Modal, openModal, closeModal, modalIsOpen } = useModal()
 
   const { data } = useSWR<OfficeModelPagedResult | undefined>(
-    !orgClientId || !searchString ? null : `${URLS.OFFICES}?pageSize=500&&name=${searchString}`,
+    !orgClientId || !searchString ? null : `${URLS.OFFICES}?pageSize=500&active=true&name=${searchString}`,
     fetcherWithClientCode(orgClientId as string),
   )
 
