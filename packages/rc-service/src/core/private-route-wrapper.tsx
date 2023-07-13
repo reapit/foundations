@@ -24,7 +24,7 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location?.pathname}${location?.search}`
-  const { isAdmin } = getIsAdmin(connectSession)
+  const { isAdmin, isFoundationsAdmin } = getIsAdmin(connectSession)
 
   if (!connectSession) {
     return (
@@ -38,6 +38,10 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
 
   if (!isAdmin) {
     return <Navigate to={RoutePaths.LOGIN} />
+  }
+
+  if (!isFoundationsAdmin && currentUri === RoutePaths.ORGS) {
+    return <Navigate to={RoutePaths.USERS} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
@@ -62,7 +66,7 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
           <SmallText hasGreyText className={elMt5}>
             Should you encounter an issue or need support, please use the &apos;Help&apos; button below.
           </SmallText>
-          <Button intent="neutral" onClick={openNewPage('mailto:serviceapp@reapitfoundations.zendesk.com')}>
+          <Button intent="neutral" onClick={openNewPage('https://rcservice-documentation.reapit.cloud/')}>
             Help
           </Button>
         </SecondaryNavContainer>

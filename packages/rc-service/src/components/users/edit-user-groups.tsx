@@ -47,7 +47,7 @@ export const sortAddRemoveGroups = (user: UserModel, groupIds: string) => {
 }
 
 export const prepareUserGroupOptions: (data: GroupModel[]) => MultiSelectOption[] = (data) =>
-  data.map((userGroup: GroupModel) => {
+  data.sort().map((userGroup: GroupModel) => {
     const { id } = userGroup
 
     return {
