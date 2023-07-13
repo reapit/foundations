@@ -32,3 +32,5 @@ ormconfig.json
 
 .cdk.staging
 cdk.out
+
+bundle/

@@ -1,18 +1,31 @@
 import { defineConfig } from 'tsup'
 import fs from 'fs'
 import config from './config.json'
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
 
 const pkgJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 
 export default defineConfig({
-  entry: ['src/http.ts', 'src/sqs.ts', 'src/sns.ts'],
+  entry: ['src/http.ts', 'src/sqs.ts', 'src/sns.ts', 'src/migration-run.ts'],
   target: 'node18',
   clean: true,
   minify: config.NODE_ENV === 'production',
   esbuildOptions: (opts) => {
     opts.resolveExtensions = ['.ts', '.mjs', '.js']
+    opts.plugins = [
+      ...opts.plugins,
+      nodeModulesPolyfillPlugin({
+        // modules: ['crypto'],
+        global: {
+          crypto: true,
+        },
+      }),
+    ]
   },
-  noExternal: Object.keys(pkgJson.dependencies),
+  noExternal: [
+    ...Object.keys(pkgJson.dependencies),
+    'crypto',
+  ],
   external: [
     '@nestjs/microservices',
     '@nestjs/websockets',
@@ -26,5 +39,6 @@ export default defineConfig({
     'mqtt',
     'amqplib',
     'redis',
+    'crypto',
   ],
 })

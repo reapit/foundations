@@ -3,6 +3,10 @@ import { AppModule } from './app-module'
 import { WorkflowHandlerProvider } from './events/workflow-handler-provider'
 import { SQSHandler } from 'aws-lambda'
 import { INestMicroservice } from '@nestjs/common'
+const crypto = require('crypto')
+
+global.crypto = crypto
+
 
 let app: INestMicroservice
 

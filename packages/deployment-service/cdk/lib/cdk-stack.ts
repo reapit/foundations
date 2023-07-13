@@ -45,6 +45,7 @@ type FunctionSetup = {
   queues?: sqs.IQueue[]
   topic?: Topic
   role?: Role
+  entrypoint: string,
 }
 
 const getNumberOfMigrations = async () => {
@@ -109,17 +110,20 @@ export const createStack = async () => {
       ],
       timeout: 900,
       RAM: 2048,
+      entrypoint: 'bundle/sqs.zip',
     },
     appEvents: {
       handler: createFileLoc('sqs', 'handle'),
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
       queues: [queues[QueueNames.APP_EVENTS]],
+      entrypoint: 'bundle/sqs.zip',
     },
     sns: {
       handler: createFileLoc('sns', 'handle'),
       policies: [...policies.commonBackendPolicies],
       topic: codebuildSnsTopic,
       timeout: 900,
+      entrypoint: 'bundle/sns.zip',
     },
     httpApi: {
       handler: createFileLoc('http', 'handler'),
@@ -136,6 +140,7 @@ export const createStack = async () => {
         },
         headers: ['Content-Type', 'api-version', 'X-Api-Key'],
       },
+      entrypoint: 'bundle/http.zip',
     },
     http: {
       handler: createFileLoc('http', 'handler'),
@@ -153,6 +158,7 @@ export const createStack = async () => {
         headers: ['Content-Type', 'Authorization', 'api-version'],
         authorizer: true,
       },
+      entrypoint: 'bundle/http.zip',
     },
   }
 
@@ -184,9 +190,9 @@ export const createStack = async () => {
 
   for (const [name, options] of Object.entries(functionSetups)) {
     const lambda = createLambda({
+      entrypoint: options.entrypoint,
       stack,
       name,
-      entrypoint: path.resolve('bundle.zip'),
       handler: options.handler,
       env,
       vpc,
@@ -223,7 +229,7 @@ export const createStack = async () => {
   const migrationHandler = createLambda({
     stack,
     name: 'cloud-deployment-migration',
-    entrypoint: path.resolve('bundle.zip'),
+    entrypoint: 'bundle/migration-run.zip',
     handler: createFileLoc('migration-run', 'migrationRun'),
     env,
     vpc,
