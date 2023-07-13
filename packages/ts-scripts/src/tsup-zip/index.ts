@@ -24,7 +24,7 @@ const findConfig = () => {
   return JSON.parse(fs.readFileSync(path.resolve('tsup-zip.config.json')).toString())
 }
 
-const bundle = (packageFolder: string, split: boolean = false) => {
+const bundle = (packageFolder: string) => {
   const tmpDir = fs.mkdtempSync([os.tmpdir(), `${packageFolder}-build-`].join(path.sep))
   const config = findConfig()
   const includes = config.bundleFiles || ['dist']
@@ -68,6 +68,5 @@ const bundle = (packageFolder: string, split: boolean = false) => {
 }
 
 const [folderPackage] = process.argv.slice(2)
-const [splitRequest] = process.argv.slice(3)
 
-bundle(folderPackage, splitRequest === 'split')
+bundle(folderPackage)
