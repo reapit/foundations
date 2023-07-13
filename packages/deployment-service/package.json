@@ -84,5 +84,5 @@
     "tsup": "^6.7.0",
     "typescript": "^4.9.5"
   },
-  "version": "2.2.2"
+  "version": "2.2.3"
 }
