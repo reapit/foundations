@@ -203,7 +203,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
             </Button>
           </ButtonGroup>
         </>
-      ) : billingContent ? (
+      ) : billingContent && !desktopIsFree ? (
         <>
           <BodyText hasGreyText>{billingContent}</BodyText>
           <ButtonGroup alignment="center">
