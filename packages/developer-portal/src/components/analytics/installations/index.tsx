@@ -30,7 +30,6 @@ export const AnalyticsInstallations: FC = () => {
   const { isMobile } = useMediaQuery()
 
   const appsQuery = appId ? { appId } : {}
-
   const customerQuery = clientId ? { clientId } : {}
 
   const [installations, installationsLoading] = useReapitGet<InstallationModelPagedResult>({
@@ -41,6 +40,7 @@ export const AnalyticsInstallations: FC = () => {
       pageSize: 999,
       installedDateFrom: dateFrom,
       installedDateTo: dateTo,
+      developerId,
       ...appsQuery,
       ...customerQuery,
     },
