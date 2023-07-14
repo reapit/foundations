@@ -74,7 +74,7 @@ export class GithubWebhookController {
       throw new UnauthorizedException('No signature')
     }
 
-    const verified = await this.githubProvider.webhooks.verify(body, signature)
+    const verified = await this.githubProvider.webhooks.verify(JSON.stringify(body), signature)
 
     if (!verified) {
       throw new UnauthorizedException('Invalid signature')
