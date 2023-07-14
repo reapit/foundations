@@ -303,6 +303,11 @@ export interface CreateProductModel {
    * A list of signout urls
    */
   signoutUrls?: string[]
+  /**
+   * Flag indicating whether or not the product has user admin capabilities
+   * that require an additional scope to be set on the OAuth client
+   */
+  requiresUserAdmin?: boolean
 }
 /**
  * Request body used to create a new user authenticator
