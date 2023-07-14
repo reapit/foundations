@@ -7,7 +7,6 @@ const crypto = require('crypto')
 
 global.crypto = crypto
 
-
 let app: INestMicroservice
 
 const initApp = async (): Promise<INestMicroservice> => {

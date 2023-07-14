@@ -1,7 +1,5 @@
 import { createFunction, Function, Vpc, Stack } from '@reapit/ts-scripts/src/cdk'
-import {
-  aws_lambda as lambda,
-} from 'aws-cdk-lib'
+import { aws_lambda as lambda } from 'aws-cdk-lib'
 
 import environment from '../../config.json'
 

@@ -9,6 +9,9 @@ import { Server } from 'http'
 import express, { Express } from 'express'
 import * as bodyParser from 'body-parser'
 import { CorsHeaderInterceptor } from '@reapit/utils-nest'
+const crypto = require('crypto')
+
+global.crypto = crypto
 
 export const bootstrapApplication = async (cors: boolean = false): Promise<[INestApplication, Express]> => {
   const expressApp = express()
