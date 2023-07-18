@@ -6855,6 +6855,10 @@ export interface CreatePropertyModel {
    */
   alternateId?: string
   /**
+   * The property's special feature property requirements (eg Swimming Pool, Tennis Court), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  specialFeatures?: string[]
+  /**
    * Request body used to set the address of a new property
    */
   address: {
@@ -12659,54 +12663,54 @@ export interface PropertyInternalAreaModel {
   max?: number // double
 }
 /**
- * Representation of property details specific to property license application
+ * Representation of property details specific to property licence application
  */
-export interface PropertyLettingLicenseApplicationModel {
+export interface PropertyLettingLicenceApplicationModel {
   /**
-   * The status of the license application (applied/granted/landlordApplying/notApplicable)
+   * The status of the licence application (applied/granted/landlordApplying/notApplicable)
    */
   status?: string
   /**
-   * The license application reference number
+   * The licence application reference number
    */
   referenceNumber?: string
   /**
-   * The date the license was applied for
+   * The date the licence was applied for
    * example:
    * 2019-08-14
    */
   date?: string // date
   /**
-   * The date the license application was granted
+   * The date the licence application was granted
    * example:
    * 2019-08-14
    */
   granted?: string // date
   /**
-   * The date the license will expire
+   * The date the licence will expire
    * example:
    * 2019-08-14
    */
   expiry?: string // date
 }
 /**
- * Representation of property details specific to property licensing
+ * Representation of property details specific to property Licencing
  */
-export interface PropertyLettingLicensingModel {
+export interface PropertyLettingLicencingModel {
   /**
-   * A flag determining whether or not a license is required to let the property. Typically required for houses of multiple occupancy (HMOs)
+   * A flag determining whether or not a licence is required to let the property. Typically required for houses of multiple occupancy (HMOs)
    */
-  licenseRequired?: boolean
+  licenceRequired?: boolean
   /**
-   * the type of license associated
+   * The type of licence (additional/mandatory/none/notSet/selective)
    */
-  licenseType?: string
+  licenceType?: string
   /**
-   * The number of households that the license permits in the property
+   * The number of households that the licence permits in the property
    */
   households?: number // int32
   /**
-   * The number of occupants that the license permits in the property
+   * The number of occupants that the licence permits in the property
    */
   occupants?: number // int32
   /**
@@ -12714,31 +12718,31 @@ export interface PropertyLettingLicensingModel {
    */
   aboveCommercialPremises?: boolean
   /**
-   * Representation of property details specific to property license application
+   * Representation of property details specific to property licence application
    */
   application?: {
     /**
-     * The status of the license application (applied/granted/landlordApplying/notApplicable)
+     * The status of the licence application (applied/granted/landlordApplying/notApplicable)
      */
     status?: string
     /**
-     * The license application reference number
+     * The licence application reference number
      */
     referenceNumber?: string
     /**
-     * The date the license was applied for
+     * The date the licence was applied for
      * example:
      * 2019-08-14
      */
     date?: string // date
     /**
-     * The date the license application was granted
+     * The date the licence application was granted
      * example:
      * 2019-08-14
      */
     granted?: string // date
     /**
-     * The date the license will expire
+     * The date the licence will expire
      * example:
      * 2019-08-14
      */
@@ -12956,23 +12960,23 @@ export interface PropertyLettingModel {
     autoRenew?: boolean
   }
   /**
-   * Representation of property details specific to property licensing
+   * Representation of property details specific to property Licencing
    */
-  licensing?: {
+  licencing?: {
     /**
-     * A flag determining whether or not a license is required to let the property. Typically required for houses of multiple occupancy (HMOs)
+     * A flag determining whether or not a licence is required to let the property. Typically required for houses of multiple occupancy (HMOs)
      */
-    licenseRequired?: boolean
+    licenceRequired?: boolean
     /**
-     * the type of license associated
+     * The type of licence (additional/mandatory/none/notSet/selective)
      */
-    licenseType?: string
+    licenceType?: string
     /**
-     * The number of households that the license permits in the property
+     * The number of households that the licence permits in the property
      */
     households?: number // int32
     /**
-     * The number of occupants that the license permits in the property
+     * The number of occupants that the licence permits in the property
      */
     occupants?: number // int32
     /**
@@ -12980,31 +12984,31 @@ export interface PropertyLettingModel {
      */
     aboveCommercialPremises?: boolean
     /**
-     * Representation of property details specific to property license application
+     * Representation of property details specific to property licence application
      */
     application?: {
       /**
-       * The status of the license application (applied/granted/landlordApplying/notApplicable)
+       * The status of the licence application (applied/granted/landlordApplying/notApplicable)
        */
       status?: string
       /**
-       * The license application reference number
+       * The licence application reference number
        */
       referenceNumber?: string
       /**
-       * The date the license was applied for
+       * The date the licence was applied for
        * example:
        * 2019-08-14
        */
       date?: string // date
       /**
-       * The date the license application was granted
+       * The date the licence application was granted
        * example:
        * 2019-08-14
        */
       granted?: string // date
       /**
-       * The date the license will expire
+       * The date the licence will expire
        * example:
        * 2019-08-14
        */
@@ -13776,23 +13780,23 @@ export interface PropertyModel {
       autoRenew?: boolean
     }
     /**
-     * Representation of property details specific to property licensing
+     * Representation of property details specific to property Licencing
      */
-    licensing?: {
+    licencing?: {
       /**
-       * A flag determining whether or not a license is required to let the property. Typically required for houses of multiple occupancy (HMOs)
+       * A flag determining whether or not a licence is required to let the property. Typically required for houses of multiple occupancy (HMOs)
        */
-      licenseRequired?: boolean
+      licenceRequired?: boolean
       /**
-       * the type of license associated
+       * The type of licence (additional/mandatory/none/notSet/selective)
        */
-      licenseType?: string
+      licenceType?: string
       /**
-       * The number of households that the license permits in the property
+       * The number of households that the licence permits in the property
        */
       households?: number // int32
       /**
-       * The number of occupants that the license permits in the property
+       * The number of occupants that the licence permits in the property
        */
       occupants?: number // int32
       /**
@@ -13800,31 +13804,31 @@ export interface PropertyModel {
        */
       aboveCommercialPremises?: boolean
       /**
-       * Representation of property details specific to property license application
+       * Representation of property details specific to property licence application
        */
       application?: {
         /**
-         * The status of the license application (applied/granted/landlordApplying/notApplicable)
+         * The status of the licence application (applied/granted/landlordApplying/notApplicable)
          */
         status?: string
         /**
-         * The license application reference number
+         * The licence application reference number
          */
         referenceNumber?: string
         /**
-         * The date the license was applied for
+         * The date the licence was applied for
          * example:
          * 2019-08-14
          */
         date?: string // date
         /**
-         * The date the license application was granted
+         * The date the licence application was granted
          * example:
          * 2019-08-14
          */
         granted?: string // date
         /**
-         * The date the license will expire
+         * The date the licence will expire
          * example:
          * 2019-08-14
          */
@@ -14715,23 +14719,23 @@ export interface PropertyModelPagedResult {
         autoRenew?: boolean
       }
       /**
-       * Representation of property details specific to property licensing
+       * Representation of property details specific to property Licencing
        */
-      licensing?: {
+      licencing?: {
         /**
-         * A flag determining whether or not a license is required to let the property. Typically required for houses of multiple occupancy (HMOs)
+         * A flag determining whether or not a licence is required to let the property. Typically required for houses of multiple occupancy (HMOs)
          */
-        licenseRequired?: boolean
+        licenceRequired?: boolean
         /**
-         * the type of license associated
+         * The type of licence (additional/mandatory/none/notSet/selective)
          */
-        licenseType?: string
+        licenceType?: string
         /**
-         * The number of households that the license permits in the property
+         * The number of households that the licence permits in the property
          */
         households?: number // int32
         /**
-         * The number of occupants that the license permits in the property
+         * The number of occupants that the licence permits in the property
          */
         occupants?: number // int32
         /**
@@ -14739,31 +14743,31 @@ export interface PropertyModelPagedResult {
          */
         aboveCommercialPremises?: boolean
         /**
-         * Representation of property details specific to property license application
+         * Representation of property details specific to property licence application
          */
         application?: {
           /**
-           * The status of the license application (applied/granted/landlordApplying/notApplicable)
+           * The status of the licence application (applied/granted/landlordApplying/notApplicable)
            */
           status?: string
           /**
-           * The license application reference number
+           * The licence application reference number
            */
           referenceNumber?: string
           /**
-           * The date the license was applied for
+           * The date the licence was applied for
            * example:
            * 2019-08-14
            */
           date?: string // date
           /**
-           * The date the license application was granted
+           * The date the licence application was granted
            * example:
            * 2019-08-14
            */
           granted?: string // date
           /**
-           * The date the license will expire
+           * The date the licence will expire
            * example:
            * 2019-08-14
            */
@@ -20288,31 +20292,31 @@ export interface UpdateLettingFeeRenewalModel {
   frequency?: string
 }
 /**
- * Representation of property details specific to property license application
+ * Representation of property details specific to property licence application
  */
-export interface UpdateLicenseApplicationModel {
+export interface UpdateLicenceApplicationModel {
   /**
-   * The status of the license application (applied/granted/landlordApplying/notApplicable)
+   * The status of the licence application (applied/granted/landlordApplying/notApplicable)
    */
   status?: string
   /**
-   * The license application reference number
+   * The licence application reference number
    */
   referenceNumber?: string
   /**
-   * The date the license was applied for
+   * The date the licence was applied for
    * example:
    * 2019-08-14T12:30:02Z
    */
   date?: string // date-time
   /**
-   * The date the license application was granted
+   * The date the licence application was granted
    * example:
    * 2019-08-14T12:30:02Z
    */
   granted?: string // date-time
   /**
-   * The date the license will expire
+   * The date the licence will expire
    * example:
    * 2019-08-14T12:30:02Z
    */
@@ -20712,23 +20716,23 @@ export interface UpdatePropertyInternalAreaModel {
   max?: number // double
 }
 /**
- * Representation of property details specific to property licensing
+ * Representation of property details specific to property Licencing
  */
-export interface UpdatePropertyLettingLicensingModel {
+export interface UpdatePropertyLettingLicencingModel {
   /**
-   * is license required
+   * A flag determining whether or not a licence is required to let the property. Typically required for houses of multiple occupancy (HMOs)
    */
-  licenseRequired?: boolean
+  licenceRequired?: boolean
   /**
-   * the Type of license (additional/mandatory/none/selective)
+   * The type of licence (additional/mandatory/none/selective)
    */
-  licenseType?: string
+  licenceType?: string
   /**
-   * The number of households that the license permits in the property
+   * The number of households that the licence permits in the property
    */
   households?: number // int32
   /**
-   * The number of occupants that the license permits in the property
+   * The number of occupants that the licence permits in the property
    */
   occupants?: number // int32
   /**
@@ -20736,31 +20740,31 @@ export interface UpdatePropertyLettingLicensingModel {
    */
   aboveCommercialPremises?: boolean
   /**
-   * Representation of property details specific to property license application
+   * Representation of property details specific to property licence application
    */
   application?: {
     /**
-     * The status of the license application (applied/granted/landlordApplying/notApplicable)
+     * The status of the licence application (applied/granted/landlordApplying/notApplicable)
      */
     status?: string
     /**
-     * The license application reference number
+     * The licence application reference number
      */
     referenceNumber?: string
     /**
-     * The date the license was applied for
+     * The date the licence was applied for
      * example:
      * 2019-08-14T12:30:02Z
      */
     date?: string // date-time
     /**
-     * The date the license application was granted
+     * The date the licence application was granted
      * example:
      * 2019-08-14T12:30:02Z
      */
     granted?: string // date-time
     /**
-     * The date the license will expire
+     * The date the licence will expire
      * example:
      * 2019-08-14T12:30:02Z
      */
@@ -20965,23 +20969,23 @@ export interface UpdatePropertyLettingModel {
     autoRenew?: boolean
   }
   /**
-   * Representation of property details specific to property licensing
+   * Representation of property details specific to property Licencing
    */
-  licensing?: {
+  licencing?: {
     /**
-     * is license required
+     * A flag determining whether or not a licence is required to let the property. Typically required for houses of multiple occupancy (HMOs)
      */
-    licenseRequired?: boolean
+    licenceRequired?: boolean
     /**
-     * the Type of license (additional/mandatory/none/selective)
+     * The type of licence (additional/mandatory/none/selective)
      */
-    licenseType?: string
+    licenceType?: string
     /**
-     * The number of households that the license permits in the property
+     * The number of households that the licence permits in the property
      */
     households?: number // int32
     /**
-     * The number of occupants that the license permits in the property
+     * The number of occupants that the licence permits in the property
      */
     occupants?: number // int32
     /**
@@ -20989,31 +20993,31 @@ export interface UpdatePropertyLettingModel {
      */
     aboveCommercialPremises?: boolean
     /**
-     * Representation of property details specific to property license application
+     * Representation of property details specific to property licence application
      */
     application?: {
       /**
-       * The status of the license application (applied/granted/landlordApplying/notApplicable)
+       * The status of the licence application (applied/granted/landlordApplying/notApplicable)
        */
       status?: string
       /**
-       * The license application reference number
+       * The licence application reference number
        */
       referenceNumber?: string
       /**
-       * The date the license was applied for
+       * The date the licence was applied for
        * example:
        * 2019-08-14T12:30:02Z
        */
       date?: string // date-time
       /**
-       * The date the license application was granted
+       * The date the licence application was granted
        * example:
        * 2019-08-14T12:30:02Z
        */
       granted?: string // date-time
       /**
-       * The date the license will expire
+       * The date the licence will expire
        * example:
        * 2019-08-14T12:30:02Z
        */
@@ -21097,6 +21101,10 @@ export interface UpdatePropertyModel {
    * An optional alternative identifier specified for this property
    */
   alternateId?: string
+  /**
+   * The property's special feature property requirements (eg Swimming Pool, Tennis Court), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  specialFeatures?: string[]
   /**
    * Request body used to update the address of an existing property
    */
@@ -21628,23 +21636,23 @@ export interface UpdatePropertyModel {
       autoRenew?: boolean
     }
     /**
-     * Representation of property details specific to property licensing
+     * Representation of property details specific to property Licencing
      */
-    licensing?: {
+    licencing?: {
       /**
-       * is license required
+       * A flag determining whether or not a licence is required to let the property. Typically required for houses of multiple occupancy (HMOs)
        */
-      licenseRequired?: boolean
+      licenceRequired?: boolean
       /**
-       * the Type of license (additional/mandatory/none/selective)
+       * The type of licence (additional/mandatory/none/selective)
        */
-      licenseType?: string
+      licenceType?: string
       /**
-       * The number of households that the license permits in the property
+       * The number of households that the licence permits in the property
        */
       households?: number // int32
       /**
-       * The number of occupants that the license permits in the property
+       * The number of occupants that the licence permits in the property
        */
       occupants?: number // int32
       /**
@@ -21652,31 +21660,31 @@ export interface UpdatePropertyModel {
        */
       aboveCommercialPremises?: boolean
       /**
-       * Representation of property details specific to property license application
+       * Representation of property details specific to property licence application
        */
       application?: {
         /**
-         * The status of the license application (applied/granted/landlordApplying/notApplicable)
+         * The status of the licence application (applied/granted/landlordApplying/notApplicable)
          */
         status?: string
         /**
-         * The license application reference number
+         * The licence application reference number
          */
         referenceNumber?: string
         /**
-         * The date the license was applied for
+         * The date the licence was applied for
          * example:
          * 2019-08-14T12:30:02Z
          */
         date?: string // date-time
         /**
-         * The date the license application was granted
+         * The date the licence application was granted
          * example:
          * 2019-08-14T12:30:02Z
          */
         granted?: string // date-time
         /**
-         * The date the license will expire
+         * The date the licence will expire
          * example:
          * 2019-08-14T12:30:02Z
          */

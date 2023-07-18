@@ -45,7 +45,7 @@ type FunctionSetup = {
   queues?: sqs.IQueue[]
   topic?: Topic
   role?: Role
-  entrypoint: string,
+  entrypoint: string
 }
 
 const getNumberOfMigrations = async () => {
