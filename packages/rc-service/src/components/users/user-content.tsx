@@ -183,21 +183,27 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
         <Col>
           <Subtitle>User Claims</Subtitle>
           <BodyText hasGreyText>
-            {user.userClaims?.map(({ claim, value }, index) => (
-              <DisplayChip key={index}>
-                {claim}: {value}
-              </DisplayChip>
-            ))}
+            {user.userClaims?.map(({ claim, value }, index) => {
+              if (claim?.includes('payrollNumber')) return null
+              return (
+                <DisplayChip key={index}>
+                  {claim}: {value}
+                </DisplayChip>
+              )
+            })}
           </BodyText>
         </Col>
         <Col>
           <Subtitle>Organisation Claims</Subtitle>
           <BodyText>
-            {user.organisationClaims?.map(({ claim, value }, index) => (
-              <DisplayChip key={index}>
-                {claim}: {value}
-              </DisplayChip>
-            ))}
+            {user.organisationClaims?.map(({ claim, value }, index) => {
+              if (claim?.includes('EmailHeader')) return null
+              return (
+                <DisplayChip key={index}>
+                  {claim}: {value}
+                </DisplayChip>
+              )
+            })}
           </BodyText>
         </Col>
         <Col>
