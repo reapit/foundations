@@ -4,32 +4,32 @@ export const ElInput = styled.input`
   display: flex;
   color: black;
   background: var(--component-input-bg);
-  padding: 0 0.5rem;
+  padding: 0.5rem 0.6875rem;
   border: none;
   margin: 0;
   font-family: var(--font-sans-serif);
-  font-size: var(--font-size-default);
+  font-size: var(--font-size-small);
 
   &:not([type='checkbox']):not([type='radio']) {
     flex-grow: 1;
-    border-radius: 0;
-    border-bottom: var(--component-input-border-bottom);
+    border-radius: 0.125rem;
+    border: var(--component-input-border);
     height: 2rem;
 
     &:focus {
-      border-bottom: var(--component-input-border-bottom-focus);
+      border: var(--component-input-border-focus);
     }
   }
 
   &:focus {
     outline: none;
-    background: var(--component-input-focus-bg);
+    /* background: var(--component-input-focus-bg); */
   }
 
   &::placeholder {
-    color: var(--color-grey-dark);
+    color: var(--color-grey-medium-light);
     font-family: var(--font-sans-serif);
-    font-size: var(--font-size-default);
+    font-size: var(--font-size-small);
   }
 
   &:disabled {

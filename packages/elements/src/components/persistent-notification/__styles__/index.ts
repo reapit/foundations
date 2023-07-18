@@ -8,6 +8,7 @@ import {
   elIntentCritical,
   elIntentSuccess,
   elIntentDanger,
+  elIntentWarning,
 } from '../../../styles/intent'
 
 export const elPnIsFullWidth = css``
@@ -17,7 +18,7 @@ export const elPnIsFixed = css``
 export const elPnIsInline = css``
 
 export const elPnIcon = css`
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -29,7 +30,7 @@ export const elPnIcon = css`
 `
 
 export const elPnContent = css`
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -43,6 +44,7 @@ export const ElPersistentNotification = styled.div`
   transform: translateX(calc(100% - 2rem));
   transition: 0.5s;
   z-index: 10;
+  font-size: var(--font-size-default);
 
   &.${elIsActive} {
     right: 0;
@@ -73,141 +75,58 @@ export const ElPersistentNotification = styled.div`
     }
   }
 
-  &.${elIntentPrimary} {
+  &.${elIntentPrimary}, &.${elIntentSecondary} {
     .${elPnContent} {
-      background: var(--intent-primary-light);
-      color: var(--intent-primary-light-text);
+      background: var(--intent-primary-lightest);
     }
 
     .${elPnIcon} {
-      background: var(--intent-primary);
-      color: var(--intent-primary-text);
-    }
+      background: var(--intent-primary-lightest);
 
-    &.${elPnIsInline} {
-      .${elPnContent} {
-        background: var(--color-white);
-        border: 2px var(--intent-primary-light) solid;
-      }
-
-      .${elPnIcon} {
-        background: var(--intent-primary-light);
-        border: 2px var(--intent-primary-light) solid;
-
-        svg {
-          color: var(--intent-primary);
-        }
+      svg {
+        color: var(--intent-primary);
       }
     }
   }
 
-  &.${elIntentSecondary} {
+  &.${elIntentCritical}, &.${elIntentWarning} {
     .${elPnContent} {
-      background: var(--intent-secondary-light);
-      color: var(--intent-secondary-light-text);
-    }
-    .${elPnIcon} {
-      background: var(--intent-secondary);
-      color: var(--intent-secondary-text);
-    }
-
-    &.${elPnIsInline} {
-      .${elPnContent} {
-        background: var(--color-white);
-        border: 2px var(--intent-secondary-light) solid;
-      }
-
-      .${elPnIcon} {
-        background: var(--intent-secondary-light);
-        border: 2px var(--intent-secondary-light) solid;
-
-        svg {
-          color: var(--intent-secondary);
-        }
-      }
-    }
-  }
-
-  &.${elIntentCritical} {
-    .${elPnContent} {
-      background: var(--intent-critical-light);
-      color: var(--intent-critical-light-text);
+      background: var(--intent-warning-lightest);
     }
 
     .${elPnIcon} {
-      background: var(--intent-critical);
-      color: var(--intent-critical-text);
-    }
+      background: var(--intent-warning-lightest);
 
-    &.${elPnIsInline} {
-      .${elPnContent} {
-        background: var(--color-white);
-        border: 2px var(--intent-critical-light) solid;
-      }
-
-      .${elPnIcon} {
-        background: var(--intent-critical-light);
-        border: 2px var(--intent-critical-light) solid;
-
-        svg {
-          color: var(--intent-critical);
-        }
+      svg {
+        color: var(--intent-warning);
       }
     }
   }
 
   &.${elIntentSuccess} {
     .${elPnContent} {
-      background: var(--intent-success-light);
-      color: var(--intent-success-light-text);
+      background: var(--intent-success-lightest);
     }
 
     .${elPnIcon} {
-      background: var(--intent-success);
-      color: var(--intent-success-text);
-    }
+      background: var(--intent-success-lightest);
 
-    &.${elPnIsInline} {
-      .${elPnContent} {
-        background: var(--color-white);
-        border: 2px var(--intent-success-light) solid;
-      }
-
-      .${elPnIcon} {
-        background: var(--intent-success-light);
-        border: 2px var(--intent-success-light) solid;
-
-        svg {
-          color: var(--intent-success);
-        }
+      svg {
+        color: var(--intent-success);
       }
     }
   }
 
   &.${elIntentDanger} {
     .${elPnContent} {
-      background: var(--intent-danger-light);
-      color: var(--intent-danger-light-text);
+      background: var(--intent-danger-lightest);
     }
 
     .${elPnIcon} {
-      background: var(--intent-danger);
-      color: var(--intent-danger-text);
-    }
+      background: var(--intent-danger-lightest);
 
-    &.${elPnIsInline} {
-      .${elPnContent} {
-        background: var(--color-white);
-        border: 2px var(--intent-danger-light) solid;
-      }
-
-      .${elPnIcon} {
-        background: var(--intent-danger-light);
-        border: 2px var(--intent-danger-light) solid;
-
-        svg {
-          color: var(--intent-danger);
-        }
+      svg {
+        color: var(--intent-danger);
       }
     }
   }

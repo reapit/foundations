@@ -23,13 +23,14 @@ export const ElModal = styled.div`
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 4px 16px 0px rgba(34, 43, 51, 0.16);
   border-radius: var(--default-border-radius);
   background: white;
   z-index: 99;
   width: 65%;
   min-width: 300px;
   max-width: 800px;
+  padding: 1.25rem 1.5rem;
 
   &.${elIsActive} {
     display: block;
@@ -38,14 +39,12 @@ export const ElModal = styled.div`
 `
 
 export const ElModalHeader = styled.div`
-  background: var(--color-grey-light);
   color: var(--color-black);
-  border-radius: var(--default-border-radius) var(--default-border-radius) 0 0;
   font-family: var(--font-sans-serif);
   font-weight: normal;
   font-size: var(--font-size-subheading);
-  padding: 0.5rem 0;
-  text-align: center;
+  margin-bottom: 1rem;
+  text-align: left;
 
   ${ElIcon} {
     position: absolute;
@@ -57,5 +56,5 @@ export const ElModalHeader = styled.div`
 `
 
 export const ElModalBody = styled.div`
-  padding: 2rem;
+  font-size: var(--font-size-default);
 `

@@ -6,6 +6,8 @@ export const elIntentSecondary = css``
 
 export const elIntentCritical = css``
 
+export const elIntentWarning = css``
+
 export const elIntentSuccess = css``
 
 export const elIntentDanger = css``

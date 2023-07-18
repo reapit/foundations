@@ -14,18 +14,31 @@ export const ElInputGroup = styled.div`
   flex-wrap: wrap;
 
   ${ElLabel} {
-    background: var(--component-input-bg);
+    /* background: var(--component-input-bg); */
     order: 1;
     flex-basis: 100%;
-    padding: 0.25rem 0 0 0.5rem;
+    padding: 0 0.5rem 0.5rem 0;
   }
 
   ${ElIcon} {
-    background: var(--component-input-bg);
-    border-bottom: var(--component-input-border-bottom);
+    /* background: var(--component-input-bg); */
+    color: var(--color-grey-medium-light);
+    border: var(--component-input-border);
+    border-right: none;
+    border-radius: 0.125rem 0 0 0.125rem;
     padding-left: 0.5rem;
     align-items: center;
     order: 2;
+  }
+
+  ${ElInputAddOn} {
+    /* background: var(--component-input-bg); */
+    border: var(--component-input-border);
+    border-left: none;
+    padding-right: 0.5rem;
+    align-items: center;
+    display: flex;
+    order: 5;
   }
 
   ${ElMultiSelectInputWrapper} ${ElIcon} {
@@ -44,11 +57,22 @@ export const ElInputGroup = styled.div`
     width: 100%;
   }
 
+  ${ElInput}:not([type='checkbox']):not([type='radio']):has(~ ${ElIcon}) {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  ${ElInput}:not([type='checkbox']):not([type='radio']):has(~ ${ElInputAddOn}), ${ElTextArea}:has(~ ${ElInputAddOn}), ${ElSelect}:has(~ ${ElInputAddOn}) {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
   ${ElInput}:not([type='checkbox']):not([type='radio']), ${ElTextArea}, ${ElSelect} {
     &:focus {
       ~ ${ElIcon}, ~ ${ElInputAddOn} {
-        background: var(--component-input-focus-bg);
-        border-bottom: var(--component-input-border-bottom-focus);
+        border-color: var(--intent-primary);
       }
     }
 
@@ -59,28 +83,18 @@ export const ElInputGroup = styled.div`
     }
   }
 
-  ${ElInputAddOn} {
-    background: var(--component-input-bg);
-    border-bottom: var(--component-input-border-bottom);
-    padding-right: 0.5rem;
-    align-items: center;
-    display: flex;
-    order: 5;
-  }
-
   ${ElInput}[type='checkbox'], ${ElInput}[type='radio'] {
     ~ ${ElIcon} {
       box-shadow: none;
       padding-left: 0;
       padding-right: 0.5rem;
-      border-bottom: none;
+      border: none;
     }
 
     ~ ${ElInputAddOn} {
       box-shadow: none;
       padding-left: 0.5rem;
-      flex-grow: 1;
-      border-bottom: none;
+      border: none;
     }
 
     &:checked {
@@ -115,5 +129,6 @@ export const ElInputGroup = styled.div`
     flex-grow: 1;
     display: flex;
     align-items: center;
+    padding: 0;
   }
 `

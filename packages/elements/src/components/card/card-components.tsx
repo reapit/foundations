@@ -24,7 +24,7 @@ import {
 } from './card'
 import { elCardContextMenuOpen, elCardFocussed } from './__styles__'
 import { Icon, IconNames } from '../icon'
-import { elMb5 } from '../../styles/spacing'
+import { elMb5, elMt5 } from '../../styles/spacing'
 import { Intent } from '../../helpers/intent'
 
 export interface CardListItemProps {
@@ -125,11 +125,11 @@ export const CardContextMenu: FC<CardContextMenuProps> = ({ className, contextMe
   return (
     <CardContextMenuWrapper className={className} {...rest}>
       <CardContextMenuToggle onClick={handleToggleContextMenu(contextMenuOpen, setContextMenuOpen)}>
-        <Icon icon="moreSystem" fontSize="1.25rem" />
+        <Icon icon="moreSystem" />
       </CardContextMenuToggle>
       <CardContextMenuItems className={cx(contextMenuOpen && elCardContextMenuOpen)}>
         <CardContextMenuItem onClick={handleToggleContextMenu(contextMenuOpen, setContextMenuOpen)}>
-          <Icon icon="closeSystem" fontSize="1.25rem" />
+          <Icon icon="closeSystem" />
         </CardContextMenuItem>
         {contextMenuItems.map(({ icon, intent, onClick }, index) => (
           <CardContextMenuItem key={index} onClick={onClick}>
@@ -138,7 +138,6 @@ export const CardContextMenu: FC<CardContextMenuProps> = ({ className, contextMe
               onMouseEnter={handleMouseHover(index, setHoverIndex)}
               onMouseLeave={handleMouseHover(null, setHoverIndex)}
               intent={hoverIndex === index ? intent : undefined}
-              fontSize="1.25rem"
             />
           </CardContextMenuItem>
         ))}
@@ -181,12 +180,12 @@ export const Card: FC<CardProps> = ({
               <CardSubHeadingAdditional>{mainCardSubHeadingAdditional}</CardSubHeadingAdditional>
             </CardHeadingWrap>
           </CardMainWrap>
-          <CardBodyWrap className={cx(hasListCard && elMb5)}>{mainCardBody}</CardBodyWrap>
+          {mainCardBody && <CardBodyWrap className={cx(hasListCard && elMb5)}>{mainCardBody}</CardBodyWrap>}
         </>
       )}
       {hasListCard && (
         <>
-          <CardListMainWrap>
+          <CardListMainWrap className={cx(hasMainCard && elMt5)}>
             {listContextMenuItems && <CardContextMenu contextMenuItems={listContextMenuItems} />}
             <CardListHeading>{listCardHeading}</CardListHeading>
             <CardListSubHeading>{listCardSubHeading}</CardListSubHeading>

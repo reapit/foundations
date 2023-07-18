@@ -186,21 +186,27 @@ export const elGlobals = css`
       --color-accent-blue-dark: #0056ad; // Blue 700
       --color-accent-yellow: #ffa000; // Yellow 500
       --color-accent-yellow-light: #ffc666; // Yellow 300
+      --color-accent-yellow-light: #fff7eb; // Yellow 50
       --color-accent-yellow-dark: #ad6c00; // Yellow 700
       --color-accent-orange: #ff6000; // Orange 500
       --color-accent-orange-light: #ff9f66; // Orange 300
+      --color-accent-orange-lightest: #fff2eb; // Orange 50
       --color-accent-orange-dark: #ad4100; // Orange 700
       --color-accent-green: #20c040; // Green 500
       --color-accent-green-light: #79d98c; // Green 300
+      --color-accent-green-lightest: #edfaf0; // Green 50
       --color-accent-green-dark: #15822b; // Green 700
       --color-accent-red: #f01830; // Red 500
       --color-accent-red-light: #f67482; // Red 300
+      --color-accent-red-lightest: #fdecee; // Red 50
       --color-accent-red-dark: #a21020; // Red 700
       --color-accent-purple: #8040ff; // Purple 500
       --color-accent-purple-light: #b28cff; // Purple 300
+      --color-accent-purple-lightest: #f5f0ff; // Purple 50
       --color-accent-purple-dark: #562bad; // Purple 700
       --color-accent-teal: #009b96; // Teal 500
       --color-accent-teal-light: #64d2c8; // Teal 300
+      --color-accent-teal-lightest: #e4fafc; // Teal 50
       --color-accent-teal-dark: #00726e; // Teal 700
 
       /* Brand colors - defaults to primary */
@@ -238,6 +244,19 @@ export const elGlobals = css`
       --intent-success-light-text: var(--color-black);
       --intent-danger-light-text: var(--color-black);
 
+      /* intent lightest colors */
+      --intent-primary-lightest: var(--color-accent-blue-lightest);
+      --intent-warning-lightest: var(--color-accent-orange-lightest);
+      --intent-pending-lightest: var(--color-accent-yellow-lightest);
+      --intent-success-lightest: var(--color-accent-green-lightest);
+      --intent-danger-lightest: var(--color-accent-red-lightest);
+      --intent-primary-lightest-text: var(--color-black);
+      --intent-secondary-lightest-text: var(--color-black);
+      --intent-warning-lightest-text: var(--color-black);
+      --intent-pending-lightest-text: var(--color-black);
+      --intent-success-lightest-text: var(--color-black);
+      --intent-danger-lightest-text: var(--color-black);
+
       /** intent dark colors */
       --intent-primary-dark: var(--color-accent-blue-dark);
       --intent-warning-dark: var(--color-accent-orange-dark);
@@ -273,8 +292,8 @@ export const elGlobals = css`
       --component-input-bg: var(--color-white);
       --component-input-focus-bg: var(--color-grey-light);
       --component-input-shadow: inset 0px -1px 0px #000000;
-      --component-input-border-bottom: 1px solid var(--color-grey-light);
-      --component-input-border-bottom-focus: 1px solid #000000;
+      --component-input-border: 1px solid #d8dee4;
+      --component-input-border-focus: 1px solid var(--color-accent-blue);
       --component-steps-gutter-width: 12px;
       --component-table-min-column-width: 3rem;
 
@@ -317,6 +336,8 @@ export const elGlobals = css`
       --layout-size-2_3: calc(2rem / 3);
       --layout-size-2: 2rem;
       --layout-size-3: 3rem;
+      --component-input-border-bottom: 1px solid #d8dee4;
+      --component-input-border-bottom-focus: 1px solid #000000;
     }
   }
 `

@@ -7,18 +7,16 @@ export const elCardContextMenuOpen = css`
 `
 
 export const elCardFocussed = css`
-  border: 1px solid var(--color-blue-light2);
-  box-shadow: 0px 2px 9px rgba(20, 164, 224, 0.16);
+  background-color: var(--color-accent-blue-lightest);
+  /* box-shadow: 0px 2px 9px rgba(20, 164, 224, 0.16); */
 `
 
 export const ElCardWrap = styled.div`
-  padding: 0.75rem;
+  padding: 1rem;
   border-radius: 0.25rem;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.03);
-  border: 1px solid var(--color-grey-medium);
   background: var(--color-white);
   position: relative;
-  border: 1px solid var(--color-white);
 
   ${isTablet} {
     padding: 1.25rem;
@@ -26,16 +24,17 @@ export const ElCardWrap = styled.div`
   }
 
   &.${elCardFocussed} {
-    border: 1px solid var(--color-blue-light2);
-    box-shadow: 0px 2px 9px rgba(20, 164, 224, 0.16);
+    background-color: var(--color-accent-blue-lightest);
+    /* box-shadow: 0px 2px 9px rgba(20, 164, 224, 0.16); */
   }
 `
 
 export const ElCardHeadingWrap = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   overflow: hidden;
   width: 100%;
+  justify-content: space-between;
 `
 
 export const ElCardMainWrap = styled.div`
@@ -50,7 +49,9 @@ export const ElCardHeading = styled.h5`
   -webkit-box-orient: vertical;
   overflow: hidden;
   white-space: normal;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.25rem;
+  width: 100%;
+  font-size: var(--font-size-default);
 
   ${isTablet} {
     font-size: var(--font-size-subheading);
@@ -65,23 +66,25 @@ export const ElCardSubHeading = styled.h6`
   white-space: nowrap;
   overflow: hidden;
   font-size: var(--font-size-small);
+  /* justify-self: flex-start; */
 
-  ${isTablet} {
+  /* ${isTablet} {
     font-size: var(--font-size-default);
-  }
+  } */
 `
 
 export const elCardSubHeadingAdditionalExpanded = css``
 
 export const ElCardSubHeadingAdditional = styled.h6`
   color: var(--color-grey-dark);
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: var(--font-size-small);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  margin-bottom: 1.25rem;
+  /* margin-bottom: 1.25rem; */
   display: flex;
+  /* justify-self: flex-end; */
   justify-content: space-between;
 `
 
@@ -99,6 +102,7 @@ export const ElCardBodyWrap = styled.div`
   font-size: var(--font-size-small);
   transition: height 0.2s linear;
   transition: margin-bottom 0.2s linear;
+  margin-top: 0.5rem;
 
   ${isTablet} {
     height: 3.5rem;
@@ -146,18 +150,18 @@ export const ElCardImageWrap = styled.div`
   justify-content: center;
   background-color: var(--color-grey-light);
   margin-right: 0.5rem;
-  border-radius: 0.25rem;
-  width: 5rem;
-  height: 5rem;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
 
   img {
-    max-width: 52px;
+    max-width: 2.5rem;
   }
 
   ${isTablet} {
     margin-bottom: 1.25rem;
     padding: 1rem;
-    height: 6.25rem;
+    /* height: 6.25rem; */
   }
 `
 
@@ -172,7 +176,7 @@ export const ElCardListMainWrap = styled.div`
   flex-wrap: nowrap;
   position: relative;
   flex-direction: column;
-  height: 4rem;
+  /* height: 4rem; */
 `
 
 export const ElCardListHeading = styled.h5`
@@ -180,11 +184,13 @@ export const ElCardListHeading = styled.h5`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  font-size: var(--font-size-default);
+  margin-bottom: 0.25rem;
 
-  ${isTablet} {
-    font-size: var(--font-size-subheading);
-    line-height: 24px;
-  }
+  /* ${isTablet} { */
+  /* font-size: var(--font-size-subheading); */
+  /* line-height: 24px; */
+  /* } */
 `
 
 export const ElCardListSubHeading = styled.h6`
@@ -193,12 +199,13 @@ export const ElCardListSubHeading = styled.h6`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  margin-bottom: 1.25rem;
-  transition: margin-bottom 0.2s linear;
+  margin-bottom: 0.75rem;
+  /* margin-bottom: 1.25rem; */
+  /* transition: margin-bottom 0.2s linear; */
 
-  ${isTablet} {
-    font-size: var(--font-size-default);
-  }
+  /* ${isTablet} { */
+  /* font-size: var(--font-size-default); */
+  /* } */
 `
 
 export const elCardListItemExpanded = css`
@@ -212,7 +219,7 @@ export const elCardListItemExpanded = css`
 
 export const ElCardListItem = styled.div`
   display: flex;
-  height: 2.5rem;
+  height: 2rem;
   margin-bottom: 0.5rem;
   overflow: hidden;
 
@@ -222,14 +229,15 @@ export const ElCardListItem = styled.div`
 `
 
 export const ElCardListItemTextWrap = styled.div`
-  font-size: 0.85rem;
+  font-size: var(--font-size-small);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   cursor: pointer;
-
+  /* 
   ${isTablet} {
     font-size: var(--font-size-default);
-  }
+  } */
 `
 
 export const ElCardListItemTextPrimary = styled.div`
@@ -237,7 +245,7 @@ export const ElCardListItemTextPrimary = styled.div`
 `
 
 export const ElCardListItemTextSecondary = styled.div`
-  font-size: 0.85rem;
+  font-size: var(--font-size-small);
   color: var(--intent-primary);
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -249,8 +257,8 @@ export const ElCardListIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2em;
+  width: 2em;
   background: var(--color-grey-light);
   margin-right: 0.5rem;
   border-radius: 0.25rem;

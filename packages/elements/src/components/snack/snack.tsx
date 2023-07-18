@@ -37,7 +37,7 @@ export const Snack: FC<SnackProps> = ({ icon, intent = 'secondary', className, o
 
   return (
     <ElSnack className={combinedClassName} {...rest}>
-      {icon && <Icon className={elSnackIcon} intent={intent} fontSize="1.25rem" icon={icon} />}
+      {icon && <Icon className={elSnackIcon} intent={intent} icon={icon} />}
       {children}
       {onRemove && <Icon className={elSnackCloseIcon} data-testid="close-icon" onClick={onRemove} icon="closeSystem" />}
     </ElSnack>
