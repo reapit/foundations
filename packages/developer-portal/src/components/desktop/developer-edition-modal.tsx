@@ -127,8 +127,9 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
   const loginIdentity = selectLoginIdentity(connectSession)
   const { currentDeveloper, currentMember } = globalDataState
   const agencyCloudId = loginIdentity?.agencyCloudId
-  const desktopIsFree = Boolean(agencyCloudId && agencyCloudId !== 'SBOX' && agencyCloudId !== 'SBXA')
-  const isClientAndClientData = desktopIsFree && Boolean(connectSession?.loginIdentity.clientId !== 'SBOX')
+  const isSandbox = Boolean(agencyCloudId && agencyCloudId !== 'SBOX' && agencyCloudId !== 'SBXA')
+  const desktopIsFree = isSandbox || currentDeveloper?.developerEditionSubscriptionCost === 0
+  const isClientAndClientData = isSandbox && Boolean(connectSession?.loginIdentity.clientId !== 'SBOX')
 
   useEffect(handleModalOpen(openModal, visible), [visible])
 

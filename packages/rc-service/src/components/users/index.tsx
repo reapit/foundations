@@ -42,7 +42,13 @@ export const UsersPage: FC = () => {
   const [userSearch, setUserSearch] = useState<UserFilters>({})
   const [pageNumber, setPageNumber] = useState<number>(1)
   const { register, watch } = useForm<UserFilters>({ mode: 'all' })
-  const queryParams = objectToQuery(userSearch)
+  const emailQuery = {
+    email: userSearch.email ? encodeURIComponent(userSearch.email) : undefined,
+  }
+  const queryParams = objectToQuery({
+    ...userSearch,
+    ...emailQuery,
+  })
 
   const [users, usersLoading, , refreshUsers] = useReapitGet<UserModelPagedResult>({
     reapitConnectBrowserSession,
@@ -66,11 +72,20 @@ export const UsersPage: FC = () => {
         <FormLayout hasMargin>
           <InputWrap>
             <InputGroup
+              {...register('organisationName')}
+              type="search"
+              icon="searchSystem"
+              placeholder="Search by organisation name"
+              label="Org Name"
+            />
+          </InputWrap>
+          <InputWrap>
+            <InputGroup
               {...register('email')}
               type="search"
               icon="searchSystem"
               placeholder="Search by email"
-              label="Email"
+              label="User Email"
             />
           </InputWrap>
           <InputWrap>
@@ -79,17 +94,23 @@ export const UsersPage: FC = () => {
               type="search"
               icon="searchSystem"
               placeholder="Search by user name"
-              label="Name"
+              label="User Name"
             />
           </InputWrap>
           <InputWrap>
-            <InputGroup
-              {...register('organisationName')}
-              type="search"
-              icon="searchSystem"
-              placeholder="Search by organisation name"
-              label="Org Name"
-            />
+            <InputGroup>
+              <Select {...register('groupId')}>
+                <option key="default-option" value={''}>
+                  Please Select
+                </option>
+                {userGroups?._embedded?.map(({ id }) => (
+                  <option key={id} value={id}>
+                    {id}
+                  </option>
+                ))}
+              </Select>
+              <Label htmlFor="myId">Select User Group</Label>
+            </InputGroup>
           </InputWrap>
           <InputWrap>
             <Label>User Active</Label>
@@ -117,21 +138,6 @@ export const UsersPage: FC = () => {
                 },
               ]}
             />
-          </InputWrap>
-          <InputWrap>
-            <InputGroup>
-              <Select {...register('groupId')}>
-                <option key="default-option" value={''}>
-                  Please Select
-                </option>
-                {userGroups?._embedded?.map(({ id }) => (
-                  <option key={id} value={id}>
-                    {id}
-                  </option>
-                ))}
-              </Select>
-              <Label htmlFor="myId">Select User Group</Label>
-            </InputGroup>
           </InputWrap>
         </FormLayout>
       </form>
