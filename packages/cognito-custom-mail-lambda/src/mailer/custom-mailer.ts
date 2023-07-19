@@ -47,46 +47,44 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
 const useOldTemplates = false
 
 export const customMailer: CognitoUserPoolTriggerHandler = async (event, _context, callback) => {
-  if (event.userPoolId === process.env.COGNITO_USERPOOL_ID) {
-    switch (event.triggerSource) {
-      case 'CustomMessage_ForgotPassword': {
-        event.response.emailSubject = 'Reapit Connect - Forgotten Password'
-        const obj = {
-          verificationCode: event.request.codeParameter as string,
-          userName: event.request.userAttributes.name,
-          url: resetPasswordUrl,
-        }
-        event.response.emailMessage = useOldTemplates
-          ? oldTemplates.forgotPasswordTemplate(obj)
-          : format(forgotPasswordTemplate, obj)
-        break
+  switch (event.triggerSource) {
+    case 'CustomMessage_ForgotPassword': {
+      event.response.emailSubject = 'Reapit Connect - Forgotten Password'
+      const obj = {
+        verificationCode: event.request.codeParameter as string,
+        userName: event.request.userAttributes.name,
+        url: resetPasswordUrl,
       }
+      event.response.emailMessage = useOldTemplates
+        ? oldTemplates.forgotPasswordTemplate(obj)
+        : format(forgotPasswordTemplate, obj)
+      break
+    }
 
-      case 'CustomMessage_SignUp': {
-        event.response.emailSubject = 'Welcome to Reapit Connect'
-        const obj = {
-          url: await getConfirmRegistrationUrl(event.request.userAttributes.email),
-          userName: event.request.userAttributes.name,
-        }
-        event.response.emailMessage = useOldTemplates
-          ? oldTemplates.confirmRegistrationTemplate(obj)
-          : format(confirmRegistrationTemplate, obj)
-        break
+    case 'CustomMessage_SignUp': {
+      event.response.emailSubject = 'Welcome to Reapit Connect'
+      const obj = {
+        url: await getConfirmRegistrationUrl(event.request.userAttributes.email),
+        userName: event.request.userAttributes.name,
       }
+      event.response.emailMessage = useOldTemplates
+        ? oldTemplates.confirmRegistrationTemplate(obj)
+        : format(confirmRegistrationTemplate, obj)
+      break
+    }
 
-      case 'CustomMessage_AdminCreateUser': {
-        event.response.emailSubject = 'Welcome to Reapit Connect'
-        const obj = {
-          name: event.request.userAttributes.name,
-          userName: event.request.userAttributes.name,
-          url: await getConfirmRegistrationUrl(event.request.userAttributes.email),
-          verificationCode: event.request.codeParameter as string,
-        }
-        event.response.emailMessage = `${
-          useOldTemplates ? oldTemplates.adminUserInviteTemplate(obj) : format(adminUserInviteTemplate, obj)
-        }`
-        break
+    case 'CustomMessage_AdminCreateUser': {
+      event.response.emailSubject = 'Welcome to Reapit Connect'
+      const obj = {
+        name: event.request.userAttributes.name,
+        userName: event.request.userAttributes.name,
+        url: await getConfirmRegistrationUrl(event.request.userAttributes.email),
+        verificationCode: event.request.codeParameter as string,
       }
+      event.response.emailMessage = `${
+        useOldTemplates ? oldTemplates.adminUserInviteTemplate(obj) : format(adminUserInviteTemplate, obj)
+      }`
+      break
     }
   }
   callback(null, event)
