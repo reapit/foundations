@@ -49,7 +49,7 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
             approval.
           </BodyText>
           <Button
-            intent="secondary"
+            intent="primary"
             onMouseEnter={handleMouseOver(setManageIsAnimated, true)}
             onMouseLeave={handleMouseOver(setManageIsAnimated, false)}
             onClick={handleOpenModal(openModal)}
@@ -119,7 +119,7 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
             <BodyText hasGreyText>You have no unsaved changes to your app listing</BodyText>
           )}
         </div>
-        <ButtonGroup alignment="center">
+        <ButtonGroup alignment="right">
           <Button fixedWidth intent="low" onClick={closeModal}>
             Close
           </Button>

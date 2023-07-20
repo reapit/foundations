@@ -7,6 +7,9 @@ import {
   elIntentSuccess,
   elIntentDanger,
   elIntentNeutral,
+  elIntentLow,
+  elIntentPending,
+  elIntentWarning,
 } from '../../../styles/intent'
 
 export const elIconSizeSmallest = css`
@@ -37,21 +40,21 @@ export const elIconMenu = css`
 
 export const ElIcon = styled.span`
   display: flex;
-  color: black;
+  color: var(--color-black);
 
   svg {
     width: 1em;
     height: 1em;
   }
 
-  &.${elIntentPrimary} {
+  &.${elIntentPrimary}, &.${elIntentCritical}, &.${elIntentSecondary} {
     color: var(--intent-primary);
   }
-  &.${elIntentSecondary} {
-    color: var(--intent-secondary);
+  &.${elIntentWarning} {
+    color: var(--intent-warning);
   }
-  &.${elIntentCritical} {
-    color: var(--intent-critical);
+  &.${elIntentPending} {
+    color: var(--intent-pending);
   }
   &.${elIntentSuccess} {
     color: var(--intent-success);
@@ -59,7 +62,7 @@ export const ElIcon = styled.span`
   &.${elIntentDanger} {
     color: var(--intent-danger);
   }
-  &.${elIntentNeutral} {
-    color: var(--intent-primary-text);
+  &.${elIntentNeutral}, &.${elIntentLow} {
+    color: var(--intent-neutral);
   }
 `

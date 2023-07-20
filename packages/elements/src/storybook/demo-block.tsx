@@ -15,7 +15,6 @@ export const GridDemoBlockFeatured = styled.div`
   align-items: center;
   justify-content: center;
   color: white;
-  font-weight: bold;
 `
 
 export const GridDemoBlockWithMargin = styled.div`
@@ -23,7 +22,6 @@ export const GridDemoBlockWithMargin = styled.div`
   background-color: var(--color-blue-light2);
   margin: 0.5rem;
   color: white;
-  font-weight: bold;
   text-align: center;
   font-size: 1.5rem;
   display: flex;
@@ -35,7 +33,6 @@ export const GridDemoBlockWithMargin = styled.div`
 export const GridDemoBlockSizing = styled.div`
   background-color: var(--color-blue-light2);
   color: var(--color-grey-dark);
-  font-weight: bold;
   text-align: center;
   display: flex;
   align-items: center;
@@ -49,7 +46,6 @@ export const GridDemoBorders = styled.div`
   color: var(--color-grey-dark);
   padding: 1rem;
   width: 100%;
-  font-weight: bold;
   text-align: center;
   display: flex;
   align-items: center;

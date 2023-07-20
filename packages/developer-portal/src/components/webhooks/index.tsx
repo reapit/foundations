@@ -48,8 +48,8 @@ export const WebhooksWrapper: FC = () => {
       {isMobile && apps?.data && (
         <Modal title="Filters">
           <WebhooksControls />
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="secondary" onClick={closeModal}>
+          <ButtonGroup alignment="right">
+            <Button fixedWidth intent="primary" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>

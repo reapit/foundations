@@ -28,7 +28,7 @@ export const ElementsPage: FC = () => {
         <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.elementsDocs)}>
           View Docs
         </Button>
-        <Button className={elMb5} intent="critical" onClick={openNewPage(process.env.elementsUri)}>
+        <Button className={elMb5} intent="primary" onClick={openNewPage(process.env.elementsUri)}>
           Storybook
         </Button>
       </SecondaryNavContainer>

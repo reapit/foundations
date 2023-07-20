@@ -6,6 +6,7 @@ import {
   elIntentCritical,
   elIntentSuccess,
   elIntentDanger,
+  elIntentWarning,
 } from '../../../styles/intent'
 
 export const elShapeTag = css``
@@ -18,22 +19,16 @@ export const ElStatusIndicator = styled.span`
   margin: 0 0.25rem;
   background: var(--color-grey-medium);
 
-  &.${elIntentPrimary} {
+  &.${elIntentPrimary}, &.${elIntentSecondary}, &.${elIntentCritical} {
     background-image: linear-gradient(to right, var(--intent-primary), var(--intent-primary));
     color: var(--intent-primary-text);
     outline-color: var(--intent-primary-dark);
   }
 
-  &.${elIntentSecondary} {
-    background-image: linear-gradient(to right, var(--intent-secondary), var(--intent-secondary));
-    color: var(--intent-secondary-text);
-    outline-color: var(--intent-secondary-dark);
-  }
-
-  &.${elIntentCritical} {
-    background-image: linear-gradient(to right, var(--intent-critical), var(--intent-critical));
-    color: var(--intent-critical-text);
-    outline-color: var(--intent-critical-dark);
+  &.${elIntentWarning} {
+    background-image: linear-gradient(to right, var(--intent-warning), var(--intent-warning));
+    color: var(--intent-warning-text);
+    outline-color: var(--intent-warning-dark);
   }
 
   &.${elIntentSuccess} {

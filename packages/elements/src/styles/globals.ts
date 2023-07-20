@@ -6,6 +6,7 @@ export const intentSecondary = '#66b2ff'
 export const intentCritical = '#ffa000'
 export const intentSuccess = '#20c040'
 export const intentDanger = '#f01830'
+export const intentNeutral = '#798da1'
 
 export const elGlobals = css`
   :global() {
@@ -177,7 +178,7 @@ export const elGlobals = css`
       --color-grey-medium: #798da1; // Neutral 400
       --color-grey-medium-light: #9faebc; // Neutral 300
       --color-grey-light: #e5e9ed; // Neutral 100
-      --color-grey-lightest: #ebf5ff; // Neutral 50
+      --color-grey-lightest: #f2f4f6;
 
       /** shades of blue color variables and accent colors */
       --color-accent-blue: #0080ff; // Blue 500
@@ -279,6 +280,10 @@ export const elGlobals = css`
       --font-size-subheading: 1.25rem;
       --font-size-default: 0.9375rem;
       --font-size-small: 0.875rem;
+      --font-size-smallest: 0.75rem;
+      --font-weight-default: 400;
+      --font-weight-medium: 500;
+      --font-weight-bold: 600;
 
       /** layout size */
       --layout-size-base: 1rem;
@@ -310,7 +315,7 @@ export const elGlobals = css`
       --info-graphic-accent-color-dark: #415161; // Neutral 700
       --info-graphic-accent-color-med: #506478; // Neutral 600
       --info-graphic-accent-color-light: #798da1; // Neutral 400
-      --info-graphic-accent-color-lightest: #798da1; // Neutral 400
+      --info-graphic-accent-color-lightest: #d8dee4; // Neutral 150
       --info-graphic-accent-color-white: #fff; // White
       --info-graphic-accent-color-bright: #d6eaff; // Blue 100
 

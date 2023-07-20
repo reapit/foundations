@@ -1,5 +1,5 @@
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="20" cy="21" rx="19" ry="18.5" fill="var(--info-graphic-accent-color-var(--info-graphic-accent-color-white))"/>
+<ellipse cx="20" cy="21" rx="19" ry="18.5" fill="var(--info-graphic-accent-color-white)"/>
 <path d="M18.872 38.1512V33.2986C17.4034 33.3465 15.9491 33.4732 14.5389 33.694C15.7279 36.0356 17.23 37.6377 18.872 38.1512Z" fill="var(--info-graphic-accent-color-med)"/>
 <path d="M13.6513 31.6417C15.3516 31.3456 17.1015 31.1744 18.8796 31.1248V22.0889H11.9086C12.0183 25.6492 12.6534 28.9475 13.6513 31.6417Z" fill="var(--info-graphic-accent-color-med)"/>
 <path d="M28.0919 22.0889H21.1244V31.1248C22.9008 31.1761 24.6524 31.3456 26.3527 31.6417C27.3488 28.9475 27.9857 25.6492 28.0919 22.0889Z" fill="var(--info-graphic-accent-color-light)"/>

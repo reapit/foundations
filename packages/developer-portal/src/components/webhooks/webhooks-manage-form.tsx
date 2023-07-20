@@ -206,7 +206,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
             Delete
           </Button>
           <Button
-            intent="secondary"
+            intent="primary"
             type="button"
             disabled={isLoading}
             loading={isLoading}
@@ -298,7 +298,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
         </BodyText>
         <FlexContainer isFlexJustifyCenter>
           <ButtonGroup>
-            <Button intent="secondary" onClick={closeModal}>
+            <Button intent="primary" onClick={closeModal}>
               Cancel
             </Button>
             <Button intent="danger" onClick={handleWebhookDelete(deleteWebhook, closeModal)}>

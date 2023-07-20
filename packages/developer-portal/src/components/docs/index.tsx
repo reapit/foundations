@@ -63,12 +63,12 @@ const DocsPage: FC = () => {
             Go to Github
           </Button>
           {isDocsPage && (
-            <Button className={elMb5} intent="critical" onClick={openNewPage(ExternalPages.baseDocs)}>
+            <Button className={elMb5} intent="primary" onClick={openNewPage(ExternalPages.baseDocs)}>
               Open Docs
             </Button>
           )}
           {isSchemaPage && isDevEnv && (
-            <Button className={elMb5} intent="critical" onClick={openNewPage(process.env.analyticsSchemaDocsUrl)}>
+            <Button className={elMb5} intent="primary" onClick={openNewPage(process.env.analyticsSchemaDocsUrl)}>
               Open Schema
             </Button>
           )}

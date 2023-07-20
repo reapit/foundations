@@ -2,10 +2,9 @@ import { styled } from '@linaria/react'
 
 export const ElInput = styled.input`
   display: flex;
-  color: black;
+  color: var(--color-black);
   background: var(--component-input-bg);
   padding: 0.5rem 0.6875rem;
-  border: none;
   margin: 0;
   font-family: var(--font-sans-serif);
   font-size: var(--font-size-small);
@@ -23,7 +22,6 @@ export const ElInput = styled.input`
 
   &:focus {
     outline: none;
-    /* background: var(--component-input-focus-bg); */
   }
 
   &::placeholder {
@@ -46,9 +44,9 @@ export const ElInput = styled.input`
 
   &[type='checkbox'] {
     appearance: none;
-    border: 1px solid var(--color-grey-medium);
+    border: 1px solid var(--color-grey-light);
     background-color: var(--color-white);
-    border-radius: 0.25rem;
+    border-radius: 0.125rem;
     width: 1.5rem;
     height: 1.5rem;
 

@@ -9,11 +9,7 @@ export const ElMainContainer = styled.main`
   height: 100vh;
   overflow-y: visible;
   overflow-x: hidden;
-  background: var(--color-grey-light);
-
-  /* ${isTablet} {
-    flex-direction: row;
-  } */
+  background: var(--color-grey-lightest);
 `
 
 export const ElPageContainer = styled.section`

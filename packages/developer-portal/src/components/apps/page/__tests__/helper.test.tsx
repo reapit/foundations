@@ -1,6 +1,6 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { AppRevisionModel, AppRevisionModelPagedResult } from '@reapit/foundations-ts-definitions'
-import React from 'react'
+import React, { MouseEvent } from 'react'
 import Routes from '../../../../constants/routes'
 import { render } from '../../../../tests/react-testing'
 import { mockAppSummaryModelPagedResult } from '../../../../tests/__stubs__/apps'
@@ -10,6 +10,9 @@ import { mockAppState } from '../../state/__mocks__/use-app-state'
 import {
   handleCancelPendingRevsion,
   handleCancelSuccess,
+  handleDeleteApp,
+  handleOpenModal,
+  handleRefreshApps,
   handleSetAppEditSaving,
   handleSetRevisionId,
   Helper,
@@ -230,5 +233,48 @@ describe('handleCancelSuccess', () => {
     expect(appsDetailRefresh).toHaveBeenCalledTimes(1)
     expect(appRefreshRevisions).toHaveBeenCalledTimes(1)
     expect(setRevisionId).toHaveBeenCalledWith(null)
+  })
+
+  it('should handle refresh apps', () => {
+    const appDeleted = true
+    const refreshApps = jest.fn()
+    const closeModal = jest.fn()
+
+    const curried = handleRefreshApps(refreshApps, closeModal, appDeleted)
+
+    curried()
+
+    expect(refreshApps).toHaveBeenCalledTimes(1)
+    expect(closeModal).toHaveBeenCalledTimes(1)
+  })
+
+  it('should handle delete apps', async () => {
+    const event = {
+      stopPropagation: jest.fn(),
+    } as unknown as MouseEvent
+    const deleteApps = jest.fn(() => Promise.resolve(true))
+    const navigate = jest.fn()
+
+    const curried = handleDeleteApp(deleteApps, navigate)
+
+    await curried(event)
+
+    expect(deleteApps).toHaveBeenCalledTimes(1)
+    expect(navigate).toHaveBeenCalledWith(Routes.APPS)
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
+  })
+
+  it('should handle opening modal', () => {
+    const event = {
+      stopPropagation: jest.fn(),
+    } as unknown as MouseEvent
+    const openModal = jest.fn()
+
+    const curried = handleOpenModal(openModal)
+
+    curried(event)
+
+    expect(openModal).toHaveBeenCalledTimes(1)
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
   })
 })

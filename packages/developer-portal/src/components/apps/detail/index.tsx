@@ -396,7 +396,7 @@ export const AppDetail: FC = () => {
       </Grid>
     </>
   ) : (
-    <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
+    <PersistentNotification intent="primary" isExpanded isFullWidth isInline>
       No record of this app found
     </PersistentNotification>
   )

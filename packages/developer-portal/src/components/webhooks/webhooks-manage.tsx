@@ -120,14 +120,14 @@ export const WebhooksManage: FC = () => {
 
   if (!applicationId)
     return (
-      <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+      <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
         No app selected. Please use the filter option to select an app.
       </PersistentNotification>
     )
   if (subscriptionsLoading) return <Loader />
   if (!rows.length)
     return (
-      <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+      <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
         No webhooks found for your application. You can create one from the New Webhook wizard.
       </PersistentNotification>
     )

@@ -96,7 +96,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
   const isDisabled = isLoading || member.email === currentMemberEmail
 
   return (
-    <ButtonGroup alignment="center">
+    <ButtonGroup alignment="right">
       <Button
         intent="primary"
         disabled={isDisabled}
@@ -109,7 +109,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
         Set As {member.role === 'admin' ? 'User' : 'Admin'}
       </Button>
       <Button
-        intent="secondary"
+        intent="primary"
         disabled={isDisabled}
         loading={isLoading}
         onClick={handleReinviteMember(reinviteMember, member, connectSession)}
@@ -131,7 +131,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
       )}
       {!member.isMainContact && (
         <Button
-          intent="secondary"
+          intent="primary"
           disabled={isLoading}
           loading={isLoading}
           onClick={handleUpdateMember(updateMember, {

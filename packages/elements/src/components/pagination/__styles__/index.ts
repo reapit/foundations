@@ -16,9 +16,8 @@ export const ElPaginationText = styled.div`
 export const ElPaginationInput = styled.input`
   font-size: var(--font-size-small);
   text-align: center;
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   padding: 0 0.5rem;
-  border: none;
   margin: 0;
   font-family: var(--font-sans-serif);
   border-radius: 0.2rem;
@@ -28,15 +27,14 @@ export const ElPaginationInput = styled.input`
 
   &:focus {
     outline: none;
-    background: var(--component-input-focus-bg);
   }
 `
 
 export const ElPaginationButton = styled.button`
   width: 2rem;
   height: 2rem;
-  border: none;
-  background: var(--color-grey-light);
+  border: 1px solid var(--component-input-focus-bg);
+  background: var(--color-white);
   border-radius: 0.2rem;
   display: flex;
   justify-content: center;

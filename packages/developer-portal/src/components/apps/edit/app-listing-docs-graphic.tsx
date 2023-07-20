@@ -216,34 +216,43 @@ export const AppListingDocsGraphic: FC<AppListingDocsGraphicProps> = ({ isAnimat
           <path
             d="M119.024,61.4515L69.9983,44.21L20.9727,61.4515L69.9983,78.9543L119.024,61.4515Z"
             transform="translate(-69.99835,-61.58215)"
-            fill="#23a4de"
+            fill="var(--info-graphic-accent-color-med)"
           />
         </g>
         <g id="app-listing-docs-two" transform="translate(94.509052,61.58215)">
           <path
             d="M119.022,61.4515L69.9961,44.21v34.7443L119.022,61.4515Z"
             transform="translate(-94.509052,-61.58215)"
-            fill="#0061a8"
+            fill="var(--info-graphic-accent-color-light)"
           />
         </g>
         <g transform="translate(.000001 0)">
           <g transform="translate(.000001 0)">
             <path
               d="M88.5528,8.83691h-38.2352c-3.7098,0-6.7278,3.07939-6.7278,6.86359v82.1929c0,3.7846,3.018,6.8636,6.7278,6.8636h38.2352c3.7098,0,6.7286-3.079,6.7286-6.8636v-82.1929c0-3.7842-3.0188-6.86359-6.7286-6.86359v0Z"
-              fill="#262f69"
+              fill="var(--info-graphic-accent-color-darkest)"
             />
             <path
               d="M88.529,12.8105h-5.6823c-.5361,0-.9703.4429-.9703.9889c0,1.3117-1.0515,2.3843-2.3365,2.3843h-20.2552c-1.2859,0-2.3374-1.0726-2.3374-2.3843c0-.546-.4341-.9889-.9703-.9889h-5.6823c-1.5652,0-2.8338,1.2941-2.8338,2.8898v64.8486h43.9019v-64.8486c0-1.5957-1.2686-2.8898-2.8338-2.8898Z"
-              fill="#fff"
+              fill="var(--info-graphic-accent-color-white)"
             />
           </g>
           <g transform="translate(0 0.000001)">
-            <path d="M50.8828,45.4146l18.576-18.2154l18.576,18.2154v25.1546h-37.152v-25.1546Z" fill="#262f69" />
-            <path d="M50.8828,45.4146l18.576-18.2154l18.576,18.2154v14.3121L50.8828,45.4146Z" fill="#7bc9eb" />
-            <path d="M88.036,70.5692h-10.8737L61.7578,34.7519L69.46,27.1992L88.036,45.4146v25.1546Z" fill="#0061a8" />
+            <path
+              d="M50.8828,45.4146l18.576-18.2154l18.576,18.2154v25.1546h-37.152v-25.1546Z"
+              fill="var(--info-graphic-accent-color-darkest)"
+            />
+            <path
+              d="M50.8828,45.4146l18.576-18.2154l18.576,18.2154v14.3121L50.8828,45.4146Z"
+              fill="var(--info-graphic-accent-color-lightest)"
+            />
+            <path
+              d="M88.036,70.5692h-10.8737L61.7578,34.7519L69.46,27.1992L88.036,45.4146v25.1546Z"
+              fill="var(--info-graphic-accent-color-light)"
+            />
             <path
               d="M88.036,45.4146v14.3121L69.46,52.6606L61.7578,34.7519L69.46,27.1992L88.036,45.4146Z"
-              fill="#32bcfa"
+              fill="var(--info-graphic-accent-color-bright)"
             />
           </g>
         </g>
@@ -252,31 +261,37 @@ export const AppListingDocsGraphic: FC<AppListingDocsGraphicProps> = ({ isAnimat
             <path
               d="M70.011522,75.96449c-.190118.78125-.061612,3.42125,0,5.28l3.903961-3.524822-3.903961-1.755178Z"
               transform="translate(.000001 0.000003)"
-              fill="#262f69"
+              fill="var(--info-graphic-accent-color-darkest)"
               strokeWidth="0.28"
             />
             <path
               d="M69.992961,76.053166l-.017109,5.286723l3.95674-3.620221-3.939631-1.666502Z"
               transform="matrix(-1.168966 0 0-1.168966 151.807857 171.062202)"
-              fill="#31448f"
+              fill="var(--info-graphic-accent-color-dark)"
               strokeWidth="0.28"
             />
           </g>
         </g>
-        <path d="M69.9983,79.0023L20.9727,61.4512v63.1168l49.0256,15.777v-61.3427Z" fill="#31448f" />
-        <path d="M119.022,124.568v-63.1168L69.9961,79.0023v61.3427l49.0259-15.777Z" fill="#262f69" />
+        <path
+          d="M69.9983,79.0023L20.9727,61.4512v63.1168l49.0256,15.777v-61.3427Z"
+          fill="var(--info-graphic-accent-color-dark)"
+        />
+        <path
+          d="M119.022,124.568v-63.1168L69.9961,79.0023v61.3427l49.0259-15.777Z"
+          fill="var(--info-graphic-accent-color-darkest)"
+        />
         <g id="app-listing-docs-four" transform="translate(36.9986,80.849051)">
           <path
             d="M20.9715,61.4521L4,81.8288L53.9483,100.246L69.9972,78.955L20.9715,61.4521Z"
             transform="translate(-36.9986,-80.849051)"
-            fill="#7bc9eb"
+            fill="var(--info-graphic-accent-color-lightest)"
           />
         </g>
         <g id="app-listing-docs-five" transform="translate(102.997547,80.848101)">
           <path
             d="M119.022,61.4512l16.977,20.3766L86.0506,100.245L69.9961,78.954L119.022,61.4512Z"
             transform="translate(-102.997547,-80.848101)"
-            fill="#23a4de"
+            fill="var(--info-graphic-accent-color-med)"
           />
         </g>
         <g id="app-listing-docs-six" transform="translate(89.264528,45.746041)">
@@ -302,7 +317,7 @@ export const AppListingDocsGraphic: FC<AppListingDocsGraphicProps> = ({ isAnimat
                 rx="5"
                 ry="5"
                 transform="translate(-12.60465,-12.6889)"
-                fill="#ffb71b"
+                fill="var(--info-graphic-accent-color-bright)"
               />
             </g>
           </g>
@@ -323,7 +338,7 @@ export const AppListingDocsGraphic: FC<AppListingDocsGraphicProps> = ({ isAnimat
         </g>
       </g>
       <clipPath id="e7CDlwhB8m525">
-        <rect width="140" height="140" rx="0" ry="0" fill="#fff" />
+        <rect width="140" height="140" rx="0" ry="0" fill="var(--info-graphic-accent-color-white)" />
       </clipPath>
     </g>
   </svg>

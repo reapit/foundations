@@ -18,7 +18,7 @@ import { useNavigate } from 'react-router'
 import Routes from '../../../constants/routes'
 import { ExternalPages, navigateRoute, openNewPage } from '../../../utils/navigation'
 import { StepContainer } from '../new/__styles__'
-import videoImage from '../../../assets/images/desktop/video-placeholder.svg'
+import { ReactComponent as VideoImage } from '../../../assets/images/desktop/video-placeholder.svg'
 
 export const HAS_WATCHED_WELCOME_VIDEO = 'HAS_WATCHED_WELCOME_VIDEO'
 
@@ -111,7 +111,7 @@ export const AppsWelcomePage: FC = () => {
                 <ButtonGroup alignment="left">
                   <Button
                     disabled={!hasWatchedVideo}
-                    intent="critical"
+                    intent="primary"
                     size={2}
                     onClick={navigateRoute(navigate, Routes.APPS_NEW)}
                     chevronRight
@@ -151,7 +151,7 @@ export const AppsWelcomePage: FC = () => {
           Before getting started, please watch this short video with some Foundations Basics.
         </BodyText>
         <BodyText onClick={openModal}>
-          <img src={videoImage} style={{ width: '100%' }} alt="Video placeholder" />
+          <VideoImage width="100%" />
         </BodyText>
         <BodyText hasGreyText>
           When you have watched the video, please confirm this and your next step will be to create your first app using
@@ -163,7 +163,7 @@ export const AppsWelcomePage: FC = () => {
           <Button intent="low" onClick={closeModal}>
             Close
           </Button>
-          <Button intent="critical" onClick={handleHasWatchedVideo(setHasWatchedVideo, closeModal)} chevronRight>
+          <Button intent="primary" onClick={handleHasWatchedVideo(setHasWatchedVideo, closeModal)} chevronRight>
             Confirm Watched
           </Button>
         </ButtonGroup>

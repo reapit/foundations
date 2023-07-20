@@ -96,8 +96,8 @@ export const AnalyticsCosts: FC = () => {
       {isMobile && (
         <Modal title="Controls">
           <Controls />
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="secondary" onClick={closeModal}>
+          <ButtonGroup alignment="right">
+            <Button fixedWidth intent="primary" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>

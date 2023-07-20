@@ -17,7 +17,7 @@ export const elTextJustify = css`
 `
 
 export const elFontBold = css`
-  font-weight: 700;
+  font-weight: 600;
 `
 
 export const elFontItalic = css`

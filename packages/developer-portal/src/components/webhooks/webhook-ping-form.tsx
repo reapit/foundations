@@ -146,7 +146,7 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
           </BodyText>
           <ButtonGroup className={elMlAuto}>
             <Button
-              intent="secondary"
+              intent="primary"
               type="button"
               disabled={pingingWebhook}
               onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentType)}

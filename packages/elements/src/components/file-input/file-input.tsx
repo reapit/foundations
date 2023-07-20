@@ -134,14 +134,14 @@ export const FileInput: FileInputWrapped = forwardRef(
                 <Icon
                   onClick={handleFileView(onFileView, fileUrl)}
                   className={elMr4}
-                  intent="primary"
+                  intent="neutral"
                   icon="viewSolidSystem"
                 />
               )}
               <Icon
                 onClick={handleFileClear(setFileName)}
                 className={elMr4}
-                intent="primary"
+                intent="neutral"
                 icon="cancelSolidSystem"
               />
             </ElFileInputIconContainer>

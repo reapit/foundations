@@ -2,7 +2,7 @@ import React, { FC, useState, Dispatch, SetStateAction } from 'react'
 import { Title, Subtitle, BodyText, Button, FlexContainer, ButtonGroup, elMb12 } from '@reapit/elements'
 import Routes from '../../constants/routes'
 import { KeyAnimation } from '@reapit/utils-react'
-import reapitLogo from '../../assets/images/reapit-logo.svg'
+import { ReactComponent as ReapitLogo } from '../../assets/images/reapit-logo.svg'
 import { LoginContainer, LoginImageContainer, LoginContentWrapper } from '../login/__styles__'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
@@ -81,7 +81,7 @@ export const CustomerRegister: FC = () => {
         <KeyAnimation step={keyStep} />
       </LoginImageContainer>
       <LoginContentWrapper>
-        <img src={reapitLogo} alt="Reapit Connect Graphic" />
+        <ReapitLogo />
         <FlexContainer isFlexColumn>
           <Title hasNoMargin hasCenteredText>
             Welcome
@@ -144,14 +144,14 @@ export const CustomerRegister: FC = () => {
           onMouseOut={() => {
             setKeyStep(1)
           }}
-          alignment="center"
+          alignment="right"
           className={elMb12}
         >
           <Button onClick={openNewPage(process.env.marketplaceUrl)} intent="primary" size={3}>
             Visit AppMarket
           </Button>
           {isCustomerAdmin && !hasDeveloperOrg && (
-            <Button onClick={handleSetModal(true, setTermsModalVisible)} intent="critical" size={3}>
+            <Button onClick={handleSetModal(true, setTermsModalVisible)} intent="primary" size={3}>
               Proceed
             </Button>
           )}

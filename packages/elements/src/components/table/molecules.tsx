@@ -124,7 +124,7 @@ export const TableCell: FC<TableCellProps> = ({
   )
   return (
     <ElTableCell className={combinedClassname} {...rest}>
-      {icon && <Icon intent="secondary" icon={icon} />}
+      {icon && <Icon intent="neutral" icon={icon} />}
       <ElTableCellContent data-narrow-label={narrowLabel}>{children}</ElTableCellContent>
     </ElTableCell>
   )
@@ -142,11 +142,7 @@ export const TableExpandableRowTriggerCell: FC<TableExpandableRowTriggerCellProp
       className={cx(className, narrowIsFullWidth && elTableNarrowCellIsFullWidth)}
       {...rest}
     >
-      {children ? (
-        children
-      ) : (
-        <Icon intent={isOpen ? 'primary' : 'secondary'} icon={isOpen ? 'upSolidSystem' : 'downSolidSystem'} />
-      )}
+      {children ? children : <Icon intent={isOpen ? 'primary' : 'low'} icon="moreSolidSystem" />}
     </ElTableExpandableRowTriggerCell>
   )
 }
@@ -158,7 +154,7 @@ export const TableCtaTriggerCell: FC<TableCtaTriggerCellProps> = ({ icon, childr
         children
       ) : icon ? (
         <ElTableCtaIconContainer>
-          <Icon icon={icon} fontSize="1.2rem" intent="primary" />
+          <Icon icon={icon} fontSize="1.2rem" intent="neutral" />
         </ElTableCtaIconContainer>
       ) : (
         ''
@@ -184,12 +180,12 @@ export const TableRowContainer: FC<TableRowContainerProps> = ({ isOpen, classNam
   )
 }
 
-export const TableSortHeader: FC<TableSortHeaderProps> = ({ children, direction, ...rest }) => {
+export const TableSortHeader: FC<TableSortHeaderProps> = ({ children, ...rest }) => {
   return (
     <ElTableSortHeader {...rest}>
       <FlexContainer isFlexAlignCenter isFlexJustifyBetween>
         {children}
-        <Icon icon={direction === 'up' ? 'arrowUpSystem' : 'arrowDownSystem'} />
+        <Icon icon="sortSolidSystem" intent="neutral" />
       </FlexContainer>
     </ElTableSortHeader>
   )

@@ -5,13 +5,15 @@ export const elTabsItem = css`
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-dark);
 `
 
 export const elTabsFullWidth = css`
@@ -32,13 +34,13 @@ export const ElTabs = styled.input`
 
   &:not(:checked) + label .${elTabsItem} {
     &:hover {
-      color: var(--intent-secondary);
+      color: var(--intent-primary);
     }
   }
 
   &:checked + label .${elTabsItem} {
-    text-shadow: 0px 0px 1px black;
-    border-bottom: 2px solid var(--intent-secondary);
+    color: var(--intent-primary);
+    border-bottom: 2px solid var(--intent-primary);
   }
 `
 
@@ -80,13 +82,13 @@ export const ElTabsWrap = styled.div`
 
 export const ElTabsOptionsWrap = styled.div`
   display: flex;
+  gap: 1.5rem;
 `
 
 export const ElTabsFooter = styled.div`
   width: 100%;
   height: 1.125rem;
-  background: linear-gradient(180deg, #f7f7f7 0%, rgba(242, 242, 242, 0) 50%);
-  border-top: 1px solid var(--color-grey-medium);
+  border-top: 1px solid var(--color-grey-light);
 
   &.${elTabsFullWidth} {
     width: 100%;

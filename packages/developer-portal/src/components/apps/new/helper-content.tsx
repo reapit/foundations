@@ -20,7 +20,7 @@ import { ExternalPages, openNewPage } from '../../../utils/navigation'
 import { Link } from 'react-router-dom'
 import Routes from '../../../constants/routes'
 import { cx } from '@linaria/core'
-import videoImage from '../../../assets/images/desktop/video-placeholder.svg'
+import { ReactComponent as VideoImage } from '../../../assets/images/desktop/video-placeholder.svg'
 
 export type HelperContentRef = {
   [key in AppNewStepId]: HTMLDivElement | null
@@ -90,7 +90,7 @@ export const HelperContent: FC = () => {
               of the APIs and tooling we provide. However, the starting point for all integrations is to create an
               &lsquo;App&rsquo;,
             </BodyText>
-            <img src={videoImage} style={{ width: '100%' }} alt="Video placeholder" />
+            <VideoImage width="100%" />
           </div>
           <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
             <BodyText hasGreyText>
@@ -121,7 +121,7 @@ export const HelperContent: FC = () => {
               For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side
               apps using an internal web browser, inside of the CRM.
             </BodyText>
-            <img src={videoImage} style={{ width: '100%' }} alt="Video placeholder" />
+            <VideoImage />
           </div>
           <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
             <BodyText hasGreyText>
@@ -184,7 +184,7 @@ export const HelperContent: FC = () => {
               It is possible to get up and running with a website feed from the Platform API. You will want to optimise
               this flow, implementing webhooks and caching however, the below video is our quick start guide.
             </BodyText>
-            <img src={videoImage} style={{ width: '100%' }} alt="Video placeholder" />
+            <VideoImage />
           </div>
           <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
             <BodyText hasGreyText>
@@ -258,7 +258,7 @@ export const HelperContent: FC = () => {
             className={cx(!isFlexColumn && elW6, !isFlexColumn && elMr6, isFlexColumn && elMb7)}
             onClick={openModalServerSide}
           >
-            <img src={videoImage} style={{ width: '100%' }} alt="Video placeholder" />
+            <VideoImage />
           </div>
           <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
             <BodyText hasGreyText>
@@ -320,7 +320,7 @@ export const HelperContent: FC = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
-        <ButtonGroup alignment="center">
+        <ButtonGroup alignment="right">
           <Button fixedWidth intent="low" onClick={closeModalServerSide}>
             Close
           </Button>
@@ -337,7 +337,7 @@ export const HelperContent: FC = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
-        <ButtonGroup alignment="center">
+        <ButtonGroup alignment="right">
           <Button fixedWidth intent="low" onClick={closeModalDesktop}>
             Close
           </Button>
@@ -354,7 +354,7 @@ export const HelperContent: FC = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
-        <ButtonGroup alignment="center">
+        <ButtonGroup alignment="right">
           <Button fixedWidth intent="low" onClick={closeModalWebsite}>
             Close
           </Button>
@@ -371,7 +371,7 @@ export const HelperContent: FC = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
-        <ButtonGroup alignment="center">
+        <ButtonGroup alignment="right">
           <Button fixedWidth intent="low" onClick={closeModalApps}>
             Close
           </Button>

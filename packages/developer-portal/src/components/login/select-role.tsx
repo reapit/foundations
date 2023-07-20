@@ -1,6 +1,6 @@
 import { KeyAnimation } from '@reapit/utils-react'
 import React, { FC, useState } from 'react'
-import reapitLogo from '../../assets/images/reapit-logo.svg'
+import { ReactComponent as ReapitLogo } from '../../assets/images/reapit-logo.svg'
 import {
   FlexContainer,
   Subtitle,
@@ -34,7 +34,7 @@ export const SelectRolePage: FC = () => {
           setKeyStep(1)
         }}
       >
-        <img src={reapitLogo} alt="Reapit Connect Graphic" />
+        <ReapitLogo />
         <Title hasNoMargin hasCenteredText>
           Select an option to register
         </Title>

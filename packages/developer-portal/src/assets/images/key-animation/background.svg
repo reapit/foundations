@@ -1,5 +1,5 @@
 <svg width="360" height="900" viewBox="0 0 360 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0H338L79 900H0V0Z" fill="#7BC9EB"/>
-<path d="M0 682V437.5L236.5 900H0V682Z" fill="#0061A8"/>
-<path d="M0 0H338L296.5 147.5L0 51.5V0Z" fill="#262F69"/>
+<path d="M0 0H338L79 900H0V0Z" fill="var(--info-graphic-accent-color-lightest)"/>
+<path d="M0 682V437.5L236.5 900H0V682Z" fill="var(--info-graphic-accent-color-light)"/>
+<path d="M0 0H338L296.5 147.5L0 51.5V0Z" fill="var(--info-graphic-accent-color-darkest)"/>
 </svg>

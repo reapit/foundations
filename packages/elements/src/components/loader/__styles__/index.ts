@@ -23,7 +23,7 @@ export const ElLoaderLabel = styled.p`
 
 export const ElLoader = styled.div`
   position: relative;
-  background: var(--color-grey-dark);
+  background: var(--color-accent-blue-dark);
   height: 3px;
   width: 80px;
 
@@ -42,7 +42,7 @@ export const ElLoader = styled.div`
     content: '';
     display: block;
     position: absolute;
-    background: var(--color-accent-yellow);
+    background: var(--color-accent-blue-light);
     width: 50%;
     height: 100%;
     animation: moveYellowBar ${ANIM_TIME}s infinite linear;
@@ -78,7 +78,7 @@ export const ElLoaderMovingBar = styled.div`
   position: absolute;
   height: 100%;
   width: 22.5%;
-  background: var(--color-accent-blue-dark);
+  background: var(--color-accent-yellow);
   animation: moveDarkBlueBar ${ANIM_TIME}s infinite linear;
   z-index: 3;
 

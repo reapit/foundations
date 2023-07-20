@@ -194,7 +194,7 @@ export const WebhooksControls: FC = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
-        <ButtonGroup alignment="center">
+        <ButtonGroup alignment="right">
           <Button fixedWidth intent="low" onClick={closeModal}>
             Close
           </Button>

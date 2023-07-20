@@ -5,7 +5,6 @@ import RoutePaths from '../../../constants/routes'
 import {
   elFadeIn,
   elHFull,
-  elMb8,
   FlexContainer,
   Loader,
   PageContainer,
@@ -25,7 +24,6 @@ import AppInstallationsPage from '../installations'
 import { useAppState } from '../state/use-app-state'
 import { getCurrentPage } from '../utils/get-current-page'
 import { Helper } from './helper'
-import { cx } from '@linaria/core'
 import { useGlobalState } from '../../../core/use-global-state'
 import AppConsentsPage from '../consents'
 import { checkShouldRenderConsents } from '../utils/consents'
@@ -75,7 +73,7 @@ export const AppsPage: FC = () => {
             <>
               {Boolean(apps.totalCount) && (
                 <SecondaryNavContainer>
-                  <SecondaryNav className={cx(elMb8, elFadeIn)}>
+                  <SecondaryNav className={elFadeIn}>
                     <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.APPS)} active={isAppsList}>
                       My Apps
                     </SecondaryNavItem>

@@ -5,11 +5,11 @@ export const ElGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 1rem;
-  grid-row-gap: 1.5rem;
+  grid-row-gap: 1rem;
 
   ${isTablet} {
-    grid-column-gap: 2rem;
-    grid-row-gap: 2.5rem;
+    grid-column-gap: 1.25rem;
+    grid-row-gap: 1.25rem;
   }
 
   ${isDesktop} {

@@ -1,5 +1,5 @@
 <svg width="416" height="183" viewBox="0 0 416 183" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M3.05176e-05 183V100.5L416 9.15527e-05L415.5 183H3.05176e-05Z" fill="#262F69"/>
-<path d="M254 39L307 182.987H415.684L416 0L254 39Z" fill="#0061A8"/>
-<path d="M307 183H138.5L13 97L254.5 39L307 183Z" fill="#7BC9EB"/>
+<path d="M3.05176e-05 183V100.5L416 9.15527e-05L415.5 183H3.05176e-05Z" fill="var(--info-graphic-accent-color-darkest)"/>
+<path d="M254 39L307 182.987H415.684L416 0L254 39Z" fill="var(--info-graphic-accent-color-light)"/>
+<path d="M307 183H138.5L13 97L254.5 39L307 183Z" fill="var(--info-graphic-accent-color-lightest)"/>
 </svg>

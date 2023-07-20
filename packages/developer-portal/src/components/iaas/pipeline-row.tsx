@@ -62,7 +62,7 @@ export const PipelineRow: FC<PipelineRowProps> = ({ pipeline, connectSession }) 
         <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
           <ButtonGroup>
             <Button
-              intent="secondary"
+              intent="primary"
               onClick={navigateRoute(
                 navigate,
                 Routes.APP_PIPELINE_CONFIGURE.replace(':appId', appPipeline.appId as string),
@@ -78,7 +78,7 @@ export const PipelineRow: FC<PipelineRowProps> = ({ pipeline, connectSession }) 
             </Button>
             {pipelineViewable(appPipeline.buildStatus as string) && (
               <Button
-                intent="critical"
+                intent="primary"
                 chevronRight
                 onClick={openNewPage(`https://${appPipeline.subDomain}.iaas.paas.reapit.cloud`)}
               >

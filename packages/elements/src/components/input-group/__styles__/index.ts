@@ -14,14 +14,12 @@ export const ElInputGroup = styled.div`
   flex-wrap: wrap;
 
   ${ElLabel} {
-    /* background: var(--component-input-bg); */
     order: 1;
     flex-basis: 100%;
     padding: 0 0.5rem 0.5rem 0;
   }
 
   ${ElIcon} {
-    /* background: var(--component-input-bg); */
     color: var(--color-grey-medium-light);
     border: var(--component-input-border);
     border-right: none;
@@ -32,7 +30,6 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElInputAddOn} {
-    /* background: var(--component-input-bg); */
     border: var(--component-input-border);
     border-left: none;
     padding-right: 0.5rem;
@@ -42,8 +39,7 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElMultiSelectInputWrapper} ${ElIcon} {
-    background: var(--color-grey-light);
-    border-bottom: none;
+    border: none;
     order: 0;
     padding-left: 0;
   }
@@ -109,9 +105,8 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElInput}[type='checkbox'] {
-    margin-left: 0.5rem;
     ~ ${ElLabel} {
-      padding-bottom: 0.25rem;
+      display: block;
     }
   }
 

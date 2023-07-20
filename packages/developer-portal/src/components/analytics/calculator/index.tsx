@@ -111,8 +111,8 @@ export const AnalyticsCalculator: FC = () => {
             {errors.apiCalls?.message && <InputError message={errors.apiCalls.message} />}
           </InputWrap>
         </FormLayout>
-        <ButtonGroup alignment="left" className={elMb11}>
-          <Button intent="secondary" type="button" onClick={onClear as () => void}>
+        <ButtonGroup alignment="right" className={elMb11}>
+          <Button intent="neutral" type="button" onClick={onClear as () => void}>
             clear
           </Button>
           <Button intent="primary" type="submit">

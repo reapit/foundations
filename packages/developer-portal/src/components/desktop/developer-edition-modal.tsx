@@ -163,7 +163,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
             We have added your subscription to your monthly billing. To manage your subscriptions please visit the
             &apos;Billing&apos; tab.
           </BodyText>
-          <ButtonGroup alignment="center">
+          <ButtonGroup alignment="right">
             <Button fixedWidth intent="low" onClick={handleCloseModal(setSubscribingState, closeModal)}>
               Close
             </Button>
@@ -182,7 +182,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
               click here
             </a>
           </BodyText>
-          <ButtonGroup alignment="center">
+          <ButtonGroup alignment="right">
             <Button fixedWidth intent="low" onClick={handleCloseModal(setSubscribingState, closeModal)}>
               Close
             </Button>
@@ -198,7 +198,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
             the developer edition you will need to change your profile setting. Please{' '}
             <Link to={Routes.SETTINGS_PROFILE}>click here</Link> to update your information.
           </BodyText>
-          <ButtonGroup alignment="center">
+          <ButtonGroup alignment="right">
             <Button fixedWidth intent="low" onClick={handleCloseModal(setSubscribingState, closeModal)}>
               Cancel
             </Button>
@@ -207,7 +207,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
       ) : billingContent && !desktopIsFree ? (
         <>
           <BodyText hasGreyText>{billingContent}</BodyText>
-          <ButtonGroup alignment="center">
+          <ButtonGroup alignment="right">
             <Button fixedWidth intent="low" onClick={handleCloseModal(setSubscribingState, closeModal)}>
               Cancel
             </Button>
@@ -225,7 +225,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
           <BodyText hasGreyText>
             To proceed, please confirm your subscription below for <strong>{currentMember?.name}</strong>
           </BodyText>
-          <ButtonGroup alignment="center">
+          <ButtonGroup alignment="right">
             <Button fixedWidth intent="low" onClick={handleCloseModal(setSubscribingState, closeModal)}>
               Cancel
             </Button>

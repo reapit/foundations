@@ -52,7 +52,7 @@ export const ElMobileControlItem = styled.a`
   margin: 0 0.5rem 1.25rem 0;
   display: none;
   opacity: 1;
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
 
   &:last-of-type {

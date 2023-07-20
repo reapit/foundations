@@ -1,8 +1,8 @@
-import { Button, elFadeIn, elMb3, Icon, SmallText, BodyText } from '@reapit/elements'
+import { Button, elFadeIn, elMb3, Icon, SmallText, BodyText, ButtonGroup } from '@reapit/elements'
 import { AppRevisionModelPagedResult, RejectRevisionModel } from '@reapit/foundations-ts-definitions'
 import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
-import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import React, { Dispatch, FC, SetStateAction, useEffect, useState, MouseEvent } from 'react'
+import { Link, NavigateFunction, useLocation, useNavigate } from 'react-router-dom'
 import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { openNewPage, ExternalPages } from '../../../utils/navigation'
 import { AppSavingParams, useAppState } from '../state/use-app-state'
@@ -11,11 +11,12 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { getTitle, SubmitReviewModal } from './submit-review-modal'
 import { useModal } from '@reapit/elements'
-import { selectIsCustomer } from '../../../utils/auth'
+import { selectIsCustomer, selectIsDeveloperAdmin } from '../../../utils/auth'
 import { defaultAppSavingParams } from '../state/defaults'
 import { PipelineControls } from '../pipeline/pipeline-controls'
 import { useGlobalState } from '../../../core/use-global-state'
 import { DownloadInstallationsCSV } from '../installations/download-installations-csv'
+import Routes from '../../../constants/routes'
 
 export const handleSetAppEditSaving =
   (
@@ -80,18 +81,45 @@ export const handleCancelSuccess =
     }
   }
 
+export const handleDeleteApp =
+  (deleteApp: SendFunction<void, boolean>, navigate: NavigateFunction) => async (event?: MouseEvent) => {
+    event?.stopPropagation()
+    const appDeleted = await deleteApp()
+
+    if (appDeleted) {
+      navigate(Routes.APPS)
+    }
+  }
+
+export const handleRefreshApps =
+  (appsRefresh: () => void, closeModalDelete: () => void, appDeleted?: boolean) => () => {
+    if (appDeleted) {
+      closeModalDelete()
+      appsRefresh()
+    }
+  }
+
+export const handleOpenModal = (openModal: () => void) => (event?: MouseEvent) => {
+  event?.stopPropagation()
+  openModal()
+}
+
 export const Helper: FC = () => {
   const location = useLocation()
   const { appId, appEditState, appsDataState } = useAppState()
   const { globalDataState, globalRefreshCurrentDeveloper } = useGlobalState()
+  const navigate = useNavigate()
   const [revisionId, setRevisionId] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal } = useModal()
+  const { Modal: ModalDelete, openModal: openModalDelete, closeModal: closeModalDelete } = useModal()
+  const isDeveloperAdmin = selectIsDeveloperAdmin(connectSession)
   const isCustomer = selectIsCustomer(connectSession)
   const { pathname } = location
   const { isAppsEdit, isAppsDetail, isAppPipelines, isAppConsents, isAppsInstallations } = getCurrentPage(pathname)
   const { currentDeveloper } = globalDataState
   const { setAppEditSaving, appUnsavedFields, appIncompleteFields } = appEditState
+  const { appsRefresh } = appsDataState
   const {
     appsDetailRefresh,
     appRefreshRevisions,
@@ -106,6 +134,7 @@ export const Helper: FC = () => {
   const isPublicallyListed = Boolean(appsDataState.appDetail?.isListed)
   const isRefreshing = appDetailRefreshing || appRevisionsRefreshing
   const hasUnsavedChanges = Boolean(Object.keys(appUnsavedFields).length)
+  const { deletionProtection, id, name } = appDetail ?? {}
 
   const [, , cancelRevision, cancelRevisionSuccess] = useReapitUpdate<RejectRevisionModel, null>({
     reapitConnectBrowserSession,
@@ -116,7 +145,18 @@ export const Helper: FC = () => {
     },
   })
 
+  const [, , deleteApp, appDeleted] = useReapitUpdate<void, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions[UpdateActionNames.deleteApp],
+    method: 'DELETE',
+    uriParams: {
+      appId,
+    },
+  })
+
   useEffect(handleSetRevisionId(appRevisions, setRevisionId), [appRevisions])
+
+  useEffect(handleRefreshApps(appsRefresh, closeModalDelete, appDeleted), [appDeleted])
 
   useEffect(handleCancelSuccess(appsDetailRefresh, setRevisionId, appRefreshRevisions, cancelRevisionSuccess), [
     cancelRevisionSuccess,
@@ -151,7 +191,7 @@ export const Helper: FC = () => {
             )}
             <Button
               className={elMb3}
-              intent="critical"
+              intent="primary"
               loading={isRefreshing}
               onClick={handleSetAppEditSaving(setAppEditSaving, true, openModal, developerStatus)}
               chevronRight
@@ -171,7 +211,7 @@ export const Helper: FC = () => {
             </SmallText>
             <Button
               className={elMb3}
-              intent="critical"
+              intent="primary"
               loading={isRefreshing}
               onClick={handleCancelPendingRevsion(cancelRevision, connectSession, revisionId)}
             >
@@ -199,7 +239,7 @@ export const Helper: FC = () => {
             {hasUnsavedChanges && (
               <Button
                 className={elMb3}
-                intent="critical"
+                intent="primary"
                 loading={isRefreshing}
                 onClick={handleSetAppEditSaving(setAppEditSaving, true, openModal, developerStatus)}
                 chevronRight
@@ -254,6 +294,41 @@ export const Helper: FC = () => {
         <Button className={elMb3} intent="primary" onClick={openNewPage(`${process.env.marketplaceUrl}/${appId}`)}>
           Preview
         </Button>
+        <Button className={elMb3} intent="danger" onClick={handleOpenModal(openModalDelete)}>
+          Delete App
+        </Button>
+        <ModalDelete title={`Confirm ${name} Deletion`}>
+          {!isDeveloperAdmin ? (
+            <BodyText>
+              Unfortunately, your user account does not have the correct permissions to delete this app. Only an Admin
+              of your developer organisation can delete apps.
+            </BodyText>
+          ) : deletionProtection ? (
+            <BodyText>
+              &lsquo;{name}&rsquo; has been set to&lsquo;delete protected&rsquo; to avoid accidental data loss. If you
+              really want to delete the app, visit <Link to={`${Routes.APPS}/${id}/edit/app-listing`}>this page </Link>,
+              uncheck the delete protection checkbox and save the revision.
+            </BodyText>
+          ) : (
+            <BodyText>
+              Are your sure you want to remove the app &lsquo;{name}&rsquo;? By clicking &lsquo;delete&rsquo; it will
+              remove all app data including all revisions and listings.
+            </BodyText>
+          )}
+          <ButtonGroup alignment="right">
+            <Button fixedWidth intent="primary" onClick={closeModalDelete}>
+              Cancel
+            </Button>
+            <Button
+              fixedWidth
+              intent="danger"
+              disabled={deletionProtection || !isDeveloperAdmin}
+              onClick={handleDeleteApp(deleteApp, navigate)}
+            >
+              Confirm
+            </Button>
+          </ButtonGroup>
+        </ModalDelete>
       </div>
     )
   }

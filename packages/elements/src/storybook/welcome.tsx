@@ -29,7 +29,6 @@ const WelcomeCol = styled.div`
 
 const WelcomeTitle = styled.h1`
   font-size: 2.5rem;
-  font-weight: bold;
   color: var(--color-white);
 
   ${isTablet} {
@@ -82,7 +81,6 @@ const WelcomeFooterItem = styled.div`
 
 export const WelcomeFooterTitle = styled.div`
   font-size: 1.3rem;
-  font-weight: bold;
   color: var(--color-white);
   margin-bottom: 1rem;
 `

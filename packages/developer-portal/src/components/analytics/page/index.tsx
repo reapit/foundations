@@ -4,7 +4,6 @@ import RoutePaths from '../../../constants/routes'
 import {
   elFadeIn,
   elHFull,
-  elMb8,
   FlexContainer,
   PageContainer,
   SecondaryNav,
@@ -18,7 +17,6 @@ import AnalyticsCalculatorPage from '../calculator'
 import AnalyticsInstallationsPage from '../installations'
 import AnalyticsCallsPage from '../calls'
 import { Controls } from './controls'
-import { cx } from '@linaria/core'
 import { selectIsCustomer } from '../../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -33,7 +31,7 @@ export const AnalyticsPage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <SecondaryNav className={cx(elMb8, elFadeIn)}>
+        <SecondaryNav className={elFadeIn}>
           <SecondaryNavItem
             onClick={navigateRoute(navigate, RoutePaths.ANALYTICS_API_CALLS)}
             active={pathname === RoutePaths.ANALYTICS_API_CALLS}

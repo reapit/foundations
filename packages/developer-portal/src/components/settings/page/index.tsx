@@ -5,7 +5,6 @@ import RoutePaths from '../../../constants/routes'
 import {
   elFadeIn,
   elHFull,
-  elMb8,
   FlexContainer,
   PageContainer,
   SecondaryNav,
@@ -20,7 +19,6 @@ import SettingsMembersPage from '../members'
 import SettingsProfilePage from '../profile'
 import SettingsSubscriptionsPage from '../subscriptions'
 import { Controls } from './controls'
-import { cx } from '@linaria/core'
 import { useGlobalState } from '../../../core/use-global-state'
 
 export const SettingsPage: FC = () => {
@@ -35,7 +33,7 @@ export const SettingsPage: FC = () => {
     <ErrorBoundary>
       <FlexContainer isFlexAuto>
         <SecondaryNavContainer>
-          <SecondaryNav className={cx(elMb8, elFadeIn)}>
+          <SecondaryNav className={elFadeIn}>
             <SecondaryNavItem
               onClick={navigateRoute(navigate, RoutePaths.SETTINGS_PROFILE)}
               active={pathname === RoutePaths.SETTINGS_PROFILE}

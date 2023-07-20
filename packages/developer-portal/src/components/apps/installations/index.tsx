@@ -163,8 +163,8 @@ export const AppInstallations: FC = () => {
       {isMobile && (
         <ModalDocs title="Controls">
           <Helper />
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="secondary" onClick={closeModalDocs}>
+          <ButtonGroup alignment="right">
+            <Button fixedWidth intent="primary" onClick={closeModalDocs}>
               Close
             </Button>
           </ButtonGroup>
@@ -234,9 +234,9 @@ export const AppInstallations: FC = () => {
                 expandableContent: {
                   content: (
                     <>
-                      <ButtonGroup alignment="center">
+                      <ButtonGroup alignment="right">
                         {officeGroup?.offices?.length ? (
-                          <Button intent="secondary" onClick={handleSetOffices(setOffices, officeGroup.offices)}>
+                          <Button intent="primary" onClick={handleSetOffices(setOffices, officeGroup.offices)}>
                             Show Installed Offices
                           </Button>
                         ) : null}
@@ -286,7 +286,7 @@ export const AppInstallations: FC = () => {
           </Modal>
         </>
       ) : installations ? (
-        <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
+        <PersistentNotification intent="primary" isExpanded isFullWidth isInline>
           No installations for the application.
         </PersistentNotification>
       ) : null}

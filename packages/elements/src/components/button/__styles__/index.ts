@@ -80,7 +80,7 @@ export const ElButton = styled.button`
   border: 1px solid var(--color-grey-light);
   font-size: var(--font-size-small);
   font-family: var(--font-sans-serif);
-  font-weight: bold;
+  font-weight: var(--font-weight-medium);
   color: var(--color-grey-medium);
   background-color: unset;
   background-image: linear-gradient(to right, var(--color-white), var(--color-white));

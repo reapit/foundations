@@ -87,8 +87,8 @@ export const SettingsSubscriptionsPage: FC = () => {
       {isMobile && (
         <Modal title="Controls">
           <Controls />
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="secondary" onClick={closeModal}>
+          <ButtonGroup alignment="right">
+            <Button fixedWidth intent="primary" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>
@@ -175,7 +175,7 @@ export const SettingsSubscriptionsPage: FC = () => {
           numberPages={Math.ceil((subscriptions?.totalCount ?? 1) / (subscriptions?.pageSize ?? 1))}
         />
       ) : (
-        <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
+        <PersistentNotification intent="primary" isExpanded isFullWidth isInline>
           No subscriptions available for this account
         </PersistentNotification>
       )}

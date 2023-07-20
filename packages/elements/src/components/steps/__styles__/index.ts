@@ -6,9 +6,9 @@ export const ElSteps = styled.div`
   display: flex;
 `
 export const ElStep = styled.div`
-  background-color: var(--intent-primary);
-  color: var(--color-white);
-  font-weight: bold;
+  background-color: var(--color-grey-light);
+  color: var(--color-grey-dark);
+  font-weight: var(--font-weight-bold);
   font-size: var(--font-size-default);
   border-radius: 100%;
   width: 2rem;
@@ -24,7 +24,10 @@ export const ElStep = styled.div`
   cursor: pointer;
 
   &.${elIsUsed} {
-    background-color: var(--intent-secondary);
+    &:before,
+    &:after {
+      background: var(--color-grey-light);
+    }
   }
 
   &.${elIsActive} {
@@ -32,7 +35,8 @@ export const ElStep = styled.div`
     font-size: 1.5rem;
     width: 2.5rem;
     height: 2.5rem;
-    background-color: var(--intent-critical);
+    color: var(--color-white);
+    background-color: var(--intent-primary);
   }
 
   &:before,
@@ -43,7 +47,7 @@ export const ElStep = styled.div`
     top: 50%;
     width: var(--component-steps-gutter-width);
     height: 1.5px;
-    background: var(--color-grey-medium);
+    background: var(--color-grey-light);
   }
 
   &:before {
@@ -80,7 +84,7 @@ export const ElStepVertical = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 3.75rem;
+  margin-bottom: 1.25rem;
 
   ${isDesktop} {
     flex-direction: row;

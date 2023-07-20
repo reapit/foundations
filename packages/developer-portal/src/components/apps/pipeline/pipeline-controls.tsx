@@ -248,13 +248,13 @@ export const PipelineControls: FC = () => {
       ) : appPipeline && !isValidPipeline && !pathname.includes('configure') ? (
         <Button
           className={elMb3}
-          intent="secondary"
+          intent="primary"
           onClick={navigateRoute(navigate, `${Routes.APPS}/${appId}/pipeline/configure`)}
         >
           Configure
         </Button>
       ) : null}
-      <Button className={elMb3} intent="secondary" onClick={openModalApiKeys}>
+      <Button className={elMb3} intent="primary" onClick={openModalApiKeys}>
         API Keys
       </Button>
       {appPipeline && (
@@ -276,7 +276,7 @@ export const PipelineControls: FC = () => {
           Are you sure you want to delete this pipeline? This will tear down any infrastructure you have provisioned and
           cannot be recovered.
         </BodyText>
-        <ButtonGroup alignment="center">
+        <ButtonGroup alignment="right">
           <Button fixedWidth intent="low" onClick={closeModal}>
             Close
           </Button>

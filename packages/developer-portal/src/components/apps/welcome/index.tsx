@@ -96,7 +96,7 @@ export const AppsWelcomePage: FC = () => {
                   </BodyText>
                 </div>
                 <ButtonGroup alignment="left">
-                  <Button intent="critical" size={2} onClick={navigateRoute(navigate, Routes.APPS_NEW)} chevronRight>
+                  <Button intent="primary" size={2} onClick={navigateRoute(navigate, Routes.APPS_NEW)} chevronRight>
                     Create App
                   </Button>
                 </ButtonGroup>

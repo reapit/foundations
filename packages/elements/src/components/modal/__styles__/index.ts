@@ -41,7 +41,7 @@ export const ElModal = styled.div`
 export const ElModalHeader = styled.div`
   color: var(--color-black);
   font-family: var(--font-sans-serif);
-  font-weight: normal;
+  font-weight: var(--font-weight-default);
   font-size: var(--font-size-subheading);
   margin-bottom: 1rem;
   text-align: left;

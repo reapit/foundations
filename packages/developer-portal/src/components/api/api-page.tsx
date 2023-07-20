@@ -163,7 +163,7 @@ export const ApiPage: FC = () => {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
-                <ButtonGroup alignment="center">
+                <ButtonGroup alignment="right">
                   <Button fixedWidth intent="low" onClick={closeModal}>
                     Close
                   </Button>
@@ -183,7 +183,7 @@ export const ApiPage: FC = () => {
               <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.graphQLDocs)}>
                 View Docs
               </Button>
-              <Button className={elMb5} intent="critical" onClick={openNewPage(process.env.graphQLUri)}>
+              <Button className={elMb5} intent="primary" onClick={openNewPage(process.env.graphQLUri)}>
                 Open Explorer
               </Button>
             </>

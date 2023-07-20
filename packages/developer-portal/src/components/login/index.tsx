@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { BodyText, Button, ButtonGroup, Subtitle, Title, FlexContainer, elMb12 } from '@reapit/elements'
 import Routes from '../../constants/routes'
-import reapitLogo from '../../assets/images/reapit-logo.svg'
+import { ReactComponent as ReapitLogo } from '../../assets/images/reapit-logo.svg'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { KeyAnimation } from '@reapit/utils-react'
 import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
@@ -22,7 +22,7 @@ export const Login: FC = () => {
         <KeyAnimation step={keyStep} />
       </LoginImageContainer>
       <LoginContentWrapper>
-        <img src={reapitLogo} alt="Reapit Connect Graphic" />
+        <ReapitLogo />
         <FlexContainer isFlexColumn>
           <Title hasNoMargin hasCenteredText>
             Welcome
@@ -30,7 +30,7 @@ export const Login: FC = () => {
           <Subtitle hasCenteredText>to Reapit Foundations</Subtitle>
         </FlexContainer>
         <ButtonGroup
-          alignment="center"
+          alignment="right"
           className={elMb12}
           onMouseOver={() => {
             setKeyStep(3)
@@ -42,7 +42,7 @@ export const Login: FC = () => {
           <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
             Login With Reapit
           </Button>
-          <Button onClick={navigateRoute(navigate, Routes.SELECT_ROLE)} intent="secondary" size={3}>
+          <Button onClick={navigateRoute(navigate, Routes.SELECT_ROLE)} intent="primary" size={3}>
             Register
           </Button>
         </ButtonGroup>

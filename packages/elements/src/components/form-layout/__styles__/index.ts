@@ -8,11 +8,11 @@ export const ElFormLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 1rem;
-  grid-row-gap: 1.5rem;
+  grid-row-gap: 1rem;
 
   ${isTablet} {
-    grid-column-gap: 2rem;
-    grid-row-gap: 2.5rem;
+    grid-column-gap: 1.25rem;
+    grid-row-gap: 1.25rem;
   }
 
   ${isDesktop} {
@@ -28,11 +28,7 @@ export const ElFormLayout = styled.div`
   }
 
   &.${elFormLayoutHasMargin} {
-    margin-bottom: 2.5rem;
-
-    ${isTablet} {
-      margin-bottom: 3.75rem;
-    }
+    margin-bottom: 2rem;
   }
 `
 

@@ -1,20 +1,26 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
+export const elProgressBarItemPurple = css`
+  background-color: var(--color-accent-purple);
+`
 export const elProgressBarItemDarkBlue = css`
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-accent-blue-dark);
 `
 export const elProgressBarItemMediumBlue = css`
-  background-color: var(--intent-primary);
+  background-color: var(--color-accent-blue);
 `
 export const elProgressBarItemLightBlue = css`
-  background-color: var(--intent-secondary);
+  background-color: var(--color-accent-blue-light);
 `
 export const elProgressBarItemLightestBlue = css`
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-accent-blue-lightest);
+`
+export const elProgressBarItemYellow = css`
+  background-color: var(--color-accent-yellow);
 `
 export const elProgressBarItemOrange = css`
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-accent-yellow);
 `
 
 export const ElProgressBarContainer = styled.div`
@@ -23,7 +29,7 @@ export const ElProgressBarContainer = styled.div`
   justify-content: flex-start;
   width: 100%;
   padding: 0.25rem 0.5rem;
-  background-color: var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
 `
 
 export const ElProgressBarLabel = styled.div`
