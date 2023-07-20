@@ -245,6 +245,45 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields-MOCK_ID"
+                name="extraFields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
             <mock-styled.label>
               Status
             </mock-styled.label>
@@ -525,6 +564,45 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
               >
                 Foo Bar
               </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.div>
+              <mock-styled.input
+                id="test-static-id"
+                placeholder="Type and press enter to add a field"
+                value=""
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Semi-structured Fields
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="semi-structured-fields-MOCK_ID"
+              name="extraFields"
+            />
+            <mock-styled.div
+              classname=""
+            >
+              <p>
+                Please enter a semi-structured field name above, then press enter.
+              </p>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>

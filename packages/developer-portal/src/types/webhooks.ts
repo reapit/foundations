@@ -16,6 +16,7 @@ export type WebhookModel = {
   description?: string
   topicIds?: string[]
   customerIds?: string[]
+  extraFields?: string[]
   active?: boolean
   ignoreEtagOnlyChanges?: boolean
 }
@@ -30,6 +31,7 @@ export type CreateWebhookModel = {
   description?: string
   topicIds?: string[]
   customerIds?: string[]
+  extraFields?: string[]
   active?: boolean
   ignoreEtagOnlyChanges?: boolean
 }
@@ -39,6 +41,7 @@ export type UpdateWebhookModel = {
   description?: string
   topicIds?: string[]
   customerIds?: string[]
+  extraFields?: string[]
   active?: boolean
   ignoreEtagOnlyChanges?: boolean
 }

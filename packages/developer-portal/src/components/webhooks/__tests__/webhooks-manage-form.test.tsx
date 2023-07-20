@@ -108,10 +108,12 @@ describe('handleSubmitWebhook', () => {
       customerIds: '',
       ignoreEtagOnlyChanges: false,
       active: true,
+      extraFields: 'a,b,c',
     }
     const editWebhookParams: UpdateWebhookModel = {
       ...values,
       topicIds: values.topicIds.split(',').filter(Boolean),
+      extraFields: ['a', 'b', 'c'],
       customerIds: values.customerIds.split(',').filter(Boolean),
     }
     const curried = handleSubmitWebhook(updateWebhook, mockWebhookModel)

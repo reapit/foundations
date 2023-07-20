@@ -34,6 +34,7 @@ import { ExpandableContentType } from './webhooks-manage'
 import { useWebhooksState } from './state/use-webhooks-state'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { FreeformMultiSelectInput } from '../freeform-multi-select'
 
 interface WebhooksManageFormProps {
   webhookModel: WebhookModel
@@ -48,12 +49,14 @@ export interface EditWebhookFormSchema {
   customerIds?: string
   ignoreEtagOnlyChanges?: boolean
   active?: boolean
+  extraFields?: string
 }
 
 const schema: Yup.SchemaOf<EditWebhookFormSchema> = object().shape({
   url: string().trim().required(errorMessages.FIELD_REQUIRED).matches(httpsUrlRegex, 'Should be a secure https url'),
   topicIds: string().trim().required('At least one topic is required'),
   customerIds: string(),
+  extraFields: string().trim(),
   ignoreEtagOnlyChanges: boolean(),
   active: boolean(),
 })
@@ -85,7 +88,7 @@ export const handleSubmitWebhook =
   (updateWebhook: SendFunction<UpdateWebhookModel, boolean>, webhookModel: WebhookModel) =>
   (values: EditWebhookFormSchema) => {
     const { id, applicationId } = webhookModel
-    const { url, topicIds, customerIds, ignoreEtagOnlyChanges, active } = values
+    const { url, topicIds, customerIds, ignoreEtagOnlyChanges, active, extraFields } = values
 
     if (!id || !applicationId) return
 
@@ -97,6 +100,7 @@ export const handleSubmitWebhook =
       url,
       topicIds: topics,
       customerIds: customers,
+      extraFields: extraFields?.split(','),
       ignoreEtagOnlyChanges,
       active,
     }
@@ -143,9 +147,10 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
 }) => {
   const { webhooksDataState } = useWebhooksState()
   const { installations, topics } = webhooksDataState
-  const { id, url, topicIds, customerIds, ignoreEtagOnlyChanges, active } = webhookModel
+  const { id, url, topicIds, customerIds, ignoreEtagOnlyChanges, extraFields, active } = webhookModel
   const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>(getInitialTopics(topics, topicIds))
   const { Modal: DeleteConfirmModal, openModal, closeModal } = useModal()
+
   const {
     register,
     handleSubmit,
@@ -158,6 +163,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
       topicIds: [...new Set(topicIds)].toString(),
       customerIds: [...new Set(customerIds)].toString(),
       ignoreEtagOnlyChanges,
+      extraFields: [...new Set(extraFields)].toString(),
       active,
     },
   })
@@ -253,6 +259,19 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
             options={customerOptions}
             {...register('customerIds')}
           />
+        </InputWrapFull>
+
+        <InputWrapFull>
+          <FreeformMultiSelectInput
+            id={`semi-structured-fields-${id}`}
+            defaultValues={[...new Set(extraFields)]}
+            {...register('extraFields')}
+          />
+          {errors.extraFields && (
+            <PersistentNotification className={elMb6} isFullWidth isExpanded intent="danger" isInline>
+              {errors.extraFields.message}
+            </PersistentNotification>
+          )}
         </InputWrapFull>
         <InputWrap>
           <Label>Status</Label>

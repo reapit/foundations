@@ -19,12 +19,14 @@ import { handleSelectFilters } from './webhooks-controls'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { CreateWebhookModel } from '../../types/webhooks'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { WebhooksExtraFields } from './webhooks-extra-fields'
 
 export interface CreateWebhookFormSchema {
   applicationId: string
   url: string
   topicIds: string
   customerIds: string
+  extraFields?: string
   ignoreEtagOnlyChanges?: boolean
   active?: boolean
 }
@@ -35,6 +37,7 @@ const schema: SchemaOf<CreateWebhookFormSchema> = object().shape({
   topicIds: string().trim().required('At least one topic is required'),
   customerIds: string().trim().required('At least one customer or "All customers" should be selected'),
   ignoreEtagOnlyChanges: boolean(),
+  extraFields: string().trim(),
   active: boolean(),
 })
 
@@ -67,6 +70,10 @@ export const handleSwitchStep =
           step = '5'
           break
         case '5':
+          isValid = await trigger('extraFields')
+          step = '6'
+          break
+        case '6':
         default:
           isValid = await trigger(['active', 'ignoreEtagOnlyChanges'])
           step = null
@@ -85,7 +92,7 @@ export const handleSubmitWebhook =
     if (isSending) {
       return
     }
-    const { applicationId, url, topicIds, customerIds, ignoreEtagOnlyChanges, active } = values
+    const { applicationId, url, topicIds, customerIds, ignoreEtagOnlyChanges, active, extraFields } = values
     const splitCustomerIds = customerIds.split(',').filter(Boolean)
     const customers = customerIds.includes('ALL') ? [] : splitCustomerIds
     const topics = topicIds.split(',').filter(Boolean)
@@ -96,6 +103,7 @@ export const handleSubmitWebhook =
       topicIds: topics,
       customerIds: customers,
       ignoreEtagOnlyChanges,
+      extraFields: extraFields?.split(','),
       active,
     }
     createWebhook(createWebhookParams)
@@ -125,6 +133,10 @@ export const getStepContent = (
     },
     {
       item: '5',
+      content: <WebhooksExtraFields register={register} errors={errors} getValues={getValues} />,
+    },
+    {
+      item: '6',
       content: <WebhooksNewStatus register={register} />,
     },
   ]
@@ -156,7 +168,7 @@ export const WebhooksNew: FC = () => {
   const steps = getStepContent(register, getValues, errors)
   const currentStep = steps.find((step) => step.item === selectedStep)
   const currentStepIndex = currentStep ? steps.indexOf(currentStep) : 0
-  const nextStep = currentStepIndex < 4 ? String(currentStepIndex + 2) : null
+  const nextStep = currentStepIndex < 4 ? String(currentStepIndex + 3) : null
   const formValues = getValues()
   const { applicationId } = formValues
 

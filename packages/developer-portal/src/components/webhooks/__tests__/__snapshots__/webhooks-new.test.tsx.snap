@@ -1571,6 +1571,546 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
         <mock-styled.p
           classname="mock-css. mock-css."
         >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
+    >
+      <mock-styled.p
+        classname="mock-css. mock-css."
+      >
+        Add any semi-structured fields that you would like included in the webhook payload. If you
+        '
+        re not sure what to put here, leave it blank.
+      </mock-styled.p>
+    </div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.div>
+              <mock-styled.input
+                id="test-static-id"
+                placeholder="Type and press enter to add a field"
+                value=""
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Semi-structured Fields
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="semi-structured-fields"
+            />
+            <mock-styled.div
+              classname=""
+            >
+              <p>
+                Please enter a semi-structured field name above, then press enter.
+              </p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`getStepContent should match a snapshot for step content 1 6`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select>
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="MOCK_APP_ID"
+              >
+                MOCK_APP_NAME
+              </option>
+              <option
+                value="MOCK_OTHER_APP_ID"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </option>
+            </mock-styled.select>
+            <mock-styled.label>
+              Please select an app
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Enter secure https:// url"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Webhook Url
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Search"
+            />
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Subscription Topics
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
+            >
+              Search to get started
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="topic-ids"
+            />
+            <mock-styled.div
+              classname=""
+            />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="customer-ids"
+              />
+              <mock-styled.div
+                classname=""
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  All Customers
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Sandbox Estates
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Reapit Sales
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Foo Bar
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.label>
+              Subscription Customers
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
           Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
         </mock-styled.p>
       </div>
@@ -3102,6 +3642,546 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
             <mock-styled.label>
               Subscription Customers
             </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
+    >
+      <mock-styled.p
+        classname="mock-css. mock-css."
+      >
+        Add any semi-structured fields that you would like included in the webhook payload. If you
+        '
+        re not sure what to put here, leave it blank.
+      </mock-styled.p>
+    </div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.div>
+              <mock-styled.input
+                id="test-static-id"
+                placeholder="Type and press enter to add a field"
+                value=""
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Semi-structured Fields
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="semi-structured-fields"
+            />
+            <mock-styled.div
+              classname=""
+            >
+              <p>
+                Please enter a semi-structured field name above, then press enter.
+              </p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`getStepContent should match a snapshot for step content 2 6`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select>
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="MOCK_APP_ID"
+              >
+                MOCK_APP_NAME
+              </option>
+              <option
+                value="MOCK_OTHER_APP_ID"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </option>
+            </mock-styled.select>
+            <mock-styled.label>
+              Please select an app
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Enter secure https:// url"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Webhook Url
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Search"
+            />
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Subscription Topics
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
+            >
+              Search to get started
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="topic-ids"
+            />
+            <mock-styled.div
+              classname=""
+            />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="customer-ids"
+              />
+              <mock-styled.div
+                classname=""
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  All Customers
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Sandbox Estates
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Reapit Sales
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Foo Bar
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.label>
+              Subscription Customers
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
@@ -4661,6 +5741,546 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
         <mock-styled.p
           classname="mock-css. mock-css."
         >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
+    >
+      <mock-styled.p
+        classname="mock-css. mock-css."
+      >
+        Add any semi-structured fields that you would like included in the webhook payload. If you
+        '
+        re not sure what to put here, leave it blank.
+      </mock-styled.p>
+    </div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.div>
+              <mock-styled.input
+                id="test-static-id"
+                placeholder="Type and press enter to add a field"
+                value=""
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Semi-structured Fields
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="semi-structured-fields"
+            />
+            <mock-styled.div
+              classname=""
+            >
+              <p>
+                Please enter a semi-structured field name above, then press enter.
+              </p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`getStepContent should match a snapshot for step content 3 6`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select>
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="MOCK_APP_ID"
+              >
+                MOCK_APP_NAME
+              </option>
+              <option
+                value="MOCK_OTHER_APP_ID"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </option>
+            </mock-styled.select>
+            <mock-styled.label>
+              Please select an app
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Enter secure https:// url"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Webhook Url
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Search"
+            />
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Subscription Topics
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
+            >
+              Search to get started
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="topic-ids"
+            />
+            <mock-styled.div
+              classname=""
+            />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="customer-ids"
+              />
+              <mock-styled.div
+                classname=""
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  All Customers
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Sandbox Estates
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Reapit Sales
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Foo Bar
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.label>
+              Subscription Customers
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
           Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
         </mock-styled.p>
       </div>
@@ -6206,6 +7826,546 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
         <mock-styled.p
           classname="mock-css. mock-css."
         >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
+    >
+      <mock-styled.p
+        classname="mock-css. mock-css."
+      >
+        Add any semi-structured fields that you would like included in the webhook payload. If you
+        '
+        re not sure what to put here, leave it blank.
+      </mock-styled.p>
+    </div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.div>
+              <mock-styled.input
+                id="test-static-id"
+                placeholder="Type and press enter to add a field"
+                value=""
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Semi-structured Fields
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="semi-structured-fields"
+            />
+            <mock-styled.div
+              classname=""
+            >
+              <p>
+                Please enter a semi-structured field name above, then press enter.
+              </p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`getStepContent should match a snapshot for step content 4 6`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select>
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="MOCK_APP_ID"
+              >
+                MOCK_APP_NAME
+              </option>
+              <option
+                value="MOCK_OTHER_APP_ID"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </option>
+            </mock-styled.select>
+            <mock-styled.label>
+              Please select an app
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Enter secure https:// url"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Webhook Url
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Search"
+            />
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Subscription Topics
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
+            >
+              Search to get started
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="topic-ids"
+            />
+            <mock-styled.div
+              classname=""
+            />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="customer-ids"
+              />
+              <mock-styled.div
+                classname=""
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  All Customers
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Sandbox Estates
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Reapit Sales
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Foo Bar
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.label>
+              Subscription Customers
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
           Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
         </mock-styled.p>
       </div>
@@ -7737,6 +9897,2631 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
             <mock-styled.label>
               Subscription Customers
             </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
+    >
+      <mock-styled.p
+        classname="mock-css. mock-css."
+      >
+        Add any semi-structured fields that you would like included in the webhook payload. If you
+        '
+        re not sure what to put here, leave it blank.
+      </mock-styled.p>
+    </div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.div>
+              <mock-styled.input
+                id="test-static-id"
+                placeholder="Type and press enter to add a field"
+                value=""
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Semi-structured Fields
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="semi-structured-fields"
+            />
+            <mock-styled.div
+              classname=""
+            >
+              <p>
+                Please enter a semi-structured field name above, then press enter.
+              </p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`getStepContent should match a snapshot for step content 5 6`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select>
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="MOCK_APP_ID"
+              >
+                MOCK_APP_NAME
+              </option>
+              <option
+                value="MOCK_OTHER_APP_ID"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </option>
+            </mock-styled.select>
+            <mock-styled.label>
+              Please select an app
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Enter secure https:// url"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Webhook Url
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Search"
+            />
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Subscription Topics
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
+            >
+              Search to get started
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="topic-ids"
+            />
+            <mock-styled.div
+              classname=""
+            />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="customer-ids"
+              />
+              <mock-styled.div
+                classname=""
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  All Customers
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Sandbox Estates
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Reapit Sales
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Foo Bar
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.label>
+              Subscription Customers
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="status-toggle"
+              type="checkbox"
+            />
+            <mock-styled.label
+              classname="mock-css.
+  margin-top: 0.25rem;
+ mock-css."
+              htmlfor="status-toggle"
+            >
+              <mock-styled.span>
+                Active
+              </mock-styled.span>
+              <mock-styled.span>
+                Inactive
+              </mock-styled.span>
+            </mock-styled.label>
+            <mock-styled.label>
+              Status
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              type="checkbox"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Ignore where only the etag has been modified
+            </mock-styled.label>
+            <mock-styled.span
+              classname=""
+            >
+              Ignore
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
+    >
+      <mock-styled.p
+        classname="mock-css. mock-css."
+      >
+        Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
+      </mock-styled.p>
+    </div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
+            id="status-toggle"
+            type="checkbox"
+          />
+          <mock-styled.label
+            classname="mock-css.
+  margin-top: 0.25rem;
+ mock-css."
+            htmlfor="status-toggle"
+          >
+            <mock-styled.span>
+              Active
+            </mock-styled.span>
+            <mock-styled.span>
+              Inactive
+            </mock-styled.span>
+          </mock-styled.label>
+          <mock-styled.label>
+            Status
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
+            id="test-static-id"
+            type="checkbox"
+          />
+          <mock-styled.label
+            htmlfor="test-static-id"
+          >
+            Ignore where only the etag has been modified
+          </mock-styled.label>
+          <mock-styled.span
+            classname=""
+          >
+            Ignore
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`getStepContent should match a snapshot for step content 6 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select>
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="MOCK_APP_ID"
+              >
+                MOCK_APP_NAME
+              </option>
+              <option
+                value="MOCK_OTHER_APP_ID"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </option>
+            </mock-styled.select>
+            <mock-styled.label>
+              Please select an app
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
+    >
+      <mock-styled.p
+        classname="mock-css. mock-css."
+      >
+        First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+      </mock-styled.p>
+    </div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.select>
+            <option
+              value=""
+            >
+              None selected
+            </option>
+            <option
+              value="MOCK_APP_ID"
+            >
+              MOCK_APP_NAME
+            </option>
+            <option
+              value="MOCK_OTHER_APP_ID"
+            >
+              MOCK_APP_NAME_ANOTHER
+            </option>
+          </mock-styled.select>
+          <mock-styled.label>
+            Please select an app
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`getStepContent should match a snapshot for step content 6 2`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select>
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="MOCK_APP_ID"
+              >
+                MOCK_APP_NAME
+              </option>
+              <option
+                value="MOCK_OTHER_APP_ID"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </option>
+            </mock-styled.select>
+            <mock-styled.label>
+              Please select an app
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Enter secure https:// url"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Webhook Url
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
+    >
+      <mock-styled.p
+        classname="mock-css. mock-css."
+      >
+        Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+      </mock-styled.p>
+    </div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
+            id="test-static-id"
+            placeholder="Enter secure https:// url"
+          />
+          <mock-styled.label
+            htmlfor="test-static-id"
+          >
+            Webhook Url
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`getStepContent should match a snapshot for step content 6 3`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select>
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="MOCK_APP_ID"
+              >
+                MOCK_APP_NAME
+              </option>
+              <option
+                value="MOCK_OTHER_APP_ID"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </option>
+            </mock-styled.select>
+            <mock-styled.label>
+              Please select an app
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Enter secure https:// url"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Webhook Url
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Search"
+            />
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Subscription Topics
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
+            >
+              Search to get started
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="topic-ids"
+            />
+            <mock-styled.div
+              classname=""
+            />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
+    >
+      <mock-styled.p
+        classname="mock-css. mock-css."
+      >
+        Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
+      </mock-styled.p>
+    </div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+"
+        >
+          <mock-styled.input
+            id="test-static-id"
+            placeholder="Search"
+          />
+          <mock-styled.span
+            classname="mock-css."
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.label
+            htmlfor="test-static-id"
+          >
+            Subscription Topics
+          </mock-styled.label>
+          <mock-styled.span
+            classname="mock-css."
+          >
+            Search to get started
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.input
+            id="topic-ids"
+          />
+          <mock-styled.div
+            classname=""
+          />
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`getStepContent should match a snapshot for step content 6 4`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select>
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="MOCK_APP_ID"
+              >
+                MOCK_APP_NAME
+              </option>
+              <option
+                value="MOCK_OTHER_APP_ID"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </option>
+            </mock-styled.select>
+            <mock-styled.label>
+              Please select an app
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Enter secure https:// url"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Webhook Url
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Search"
+            />
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Subscription Topics
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
+            >
+              Search to get started
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="topic-ids"
+            />
+            <mock-styled.div
+              classname=""
+            />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="customer-ids"
+              />
+              <mock-styled.div
+                classname=""
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  All Customers
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Sandbox Estates
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Reapit Sales
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Foo Bar
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.label>
+              Subscription Customers
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
+    >
+      <mock-styled.p
+        classname="mock-css. mock-css."
+      >
+        Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
+      </mock-styled.p>
+    </div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="customer-ids"
+            />
+            <mock-styled.div
+              classname=""
+            />
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.input
+                id="test-static-id"
+                type="checkbox"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
+              >
+                All Customers
+              </mock-styled.label>
+              <mock-styled.input
+                id="test-static-id"
+                type="checkbox"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
+              >
+                Sandbox Estates
+              </mock-styled.label>
+              <mock-styled.input
+                id="test-static-id"
+                type="checkbox"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
+              >
+                Reapit Sales
+              </mock-styled.label>
+              <mock-styled.input
+                id="test-static-id"
+                type="checkbox"
+              />
+              <mock-styled.label
+                classname="mock-css."
+                htmlfor="test-static-id"
+              >
+                Foo Bar
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.label>
+            Subscription Customers
+          </mock-styled.label>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`getStepContent should match a snapshot for step content 6 5`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select>
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="MOCK_APP_ID"
+              >
+                MOCK_APP_NAME
+              </option>
+              <option
+                value="MOCK_OTHER_APP_ID"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </option>
+            </mock-styled.select>
+            <mock-styled.label>
+              Please select an app
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Enter secure https:// url"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Webhook Url
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Search"
+            />
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Subscription Topics
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
+            >
+              Search to get started
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="topic-ids"
+            />
+            <mock-styled.div
+              classname=""
+            />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="customer-ids"
+              />
+              <mock-styled.div
+                classname=""
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  All Customers
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Sandbox Estates
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Reapit Sales
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Foo Bar
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.label>
+              Subscription Customers
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
+    >
+      <mock-styled.p
+        classname="mock-css. mock-css."
+      >
+        Add any semi-structured fields that you would like included in the webhook payload. If you
+        '
+        re not sure what to put here, leave it blank.
+      </mock-styled.p>
+    </div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.div>
+              <mock-styled.input
+                id="test-static-id"
+                placeholder="Type and press enter to add a field"
+                value=""
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Semi-structured Fields
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="semi-structured-fields"
+            />
+            <mock-styled.div
+              classname=""
+            >
+              <p>
+                Please enter a semi-structured field name above, then press enter.
+              </p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`getStepContent should match a snapshot for step content 6 6`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.select>
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="MOCK_APP_ID"
+              >
+                MOCK_APP_NAME
+              </option>
+              <option
+                value="MOCK_OTHER_APP_ID"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </option>
+            </mock-styled.select>
+            <mock-styled.label>
+              Please select an app
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Enter secure https:// url"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Webhook Url
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.input
+              id="test-static-id"
+              placeholder="Search"
+            />
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Subscription Topics
+            </mock-styled.label>
+            <mock-styled.span
+              classname="mock-css."
+            >
+              Search to get started
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="topic-ids"
+            />
+            <mock-styled.div
+              classname=""
+            />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="customer-ids"
+              />
+              <mock-styled.div
+                classname=""
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  All Customers
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Sandbox Estates
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Reapit Sales
+                </mock-styled.label>
+                <mock-styled.input
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="test-static-id"
+                >
+                  Foo Bar
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.label>
+              Subscription Customers
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
