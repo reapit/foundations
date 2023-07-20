@@ -18,6 +18,7 @@ export const WidgetButton = styled.button`
   justify-content: center;
   opacity: 0;
   transition: all 0.5s ease-in-out;
+  cursor: pointer;
 
   &.${widgetButtonIsActive} {
     background-color: var(--intent-secondary);
