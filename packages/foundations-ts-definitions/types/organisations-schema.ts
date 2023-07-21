@@ -940,6 +940,7 @@ export interface Organisations {
   claim?: string[]
   marketplaceId?: string[]
   name?: string
+  includeUserData?: boolean
 }
 export interface PagingLinkModel {
   href?: string

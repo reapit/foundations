@@ -5567,7 +5567,7 @@ export interface CreateContactSourceModel {
  */
 export interface CreateDocumentModel {
   /**
-   * The type of entity that the document is associated with (appliance/applicant/bankStatement/batch/certificate/contact/depositCertificate/estate/estateUnit/idCheck/keySet/landlord/nominalTransaction/property/supplierInvoice/tenancy/tenancyCheck/tenancyRenewal/worksOrder)
+   * The type of entity that the document is associated with (appliance/applicant/bankStatement/batch/certificate/contact/depositCertificate/estate/estateUnit/idCheck/keySet/landlord/nominalTransaction/property/supplierInvoice/tenancy/tenancyCheck/tenancyRenewal/worksOrder/renewalNegotiation)
    */
   associatedType: string
   /**
@@ -7923,7 +7923,7 @@ export interface CreateTenancyBreakClauseModel {
    */
   active?: string // date
   /**
-   * The responsible party (landlord/tenant)
+   * The responsible party (landlord/tenant/mutual)
    */
   appliesTo?: string
   /**
@@ -22183,7 +22183,7 @@ export interface UpdateTenancyBreakClauseModel {
    */
   active?: string // date
   /**
-   * The responsible party (landlord/tenant)
+   * The responsible party (landlord/tenant/mutual)
    */
   appliesTo?: string
   /**
