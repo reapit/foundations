@@ -68,7 +68,7 @@ export const AppsWelcomePage: FC = () => {
                   </BodyText>
                 </div>
                 <ButtonGroup alignment="left">
-                  <Button onClick={openNewPage(ExternalPages.baseDocs)} intent="primary" size={2} chevronRight>
+                  <Button onClick={openNewPage(ExternalPages.baseDocs)} intent="neutral" size={2} chevronRight>
                     View Docs
                   </Button>
                 </ButtonGroup>

@@ -12,14 +12,13 @@ export const buildStatusToIntent = (status: string): Intent => {
       return 'secondary'
     case 'PRE_PROVISIONED':
     case 'QUEUED':
-      return 'critical'
+      return 'pending'
     case 'FAILED':
     case 'DELETING':
     case 'DELETED':
     case 'FAILED_TO_PROVISION':
       return 'danger'
     case 'READY_FOR_DEPLOYMENT':
-      return 'low'
     default:
       return 'neutral'
   }

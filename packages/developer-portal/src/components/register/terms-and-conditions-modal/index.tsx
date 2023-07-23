@@ -42,7 +42,7 @@ export const TermsAndConditionsModal: FC<TermsAndConditionsModalProps> = ({
         <ScheduleThree />
         <ButtonGroup alignment="right">
           {onDecline && (
-            <Button fixedWidth intent="low" type="button" onClick={onDecline}>
+            <Button fixedWidth intent="danger" type="button" onClick={onDecline}>
               Decline
             </Button>
           )}

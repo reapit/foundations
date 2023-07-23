@@ -1,8 +1,7 @@
 import React, { FC, ChangeEvent } from 'react'
 import { NavigateFunction, Route, Routes, useNavigate } from 'react-router-dom'
-import { Button, ButtonGroup, elMb5, FlexContainer, Tabs, Title, useMediaQuery, useModal } from '@reapit/elements'
+import { Button, ButtonGroup, MobileControls, Tabs, Title, useMediaQuery, useModal } from '@reapit/elements'
 import RoutePaths from '../../constants/routes'
-import { openNewPage, ExternalPages } from '../../utils/navigation'
 import WebhooksAbout from './webhooks-about'
 import WebhooksManage from './webhooks-manage'
 import WebhooksLogs from './webhooks-logs'
@@ -28,23 +27,8 @@ export const WebhooksWrapper: FC = () => {
 
   return (
     <>
-      <FlexContainer isFlexJustifyBetween>
-        <Title>Webhooks</Title>
-        {isMobile && !isNewPage && (
-          <ButtonGroup alignment="right">
-            {isAboutPage && (
-              <Button className={elMb5} intent="low" onClick={openNewPage(ExternalPages.webhooksDocs)}>
-                View Docs
-              </Button>
-            )}
-            {(isManagePage || isLogsPage) && (
-              <Button intent="low" onClick={openModal}>
-                Filters
-              </Button>
-            )}
-          </ButtonGroup>
-        )}
-      </FlexContainer>
+      <Title>Webhooks</Title>
+      <MobileControls onClick={openModal} />
       {isMobile && apps?.data && (
         <Modal title="Filters">
           <WebhooksControls />

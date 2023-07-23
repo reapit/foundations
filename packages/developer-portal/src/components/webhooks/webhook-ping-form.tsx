@@ -144,7 +144,7 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
             will be sent to the configured URL. For more information, please{' '}
             <a onClick={openNewPage(`${Routes.API_DOCS}/api/webhooks#testing`)}>click here</a>
           </BodyText>
-          <ButtonGroup className={elMlAuto}>
+          <ButtonGroup className={elMlAuto} alignment="right">
             <Button
               intent="primary"
               type="button"

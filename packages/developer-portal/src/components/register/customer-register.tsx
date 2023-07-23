@@ -147,7 +147,7 @@ export const CustomerRegister: FC = () => {
           alignment="right"
           className={elMb12}
         >
-          <Button onClick={openNewPage(process.env.marketplaceUrl)} intent="primary" size={3}>
+          <Button onClick={openNewPage(process.env.marketplaceUrl)} intent="neutral" size={3}>
             Visit AppMarket
           </Button>
           {isCustomerAdmin && !hasDeveloperOrg && (

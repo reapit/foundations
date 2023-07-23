@@ -11,12 +11,11 @@ const queryClient = new QueryClient()
 export const globals = css`
   :global() {
     body {
-      background: #262f69;
+      background: #fff;
     }
 
     #root {
       height: 100%;
-      background: #f2f2f2;
     }
   }
 `

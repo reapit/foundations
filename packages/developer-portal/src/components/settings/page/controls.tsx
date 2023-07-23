@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import {
   Button,
   ButtonGroup,
-  elMb5,
+  elMb7,
   FormLayout,
   Icon,
   InputGroup,
@@ -78,27 +78,27 @@ export const Controls: FC = () => {
   })
 
   return (
-    <>
+    <div className={elMb7}>
       <Icon icon="reapitConnectInfographic" iconSize="large" />
       <Subtitle>Settings</Subtitle>
       <SmallText hasGreyText>
         You can manage the information we hold about you and change your password in these pages.
       </SmallText>
       {currentMember?.role === 'admin' && (
-        <>
-          <SmallText hasGreyText>
-            Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
-          </SmallText>
-          {pathname === Routes.SETTINGS_MEMBERS && (
-            <Button className={elMb5} onClick={openModal} intent="primary">
-              Invite Developer
-            </Button>
-          )}
-        </>
+        <SmallText hasGreyText>
+          Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
+        </SmallText>
       )}
-      <Button onClick={handleLogout(connectLogoutRedirect)} intent="primary" chevronRight>
-        Logout
-      </Button>
+      <ButtonGroup>
+        {currentMember?.role === 'admin' && pathname === Routes.SETTINGS_MEMBERS && (
+          <Button onClick={openModal} intent="primary">
+            Invite Developer
+          </Button>
+        )}
+        <Button onClick={handleLogout(connectLogoutRedirect)} intent="neutral" chevronRight>
+          Logout
+        </Button>
+      </ButtonGroup>
       <Modal title="Invite Developer">
         <form onSubmit={handleSubmit(handleInviteMember(inviteMember, closeModal))}>
           <FormLayout hasMargin>
@@ -145,7 +145,7 @@ export const Controls: FC = () => {
             </InputWrapFull>
           </FormLayout>
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="low" onClick={closeModal}>
+            <Button fixedWidth intent="neutral" onClick={closeModal}>
               Close
             </Button>
             <Button fixedWidth intent="primary" type="submit">
@@ -154,6 +154,6 @@ export const Controls: FC = () => {
           </ButtonGroup>
         </form>
       </Modal>
-    </>
+    </div>
   )
 }

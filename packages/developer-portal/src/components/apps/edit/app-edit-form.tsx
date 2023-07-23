@@ -213,7 +213,7 @@ export const AppEditForm: FC = () => {
           .
         </BodyText>
         <ButtonGroup alignment="right">
-          <Button fixedWidth onClick={closeModal} intent="low">
+          <Button fixedWidth onClick={closeModal} intent="neutral">
             Close
           </Button>
           <Button

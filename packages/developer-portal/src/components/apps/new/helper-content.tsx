@@ -321,7 +321,7 @@ export const HelperContent: FC = () => {
           allowFullScreen
         />
         <ButtonGroup alignment="right">
-          <Button fixedWidth intent="low" onClick={closeModalServerSide}>
+          <Button intent="neutral" onClick={closeModalServerSide}>
             Close
           </Button>
         </ButtonGroup>
@@ -338,7 +338,7 @@ export const HelperContent: FC = () => {
           allowFullScreen
         />
         <ButtonGroup alignment="right">
-          <Button fixedWidth intent="low" onClick={closeModalDesktop}>
+          <Button intent="neutral" onClick={closeModalDesktop}>
             Close
           </Button>
         </ButtonGroup>
@@ -355,7 +355,7 @@ export const HelperContent: FC = () => {
           allowFullScreen
         />
         <ButtonGroup alignment="right">
-          <Button fixedWidth intent="low" onClick={closeModalWebsite}>
+          <Button intent="neutral" onClick={closeModalWebsite}>
             Close
           </Button>
         </ButtonGroup>
@@ -372,7 +372,7 @@ export const HelperContent: FC = () => {
           allowFullScreen
         />
         <ButtonGroup alignment="right">
-          <Button fixedWidth intent="low" onClick={closeModalApps}>
+          <Button intent="neutral" onClick={closeModalApps}>
             Close
           </Button>
         </ButtonGroup>

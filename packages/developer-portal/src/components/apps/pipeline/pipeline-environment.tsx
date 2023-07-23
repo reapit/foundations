@@ -194,7 +194,7 @@ export const PipelineEnvironment = () => {
             </InputWrap>
           </FormLayout>
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="low" onClick={closeModal}>
+            <Button fixedWidth intent="neutral" onClick={closeModal}>
               Close
             </Button>
             <Button fixedWidth intent="primary" type="submit" disabled={sending} loading={sending}>

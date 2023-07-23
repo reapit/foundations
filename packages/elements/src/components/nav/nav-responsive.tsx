@@ -2,7 +2,6 @@ import { cx } from '@linaria/core'
 import React, { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState } from 'react'
 import { useNavState } from '../../hooks/use-nav-state'
 import { useMediaQuery } from '../../hooks/use-media-query'
-import { elIntentNeutral } from '../../styles/intent'
 import { Icon, IconNames } from '../icon'
 import { Nav, NavItem, NavSubNav, NavSubNavItem } from './nav'
 import {
@@ -32,7 +31,7 @@ export interface NavResponsiveOption {
 export interface NavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
   options: NavResponsiveOption[]
   defaultNavIndex?: number
-  defaultNavSubIndex?: number
+  defaultNavSubIndex?: number // deprecated
 }
 
 export type LogoIcon = 'reapitLogoSelectedMenu' | 'reapitLogoMenu'
@@ -42,17 +41,11 @@ export const handleToggleLogo = (logoState: LogoIcon, setLogoState: Dispatch<Set
   setLogoState(newState)
 }
 
-export const NavResponsive: FC<NavResponsiveProps> = ({
-  options,
-  className,
-  defaultNavIndex,
-  defaultNavSubIndex,
-  ...rest
-}) => {
-  const { navState, setNavState } = useNavState(defaultNavIndex, defaultNavSubIndex)
+export const NavResponsive: FC<NavResponsiveProps> = ({ options, className, defaultNavIndex, ...rest }) => {
+  const { navState, setNavState } = useNavState(defaultNavIndex)
   const [logoState, setLogoState] = useState<LogoIcon>('reapitLogoMenu')
   const { isMobile } = useMediaQuery()
-  const { navItemIndex, navMenuOpen, navSubItemIndex, navSubMenuIndex } = navState
+  const { navItemIndex, navMenuOpen } = navState
 
   return (
     <Nav className={cx(className)} {...rest}>
@@ -87,9 +80,10 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 )}
                 {text}
                 <Icon
-                  className={cx(elIntentNeutral, elMlAuto, elMr2, elNavItemHideDesktop)}
-                  icon={navMenuOpen ? 'hamburgerOpenMenu' : 'hamburgerMenu'}
-                  fontSize="2rem"
+                  className={cx(elMlAuto, elMr2, elNavItemHideDesktop)}
+                  icon={navMenuOpen ? 'moreSolidSystem' : 'moreSolidSystem'}
+                  fontSize="1.2rem"
+                  intent={navMenuOpen ? 'primary' : 'neutral'}
                   onClick={setNavState({
                     navMenuOpen: !navMenuOpen,
                     navSubMenuIndex: null,
@@ -105,25 +99,16 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 className={cx(navItemIndex === itemIndex && elNavItemActive, navMenuOpen && elNavItemExpanded)}
                 href={href}
                 isSecondary={isSecondary}
-                onClick={
-                  isMobile
-                    ? setNavState({
-                        navItemIndex: itemIndex,
-                        navSubMenuIndex: navMenuOpen && navSubMenuIndex === itemIndex ? null : itemIndex,
-                        navSubItemIndex: navMenuOpen && navSubMenuIndex === itemIndex ? null : navSubItemIndex,
-                        callback,
-                      })
-                    : setNavState({ navItemIndex: itemIndex, callback })
-                }
+                onClick={setNavState({ navItemIndex: itemIndex, callback })}
               >
-                {icon ? icon : iconId ? <Icon iconSize="medium" className={elNavItemIcon} icon={iconId} /> : ''}
-                {text}
-                {isMobile && subItems && (
-                  <Icon
-                    className={cx(elIntentNeutral, elMlAuto)}
-                    icon={navSubMenuIndex === itemIndex ? 'upSystem' : 'downSystem'}
-                  />
+                {icon && !isMobile ? (
+                  icon
+                ) : iconId && !isMobile ? (
+                  <Icon iconSize="medium" className={elNavItemIcon} icon={iconId} />
+                ) : (
+                  ''
                 )}
+                {(!isSecondary || isMobile) && text}
               </NavItem>
               {subItems && subItems.length > 0 && (
                 <NavSubNav key={generateRandomId()}>
@@ -137,12 +122,12 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                       return (
                         <NavSubNavItem
                           className={cx(
-                            navSubItemIndex === innerItemIndex && elNavSubItemActive,
-                            navSubMenuIndex === itemIndex && elNavSubItemExpanded,
+                            navItemIndex === innerItemIndex && elNavSubItemActive,
+                            navMenuOpen && elNavSubItemExpanded,
                           )}
                           href={innerHref}
                           key={innerItemIndex}
-                          onClick={setNavState({ navSubItemIndex: innerItemIndex, callback: innerCallback })}
+                          onClick={setNavState({ navItemIndex: innerItemIndex, callback: innerCallback })}
                         >
                           <span>{innerText}</span>
                         </NavSubNavItem>

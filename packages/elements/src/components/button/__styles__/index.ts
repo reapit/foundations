@@ -86,6 +86,7 @@ export const ElButton = styled.button`
   background-image: linear-gradient(to right, var(--color-white), var(--color-white));
   outline-color: var(--intent-primary);
   background-repeat: no-repeat;
+  max-height: 2.25rem;
 
   &:hover {
     border: 1px solid var(--color-grey-medium-light);

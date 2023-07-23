@@ -2,6 +2,8 @@ import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 import { isTablet } from '../../../styles/media'
 import { elIsActive } from '../../../styles/states'
+import { ElIcon } from '../../icon'
+import { elIntentNeutral } from '../../../styles/intent'
 
 export const elMobileControlsVisible = css`
   display: flex;
@@ -32,6 +34,10 @@ export const ElMobileControls = styled.div`
   bottom: 0.75rem;
   right: 0.75rem;
   z-index: 99;
+
+  ${ElIcon}.${elIntentNeutral} {
+    color: var(--color-white);
+  }
 
   ${isTablet} {
     display: none;

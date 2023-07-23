@@ -277,10 +277,10 @@ export const ElTableExpandableRowTriggerCell = styled.div`
 `
 
 export const ElTableRowContainer = styled.div`
-  &:hover {
+  &:hover:not(.${elIsActive}) {
     background-color: var(--color-grey-lightest);
 
-    ${ElTableCell}, ${ElTableExpandableRowTriggerCell} {
+    ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
       background-color: var(--color-grey-lightest);
     }
   }
@@ -289,8 +289,16 @@ export const ElTableRowContainer = styled.div`
   &.${elIsActive}, .${elTableRowFocused} {
     background: var(--color-accent-blue-lightest);
 
-    ${ElTableCell}, ${ElTableExpandableRowTriggerCell} {
+    ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
       background: var(--color-accent-blue-lightest);
+    }
+  }
+
+  &:not(.${elIsActive}) {
+    background: var(--color-white);
+
+    ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
+      background: var(--color-white);
     }
   }
 `

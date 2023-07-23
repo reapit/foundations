@@ -20,11 +20,11 @@ export interface ChartDataModel {
 }
 
 export const GRADIENTS = [
-  { start: 'rgba(236, 99, 27, 1)', end: 'rgba(236, 99, 27, 0.5)' },
-  { start: 'rgba(0, 101, 128, 1)', end: 'rgba(0, 101, 128, 0.5)' },
-  { start: 'rgba(122, 44, 129, 1)', end: 'rgba(122, 44, 129, 0.5)' },
-  { start: 'rgba(0, 97, 168, 1)', end: 'rgba(0, 97, 168, 0.5)' },
-  { start: 'rgba(35, 164, 222, 1)', end: 'rgba(35, 164, 222, 0.5)' },
+  { start: '#ffc666', end: '#ffa000' },
+  { start: '#ff9f66', end: '#ff6000' },
+  { start: '#66b2ff', end: '#0080ff' },
+  { start: '#b28cff', end: '#8040ff' },
+  { start: '#64d2c8', end: '#009b96' },
 ]
 
 export const handleSortChartData = (billing: BillingOverviewForPeriodV2Model | null) => () => {

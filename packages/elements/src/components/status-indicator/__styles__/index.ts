@@ -7,6 +7,7 @@ import {
   elIntentSuccess,
   elIntentDanger,
   elIntentWarning,
+  elIntentPending,
 } from '../../../styles/intent'
 
 export const elShapeTag = css``
@@ -29,6 +30,12 @@ export const ElStatusIndicator = styled.span`
     background-image: linear-gradient(to right, var(--intent-warning), var(--intent-warning));
     color: var(--intent-warning-text);
     outline-color: var(--intent-warning-dark);
+  }
+
+  &.${elIntentPending} {
+    background-image: linear-gradient(to right, var(--intent-pending), var(--intent-pending));
+    color: var(--intent-pending-text);
+    outline-color: var(--intent-pending-dark);
   }
 
   &.${elIntentSuccess} {

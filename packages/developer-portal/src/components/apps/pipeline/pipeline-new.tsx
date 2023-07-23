@@ -14,7 +14,7 @@ export const PipelineNew: FC = () => {
         <Modal title="Controls">
           <Helper />
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="primary" onClick={closeModal}>
+            <Button fixedWidth intent="neutral" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>

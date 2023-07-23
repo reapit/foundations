@@ -9,7 +9,6 @@ import {
   elMb5,
   elMb7,
   elMb8,
-  elMb9,
   elWFull,
   FlexContainer,
   Icon,
@@ -92,7 +91,7 @@ export const ApiPage: FC = () => {
     <ErrorBoundary>
       <FlexContainer isFlexAuto>
         <SecondaryNavContainer>
-          <SecondaryNav className={elMb9}>
+          <SecondaryNav>
             <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.SWAGGER)} active={isSwaggerPage}>
               REST API
             </SecondaryNavItem>
@@ -112,11 +111,11 @@ export const ApiPage: FC = () => {
               <BodyText>Open API Specification</BodyText>
               <div>
                 <Label>API Version</Label>
-                <p className={elMb5}>2020-01-31</p>
+                <SmallText>2020-01-31</SmallText>
               </div>
               <div>
                 <Label>API Location</Label>
-                <p className={elMb5}>https://platform.reapit.cloud</p>
+                <SmallText>https://platform.reapit.cloud</SmallText>
               </div>
               {hasProducts && (
                 <>
@@ -164,7 +163,7 @@ export const ApiPage: FC = () => {
                   allowFullScreen
                 />
                 <ButtonGroup alignment="right">
-                  <Button fixedWidth intent="low" onClick={closeModal}>
+                  <Button fixedWidth intent="neutral" onClick={closeModal}>
                     Close
                   </Button>
                 </ButtonGroup>
@@ -198,9 +197,6 @@ export const ApiPage: FC = () => {
                 set up a different webhook subscription per topic or per customer. For more information about Webhooks,
                 please see our documentation.
               </SmallText>
-              <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.webhooksDocs)}>
-                View Docs
-              </Button>
             </>
           )}
           {(isManagePage || isLogsPage) && (

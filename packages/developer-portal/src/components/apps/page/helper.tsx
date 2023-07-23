@@ -1,4 +1,4 @@
-import { Button, elFadeIn, elMb3, Icon, SmallText, BodyText, ButtonGroup } from '@reapit/elements'
+import { Button, elFadeIn, elMb3, Icon, SmallText, BodyText, ButtonGroup, elMb7 } from '@reapit/elements'
 import { AppRevisionModelPagedResult, RejectRevisionModel } from '@reapit/foundations-ts-definitions'
 import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import React, { Dispatch, FC, SetStateAction, useEffect, useState, MouseEvent } from 'react'
@@ -17,6 +17,7 @@ import { PipelineControls } from '../pipeline/pipeline-controls'
 import { useGlobalState } from '../../../core/use-global-state'
 import { DownloadInstallationsCSV } from '../installations/download-installations-csv'
 import Routes from '../../../constants/routes'
+import { cx } from '@linaria/core'
 
 export const handleSetAppEditSaving =
   (
@@ -166,7 +167,7 @@ export const Helper: FC = () => {
 
   if (isAppsEdit) {
     return (
-      <div className={elFadeIn}>
+      <div className={cx(elFadeIn, elMb7)}>
         <Icon className={elMb3} icon="editAppInfographic" iconSize="large" />
         {isCompleted && !isPublicallyListed && !appDetailLoading && !hasRevisions ? (
           <>
@@ -179,25 +180,25 @@ export const Helper: FC = () => {
             <SmallText hasGreyText>
               You also have the option of saving any additional changes as you make them before submitting.
             </SmallText>
-            {hasUnsavedChanges && (
+            <ButtonGroup>
+              {hasUnsavedChanges && (
+                <Button
+                  intent="primary"
+                  loading={isRefreshing}
+                  onClick={handleSetAppEditSaving(setAppEditSaving, false, openModal, developerStatus)}
+                >
+                  Save Changes
+                </Button>
+              )}
               <Button
-                className={elMb3}
                 intent="primary"
                 loading={isRefreshing}
-                onClick={handleSetAppEditSaving(setAppEditSaving, false, openModal, developerStatus)}
+                onClick={handleSetAppEditSaving(setAppEditSaving, true, openModal, developerStatus)}
+                chevronRight
               >
-                Save Changes
+                Submit Review
               </Button>
-            )}
-            <Button
-              className={elMb3}
-              intent="primary"
-              loading={isRefreshing}
-              onClick={handleSetAppEditSaving(setAppEditSaving, true, openModal, developerStatus)}
-              chevronRight
-            >
-              Submit Review
-            </Button>
+            </ButtonGroup>
           </>
         ) : hasRevisions ? (
           <>
@@ -209,14 +210,15 @@ export const Helper: FC = () => {
             <SmallText hasGreyText>
               If you no longer want your app revision to be approved, you can cancel below.
             </SmallText>
-            <Button
-              className={elMb3}
-              intent="primary"
-              loading={isRefreshing}
-              onClick={handleCancelPendingRevsion(cancelRevision, connectSession, revisionId)}
-            >
-              Cancel Revision
-            </Button>
+            <ButtonGroup>
+              <Button
+                intent="primary"
+                loading={isRefreshing}
+                onClick={handleCancelPendingRevsion(cancelRevision, connectSession, revisionId)}
+              >
+                Cancel Revision
+              </Button>
+            </ButtonGroup>
           </>
         ) : isPublicallyListed ? (
           <>
@@ -228,25 +230,25 @@ export const Helper: FC = () => {
             <SmallText hasGreyText>
               You also have the option of de-listing your app and reverting to a sandbox only integration.
             </SmallText>
-            <Button
-              className={elMb3}
-              intent="primary"
-              loading={isRefreshing}
-              onClick={handleSetAppEditSaving(setAppEditSaving, false, openModal, developerStatus)}
-            >
-              De-list app
-            </Button>
-            {hasUnsavedChanges && (
+            <ButtonGroup>
               <Button
-                className={elMb3}
                 intent="primary"
                 loading={isRefreshing}
-                onClick={handleSetAppEditSaving(setAppEditSaving, true, openModal, developerStatus)}
-                chevronRight
+                onClick={handleSetAppEditSaving(setAppEditSaving, false, openModal, developerStatus)}
               >
-                Create Revision
+                De-list app
               </Button>
-            )}
+              {hasUnsavedChanges && (
+                <Button
+                  intent="primary"
+                  loading={isRefreshing}
+                  onClick={handleSetAppEditSaving(setAppEditSaving, true, openModal, developerStatus)}
+                  chevronRight
+                >
+                  Create Revision
+                </Button>
+              )}
+            </ButtonGroup>
           </>
         ) : hasUnsavedChanges ? (
           <>
@@ -255,14 +257,15 @@ export const Helper: FC = () => {
               Before you list your app you can save the details at any point below. After app listing, you will have to
               create an app revision for our team to review.
             </SmallText>
-            <Button
-              className={elMb3}
-              intent="primary"
-              loading={isRefreshing}
-              onClick={handleSetAppEditSaving(setAppEditSaving, false, openModal, developerStatus)}
-            >
-              Save Changes
-            </Button>
+            <ButtonGroup>
+              <Button
+                intent="primary"
+                loading={isRefreshing}
+                onClick={handleSetAppEditSaving(setAppEditSaving, false, openModal, developerStatus)}
+              >
+                Save Changes
+              </Button>
+            </ButtonGroup>
           </>
         ) : (
           <>
@@ -285,18 +288,20 @@ export const Helper: FC = () => {
 
   if (isAppsDetail) {
     return (
-      <div className={elFadeIn}>
+      <div className={cx(elFadeIn, elMb7)}>
         <Icon className={elMb3} icon="appMarketInfographic" iconSize="large" />
         <BodyText>Preview in AppMarket</BodyText>
         <SmallText hasGreyText>
           Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
         </SmallText>
-        <Button className={elMb3} intent="primary" onClick={openNewPage(`${process.env.marketplaceUrl}/${appId}`)}>
-          Preview
-        </Button>
-        <Button className={elMb3} intent="danger" onClick={handleOpenModal(openModalDelete)}>
-          Delete App
-        </Button>
+        <ButtonGroup>
+          <Button intent="primary" onClick={openNewPage(`${process.env.marketplaceUrl}/${appId}`)}>
+            Preview
+          </Button>
+          <Button intent="danger" onClick={handleOpenModal(openModalDelete)}>
+            Delete App
+          </Button>
+        </ButtonGroup>
         <ModalDelete title={`Confirm ${name} Deletion`}>
           {!isDeveloperAdmin ? (
             <BodyText>
@@ -316,7 +321,7 @@ export const Helper: FC = () => {
             </BodyText>
           )}
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="primary" onClick={closeModalDelete}>
+            <Button fixedWidth intent="neutral" onClick={closeModalDelete}>
               Cancel
             </Button>
             <Button
@@ -325,7 +330,7 @@ export const Helper: FC = () => {
               disabled={deletionProtection || !isDeveloperAdmin}
               onClick={handleDeleteApp(deleteApp, navigate)}
             >
-              Confirm
+              Delete
             </Button>
           </ButtonGroup>
         </ModalDelete>
@@ -339,7 +344,7 @@ export const Helper: FC = () => {
 
   if (isAppConsents) {
     return (
-      <div className={elFadeIn}>
+      <div className={cx(elFadeIn, elMb7)}>
         <Icon className={elMb3} icon="editAppInfographic" iconSize="large" />
         <BodyText>App Consents</BodyText>
         <SmallText hasGreyText>
@@ -352,41 +357,47 @@ export const Helper: FC = () => {
           either track this process here or reach out to your customer to expedite their response to our message.
         </SmallText>
         <SmallText hasGreyText>You can also request that the email is re-sent to each customer individually.</SmallText>
-        <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.appPermissionsDocs)}>
-          View Docs
-        </Button>
+        <ButtonGroup>
+          <Button intent="neutral" onClick={openNewPage(ExternalPages.appPermissionsDocs)}>
+            View Docs
+          </Button>
+        </ButtonGroup>
       </div>
     )
   }
 
   if (isAppsInstallations) {
     return (
-      <div className={elFadeIn}>
+      <div className={cx(elFadeIn, elMb7)}>
         <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
         <BodyText>Apps Documentation</BodyText>
         <SmallText hasGreyText>
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not
           created an app before or you need help, please take the time to view our getting started guide.
         </SmallText>
-        <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
-          View Docs
-        </Button>
+        <ButtonGroup className={elMb3}>
+          <Button intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
+            View Docs
+          </Button>
+        </ButtonGroup>
         <DownloadInstallationsCSV />
       </div>
     )
   }
 
   return (
-    <div className={elFadeIn}>
+    <div className={cx(elFadeIn, elMb7)}>
       <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
       <BodyText>Apps Documentation</BodyText>
       <SmallText hasGreyText>
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not
         created an app before or you need help, please take the time to view our getting started guide.
       </SmallText>
-      <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
-        View Docs
-      </Button>
+      <ButtonGroup>
+        <Button intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
+          View Docs
+        </Button>
+      </ButtonGroup>
     </div>
   )
 }

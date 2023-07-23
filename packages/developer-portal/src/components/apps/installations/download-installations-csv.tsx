@@ -5,7 +5,7 @@ import { useReapitGet } from '@reapit/use-reapit-data'
 import FileSaver from 'file-saver'
 import Papa from 'papaparse'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { Button, elMb3 } from '@reapit/elements'
+import { Button, ButtonGroup } from '@reapit/elements'
 import { useAppState } from '../state/use-app-state'
 import { useReapitConnect } from '@reapit/connect-session'
 
@@ -66,14 +66,15 @@ export const DownloadInstallationsCSV: FC = () => {
   }, [installations, download])
 
   return (
-    <Button
-      className={elMb3}
-      intent="primary"
-      loading={download}
-      disabled={download || !connectSession}
-      onClick={() => setDownload(true)}
-    >
-      Download CSV
-    </Button>
+    <ButtonGroup>
+      <Button
+        intent="primary"
+        loading={download}
+        disabled={download || !connectSession}
+        onClick={() => setDownload(true)}
+      >
+        Download CSV
+      </Button>
+    </ButtonGroup>
   )
 }

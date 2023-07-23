@@ -4,6 +4,7 @@ import {
   elBorderRadius,
   elFadeIn,
   elMb3,
+  elMb7,
   elWFull,
   Icon,
   InputGroup,
@@ -74,7 +75,7 @@ export const Controls: FC = () => {
   const options = useMemo(handleInstallationsToOptions(installations?.data), [installations])
 
   return (
-    <div className={cx(isCalcPage && visiblyHidden, elFadeIn)}>
+    <div className={cx(isCalcPage && visiblyHidden, elFadeIn, elMb7)}>
       <Icon className={cx(isCalcPage && visiblyHidden, elMb3)} icon="crmInfographic" iconSize="large" />
       <BodyText className={cx(isCalcPage && visiblyHidden)}>Filter By</BodyText>
       <SmallText hasGreyText>
@@ -144,7 +145,7 @@ export const Controls: FC = () => {
                   None selected
                 </option>
                 {options.map(({ name, value }) => (
-                  <option key={value} value={value}>
+                  <option key={name} value={value}>
                     {name}
                   </option>
                 ))}

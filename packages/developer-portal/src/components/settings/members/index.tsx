@@ -23,7 +23,13 @@ import { useGlobalState } from '../../../core/use-global-state'
 import { Controls } from '../page/controls'
 
 export const getIntentFromStatus = (status: string) => {
-  return status === 'active' ? 'success' : status === 'rejected' ? 'danger' : status === 'pending' ? 'critical' : 'low'
+  return status === 'active'
+    ? 'success'
+    : status === 'rejected'
+    ? 'danger'
+    : status === 'pending'
+    ? 'pending'
+    : 'neutral'
 }
 
 export const handleRefreshMembers =
@@ -67,7 +73,7 @@ export const SettingsMembersPage: FC = () => {
         <Modal title="Controls">
           <Controls />
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="primary" onClick={closeModal}>
+            <Button fixedWidth intent="neutral" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>
@@ -119,12 +125,7 @@ export const SettingsMembersPage: FC = () => {
             },
             {
               label: 'Main Contact',
-              value: (
-                <Icon
-                  icon={member.isMainContact ? 'checkSystem' : 'closeSystem'}
-                  intent={member.isMainContact ? 'success' : 'danger'}
-                />
-              ),
+              value: member.isMainContact ? <Icon icon="checkSolidSystem" intent="success" /> : '-',
               narrowTable: {
                 showLabel: true,
               },

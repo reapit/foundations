@@ -211,7 +211,7 @@ export const ApiKeys: FC<ApiKeysProps> = ({ closeModal }) => {
             </PersistentNotification>
           )}
           <ButtonGroup alignment="right">
-            <Button intent="low" fixedWidth onClick={closeModal} disabled={isLoading}>
+            <Button intent="neutral" fixedWidth onClick={closeModal} disabled={isLoading}>
               Close
             </Button>
             <Button

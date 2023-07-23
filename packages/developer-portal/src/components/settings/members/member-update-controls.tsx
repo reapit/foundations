@@ -96,7 +96,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
   const isDisabled = isLoading || member.email === currentMemberEmail
 
   return (
-    <ButtonGroup alignment="right">
+    <ButtonGroup alignment="center">
       <Button
         intent="primary"
         disabled={isDisabled}
@@ -116,19 +116,6 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
       >
         Invite Again
       </Button>
-      {member.status === 'active' && (
-        <Button
-          intent="low"
-          disabled={isDisabled}
-          loading={isLoading}
-          onClick={handleUpdateMember(updateMember, {
-            ...member,
-            status: 'inactive',
-          })}
-        >
-          Disable
-        </Button>
-      )}
       {!member.isMainContact && (
         <Button
           intent="primary"
@@ -140,6 +127,19 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
           })}
         >
           Set As Main Contact
+        </Button>
+      )}
+      {member.status === 'active' && (
+        <Button
+          intent="danger"
+          disabled={isDisabled}
+          loading={isLoading}
+          onClick={handleUpdateMember(updateMember, {
+            ...member,
+            status: 'inactive',
+          })}
+        >
+          Disable
         </Button>
       )}
       <Button intent="danger" disabled={isDisabled} loading={isLoading} onClick={handleDeleteMember(deleteMember)}>

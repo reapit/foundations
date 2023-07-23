@@ -88,7 +88,7 @@ export const SettingsSubscriptionsPage: FC = () => {
         <Modal title="Controls">
           <Controls />
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="primary" onClick={closeModal}>
+            <Button intent="neutral" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>

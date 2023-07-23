@@ -202,7 +202,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
       <FlexContainer className={elMb11} isFlexAlignCenter isFlexJustifyBetween>
         <Subtitle hasBoldText>Edit Webhook</Subtitle>
         <ButtonGroup alignment="right">
-          <Button intent="low" type="button" disabled={isLoading} loading={isLoading} onClick={openModal}>
+          <Button intent="neutral" type="button" disabled={isLoading} loading={isLoading} onClick={openModal}>
             Delete
           </Button>
           <Button

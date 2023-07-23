@@ -97,7 +97,7 @@ export const AnalyticsCosts: FC = () => {
         <Modal title="Controls">
           <Controls />
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="primary" onClick={closeModal}>
+            <Button fixedWidth intent="neutral" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>

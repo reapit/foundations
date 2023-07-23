@@ -73,6 +73,7 @@ export const useNavState = (
     setNavState((currentState: NavState) => ({
       ...currentState,
       ...newState,
+      navMenuOpen: !currentState.navMenuOpen,
     }))
 
     if (newState.callback) {

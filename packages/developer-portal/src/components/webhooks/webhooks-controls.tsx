@@ -175,14 +175,16 @@ export const WebhooksControls: FC = () => {
               </>
             )}
           </div>
-          <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.webhooksDocs)}>
-            View Docs
-          </Button>
         </>
       )}
-      <Button className={elMb5} intent="neutral" onClick={openModal}>
-        Video
-      </Button>
+      <ButtonGroup className={elMb7}>
+        <Button intent="neutral" onClick={openNewPage(ExternalPages.webhooksDocs)}>
+          View Docs
+        </Button>
+        <Button intent="neutral" onClick={openModal}>
+          Video
+        </Button>
+      </ButtonGroup>
       <Modal title="Webhooks">
         <iframe
           className={elMb7}
@@ -195,7 +197,7 @@ export const WebhooksControls: FC = () => {
           allowFullScreen
         />
         <ButtonGroup alignment="right">
-          <Button fixedWidth intent="low" onClick={closeModal}>
+          <Button fixedWidth intent="neutral" onClick={closeModal}>
             Close
           </Button>
         </ButtonGroup>

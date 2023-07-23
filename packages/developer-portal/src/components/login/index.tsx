@@ -42,7 +42,7 @@ export const Login: FC = () => {
           <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
             Login With Reapit
           </Button>
-          <Button onClick={navigateRoute(navigate, Routes.SELECT_ROLE)} intent="primary" size={3}>
+          <Button onClick={navigateRoute(navigate, Routes.SELECT_ROLE)} intent="neutral" size={3}>
             Register
           </Button>
         </ButtonGroup>
