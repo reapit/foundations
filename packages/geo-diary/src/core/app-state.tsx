@@ -19,7 +19,7 @@ import { ExtendedAppointmentModel } from '../types/global'
 import { getGeoCoords } from '../utils/map-utils'
 import qs from 'qs'
 
-export type AppTimeRange = 'TODAY' | 'TOMORROW' | 'WEEK' | 'CUSTOM'
+export type AppTimeRange = 'TODAY' | 'TOMORROW' | 'WEEK'
 export type AppTravelMode = 'DRIVING' | 'WALKING'
 export type AppTab = 'MAP' | 'LIST'
 export interface AppRouteInformation {
