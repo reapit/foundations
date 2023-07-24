@@ -940,6 +940,7 @@ export interface Organisations {
   claim?: string[]
   marketplaceId?: string[]
   name?: string
+  includeUserData?: boolean
 }
 export interface PagingLinkModel {
   href?: string
@@ -1352,6 +1353,10 @@ export interface UserInfoModel {
    * The id of the office the user belongs to
    */
   officeId?: string
+  /**
+   * The id of the office group the user belongs too
+   */
+  officeGroupId?: string
   /**
    * The name of the office group the user belongs to
    */

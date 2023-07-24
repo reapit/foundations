@@ -2448,7 +2448,7 @@ export interface Companies {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
-  embed?: 'companyTypes'[]
+  embed?: ('companyTypes' | 'relationships')[]
   id?: string[]
   address?: string
   branch?: string
@@ -2651,6 +2651,51 @@ export interface CompanyModel {
    * The ETag for the current version of the company. Used for managing update concurrency
    */
   readonly _eTag?: string
+  /**
+   * A list of relationships belonging to the company. This is later removed from the response
+   */
+  relationships?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the relationship
+     */
+    id?: string
+    /**
+     * The date and time when the relationship was created
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the related company
+     */
+    companyId?: string
+    /**
+     * The type of related entity (applicant/landlord/offer/tenancy/vendor)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related entity
+     */
+    associatedId?: string
+    /**
+     * Flag to determine if this role on the system is now archived
+     */
+    fromArchive?: boolean
+  }[]
 }
 export interface CompanyModelPagedResult {
   _embedded?: {
@@ -2800,6 +2845,51 @@ export interface CompanyModelPagedResult {
      * The ETag for the current version of the company. Used for managing update concurrency
      */
     readonly _eTag?: string
+    /**
+     * A list of relationships belonging to the company. This is later removed from the response
+     */
+    relationships?: {
+      readonly _links?: {
+        [name: string]: {
+          href?: string
+        }
+      }
+      readonly _embedded?: {
+        [name: string]: any
+      }
+      /**
+       * The unique identifier of the relationship
+       */
+      id?: string
+      /**
+       * The date and time when the relationship was created
+       * example:
+       * 2019-08-14T12:30:02Z
+       */
+      created?: string // date-time
+      /**
+       * The date and time when the relationship was last modified
+       * example:
+       * 2019-08-14T12:30:02Z
+       */
+      modified?: string // date-time
+      /**
+       * The unique identifier of the related company
+       */
+      companyId?: string
+      /**
+       * The type of related entity (applicant/landlord/offer/tenancy/vendor)
+       */
+      associatedType?: string
+      /**
+       * The unique identifier of the related entity
+       */
+      associatedId?: string
+      /**
+       * Flag to determine if this role on the system is now archived
+       */
+      fromArchive?: boolean
+    }[]
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -5567,7 +5657,7 @@ export interface CreateContactSourceModel {
  */
 export interface CreateDocumentModel {
   /**
-   * The type of entity that the document is associated with (appliance/applicant/bankStatement/batch/certificate/contact/depositCertificate/estate/estateUnit/idCheck/keySet/landlord/nominalTransaction/property/supplierInvoice/tenancy/tenancyCheck/tenancyRenewal/worksOrder)
+   * The type of entity that the document is associated with (appliance/applicant/bankStatement/batch/certificate/contact/depositCertificate/estate/estateUnit/idCheck/keySet/landlord/nominalTransaction/property/supplierInvoice/tenancy/tenancyCheck/tenancyRenewal/worksOrder/renewalNegotiation)
    */
   associatedType: string
   /**
@@ -7923,7 +8013,7 @@ export interface CreateTenancyBreakClauseModel {
    */
   active?: string // date
   /**
-   * The responsible party (landlord/tenant)
+   * The responsible party (landlord/tenant/mutual)
    */
   appliesTo?: string
   /**
@@ -22183,7 +22273,7 @@ export interface UpdateTenancyBreakClauseModel {
    */
   active?: string // date
   /**
-   * The responsible party (landlord/tenant)
+   * The responsible party (landlord/tenant/mutual)
    */
   appliesTo?: string
   /**
