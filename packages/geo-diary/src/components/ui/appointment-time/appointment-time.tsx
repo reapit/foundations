@@ -18,12 +18,13 @@ export const handleChangeTime =
       destinationLat: null,
       destinationLng: null,
       appointmentId: null,
+      apptQuery: null,
     }))
   }
 
 export const AppointmentTime = () => {
   const { appState, setAppState } = useAppState()
-  const { time, tab } = appState
+  const { time, tab, apptQuery } = appState
   const isExpanded = tab === 'LIST'
   return (
     <AppointmentTimeContainer className={cx(isExpanded && appointmentTimeContainerExpanded)}>
@@ -36,19 +37,19 @@ export const AppointmentTime = () => {
             id: 'today',
             value: 'TODAY',
             text: 'Today',
-            isChecked: time === 'TODAY',
+            isChecked: time === 'TODAY' && !apptQuery,
           },
           {
             id: 'tomorrow',
             value: 'TOMORROW',
             text: 'Tomorrow',
-            isChecked: time === 'TOMORROW',
+            isChecked: time === 'TOMORROW' && !apptQuery,
           },
           {
             id: 'week',
             value: 'WEEK',
             text: 'Week',
-            isChecked: time === 'WEEK',
+            isChecked: time === 'WEEK' && !apptQuery,
           },
         ]}
       />
