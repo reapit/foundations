@@ -27,6 +27,7 @@ describe('appointment-time', () => {
         destinationLat: null,
         destinationLng: null,
         appointmentId: null,
+        apptQuery: null,
       })
     })
   })

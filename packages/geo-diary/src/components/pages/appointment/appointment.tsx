@@ -86,6 +86,7 @@ export type AppointmentListQueryVariables = {
   includeCancelled: boolean
   includeUnconfirmed: boolean
   embed: string
+  id?: string[]
   pageSize: number
 }
 
@@ -217,20 +218,22 @@ export const Appointment: FC<AppointmentProps> = () => {
   const { appState, setAppState } = useAppState()
   const { error } = useSnack()
   const { time } = appState
-  const userCode = connectSession?.loginIdentity.userCode ?? ''
+  const userCode = appState.apptQuery?.negotiatorId ?? connectSession?.loginIdentity.userCode ?? ''
   const clientId = connectSession?.loginIdentity.clientId
   const accessToken = connectSession?.accessToken
   const { start, end } = startAndEndTime[time]
+  const idQuery = appState.apptQuery?.appointmentId ? { id: [appState.apptQuery?.appointmentId] } : {}
 
   const { data, loading } = useQuery<AppointmentListQueryData, AppointmentListQueryVariables>(GET_APPOINTMENTS, {
     variables: {
       negotiatorId: [userCode],
-      start,
-      end,
+      start: appState.apptQuery?.start ?? start,
+      end: appState.apptQuery?.end ?? end,
       includeCancelled: true,
       includeUnconfirmed: true,
       embed: 'offices',
       pageSize: 100,
+      ...idQuery,
     },
     onError: (err) => error(err.message),
     skip: !userCode,
