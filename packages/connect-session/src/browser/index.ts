@@ -279,7 +279,8 @@ export class ReapitConnectBrowserSession {
 
       if (session) {
         // Cache the session in memory for future use then return it to the user
-        this.session = session
+        this.session =
+          !session.refreshToken && this.refreshToken ? { ...session, refreshToken: this.refreshToken } : session
         this.setRefreshToken(session)
         return this.session
       }
