@@ -1019,7 +1019,7 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
               <mock-styled.h2
                 classname="mock-css."
               >
-                AgencyCloud Integration
+                AgencyCloud Launch Point
               </mock-styled.h2>
               <mock-styled.div>
                 Applicant
@@ -1478,7 +1478,7 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
             <mock-styled.h2
               classname="mock-css."
             >
-              AgencyCloud Integration
+              AgencyCloud Launch Point
             </mock-styled.h2>
             <mock-styled.div>
               Applicant
@@ -1995,7 +1995,7 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
               <mock-styled.h2
                 classname="mock-css."
               >
-                AgencyCloud Integration
+                AgencyCloud Launch Point
               </mock-styled.h2>
               <mock-styled.div>
                 Applicant
@@ -2446,7 +2446,7 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
             <mock-styled.h2
               classname="mock-css."
             >
-              AgencyCloud Integration
+              AgencyCloud Launch Point
             </mock-styled.h2>
             <mock-styled.div>
               Applicant

@@ -473,7 +473,7 @@ export const AppsDetail: FC = () => {
               </div>
               {Boolean(desktopIntegrationTypeIds?.length) && (
                 <div className={elMb11}>
-                  <Subtitle hasBoldText>AgencyCloud Integration</Subtitle>
+                  <Subtitle hasBoldText>AgencyCloud Launch Point</Subtitle>
                   {desktopIntegrationTypeIds?.map((id) => {
                     const desktopType = desktopIntegrationTypes?.data?.find((item) => item.id === id)
                     if (desktopType)
