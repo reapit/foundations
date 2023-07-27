@@ -3972,6 +3972,7 @@ export interface Contacts {
   name?: string
   nameType?: string
   marketingConsent?: ('grant' | 'deny' | 'notAsked')[]
+  marketingConsentFilterType?: ('assumedOrExplicit' | 'explicit')[]
   active?: boolean
   fromArchive?: boolean
   createdFrom?: string
@@ -6424,6 +6425,19 @@ export interface CreateOfferModel {
   }
 }
 /**
+ * Request body used to set the geolocation coordinates of a new address
+ */
+export interface CreateOfficeAddressGeolocationModel {
+  /**
+   * The latitude coordinate of the coordinate pair
+   */
+  latitude?: number // double
+  /**
+   * The longitude coordinate of the coordinate pair
+   */
+  longitude?: number // double
+}
+/**
  * Request body used to set the address of a new office
  */
 export interface CreateOfficeAddressModel {
@@ -6459,6 +6473,19 @@ export interface CreateOfficeAddressModel {
    * The ISO-3166 country code that the address resides within
    */
   countryId?: string
+  /**
+   * Request body used to set the geolocation coordinates of a new address
+   */
+  geolocation?: {
+    /**
+     * The latitude coordinate of the coordinate pair
+     */
+    latitude?: number // double
+    /**
+     * The longitude coordinate of the coordinate pair
+     */
+    longitude?: number // double
+  }
 }
 /**
  * Request body used to create a new office
@@ -6514,6 +6541,19 @@ export interface CreateOfficeModel {
      * The ISO-3166 country code that the address resides within
      */
     countryId?: string
+    /**
+     * Request body used to set the geolocation coordinates of a new address
+     */
+    geolocation?: {
+      /**
+       * The latitude coordinate of the coordinate pair
+       */
+      latitude?: number // double
+      /**
+       * The longitude coordinate of the coordinate pair
+       */
+      longitude?: number // double
+    }
   }
   /**
    * The work phone number of the office
@@ -11734,6 +11774,19 @@ export interface Offers {
   metadata?: string[]
 }
 /**
+ * Representation of the geographical location of an address using coordinates
+ */
+export interface OfficeAddressGeolocationModel {
+  /**
+   * The latitude coordinate of the coordinate pair
+   */
+  latitude?: number // double
+  /**
+   * The longitude coordinate of the coordinate pair
+   */
+  longitude?: number // double
+}
+/**
  * Representation of the physical address of a building or premise
  */
 export interface OfficeAddressModel {
@@ -11769,6 +11822,19 @@ export interface OfficeAddressModel {
    * The ISO-3166 country code that the address resides within
    */
   countryId?: string
+  /**
+   * Representation of the geographical location of an address using coordinates
+   */
+  geolocation?: {
+    /**
+     * The latitude coordinate of the coordinate pair
+     */
+    latitude?: number // double
+    /**
+     * The longitude coordinate of the coordinate pair
+     */
+    longitude?: number // double
+  }
 }
 /**
  * Representation of an office
@@ -11846,6 +11912,19 @@ export interface OfficeModel {
      * The ISO-3166 country code that the address resides within
      */
     countryId?: string
+    /**
+     * Representation of the geographical location of an address using coordinates
+     */
+    geolocation?: {
+      /**
+       * The latitude coordinate of the coordinate pair
+       */
+      latitude?: number // double
+      /**
+       * The longitude coordinate of the coordinate pair
+       */
+      longitude?: number // double
+    }
   }
   /**
    * A collection of additional contact details
@@ -11959,6 +12038,19 @@ export interface OfficeModelPagedResult {
        * The ISO-3166 country code that the address resides within
        */
       countryId?: string
+      /**
+       * Representation of the geographical location of an address using coordinates
+       */
+      geolocation?: {
+        /**
+         * The latitude coordinate of the coordinate pair
+         */
+        latitude?: number // double
+        /**
+         * The longitude coordinate of the coordinate pair
+         */
+        longitude?: number // double
+      }
     }
     /**
      * A collection of additional contact details
@@ -20545,6 +20637,19 @@ export interface UpdateOfferModel {
   }
 }
 /**
+ * Request body used to set the geolocation coordinates of an existing address
+ */
+export interface UpdateOfficeAddressGeolocationModel {
+  /**
+   * The latitude coordinate of the coordinate pair
+   */
+  latitude?: number // double
+  /**
+   * The longitude coordinate of the coordinate pair
+   */
+  longitude?: number // double
+}
+/**
  * Request body used to update the address of an existing office
  */
 export interface UpdateOfficeAddressModel {
@@ -20580,6 +20685,19 @@ export interface UpdateOfficeAddressModel {
    * The ISO-3166 country code that the address resides within
    */
   countryId?: string
+  /**
+   * Request body used to set the geolocation coordinates of an existing address
+   */
+  geolocation?: {
+    /**
+     * The latitude coordinate of the coordinate pair
+     */
+    latitude?: number // double
+    /**
+     * The longitude coordinate of the coordinate pair
+     */
+    longitude?: number // double
+  }
 }
 /**
  * Request body used to update an existing office
@@ -20635,6 +20753,19 @@ export interface UpdateOfficeModel {
      * The ISO-3166 country code that the address resides within
      */
     countryId?: string
+    /**
+     * Request body used to set the geolocation coordinates of an existing address
+     */
+    geolocation?: {
+      /**
+       * The latitude coordinate of the coordinate pair
+       */
+      latitude?: number // double
+      /**
+       * The longitude coordinate of the coordinate pair
+       */
+      longitude?: number // double
+    }
   }
   /**
    * The work phone number of the office
