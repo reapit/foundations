@@ -1,6 +1,6 @@
 {
   "name": "marketplace",
-  "version": "4.1.5",
+  "version": "4.1.6",
   "description": "Marketplace for PAAS platform",
   "main": "./src/index.ts",
   "repository": "git@github.com:reapit/app-store.git",
