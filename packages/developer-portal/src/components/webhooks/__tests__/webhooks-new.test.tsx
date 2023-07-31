@@ -12,7 +12,7 @@ import { CreateWebhookModel } from '../../../types/webhooks'
 
 jest.mock('../state/use-webhooks-state')
 
-const steps = ['1', '2', '3', '4', '5']
+const steps = ['1', '2', '3', '4', '5', '6']
 
 describe('WebhooksNew', () => {
   it('should match a snapshot', () => {
@@ -21,7 +21,7 @@ describe('WebhooksNew', () => {
 })
 
 describe('handleSwitchStep', () => {
-  const expectedResults = ['2', '3', '4', '5']
+  const expectedResults = ['2', '3', '4', '5', '6']
   steps.forEach((selectedStep, index) => {
     it(`should handle switching step for ${selectedStep}`, async () => {
       const trigger = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
@@ -33,7 +33,7 @@ describe('handleSwitchStep', () => {
 
       await new Promise<boolean>((resolve) => resolve(true))
 
-      if (index < 4) {
+      if (index < 5) {
         expect(setSelectedStep).toHaveBeenCalledWith(expectedResults[index])
       } else {
         expect(setSelectedStep).not.toHaveBeenCalled()

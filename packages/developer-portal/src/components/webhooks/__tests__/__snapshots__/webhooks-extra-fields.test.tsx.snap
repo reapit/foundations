@@ -1,0 +1,208 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebhooksExtraFields should match a snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="mock-css.
+  margin-bottom: 2.5rem;
+"
+      >
+        <mock-styled.p
+          classname="mock-css. mock-css."
+        >
+          Add any semi-structured fields that you would like included in the webhook payload. If you
+          '
+          re not sure what to put here, leave it blank.
+        </mock-styled.p>
+      </div>
+      <mock-styled.div
+        classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+            >
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  placeholder="Type and press enter to add a field"
+                  value=""
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Semi-structured Fields
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                id="semi-structured-fields"
+              />
+              <mock-styled.div
+                classname=""
+              >
+                <p>
+                  Please enter a semi-structured field name above, then press enter.
+                </p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="mock-css.
+  margin-bottom: 2.5rem;
+"
+    >
+      <mock-styled.p
+        classname="mock-css. mock-css."
+      >
+        Add any semi-structured fields that you would like included in the webhook payload. If you
+        '
+        re not sure what to put here, leave it blank.
+      </mock-styled.p>
+    </div>
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-wrap: wrap;
+ mock-css.
+  justify-content: space-between;
+ mock-css.
+  align-items: center;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <mock-styled.div>
+              <mock-styled.input
+                id="test-static-id"
+                placeholder="Type and press enter to add a field"
+                value=""
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Semi-structured Fields
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              id="semi-structured-fields"
+            />
+            <mock-styled.div
+              classname=""
+            >
+              <p>
+                Please enter a semi-structured field name above, then press enter.
+              </p>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
