@@ -3021,6 +3021,12 @@ export interface ConfigurationRenewalCheckTypes {
   active?: boolean
   officeId?: string[]
 }
+export interface ConfigurationTenancyRenewalOptionConditions {
+  id?: string[]
+}
+export interface ConfigurationTenancyRenewalOptions {
+  id?: string[]
+}
 export interface ConfigurationTypes {
   type?: (
     | 'agencyTypes'
@@ -16208,6 +16214,10 @@ export interface TenancyAllowanceModel {
     tenant?: boolean
   }
   /**
+   * Tenancy agreement text that relates to the allowance
+   */
+  letterText?: string
+  /**
    * The unique identifier of the associated tenancy
    */
   tenancyId?: string
@@ -16267,6 +16277,10 @@ export interface TenancyAllowanceModelPagedResult {
        */
       tenant?: boolean
     }
+    /**
+     * Tenancy agreement text that relates to the allowance
+     */
+    letterText?: string
     /**
      * The unique identifier of the associated tenancy
      */
@@ -18119,6 +18133,10 @@ export interface TenancyResponsibilityModel {
     tenant?: boolean
   }
   /**
+   * Tenancy agreement text that relates to the responsibility
+   */
+  letterText?: string
+  /**
    * The unique identifier of the associated tenancy
    */
   tenancyId?: string
@@ -18178,6 +18196,10 @@ export interface TenancyResponsibilityModelPagedResult {
        */
       tenant?: boolean
     }
+    /**
+     * Tenancy agreement text that relates to the responsibility
+     */
+    letterText?: string
     /**
      * The unique identifier of the associated tenancy
      */

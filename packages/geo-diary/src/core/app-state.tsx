@@ -17,6 +17,7 @@ import { ContactDrawerType } from '../components/ui/contact-drawer'
 import { Distance, Duration, GeocoderResult, MapRefs } from '../components/ui/map/types'
 import { ExtendedAppointmentModel } from '../types/global'
 import { getGeoCoords } from '../utils/map-utils'
+import qs from 'qs'
 
 export type AppTimeRange = 'TODAY' | 'TOMORROW' | 'WEEK'
 export type AppTravelMode = 'DRIVING' | 'WALKING'
@@ -24,6 +25,12 @@ export type AppTab = 'MAP' | 'LIST'
 export interface AppRouteInformation {
   duration: Duration
   distance: Distance
+}
+export interface ApptQueryString {
+  appointmentId: string
+  start: string
+  end: string
+  negotiatorId: string
 }
 
 export interface AppState {
@@ -49,6 +56,7 @@ export interface AppState {
   vendors: VendorLandlordModel[]
   landlords: VendorLandlordModel[]
   hasAmlApp: boolean
+  apptQuery: ApptQueryString | null
 }
 
 export interface AppStateContextProps {
@@ -79,6 +87,7 @@ export const defaultAppState: AppState = {
   vendors: [],
   landlords: [],
   hasAmlApp: false,
+  apptQuery: null,
 }
 
 export const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps)
@@ -86,7 +95,17 @@ export const AppStateContext = createContext<AppStateContextProps>({} as AppStat
 const { Provider } = AppStateContext
 
 export const AppStateProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const [appState, setAppState] = useState<AppState>(defaultAppState)
+  const rawApptQuery = qs.parse(window.location.search, { ignoreQueryPrefix: true })
+  const { appointmentId, start, end, negotiatorId } = rawApptQuery ?? {}
+  const apptQuery =
+    appointmentId && start && end && negotiatorId
+      ? ({ appointmentId, start, end, negotiatorId } as ApptQueryString)
+      : null
+  const mergedAppState = apptQuery
+    ? { ...defaultAppState, apptQuery, appointmentId: appointmentId as string }
+    : defaultAppState
+
+  const [appState, setAppState] = useState<AppState>(mergedAppState)
 
   useEffect(() => {
     const getAppState = async () => {
