@@ -656,6 +656,68 @@ export interface MigrationsKeys {
 /**
  * Representation of a defined collection of offices within an organisation which can be used to ring fence data and other operations
  */
+export interface OfficeGroupDetailedModel {
+  /**
+   * The unique identifier of the office group
+   */
+  id?: string
+  /**
+   * The date and time when the office group was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the office group was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The unique identifier of the organisation the office group belongs to
+   */
+  organisationId?: string
+  /**
+   * The customer id that will be used for users associated with an office in the office group
+   */
+  customerId?: string
+  /**
+   * The name of the office group
+   */
+  name?: string
+  /**
+   * The tag associated with the office group which is appended to the end of the parent customer id
+   */
+  tag?: string
+  /**
+   * The office ids associated to the office group
+   */
+  officeIds?: string
+  /**
+   * The status of the office group (active/inactive)
+   */
+  status?: string
+  /**
+   * A collection of offices within the office group
+   */
+  offices?: {
+    [name: string]: string
+  }
+}
+export interface OfficeGroupDetailedModelPagedResult {
+  _embedded?: OfficeGroupDetailedModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: PagingLinkModel
+  }
+}
+/**
+ * Representation of a defined collection of offices within an organisation which can be used to ring fence data and other operations
+ */
 export interface OfficeGroupModel {
   /**
    * The unique identifier of the office group
@@ -708,6 +770,11 @@ export interface OfficeGroupModelPagedResult {
   _links?: {
     [name: string]: PagingLinkModel
   }
+}
+export interface OfficeGroups {
+  pageNumber?: number
+  pageSize?: number
+  id?: string[]
 }
 /**
  * Representation of the physical address of a building or premise
