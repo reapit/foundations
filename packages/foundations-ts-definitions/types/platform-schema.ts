@@ -3972,6 +3972,7 @@ export interface Contacts {
   name?: string
   nameType?: string
   marketingConsent?: ('grant' | 'deny' | 'notAsked')[]
+  marketingConsentFilterType?: ('assumedOrExplicit' | 'explicit')[]
   active?: boolean
   fromArchive?: boolean
   createdFrom?: string
@@ -6424,6 +6425,19 @@ export interface CreateOfferModel {
   }
 }
 /**
+ * Request body used to set the geolocation coordinates of a new address
+ */
+export interface CreateOfficeAddressGeolocationModel {
+  /**
+   * The latitude coordinate of the coordinate pair
+   */
+  latitude?: number // double
+  /**
+   * The longitude coordinate of the coordinate pair
+   */
+  longitude?: number // double
+}
+/**
  * Request body used to set the address of a new office
  */
 export interface CreateOfficeAddressModel {
@@ -6459,6 +6473,19 @@ export interface CreateOfficeAddressModel {
    * The ISO-3166 country code that the address resides within
    */
   countryId?: string
+  /**
+   * Request body used to set the geolocation coordinates of a new address
+   */
+  geolocation?: {
+    /**
+     * The latitude coordinate of the coordinate pair
+     */
+    latitude?: number // double
+    /**
+     * The longitude coordinate of the coordinate pair
+     */
+    longitude?: number // double
+  }
 }
 /**
  * Request body used to create a new office
@@ -6514,6 +6541,19 @@ export interface CreateOfficeModel {
      * The ISO-3166 country code that the address resides within
      */
     countryId?: string
+    /**
+     * Request body used to set the geolocation coordinates of a new address
+     */
+    geolocation?: {
+      /**
+       * The latitude coordinate of the coordinate pair
+       */
+      latitude?: number // double
+      /**
+       * The longitude coordinate of the coordinate pair
+       */
+      longitude?: number // double
+    }
   }
   /**
    * The work phone number of the office
@@ -11734,6 +11774,19 @@ export interface Offers {
   metadata?: string[]
 }
 /**
+ * Representation of the geographical location of an address using coordinates
+ */
+export interface OfficeAddressGeolocationModel {
+  /**
+   * The latitude coordinate of the coordinate pair
+   */
+  latitude?: number // double
+  /**
+   * The longitude coordinate of the coordinate pair
+   */
+  longitude?: number // double
+}
+/**
  * Representation of the physical address of a building or premise
  */
 export interface OfficeAddressModel {
@@ -11769,6 +11822,19 @@ export interface OfficeAddressModel {
    * The ISO-3166 country code that the address resides within
    */
   countryId?: string
+  /**
+   * Representation of the geographical location of an address using coordinates
+   */
+  geolocation?: {
+    /**
+     * The latitude coordinate of the coordinate pair
+     */
+    latitude?: number // double
+    /**
+     * The longitude coordinate of the coordinate pair
+     */
+    longitude?: number // double
+  }
 }
 /**
  * Representation of an office
@@ -11846,6 +11912,19 @@ export interface OfficeModel {
      * The ISO-3166 country code that the address resides within
      */
     countryId?: string
+    /**
+     * Representation of the geographical location of an address using coordinates
+     */
+    geolocation?: {
+      /**
+       * The latitude coordinate of the coordinate pair
+       */
+      latitude?: number // double
+      /**
+       * The longitude coordinate of the coordinate pair
+       */
+      longitude?: number // double
+    }
   }
   /**
    * A collection of additional contact details
@@ -11959,6 +12038,19 @@ export interface OfficeModelPagedResult {
        * The ISO-3166 country code that the address resides within
        */
       countryId?: string
+      /**
+       * Representation of the geographical location of an address using coordinates
+       */
+      geolocation?: {
+        /**
+         * The latitude coordinate of the coordinate pair
+         */
+        latitude?: number // double
+        /**
+         * The longitude coordinate of the coordinate pair
+         */
+        longitude?: number // double
+      }
     }
     /**
      * A collection of additional contact details
@@ -15658,6 +15750,29 @@ export interface ReferralsTypes {
   pageNumber?: number
   sortBy?: string
 }
+/**
+ * Representation of renewal options in a tenancy
+ */
+export interface RenewalOptionsModel {
+  /**
+   * The unique identifier of the renewal option
+   */
+  optionId?: string
+  /**
+   * The associated renewal option text
+   */
+  optionText?: string
+  /**
+   * The renewal option expiry date
+   * example:
+   * 2019-08-14
+   */
+  expiry?: string // date
+  /**
+   * The renewal options associated condition Ids
+   */
+  conditionIds?: string[]
+}
 export interface Resthooks {
   pageSize?: number
   pageNumber?: number
@@ -16302,6 +16417,21 @@ export interface TenancyAllowanceModelPagedResult {
   }
 }
 /**
+ * Representation of a tenancy break clauses break from details
+ */
+export interface TenancyBreakClauseBreakFromModel {
+  /**
+   * The earliest date at which the tenant/landlord can end the tenancy agreement
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  date?: string // date-time
+  /**
+   * The minimum number of months from the break clause agreement becoming active at which the tenant/landlord can end the tenancy agreement
+   */
+  minTermMonths?: number // int32
+}
+/**
  * Representation of a tenancy break clause
  */
 export interface TenancyBreakClauseModel {
@@ -16347,6 +16477,40 @@ export interface TenancyBreakClauseModel {
    * The parties that the break clause applies to (landlord/tenant/mutual)
    */
   appliesTo?: string
+  /**
+   * Tenancy agreement text relating to the break clause
+   */
+  letterText?: string
+  /**
+   * Representation of a tenancy break clauses break from details
+   */
+  breakFrom?: {
+    /**
+     * The earliest date at which the tenant/landlord can end the tenancy agreement
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    date?: string // date-time
+    /**
+     * The minimum number of months from the break clause agreement becoming active at which the tenant/landlord can end the tenancy agreement
+     */
+    minTermMonths?: number // int32
+  }
+  /**
+   * Representation of a tenancy break clauses notice requirements
+   */
+  noticeRequired?: {
+    /**
+     * The latest date at which the tenant/landlord must give notice of their decision to end the agreement
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    date?: string // date-time
+    /**
+     * The minimum number of months before the break clause can be invoked at which the tenant/landlord must give notice of their decision to end the tenancy agreement
+     */
+    beforeBreakMonths?: number // int32
+  }
   /**
    * Representation of party agreements to a specific clause in a tenancy agreement
    */
@@ -16414,6 +16578,40 @@ export interface TenancyBreakClauseModelPagedResult {
      */
     appliesTo?: string
     /**
+     * Tenancy agreement text relating to the break clause
+     */
+    letterText?: string
+    /**
+     * Representation of a tenancy break clauses break from details
+     */
+    breakFrom?: {
+      /**
+       * The earliest date at which the tenant/landlord can end the tenancy agreement
+       * example:
+       * 2019-08-14T12:30:02Z
+       */
+      date?: string // date-time
+      /**
+       * The minimum number of months from the break clause agreement becoming active at which the tenant/landlord can end the tenancy agreement
+       */
+      minTermMonths?: number // int32
+    }
+    /**
+     * Representation of a tenancy break clauses notice requirements
+     */
+    noticeRequired?: {
+      /**
+       * The latest date at which the tenant/landlord must give notice of their decision to end the agreement
+       * example:
+       * 2019-08-14T12:30:02Z
+       */
+      date?: string // date-time
+      /**
+       * The minimum number of months before the break clause can be invoked at which the tenant/landlord must give notice of their decision to end the tenancy agreement
+       */
+      beforeBreakMonths?: number // int32
+    }
+    /**
      * Representation of party agreements to a specific clause in a tenancy agreement
      */
     agreements?: {
@@ -16445,6 +16643,21 @@ export interface TenancyBreakClauseModelPagedResult {
       href?: string
     }
   }
+}
+/**
+ * Representation of a tenancy break clauses notice requirements
+ */
+export interface TenancyBreakClauseNoticeRequiredModel {
+  /**
+   * The latest date at which the tenant/landlord must give notice of their decision to end the agreement
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  date?: string // date-time
+  /**
+   * The minimum number of months before the break clause can be invoked at which the tenant/landlord must give notice of their decision to end the tenancy agreement
+   */
+  beforeBreakMonths?: number // int32
 }
 /**
  * Representation of a tenancy check - a process that needs to happen before a tenancy can commence or ends
@@ -17376,6 +17589,29 @@ export interface TenancyModel {
    */
   legalStatusId?: string
   /**
+   * Representation of renewal options in a tenancy
+   */
+  renewalOptions?: {
+    /**
+     * The unique identifier of the renewal option
+     */
+    optionId?: string
+    /**
+     * The associated renewal option text
+     */
+    optionText?: string
+    /**
+     * The renewal option expiry date
+     * example:
+     * 2019-08-14
+     */
+    expiry?: string // date
+    /**
+     * The renewal options associated condition Ids
+     */
+    conditionIds?: string[]
+  }
+  /**
    * The ETag for the current version of the tenancy. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -17692,6 +17928,29 @@ export interface TenancyModelPagedResult {
      * The identifier of the legal status to set against the tenancy
      */
     legalStatusId?: string
+    /**
+     * Representation of renewal options in a tenancy
+     */
+    renewalOptions?: {
+      /**
+       * The unique identifier of the renewal option
+       */
+      optionId?: string
+      /**
+       * The associated renewal option text
+       */
+      optionText?: string
+      /**
+       * The renewal option expiry date
+       * example:
+       * 2019-08-14
+       */
+      expiry?: string // date
+      /**
+       * The renewal options associated condition Ids
+       */
+      conditionIds?: string[]
+    }
     /**
      * The ETag for the current version of the tenancy. Used for managing update concurrency
      */
@@ -20545,6 +20804,19 @@ export interface UpdateOfferModel {
   }
 }
 /**
+ * Request body used to set the geolocation coordinates of an existing address
+ */
+export interface UpdateOfficeAddressGeolocationModel {
+  /**
+   * The latitude coordinate of the coordinate pair
+   */
+  latitude?: number // double
+  /**
+   * The longitude coordinate of the coordinate pair
+   */
+  longitude?: number // double
+}
+/**
  * Request body used to update the address of an existing office
  */
 export interface UpdateOfficeAddressModel {
@@ -20580,6 +20852,19 @@ export interface UpdateOfficeAddressModel {
    * The ISO-3166 country code that the address resides within
    */
   countryId?: string
+  /**
+   * Request body used to set the geolocation coordinates of an existing address
+   */
+  geolocation?: {
+    /**
+     * The latitude coordinate of the coordinate pair
+     */
+    latitude?: number // double
+    /**
+     * The longitude coordinate of the coordinate pair
+     */
+    longitude?: number // double
+  }
 }
 /**
  * Request body used to update an existing office
@@ -20635,6 +20920,19 @@ export interface UpdateOfficeModel {
      * The ISO-3166 country code that the address resides within
      */
     countryId?: string
+    /**
+     * Request body used to set the geolocation coordinates of an existing address
+     */
+    geolocation?: {
+      /**
+       * The latitude coordinate of the coordinate pair
+       */
+      latitude?: number // double
+      /**
+       * The longitude coordinate of the coordinate pair
+       */
+      longitude?: number // double
+    }
   }
   /**
    * The work phone number of the office
