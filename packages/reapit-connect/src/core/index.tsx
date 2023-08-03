@@ -2,6 +2,7 @@ import React from 'react'
 import * as Sentry from '@sentry/react'
 import { createRoot } from 'react-dom/client'
 import { getMarketplaceGlobalsByKey } from '@reapit/utils-react'
+import 'normalize-css'
 import App from './app'
 
 const rootElement = document.querySelector('#root') as Element

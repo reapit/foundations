@@ -33,7 +33,7 @@ export const Welcome: React.FC<WelcomeProps> = () => {
 
   return (
     <MainContainer>
-      <PageContainer>
+      <PageContainer style={{ paddingLeft: 0, paddingRight: 0 }}>
         <div className={logoWrapStyle}>
           <img className={logoStyle} src={logo} alt="logo" />
         </div>
