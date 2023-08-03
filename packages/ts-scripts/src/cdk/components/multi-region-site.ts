@@ -1,3 +1,4 @@
+import { PriceClass } from 'aws-cdk-lib/aws-cloudfront'
 import { Stack } from '../index'
 import { CreateSiteInterface, createSite } from './site'
 import {
@@ -64,6 +65,7 @@ export const createMultiRegionSite = async (stack: cdk.Stack, props: MultiRegion
   const { distribution } = await createSite(stack, {
     ...props,
     viewerCertificateOverride,
+    priceClass: PriceClass.PRICE_CLASS_ALL,
   })
 
   const auArecordStack = new cdk.Stack(certStack, 'arecord', {
