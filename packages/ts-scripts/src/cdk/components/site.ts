@@ -20,6 +20,7 @@ export interface CreateSiteInterface {
   defaultRootObject?: string
   location: string
   viewerCertificateOverride?: cloudfront.ViewerCertificate
+  priceClass?: cloudfront.PriceClass
 }
 
 const findCert = async (stack: Stack, domain: string): Promise<ICertificate> => {
@@ -49,7 +50,13 @@ const findCert = async (stack: Stack, domain: string): Promise<ICertificate> => 
 
 export const createSite = async (
   stack: Stack,
-  { defaultRootObject = 'index.html', env = 'dev', location, viewerCertificateOverride }: CreateSiteInterface,
+  {
+    defaultRootObject = 'index.html',
+    env = 'dev',
+    location,
+    viewerCertificateOverride,
+    priceClass,
+  }: CreateSiteInterface,
 ) => {
   const stackNamePieces = stack.stackName.split('-')
   stackNamePieces.pop()
@@ -99,6 +106,7 @@ export const createSite = async (
       },
     ],
     defaultRootObject,
+    priceClass,
     viewerCertificate:
       viewerCertificateOverride ||
       cloudfront.ViewerCertificate.fromAcmCertificate(certificate, {
