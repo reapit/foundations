@@ -14,6 +14,20 @@ export const globals = css`
       height: 100%;
       background-color: #fff;
     }
+
+    * {
+      box-sizing: border-box !important;
+      line-height: 20px;
+    }
+
+    html {
+      font-size: 16px !important;
+      font-family: 'Roboto', Helvetica, Arial, sans-serif;
+
+      &.is-desktop {
+        font-size: 14px !important;
+      }
+    }
   }
 `
 

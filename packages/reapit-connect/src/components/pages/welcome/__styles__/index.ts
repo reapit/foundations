@@ -16,6 +16,18 @@ export const buttonStyle = css`
   border-color: transparent;
   color: white;
   min-width: 200px;
+  padding: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  align-self: flex-start;
+  text-align: center;
+
+  @media screen and (max-width: 768px) {
+    align-self: stretch;
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+  }
 
   &:active {
     color: white;

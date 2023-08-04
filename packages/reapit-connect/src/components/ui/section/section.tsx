@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { cx } from '@linaria/core'
-import { sectionContainer, hasBackgroundSection, gridItem } from './__styles__'
+import { sectionContainer, hasBackgroundSection, gridItem, sectionContent } from './__styles__'
 import { BodyText, elPy7, Subtitle, Title } from '@reapit/elements'
 
 export type SectionProps = {
@@ -27,7 +27,7 @@ export const Section: React.FC<SectionProps> = ({
         background: background || 'white',
       }}
     >
-      <div className={cx(!!background && hasBackgroundSection)}>
+      <div className={cx(sectionContent, !!background && hasBackgroundSection)}>
         <Title>{heading}</Title>
         <Subtitle>{subheading}</Subtitle>
         <BodyText>{description}</BodyText>
