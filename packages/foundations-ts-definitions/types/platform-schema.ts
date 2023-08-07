@@ -3367,6 +3367,12 @@ export interface ContactModel {
    */
   readonly _eTag?: string
   /**
+   * The requested extras fields
+   */
+  extrasField?: {
+    [name: string]: any
+  }
+  /**
    * A list of relationships belonging to the contact. This is later removed from the response
    */
   relationships?: {
@@ -3682,6 +3688,12 @@ export interface ContactModelPagedResult {
      */
     readonly _eTag?: string
     /**
+     * The requested extras fields
+     */
+    extrasField?: {
+      [name: string]: any
+    }
+    /**
      * A list of relationships belonging to the contact. This is later removed from the response
      */
     relationships?: {
@@ -3980,6 +3992,7 @@ export interface Contacts {
   modifiedFrom?: string
   modifiedTo?: string
   metadata?: string[]
+  extrasField?: string[]
 }
 export interface Conveyancing {
   pageSize?: number
