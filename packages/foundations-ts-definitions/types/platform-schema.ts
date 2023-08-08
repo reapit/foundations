@@ -3367,6 +3367,12 @@ export interface ContactModel {
    */
   readonly _eTag?: string
   /**
+   * The requested extras fields
+   */
+  extrasField?: {
+    [name: string]: any
+  }
+  /**
    * A list of relationships belonging to the contact. This is later removed from the response
    */
   relationships?: {
@@ -3682,6 +3688,12 @@ export interface ContactModelPagedResult {
      */
     readonly _eTag?: string
     /**
+     * The requested extras fields
+     */
+    extrasField?: {
+      [name: string]: any
+    }
+    /**
      * A list of relationships belonging to the contact. This is later removed from the response
      */
     relationships?: {
@@ -3980,6 +3992,7 @@ export interface Contacts {
   modifiedFrom?: string
   modifiedTo?: string
   metadata?: string[]
+  extrasField?: string[]
 }
 export interface Conveyancing {
   pageSize?: number
@@ -12662,17 +12675,34 @@ export interface PropertyEpcModel {
    */
   eer?: number // int32
   /**
+   * The current energy efficiency letter rating (A-G). This is generated from the `eer` value
+   * for systems that do not have an explicit EPC Rating component
+   */
+  eerRating?: string
+  /**
    * The potential energy efficiency rating
    */
   eerPotential?: number // int32
+  /**
+   * The potential energy efficiency letter rating (A-G). This is generated from the `eerPotential` value
+   */
+  eerPotentialRating?: string
   /**
    * The current environmental impact rating
    */
   eir?: number // int32
   /**
+   * The current environment impact letter rating (A-G). This is generated from the `eir` value
+   */
+  eirRating?: string
+  /**
    * The potential environmental impact rating
    */
   eirPotential?: number // int32
+  /**
+   * The potential environment impact letter rating (A-G). This is generated from the `eirPotential` value
+   */
+  eirPotentialRating?: string
 }
 /**
  * Representation of the external land area of a property
@@ -13596,17 +13626,34 @@ export interface PropertyModel {
      */
     eer?: number // int32
     /**
+     * The current energy efficiency letter rating (A-G). This is generated from the `eer` value
+     * for systems that do not have an explicit EPC Rating component
+     */
+    eerRating?: string
+    /**
      * The potential energy efficiency rating
      */
     eerPotential?: number // int32
+    /**
+     * The potential energy efficiency letter rating (A-G). This is generated from the `eerPotential` value
+     */
+    eerPotentialRating?: string
     /**
      * The current environmental impact rating
      */
     eir?: number // int32
     /**
+     * The current environment impact letter rating (A-G). This is generated from the `eir` value
+     */
+    eirRating?: string
+    /**
      * The potential environmental impact rating
      */
     eirPotential?: number // int32
+    /**
+     * The potential environment impact letter rating (A-G). This is generated from the `eirPotential` value
+     */
+    eirPotentialRating?: string
   }
   /**
    * Representation of property details specific to sales marketing
@@ -14535,17 +14582,34 @@ export interface PropertyModelPagedResult {
        */
       eer?: number // int32
       /**
+       * The current energy efficiency letter rating (A-G). This is generated from the `eer` value
+       * for systems that do not have an explicit EPC Rating component
+       */
+      eerRating?: string
+      /**
        * The potential energy efficiency rating
        */
       eerPotential?: number // int32
+      /**
+       * The potential energy efficiency letter rating (A-G). This is generated from the `eerPotential` value
+       */
+      eerPotentialRating?: string
       /**
        * The current environmental impact rating
        */
       eir?: number // int32
       /**
+       * The current environment impact letter rating (A-G). This is generated from the `eir` value
+       */
+      eirRating?: string
+      /**
        * The potential environmental impact rating
        */
       eirPotential?: number // int32
+      /**
+       * The potential environment impact letter rating (A-G). This is generated from the `eirPotential` value
+       */
+      eirPotentialRating?: string
     }
     /**
      * Representation of property details specific to sales marketing
