@@ -6980,6 +6980,18 @@ export interface CreatePropertyLettingsDepositModel {
  */
 export interface CreatePropertyModel {
   /**
+   * The date the owner of the property was last called
+   * example:
+   * 2019-08-14
+   */
+  lastCall?: string // date
+  /**
+   * The date the owner of the property is next due to be called
+   * example:
+   * 2019-08-14
+   */
+  nextCall?: string // date
+  /**
    * The marketing mode of the property (selling/letting/sellingAndLetting)
    */
   marketingMode: string
@@ -13309,6 +13321,18 @@ export interface PropertyModel {
    */
   modified?: string // date-time
   /**
+   * The date the owner of the property was last called
+   * example:
+   * 2019-08-14
+   */
+  lastCall?: string // date
+  /**
+   * The date the owner of the property is next due to be called
+   * example:
+   * 2019-08-14
+   */
+  nextCall?: string // date
+  /**
    * The marketing mode of the property (selling/letting/sellingAndLetting)
    */
   marketingMode?: string
@@ -14264,6 +14288,18 @@ export interface PropertyModelPagedResult {
      * 2019-08-14T12:30:02Z
      */
     modified?: string // date-time
+    /**
+     * The date the owner of the property was last called
+     * example:
+     * 2019-08-14
+     */
+    lastCall?: string // date
+    /**
+     * The date the owner of the property is next due to be called
+     * example:
+     * 2019-08-14
+     */
+    nextCall?: string // date
     /**
      * The marketing mode of the property (selling/letting/sellingAndLetting)
      */
@@ -21555,6 +21591,18 @@ export interface UpdatePropertyLettingsDepositModel {
  * [object Object]
  */
 export interface UpdatePropertyModel {
+  /**
+   * The date the owner of the property was last called
+   * example:
+   * 2019-08-14
+   */
+  lastCall?: string // date
+  /**
+   * The date the owner of the property is next due to be called
+   * example:
+   * 2019-08-14
+   */
+  nextCall?: string // date
   /**
    * A flag determining whether or not the property's room details have been approved by the vendor or landlord
    */
