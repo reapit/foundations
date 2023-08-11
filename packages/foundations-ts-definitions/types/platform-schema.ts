@@ -3367,6 +3367,12 @@ export interface ContactModel {
    */
   readonly _eTag?: string
   /**
+   * The requested extras fields
+   */
+  extrasField?: {
+    [name: string]: any
+  }
+  /**
    * A list of relationships belonging to the contact. This is later removed from the response
    */
   relationships?: {
@@ -3682,6 +3688,12 @@ export interface ContactModelPagedResult {
      */
     readonly _eTag?: string
     /**
+     * The requested extras fields
+     */
+    extrasField?: {
+      [name: string]: any
+    }
+    /**
      * A list of relationships belonging to the contact. This is later removed from the response
      */
     relationships?: {
@@ -3980,6 +3992,7 @@ export interface Contacts {
   modifiedFrom?: string
   modifiedTo?: string
   metadata?: string[]
+  extrasField?: string[]
 }
 export interface Conveyancing {
   pageSize?: number
@@ -6966,6 +6979,18 @@ export interface CreatePropertyLettingsDepositModel {
  * [object Object]
  */
 export interface CreatePropertyModel {
+  /**
+   * The date the owner of the property was last called
+   * example:
+   * 2019-08-14
+   */
+  lastCall?: string // date
+  /**
+   * The date the owner of the property is next due to be called
+   * example:
+   * 2019-08-14
+   */
+  nextCall?: string // date
   /**
    * The marketing mode of the property (selling/letting/sellingAndLetting)
    */
@@ -12662,17 +12687,34 @@ export interface PropertyEpcModel {
    */
   eer?: number // int32
   /**
+   * The current energy efficiency letter rating (A-G). This is generated from the `eer` value
+   * for systems that do not have an explicit EPC Rating component
+   */
+  eerRating?: string
+  /**
    * The potential energy efficiency rating
    */
   eerPotential?: number // int32
+  /**
+   * The potential energy efficiency letter rating (A-G). This is generated from the `eerPotential` value
+   */
+  eerPotentialRating?: string
   /**
    * The current environmental impact rating
    */
   eir?: number // int32
   /**
+   * The current environment impact letter rating (A-G). This is generated from the `eir` value
+   */
+  eirRating?: string
+  /**
    * The potential environmental impact rating
    */
   eirPotential?: number // int32
+  /**
+   * The potential environment impact letter rating (A-G). This is generated from the `eirPotential` value
+   */
+  eirPotentialRating?: string
 }
 /**
  * Representation of the external land area of a property
@@ -13279,6 +13321,18 @@ export interface PropertyModel {
    */
   modified?: string // date-time
   /**
+   * The date the owner of the property was last called
+   * example:
+   * 2019-08-14
+   */
+  lastCall?: string // date
+  /**
+   * The date the owner of the property is next due to be called
+   * example:
+   * 2019-08-14
+   */
+  nextCall?: string // date
+  /**
    * The marketing mode of the property (selling/letting/sellingAndLetting)
    */
   marketingMode?: string
@@ -13596,17 +13650,34 @@ export interface PropertyModel {
      */
     eer?: number // int32
     /**
+     * The current energy efficiency letter rating (A-G). This is generated from the `eer` value
+     * for systems that do not have an explicit EPC Rating component
+     */
+    eerRating?: string
+    /**
      * The potential energy efficiency rating
      */
     eerPotential?: number // int32
+    /**
+     * The potential energy efficiency letter rating (A-G). This is generated from the `eerPotential` value
+     */
+    eerPotentialRating?: string
     /**
      * The current environmental impact rating
      */
     eir?: number // int32
     /**
+     * The current environment impact letter rating (A-G). This is generated from the `eir` value
+     */
+    eirRating?: string
+    /**
      * The potential environmental impact rating
      */
     eirPotential?: number // int32
+    /**
+     * The potential environment impact letter rating (A-G). This is generated from the `eirPotential` value
+     */
+    eirPotentialRating?: string
   }
   /**
    * Representation of property details specific to sales marketing
@@ -14218,6 +14289,18 @@ export interface PropertyModelPagedResult {
      */
     modified?: string // date-time
     /**
+     * The date the owner of the property was last called
+     * example:
+     * 2019-08-14
+     */
+    lastCall?: string // date
+    /**
+     * The date the owner of the property is next due to be called
+     * example:
+     * 2019-08-14
+     */
+    nextCall?: string // date
+    /**
      * The marketing mode of the property (selling/letting/sellingAndLetting)
      */
     marketingMode?: string
@@ -14535,17 +14618,34 @@ export interface PropertyModelPagedResult {
        */
       eer?: number // int32
       /**
+       * The current energy efficiency letter rating (A-G). This is generated from the `eer` value
+       * for systems that do not have an explicit EPC Rating component
+       */
+      eerRating?: string
+      /**
        * The potential energy efficiency rating
        */
       eerPotential?: number // int32
+      /**
+       * The potential energy efficiency letter rating (A-G). This is generated from the `eerPotential` value
+       */
+      eerPotentialRating?: string
       /**
        * The current environmental impact rating
        */
       eir?: number // int32
       /**
+       * The current environment impact letter rating (A-G). This is generated from the `eir` value
+       */
+      eirRating?: string
+      /**
        * The potential environmental impact rating
        */
       eirPotential?: number // int32
+      /**
+       * The potential environment impact letter rating (A-G). This is generated from the `eirPotential` value
+       */
+      eirPotentialRating?: string
     }
     /**
      * Representation of property details specific to sales marketing
@@ -21491,6 +21591,18 @@ export interface UpdatePropertyLettingsDepositModel {
  * [object Object]
  */
 export interface UpdatePropertyModel {
+  /**
+   * The date the owner of the property was last called
+   * example:
+   * 2019-08-14
+   */
+  lastCall?: string // date
+  /**
+   * The date the owner of the property is next due to be called
+   * example:
+   * 2019-08-14
+   */
+  nextCall?: string // date
   /**
    * A flag determining whether or not the property's room details have been approved by the vendor or landlord
    */
