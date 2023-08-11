@@ -82,7 +82,7 @@ export class SoruceProvider {
     const response = await (
       await this.githubProvider.getInstallationOctokit(installationId)
     ).request('GET /repos/{owner}/{repo}/zipball/{ref}', {
-      ref: '',
+      ref: pipeline.branch || '',
       owner: parts[parts.length - 2],
       repo: parts[parts.length - 1],
     })
