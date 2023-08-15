@@ -8149,6 +8149,40 @@ export interface CreateTenancyDepositModel {
   sum?: number // double
 }
 /**
+ * Request body used to set letting fees on a new tenancy
+ */
+export interface CreateTenancyLettingFeeModel {
+  /**
+   * The letting fee type (percentage/fixed)
+   */
+  type?: string
+  /**
+   * The fee amount
+   */
+  amount?: number // double
+  /**
+   * The frequency of when the fee is to be collected (upfront/upfrontOver2Months/monthly/quarterly/halfYearly/yearly/28days/other/notApplicable)
+   */
+  frequency?: string
+}
+/**
+ * Request body used to set management fees on a new tenancy
+ */
+export interface CreateTenancyManagementFeeModel {
+  /**
+   * The management fee type (percentage/fixed)
+   */
+  type?: string
+  /**
+   * The fee amount
+   */
+  amount?: number // double
+  /**
+   * The frequency of when the fee is to be collected (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+   */
+  frequency?: string
+}
+/**
  * Request body used to create a new tenancy
  * example:
  * [object Object]
@@ -8248,6 +8282,40 @@ export interface CreateTenancyModel {
    * Financial notes set against the tenancy
    */
   feeNotes?: string
+  /**
+   * Request body used to set letting fees on a new tenancy
+   */
+  lettingFee?: {
+    /**
+     * The letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The fee amount
+     */
+    amount?: number // double
+    /**
+     * The frequency of when the fee is to be collected (upfront/upfrontOver2Months/monthly/quarterly/halfYearly/yearly/28days/other/notApplicable)
+     */
+    frequency?: string
+  }
+  /**
+   * Request body used to set management fees on a new tenancy
+   */
+  managementFee?: {
+    /**
+     * The management fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The fee amount
+     */
+    amount?: number // double
+    /**
+     * The frequency of when the fee is to be collected (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+     */
+    frequency?: string
+  }
   /**
    * Request body used to set the deposit of a new tenancy
    */
@@ -22753,6 +22821,40 @@ export interface UpdateTenancyDepositModel {
   sum?: number // double
 }
 /**
+ * Request body used to update letting fees on an existing tenancy
+ */
+export interface UpdateTenancyLettingFeeModel {
+  /**
+   * The letting fee type (percentage/fixed)
+   */
+  type?: string
+  /**
+   * The fee amount
+   */
+  amount?: number // double
+  /**
+   * The frequency of when the fee is to be collected (upfront/upfrontOver2Months/monthly/quarterly/halfYearly/yearly/28days/other/notApplicable)
+   */
+  frequency?: string
+}
+/**
+ * Request body used to update management fees on an existing tenancy
+ */
+export interface UpdateTenancyManagementFeeModel {
+  /**
+   * The management fee type (percentage/fixed)
+   */
+  type?: string
+  /**
+   * The fee amount
+   */
+  amount?: number // double
+  /**
+   * The frequency of when the fee is to be collected (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+   */
+  frequency?: string
+}
+/**
  * Request body used to update an existing Tenancy
  * example:
  * [object Object]
@@ -22879,6 +22981,40 @@ export interface UpdateTenancyModel {
      * The amount of deposit held
      */
     sum?: number // double
+  }
+  /**
+   * Request body used to update letting fees on an existing tenancy
+   */
+  lettingFee?: {
+    /**
+     * The letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The fee amount
+     */
+    amount?: number // double
+    /**
+     * The frequency of when the fee is to be collected (upfront/upfrontOver2Months/monthly/quarterly/halfYearly/yearly/28days/other/notApplicable)
+     */
+    frequency?: string
+  }
+  /**
+   * Request body used to update management fees on an existing tenancy
+   */
+  managementFee?: {
+    /**
+     * The management fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The fee amount
+     */
+    amount?: number // double
+    /**
+     * The frequency of when the fee is to be collected (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+     */
+    frequency?: string
   }
   /**
    * App specific metadata to set against the tenancy
