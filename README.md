@@ -1,4 +1,4 @@
-# <img src="./packages/marketplace/public/logo.svg" height="28px"> Welcome to Reapit Foundations
+# <img src="./packages/marketplace/public/favicon.ico" height="28px"> Welcome to Reapit Foundations
 
 [![Build Pull Request](https://github.com/reapit/foundations/actions/workflows/build-pr.yml/badge.svg)](https://github.com/reapit/foundations/actions/workflows/build-pr.yml)
 [![Test Pull Request](https://github.com/reapit/foundations/actions/workflows/test-pr.yml/badge.svg)](https://github.com/reapit/foundations/actions/workflows/test-pr.yml)
