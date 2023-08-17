@@ -58,7 +58,7 @@ export const paymentRequestTemplate = ({
             <p style="margin-bottom: 32px">Reapit Payments Team on behalf of ${companyName}</p>
             <div style="height: 40px; width: 135px; overflow: hidden">
               <img
-                style="height: 40px; width: 135px;
+                style="height: 40px; width: 135px"
                 src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
                 alt="Reapit Payments Logo"
               />
