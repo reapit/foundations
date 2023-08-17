@@ -303,7 +303,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
               </InputGroup>
             </InputWrap>
           </FormLayout>
-          <Subtitle>Card Details</Subtitle>
+          <Subtitle>Card Details - UK Debit Cards Only</Subtitle>
           <FormLayout hasMargin>
             <InputWrap>
               <Controller
