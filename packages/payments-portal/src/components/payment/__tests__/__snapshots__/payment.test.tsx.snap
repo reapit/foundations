@@ -1633,7 +1633,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
               <mock-styled.h2
                 classname=""
               >
-                Card Details
+                Card Details - UK Debit Cards Only
               </mock-styled.h2>
               <mock-styled.div
                 classname="mock-css."
@@ -3376,7 +3376,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
             <mock-styled.h2
               classname=""
             >
-              Card Details
+              Card Details - UK Debit Cards Only
             </mock-styled.h2>
             <mock-styled.div
               classname="mock-css."
