@@ -27,28 +27,17 @@ export const paymentReceiptTemplate = ({
     </head>
     <body style="font-family: 'PT Sans', Helvetica, Arial, sans-serif">
       <div style="background-color: #fff; padding: 32px">
-        <div style="margin-bottom: 40px; width: 100%; display: flex; justify-content: space-between">
-          <div style="height: 40px; overflow: hidden">
-            <img
-              style="height: 100%"
-              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-              alt="Reapit Payments Logo"
-            />
-          </div>
-          <div style="height: 40px; overflow: hidden">
-            <img
-              style="height: 100%"
-              src="${logoUri}"
-              alt="Agent Logo"
-            />
-          </div>
-        </div>
         <article style="margin: 0px auto; line-height: 1.5rem; max-width: 950px">
+          <div style="margin-bottom: 40px; width: 100%">
+            <div style="height: 100px; text-align: center">
+              <img style="height: 100%" src="${logoUri}" alt="Agent Logo" />
+            </div>
+          </div>
           <h1 style="text-align: center; font-size: 24px; font-style: normal; margin-bottom: 40px">
             Payment Confirmation on behalf of ${companyName}
           </h1>
           <div style="color: #646464">
-            <p style="margin-bottom: 32px"> Dear ${recipientName},</p>
+            <p style="margin-bottom: 32px">Dear ${recipientName},</p>
             <p>
               This is a confirmation of receipt of your payment of ${paymentCurrency}${paymentAmount}, on ${paymentDate},
               requested by ${companyName} for the below reason:
@@ -56,7 +45,14 @@ export const paymentReceiptTemplate = ({
             <p><b>${paymentReason}</b></p>
             <p style="margin-bottom: 32px">${companyName}'s records have been updated accordingly.</p>
             <p style="margin-bottom: 32px">Best regards,</p>
-            <p>Reapit Payments Team on behalf of ${companyName}</p>
+            <p style="margin-bottom: 32px">Reapit Payments Team on behalf of ${companyName}</p>
+            <div style="height: 40px; overflow: hidden">
+              <img
+                style="height: 100%"
+                src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+                alt="Reapit Payments Logo"
+              />
+            </div>
           </div>
         </article>
       </div>

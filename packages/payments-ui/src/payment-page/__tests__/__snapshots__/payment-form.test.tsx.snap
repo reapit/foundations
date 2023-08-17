@@ -1393,7 +1393,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
         <mock-styled.h2
           classname=""
         >
-          Card Details
+          Card Details - UK Debit Cards Only
         </mock-styled.h2>
         <mock-styled.div
           classname="mock-css."
@@ -2893,7 +2893,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
       <mock-styled.h2
         classname=""
       >
-        Card Details
+        Card Details - UK Debit Cards Only
       </mock-styled.h2>
       <mock-styled.div
         classname="mock-css."
@@ -4450,7 +4450,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
         <mock-styled.h2
           classname=""
         >
-          Card Details
+          Card Details - UK Debit Cards Only
         </mock-styled.h2>
         <mock-styled.div
           classname="mock-css."
@@ -5950,7 +5950,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
       <mock-styled.h2
         classname=""
       >
-        Card Details
+        Card Details - UK Debit Cards Only
       </mock-styled.h2>
       <mock-styled.div
         classname="mock-css."
@@ -7860,7 +7860,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         <mock-styled.h2
           classname=""
         >
-          Card Details
+          Card Details - UK Debit Cards Only
         </mock-styled.h2>
         <mock-styled.div
           classname="mock-css."
@@ -9410,7 +9410,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
       <mock-styled.h2
         classname=""
       >
-        Card Details
+        Card Details - UK Debit Cards Only
       </mock-styled.h2>
       <mock-styled.div
         classname="mock-css."
