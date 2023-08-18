@@ -31,9 +31,9 @@ exports[`PaymentReceiptProvider should send an email with the correct template 1
             <p style="margin-bottom: 32px">Reapit Ltd's records have been updated accordingly.</p>
             <p style="margin-bottom: 32px">Best regards,</p>
             <p style="margin-bottom: 32px">Reapit Payments Team on behalf of Reapit Ltd</p>
-            <div style="height: 40px; overflow: hidden">
+            <div style="height: 40px; width: 135px; overflow: hidden">
               <img
-                style="height: 100%"
+                style="height: 40px; width: 135px"
                 src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
                 alt="Reapit Payments Logo"
               />
