@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  admin-portal:
+    build:
+      context: ../../
+      dockerfile: packages/admin-portal/Dockerfile
+      args:
+        - NPM_TOKEN=${NPM_TOKEN}
+    volumes:
+      - ../../:./
+    environment:
+      - NPM_TOKEN="${NPM_TOKEN}"
