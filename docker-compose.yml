@@ -3,7 +3,7 @@ x-node: &node
   image: node:lts-alpine
   working_dir: /foundations
   volumes:
-    - ../../:/foundations
+    - .:/foundations
   environment:
     - NPM_TOKEN=${NPM_TOKEN}
 
