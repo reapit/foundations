@@ -9,6 +9,8 @@ import {
   TableRow,
   Subtitle,
   BodyText,
+  Grid,
+  Col,
 } from '@reapit/elements'
 import { threeColTable } from './__styles__'
 
@@ -20,9 +22,18 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
   const apiCalls = billing?.services?.find((item) => item.name === 'API Requests')?.items ?? []
   return apiCalls.length ? (
     <>
-      <Subtitle>Monthly Total</Subtitle>
-      <BodyText hasGreyText>£{billing?.totalCost?.toFixed(2).padStart(2, '0')}</BodyText>
+      <Grid>
+        <Col>
+          <Subtitle>Billable Amount</Subtitle>
+          <BodyText hasGreyText>£{billing?.totalCost?.toFixed(2).padStart(2, '0')}</BodyText>
+        </Col>
+        <Col>
+          <Subtitle>Actual Cost</Subtitle>
+          <BodyText hasGreyText>£{billing?.actualCost?.toFixed(2).padStart(2, '0')}</BodyText>
+        </Col>
+      </Grid>
       <Subtitle>Breakdown</Subtitle>
+
       <Table
         rows={apiCalls.map(({ name, amount, cost, itemCount, items }) => ({
           cells: [
