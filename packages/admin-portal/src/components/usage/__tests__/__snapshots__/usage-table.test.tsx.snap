@@ -5,17 +5,39 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.h2
+      <mock-styled.div
         classname=""
       >
-        Monthly Total
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        £
-        9.57
-      </mock-styled.p>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.h2
+            classname=""
+          >
+            Billable Amount
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            £
+            9.57
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.h2
+            classname=""
+          >
+            Actual Cost
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            £
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
       <mock-styled.h2
         classname=""
       >
@@ -146,17 +168,39 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.h2
+    <mock-styled.div
       classname=""
     >
-      Monthly Total
-    </mock-styled.h2>
-    <mock-styled.p
-      classname="mock-css."
-    >
-      £
-      9.57
-    </mock-styled.p>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.h2
+          classname=""
+        >
+          Billable Amount
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
+        >
+          £
+          9.57
+        </mock-styled.p>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.h2
+          classname=""
+        >
+          Actual Cost
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="mock-css."
+        >
+          £
+        </mock-styled.p>
+      </mock-styled.div>
+    </mock-styled.div>
     <mock-styled.h2
       classname=""
     >
