@@ -14,6 +14,11 @@ export interface BillingBreakdownForMonthV2Model {
    * List of billing details for each service
    */
   services?: ServiceItemBillingV2Model[]
+
+  /**
+   * The actual cost for the given month
+   */
+  actualCost?: number
 }
 /**
  * Represents the billing summary for a given date range
