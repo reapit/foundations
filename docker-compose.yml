@@ -1,9 +1,11 @@
 version: '3'
 x-node: &node
-  image: node:lts-alpine
+  image: node:18
   working_dir: /foundations
   volumes:
     - .:/foundations
+    - /foundations/.yarn/cache
+    - /foundations/node_modules
   environment:
     - NPM_TOKEN=${NPM_TOKEN}
 
