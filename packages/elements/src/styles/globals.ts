@@ -141,7 +141,7 @@ export const elGlobals = css`
 
     html {
       font-size: 16px;
-      font-family: 'Roboto', Helvetica, Arial, sans-serif;
+      font-family: 'Inter', Helvetica, Arial, sans-serif;
       color: #222b33; // Neutral 900
       height: 100%;
       -webkit-font-smoothing: antialiased;
@@ -272,7 +272,7 @@ export const elGlobals = css`
       --intent-danger-dark-text: var(--color-white);
 
       /** font variables */
-      --font-sans-serif: 'Roboto', Helvetica, Arial, sans-serif;
+      --font-sans-serif: 'Inter', Helvetica, Arial, sans-serif;
       --font-monospace: 'Source Code Pro', monospace;
 
       /** font size variables */
