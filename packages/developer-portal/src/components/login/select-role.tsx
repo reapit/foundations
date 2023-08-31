@@ -40,47 +40,8 @@ export const SelectRolePage: FC = () => {
         </Title>
         <Subtitle hasCenteredText>that best describes you</Subtitle>
         <LoginRoleTile>
-          <FlexContainer onClick={openModal}>
-            <Icon className={elMr5} fontSize="4rem" icon="newCustomerInfographic" />
-            <FlexContainer isFlexJustifyCenter isFlexColumn>
-              <BodyText>Prospective Customer</BodyText>
-              <SmallText hasGreyText hasNoMargin>
-                Interested in Reapit Products, not currently a subscriber
-              </SmallText>
-            </FlexContainer>
-          </FlexContainer>
-        </LoginRoleTile>
-        <LoginRoleTile>
-          <FlexContainer onClick={onLoginButtonClick()}>
-            <Icon className={elMr5} fontSize="4rem" icon="foundationsCustomerInfographic" />
-            <FlexContainer isFlexJustifyCenter isFlexColumn>
-              <BodyText>Existing Customer</BodyText>
-              <SmallText hasGreyText hasNoMargin>
-                Existing Reapit AgencyCloud (desktop CRM) subscriber
-              </SmallText>
-            </FlexContainer>
-          </FlexContainer>
-        </LoginRoleTile>
-        <LoginRoleTile>
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FlexContainer>
-              <Icon className={elMr5} fontSize="4rem" icon="webDeveloperInfographic" />
-              <FlexContainer isFlexJustifyCenter isFlexColumn>
-                <BodyText>Third-party developer</BodyText>
-                <SmallText hasGreyText hasNoMargin>
-                  Working on-behalf of a Reapit customer, e.g. website developer
-                </SmallText>
-              </FlexContainer>
-            </FlexContainer>
-          </a>
-        </LoginRoleTile>
-        <LoginRoleTile>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScn5aNAt2hem0j-zRFhxd8i6ToaJOCYu5ktIN9PVyHuXuPI-w/viewform?vc=0&c=0&w=1&flr=0"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -94,6 +55,45 @@ export const SelectRolePage: FC = () => {
               </FlexContainer>
             </FlexContainer>
           </a>
+        </LoginRoleTile>
+        <LoginRoleTile>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeeQekfhqqkHsRESphhLvBGrBekzDcPtmJtE3CC6mNEUe-s5A/viewform?usp=sf_link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FlexContainer>
+              <Icon className={elMr5} fontSize="4rem" icon="webDeveloperInfographic" />
+              <FlexContainer isFlexJustifyCenter isFlexColumn>
+                <BodyText>Third-party developer</BodyText>
+                <SmallText hasGreyText hasNoMargin>
+                  Working on behalf of a Reapit agent to build either a private app or website feed
+                </SmallText>
+              </FlexContainer>
+            </FlexContainer>
+          </a>
+        </LoginRoleTile>
+        <LoginRoleTile>
+          <FlexContainer onClick={onLoginButtonClick()}>
+            <Icon className={elMr5} fontSize="4rem" icon="foundationsCustomerInfographic" />
+            <FlexContainer isFlexJustifyCenter isFlexColumn>
+              <BodyText>Existing Customer</BodyText>
+              <SmallText hasGreyText hasNoMargin>
+                Existing Reapit AgencyCloud (desktop CRM) subscriber
+              </SmallText>
+            </FlexContainer>
+          </FlexContainer>
+        </LoginRoleTile>
+        <LoginRoleTile>
+          <FlexContainer onClick={openModal}>
+            <Icon className={elMr5} fontSize="4rem" icon="newCustomerInfographic" />
+            <FlexContainer isFlexJustifyCenter isFlexColumn>
+              <BodyText>Prospective Customer</BodyText>
+              <SmallText hasGreyText hasNoMargin>
+                Interested in Reapit Products, not currently a subscriber
+              </SmallText>
+            </FlexContainer>
+          </FlexContainer>
         </LoginRoleTile>
       </LoginContentWrapper>
       <Modal title="Submit Email">
