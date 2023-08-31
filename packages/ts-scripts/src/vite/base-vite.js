@@ -1,5 +1,5 @@
 const { defineConfig, splitVendorChunkPlugin } = require('vite')
-const react = require('@vitejs/plugin-react-swc')
+const react = require('@vitejs/plugin-react')
 const svgrPlugin = require('vite-plugin-svgr').default
 const linaria = require('@linaria/vite').default
 const checker = require('vite-plugin-checker').default
@@ -19,13 +19,8 @@ module.exports = (config, appName) =>
       gql(),
       linaria({
         babelOptions: {
-          presets: [
-            ['@babel/preset-env', { targets: { node: 'current' } }],
-            '@babel/preset-typescript',
-            ['@babel/preset-react', { runtime: 'automatic' }],
-          ],
+          presets: ['@babel/preset-typescript', ['@babel/preset-react', { runtime: 'automatic' }]],
           plugins: [
-            '@babel/plugin-transform-runtime',
             [
               'module-resolver',
               {
@@ -37,52 +32,51 @@ module.exports = (config, appName) =>
           ],
         },
       }),
-
-      mode === 'development' &&
-        checker({
-          typescript: true,
-          overlay: false,
-          eslint: {
-            lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
-          },
-        }),
+      checker({
+        typescript: true,
+        overlay: false,
+        enableBuild: mode === 'development',
+        eslint: {
+          lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
+        },
+      }),
       splitVendorChunkPlugin(),
       nodePolyfills({
         protocolImports: true,
       }),
-      mode !== 'development' &&
-        VitePWA({
-          registerType: 'autoUpdate',
-          includeAssets: ['assets/favicon.ico'],
-          manifest: {
-            start_url: '/',
-            name: appName,
-            short_name: appName,
-            description: appName,
-            theme_color: '#262f69',
-            icons: [
-              {
-                src: 'pwa-192x192.png',
-                sizes: '192x192',
-                type: 'image/png',
-              },
-              {
-                src: 'pwa-512x512.png',
-                sizes: '512x512',
-                type: 'image/png',
-              },
-              {
-                src: 'pwa-512x512.png',
-                sizes: '512x512',
-                type: 'image/png',
-                purpose: 'any maskable',
-              },
-            ],
-          },
-        }),
+      VitePWA({
+        registerType: 'autoUpdate',
+        includeAssets: ['assets/favicon.ico'],
+        enableBuild: mode !== 'development',
+        manifest: {
+          start_url: '/',
+          name: appName,
+          short_name: appName,
+          description: appName,
+          theme_color: '#262f69',
+          icons: [
+            {
+              src: 'pwa-192x192.png',
+              sizes: '192x192',
+              type: 'image/png',
+            },
+            {
+              src: 'pwa-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+            },
+            {
+              src: 'pwa-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+              purpose: 'any maskable',
+            },
+          ],
+        },
+      }),
       process.env.IS_RELEASE &&
         sentryVitePlugin({
-          include: `${process.cwd()}//build/**/*`,
+          include: `${process.cwd()}/build/**/*`,
           ignore: ['node_modules', `${process.cwd()}/build/**/*.svg`],
           configFile: `${process.cwd()}/.sentryclirc`,
           authToken: process.env.SENTRY_AUTH_TOKEN,
