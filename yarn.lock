@@ -18733,7 +18733,7 @@ __metadata:
     aws-sdk: ^2.1325.0
     aws-serverless-express: ^3.4.0
     class-transformer: ^0.5.1
-    class-validator: ^0.13.2
+    class-validator: ^0.14.0
     cross-env: ^7.0.3
     eslint: ^8.41.0
     eslint-plugin-prettier: ^4.2.1
@@ -21369,16 +21369,6 @@ __metadata:
     isobject: ^3.0.0
     static-extend: ^0.1.1
   checksum: be108900801e639e50f96a7e4bfa8867c753a7750a7603879f3981f8b0a89cba657497a2d5f40cd4ea557ff15d535a100818bb486baf6e26fe5d7872e75f1078
-  languageName: node
-  linkType: hard
-
-"class-validator@npm:^0.13.2":
-  version: 0.13.2
-  resolution: "class-validator@npm:0.13.2"
-  dependencies:
-    libphonenumber-js: ^1.9.43
-    validator: ^13.7.0
-  checksum: 0deb4c29faa18345f6989fd7eaaaa07b05caae5298603fcd6485531c6daad503e5d2b24cc1342e4fc88ae5ba0acffdc24d0fc333110ef3f21a667cd8a79e1258
   languageName: node
   linkType: hard
 
@@ -31754,13 +31744,6 @@ fsevents@^1.2.7:
   version: 1.10.15
   resolution: "libphonenumber-js@npm:1.10.15"
   checksum: 94283206159b9eaf07e4af9c002dda2b0b171099a8116baa0b6871f6312475112ec92121cca85916968fa9fb1220641205f6ee2349a1cc33197d811a69572198
-  languageName: node
-  linkType: hard
-
-"libphonenumber-js@npm:^1.9.43":
-  version: 1.9.44
-  resolution: "libphonenumber-js@npm:1.9.44"
-  checksum: cac1f8c4d37a35f1763720d5dbd247ce70a2f7a7d045ab2c99d75bdd170ed00ea8a38ddbd68b481fee3f57b9292218e412a20aa8a2a9b871091ed93809f61f95
   languageName: node
   linkType: hard
 
