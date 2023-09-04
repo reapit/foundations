@@ -11875,7 +11875,7 @@ __metadata:
     vite: ^4.3.4
     vite-plugin-checker: ^0.6.0
     vite-plugin-graphql-loader: ^2.0.0
-    vite-plugin-node-polyfills: ^0.9.0
+    vite-plugin-node-polyfills: ^0.11.1
     vite-plugin-pwa: ^0.16.2
     vite-plugin-svgr: ^3.2.0
     vite-plugin-top-level-await: ^1.3.0
@@ -20609,6 +20609,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"buffer-polyfill@npm:buffer@^6.0.3, buffer@npm:^6.0.3":
+  version: 6.0.3
+  resolution: "buffer@npm:6.0.3"
+  dependencies:
+    base64-js: ^1.3.1
+    ieee754: ^1.2.1
+  checksum: 5ad23293d9a731e4318e420025800b42bf0d264004c0286c8cc010af7a270c7a0f6522e84f54b9ad65cbd6db20b8badbfd8d2ebf4f80fa03dab093b89e68c3f9
+  languageName: node
+  linkType: hard
+
 "buffer-xor@npm:^1.0.3":
   version: 1.0.3
   resolution: "buffer-xor@npm:1.0.3"
@@ -20644,16 +20654,6 @@ __metadata:
     base64-js: ^1.3.1
     ieee754: ^1.1.13
   checksum: e2cf8429e1c4c7b8cbd30834ac09bd61da46ce35f5c22a78e6c2f04497d6d25541b16881e30a019c6fd3154150650ccee27a308eff3e26229d788bbdeb08ab84
-  languageName: node
-  linkType: hard
-
-"buffer@npm:^6.0.3":
-  version: 6.0.3
-  resolution: "buffer@npm:6.0.3"
-  dependencies:
-    base64-js: ^1.3.1
-    ieee754: ^1.2.1
-  checksum: 5ad23293d9a731e4318e420025800b42bf0d264004c0286c8cc010af7a270c7a0f6522e84f54b9ad65cbd6db20b8badbfd8d2ebf4f80fa03dab093b89e68c3f9
   languageName: node
   linkType: hard
 
@@ -45036,15 +45036,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"vite-plugin-node-polyfills@npm:^0.9.0":
-  version: 0.9.0
-  resolution: "vite-plugin-node-polyfills@npm:0.9.0"
+"vite-plugin-node-polyfills@npm:^0.11.1":
+  version: 0.11.3
+  resolution: "vite-plugin-node-polyfills@npm:0.11.3"
   dependencies:
     "@rollup/plugin-inject": ^5.0.3
+    buffer-polyfill: "npm:buffer@^6.0.3"
     node-stdlib-browser: ^1.2.0
+    process: ^0.11.10
   peerDependencies:
     vite: ^2.0.0 || ^3.0.0 || ^4.0.0
-  checksum: 734ccfa83dd7f484b3aeb5b1128b0439facfe95543fe46f41769b3bf157872972eb44b4f28b297e88c16b93af572fb5678c1a95a11881bbfdf0ecc7522ba582e
+  checksum: e8669b4731f92196d630a53630a414a7abe4d7551ba2fdb76e5489cc596c9a94ab2c4a12f3f7e7e5455817d7f73303061135617b39612f85f5e5dd5c45d333cf
   languageName: node
   linkType: hard
 
