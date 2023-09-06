@@ -82,7 +82,7 @@ module.exports = (config, appName) =>
         }),
       process.env.IS_RELEASE &&
         sentryVitePlugin({
-          include: `${process.cwd()}//build/**/*`,
+          include: `${process.cwd()}/build/**/*`,
           ignore: ['node_modules', `${process.cwd()}/build/**/*.svg`],
           configFile: `${process.cwd()}/.sentryclirc`,
           authToken: process.env.SENTRY_AUTH_TOKEN,
