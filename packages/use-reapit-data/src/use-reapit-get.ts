@@ -94,7 +94,7 @@ export const useReapitGet = <DataType>({
   })
 
   const result = data ? data : null
-  const errorString = error?.message ? error.message : null
+  const errorString = error ? handleReapitError(error, errorMessage) : null
   const loading = isEnabled && isLoading
   const clearCache = () => {
     queryClient.removeQueries({ queryKey: [url] })

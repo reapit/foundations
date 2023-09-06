@@ -124,7 +124,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
     },
   })
 
-  const errorString = error?.message ? error.message : null
+  const errorString = error ? handleReapitError(error, errorMessage) : null
   const sendFunc = ((data: ParamsType, options?: Options) =>
     mutateAsync({ data, options }).catch((err) => console.info('Caught error', err.message))) as SendFunction<
     ParamsType,

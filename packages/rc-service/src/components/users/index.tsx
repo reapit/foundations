@@ -30,6 +30,7 @@ export interface UserFilters {
   organisationName?: string
   active?: string
   groupId?: string
+  mfaEnabled?: string
 }
 
 export const handleSetAdminFilters =
@@ -134,6 +135,33 @@ export const UsersPage: FC = () => {
                   id: 'usr-active-false',
                   value: 'false',
                   text: 'Inactive',
+                  isChecked: false,
+                },
+              ]}
+            />
+          </InputWrap>
+          <InputWrap>
+            <Label>MFA Enabled</Label>
+            <ToggleRadio
+              {...register('mfaEnabled')}
+              hasGreyBg
+              options={[
+                {
+                  id: 'mfa-enabled-all',
+                  value: '',
+                  text: 'All',
+                  isChecked: true,
+                },
+                {
+                  id: 'mfa-enabled-true',
+                  value: 'true',
+                  text: 'Enabled',
+                  isChecked: false,
+                },
+                {
+                  id: 'mfa-enabled-false',
+                  value: 'false',
+                  text: 'Not Configured',
                   isChecked: false,
                 },
               ]}
