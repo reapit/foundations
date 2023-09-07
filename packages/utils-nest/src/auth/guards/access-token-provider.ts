@@ -28,12 +28,17 @@ export class AccessTokenProvider {
   ) {}
 
   async fetchIdentity(accessToken: string): Promise<Partial<LoginIdentity>> {
-    const result = await fetch(`https://platform.${this.config.env}.paas.reapit.cloud/userInfo`, {
-      headers: {
-        authorization: `Bearer ${accessToken}`,
-        'api-version': 'latest',
+    const result = await fetch(
+      this.config.env === 'dev'
+        ? `https://platform.${this.config.env}.paas.reapit.cloud/userInfo`
+        : 'https://platform.reapit.cloud/userInfo',
+      {
+        headers: {
+          authorization: `Bearer ${accessToken}`,
+          'api-version': 'latest',
+        },
       },
-    })
+    )
 
     if (result.status !== 200) throw new UnauthorizedException()
 
