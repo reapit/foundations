@@ -30,6 +30,7 @@ declare global {
       DEPLOYMENT_SERVICE_HOST: string
       pipelineWhitelist: string[]
       swaggerWhitelist: string[]
+      selectRoleChanges: boolean
     }
   }
 }

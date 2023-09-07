@@ -115,80 +115,36 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
             that best describes you
           </mock-styled.h2>
           <mock-styled.div>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLScn5aNAt2hem0j-zRFhxd8i6ToaJOCYu5ktIN9PVyHuXuPI-w/viewform?vc=0&c=0&w=1&flr=0"
-              rel="noopener noreferrer"
-              target="_blank"
+            <mock-styled.div
+              classname=""
             >
-              <mock-styled.div
-                classname=""
-              >
-                <mock-styled.span
-                  classname="mock-css.
+              <mock-styled.span
+                classname="mock-css.
   margin-right: 0.75rem;
 "
-                  style="font-size: 4rem;"
-                >
-                  <svg />
-                </mock-styled.span>
-                <mock-styled.div
-                  classname="mock-css.
+                style="font-size: 4rem;"
+              >
+                <svg />
+              </mock-styled.span>
+              <mock-styled.div
+                classname="mock-css.
   flex-direction: column;
  mock-css.
   justify-content: center;
 "
-                >
-                  <mock-styled.p
-                    classname=""
-                  >
-                    PropTech
-                  </mock-styled.p>
-                  <mock-styled.p
-                    classname="mock-css. mock-css."
-                  >
-                    Independent company building an app or integration
-                  </mock-styled.p>
-                </mock-styled.div>
-              </mock-styled.div>
-            </a>
-          </mock-styled.div>
-          <mock-styled.div>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeeQekfhqqkHsRESphhLvBGrBekzDcPtmJtE3CC6mNEUe-s5A/viewform?usp=sf_link"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <mock-styled.div
-                classname=""
               >
-                <mock-styled.span
-                  classname="mock-css.
-  margin-right: 0.75rem;
-"
-                  style="font-size: 4rem;"
+                <mock-styled.p
+                  classname=""
                 >
-                  <svg />
-                </mock-styled.span>
-                <mock-styled.div
-                  classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                  Prospective Customer
+                </mock-styled.p>
+                <mock-styled.p
+                  classname="mock-css. mock-css."
                 >
-                  <mock-styled.p
-                    classname=""
-                  >
-                    Third-party developer
-                  </mock-styled.p>
-                  <mock-styled.p
-                    classname="mock-css. mock-css."
-                  >
-                    Working on behalf of a Reapit agent to build either a private app or website feed
-                  </mock-styled.p>
-                </mock-styled.div>
+                  Interested in Reapit Products, not currently a subscriber
+                </mock-styled.p>
               </mock-styled.div>
-            </a>
+            </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div
@@ -223,36 +179,80 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname=""
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              <mock-styled.span
-                classname="mock-css.
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.span
+                  classname="mock-css.
   margin-right: 0.75rem;
 "
-                style="font-size: 4rem;"
-              >
-                <svg />
-              </mock-styled.span>
-              <mock-styled.div
-                classname="mock-css.
+                  style="font-size: 4rem;"
+                >
+                  <svg />
+                </mock-styled.span>
+                <mock-styled.div
+                  classname="mock-css.
   flex-direction: column;
  mock-css.
   justify-content: center;
 "
-              >
-                <mock-styled.p
-                  classname=""
                 >
-                  Prospective Customer
-                </mock-styled.p>
-                <mock-styled.p
-                  classname="mock-css. mock-css."
-                >
-                  Interested in Reapit Products, not currently a subscriber
-                </mock-styled.p>
+                  <mock-styled.p
+                    classname=""
+                  >
+                    Third-party developer
+                  </mock-styled.p>
+                  <mock-styled.p
+                    classname="mock-css. mock-css."
+                  >
+                    Working on-behalf of a Reapit customer, e.g. website developer
+                  </mock-styled.p>
+                </mock-styled.div>
               </mock-styled.div>
-            </mock-styled.div>
+            </a>
+          </mock-styled.div>
+          <mock-styled.div>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.span
+                  classname="mock-css.
+  margin-right: 0.75rem;
+"
+                  style="font-size: 4rem;"
+                >
+                  <svg />
+                </mock-styled.span>
+                <mock-styled.div
+                  classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
+                >
+                  <mock-styled.p
+                    classname=""
+                  >
+                    PropTech
+                  </mock-styled.p>
+                  <mock-styled.p
+                    classname="mock-css. mock-css."
+                  >
+                    Independent company building an app or integration
+                  </mock-styled.p>
+                </mock-styled.div>
+              </mock-styled.div>
+            </a>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
@@ -369,80 +369,36 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
           that best describes you
         </mock-styled.h2>
         <mock-styled.div>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLScn5aNAt2hem0j-zRFhxd8i6ToaJOCYu5ktIN9PVyHuXuPI-w/viewform?vc=0&c=0&w=1&flr=0"
-            rel="noopener noreferrer"
-            target="_blank"
+          <mock-styled.div
+            classname=""
           >
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.span
-                classname="mock-css.
+            <mock-styled.span
+              classname="mock-css.
   margin-right: 0.75rem;
 "
-                style="font-size: 4rem;"
-              >
-                <svg />
-              </mock-styled.span>
-              <mock-styled.div
-                classname="mock-css.
+              style="font-size: 4rem;"
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.div
+              classname="mock-css.
   flex-direction: column;
  mock-css.
   justify-content: center;
 "
-              >
-                <mock-styled.p
-                  classname=""
-                >
-                  PropTech
-                </mock-styled.p>
-                <mock-styled.p
-                  classname="mock-css. mock-css."
-                >
-                  Independent company building an app or integration
-                </mock-styled.p>
-              </mock-styled.div>
-            </mock-styled.div>
-          </a>
-        </mock-styled.div>
-        <mock-styled.div>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeeQekfhqqkHsRESphhLvBGrBekzDcPtmJtE3CC6mNEUe-s5A/viewform?usp=sf_link"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <mock-styled.div
-              classname=""
             >
-              <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.75rem;
-"
-                style="font-size: 4rem;"
+              <mock-styled.p
+                classname=""
               >
-                <svg />
-              </mock-styled.span>
-              <mock-styled.div
-                classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                Prospective Customer
+              </mock-styled.p>
+              <mock-styled.p
+                classname="mock-css. mock-css."
               >
-                <mock-styled.p
-                  classname=""
-                >
-                  Third-party developer
-                </mock-styled.p>
-                <mock-styled.p
-                  classname="mock-css. mock-css."
-                >
-                  Working on behalf of a Reapit agent to build either a private app or website feed
-                </mock-styled.p>
-              </mock-styled.div>
+                Interested in Reapit Products, not currently a subscriber
+              </mock-styled.p>
             </mock-styled.div>
-          </a>
+          </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
@@ -477,36 +433,80 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname=""
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <mock-styled.span
-              classname="mock-css.
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css.
   margin-right: 0.75rem;
 "
-              style="font-size: 4rem;"
-            >
-              <svg />
-            </mock-styled.span>
-            <mock-styled.div
-              classname="mock-css.
+                style="font-size: 4rem;"
+              >
+                <svg />
+              </mock-styled.span>
+              <mock-styled.div
+                classname="mock-css.
   flex-direction: column;
  mock-css.
   justify-content: center;
 "
-            >
-              <mock-styled.p
-                classname=""
               >
-                Prospective Customer
-              </mock-styled.p>
-              <mock-styled.p
-                classname="mock-css. mock-css."
-              >
-                Interested in Reapit Products, not currently a subscriber
-              </mock-styled.p>
+                <mock-styled.p
+                  classname=""
+                >
+                  Third-party developer
+                </mock-styled.p>
+                <mock-styled.p
+                  classname="mock-css. mock-css."
+                >
+                  Working on-behalf of a Reapit customer, e.g. website developer
+                </mock-styled.p>
+              </mock-styled.div>
             </mock-styled.div>
-          </mock-styled.div>
+          </a>
+        </mock-styled.div>
+        <mock-styled.div>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSetMK5HFLBINWZfVvOO5iblXj8YWWgnKdt0rbFeJkxnZm0MaQ/viewform"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.75rem;
+"
+                style="font-size: 4rem;"
+              >
+                <svg />
+              </mock-styled.span>
+              <mock-styled.div
+                classname="mock-css.
+  flex-direction: column;
+ mock-css.
+  justify-content: center;
+"
+              >
+                <mock-styled.p
+                  classname=""
+                >
+                  PropTech
+                </mock-styled.p>
+                <mock-styled.p
+                  classname="mock-css. mock-css."
+                >
+                  Independent company building an app or integration
+                </mock-styled.p>
+              </mock-styled.div>
+            </mock-styled.div>
+          </a>
         </mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>
