@@ -1,4 +1,5 @@
 import { ReapitConnectBrowserSession, ReapitConnectBrowserSessionInitializers } from '@reapit/connect-session'
+import Cookie from 'js-cookie'
 
 type MappedRCMFAConfig = {
   connectClientId: string
@@ -11,12 +12,20 @@ const isReapitConnectBrowserSessionInitializers = (obj: any): obj is ReapitConne
   return obj.connectClientId && obj.connectOAuthUrl && obj.connectUserPoolId
 }
 
+const cookieOverride = (config: ReapitConnectBrowserSessionInitializers): ReapitConnectBrowserSessionInitializers => {
+  const connectOAuthUrl = Cookie.get('rc_e2e_oauth_url')
+  if (connectOAuthUrl) {
+    return { ...config, connectOAuthUrl }
+  }
+  return config
+}
+
 const getRCConfig = (): ReapitConnectBrowserSessionInitializers => {
   if (process.env.domainMappings) {
     const config: DomainMap = JSON.parse(process.env.domainMappings)
     const domainConfig = config[window.location.hostname]
     if (isReapitConnectBrowserSessionInitializers(domainConfig)) {
-      return domainConfig
+      return cookieOverride(domainConfig)
     }
   }
   if (isReapitConnectBrowserSessionInitializers(process.env)) {
