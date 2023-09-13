@@ -20,7 +20,7 @@ const cookieOverride = (config: ReapitConnectBrowserSessionInitializers): Reapit
   return config
 }
 
-const getRCConfig = (): ReapitConnectBrowserSessionInitializers => {
+export const getRCConfig = (): ReapitConnectBrowserSessionInitializers => {
   if (process.env.domainMappings) {
     const config: DomainMap = JSON.parse(process.env.domainMappings)
     const domainConfig = config[window.location.hostname]
