@@ -34,6 +34,7 @@ import { AuthenticatorModel } from '@reapit/foundations-ts-definitions'
 import { QrCodeVerify } from './qr-code-verify'
 import { ActiveAuthenticator } from '../active-authenticator'
 import { cx } from '@linaria/core'
+import { nativeSessionWrapper } from '../../core/connect-session-native'
 
 export interface CreateAuthenticatorReturnType {
   secret: string
@@ -68,7 +69,7 @@ export const handleRefresh =
   }
 
 export const HomePage: FC = () => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession } = useReapitConnect(nativeSessionWrapper(reapitConnectBrowserSession))
   const [qrCode, setQrCode] = useState<CreateAuthenticatorReturnType>()
   const email = connectSession?.loginIdentity.email
   const userId = email ? window.btoa(email.toLowerCase()).replace(/=/g, '') : null
