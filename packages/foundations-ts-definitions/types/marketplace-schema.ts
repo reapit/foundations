@@ -626,6 +626,10 @@ export interface ApprovalModel {
    */
   type?: string
   /**
+   * The name of the app the approval relates to
+   */
+  appName?: string
+  /**
    * Description of approval
    */
   description?: string
