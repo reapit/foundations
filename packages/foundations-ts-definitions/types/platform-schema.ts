@@ -8100,6 +8100,51 @@ export interface CreateTenancyBreakClauseModel {
      */
     tenant?: boolean
   }
+  /**
+   * Request body used to set a break clauses break from details
+   */
+  breakFrom?: {
+    /**
+     * The date the break from clause can be used
+     * example:
+     * 2019-08-14
+     */
+    date?: string // date
+    /**
+     * The minimum number of months until the break clause can be used
+     */
+    minTermMonths?: number // int32
+  }
+  /**
+   * Request body used to set a break clauses notice required details
+   */
+  noticeRequired?: {
+    /**
+     * The date a break clauses notice is required by
+     * example:
+     * 2019-08-14
+     */
+    date?: string // date
+    /**
+     * The number of months the notice is required before the break clause
+     */
+    beforeBreakMonths?: number // int32
+  }
+}
+/**
+ * Request body used to set a break clauses break from details
+ */
+export interface CreateTenancyBreakFromModel {
+  /**
+   * The date the break from clause can be used
+   * example:
+   * 2019-08-14
+   */
+  date?: string // date
+  /**
+   * The minimum number of months until the break clause can be used
+   */
+  minTermMonths?: number // int32
 }
 /**
  * Request body used to create a new tenancy check
@@ -8348,6 +8393,21 @@ export interface CreateTenancyModel {
   metadata?: {
     [name: string]: any
   }
+}
+/**
+ * Request body used to set a break clauses notice required details
+ */
+export interface CreateTenancyNoticeRequiredModel {
+  /**
+   * The date a break clauses notice is required by
+   * example:
+   * 2019-08-14
+   */
+  date?: string // date
+  /**
+   * The number of months the notice is required before the break clause
+   */
+  beforeBreakMonths?: number // int32
 }
 /**
  * Request body used to create a new tenancy renewal check
@@ -16609,6 +16669,15 @@ export interface TenancyAllowanceModelPagedResult {
   }
 }
 /**
+ * Representation of tenancy arrears data (populated only when Client Accounts functionality is enabled)
+ */
+export interface TenancyArrearsModel {
+  /**
+   * A flag determining whether or not tenancy arrears should be chased
+   */
+  chaseArrears?: boolean
+}
+/**
  * Representation of a tenancy break clauses break from details
  */
 export interface TenancyBreakClauseBreakFromModel {
@@ -17804,6 +17873,15 @@ export interface TenancyModel {
     conditionIds?: string[]
   }
   /**
+   * Representation of tenancy arrears data (populated only when Client Accounts functionality is enabled)
+   */
+  arrears?: {
+    /**
+     * A flag determining whether or not tenancy arrears should be chased
+     */
+    chaseArrears?: boolean
+  }
+  /**
    * The ETag for the current version of the tenancy. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -18142,6 +18220,15 @@ export interface TenancyModelPagedResult {
        * The renewal options associated condition Ids
        */
       conditionIds?: string[]
+    }
+    /**
+     * Representation of tenancy arrears data (populated only when Client Accounts functionality is enabled)
+     */
+    arrears?: {
+      /**
+       * A flag determining whether or not tenancy arrears should be chased
+       */
+      chaseArrears?: boolean
     }
     /**
      * The ETag for the current version of the tenancy. Used for managing update concurrency
@@ -22828,6 +22915,51 @@ export interface UpdateTenancyBreakClauseModel {
      */
     tenant?: boolean
   }
+  /**
+   * Request body used to set a break clauses break from details
+   */
+  breakFrom?: {
+    /**
+     * The date the break from clause can be used
+     * example:
+     * 2019-08-14
+     */
+    date?: string // date
+    /**
+     * The minimum number of months until the break clause can be used
+     */
+    minTermMonths?: number // int32
+  }
+  /**
+   * Request body used to set a break clauses notice required details
+   */
+  noticeRequired?: {
+    /**
+     * The date a break clauses notice is required by
+     * example:
+     * 2019-08-14
+     */
+    date?: string // date
+    /**
+     * The number of months the notice is required before the break clause
+     */
+    beforeBreakMonths?: number // int32
+  }
+}
+/**
+ * Request body used to set a break clauses break from details
+ */
+export interface UpdateTenancyBreakFromModel {
+  /**
+   * The date the break from clause can be used
+   * example:
+   * 2019-08-14
+   */
+  date?: string // date
+  /**
+   * The minimum number of months until the break clause can be used
+   */
+  minTermMonths?: number // int32
 }
 /**
  * Model for updat of an existing tenancy check
@@ -23061,6 +23193,21 @@ export interface UpdateTenancyModel {
   metadata?: {
     [name: string]: any
   }
+}
+/**
+ * Request body used to set a break clauses notice required details
+ */
+export interface UpdateTenancyNoticeRequiredModel {
+  /**
+   * The date a break clauses notice is required by
+   * example:
+   * 2019-08-14
+   */
+  date?: string // date
+  /**
+   * The number of months the notice is required before the break clause
+   */
+  beforeBreakMonths?: number // int32
 }
 /**
  * Request body used to update a tenancy renewal check
