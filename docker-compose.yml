@@ -1,0 +1,30 @@
+version: '3'
+x-node: &node
+  build:
+    context: ./docker
+  working_dir: /foundations
+  volumes:
+    - .:/foundations
+    # Uncomment the line below if you need to view yarn's build logs or such
+    # - ./.tmp:/tmp
+  environment:
+    - NPM_TOKEN=${NPM_TOKEN}
+
+x-dont-start-by-default: &dontstart
+  profiles: ["dont-start-by-default"]
+
+services:
+  yarn:
+    <<: *node
+    command: yarn
+  admin-portal:
+    <<: [*dontstart, *node]
+    working_dir: /foundations/packages/admin-portal
+    ports:
+      - "8080:8080"
+    environment:
+      - NPM_TOKEN=${NPM_TOKEN}
+    depends_on:
+      yarn:
+        condition: service_completed_successfully
+    command: yarn start
