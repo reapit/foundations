@@ -70,7 +70,7 @@ export const handleRefresh =
 
 export const HomePage: FC = () => {
   const nativeBrowserSession = nativeSessionWrapper(reapitConnectBrowserSession)
-  const { connectSession } = useReapitConnect(nativeBrowserSession)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [qrCode, setQrCode] = useState<CreateAuthenticatorReturnType>()
   const email = connectSession?.loginIdentity.email
   const userId = email ? window.btoa(email.toLowerCase()).replace(/=/g, '') : null
