@@ -69,13 +69,14 @@ export const handleRefresh =
   }
 
 export const HomePage: FC = () => {
-  const { connectSession } = useReapitConnect(nativeSessionWrapper(reapitConnectBrowserSession))
+  const nativeBrowserSession = nativeSessionWrapper(reapitConnectBrowserSession)
+  const { connectSession } = useReapitConnect(nativeBrowserSession)
   const [qrCode, setQrCode] = useState<CreateAuthenticatorReturnType>()
   const email = connectSession?.loginIdentity.email
   const userId = email ? window.btoa(email.toLowerCase()).replace(/=/g, '') : null
 
   const [authenticators, authenticatorsLoading, , refreshAuthenticators] = useReapitGet<AuthenticatorModel[]>({
-    reapitConnectBrowserSession,
+    reapitConnectBrowserSession: nativeBrowserSession,
     action: getActions[GetActionNames.getUserAuthenticators],
     uriParams: { userId },
     fetchWhenTrue: [userId],
@@ -85,7 +86,7 @@ export const HomePage: FC = () => {
     CreateAuthenticatorType,
     CreateAuthenticatorReturnType
   >({
-    reapitConnectBrowserSession,
+    reapitConnectBrowserSession: nativeBrowserSession,
     action: {
       ...updateActions[UpdateActionNames.createUserAuthenticator],
       successMessage: undefined, // no need for success toast
