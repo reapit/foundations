@@ -28,3 +28,14 @@ services:
       yarn:
         condition: service_completed_successfully
     command: yarn start
+  developer-portal:
+    <<: [*dontstart, *node]
+    working_dir: /foundations/packages/developer-portal
+    ports:
+      - "8080:8080"
+    environment:
+      - NPM_TOKEN=${NPM_TOKEN}
+    depends_on:
+      yarn:
+        condition: service_completed_successfully
+    command: yarn start
