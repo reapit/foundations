@@ -10,6 +10,7 @@ import {
   InputWrap,
   elFadeIn,
   elMb11,
+  BodyText,
 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { OrganisationModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -63,6 +64,7 @@ export const OrgsPage: FC = () => {
         <Loader />
       ) : orgs?._embedded?.length ? (
         <>
+          <BodyText>Total Organisations: {orgs?.totalCount}</BodyText>
           <Table
             className={cx(elFadeIn, elMb11)}
             rows={orgs?._embedded?.map((org) => {
@@ -124,7 +126,7 @@ export const OrgsPage: FC = () => {
         </>
       ) : (
         <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
-          No users found based on your current search.
+          No organisations found based on your current search.
         </PersistentNotification>
       )}
     </ErrorBoundary>
