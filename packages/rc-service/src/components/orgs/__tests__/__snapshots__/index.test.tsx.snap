@@ -40,6 +40,12 @@ exports[`OrgsPage should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
       </form>
+      <mock-styled.p
+        classname=""
+      >
+        Total Organisations: 
+        284
+      </mock-styled.p>
       <mock-styled.div
         classname="mock-css.
   @keyframes fade-in {
@@ -269,6 +275,12 @@ exports[`OrgsPage should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
     </form>
+    <mock-styled.p
+      classname=""
+    >
+      Total Organisations: 
+      284
+    </mock-styled.p>
     <mock-styled.div
       classname="mock-css.
   @keyframes fade-in {
