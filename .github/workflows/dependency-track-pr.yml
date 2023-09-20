@@ -7,6 +7,7 @@ on:
 env:
   CI: true
   API_KEY: ${{secrets.DEV_DEP_TRACK_API_KEY}}
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
 jobs:
   sbom-pr:
