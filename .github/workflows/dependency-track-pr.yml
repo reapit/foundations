@@ -24,4 +24,4 @@ jobs:
           node-version: '18.x'
 
       - name: Upload SBOM
-        run: yarn dlx @cyclonedx/cdxgen --no-validate --api-key $API_KEY --server-url https://dependency-track-api.dev.paas.reapit.cloud --project-name foundations --project-version "$(git branch --show-current)"
+        run: yarn dlx @cyclonedx/cdxgen --api-key $API_KEY --server-url https://dependency-track-api.dev.paas.reapit.cloud --project-name foundations --project-version "$(git branch --show-current)"

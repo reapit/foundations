@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "@reapit/foundations",
   "private": true,
   "workspaces": {
     "packages": [

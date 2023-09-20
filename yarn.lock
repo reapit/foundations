@@ -11690,6 +11690,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@reapit/foundations@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@reapit/foundations@workspace:."
+  dependencies:
+    husky: ^7.0.4
+    json: ^11.0.0
+  languageName: unknown
+  linkType: soft
+
 "@reapit/generator-react-app-scaffolder@workspace:packages/react-app-scaffolder":
   version: 0.0.0-use.local
   resolution: "@reapit/generator-react-app-scaffolder@workspace:packages/react-app-scaffolder"
@@ -39914,15 +39923,6 @@ fsevents@^1.2.7:
   checksum: 25606ff24c39ea7161fdf514b45d5b6a02f939c3c4cf5901fbb87bc581edcc6dd9f6ccbaf90cbd519c2f563f3d9973a74844aa10db935f57459280193ab58440
   languageName: node
   linkType: hard
-
-"root@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "root@workspace:."
-  dependencies:
-    husky: ^7.0.4
-    json: ^11.0.0
-  languageName: unknown
-  linkType: soft
 
 "route-recognizer@npm:^0.1.11":
   version: 0.1.11
