@@ -1,4 +1,4 @@
-name: Check PR
+name: SBOM PR
 
 on:
   pull_request:
@@ -9,14 +9,12 @@ env:
   API_KEY: ${{secrets.DEV_DEP_TRACK_API_KEY}}
 
 jobs:
-  test-pr:
+  sbom-pr:
     name: Check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
 
       - name: Set Node
         uses: actions/setup-node@v1
@@ -24,4 +22,4 @@ jobs:
           node-version: '18.x'
 
       - name: Upload SBOM
-        run: npx @cyclonedx/cdxgen --api-key $API_KEY --server-url https://dependency-track.dev.paas.reapit.cloud --project-name $GITHUB_ACTION_REPOSITORY --project-version $GITHUB_REF_NAME
+        run: yarn dlx @cyclonedx/cdxgen --api-key $API_KEY --server-url https://dependency-track.dev.paas.reapit.cloud --project-name $GITHUB_ACTION_REPOSITORY --project-version $GITHUB_REF_NAME
