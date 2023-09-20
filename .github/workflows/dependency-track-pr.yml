@@ -8,6 +8,7 @@ env:
   CI: true
   API_KEY: ${{secrets.DEV_DEP_TRACK_API_KEY}}
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+  FETCH_LICENSE: true
 
 jobs:
   sbom-pr:
@@ -23,4 +24,4 @@ jobs:
           node-version: '18.x'
 
       - name: Upload SBOM
-        run: yarn dlx @cyclonedx/cdxgen --api-key $API_KEY --server-url https://dependency-track.dev.paas.reapit.cloud --project-name $GITHUB_ACTION_REPOSITORY --project-version $GITHUB_REF_NAME
+        run: yarn dlx @cyclonedx/cdxgen --api-key $API_KEY --server-url https://dependency-track-api.dev.paas.reapit.cloud --project-name foundations --project-version "$(git branch --show-current)"
