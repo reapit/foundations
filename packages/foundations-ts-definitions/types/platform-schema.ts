@@ -6728,6 +6728,14 @@ export interface CreatePropertyEpcModel {
    * The potential environmental impact rating
    */
   eirPotential?: number // int32
+  /**
+   * The URL to access the full EPC document
+   */
+  fullDocumentUrl?: string
+  /**
+   * The URL to access the first page of the EPC document
+   */
+  firstPageDocumentUrl?: string
 }
 /**
  * Request body to set the external land area of a new property
@@ -7193,6 +7201,14 @@ export interface CreatePropertyModel {
      * The potential environmental impact rating
      */
     eirPotential?: number // int32
+    /**
+     * The URL to access the full EPC document
+     */
+    fullDocumentUrl?: string
+    /**
+     * The URL to access the first page of the EPC document
+     */
+    firstPageDocumentUrl?: string
   }
   /**
    * Request body to set the external land area of a new property
@@ -12867,6 +12883,14 @@ export interface PropertyEpcModel {
    * The potential environment impact letter rating (A-G). This is generated from the `eirPotential` value
    */
   eirPotentialRating?: string
+  /**
+   * The URL to access the full EPC document
+   */
+  fullDocumentUrl?: string
+  /**
+   * The URL to access the first page of the EPC document
+   */
+  firstPageDocumentUrl?: string
 }
 /**
  * Representation of the external land area of a property
@@ -13830,6 +13854,14 @@ export interface PropertyModel {
      * The potential environment impact letter rating (A-G). This is generated from the `eirPotential` value
      */
     eirPotentialRating?: string
+    /**
+     * The URL to access the full EPC document
+     */
+    fullDocumentUrl?: string
+    /**
+     * The URL to access the first page of the EPC document
+     */
+    firstPageDocumentUrl?: string
   }
   /**
    * Representation of property details specific to sales marketing
@@ -14798,6 +14830,14 @@ export interface PropertyModelPagedResult {
        * The potential environment impact letter rating (A-G). This is generated from the `eirPotential` value
        */
       eirPotentialRating?: string
+      /**
+       * The URL to access the full EPC document
+       */
+      fullDocumentUrl?: string
+      /**
+       * The URL to access the first page of the EPC document
+       */
+      firstPageDocumentUrl?: string
     }
     /**
      * Representation of property details specific to sales marketing
@@ -21356,6 +21396,14 @@ export interface UpdatePropertyEpcModel {
    * The potential environmental impact rating
    */
   eirPotential?: number // int32
+  /**
+   * The URL to access the full EPC document
+   */
+  fullDocumentUrl?: string
+  /**
+   * The URL to access the first page of the EPC document
+   */
+  firstPageDocumentUrl?: string
 }
 /**
  * Request body to update the external land area of an existing property
@@ -21995,6 +22043,14 @@ export interface UpdatePropertyModel {
      * The potential environmental impact rating
      */
     eirPotential?: number // int32
+    /**
+     * The URL to access the full EPC document
+     */
+    fullDocumentUrl?: string
+    /**
+     * The URL to access the first page of the EPC document
+     */
+    firstPageDocumentUrl?: string
   }
   /**
    * Request body to update the external land area of an existing property
@@ -23404,6 +23460,10 @@ export interface UpdateVendorModel {
    */
   solicitorId?: string
   /**
+   * Value indicating where hard copies of correspondence should be sent for the primary contact (property/contact)
+   */
+  correspondenceAddressType?: string
+  /**
    * Representation of a vendor's source
    */
   source?: {
@@ -24113,6 +24173,11 @@ export interface VendorModel {
     }[]
   }[]
   /**
+   * Value indicating where hard copies of correspondence should be sent for the primary contact (property/contact).
+   * When set to contact, any correspondence should be sent to the related contact's address, rather than the property address
+   */
+  correspondenceAddressType?: string
+  /**
    * The unique identifier of the negotiator attached to the vendor. The first item in the collection is considered the primary negotiator
    */
   negotiatorId?: string
@@ -24313,6 +24378,11 @@ export interface VendorModelPagedResult {
         value?: string
       }[]
     }[]
+    /**
+     * Value indicating where hard copies of correspondence should be sent for the primary contact (property/contact).
+     * When set to contact, any correspondence should be sent to the related contact's address, rather than the property address
+     */
+    correspondenceAddressType?: string
     /**
      * The unique identifier of the negotiator attached to the vendor. The first item in the collection is considered the primary negotiator
      */
