@@ -13,6 +13,7 @@ import {
   Label,
   ToggleRadio,
   Select,
+  BodyText,
 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GroupModelPagedResult, UserModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -173,6 +174,7 @@ export const UsersPage: FC = () => {
         <Loader />
       ) : users?._embedded?.length ? (
         <>
+          <BodyText>Total Users: {users?.totalCount}</BodyText>
           <Table
             className={cx(elFadeIn, elMb11)}
             rows={users?._embedded?.map((user) => {
