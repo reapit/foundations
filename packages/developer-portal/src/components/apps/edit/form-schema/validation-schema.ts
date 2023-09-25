@@ -74,16 +74,31 @@ export const appEditValidationSchema = object().shape({
 
   [launchUri.name]: string()
     .trim()
-    .when(authFlow.name, (authFlow, schema) => {
-      if (authFlow === USER_SESSION) {
-        return schema.required(errorMessages.FIELD_REQUIRED).test({
-          name: 'isValidLaunchUri',
-          test: whiteListLocalhostAndIsValidUrl,
-          message: launchUri.errorMessage,
-        })
-      }
-      return schema
+    .when(isListed.name, {
+      is: true,
+      then: string()
+        .trim()
+        .when(authFlow.name, (authFlow, schema) => {
+          if (authFlow === USER_SESSION) {
+            return schema.required(errorMessages.FIELD_REQUIRED).test({
+              name: 'isValidLaunchUri',
+              test: whiteListLocalhostAndIsValidUrl,
+              message: launchUri.errorMessage,
+            })
+          }
+          return schema
+        }),
+      otherwise: string().notRequired(),
+    })
+    .test({
+      name: 'isValidLaunchUri',
+      message: launchUri.errorMessage,
+      test: (value) => {
+        if (!value) return true
+        return whiteListLocalhostAndIsValidUrl(value)
+      },
     }),
+
   [iconImageUrl.name]: string().when(isListed.name, {
     is: true,
     then: string().required(FIELD_REQUIRED),
