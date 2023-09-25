@@ -27897,7 +27897,7 @@ fsevents@^1.2.7:
     ts-node: ^10.9.1
     ts-node-dev: ^2.0.0
     tsconfig-paths: ^3.14.2
-    tslib: 2.6.1
+    tslib: 2.6.2
     typescript: ^4.9.5
     uuid: ^3.4.0
     vue: ^2.7.14
@@ -43537,10 +43537,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.6.1":
-  version: 2.6.1
-  resolution: "tslib@npm:2.6.1"
-  checksum: b0d176d176487905b66ae4d5856647df50e37beea7571c53b8d10ba9222c074b81f1410fb91da13debaf2cbc970663609068bdebafa844ea9d69b146527c38fe
+"tslib@npm:2.6.2":
+  version: 2.6.2
+  resolution: "tslib@npm:2.6.2"
+  checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
   languageName: node
   linkType: hard
 
