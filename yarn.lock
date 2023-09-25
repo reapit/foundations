@@ -11875,7 +11875,7 @@ __metadata:
     vite: ^4.3.4
     vite-plugin-checker: ^0.6.0
     vite-plugin-graphql-loader: ^2.0.0
-    vite-plugin-node-polyfills: ^0.11.1
+    vite-plugin-node-polyfills: ^0.12.0
     vite-plugin-pwa: ^0.16.2
     vite-plugin-svgr: ^3.2.0
     vite-plugin-top-level-await: ^1.3.0
@@ -45052,9 +45052,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"vite-plugin-node-polyfills@npm:^0.11.1":
-  version: 0.11.3
-  resolution: "vite-plugin-node-polyfills@npm:0.11.3"
+"vite-plugin-node-polyfills@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "vite-plugin-node-polyfills@npm:0.12.0"
   dependencies:
     "@rollup/plugin-inject": ^5.0.3
     buffer-polyfill: "npm:buffer@^6.0.3"
@@ -45062,7 +45062,7 @@ fsevents@^1.2.7:
     process: ^0.11.10
   peerDependencies:
     vite: ^2.0.0 || ^3.0.0 || ^4.0.0
-  checksum: e8669b4731f92196d630a53630a414a7abe4d7551ba2fdb76e5489cc596c9a94ab2c4a12f3f7e7e5455817d7f73303061135617b39612f85f5e5dd5c45d333cf
+  checksum: b996ba67d64938620b80bcf1f1c9c97ffa717df82807a62238e0ea3ae4aa36252e8a1fd5bf2f5eafe9f9c860a1efe9b5db127353e976c7d615f7dbd8fc25871f
   languageName: node
   linkType: hard
 
