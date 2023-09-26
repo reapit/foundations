@@ -24,6 +24,7 @@ import {
   elBorderRadius,
   Select,
   elWFull,
+  BodyText
 } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -227,6 +228,7 @@ export const AdminPage: FC = () => {
             <Loader />
           ) : users?._embedded?.length ? (
             <>
+            <BodyText>Total Users: {users?.totalCount}</BodyText>
               <Table
                 className={cx(elFadeIn, elMb11)}
                 rows={users?._embedded?.map(({ id, name, email, jobTitle, inactive }) => ({
