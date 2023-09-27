@@ -1,7 +1,7 @@
 import { isMobile } from '../../../styles/media'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { elIntentPrimary, elIntentDanger, elIntentCritical } from '../../../styles/intent'
+import { elIntentPrimary, elIntentDanger, elIntentCritical, elIntentNeutral } from '../../../styles/intent'
 import { elIsLoading } from '../../../styles/states'
 import { ElIcon } from '../../icon/__styles__'
 
@@ -10,29 +10,10 @@ const buttonXPaddingMobile = 0.875
 const buttonYPadding = 0.5
 const buttonXYPaddingMobile = 0.375
 
-export const elButtonSize2 = css`
-  min-width: 8rem;
-
-  ${isMobile} {
-    min-width: 6rem;
-  }
-`
-
-export const elButtonSize3 = css`
-  min-width: 12rem;
-
-  ${isMobile} {
-    min-width: 8rem;
-  }
-`
-
-export const elButtonSize4 = css`
-  min-width: 16rem;
-
-  ${isMobile} {
-    min-width: 10rem;
-  }
-`
+// Deprecated - to remove at v5
+export const elButtonSize2 = css``
+export const elButtonSize3 = css``
+export const elButtonSize4 = css``
 
 export const ElButtonLoader = styled.div`
   @keyframes spinAround {
@@ -46,19 +27,14 @@ export const ElButtonLoader = styled.div`
 
   color: transparent !important;
   pointer-events: none;
-
-  left: calc(50% - (1em / 2));
-  top: calc(50% - (1em / 2));
-  position: absolute;
-
   animation: spinAround 500ms infinite linear;
-  border: 2px solid #dbdbdb;
+  border: 2px solid var(--color-grey-medium);
+  margin-right: 0.5rem;
   border-radius: 290486px;
-  border-color: transparent transparent rgba(0, 0, 0, 0.7) rgba(0, 0, 0, 0.7);
-
+  border-color: transparent transparent var(--color-grey-medium) var(--color-grey-medium);
   display: none;
-  height: 1rem;
-  width: 1rem;
+  height: 0.75rem;
+  width: 0.75rem;
 `
 
 export const elFloatingButton = css``
@@ -93,7 +69,7 @@ export const ElButton = styled.button`
     color: var(--color-grey-darkest);
   }
 
-  &.${elIntentPrimary}, &.${elIntentCritical} {
+  &.${elIntentPrimary} {
     background-image: linear-gradient(to right, var(--intent-primary), var(--intent-primary));
     color: var(--intent-primary-text);
     outline-color: var(--intent-primary-dark);
@@ -128,7 +104,8 @@ export const ElButton = styled.button`
   }
 
   &[disabled],
-  &[disabled].${elIntentDanger},
+  &.${elIsLoading},
+    &[disabled].${elIntentDanger},
     &[disabled].${elIntentPrimary},
     &[disabled].${elIntentCritical},
     &.${elIsLoading}
@@ -144,7 +121,7 @@ export const ElButton = styled.button`
   }
 
   &.${elIsLoading} {
-    &${ElButtonLoader} {
+    ${ElButtonLoader} {
       display: block;
     }
   }
@@ -159,7 +136,7 @@ export const ElButton = styled.button`
     height: 3.75rem;
     width: 3.75rem;
     margin: 0.5rem;
-
+    max-height: unset;
     padding: 0.4rem;
     display: inline-flex;
     justify-content: center;
@@ -169,6 +146,16 @@ export const ElButton = styled.button`
       width: 2.5rem;
       height: 2.5rem;
       margin: 0.5rem;
+    }
+
+    ${ElIcon} {
+      color: var(--color-grey-medium);
+    }
+
+    &.${elIntentDanger}, &.${elIntentPrimary} {
+      ${ElIcon} {
+        color: var(--color-white);
+      }
     }
 
     &.${elIsLoading} {
@@ -208,18 +195,6 @@ export const ElButtonGroupInner = styled.div`
   row-gap: 0.75rem;
   width: fit-content;
 
-  .${elButtonSize2} {
-    grid-column: span 2;
-  }
-
-  .${elButtonSize3} {
-    grid-column: span 3;
-  }
-
-  .${elButtonSize4} {
-    grid-column: span 4;
-  }
-
   &.${elButtonGroupAlignLeft} {
     margin-right: auto;
     justify-content: flex-start;
@@ -240,9 +215,5 @@ export const ElButtonGroupInner = styled.div`
     column-gap: 0.8rem;
     row-gap: 0.8rem;
     grid-auto-flow: inherit;
-
-    .${elButtonSize4} {
-      grid-column: span 3;
-    }
   }
 `

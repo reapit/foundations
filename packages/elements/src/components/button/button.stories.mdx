@@ -29,136 +29,48 @@ A button with no addtional props / classes applied.
 
 Different intents are supported, to enable buttons to be used in different contexts. Typcially you will always choose an intent for your button. The intent prop maps directly to the intent helper classes for non React users.
 
-In practice, low and neutral intents serve the same purpose however, they are rendered as distinct to allow better contrast with their background. When rendering on a white background you should use a low intent button, on a grey background, use a neutral button.
+Whereas most components support the full range of intents, `Buttons` only support `primary`, `danger` and `neutral`, the latter being the default.
 
 <Canvas>
-  <Story name="Intent: Primary">
-    <Button intent="primary">Primary</Button>
-  </Story>
-  <Story name="Intent: Secondary">
-    <Button intent="secondary">Secondary</Button>
-  </Story>
-  <Story name="Intent: Critical">
-    <Button intent="critical">Critical</Button>
-  </Story>
-  <Story name="Intent: Success">
-    <Button intent="success">Success</Button>
-  </Story>
-  <Story name="Intent: Danger">
-    <Button intent="danger">Danger</Button>
-  </Story>
-  <Story name="Intent: Neutral">
-    <Button intent="neutral">Neutral</Button>
-  </Story>
-  <Story name="Intent: Low">
-    <Button intent="low">Low</Button>
-  </Story>
+  <Story
+    name="Intent"
+    args={{
+      intent: 'primary',
+      children: 'Button Text',
+    }}
+  />
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Button"
-  story={[
-    'Intent: Primary',
-    'Intent: Secondary',
-    'Intent: Critical',
-    'Intent: Success',
-    'Intent: Danger',
-    'Intent: Neutral',
-    'Intent: Low',
-  ]}
-  label="HTML of different intents"
-/>
-
-## With Chevron
-
-Chevrons can be added which are helpful to indicate movement, forwards or backwards, between stages.
-
-<Canvas>
-  <Story name="Chevron: Left">
-    <Button chevronLeft intent="primary">
-      Left Chevron
-    </Button>
-  </Story>
-  <Story name="Chevron: Right">
-    <Button chevronRight intent="primary">
-      Right Chevron
-    </Button>
-  </Story>
-  <Story name="Chevron: Both">
-    <Button chevronLeft chevronRight intent="primary">
-      Both Chevrons
-    </Button>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Button" story={['Chevron: Left', 'Chevron: Right', 'Chevron: Both']} />
+<RenderHtmlMarkup component="Button" story={['Intent']} label="HTML of intent" />
 
 ## Is Loading
 
 Add a loading spinner to indicate progress of a background activity after the button was clicked.
 
 <Canvas>
-  <Story name="Loading">
-    <Button loading>Loading</Button>
-  </Story>
-  <Story name="Loading - Primary Intent">
-    <Button intent="primary" loading>
-      Loading
-    </Button>
-  </Story>
-  <Story name="Loading - Secondary Intent">
-    <Button intent="secondary" loading>
-      Loading
-    </Button>
-  </Story>
-  <Story name="Loading - Critical Intent">
-    <Button intent="critical" loading>
-      Loading
-    </Button>
-  </Story>
-  <Story name="Loading - Success Intent">
-    <Button intent="success" loading>
-      Loading
-    </Button>
-  </Story>
-  <Story name="Loading - Danger Intent">
-    <Button intent="danger" loading>
-      Loading
-    </Button>
-  </Story>
-  <Story name="Loading - Chevron Right">
-    <Button intent="primary" loading chevronRight={true}>
-      Loading
-    </Button>
-  </Story>
-  <Story name="Loading - Chevron Left">
-    <Button intent="primary" loading chevronLeft={true}>
-      Loading
-    </Button>
-  </Story>
+  <Story
+    name="Loading"
+    args={{
+      loading: true,
+      children: 'Button Text',
+    }}
+  />
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Button"
-  story={[
-    'Loading',
-    'Loading - Primary Intent',
-    'Loading - Secondary Intent',
-    'Loading - Critical Intent',
-    'Loading - Success Intent',
-    'Loading - Danger Intent',
-  ]}
-  label="HTML of the above"
-/>
+<RenderHtmlMarkup component="Button" story={['Loading']} label="HTML of the above" />
 
 ## Is Disabled
 
 Indicate that a button is disabled for whatever reason.
 
 <Canvas>
-  <Story name="Disabled">
-    <Button disabled>Disabled</Button>
-  </Story>
+  <Story
+    name="Disabled"
+    args={{
+      disabled: true,
+      children: 'Button Text',
+    }}
+  />
 </Canvas>
 
 <RenderHtmlMarkup component="Button" story={['Disabled']} />
@@ -167,27 +79,18 @@ Indicate that a button is disabled for whatever reason.
 
 All other standard HTML attributes for `<button>` are supported and are passed through to the React component, e.g. type and onClick
 
-### Type
-
 <Canvas>
-  <Story name="Standard attributes: type">
-    <Button type="submit" intent="primary">
-      Submit button
-    </Button>
-  </Story>
+  <Story
+    name="Standard attributes"
+    args={{
+      onClick: action('Button was clicked'),
+      type: 'submit',
+      children: 'Button Text',
+    }}
+  />
 </Canvas>
 
-<RenderHtmlMarkup component="Button" story="Standard attributes: type" />
-
-### onClick
-
-<Canvas>
-  <Story name="Standard attributes: onClick">
-    <Button onClick={action('Button was clicked')} intent="primary">
-      Click me
-    </Button>
-  </Story>
-</Canvas>
+<RenderHtmlMarkup component="Button" story={['Standard attributes']} />
 
 ## Button Group
 
@@ -196,49 +99,26 @@ An element to collectively group several buttons
 <Canvas>
   <Story name="Button Group">
     <ButtonGroup>
-      <Button intent="primary">First</Button>
-      <Button intent="secondary">Second</Button>
-      <Button intent="critical">Another</Button>
-      <Button intent="danger">End</Button>
+      <Button intent="primary">Primary</Button>
+      <Button intent="neutral">Neutral</Button>
+      <Button intent="danger">Danger</Button>
     </ButtonGroup>
   </Story>
 </Canvas>
 
 <RenderHtmlMarkup component="Button" story="Button Group" />
 
-## Fixed Width
-
-Fixed width buttons, using the `fixedWidth` modifier. Typically used for groups of buttons where you have two or more selections to make eg. a confirmation dialog `Modal` or similar. As such will typically be used with the `ButtonGroup` component above.
-
-<Canvas>
-  <Story name="Fixed Width">
-    <ButtonGroup>
-      <Button intent="low" fixedWidth>
-        Cancel
-      </Button>
-      <Button intent="primary" fixedWidth>
-        Confirm
-      </Button>
-    </ButtonGroup>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Button" story={['Fixed Width']} />
-
 ## Floating Button
 
-A circular floating icon button.
+A circular floating icon button - supports any icon from the icon list.
 
-Props available for the React version of the component;
-
-<ArgsTable of={FloatingButton} />
+Props available for the React version of the component are the same as the main button.
 
 <Canvas>
-  <Story name="Floating Button">
+  <Story name="Floating Button" component={FloatingButton}>
     <FloatingButton intent="primary" icon="addSystem" />
-    <FloatingButton intent="secondary" icon="addSystem" />
-    <FloatingButton icon="addSystem" />
-    <FloatingButton intent="danger" icon="addSystem" loading />
+    <FloatingButton intent="neutral" icon="addSystem" />
+    <FloatingButton intent="danger" icon="addSystem" />
   </Story>
 </Canvas>
 

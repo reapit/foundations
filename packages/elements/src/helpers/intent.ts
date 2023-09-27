@@ -1,32 +1,41 @@
 import {
   elIntentPrimary,
-  elIntentSecondary,
-  elIntentCritical,
   elIntentSuccess,
   elIntentDanger,
   elIntentNeutral,
-  elIntentLow,
   elIntentPending,
+  elIntentWarning,
 } from '../styles/intent'
 
-export type Intent = 'primary' | 'secondary' | 'critical' | 'success' | 'danger' | 'neutral' | 'low' | 'pending'
+export type Intent =
+  | 'primary'
+  | 'pending'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'neutral'
+  | 'secondary'
+  | 'critical'
+  | 'low'
 
 export const getIntentClassName = (intent: Intent): string => {
   switch (intent) {
     case 'primary':
       return elIntentPrimary
-    case 'secondary':
-      return elIntentSecondary
-    case 'critical':
-      return elIntentCritical
     case 'pending':
       return elIntentPending
     case 'success':
       return elIntentSuccess
+    case 'warning':
+      return elIntentWarning
     case 'danger':
       return elIntentDanger
+    case 'critical':
     case 'low':
-      return elIntentLow
+    case 'secondary':
+      console.warn(
+        `${intent} intent is deprecated and will be removed at v5. Currently this value defaults to neutral intent. Please find a more appropriate intent from the docs if desired`,
+      )
     case 'neutral':
     default:
       return elIntentNeutral

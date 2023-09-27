@@ -167,6 +167,7 @@ import { ReactComponent as reapitConnectInfographic } from '../../assets/infogra
 import { ReactComponent as reapitConnectSettingsDevicesDarkInfographic } from '../../assets/infographic-icons/reapitConnectSettingsDevicesDarkInfographic.svg'
 import { ReactComponent as reapitConnectSettingsDevicesInfographic } from '../../assets/infographic-icons/reapitConnectSettingsDevicesInfographic.svg'
 import { ReactComponent as reapitLogoInfographic } from '../../assets/infographic-icons/reapitLogoInfographic.svg'
+import { ReactComponent as reapitLogoSmallInfographic } from '../../assets/infographic-icons/reapitLogoSmallInfographic.svg'
 import { ReactComponent as reapitLogoMenu } from '../../assets/menu-icons/reapitLogoMenu.svg'
 import { ReactComponent as reapitLogoSelectedMenu } from '../../assets/menu-icons/reapitLogoSelectedMenu.svg'
 import { ReactComponent as reapitLogoTextMenu } from '../../assets/menu-icons/reapitLogoTextMenu.svg'
@@ -295,6 +296,7 @@ export const iconSet = {
   reapitConnectSettingsDevicesDarkInfographic,
   reapitConnectSettingsDevicesInfographic,
   reapitLogoInfographic,
+  reapitLogoSmallInfographic,
   reapitUserInfographic,
   refreshInfographic,
   reportInfographic,
