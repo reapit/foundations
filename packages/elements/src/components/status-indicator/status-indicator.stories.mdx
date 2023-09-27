@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable, RenderHtmlMarkup } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable, RenderHtmlMarkup } from '@storybook/addon-docs'
 import { StatusIndicator } from './'
 
 <Meta title="StatusIndicator" component={StatusIndicator} />
@@ -15,7 +15,9 @@ Props available for the React version of the component;
 
 <Canvas>
   <Story name="Basic usage">
-    <div><StatusIndicator intent="critical" /> Something is happening</div>
+    <div>
+      <StatusIndicator intent="critical" /> Something is happening
+    </div>
   </Story>
 </Canvas>
 
@@ -25,22 +27,33 @@ Different intents are supported, to enable buttons to be used in different conte
 
 <Canvas>
   <Story name="Intent: Primary">
-    <div><StatusIndicator intent="primary" /> Primary</div>
+    <div>
+      <StatusIndicator intent="primary" /> Primary
+    </div>
   </Story>
   <Story name="Intent: Secondary">
-    <div><StatusIndicator intent="secondary" /> Secondary</div>
+    <div>
+      <StatusIndicator intent="secondary" /> Secondary
+    </div>
   </Story>
   <Story name="Intent: Critical">
-    <div><StatusIndicator intent="critical" /> Critical</div>
+    <div>
+      <StatusIndicator intent="critical" /> Critical
+    </div>
   </Story>
   <Story name="Intent: Success">
-    <div><StatusIndicator intent="success" /> Success</div>
+    <div>
+      <StatusIndicator intent="success" /> Success
+    </div>
   </Story>
   <Story name="Intent: Danger">
-    <div><StatusIndicator intent="danger" /> Danger</div>
+    <div>
+      <StatusIndicator intent="danger" /> Danger
+    </div>
   </Story>
-   <Story name="Intent: none">
-    <div><StatusIndicator /> Nothing</div>
+  <Story name="Intent: none">
+    <div>
+      <StatusIndicator /> Nothing
+    </div>
   </Story>
 </Canvas>
-

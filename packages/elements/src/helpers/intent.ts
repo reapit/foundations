@@ -36,6 +36,7 @@ export const getIntentClassName = (intent: Intent): string => {
       console.warn(
         `${intent} intent is deprecated and will be removed at v5. Currently this value defaults to neutral intent. Please find a more appropriate intent from the docs if desired`,
       )
+      return elIntentNeutral
     case 'neutral':
     default:
       return elIntentNeutral

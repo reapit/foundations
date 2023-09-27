@@ -1,7 +1,7 @@
 import { isMobile } from '../../../styles/media'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { elIntentPrimary, elIntentDanger, elIntentCritical, elIntentNeutral } from '../../../styles/intent'
+import { elIntentPrimary, elIntentDanger, elIntentCritical } from '../../../styles/intent'
 import { elIsLoading } from '../../../styles/states'
 import { ElIcon } from '../../icon/__styles__'
 
