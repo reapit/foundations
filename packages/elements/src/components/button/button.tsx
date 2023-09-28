@@ -14,7 +14,7 @@ import {
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIntentDanger, elIntentNeutral, elIntentPrimary } from '../../styles/intent'
-import { useDeprecateVar } from '../../storybook/deprecate-var'
+import { deprecateFunction, useDeprecateVar } from '../../storybook/deprecate-var'
 
 export type ButtonSizeType = 2 | 3 | 4
 
@@ -44,8 +44,9 @@ export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   alignment?: ButtonGroupAlignment
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const resolveButtonSize = (size: ButtonSizeType): void => {
-  console.warn(`Button size prop ${size} is deprecated and will be removed at v5 release`)
+  deprecateFunction('resolveButtonSize')
 }
 
 export const resolveButtonClassName = (intent?: Intent): string => {

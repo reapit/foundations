@@ -127,7 +127,7 @@ In the example below, you can see examples of all the different flavours of `Tab
             £50.00
           </TableCell>
           <TableCell narrowLabel="Status">
-            <StatusIndicator intent="critical" /> Pending
+            <StatusIndicator intent="primary" /> Pending
           </TableCell>
         </TableRow>
       </TableRowContainer>
@@ -170,7 +170,7 @@ This is done by adding the `data-force-narrow-table='true'` attribute to the mai
             £50.00
           </TableCell>
           <TableCell narrowLabel="Status">
-            <StatusIndicator intent="critical" /> Pending
+            <StatusIndicator intent="primary" /> Pending
           </TableCell>
         </TableRow>
       </TableRowContainer>
@@ -229,7 +229,7 @@ For this version the `data-has-expandable-action` attribute should additionally 
             £50.00
           </TableCell>
           <TableCell narrowLabel="Status">
-            <StatusIndicator intent="critical" /> Pending
+            <StatusIndicator intent="primary" /> Pending
           </TableCell>
           <TableExpandableRowTriggerCell isOpen />
         </TableRow>
@@ -246,9 +246,7 @@ For this version the `data-has-expandable-action` attribute should additionally 
               <InputWrap />
               <InputWrap>
                 <ButtonGroup className={elMlAuto}>
-                  <Button chevronRight intent="primary">
-                    Send
-                  </Button>
+                  <Button intent="primary">Send</Button>
                 </ButtonGroup>
               </InputWrap>
             </FormLayout>
@@ -293,7 +291,7 @@ For this version the `data-has-call-to-action` attribute should additionally be 
             £50.00
           </TableCell>
           <TableCell narrowLabel="Status">
-            <StatusIndicator intent="critical" /> Pending
+            <StatusIndicator intent="primary" /> Pending
           </TableCell>
           <TableCtaTriggerCell icon="downloadSolidSystem" />
         </TableRow>
@@ -430,7 +428,7 @@ export interface RowActionProps {
               value: 'Pending',
               children: (
                 <>
-                  <StatusIndicator intent="critical" /> Pending
+                  <StatusIndicator intent="primary" /> Pending
                 </>
               ),
             },
@@ -550,7 +548,7 @@ We also specify that the first row is expanded by passing an `indexExpandedRow` 
                   value: 'Pending',
                   children: (
                     <>
-                      <StatusIndicator intent="critical" /> Pending
+                      <StatusIndicator intent="primary" /> Pending
                     </>
                   ),
                 },
@@ -652,7 +650,7 @@ We've also added a `TableSortHeader` element which has a arrow indicator for you
                 value: info.paymentStatus,
                 children: (
                   <>
-                    <StatusIndicator intent="critical" /> Pending
+                    <StatusIndicator intent="primary" /> Pending
                   </>
                 ),
               },

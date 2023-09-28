@@ -25,7 +25,7 @@ export const ElInput = styled.input`
   }
 
   &::placeholder {
-    color: var(--color-grey-medium-light);
+    color: var(--color-grey-400);
     font-family: var(--font-sans-serif);
     font-size: var(--font-size-small);
   }
@@ -55,7 +55,7 @@ export const ElInput = styled.input`
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 0.75rem;
-      border: 1px solid var(--color-grey-medium);
+      border: 1px solid var(--color-grey-400);
       background-color: var(--intent-primary);
       border: 1px solid var(--intent-primary);
     }

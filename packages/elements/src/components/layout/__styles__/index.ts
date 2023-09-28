@@ -9,7 +9,7 @@ export const ElMainContainer = styled.main`
   height: 100vh;
   overflow-y: visible;
   overflow-x: hidden;
-  background: var(--color-grey-lightest);
+  background: var(--color-grey-100);
 `
 
 export const ElPageContainer = styled.section`
@@ -39,7 +39,7 @@ export const ElSecondaryNavContainer = styled.aside`
   overflow-x: hidden;
   scrollbar-width: none;
   background: var(--color-white);
-  border-right: 1px solid var(--color-grey-light);
+  border-right: 1px solid var(--color-grey-100);
 
   &::-webkit-scrollbar {
     display: none;

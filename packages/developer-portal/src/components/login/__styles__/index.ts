@@ -26,7 +26,7 @@ export const LoginRoleTile = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: var(--color-accent-blue-lightest);
+    background-color: var(--color-purple-50);
   }
 
   a {

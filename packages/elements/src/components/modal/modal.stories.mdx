@@ -60,7 +60,7 @@ Props available for the React version of the component;
       const [modalIsOpen, setModalIsOpen] = useState(false)
       return (
         <>
-          <Button intent="secondary" onClick={() => setModalIsOpen(!modalIsOpen)}>
+          <Button intent="primary" onClick={() => setModalIsOpen(!modalIsOpen)}>
             Open Modal
           </Button>
           <Modal
@@ -88,13 +88,13 @@ It also leverages our `Portal` component to render the modal at the top level of
       const { Modal: ModalComponent, openModal, closeModal } = useModal('docs-root')
       return (
         <>
-          <Button intent="secondary" onClick={openModal}>
+          <Button intent="primary" onClick={openModal}>
             Open Modal
           </Button>
           <ModalComponent title="Welcome to the demo modal">
             <BodyText>Here's some nice content for the inside of the modal.</BodyText>
             <FlexContainer isFlexJustifyCenter>
-              <Button intent="secondary" onClick={closeModal}>
+              <Button intent="primary" onClick={closeModal}>
                 Close the modal
               </Button>
             </FlexContainer>
@@ -121,10 +121,10 @@ If using multiple modals within a component, ensure you rename the exports from 
       return (
         <>
           <ButtonGroup>
-            <Button intent="secondary" onClick={openModalA}>
+            <Button intent="primary" onClick={openModalA}>
               Open Modal A
             </Button>
-            <Button intent="secondary" onClick={openModalB}>
+            <Button intent="primary" onClick={openModalB}>
               Open Modal B
             </Button>
           </ButtonGroup>

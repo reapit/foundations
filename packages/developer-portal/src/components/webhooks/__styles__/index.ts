@@ -31,7 +31,7 @@ export const overflowHidden = css`
 
 export const DownloadButtonContainer = styled.div`
   padding: 1rem;
-  background-color: var(--color-grey-light);
+  background-color: var(--color-grey-100);
   border-radius: 0.25rem;
 `
 

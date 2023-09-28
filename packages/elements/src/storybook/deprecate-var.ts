@@ -9,3 +9,13 @@ export const useDeprecateVar = (variables: Object, component: string) => {
     })
   }, [])
 }
+
+export const useDeprecateComponent = (component: string) => {
+  useEffect(() => {
+    console.warn(`Component ${component} no longer supported and will be removed at v5 release.`)
+  }, [])
+}
+
+export const deprecateFunction = (functionName: string) => {
+  console.warn(`Function ${functionName} no longer supported and will be removed at v5 release.`)
+}

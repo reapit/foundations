@@ -23,16 +23,16 @@ export const StepOptionItem = styled.div`
   align-items: center;
   padding: 0 1.25rem;
   cursor: pointer;
-  color: var(--color-grey-dark);
-  border-bottom: 1px solid var(--color-grey-light);
+  color: var(--color-grey-500);
+  border-bottom: 1px solid var(--color-grey-100);
 
   &:hover {
-    background-color: var(--color-grey-lightest);
+    background-color: var(--color-grey-50);
     color: var(--color-black);
   }
 
   &.${stepOptionItemSelected} {
-    background-color: var(--color-accent-blue-lightest);
+    background-color: var(--color-purple-50);
     color: var(--color-black);
   }
 `
@@ -44,7 +44,7 @@ export const StepOptionItemText = styled.div`
 export const StepFormContainer = styled.div`
   width: 100%;
   background-color: var(--color-white);
-  border: 1px solid var(--color-grey-light);
+  border: 1px solid var(--color-grey-100);
   padding: 1.5rem 1.25rem;
 `
 

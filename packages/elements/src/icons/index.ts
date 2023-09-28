@@ -10,6 +10,7 @@ import { ReactComponent as appCategoryInfographic } from '../../assets/infograph
 import { ReactComponent as appInfographic } from '../../assets/infographic-icons/appInfographic.svg'
 import { ReactComponent as appInfographicAlt } from '../../assets/infographic-icons/appInfographicAlt.svg'
 import { ReactComponent as applicantInfographic } from '../../assets/infographic-icons/applicantInfographic.svg'
+import { ReactComponent as appLauncherMenu } from '../../assets/menu-icons/appLauncherMenu.svg'
 import { ReactComponent as appMarketDarkInfographic } from '../../assets/infographic-icons/appMarketDarkInfographic.svg'
 import { ReactComponent as appMarketInfographic } from '../../assets/infographic-icons/appMarketInfographic.svg'
 import { ReactComponent as appSettingsAuthDarkInfographic } from '../../assets/infographic-icons/appSettingsAuthDarkInfographic.svg'
@@ -431,6 +432,7 @@ export const iconSet = {
   warningSolidSystem,
   // Menu Icons
   accountMenu,
+  appLauncherMenu,
   analyticsMenu,
   apiMenu,
   appsMenu,

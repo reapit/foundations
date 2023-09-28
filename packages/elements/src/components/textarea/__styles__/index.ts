@@ -17,7 +17,7 @@ export const ElTextArea = styled.textarea`
   }
 
   &::placeholder {
-    color: var(--color-grey-medium-light);
+    color: var(--color-grey-400);
     font-family: var(--font-sans-serif);
     font-size: var(--font-size-small);
   }

@@ -14,7 +14,7 @@ describe('Table component', () => {
   })
 
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="secondary" />)
+    const wrapper = render(<StatusIndicator intent="primary" />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -29,7 +29,7 @@ describe('Table component', () => {
   })
 
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="critical" />)
+    const wrapper = render(<StatusIndicator intent="primary" />)
     expect(wrapper).toMatchSnapshot()
   })
 

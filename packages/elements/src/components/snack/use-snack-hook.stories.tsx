@@ -8,7 +8,7 @@ export const UseSnackHookStory = () => {
 
   return (
     <>
-      <Button className={elM1} intent="secondary" onClick={() => info('This is infomation')}>
+      <Button className={elM1} intent="primary" onClick={() => info('This is infomation')}>
         Trigger an info snack
       </Button>
       <Button className={elM1} intent="success" onClick={() => success('Something great happened')}>
@@ -17,7 +17,7 @@ export const UseSnackHookStory = () => {
       <Button className={elM1} intent="danger" onClick={() => error('Something went wrong')}>
         Trigger an error snack
       </Button>
-      <Button className={elM1} intent="critical" onClick={() => warning('Something could be bad')}>
+      <Button className={elM1} intent="primary" onClick={() => warning('Something could be bad')}>
         Trigger a warning snack
       </Button>
       <Button className={elM1} intent="primary" onClick={() => info("I'm here for a while...", 10000)}>

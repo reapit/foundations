@@ -113,7 +113,7 @@ export const FileInput: FileInputWrapped = forwardRef(
       <ElFileInputWrap>
         {label && <Label>{label}</Label>}
         <FlexContainer isFlexAlignCenter>
-          <Button className={elMr4} type="button" intent="low">
+          <Button className={elMr4} type="button">
             {fileUrl ? 'Change' : 'Upload'}
           </Button>
           <ElFileInput
@@ -134,14 +134,14 @@ export const FileInput: FileInputWrapped = forwardRef(
                 <Icon
                   onClick={handleFileView(onFileView, fileUrl)}
                   className={elMr4}
-                  intent="neutral"
+                  intent="primary"
                   icon="viewSolidSystem"
                 />
               )}
               <Icon
                 onClick={handleFileClear(setFileName)}
                 className={elMr4}
-                intent="neutral"
+                intent="primary"
                 icon="cancelSolidSystem"
               />
             </ElFileInputIconContainer>

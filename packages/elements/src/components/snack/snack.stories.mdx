@@ -45,12 +45,12 @@ The Snack component can be used for UI purposes only, but won't have the functio
     </Snack>
   </Story>
   <Story name="Intent: Secondary">
-    <Snack intent="secondary" icon="infoSolidSystem">
+    <Snack intent="primary" icon="infoSolidSystem">
       Secondary message goes here
     </Snack>
   </Story>
   <Story name="Intent: Critical">
-    <Snack intent="critical" icon="warningSolidSystem">
+    <Snack intent="primary" icon="warningSolidSystem">
       Critical message goes here
     </Snack>
   </Story>
@@ -102,7 +102,7 @@ A context and a hook is provided to use the Snack component out of the box calle
         const { info, success, error, warning, custom } = useSnack()
         return (
           <>
-            <Button className={elM1} intent="secondary" onClick={() => info('This is infomation')}>
+            <Button className={elM1} intent="primary" onClick={() => info('This is infomation')}>
               Trigger an info snack
             </Button>
             <Button className={elM1} intent="success" onClick={() => success('Something great happened')}>
@@ -111,7 +111,7 @@ A context and a hook is provided to use the Snack component out of the box calle
             <Button className={elM1} intent="danger" onClick={() => error('Something went wrong')}>
               Trigger an error snack
             </Button>
-            <Button className={elM1} intent="critical" onClick={() => warning('Something could be bad')}>
+            <Button className={elM1} intent="primary" onClick={() => warning('Something could be bad')}>
               Trigger a warning snack
             </Button>
             <Button className={elM1} intent="primary" onClick={() => info("I'm here for a while...", 10000)}>

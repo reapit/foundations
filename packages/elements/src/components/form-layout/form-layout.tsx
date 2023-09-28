@@ -1,6 +1,13 @@
 import { cx } from '@linaria/core'
 import React, { FC, HTMLAttributes, forwardRef, LegacyRef } from 'react'
-import { ElFormLayout, ElInputWrap, ElInputWrapMed, ElInputWrapFull, elFormLayoutHasMargin } from './__styles__'
+import {
+  ElFormLayout,
+  ElInputWrap,
+  ElInputWrapMed,
+  ElInputWrapFull,
+  elFormLayoutHasMargin,
+  ElInputWrapSmall,
+} from './__styles__'
 
 export type FormLayoutProps = HTMLAttributes<HTMLDivElement> & {
   hasMargin?: boolean
@@ -23,6 +30,10 @@ export const InputWrap: React.ForwardRefExoticComponent<
     </ElInputWrap>
   )
 })
+
+export const InputWrapSmall: FC<FormLayoutProps> = ({ children, ...rest }) => {
+  return <ElInputWrapSmall {...rest}>{children}</ElInputWrapSmall>
+}
 
 export const InputWrapMed: FC<FormLayoutProps> = ({ children, ...rest }) => {
   return <ElInputWrapMed {...rest}>{children}</ElInputWrapMed>

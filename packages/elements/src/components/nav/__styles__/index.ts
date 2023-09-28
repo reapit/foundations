@@ -5,13 +5,13 @@ export const ElNavContainer = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
   background-color: var(--color-white);
   height: auto;
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 3;
-  border-bottom: 1px solid var(--color-grey-light);
   height: auto;
   flex: 0 0 auto;
   overflow: hidden;
@@ -22,6 +22,7 @@ export const ElNavContainer = styled.nav`
     flex: 0 0 3.5rem;
     flex-wrap: nowrap;
     overflow-x: auto;
+    border-bottom: 1px solid var(--color-grey-100);
   }
 `
 
@@ -34,10 +35,20 @@ export const ElNavSubContainer = styled.div`
   }
 `
 
+export const elNavItemSecondary = css`
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+`
+
 export const ElNavItem = styled.a`
   font-family: var(--font-sans-serif);
   font-size: var(--font-size-small);
-  color: var(--color-grey-medium);
+  color: var(--color-grey-400);
   display: flex;
   text-align: center;
   justify-content: flex-start;
@@ -56,14 +67,12 @@ export const ElNavItem = styled.a`
   }
 
   &:hover {
-    --nav-menu-icon-primary-accent: var(--color-brand);
-    --nav-menu-icon-secondary-accent: var(--color-brand-light);
-    color: var(--color-brand);
-    background-color: var(--color-accent-blue-lightest);
+    color: var(--color-purple-300);
+    background-color: var(--color-purple-50);
   }
 
   &:hover:not(:first-child) {
-    border-left: 3px solid var(--color-brand);
+    border-left: 3px solid var(--color-purple-300);
   }
 
   &:first-child {
@@ -73,6 +82,7 @@ export const ElNavItem = styled.a`
     margin-right: auto;
     width: 100%;
     padding: 0rem 0.75rem;
+    border-bottom: 1px solid var(--color-grey-100);
   }
 
   :not(:first-child) {
@@ -91,18 +101,25 @@ export const ElNavItem = styled.a`
 
     :not(:first-child) {
       overflow: visible;
-      padding: 0.5rem;
-      height: 3.5rem;
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.25rem;
+      height: 2rem;
+      border-top: none;
+      margin-right: 1rem;
     }
 
     &:hover:not(:first-child) {
-      padding-bottom: 0.25rem;
-      border-bottom: 0.25rem solid var(--color-brand);
+      background-color: var(--color-grey-100);
       border-left: none;
+
+      &.${elNavItemSecondary} {
+        background-color: var(--color-white);
+      }
     }
 
     &:first-child {
       width: auto;
+      border-bottom: none;
     }
 
     svg {
@@ -113,32 +130,42 @@ export const ElNavItem = styled.a`
 
 export const elNavItemActive = css`
   &:not(:first-child) {
-    background-color: var(--color-accent-blue-lightest);
-    border-left: 3px solid var(--color-brand-dark);
-    color: var(--color-brand-dark);
+    background-color: var(--color-purple-50);
+    border-left: 3px solid var(--color-purple-500);
+    color: var(--color-purple-500);
   }
 
   @media screen and (min-width: 768px) {
     &:not(:first-child) {
-      --nav-menu-icon-primary-accent: var(--color-brand-dark);
-      --nav-menu-icon-secondary-accent: var(--color-brand);
-      padding-bottom: 0.25rem;
-      border-bottom: 0.25rem solid var(--color-brand-dark);
+      --nav-menu-icon-primary-accent: var(--color-purple-500);
+      --nav-menu-icon-secondary-accent: var(--color-purple-300);
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.25rem;
+      background-color: var(--color-grey-100);
       border-left: none;
-      height: 3.5rem;
+      height: 2rem;
+
+      &.${elNavItemSecondary} {
+        background-color: var(--color-white);
+      }
     }
   }
 `
 
 export const elNavItemExpanded = css`
   :not(:first-child) {
-    height: auto;
+    height: 2rem;
   }
 
   @media screen and (max-width: 767px) {
     opacity: 1;
-    padding: 0.125rem 0.75rem;
+    padding: 0.625rem 1.5rem;
     overflow: visible;
+    height: auto;
+
+    &:last-child {
+      border-bottom: 1px solid var(--color-grey-100);
+    }
   }
 `
 
@@ -152,7 +179,7 @@ export const ElNavSubItem = styled.a`
   height: 0;
   font-family: var(--font-sans-serif);
   font-size: var(--font-size-small);
-  color: var(--color-grey-medium);
+  color: var(--color-grey-400);
   opacity: 0;
   display: flex;
   text-align: flex-start;
@@ -172,20 +199,18 @@ export const elNavSubItemExpanded = css`
     width: 100%;
     display: block;
     opacity: 1;
-    padding: 0.125rem 0.75rem 0.125rem 1.5rem;
+    padding: 0.625rem 1.5rem;
+    margin-left: 1rem;
 
     &:hover {
-      color: var(--color-brand);
-      background-color: var(--color-accent-blue-lightest);
-      border-left: 3px solid var(--color-brand);
+      color: var(--color-purple-300);
     }
   }
 `
 
 export const elNavSubItemActive = css`
-  background-color: var(--color-accent-blue-lightest);
-  border-left: 3px solid var(--color-brand-dark);
-  color: var(--color-brand-dark);
+  color: var(--color-purple-500);
+  margin-left: 1rem;
 `
 
 export const elNavItemHideDesktop = css`
@@ -193,16 +218,12 @@ export const elNavItemHideDesktop = css`
     height: 0;
     width: 0;
     visibility: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   svg {
     height: 1.2rem;
-  }
-`
-
-export const elNavItemSecondary = css`
-  @media screen and (min-width: 768px) {
-    margin-left: auto;
   }
 `
 

@@ -8,7 +8,7 @@
 <path d="M28.9352 28.5258L39.6076 18.0381L50.2801 28.5258V43.0087H28.9352V28.5258Z" fill="var(--info-graphic-accent-color-darkest)"/>
 <path d="M28.9352 28.5258L39.6076 18.0381L50.2801 28.5258V36.7661L28.9352 28.5258Z" fill="var(--info-graphic-accent-color-lightest)"/>
 <path d="M50.2801 43.0087H44.0328L35.1825 22.3866L39.6077 18.0381L50.2801 28.5258V43.0087Z" fill="var(--info-graphic-accent-color-light)"/>
-<path d="M50.2801 28.5258V36.7661L39.6077 32.6977L35.1825 22.3866L39.6077 18.0381L50.2801 28.5258Z" fill="#32BCFA"/>
+<path d="M50.2801 28.5258V36.7661L39.6077 32.6977L35.1825 22.3866L39.6077 18.0381L50.2801 28.5258Z" fill="var(--info-graphic-accent-color-lightest}"/>
 <path d="M39.9172 42.6831L11.7505 32.5779V68.9179L39.9172 78.0015V42.6831Z" fill="var(--info-graphic-accent-color-dark)"/>
 <path d="M68.0842 68.9179V32.5779L39.9175 42.6831V78.0015L68.0842 68.9179Z" fill="var(--info-graphic-accent-color-darkest)"/>
 <path d="M11.7504 32.5784L1.99976 44.3104L30.6966 54.9142L39.9171 42.6558L11.7504 32.5784Z" fill="var(--info-graphic-accent-color-lightest)"/>

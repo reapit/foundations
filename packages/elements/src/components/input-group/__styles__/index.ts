@@ -20,7 +20,7 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElIcon} {
-    color: var(--color-grey-medium-light);
+    color: var(--color-grey-400);
     border: var(--component-input-border);
     border-right: none;
     border-radius: 0.125rem 0 0 0.125rem;

@@ -3,7 +3,7 @@ import { styled } from '@linaria/react'
 export const GridDemoBlock = styled.div`
   width: 100%;
   min-height: 3rem;
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-purple-300);
 `
 
 export const GridDemoBlockFeatured = styled.div`
@@ -19,7 +19,7 @@ export const GridDemoBlockFeatured = styled.div`
 
 export const GridDemoBlockWithMargin = styled.div`
   height: 3rem;
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-purple-300);
   margin: 0.5rem;
   color: white;
   text-align: center;
@@ -31,8 +31,8 @@ export const GridDemoBlockWithMargin = styled.div`
 `
 
 export const GridDemoBlockSizing = styled.div`
-  background-color: var(--color-blue-light2);
-  color: var(--color-grey-dark);
+  background-color: var(--color-purple-300);
+  color: var(--color-white);
   text-align: center;
   display: flex;
   align-items: center;
@@ -42,8 +42,8 @@ export const GridDemoBlockSizing = styled.div`
 `
 
 export const GridDemoBorders = styled.div`
-  background-color: var(--color-grey-light2);
-  color: var(--color-grey-dark);
+  background-color: var(--color-grey-1002);
+  color: var(--color-black);
   padding: 1rem;
   width: 100%;
   text-align: center;

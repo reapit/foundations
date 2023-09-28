@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import { Story, Canvas, ArgsTable } from '@storybook/addon-docs'
-import { MainContainer, PageContainer, SecondaryNavContainer, Molecule, FlexContainer } from './index'
+import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs'
+import { MainContainer, PageContainer, SecondaryNavContainer, FlexContainer } from './index'
 import { GridDemoBlock } from '../../storybook/demo-block'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { NavStateProvider } from '../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../hooks/use-media-query'
-import { UseNavMobileSubMenuStory } from '../nav/use-nav.stories'
 import { SecondaryNav, SecondaryNavItem } from '../secondary-nav'
+import { NavResponsive } from '../nav'
+import { Grid, Col } from '../grid'
 
-<Meta title="Layouts" component={Molecule} />
+<Meta title="Layouts" component={MainContainer} />
 
 # Layouts
 
@@ -16,7 +17,95 @@ When thinking about laying out your page, you will need to wrap your content in 
 
 The components themsleves are really around laying out a page so you may want to skip forward to the full examples below.
 
-## Container Components
+## MainContainer
+
+In this example you can see the `MainContainer` component - used to wrap the whole application and will handle the `Nav` and main content positioning.
+
+<Canvas>
+  <Story name="Main Container">
+    <MainContainer>
+      <FlexContainer isFlexGrow1>
+        <PageContainer>
+          <GridDemoBlock />
+        </PageContainer>
+      </FlexContainer>
+    </MainContainer>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Layouts" story="Main Container" />
+
+## SecondaryNavContainer
+
+The `SecondaryNavContainer` is fixed width and used to contain secondary navigation as well as controls like filters.
+
+<Canvas>
+  <Story name="Secondary Nav Container">
+    <SecondaryNavContainer>
+      <GridDemoBlock />
+    </SecondaryNavContainer>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Layouts" story="Secondary Nav Container" />
+
+## PageContainer
+
+The `PageContainer` should be the body of your content, it will typically contain a `Grid` component.
+
+<Canvas>
+  <Story name="Page Container">
+    <PageContainer>
+      <Grid>
+        <Col>
+          <GridDemoBlock />
+        </Col>
+        <Col>
+          <GridDemoBlock />
+        </Col>
+        <Col>
+          <GridDemoBlock />
+        </Col>
+        <Col>
+          <GridDemoBlock />
+        </Col>
+        <Col>
+          <GridDemoBlock />
+        </Col>
+        <Col>
+          <GridDemoBlock />
+        </Col>
+        <Col>
+          <GridDemoBlock />
+        </Col>
+        <Col>
+          <GridDemoBlock />
+        </Col>
+      </Grid>
+    </PageContainer>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Layouts" story="Page Container" />
+
+## FlexContainer
+
+The previous two containers are postioned using the `FlexContainer` component. This component has a number of optional props to perform most flexbox operations - see the below inteface for React users:
+
+<ArgsTable of={FlexContainer} />
+
+<Canvas>
+  <Story name="Flex Container">
+    <FlexContainer isFlexColumn>
+      <GridDemoBlock />
+      <GridDemoBlock />
+    </FlexContainer>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Layouts" story="Flex Container" />
+
+## Combined Container Components
 
 In this example you can see the `MainContainer` component - used to wrap the whole application and will handle the `Nav` and main content positioning.
 
@@ -28,10 +117,8 @@ The previous two containers are postioned using the `FlexContainer` component. T
 
 These booleans map 1:1 to the flexbox helpers you can see here on [Github](https://github.com/reapit/foundations/blob/master/packages/elements/src/styles-v3/base/flexbox.ts). For the output helper classes, see the HTML Markup Component below.
 
-Finally, the `Molecule` container is a multi purpose container for adding sensible default spacing between items for example blocks of text.
-
 <Canvas>
-  <Story name="Container Components">
+  <Story name="Combined Container Components">
     <MainContainer>
       <FlexContainer isFlexGrow1>
         <SecondaryNavContainer>
@@ -39,13 +126,9 @@ Finally, the `Molecule` container is a multi purpose container for adding sensib
         </SecondaryNavContainer>
         <PageContainer>
           <GridDemoBlock />
-          <FlexContainer>
-            <Molecule>
-              <GridDemoBlock />
-            </Molecule>
-            <Molecule>
-              <GridDemoBlock />
-            </Molecule>
+          <FlexContainer isFlexColumn>
+            <GridDemoBlock />
+            <GridDemoBlock />
           </FlexContainer>
         </PageContainer>
       </FlexContainer>
@@ -53,7 +136,7 @@ Finally, the `Molecule` container is a multi purpose container for adding sensib
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Layouts" story={['Container Components']} />
+<RenderHtmlMarkup component="Layouts" story={['Combined Container Components']} />
 
 ## Combined Layout
 
@@ -67,7 +150,62 @@ For a complete example of how to lay out a page, see below where we have combine
         <NavStateProvider>
           <MediaStateProvider>
             <MainContainer>
-              <UseNavMobileSubMenuStory />
+              <NavResponsive
+                defaultNavIndex={1}
+                defaultNavSubIndex={1}
+                options={[
+                  {
+                    itemIndex: 0,
+                    callback: () => console.log('Navigating'),
+                  },
+                  {
+                    itemIndex: 1,
+                    callback: () => console.log('Navigating'),
+                    text: 'Apps',
+                    subItems: [
+                      {
+                        itemIndex: 0,
+                        callback: () => console.log('Navigating'),
+                        text: 'App List',
+                      },
+                      {
+                        itemIndex: 1,
+                        callback: () => console.log('Navigating'),
+                        text: 'Create App',
+                      },
+                    ],
+                  },
+                  {
+                    itemIndex: 2,
+                    callback: () => console.log('Navigating'),
+                    text: 'Analytics',
+                    subItems: [
+                      {
+                        itemIndex: 2,
+                        callback: () => console.log('Navigating'),
+                        text: 'Hits Per Day',
+                      },
+                      {
+                        itemIndex: 3,
+                        callback: () => console.log('Navigating'),
+                        text: 'Weekly Hits',
+                      },
+                    ],
+                  },
+                  {
+                    itemIndex: 3,
+                    href: 'https://marketplace.reapit.cloud',
+                    text: 'Marketplace',
+                  },
+                  {
+                    itemIndex: 4,
+                    callback: () => console.log('Logging out'),
+                    iconId: 'profileMenu',
+                    isSecondary: true,
+                    text: 'Logout',
+                  },
+                ]}
+              />
               <FlexContainer isFlexGrow1>
                 <SecondaryNavContainer>
                   <SecondaryNav>
@@ -80,74 +218,32 @@ For a complete example of how to lay out a page, see below where we have combine
                   </SecondaryNav>
                 </SecondaryNavContainer>
                 <PageContainer>
-                  <Molecule>
-                    <GridDemoBlock />
-                  </Molecule>
                   <Grid>
                     <Col>
-                      <FlexContainer>
-                        <Molecule>
-                          <GridDemoBlock />
-                        </Molecule>
-                        <Molecule>
-                          <GridDemoBlock />
-                        </Molecule>
-                      </FlexContainer>
+                      <GridDemoBlock />
                     </Col>
                     <Col>
-                      <FlexContainer>
-                        <Molecule>
-                          <GridDemoBlock />
-                        </Molecule>
-                        <Molecule>
-                          <GridDemoBlock />
-                        </Molecule>
-                      </FlexContainer>
+                      <GridDemoBlock />
                     </Col>
                     <Col>
-                      <FlexContainer>
-                        <Molecule>
-                          <GridDemoBlock />
-                        </Molecule>
-                        <Molecule>
-                          <GridDemoBlock />
-                        </Molecule>
-                      </FlexContainer>
+                      <GridDemoBlock />
                     </Col>
                     <Col>
-                      <FlexContainer>
-                        <Molecule>
-                          <GridDemoBlock />
-                        </Molecule>
-                        <Molecule>
-                          <GridDemoBlock />
-                        </Molecule>
-                      </FlexContainer>
+                      <GridDemoBlock />
                     </Col>
                     <Col>
-                      <Molecule>
-                        <GridDemoBlock />
-                      </Molecule>
+                      <GridDemoBlock />
                     </Col>
                     <Col>
-                      <Molecule>
-                        <GridDemoBlock />
-                      </Molecule>
+                      <GridDemoBlock />
                     </Col>
                     <Col>
-                      <Molecule>
-                        <GridDemoBlock />
-                      </Molecule>
+                      <GridDemoBlock />
                     </Col>
                     <Col>
-                      <Molecule>
-                        <GridDemoBlock />
-                      </Molecule>
+                      <GridDemoBlock />
                     </Col>
                   </Grid>
-                  <Molecule>
-                    <GridDemoBlock />
-                  </Molecule>
                 </PageContainer>
               </FlexContainer>
             </MainContainer>
@@ -163,102 +259,3 @@ For a complete example of how to lay out a page, see below where we have combine
   story={['Complete Combined Example']}
   label="Complete Combined Example Rendered HTML markup"
 />
-
-## Atomic design
-
-Atomic design is a design system methodology for defining the structure or scale of a set of components. A simple explaination is as follows: the smallest component is defined as an `Atom`. A collection of Atoms is defined as a `Molecule`. A collection of Molecules is defined as an `Organisum`.
-
-So the summarise `Atom => Molecule => Organisum`.
-
-## Molecule
-
-<Canvas>
-  <Story name="Molecule">
-    <Molecule>
-      <GridDemoBlock />
-    </Molecule>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Layouts" story="Molecule" />
-
-## PageContainer
-
-The `PageContainer` should be the body of your content, it will typically contain a `Grid` component.
-
-<Canvas>
-  <Story name="Page Container">
-    <PageContainer>
-      <GridDemoBlock />
-      <FlexContainer isFlexGrow1>
-        <Molecule>
-          <GridDemoBlock />
-        </Molecule>
-        <Molecule>
-          <GridDemoBlock />
-        </Molecule>
-      </FlexContainer>
-    </PageContainer>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Layouts" story="Page Container" />
-
-## MainContainer
-
-In this example you can see the `MainContainer` component - used to wrap the whole application and will handle the `Nav` and main content positioning.
-
-<Canvas>
-  <Story name="Main Container">
-    <MainContainer>
-      <FlexContainer isFlexGrow1>
-        <PageContainer>
-          <GridDemoBlock />
-          <FlexContainer>
-            <Molecule>
-              <GridDemoBlock />
-            </Molecule>
-            <Molecule>
-              <GridDemoBlock />
-            </Molecule>
-          </FlexContainer>
-        </PageContainer>
-      </FlexContainer>
-    </MainContainer>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Layouts" story="Main Container" />
-
-## SecondaryNavContainer
-
-The `SecondaryNavContainer` is fixed width and used to contain secondary navigation as well as controls like filters.
-
-<Canvas>
-  <Story name="Secondary Nav Container">
-    <SecondaryNavContainer></SecondaryNavContainer>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Layouts" story="Secondary Nav Container" />
-
-## FlexContainer
-
-The previous two containers are postioned using the `FlexContainer` component. This component has a number of optional props to perform most flexbox operations - see the below inteface for React users:
-
-<ArgsTable of={FlexContainer} />
-
-<Canvas>
-  <Story name="Flex Container">
-    <FlexContainer>
-      <Molecule>
-        <GridDemoBlock />
-      </Molecule>
-      <Molecule>
-        <GridDemoBlock />
-      </Molecule>
-    </FlexContainer>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Layouts" story="Flex Container" />

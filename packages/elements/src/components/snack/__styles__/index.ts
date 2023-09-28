@@ -14,7 +14,7 @@ export const ElSnack = styled.div`
   border-radius: var(--default-border-radius);
   padding: 0.75rem 0.75rem;
   align-items: center;
-  background: var(--color-grey-lightest);
+  background: var(--color-grey-100);
   color: var(--color-black);
   font-size: var(--font-size-default);
 
@@ -61,6 +61,6 @@ export const ElSnackHolder = styled.div`
   ${ElSnack} {
     display: flex;
     margin-bottom: 1rem;
-    /* box-shadow: 3px 3px 5px var(--color-grey-medium); */
+    /* box-shadow: 3px 3px 5px var(--color-grey-400); */
   }
 `

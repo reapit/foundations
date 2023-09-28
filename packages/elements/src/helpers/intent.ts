@@ -5,15 +5,17 @@ import {
   elIntentNeutral,
   elIntentPending,
   elIntentWarning,
+  elIntentDefault,
 } from '../styles/intent'
 
 export type Intent =
   | 'primary'
-  | 'pending'
+  | 'neutral'
   | 'success'
+  | 'pending'
   | 'warning'
   | 'danger'
-  | 'neutral'
+  | 'default'
   | 'secondary'
   | 'critical'
   | 'low'
@@ -22,10 +24,12 @@ export const getIntentClassName = (intent: Intent): string => {
   switch (intent) {
     case 'primary':
       return elIntentPrimary
-    case 'pending':
-      return elIntentPending
+    case 'neutral':
+      return elIntentNeutral
     case 'success':
       return elIntentSuccess
+    case 'pending':
+      return elIntentPending
     case 'warning':
       return elIntentWarning
     case 'danger':
@@ -36,9 +40,8 @@ export const getIntentClassName = (intent: Intent): string => {
       console.warn(
         `${intent} intent is deprecated and will be removed at v5. Currently this value defaults to neutral intent. Please find a more appropriate intent from the docs if desired`,
       )
-      return elIntentNeutral
-    case 'neutral':
+      return elIntentDefault
     default:
-      return elIntentNeutral
+      return elIntentDefault
   }
 }

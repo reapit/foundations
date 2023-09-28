@@ -1,22 +1,27 @@
 import { useState } from 'react'
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { SecondaryNav, SecondaryNavItem } from './index'
+import { SecondaryNavContainer } from '../layout'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 <Meta title="SecondaryNav" component={SecondaryNav} />
 
 # SecondaryNav
 
-A secondary navigation component for rendering sub-pages. Typical use case would be for when you would usually use tabs.
+A secondary navigation component for rendering sub-pages.
+
+> When using the `SecondaryNav` ensure you add your nav options (or sub-options) to the main `Nav` component in mobile view, since this component will be hidden below tablet resolution. See main `Nav` docs for more.
 
 ## Basic Usage
 
 <Canvas>
   <Story name="Basic Usage">
-    <SecondaryNav>
-      <SecondaryNavItem>App List</SecondaryNavItem>
-      <SecondaryNavItem active>Create App</SecondaryNavItem>
-    </SecondaryNav>
+    <SecondaryNavContainer>
+      <SecondaryNav>
+        <SecondaryNavItem>App List</SecondaryNavItem>
+        <SecondaryNavItem active>Create App</SecondaryNavItem>
+      </SecondaryNav>
+    </SecondaryNavContainer>
   </Story>
 </Canvas>
 
@@ -39,14 +44,16 @@ The props accepted by the `SecondaryNavItem` are below - the `SecondaryNav` itse
     {() => {
       const [selectedItem, setSelectedItem] = useState(1)
       return (
-        <SecondaryNav>
-          <SecondaryNavItem active={selectedItem === 1} onClick={() => setSelectedItem(1)}>
-            App List
-          </SecondaryNavItem>
-          <SecondaryNavItem active={selectedItem === 2} onClick={() => setSelectedItem(2)}>
-            Create App
-          </SecondaryNavItem>
-        </SecondaryNav>
+        <SecondaryNavContainer>
+          <SecondaryNav>
+            <SecondaryNavItem active={selectedItem === 1} onClick={() => setSelectedItem(1)}>
+              App List
+            </SecondaryNavItem>
+            <SecondaryNavItem active={selectedItem === 2} onClick={() => setSelectedItem(2)}>
+              Create App
+            </SecondaryNavItem>
+          </SecondaryNav>
+        </SecondaryNavContainer>
       )
     }}
   </Story>

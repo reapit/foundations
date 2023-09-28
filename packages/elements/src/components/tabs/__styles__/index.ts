@@ -13,7 +13,7 @@ export const elTabsItem = css`
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 `
 
 export const elTabsFullWidth = css`
@@ -88,7 +88,7 @@ export const ElTabsOptionsWrap = styled.div`
 export const ElTabsFooter = styled.div`
   width: 100%;
   height: 1.125rem;
-  border-top: 1px solid var(--color-grey-light);
+  border-top: 1px solid var(--color-grey-100);
 
   &.${elTabsFullWidth} {
     width: 100%;

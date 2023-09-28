@@ -21,14 +21,14 @@ export const ElTitle = styled.h1`
   margin-bottom: 2rem;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-dark);
+    color: var(--color-grey-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-medium);
+    color: var(--color-grey-400);
 
     a {
-      color: var(--color-grey-medium);
+      color: var(--color-grey-400);
     }
   }
 
@@ -45,7 +45,7 @@ export const ElTitle = styled.h1`
   }
 
   &.${elHasSectionMargin} {
-    margin-bottom: 3.75rem;
+    margin-bottom: 2rem;
   }
 
   &.${elHasCenteredText} {
@@ -67,14 +67,14 @@ export const ElSubtitle = styled.h2`
   margin-bottom: 1.25rem;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-dark);
+    color: var(--color-grey-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-medium);
+    color: var(--color-grey-400);
 
     a {
-      color: var(--color-grey-medium);
+      color: var(--color-grey-400);
     }
   }
 
@@ -91,7 +91,7 @@ export const ElSubtitle = styled.h2`
   }
 
   &.${elHasSectionMargin} {
-    margin-bottom: 3.75rem;
+    margin-bottom: 2rem;
   }
 
   &.${elHasCenteredText} {
@@ -113,14 +113,14 @@ export const ElBodyText = styled.p`
   margin-bottom: 1rem;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-dark);
+    color: var(--color-grey-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-medium);
+    color: var(--color-grey-400);
 
     a {
-      color: var(--color-grey-medium);
+      color: var(--color-grey-400);
     }
   }
 
@@ -137,7 +137,7 @@ export const ElBodyText = styled.p`
   }
 
   &.${elHasSectionMargin} {
-    margin-bottom: 3.75rem;
+    margin-bottom: 2rem;
   }
 
   &.${elHasCenteredText} {
@@ -159,14 +159,14 @@ export const ElSmallText = styled.p`
   margin-bottom: 1rem;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-dark);
+    color: var(--color-grey-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-medium);
+    color: var(--color-grey-400);
 
     a {
-      color: var(--color-grey-medium);
+      color: var(--color-grey-400);
     }
   }
 
@@ -183,7 +183,7 @@ export const ElSmallText = styled.p`
   }
 
   &.${elHasSectionMargin} {
-    margin-bottom: 3.75rem;
+    margin-bottom: 2rem;
   }
 
   &.${elHasCenteredText} {

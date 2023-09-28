@@ -144,7 +144,7 @@ export const elTableNarrowCellIsFullWidth = css`
 export const elTableCellHasDarkText = css``
 
 export const elTableRowFocused = css`
-  background: var(--color-accent-blue-lightest);
+  background: var(--color-purple-50);
 `
 
 // molecules
@@ -180,7 +180,7 @@ export const ElTableHeadersRow = styled.div`
   grid-template-columns:
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
     var(--component-table-expandable-trigger-width, 0);
-  border-bottom: 1px solid var(--color-grey-light);
+  border-bottom: 1px solid var(--color-grey-100);
 
   ${isNarrow} {
     display: none;
@@ -188,7 +188,7 @@ export const ElTableHeadersRow = styled.div`
 `
 
 export const ElTableHeader = styled.div`
-  color: var(--color-grey-medium);
+  color: var(--color-grey-400);
   padding: 1rem 0.5rem;
   display: flex;
   align-items: center;
@@ -209,7 +209,7 @@ export const ElTableRow = styled.div`
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
     var(--component-table-expandable-trigger-width, 0);
   background: var(--color-white);
-  border-bottom: 1px solid var(--color-grey-light);
+  border-bottom: 1px solid var(--color-grey-100);
 
   ${isNarrow} {
     grid-template-columns: 1fr 1fr;
@@ -240,7 +240,7 @@ export const ElTableCell = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
   /* margin-right: 2px; */
   word-break: break-word;
   font-size: var(--font-size-small);
@@ -278,19 +278,19 @@ export const ElTableExpandableRowTriggerCell = styled.div`
 
 export const ElTableRowContainer = styled.div`
   &:hover:not(.${elIsActive}) {
-    background-color: var(--color-grey-lightest);
+    background-color: var(--color-grey-100);
 
     ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
-      background-color: var(--color-grey-lightest);
+      background-color: var(--color-grey-100);
     }
   }
 
   &:focus,
   &.${elIsActive}, .${elTableRowFocused} {
-    background: var(--color-accent-blue-lightest);
+    background: var(--color-purple-50);
 
     ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
-      background: var(--color-accent-blue-lightest);
+      background: var(--color-purple-50);
     }
   }
 
@@ -325,7 +325,7 @@ export const ElTableCellContent = styled.div`
 
 export const ElTableCtaIconContainer = styled.div`
   padding: 1rem;
-  background-color: var(--color-grey-light);
+  background-color: var(--color-grey-100);
 
   ${isNarrow} {
     padding: 0.75rem;
@@ -348,7 +348,7 @@ export const ElTableExpandableRow = styled.div`
 
 export const ElTableExpandableContainer = styled.div`
   padding: 1rem 0.5rem;
-  border-bottom: 1px solid var(--color-grey-light);
+  border-bottom: 1px solid var(--color-grey-100);
 `
 
 export const ElTable = styled.div`

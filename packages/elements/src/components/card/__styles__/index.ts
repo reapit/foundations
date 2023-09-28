@@ -7,7 +7,7 @@ export const elCardContextMenuOpen = css`
 `
 
 export const elCardFocussed = css`
-  background-color: var(--color-accent-blue-lightest);
+  background-color: var(--color-purple-50);
 `
 
 export const ElCardWrap = styled.div`
@@ -23,16 +23,23 @@ export const ElCardWrap = styled.div`
   }
 
   &.${elCardFocussed} {
-    background-color: var(--color-accent-blue-lightest);
+    background-color: var(--color-purple-50);
   }
 `
 
+export const elCardSubHeadingWrapAvatar = css``
+
 export const ElCardHeadingWrap = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   overflow: hidden;
   width: 100%;
-  justify-content: space-between;
+
+  &.${elCardSubHeadingWrapAvatar} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 `
 
 export const ElCardMainWrap = styled.div`
@@ -49,22 +56,22 @@ export const ElCardHeading = styled.h5`
   white-space: normal;
   margin-bottom: 0.25rem;
   width: 100%;
-  font-size: var(--font-size-default);
+  font-size: var(--font-size-small);
 `
 
 export const ElCardSubHeading = styled.h6`
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-smallest);
 `
 
 export const elCardSubHeadingAdditionalExpanded = css``
 
 export const ElCardSubHeadingAdditional = styled.h6`
-  color: var(--color-grey-dark);
-  font-size: var(--font-size-small);
+  color: var(--color-grey-500);
+  font-size: var(--font-size-smallest);
   font-weight: var(--font-weight-medium);
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -77,21 +84,21 @@ export const elCardBodyWrapExpanded = css``
 
 export const ElCardBodyWrap = styled.div`
   width: 100%;
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   white-space: normal;
   height: 3rem;
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-smallest);
   transition: height 0.2s linear;
   transition: margin-bottom 0.2s linear;
   margin-top: 0.5rem;
 
   ${isTablet} {
-    height: 3.5rem;
-    font-size: var(--font-size-default);
+    height: 3.25rem;
+    font-size: var(--font-size-small);
   }
 `
 
@@ -127,13 +134,13 @@ export const ElMobileToggle = styled.button`
   }
 `
 
-export const ElCardImageWrap = styled.div`
+export const ElCardAvatarWrap = styled.div`
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-grey-light);
+  background-color: var(--color-grey-100);
   margin-right: 0.5rem;
   border-radius: 50%;
   width: 2.5rem;
@@ -142,6 +149,17 @@ export const ElCardImageWrap = styled.div`
   img {
     max-width: 2.5rem;
     border-radius: 50%;
+  }
+`
+
+export const ElCardImageWrap = styled(ElCardAvatarWrap)`
+  border-radius: 0;
+  width: 4.5rem;
+  height: 3.25rem;
+
+  img {
+    max-width: 4.5rem;
+    border-radius: 0;
   }
 `
 
@@ -163,13 +181,13 @@ export const ElCardListHeading = styled.h5`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: var(--font-size-default);
+  font-size: var(--font-size-small);
   margin-bottom: 0.25rem;
 `
 
 export const ElCardListSubHeading = styled.h6`
-  font-size: var(--font-size-small);
-  color: var(--color-grey-dark);
+  font-size: var(--font-size-smallest);
+  color: var(--color-grey-500);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -197,7 +215,7 @@ export const ElCardListItem = styled.div`
 `
 
 export const ElCardListItemTextWrap = styled.div`
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-smallest);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -205,11 +223,11 @@ export const ElCardListItemTextWrap = styled.div`
 `
 
 export const ElCardListItemTextPrimary = styled.div`
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 `
 
 export const ElCardListItemTextSecondary = styled.div`
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-smallest);
   color: var(--intent-primary);
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -223,7 +241,7 @@ export const ElCardListIcon = styled.div`
   justify-content: center;
   height: 2em;
   width: 2em;
-  background: var(--color-grey-light);
+  background: var(--color-grey-100);
   margin-right: 0.5rem;
   border-radius: 50%;
   flex-shrink: 0;

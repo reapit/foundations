@@ -32,6 +32,10 @@ export const ElFormLayout = styled.div`
   }
 `
 
+export const ElInputWrapSmall = styled.div`
+  grid-column-end: span 2;
+`
+
 export const ElInputWrap = styled.div`
   grid-column-end: span 4;
 `

@@ -1,7 +1,7 @@
 import { isMobile } from '../../../styles/media'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { elIntentPrimary, elIntentDanger, elIntentCritical } from '../../../styles/intent'
+import { elIntentPrimary, elIntentDanger, elIntentDefault } from '../../../styles/intent'
 import { elIsLoading } from '../../../styles/states'
 import { ElIcon } from '../../icon/__styles__'
 
@@ -28,10 +28,10 @@ export const ElButtonLoader = styled.div`
   color: transparent !important;
   pointer-events: none;
   animation: spinAround 500ms infinite linear;
-  border: 2px solid var(--color-grey-medium);
+  border: 2px solid var(--color-grey-400);
   margin-right: 0.5rem;
   border-radius: 290486px;
-  border-color: transparent transparent var(--color-grey-medium) var(--color-grey-medium);
+  border-color: transparent transparent var(--color-grey-400) var(--color-grey-400);
   display: none;
   height: 0.75rem;
   width: 0.75rem;
@@ -53,11 +53,11 @@ export const ElButton = styled.button`
   white-space: nowrap;
   cursor: pointer;
   border-radius: var(--default-border-radius);
-  border: 1px solid var(--color-grey-light);
+  border: 1px solid var(--color-grey-100);
   font-size: var(--font-size-small);
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-medium);
+  color: var(--color-grey-400);
   background-color: unset;
   background-image: linear-gradient(to right, var(--color-white), var(--color-white));
   outline-color: var(--intent-primary);
@@ -65,33 +65,33 @@ export const ElButton = styled.button`
   max-height: 2.25rem;
 
   &:hover {
-    border: 1px solid var(--color-grey-medium-light);
-    color: var(--color-grey-darkest);
+    border: 1px solid var(--color-grey-400);
+    color: var(--color-grey-700);
   }
 
   &.${elIntentPrimary} {
     background-image: linear-gradient(to right, var(--intent-primary), var(--intent-primary));
-    color: var(--intent-primary-text);
+    color: var(--color-white);
     outline-color: var(--intent-primary-dark);
     border: 1px solid var(--intent-primary);
 
     &:hover {
       background-image: linear-gradient(to right, var(--intent-primary-dark), var(--intent-primary-dark));
       border: 1px solid var(--intent-primary-dark);
-      color: var(--intent-primary-dark-text);
+      color: var(--color-white);
     }
   }
 
   &.${elIntentDanger} {
     background-image: linear-gradient(to right, var(--intent-danger), var(--intent-danger));
-    color: var(--intent-danger-text);
+    color: var(--color-white);
     outline-color: var(--intent-danger-dark);
     border: 1px solid var(--intent-danger);
 
     &:hover {
       background-image: linear-gradient(to right, var(--intent-danger-dark), var(--intent-danger-dark));
       border: 1px solid var(--intent-danger-dark);
-      color: var(--intent-danger-dark-text);
+      color: var(--color-white);
     }
   }
 
@@ -107,16 +107,16 @@ export const ElButton = styled.button`
   &.${elIsLoading},
     &[disabled].${elIntentDanger},
     &[disabled].${elIntentPrimary},
-    &[disabled].${elIntentCritical},
+    &[disabled].${elIntentDefault},
     &.${elIsLoading}
     .${elIntentDanger},
     &.${elIsLoading}
     .${elIntentPrimary},
     &.${elIsLoading}
-    .${elIntentCritical} {
-    border: 1px solid var(--color-grey-light);
-    color: var(--color-grey-medium-light);
-    background-image: linear-gradient(to right, var(--color-grey-light), var(--color-grey-light));
+    .${elIntentDefault} {
+    border: 1px solid var(--color-grey-100);
+    color: var(--color-grey-400);
+    background-image: linear-gradient(to right, var(--color-grey-100), var(--color-grey-100));
     cursor: disabled;
   }
 
@@ -149,7 +149,11 @@ export const ElButton = styled.button`
     }
 
     ${ElIcon} {
-      color: var(--color-grey-medium);
+      color: var(--color-grey-400);
+
+      &:hover {
+        color: var(--color-grey-700);
+      }
     }
 
     &.${elIntentDanger}, &.${elIntentPrimary} {
