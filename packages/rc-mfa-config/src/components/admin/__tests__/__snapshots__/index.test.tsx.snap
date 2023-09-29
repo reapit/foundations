@@ -113,7 +113,8 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
           <mock-styled.h1
             classname=""
           >
-            Users List
+            Users List 
+            - XTM Estates Ltd
           </mock-styled.h1>
           <form>
             <mock-styled.div
@@ -520,7 +521,8 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
         <mock-styled.h1
           classname=""
         >
-          Users List
+          Users List 
+          - XTM Estates Ltd
         </mock-styled.h1>
         <form>
           <mock-styled.div
@@ -933,7 +935,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           <mock-styled.h1
             classname=""
           >
-            Users List
+            Users List 
           </mock-styled.h1>
           <form>
             <mock-styled.div
@@ -1140,7 +1142,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
         <mock-styled.h1
           classname=""
         >
-          Users List
+          Users List 
         </mock-styled.h1>
         <form>
           <mock-styled.div
@@ -1455,7 +1457,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
           <mock-styled.h1
             classname=""
           >
-            Users List
+            Users List 
           </mock-styled.h1>
           <form>
             <mock-styled.div
@@ -1740,7 +1742,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
         <mock-styled.h1
           classname=""
         >
-          Users List
+          Users List 
         </mock-styled.h1>
         <form>
           <mock-styled.div
@@ -2031,7 +2033,8 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
           <mock-styled.h1
             classname=""
           >
-            Users List
+            Users List 
+            - XTM Estates Ltd
           </mock-styled.h1>
           <form>
             <mock-styled.div
@@ -2387,7 +2390,8 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
         <mock-styled.h1
           classname=""
         >
-          Users List
+          Users List 
+          - XTM Estates Ltd
         </mock-styled.h1>
         <form>
           <mock-styled.div
