@@ -106,6 +106,7 @@ export const AdminPage: FC = () => {
   const adminOrgs = getAdminOrgs(userOrgs)
   const hasMultiOrgs = adminOrgs.length > 1
   const orgId = adminOrgs.length === 1 ? adminOrgs[0].organisationId : null
+  const orgName = (users?._embedded && users._embedded[0] && users._embedded[0].organisationName) ?? null
 
   useEffect(handleSetAdminFilters(setUserSearch, watch), [])
   useEffect(handleInitialUserOrgSet(setOrganisationId, orgId), [orgId])
@@ -159,7 +160,7 @@ export const AdminPage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <ErrorBoundary>
-          <Title>Users List</Title>
+          <Title>Users List {orgName && `- ${orgName}`}</Title>
           <form>
             <FormLayout hasMargin>
               <InputWrap>
