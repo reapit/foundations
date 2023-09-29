@@ -30,6 +30,21 @@ Props available for the React version of the component are just those of a stand
 
 <RenderHtmlMarkup component="Toggle" story="Basic Usage" />
 
+## Toggle - Switch
+
+If you just want your toggle to behave like a switch without text, simply leave the toggle items empty.
+
+<Canvas>
+  <Story name="Toggle - Switch">
+    <Toggle id="my-cool-toggle-variants-switch">
+      <ElToggleItem></ElToggleItem>
+      <ElToggleItem></ElToggleItem>
+    </Toggle>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Toggle" story="Toggle - Switch" />
+
 ## Toggle - Grey Bg
 
 Where rendering a toggle on a white background, you should apply the hasGreyBg prop to give better contrast. The white background standard toggle is intended for use on a grey background.

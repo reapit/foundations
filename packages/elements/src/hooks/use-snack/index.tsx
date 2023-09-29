@@ -55,13 +55,13 @@ export const useSnack = (): UseSnack => {
     addSnackWithTimeout({ intent: 'success', icon: 'checkSolidSystem', text }, timeout)
   }
   const info = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'secondary', icon: 'infoSolidSystem', text }, timeout)
+    addSnackWithTimeout({ intent: 'primary', icon: 'infoSolidSystem', text }, timeout)
   }
   const error = (text: string, timeout = DEFAULT_TIMEOUT) => {
     addSnackWithTimeout({ intent: 'danger', icon: 'errorSolidSystem', text }, timeout)
   }
   const warning = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'critical', icon: 'warningSolidSystem', text }, timeout)
+    addSnackWithTimeout({ intent: 'warning', icon: 'warningSolidSystem', text }, timeout)
   }
 
   return { custom, success, info, error, warning }

@@ -124,7 +124,7 @@ export const TableCell: FC<TableCellProps> = ({
   )
   return (
     <ElTableCell className={combinedClassname} {...rest}>
-      {icon && <Icon intent="neutral" icon={icon} />}
+      {icon && <Icon intent="default" icon={icon} />}
       <ElTableCellContent data-narrow-label={narrowLabel}>{children}</ElTableCellContent>
     </ElTableCell>
   )
@@ -154,7 +154,7 @@ export const TableCtaTriggerCell: FC<TableCtaTriggerCellProps> = ({ icon, childr
         children
       ) : icon ? (
         <ElTableCtaIconContainer>
-          <Icon icon={icon} fontSize="1.2rem" intent="neutral" />
+          <Icon icon={icon} fontSize="1.2rem" intent="default" />
         </ElTableCtaIconContainer>
       ) : (
         ''
@@ -185,7 +185,7 @@ export const TableSortHeader: FC<TableSortHeaderProps> = ({ children, ...rest })
     <ElTableSortHeader {...rest}>
       <FlexContainer isFlexAlignCenter isFlexJustifyBetween>
         {children}
-        <Icon icon="sortSolidSystem" intent="neutral" />
+        <Icon icon="sortSolidSystem" intent="default" />
       </FlexContainer>
     </ElTableSortHeader>
   )

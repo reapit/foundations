@@ -31,7 +31,7 @@ export const SnackHolder: FC<SnackHolderProps> = ({ snacks, removeSnackById, ...
   )
 }
 
-export const Snack: FC<SnackProps> = ({ icon, intent = 'secondary', className, onRemove, children, ...rest }) => {
+export const Snack: FC<SnackProps> = ({ icon, intent = 'primary', className, onRemove, children, ...rest }) => {
   const intentClassName = getIntentClassName(intent)
   const combinedClassName = cx(className, intentClassName)
 

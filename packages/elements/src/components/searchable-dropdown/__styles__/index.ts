@@ -9,13 +9,14 @@ export const ElSearchableDropdownContainer = styled.div`
   display: flex;
   position: relative;
   flex-grow: 1;
+  color: var(--color-black);
 `
 
 export const ElSearchableDropdownResult = styled.div`
   padding: 0.5rem;
+  font-size: var(--font-size-small);
   :hover {
-    background-color: #f5f5f5;
-    color: #000;
+    color: var(--intent-primary);
     cursor: pointer;
   }
 `

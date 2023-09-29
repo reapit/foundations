@@ -7,6 +7,7 @@ import {
   elIntentNeutral,
   elIntentPending,
   elIntentWarning,
+  elIntentDefault,
 } from '../../../styles/intent'
 
 export const elIconSizeSmallest = css`
@@ -48,23 +49,27 @@ export const ElIcon = styled.span`
     color: var(--intent-primary);
   }
 
-  &.${elIntentWarning} {
-    color: var(--intent-warning);
-  }
-
-  &.${elIntentPending} {
-    color: var(--intent-pending);
+  &.${elIntentNeutral} {
+    color: var(--intent-neutral);
   }
 
   &.${elIntentSuccess} {
     color: var(--intent-success);
   }
 
+  &.${elIntentPending} {
+    color: var(--intent-pending);
+  }
+
+  &.${elIntentWarning} {
+    color: var(--intent-warning);
+  }
+
   &.${elIntentDanger} {
     color: var(--intent-danger);
   }
 
-  &.${elIntentNeutral} {
-    color: var(--intent-neutral);
+  &.${elIntentDefault} {
+    color: var(--intent-default);
   }
 `

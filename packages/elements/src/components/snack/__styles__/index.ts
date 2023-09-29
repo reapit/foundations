@@ -2,11 +2,12 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import {
   elIntentPrimary,
-  elIntentSecondary,
-  elIntentCritical,
   elIntentSuccess,
   elIntentWarning,
   elIntentDanger,
+  elIntentNeutral,
+  elIntentDefault,
+  elIntentPending,
 } from '../../../styles/intent'
 
 export const ElSnack = styled.div`
@@ -18,24 +19,32 @@ export const ElSnack = styled.div`
   color: var(--color-black);
   font-size: var(--font-size-default);
 
-  &.${elIntentSecondary}, &.${elIntentPrimary} {
+  &.${elIntentPrimary} {
     background: var(--intent-primary-lightest);
-    color: var(--intent-primary-lightest-text);
   }
 
-  &.${elIntentCritical}, &.${elIntentWarning} {
-    background: var(--intent-warning-lightest);
-    color: var(--intent-warning-lightest-text);
+  &.${elIntentNeutral} {
+    background: var(--intent-neutral-lightest);
   }
 
   &.${elIntentSuccess} {
     background: var(--intent-success-lightest);
-    color: var(--intent-success-lightest-text);
+  }
+
+  &.${elIntentPending} {
+    background: var(--intent-pending-lightest);
+  }
+
+  &.${elIntentWarning} {
+    background: var(--intent-warning-lightest);
   }
 
   &.${elIntentDanger} {
     background: var(--intent-danger-lightest);
-    color: var(--intent-danger-lightest-text);
+  }
+
+  &.${elIntentDefault} {
+    background: var(--intent-default-lightest);
   }
 `
 

@@ -4,11 +4,12 @@ import { ElIcon } from '../../icon/__styles__'
 import { elIsActive } from '../../../styles/states'
 import {
   elIntentPrimary,
-  elIntentSecondary,
-  elIntentCritical,
+  elIntentNeutral,
   elIntentSuccess,
-  elIntentDanger,
+  elIntentPending,
   elIntentWarning,
+  elIntentDanger,
+  elIntentDefault,
 } from '../../../styles/intent'
 
 export const elPnIsFullWidth = css``
@@ -75,7 +76,7 @@ export const ElPersistentNotification = styled.div`
     }
   }
 
-  &.${elIntentPrimary}, &.${elIntentSecondary} {
+  &.${elIntentPrimary} {
     .${elPnContent} {
       background: var(--intent-primary-lightest);
     }
@@ -89,16 +90,16 @@ export const ElPersistentNotification = styled.div`
     }
   }
 
-  &.${elIntentCritical}, &.${elIntentWarning} {
+  &.${elIntentNeutral} {
     .${elPnContent} {
-      background: var(--intent-warning-lightest);
+      background: var(--intent-neutral-lightest);
     }
 
     .${elPnIcon} {
-      background: var(--intent-warning-lightest);
+      background: var(--intent-neutral-lightest);
 
       svg {
-        color: var(--intent-warning);
+        color: var(--intent-neutral);
       }
     }
   }
@@ -117,6 +118,34 @@ export const ElPersistentNotification = styled.div`
     }
   }
 
+  &.${elIntentPending} {
+    .${elPnContent} {
+      background: var(--intent-pending-lightest);
+    }
+
+    .${elPnIcon} {
+      background: var(--intent-pending-lightest);
+
+      svg {
+        color: var(--intent-pending);
+      }
+    }
+  }
+
+  &.${elIntentWarning} {
+    .${elPnContent} {
+      background: var(--intent-warning-lightest);
+    }
+
+    .${elPnIcon} {
+      background: var(--intent-warning-lightest);
+
+      svg {
+        color: var(--intent-warning);
+      }
+    }
+  }
+
   &.${elIntentDanger} {
     .${elPnContent} {
       background: var(--intent-danger-lightest);
@@ -127,6 +156,20 @@ export const ElPersistentNotification = styled.div`
 
       svg {
         color: var(--intent-danger);
+      }
+    }
+  }
+
+  &.${elIntentDefault} {
+    .${elPnContent} {
+      background: var(--intent-default-lightest);
+    }
+
+    .${elPnIcon} {
+      background: var(--intent-default-lightest);
+
+      svg {
+        color: var(--intent-default);
       }
     }
   }

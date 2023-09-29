@@ -33,40 +33,27 @@ The element uses CSS position fixed by default, which means the component "float
 
 ## Inline examples
 
-These stories do not have the isFixed property meaning they are positioned relative and sit inline.
+These stories do not have the `isFixed` property and instead have `isInline` meaning they are positioned relative and sit inline.
 
 This makes it easier to preview these examples, but if the isFixed property is set they will pin to the top right of the screen as in the above example.
 
-## Default usage
+## Default usage Inline
 
 <Canvas>
-  <Story name="Default Usage">
-    <PersistentNotification isExpanded={true}>Here is a persistent notification</PersistentNotification>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="PersistentNotification" story="Default Usage" />
-
-## With longer content
-
-The notification is set to a max-width of 50% of the parent element (in normal usage this is the entire window). If the content is longer the box just grows downwards.
-
-<Canvas>
-  <Story name="Long text">
-    <PersistentNotification isExpanded={true}>
-      Here is a persistent notification. Here is more content. Here is more content. Here is more content. Here is more
-      content. Here is more content.
+  <Story name="Default Usage Inline">
+    <PersistentNotification isExpanded isInline>
+      Here is a persistent notification
     </PersistentNotification>
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="PersistentNotification" story="Long text" />
+<RenderHtmlMarkup component="PersistentNotification" story="Default Usage Inline" />
 
 ## With a different icon
 
 <Canvas>
   <Story name="With a different icon">
-    <PersistentNotification isExpanded={true} icon="warningSolidSystem">
+    <PersistentNotification isExpanded isInline icon="warningSolidSystem" intent="warning">
       Here's some infomation about the thing you should be warned about, so bad things don't happen.
     </PersistentNotification>
   </Story>
@@ -74,73 +61,48 @@ The notification is set to a max-width of 50% of the parent element (in normal u
 
 <RenderHtmlMarkup component="PersistentNotification" story="With a different icon" />
 
-## With different intents
+## Inline helpers, full width with different intents
 
-<Canvas>
-  <Story name="Intent: primary">
-    <PersistentNotification isExpanded={true} intent="primary">
-      Here's a notification with a primary intent.
-    </PersistentNotification>
-  </Story>
-  <Story name="Intent: secondary (default)">
-    <PersistentNotification isExpanded={true} intent="primary">
-      Here's a notification with a secondary intent.
-    </PersistentNotification>
-  </Story>
-  <Story name="Intent: critical">
-    <PersistentNotification isExpanded={true} intent="primary">
-      Here's a notification with a critical intent.
-    </PersistentNotification>
-  </Story>
-  <Story name="Intent: success">
-    <PersistentNotification isExpanded={true} intent="success">
-      Here's a notification with a success intent.
-    </PersistentNotification>
-  </Story>
-  <Story name="Intent: danger">
-    <PersistentNotification isExpanded={true} intent="danger">
-      Here's a notification with a danger intent.
-    </PersistentNotification>
-  </Story>
-</Canvas>
+Typically when you are not displaying the notification with an `isFixed` prop / helper, you are showing an inline helper ie in the main body flow. In this instance, you should apply an `isInline` prop or the corresponding css class in the rendered markup, to give a softer tone to the notification.
 
-<RenderHtmlMarkup
-  component="PersistentNotification"
-  story={['Intent: primary', 'Intent: secondary (default)', 'Intent: critical', 'Intent: success', 'Intent: danger']}
-/>
-
-## Inline helpers with different intents
-
-Typically when you are not displaying the notification with an isFixed prop / helper, you are showing an inline helper ie in the main body flow. In this instance, you should apply an `isInline` prop or the corresponding css class in the rendered markup, to give a softer tone to the notification.
-
-When using the notifiction inline, you may also wish to add the isFullWidth prop / helper class to make the notification span the width of it's content.
+When using the notifiction inline, you may also wish to add the `isFullWidth` prop / helper class to make the notification span the width of it's content.
 
 Below you can see examples of inline helpers, full width, in each of the different intent shades.
 
 <Canvas>
   <Story name="Inline notifcation, intent: primary">
-    <PersistentNotification isExpanded={true} intent="primary" isInline isFullWidth>
+    <PersistentNotification isExpanded intent="primary" isInline isFullWidth>
       Here's an inline full width notification with a primary intent.
     </PersistentNotification>
   </Story>
-  <Story name="Inline notifcation, intent: secondary (default)">
-    <PersistentNotification isExpanded={true} intent="primary" isInline isFullWidth>
-      Here's an inline full width notification with a secondary intent.
-    </PersistentNotification>
-  </Story>
-  <Story name="Inline notifcation, intent: critical">
-    <PersistentNotification isExpanded={true} intent="primary" isInline isFullWidth>
-      Here's an inline full width notification with a critical intent.
+  <Story name="Inline notifcation, intent: neutral">
+    <PersistentNotification isExpanded intent="neutral" isInline isFullWidth>
+      Here's an inline full width notification with a neutral intent.
     </PersistentNotification>
   </Story>
   <Story name="Inline notifcation, intent: success">
-    <PersistentNotification isExpanded={true} intent="success" isInline isFullWidth>
+    <PersistentNotification isExpanded intent="success" isInline isFullWidth>
       Here's an inline full width notification with a success intent.
     </PersistentNotification>
   </Story>
+  <Story name="Inline notifcation, intent: pending">
+    <PersistentNotification isExpanded intent="pending" isInline isFullWidth>
+      Here's an inline full width notification with a pending intent.
+    </PersistentNotification>
+  </Story>
+  <Story name="Inline notifcation, intent: warning">
+    <PersistentNotification isExpanded intent="warning" isInline isFullWidth>
+      Here's an inline full width notification with a warning intent.
+    </PersistentNotification>
+  </Story>
   <Story name="Inline notifcation, intent: danger">
-    <PersistentNotification isExpanded={true} intent="danger" isInline isFullWidth>
+    <PersistentNotification isExpanded intent="danger" isInline isFullWidth>
       Here's an inline full width notification with a danger intent.
+    </PersistentNotification>
+  </Story>
+  <Story name="Inline notifcation, intent: default">
+    <PersistentNotification isExpanded intent="default" isInline isFullWidth>
+      Here's an inline full width notification with a default intent.
     </PersistentNotification>
   </Story>
 </Canvas>
@@ -149,10 +111,12 @@ Below you can see examples of inline helpers, full width, in each of the differe
   component="PersistentNotification"
   story={[
     'Inline notifcation, intent: primary',
-    'Inline notifcation, intent: secondary (default)',
-    'Inline notifcation, intent: critical',
+    'Inline notifcation, intent: neutral',
     'Inline notifcation, intent: success',
+    'Inline notifcation, intent: pending',
+    'Inline notifcation, intent: warning',
     'Inline notifcation, intent: danger',
+    'Inline notifcation, intent: default',
   ]}
 />
 

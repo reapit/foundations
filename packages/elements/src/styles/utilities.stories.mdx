@@ -12,6 +12,9 @@ import {
   elBorderRadiusT,
   elBoxShadow,
 } from './borders'
+import { elM6, elP6, elPb6, elMb6 } from './spacing'
+import { elWScreen, elHScreen, elW6, elH6 } from './sizing'
+import { elFlex } from './flexbox'
 import { GridDemoBlock, GridDemoBlockFeatured, GridDemoBlockSizing, GridDemoBorders } from './../storybook/demo-block'
 
 <Meta title="Utilities" />
@@ -66,46 +69,8 @@ This is best explained with some examples and varaible values below;
 
 <Canvas>
   <Story name="Margin">
-    <div className="el-flex">
-      <GridDemoBlock />
-      <GridDemoBlockFeatured className="el-m6">elM6, el-m6</GridDemoBlockFeatured>
-      <GridDemoBlock />
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock />
-      <GridDemoBlockFeatured className="el-ml3">elMl3, el-ml3</GridDemoBlockFeatured>
-      <GridDemoBlock />
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock />
-      <GridDemoBlockFeatured className="el-mr8">elMr8, el-mr8</GridDemoBlockFeatured>
-      <GridDemoBlock />
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock />
-      <GridDemoBlockFeatured className="el-mt6">elMt6, el-mt6</GridDemoBlockFeatured>
-      <GridDemoBlock />
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock />
-      <GridDemoBlockFeatured className="el-mb4">elMb4, el-mb4</GridDemoBlockFeatured>
-      <GridDemoBlock />
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock />
-      <GridDemoBlockFeatured className="el-mx5">elMx5, el-mx5</GridDemoBlockFeatured>
-      <GridDemoBlock />
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock />
-      <GridDemoBlockFeatured className="el-my7">elMy7, el-my7</GridDemoBlockFeatured>
-      <GridDemoBlock />
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock />
-      <GridDemoBlockFeatured className="el-mx-auto">elMxAuto, el-mx-auto</GridDemoBlockFeatured>
-      <GridDemoBlock />
-    </div>
+    <GridDemoBlockFeatured className={cx(elMb6)}>elM6, el-mb6</GridDemoBlockFeatured>
+    <GridDemoBlockFeatured className={cx(elM6)}>elM6, el-m6</GridDemoBlockFeatured>
   </Story>
 </Canvas>
 
@@ -125,41 +90,8 @@ This is best explained with some examples and varaible values below;
 
 <Canvas>
   <Story name="Padding">
-    <div className="el-flex">
-      <GridDemoBlock className="el-p6">
-        <GridDemoBlockFeatured>elP6, el-p6</GridDemoBlockFeatured>
-      </GridDemoBlock>
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock className="el-pl3">
-        <GridDemoBlockFeatured>elPl3, el-pl3</GridDemoBlockFeatured>
-      </GridDemoBlock>
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock className="el-pr8">
-        <GridDemoBlockFeatured>elPr8, el-pr8</GridDemoBlockFeatured>
-      </GridDemoBlock>
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock className="el-pt6">
-        <GridDemoBlockFeatured>elPt6, el-pt6</GridDemoBlockFeatured>
-      </GridDemoBlock>
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock className="el-pb4">
-        <GridDemoBlockFeatured>elPb4, el-pb4</GridDemoBlockFeatured>
-      </GridDemoBlock>
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock className="el-px5">
-        <GridDemoBlockFeatured>elPx5, el-px5</GridDemoBlockFeatured>
-      </GridDemoBlock>
-    </div>
-    <div className="el-flex">
-      <GridDemoBlock className="el-py7">
-        <GridDemoBlockFeatured>elPy7, el-py7</GridDemoBlockFeatured>
-      </GridDemoBlock>
-    </div>
+    <GridDemoBlockFeatured className={cx(elPb6)}>elPb6, el-pb6</GridDemoBlockFeatured>
+    <GridDemoBlockFeatured className={cx(elP6)}>elP6, el-p6</GridDemoBlockFeatured>
   </Story>
 </Canvas>
 
@@ -217,24 +149,10 @@ As per above, this is best demonstrated with some examples - in each case the he
 
 <Canvas>
   <Story name="Height and Width">
-    <GridDemoBlockSizing className="el-w0 el-h0">elW0 elH0, el-w0 el-h0</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w1 el-h1">elW1 elH1, el-w1 el-h1</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w2 el-h2">elW2 elH2, el-w2 el-h2</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w3 el-h3">elW3 elH3, el-w3 el-h3</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w4 el-h4">elW4 elH4, el-w4 el-h4</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w5 el-h5">elW5 elH5, el-w5 el-h5</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w6 el-h6">elW6 elH6, el-w6 el-h6</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w7 el-h7">elW7 elH7, el-w7 el-h7</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w8 el-h8">elW8 elH8, el-w8 el-h8</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w9 el-h9">elW9 elH9, el-w9 el-h9</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w10 el-h10">elW10 elH10, el-w10 el-h10</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w11 el-h11">elW11 elH11, el-w11 el-h11</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w12 el-h12">elW12 elH12, el-w12 el-h12</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w-full el-h-full">elW-full elH-full, el-w-full el-h-full</GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w-screen el-h-screen">
+    <GridDemoBlockSizing className={cx(elW6, elH6)}>elW6 elH6, el-w6 el-h6</GridDemoBlockSizing>
+    <GridDemoBlockSizing className={cx(elWScreen, elHScreen)}>
       elWScreen elHScreen, el-w-screen el-h-screen
-    </GridDemoBlockSizing>
-    <GridDemoBlockSizing className="el-w-auto el-h-auto">elWAuto elHAuto, el-w-auto el-h-auto</GridDemoBlockSizing>
+    </GridDemoBlockSizing>>
   </Story>
 </Canvas>
 

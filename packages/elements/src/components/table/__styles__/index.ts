@@ -324,9 +324,6 @@ export const ElTableCellContent = styled.div`
 `
 
 export const ElTableCtaIconContainer = styled.div`
-  padding: 1rem;
-  background-color: var(--color-grey-100);
-
   ${isNarrow} {
     padding: 0.75rem;
   }

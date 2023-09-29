@@ -8,27 +8,27 @@ export const UseSnackHookStory = () => {
 
   return (
     <>
-      <Button className={elM1} intent="primary" onClick={() => info('This is infomation')}>
+      <Button className={elM1} intent="default" onClick={() => info('This is infomation')}>
         Trigger an info snack
       </Button>
-      <Button className={elM1} intent="success" onClick={() => success('Something great happened')}>
+      <Button className={elM1} intent="default" onClick={() => success('Something great happened')}>
         Trigger a success snack
       </Button>
-      <Button className={elM1} intent="danger" onClick={() => error('Something went wrong')}>
+      <Button className={elM1} intent="default" onClick={() => error('Something went wrong')}>
         Trigger an error snack
       </Button>
-      <Button className={elM1} intent="primary" onClick={() => warning('Something could be bad')}>
+      <Button className={elM1} intent="default" onClick={() => warning('Something could be bad')}>
         Trigger a warning snack
       </Button>
-      <Button className={elM1} intent="primary" onClick={() => info("I'm here for a while...", 10000)}>
+      <Button className={elM1} intent="default" onClick={() => info("I'm here for a while...", 10000)}>
         Trigger a long snack (10 seconds)
       </Button>
-      <Button className={elM1} intent="primary" onClick={() => info("I'm very short!", 1000)}>
+      <Button className={elM1} intent="default" onClick={() => info("I'm very short!", 1000)}>
         Trigger a short snack (1 second)
       </Button>
       <Button
         className={elM1}
-        intent="primary"
+        intent="default"
         onClick={() =>
           custom({
             text: 'I can have anything in the interface ISnack applied as a parameter here',
@@ -39,7 +39,7 @@ export const UseSnackHookStory = () => {
       >
         Trigger a custom snack
       </Button>
-      <Button className={elM1} intent="primary" onClick={() => info("This message won't disappear on it's own", 0)}>
+      <Button className={elM1} intent="default" onClick={() => info("This message won't disappear on it's own", 0)}>
         Trigger a non-dissapearing snack
       </Button>
     </>

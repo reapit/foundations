@@ -1,5 +1,6 @@
-import { Meta, Story, Canvas, ArgsTable, RenderHtmlMarkup } from '@storybook/addon-docs'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { StatusIndicator } from './'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 <Meta title="StatusIndicator" component={StatusIndicator} />
 
@@ -16,7 +17,7 @@ Props available for the React version of the component;
 <Canvas>
   <Story name="Basic usage">
     <div>
-      <StatusIndicator intent="primary" /> Something is happening
+      <StatusIndicator /> Something is happening
     </div>
   </Story>
 </Canvas>
@@ -31,14 +32,9 @@ Different intents are supported, to enable buttons to be used in different conte
       <StatusIndicator intent="primary" /> Primary
     </div>
   </Story>
-  <Story name="Intent: Secondary">
+  <Story name="Intent: Neutral">
     <div>
-      <StatusIndicator intent="primary" /> Secondary
-    </div>
-  </Story>
-  <Story name="Intent: Critical">
-    <div>
-      <StatusIndicator intent="primary" /> Critical
+      <StatusIndicator intent="neutral" /> Neutral
     </div>
   </Story>
   <Story name="Intent: Success">
@@ -46,14 +42,37 @@ Different intents are supported, to enable buttons to be used in different conte
       <StatusIndicator intent="success" /> Success
     </div>
   </Story>
+  <Story name="Intent: Pending">
+    <div>
+      <StatusIndicator intent="pending" /> Pending
+    </div>
+  </Story>
+  <Story name="Intent: Warning">
+    <div>
+      <StatusIndicator intent="warning" /> Warning
+    </div>
+  </Story>
   <Story name="Intent: Danger">
     <div>
       <StatusIndicator intent="danger" /> Danger
     </div>
   </Story>
-  <Story name="Intent: none">
+  <Story name="Intent: Default">
     <div>
-      <StatusIndicator /> Nothing
+      <StatusIndicator intent="default" /> Default
     </div>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup
+  component="StatusIndicator"
+  story={[
+    'Intent: Primary',
+    'Intent: Neutral',
+    'Intent: Success',
+    'Intent: Pending',
+    'Intent: Warning',
+    'Intent: Danger',
+    'Intent: Default',
+  ]}
+/>

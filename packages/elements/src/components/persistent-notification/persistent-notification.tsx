@@ -25,7 +25,7 @@ export interface PersistentNotificationProps extends HTMLAttributes<HTMLDivEleme
 
 export const PersistentNotification: FC<PersistentNotificationProps> = ({
   icon = 'infoSolidSystem',
-  intent = 'secondary',
+  intent = 'primary',
   className,
   isExpanded = false,
   isFullWidth = false,

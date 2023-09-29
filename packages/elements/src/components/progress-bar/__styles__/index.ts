@@ -2,19 +2,19 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
 export const elProgressBarItemPurple = css`
-  background-color: var(--color-blue-500);
-`
-export const elProgressBarItemDarkBlue = css`
   background-color: var(--color-purple-700);
 `
+export const elProgressBarItemDarkBlue = css`
+  background-color: var(--color-blue-700);
+`
 export const elProgressBarItemMediumBlue = css`
-  background-color: var(--color-purple-500);
+  background-color: var(--color-blue-500);
 `
 export const elProgressBarItemLightBlue = css`
-  background-color: var(--color-purple-300);
+  background-color: var(--color-blue-300);
 `
 export const elProgressBarItemLightestBlue = css`
-  background-color: var(--color-purple-50);
+  background-color: var(--color-blue-100);
 `
 export const elProgressBarItemYellow = css`
   background-color: var(--color-yellow-500);
