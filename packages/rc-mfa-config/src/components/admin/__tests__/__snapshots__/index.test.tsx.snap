@@ -251,6 +251,12 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </form>
+          <mock-styled.p
+            classname=""
+          >
+            Total Users: 
+            1
+          </mock-styled.p>
           <mock-styled.div
             classname="mock-css.
   @keyframes fade-in {
@@ -652,6 +658,12 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </form>
+        <mock-styled.p
+          classname=""
+        >
+          Total Users: 
+          1
+        </mock-styled.p>
         <mock-styled.div
           classname="mock-css.
   @keyframes fade-in {
@@ -2157,6 +2169,12 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </form>
+          <mock-styled.p
+            classname=""
+          >
+            Total Users: 
+            1
+          </mock-styled.p>
           <mock-styled.div
             classname="mock-css.
   @keyframes fade-in {
@@ -2507,6 +2525,12 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </form>
+        <mock-styled.p
+          classname=""
+        >
+          Total Users: 
+          1
+        </mock-styled.p>
         <mock-styled.div
           classname="mock-css.
   @keyframes fade-in {
