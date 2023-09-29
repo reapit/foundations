@@ -138,7 +138,9 @@ exports[`SettingsSubscriptionsPage should match snapshot 1`] = `
                   classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.2rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -188,14 +190,14 @@ exports[`SettingsSubscriptionsPage should match snapshot 1`] = `
         <mock-styled.button
           classname="mock-css. mock-css."
         >
+          <mock-styled.div />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.25rem;
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.div />
         </mock-styled.button>
       </mock-styled.div>
     </div>
@@ -334,7 +336,9 @@ exports[`SettingsSubscriptionsPage should match snapshot 1`] = `
                 classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -384,14 +388,14 @@ exports[`SettingsSubscriptionsPage should match snapshot 1`] = `
       <mock-styled.button
         classname="mock-css. mock-css."
       >
+        <mock-styled.div />
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.25rem;
+          classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.div />
       </mock-styled.button>
     </mock-styled.div>
   </div>,
@@ -592,7 +596,9 @@ exports[`SettingsSubscriptionsPage should match snapshot for mobile view 1`] = `
                   classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.2rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -642,14 +648,14 @@ exports[`SettingsSubscriptionsPage should match snapshot for mobile view 1`] = `
         <mock-styled.button
           classname="mock-css. mock-css."
         >
+          <mock-styled.div />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.25rem;
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.div />
         </mock-styled.button>
       </mock-styled.div>
     </div>
@@ -788,7 +794,9 @@ exports[`SettingsSubscriptionsPage should match snapshot for mobile view 1`] = `
                 classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -838,14 +846,14 @@ exports[`SettingsSubscriptionsPage should match snapshot for mobile view 1`] = `
       <mock-styled.button
         classname="mock-css. mock-css."
       >
+        <mock-styled.div />
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.25rem;
+          classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.div />
       </mock-styled.button>
     </mock-styled.div>
   </div>,

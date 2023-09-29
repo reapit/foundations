@@ -8,6 +8,10 @@ import Routes from '../../constants/routes'
 process.env.pipelineWhitelist = []
 process.env.liveChatWhitelist = []
 
+jest.mock('uuid', () => ({
+  validate: jest.fn(() => true),
+}))
+
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: () => ({

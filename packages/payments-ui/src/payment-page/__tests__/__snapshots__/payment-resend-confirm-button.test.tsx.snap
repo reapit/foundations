@@ -13,6 +13,7 @@ exports[`ResendConfirmButton should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="customerFirstName"
                 placeholder="First name here"
@@ -28,6 +29,7 @@ exports[`ResendConfirmButton should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="customerLastName"
                 placeholder="Last name here"
@@ -43,6 +45,7 @@ exports[`ResendConfirmButton should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="email"
                 placeholder="Email here"
@@ -69,8 +72,8 @@ exports[`ResendConfirmButton should match a snapshot 1`] = `
               disabled="false"
               type="submit"
             >
-              Re-send Confirmation
               <mock-styled.div />
+              Re-send Confirmation
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -86,6 +89,7 @@ exports[`ResendConfirmButton should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="customerFirstName"
               placeholder="First name here"
@@ -101,6 +105,7 @@ exports[`ResendConfirmButton should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="customerLastName"
               placeholder="Last name here"
@@ -116,6 +121,7 @@ exports[`ResendConfirmButton should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="email"
               placeholder="Email here"
@@ -142,8 +148,8 @@ exports[`ResendConfirmButton should match a snapshot 1`] = `
             disabled="false"
             type="submit"
           >
-            Re-send Confirmation
             <mock-styled.div />
+            Re-send Confirmation
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

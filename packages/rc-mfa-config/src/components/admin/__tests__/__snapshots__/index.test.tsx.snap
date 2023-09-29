@@ -41,8 +41,8 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
           >
-            Docs
             <mock-styled.div />
+            Docs
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css.
@@ -50,8 +50,8 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
  mock-css."
             disabled="false"
           >
-            Download CSV
             <mock-styled.div />
+            Download CSV
           </mock-styled.button>
           <div
             class="mock-css.
@@ -123,6 +123,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="email"
                     placeholder="Search for a user"
@@ -137,6 +138,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Search for a user"
@@ -295,10 +297,12 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.2rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -370,8 +374,8 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                         classname="mock-css."
                         disabled="false"
                       >
-                        Fetch Current Authenticators
                         <mock-styled.div />
+                        Fetch Current Authenticators
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
@@ -449,8 +453,8 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
         >
-          Docs
           <mock-styled.div />
+          Docs
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -458,8 +462,8 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
  mock-css."
           disabled="false"
         >
-          Download CSV
           <mock-styled.div />
+          Download CSV
         </mock-styled.button>
         <div
           class="mock-css.
@@ -531,6 +535,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="email"
                   placeholder="Search for a user"
@@ -545,6 +550,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   placeholder="Search for a user"
@@ -703,10 +709,12 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -778,8 +786,8 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                       classname="mock-css."
                       disabled="false"
                     >
-                      Fetch Current Authenticators
                       <mock-styled.div />
+                      Fetch Current Authenticators
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -914,8 +922,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
           >
-            Docs
             <mock-styled.div />
+            Docs
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css.
@@ -923,8 +931,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
  mock-css."
             disabled="false"
           >
-            Download CSV
             <mock-styled.div />
+            Download CSV
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section
@@ -944,6 +952,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="email"
                     placeholder="Search for a user"
@@ -958,6 +967,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Search for a user"
@@ -1121,8 +1131,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
         >
-          Docs
           <mock-styled.div />
+          Docs
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -1130,8 +1140,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
  mock-css."
           disabled="false"
         >
-          Download CSV
           <mock-styled.div />
+          Download CSV
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section
@@ -1151,6 +1161,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="email"
                   placeholder="Search for a user"
@@ -1165,6 +1176,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   placeholder="Search for a user"
@@ -1385,8 +1397,8 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
           >
-            Docs
             <mock-styled.div />
+            Docs
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css.
@@ -1394,8 +1406,8 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
  mock-css."
             disabled="false"
           >
-            Download CSV
             <mock-styled.div />
+            Download CSV
           </mock-styled.button>
           <div
             class="mock-css.
@@ -1466,6 +1478,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="email"
                     placeholder="Search for a user"
@@ -1480,6 +1493,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Search for a user"
@@ -1600,7 +1614,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1620,7 +1634,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -1670,8 +1684,8 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
         >
-          Docs
           <mock-styled.div />
+          Docs
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -1679,8 +1693,8 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
  mock-css."
           disabled="false"
         >
-          Download CSV
           <mock-styled.div />
+          Download CSV
         </mock-styled.button>
         <div
           class="mock-css.
@@ -1751,6 +1765,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="email"
                   placeholder="Search for a user"
@@ -1765,6 +1780,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   placeholder="Search for a user"
@@ -1885,7 +1901,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1905,7 +1921,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -2012,8 +2028,8 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
           >
-            Docs
             <mock-styled.div />
+            Docs
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css.
@@ -2021,8 +2037,8 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
  mock-css."
             disabled="false"
           >
-            Download CSV
             <mock-styled.div />
+            Download CSV
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section
@@ -2043,6 +2059,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="email"
                     placeholder="Search for a user"
@@ -2057,6 +2074,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Search for a user"
@@ -2215,10 +2233,12 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.2rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -2290,8 +2310,8 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                         classname="mock-css."
                         disabled="false"
                       >
-                        Fetch Current Authenticators
                         <mock-styled.div />
+                        Fetch Current Authenticators
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
@@ -2369,8 +2389,8 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
         >
-          Docs
           <mock-styled.div />
+          Docs
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -2378,8 +2398,8 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
  mock-css."
           disabled="false"
         >
-          Download CSV
           <mock-styled.div />
+          Download CSV
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section
@@ -2400,6 +2420,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="email"
                   placeholder="Search for a user"
@@ -2414,6 +2435,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   placeholder="Search for a user"
@@ -2572,10 +2594,12 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -2647,8 +2671,8 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                       classname="mock-css."
                       disabled="false"
                     >
-                      Fetch Current Authenticators
                       <mock-styled.div />
+                      Fetch Current Authenticators
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>

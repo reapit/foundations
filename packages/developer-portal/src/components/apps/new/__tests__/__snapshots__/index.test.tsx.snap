@@ -85,7 +85,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       AgencyCloud Functionality
@@ -100,7 +102,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       Create an External Web Application
@@ -115,7 +119,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       Data / Portal / Reporting Feed
@@ -130,7 +136,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       Website Feed
@@ -145,7 +153,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       WebServices to Platform
@@ -160,7 +170,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       Reapit Connect as ID Provider
@@ -175,7 +187,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       Client Side App
@@ -190,7 +204,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       Server Side Integration
@@ -204,148 +220,18 @@ exports[`AppsNew should match a snapshot 1`] = `
                     classname="mock-css."
                   >
                     <mock-styled.button
-                      classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: 0.5rem;
-  padding-left: ,rem;
-
-  , {
-    padding-left: 1.25rem;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left;
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
- mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+                      classname="mock-css."
                       disabled="true"
                     >
-                      Prev
                       <mock-styled.div />
+                      Prev
                     </mock-styled.button>
                     <mock-styled.button
-                      classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
- mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+                      classname="mock-css."
                       disabled="true"
                     >
-                      Next
                       <mock-styled.div />
+                      Next
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -402,10 +288,8 @@ exports[`AppsNew should match a snapshot 1`] = `
                   >
                     Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
                   </mock-styled.p>
-                  <img
-                    alt="Video placeholder"
-                    src="[object Object]"
-                    style="width: 100%;"
+                  <svg
+                    width="100%"
                   />
                 </div>
                 <div
@@ -454,11 +338,7 @@ exports[`AppsNew should match a snapshot 1`] = `
                   >
                     For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
                   </mock-styled.p>
-                  <img
-                    alt="Video placeholder"
-                    src="[object Object]"
-                    style="width: 100%;"
-                  />
+                  <svg />
                 </div>
                 <div
                   class=""
@@ -567,11 +447,7 @@ exports[`AppsNew should match a snapshot 1`] = `
                   >
                     It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
                   </mock-styled.p>
-                  <img
-                    alt="Video placeholder"
-                    src="[object Object]"
-                    style="width: 100%;"
-                  />
+                  <svg />
                 </div>
                 <div
                   class=""
@@ -728,11 +604,7 @@ exports[`AppsNew should match a snapshot 1`] = `
   margin-bottom: 1.25rem;
 "
                 >
-                  <img
-                    alt="Video placeholder"
-                    src="[object Object]"
-                    style="width: 100%;"
-                  />
+                  <svg />
                 </div>
                 <div
                   class=""
@@ -828,14 +700,14 @@ exports[`AppsNew should match a snapshot 1`] = `
           <mock-styled.button
             classname="mock-css. mock-css."
           >
+            <mock-styled.div />
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.25rem;
+              classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
             >
               <svg />
             </mock-styled.span>
-            <mock-styled.div />
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -922,7 +794,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     AgencyCloud Functionality
@@ -937,7 +811,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     Create an External Web Application
@@ -952,7 +828,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     Data / Portal / Reporting Feed
@@ -967,7 +845,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     Website Feed
@@ -982,7 +862,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     WebServices to Platform
@@ -997,7 +879,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     Reapit Connect as ID Provider
@@ -1012,7 +896,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     Client Side App
@@ -1027,7 +913,9 @@ exports[`AppsNew should match a snapshot 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     Server Side Integration
@@ -1041,148 +929,18 @@ exports[`AppsNew should match a snapshot 1`] = `
                   classname="mock-css."
                 >
                   <mock-styled.button
-                    classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: 0.5rem;
-  padding-left: ,rem;
-
-  , {
-    padding-left: 1.25rem;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left;
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
- mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+                    classname="mock-css."
                     disabled="true"
                   >
-                    Prev
                     <mock-styled.div />
+                    Prev
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
- mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+                    classname="mock-css."
                     disabled="true"
                   >
-                    Next
                     <mock-styled.div />
+                    Next
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -1239,10 +997,8 @@ exports[`AppsNew should match a snapshot 1`] = `
                 >
                   Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
                 </mock-styled.p>
-                <img
-                  alt="Video placeholder"
-                  src="[object Object]"
-                  style="width: 100%;"
+                <svg
+                  width="100%"
                 />
               </div>
               <div
@@ -1291,11 +1047,7 @@ exports[`AppsNew should match a snapshot 1`] = `
                 >
                   For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
                 </mock-styled.p>
-                <img
-                  alt="Video placeholder"
-                  src="[object Object]"
-                  style="width: 100%;"
-                />
+                <svg />
               </div>
               <div
                 class=""
@@ -1404,11 +1156,7 @@ exports[`AppsNew should match a snapshot 1`] = `
                 >
                   It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
                 </mock-styled.p>
-                <img
-                  alt="Video placeholder"
-                  src="[object Object]"
-                  style="width: 100%;"
-                />
+                <svg />
               </div>
               <div
                 class=""
@@ -1565,11 +1313,7 @@ exports[`AppsNew should match a snapshot 1`] = `
   margin-bottom: 1.25rem;
 "
               >
-                <img
-                  alt="Video placeholder"
-                  src="[object Object]"
-                  style="width: 100%;"
-                />
+                <svg />
               </div>
               <div
                 class=""
@@ -1665,14 +1409,14 @@ exports[`AppsNew should match a snapshot 1`] = `
         <mock-styled.button
           classname="mock-css. mock-css."
         >
+          <mock-styled.div />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.25rem;
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.div />
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -1825,7 +1569,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       AgencyCloud Functionality
@@ -1840,7 +1586,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       Create an External Web Application
@@ -1855,7 +1603,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       Data / Portal / Reporting Feed
@@ -1870,7 +1620,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       Website Feed
@@ -1885,7 +1637,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       WebServices to Platform
@@ -1900,7 +1654,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       Reapit Connect as ID Provider
@@ -1915,7 +1671,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       Client Side App
@@ -1930,7 +1688,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                       style="font-size: 2rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 2rem;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div>
                       Server Side Integration
@@ -1944,148 +1704,18 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                     classname="mock-css."
                   >
                     <mock-styled.button
-                      classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: 0.5rem;
-  padding-left: ,rem;
-
-  , {
-    padding-left: 1.25rem;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left;
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
- mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+                      classname="mock-css."
                       disabled="true"
                     >
-                      Prev
                       <mock-styled.div />
+                      Prev
                     </mock-styled.button>
                     <mock-styled.button
-                      classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
- mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+                      classname="mock-css."
                       disabled="true"
                     >
-                      Next
                       <mock-styled.div />
+                      Next
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -2142,10 +1772,8 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                   >
                     Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
                   </mock-styled.p>
-                  <img
-                    alt="Video placeholder"
-                    src="[object Object]"
-                    style="width: 100%;"
+                  <svg
+                    width="100%"
                   />
                 </div>
                 <div
@@ -2194,11 +1822,7 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                   >
                     For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
                   </mock-styled.p>
-                  <img
-                    alt="Video placeholder"
-                    src="[object Object]"
-                    style="width: 100%;"
-                  />
+                  <svg />
                 </div>
                 <div
                   class=""
@@ -2307,11 +1931,7 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                   >
                     It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
                   </mock-styled.p>
-                  <img
-                    alt="Video placeholder"
-                    src="[object Object]"
-                    style="width: 100%;"
-                  />
+                  <svg />
                 </div>
                 <div
                   class=""
@@ -2468,11 +2088,7 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
   margin-bottom: 1.25rem;
 "
                 >
-                  <img
-                    alt="Video placeholder"
-                    src="[object Object]"
-                    style="width: 100%;"
-                  />
+                  <svg />
                 </div>
                 <div
                   class=""
@@ -2568,14 +2184,14 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
           <mock-styled.button
             classname="mock-css. mock-css."
           >
+            <mock-styled.div />
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.25rem;
+              classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
             >
               <svg />
             </mock-styled.span>
-            <mock-styled.div />
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -2662,7 +2278,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     AgencyCloud Functionality
@@ -2677,7 +2295,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     Create an External Web Application
@@ -2692,7 +2312,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     Data / Portal / Reporting Feed
@@ -2707,7 +2329,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     Website Feed
@@ -2722,7 +2346,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     WebServices to Platform
@@ -2737,7 +2363,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     Reapit Connect as ID Provider
@@ -2752,7 +2380,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     Client Side App
@@ -2767,7 +2397,9 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
 "
                     style="font-size: 2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 2rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div>
                     Server Side Integration
@@ -2781,148 +2413,18 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                   classname="mock-css."
                 >
                   <mock-styled.button
-                    classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: 0.5rem;
-  padding-left: ,rem;
-
-  , {
-    padding-left: 1.25rem;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left;
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
- mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+                    classname="mock-css."
                     disabled="true"
                   >
-                    Prev
                     <mock-styled.div />
+                    Prev
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
- mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+                    classname="mock-css."
                     disabled="true"
                   >
-                    Next
                     <mock-styled.div />
+                    Next
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -2979,10 +2481,8 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                 >
                   Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
                 </mock-styled.p>
-                <img
-                  alt="Video placeholder"
-                  src="[object Object]"
-                  style="width: 100%;"
+                <svg
+                  width="100%"
                 />
               </div>
               <div
@@ -3031,11 +2531,7 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                 >
                   For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
                 </mock-styled.p>
-                <img
-                  alt="Video placeholder"
-                  src="[object Object]"
-                  style="width: 100%;"
-                />
+                <svg />
               </div>
               <div
                 class=""
@@ -3144,11 +2640,7 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                 >
                   It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
                 </mock-styled.p>
-                <img
-                  alt="Video placeholder"
-                  src="[object Object]"
-                  style="width: 100%;"
-                />
+                <svg />
               </div>
               <div
                 class=""
@@ -3305,11 +2797,7 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
   margin-bottom: 1.25rem;
 "
               >
-                <img
-                  alt="Video placeholder"
-                  src="[object Object]"
-                  style="width: 100%;"
-                />
+                <svg />
               </div>
               <div
                 class=""
@@ -3405,14 +2893,14 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
         <mock-styled.button
           classname="mock-css. mock-css."
         >
+          <mock-styled.div />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.25rem;
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.div />
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>

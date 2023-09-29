@@ -26,8 +26,8 @@ exports[`Form should match a snapshot 1`] = `
         <mock-styled.button
           classname="mock-css."
         >
-          Save
           <mock-styled.div />
+          Save
         </mock-styled.button>
       </mock-styled.div>
     </form>

@@ -41,10 +41,10 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app is  dire
           classname="mock-css."
         >
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
           >
-            Back To App
             <mock-styled.div />
+            Back To App
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -87,10 +87,10 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app is  dire
         classname="mock-css."
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="mock-css."
         >
-          Back To App
           <mock-styled.div />
+          Back To App
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -183,10 +183,10 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app not dire
           classname="mock-css."
         >
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
           >
-            Back To App
             <mock-styled.div />
+            Back To App
           </mock-styled.button>
           <a
             href="https://foo.bar"
@@ -197,8 +197,8 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app not dire
               classname="mock-css."
               type="button"
             >
-              Launch App
               <mock-styled.div />
+              Launch App
             </mock-styled.button>
           </a>
         </mock-styled.div>
@@ -235,10 +235,10 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app not dire
         classname="mock-css."
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="mock-css."
         >
-          Back To App
           <mock-styled.div />
+          Back To App
         </mock-styled.button>
         <a
           href="https://foo.bar"
@@ -249,8 +249,8 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app not dire
             classname="mock-css."
             type="button"
           >
-            Launch App
             <mock-styled.div />
+            Launch App
           </mock-styled.button>
         </a>
       </mock-styled.div>
@@ -344,10 +344,10 @@ exports[`AppInstallSuccesModalContent should match a snapshot where in desktop m
           classname="mock-css."
         >
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
           >
-            Back To App
             <mock-styled.div />
+            Back To App
           </mock-styled.button>
           <a
             href="https://foo.bar"
@@ -358,8 +358,8 @@ exports[`AppInstallSuccesModalContent should match a snapshot where in desktop m
               classname="mock-css."
               type="button"
             >
-              Launch App
               <mock-styled.div />
+              Launch App
             </mock-styled.button>
           </a>
         </mock-styled.div>
@@ -396,10 +396,10 @@ exports[`AppInstallSuccesModalContent should match a snapshot where in desktop m
         classname="mock-css."
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="mock-css."
         >
-          Back To App
           <mock-styled.div />
+          Back To App
         </mock-styled.button>
         <a
           href="https://foo.bar"
@@ -410,8 +410,8 @@ exports[`AppInstallSuccesModalContent should match a snapshot where in desktop m
             classname="mock-css."
             type="button"
           >
-            Launch App
             <mock-styled.div />
+            Launch App
           </mock-styled.button>
         </a>
       </mock-styled.div>

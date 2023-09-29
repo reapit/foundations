@@ -26,45 +26,9 @@ exports[`AppCard should match a snapshot for a regular user 1`] = `
 "
       >
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.25rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
           <mock-styled.div
             classname=""
           >
-            <mock-styled.div>
-              <mock-styled.span
-                classname=""
-                style="font-size: 1.25rem;"
-              >
-                <svg />
-              </mock-styled.span>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.span
-                classname=""
-                style="font-size: 1.25rem;"
-              >
-                <svg />
-              </mock-styled.span>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.span
-                classname=""
-                style="font-size: 1.25rem;"
-              >
-                <svg />
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
             <mock-styled.h5>
               will-test-dev-co-voracious-person
             </mock-styled.h5>
@@ -75,11 +39,6 @@ exports[`AppCard should match a snapshot for a regular user 1`] = `
               Integration
             </mock-styled.h6>
           </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
-        >
-          Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
         </mock-styled.div>
       </mock-styled.div>
     </div>
@@ -106,45 +65,9 @@ exports[`AppCard should match a snapshot for a regular user 1`] = `
 "
     >
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname=""
-            style="font-size: 1.25rem;"
-          >
-            <svg />
-          </mock-styled.span>
-        </mock-styled.div>
         <mock-styled.div
           classname=""
         >
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.25rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.25rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.25rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
           <mock-styled.h5>
             will-test-dev-co-voracious-person
           </mock-styled.h5>
@@ -155,11 +78,6 @@ exports[`AppCard should match a snapshot for a regular user 1`] = `
             Integration
           </mock-styled.h6>
         </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-      >
-        Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
       </mock-styled.div>
     </mock-styled.div>
   </div>,
@@ -243,45 +161,9 @@ exports[`AppCard should match a snapshot for an admin 1`] = `
 "
       >
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.25rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
           <mock-styled.div
             classname=""
           >
-            <mock-styled.div>
-              <mock-styled.span
-                classname=""
-                style="font-size: 1.25rem;"
-              >
-                <svg />
-              </mock-styled.span>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.span
-                classname=""
-                style="font-size: 1.25rem;"
-              >
-                <svg />
-              </mock-styled.span>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.span
-                classname=""
-                style="font-size: 1.25rem;"
-              >
-                <svg />
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
             <mock-styled.h5>
               will-test-dev-co-voracious-person
             </mock-styled.h5>
@@ -292,11 +174,6 @@ exports[`AppCard should match a snapshot for an admin 1`] = `
               Integration
             </mock-styled.h6>
           </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
-        >
-          Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
         </mock-styled.div>
       </mock-styled.div>
     </div>
@@ -323,45 +200,9 @@ exports[`AppCard should match a snapshot for an admin 1`] = `
 "
     >
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname=""
-            style="font-size: 1.25rem;"
-          >
-            <svg />
-          </mock-styled.span>
-        </mock-styled.div>
         <mock-styled.div
           classname=""
         >
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.25rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.25rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.25rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
           <mock-styled.h5>
             will-test-dev-co-voracious-person
           </mock-styled.h5>
@@ -372,11 +213,6 @@ exports[`AppCard should match a snapshot for an admin 1`] = `
             Integration
           </mock-styled.h6>
         </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-      >
-        Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
       </mock-styled.div>
     </mock-styled.div>
   </div>,
@@ -460,45 +296,9 @@ exports[`AppCard should match a snapshot for an admin with delete protection 1`]
 "
       >
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.25rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
           <mock-styled.div
             classname=""
           >
-            <mock-styled.div>
-              <mock-styled.span
-                classname=""
-                style="font-size: 1.25rem;"
-              >
-                <svg />
-              </mock-styled.span>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.span
-                classname=""
-                style="font-size: 1.25rem;"
-              >
-                <svg />
-              </mock-styled.span>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.span
-                classname=""
-                style="font-size: 1.25rem;"
-              >
-                <svg />
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
             <mock-styled.h5>
               will-test-dev-co-voracious-person
             </mock-styled.h5>
@@ -509,11 +309,6 @@ exports[`AppCard should match a snapshot for an admin with delete protection 1`]
               Integration
             </mock-styled.h6>
           </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
-        >
-          Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
         </mock-styled.div>
       </mock-styled.div>
     </div>
@@ -540,45 +335,9 @@ exports[`AppCard should match a snapshot for an admin with delete protection 1`]
 "
     >
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname=""
-            style="font-size: 1.25rem;"
-          >
-            <svg />
-          </mock-styled.span>
-        </mock-styled.div>
         <mock-styled.div
           classname=""
         >
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.25rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.25rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.25rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
           <mock-styled.h5>
             will-test-dev-co-voracious-person
           </mock-styled.h5>
@@ -589,11 +348,6 @@ exports[`AppCard should match a snapshot for an admin with delete protection 1`]
             Integration
           </mock-styled.h6>
         </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-      >
-        Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
       </mock-styled.div>
     </mock-styled.div>
   </div>,

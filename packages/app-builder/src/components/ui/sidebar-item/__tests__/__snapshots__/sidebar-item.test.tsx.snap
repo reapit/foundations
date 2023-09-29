@@ -15,7 +15,7 @@ exports[`SidebarItem should match a snapshot 1`] = `
  mock-css.
   background: white;
  mock-css.
-  border-bottom: 1px solid var(--color-grey-light, '#dbdbdb');
+  border-bottom: 1px solid var(--color-grey-100, '#dbdbdb');
  mock-css.
   display: flex;
  mock-css.

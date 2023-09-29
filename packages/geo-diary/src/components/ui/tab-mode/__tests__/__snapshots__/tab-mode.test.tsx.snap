@@ -11,8 +11,8 @@ exports[`TabMode should match snapshot 1`] = `
         <mock-styled.button
           classname="mock-css."
         >
-          MAP
           <mock-styled.div />
+          MAP
         </mock-styled.button>
       </mock-styled.div>
     </div>
@@ -24,8 +24,8 @@ exports[`TabMode should match snapshot 1`] = `
       <mock-styled.button
         classname="mock-css."
       >
-        MAP
         <mock-styled.div />
+        MAP
       </mock-styled.button>
     </mock-styled.div>
   </div>,

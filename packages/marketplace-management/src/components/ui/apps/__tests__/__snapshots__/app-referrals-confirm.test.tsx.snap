@@ -19,6 +19,7 @@ exports[`ReferralsConfirmationSelection should render component with props and l
         >
           <mock-styled.input
             checked="true"
+            classname=""
             id="test-static-id"
             type="checkbox"
           />
@@ -55,6 +56,7 @@ exports[`ReferralsConfirmationSelection should render component with props and l
       >
         <mock-styled.input
           checked="true"
+          classname=""
           id="test-static-id"
           type="checkbox"
         />
@@ -148,6 +150,7 @@ exports[`ReferralsConfirmationSelection should render component with props with 
         >
           <mock-styled.input
             checked="true"
+            classname=""
             id="test-static-id"
             type="checkbox"
           />
@@ -226,6 +229,7 @@ exports[`ReferralsConfirmationSelection should render component with props with 
       >
         <mock-styled.input
           checked="true"
+          classname=""
           id="test-static-id"
           type="checkbox"
         />

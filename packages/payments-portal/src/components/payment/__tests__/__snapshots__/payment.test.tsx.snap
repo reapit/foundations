@@ -274,6 +274,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       disabled="false"
                       id="test-static-id"
                       name="customerFirstName"
@@ -290,6 +291,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       disabled="false"
                       id="test-static-id"
                       name="customerLastName"
@@ -306,6 +308,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       disabled="false"
                       id="test-static-id"
                       name="email"
@@ -322,6 +325,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       disabled="false"
                       id="test-static-id"
                       name="address1"
@@ -338,6 +342,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       disabled="false"
                       id="test-static-id"
                       name="city"
@@ -354,6 +359,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       disabled="false"
                       id="test-static-id"
                       name="postalCode"
@@ -1642,6 +1648,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                   <mock-styled.div>
                     <mock-styled.input
                       autocomplete="cardNumber"
+                      classname=""
                       disabled="false"
                       id="cardNumber"
                       inputmode="numeric"
@@ -1676,6 +1683,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       disabled="false"
                       id="test-static-id"
                       name="cardholderName"
@@ -1693,6 +1701,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                   <mock-styled.div>
                     <mock-styled.input
                       autocomplete="expiryDate"
+                      classname=""
                       disabled="false"
                       id="expiryDate"
                       inputmode="numeric"
@@ -1712,6 +1721,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       disabled="false"
                       id="test-static-id"
                       maxlength="3"
@@ -1736,8 +1746,8 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                     disabled="false"
                     type="submit"
                   >
-                    Make Payment
                     <mock-styled.div />
+                    Make Payment
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -2017,6 +2027,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     disabled="false"
                     id="test-static-id"
                     name="customerFirstName"
@@ -2033,6 +2044,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     disabled="false"
                     id="test-static-id"
                     name="customerLastName"
@@ -2049,6 +2061,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     disabled="false"
                     id="test-static-id"
                     name="email"
@@ -2065,6 +2078,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     disabled="false"
                     id="test-static-id"
                     name="address1"
@@ -2081,6 +2095,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     disabled="false"
                     id="test-static-id"
                     name="city"
@@ -2097,6 +2112,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     disabled="false"
                     id="test-static-id"
                     name="postalCode"
@@ -3385,6 +3401,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                 <mock-styled.div>
                   <mock-styled.input
                     autocomplete="cardNumber"
+                    classname=""
                     disabled="false"
                     id="cardNumber"
                     inputmode="numeric"
@@ -3419,6 +3436,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     disabled="false"
                     id="test-static-id"
                     name="cardholderName"
@@ -3436,6 +3454,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                 <mock-styled.div>
                   <mock-styled.input
                     autocomplete="expiryDate"
+                    classname=""
                     disabled="false"
                     id="expiryDate"
                     inputmode="numeric"
@@ -3455,6 +3474,7 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     disabled="false"
                     id="test-static-id"
                     maxlength="3"
@@ -3479,8 +3499,8 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                   disabled="false"
                   type="submit"
                 >
-                  Make Payment
                   <mock-styled.div />
+                  Make Payment
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -3557,7 +3577,7 @@ exports[`PaymentPage should match a snapshot when has no session and no data 1`]
             >
               <div
                 class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3577,7 +3597,7 @@ exports[`PaymentPage should match a snapshot when has no session and no data 1`]
               </div>
               <div
                 class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -3601,7 +3621,7 @@ exports[`PaymentPage should match a snapshot when has no session and no data 1`]
           >
             <div
               class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3621,7 +3641,7 @@ exports[`PaymentPage should match a snapshot when has no session and no data 1`]
             </div>
             <div
               class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -3715,7 +3735,7 @@ exports[`PaymentPage should match a snapshot when loading 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3735,7 +3755,7 @@ exports[`PaymentPage should match a snapshot when loading 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -3772,7 +3792,7 @@ exports[`PaymentPage should match a snapshot when loading 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3792,7 +3812,7 @@ exports[`PaymentPage should match a snapshot when loading 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -3886,7 +3906,7 @@ exports[`PaymentPage should match a snapshot when no payment is returned 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3906,7 +3926,7 @@ exports[`PaymentPage should match a snapshot when no payment is returned 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -3942,7 +3962,7 @@ exports[`PaymentPage should match a snapshot when no payment is returned 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3962,7 +3982,7 @@ exports[`PaymentPage should match a snapshot when no payment is returned 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -4055,7 +4075,7 @@ exports[`PaymentPage should match a snapshot when there is a config error 1`] = 
           >
             <div
               class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -4075,7 +4095,7 @@ exports[`PaymentPage should match a snapshot when there is a config error 1`] = 
             </div>
             <div
               class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -4111,7 +4131,7 @@ exports[`PaymentPage should match a snapshot when there is a config error 1`] = 
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -4131,7 +4151,7 @@ exports[`PaymentPage should match a snapshot when there is a config error 1`] = 
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;

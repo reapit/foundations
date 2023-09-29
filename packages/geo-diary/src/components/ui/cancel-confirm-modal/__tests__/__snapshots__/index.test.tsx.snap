@@ -26,31 +26,19 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
 "
       >
         <mock-styled.button
-          classname="mock-css. mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+          classname="mock-css."
           disabled="false"
           type="button"
         >
-          No
           <mock-styled.div />
+          No
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css. mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+          classname="mock-css."
           type="button"
         >
-          Yes
           <mock-styled.div />
+          Yes
         </mock-styled.button>
       </mock-styled.div>
     </div>
@@ -77,31 +65,19 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
 "
     >
       <mock-styled.button
-        classname="mock-css. mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+        classname="mock-css."
         disabled="false"
         type="button"
       >
-        No
         <mock-styled.div />
+        No
       </mock-styled.button>
       <mock-styled.button
-        classname="mock-css. mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+        classname="mock-css."
         type="button"
       >
-        Yes
         <mock-styled.div />
+        Yes
       </mock-styled.button>
     </mock-styled.div>
   </div>,

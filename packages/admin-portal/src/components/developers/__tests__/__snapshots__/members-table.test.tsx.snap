@@ -135,10 +135,12 @@ exports[`MembersTable should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -238,31 +240,31 @@ exports[`MembersTable should render component with data 1`] = `
                       classname="mock-css."
                       disabled="true"
                     >
+                      <mock-styled.div />
                       Set As 
                       Admin
-                      <mock-styled.div />
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="true"
                     >
-                      Enable
                       <mock-styled.div />
+                      Enable
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="false"
                     >
-                      Get Login Info
                       <mock-styled.div />
+                      Get Login Info
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="true"
                       type="button"
                     >
-                      Delete Member
                       <mock-styled.div />
+                      Delete Member
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -359,10 +361,12 @@ exports[`MembersTable should render component with data 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -462,31 +466,31 @@ exports[`MembersTable should render component with data 1`] = `
                     classname="mock-css."
                     disabled="true"
                   >
+                    <mock-styled.div />
                     Set As 
                     Admin
-                    <mock-styled.div />
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="true"
                   >
-                    Enable
                     <mock-styled.div />
+                    Enable
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="false"
                   >
-                    Get Login Info
                     <mock-styled.div />
+                    Get Login Info
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="true"
                     type="button"
                   >
-                    Delete Member
                     <mock-styled.div />
+                    Delete Member
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>

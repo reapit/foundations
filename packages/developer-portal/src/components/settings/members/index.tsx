@@ -29,7 +29,7 @@ export const getIntentFromStatus = (status: string) => {
     ? 'danger'
     : status === 'pending'
     ? 'pending'
-    : 'neutral'
+    : 'default'
 }
 
 export const handleRefreshMembers =

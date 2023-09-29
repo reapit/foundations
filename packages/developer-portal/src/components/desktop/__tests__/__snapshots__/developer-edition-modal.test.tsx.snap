@@ -35,17 +35,17 @@ exports[`DeveloperEditionModal should match snapshot when has a subscription alr
                 classname="mock-css."
               >
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                 >
-                  Close
                   <mock-styled.div />
+                  Close
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                   type="submit"
                 >
-                  Download
                   <mock-styled.div />
+                  Download
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -153,10 +153,10 @@ exports[`DeveloperEditionModal should match snapshot when has billing content an
                 classname="mock-css."
               >
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                 >
-                  Cancel
                   <mock-styled.div />
+                  Cancel
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -280,10 +280,10 @@ exports[`DeveloperEditionModal should match snapshot when has billing content an
                 classname="mock-css."
               >
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                 >
-                  Cancel
                   <mock-styled.div />
+                  Cancel
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -403,10 +403,10 @@ exports[`DeveloperEditionModal should match snapshot when has client data 1`] = 
                 classname="mock-css."
               >
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                 >
-                  Cancel
                   <mock-styled.div />
+                  Cancel
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -539,17 +539,17 @@ exports[`DeveloperEditionModal should match snapshot when has subscribed 1`] = `
                 classname="mock-css."
               >
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                 >
-                  Close
                   <mock-styled.div />
+                  Close
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                   type="submit"
                 >
-                  Download
                   <mock-styled.div />
+                  Download
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -743,17 +743,17 @@ exports[`DeveloperEditionModal should match snapshot when visible 1`] = `
                 classname="mock-css."
               >
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                 >
-                  Cancel
                   <mock-styled.div />
+                  Cancel
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                   type="submit"
                 >
-                  Confirm
                   <mock-styled.div />
+                  Confirm
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>

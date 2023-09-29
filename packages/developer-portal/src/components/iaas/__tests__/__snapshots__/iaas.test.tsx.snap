@@ -6,12 +6,43 @@ exports[`IaaS should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.aside>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to simplify your development process
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section>
+          <div />
+        </mock-styled.section>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
+    >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          IaaS
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -29,47 +60,14 @@ exports[`IaaS should match snapshot 1`] = `
         <mock-styled.button
           classname="mock-css."
         >
-          View Docs
           <mock-styled.div />
+          View Docs
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
         <div />
       </mock-styled.section>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-    <mock-styled.aside>
-      <mock-styled.h1
-        classname=""
-      >
-        IaaS
-      </mock-styled.h1>
-      <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
-      >
-        <svg />
-      </mock-styled.span>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to simplify your development process
-      </mock-styled.p>
-      <mock-styled.button
-        classname="mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
-    </mock-styled.aside>
-    <mock-styled.section>
-      <div />
-    </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

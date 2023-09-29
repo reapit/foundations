@@ -18,8 +18,8 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             <mock-styled.button
               classname="mock-css."
             >
-              MAP
               <mock-styled.div />
+              MAP
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -29,6 +29,7 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
           >
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 placeholder="Enter location"
                 value=""
               />
@@ -177,7 +178,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -188,7 +188,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -196,7 +195,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -204,7 +202,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -311,7 +308,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -322,7 +318,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -330,7 +325,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -338,7 +332,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -419,7 +412,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -430,7 +422,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -438,7 +429,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -446,7 +436,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -527,7 +516,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -538,7 +526,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -546,7 +533,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -554,7 +540,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -635,7 +620,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -646,7 +630,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -654,7 +637,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -662,7 +644,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -717,7 +698,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -728,7 +708,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -736,7 +715,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -744,7 +722,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                     <mock-styled.div>
                       <mock-styled.span
                         classname=""
-                        style="font-size: 1.25rem;"
                       >
                         <svg />
                       </mock-styled.span>
@@ -905,8 +882,8 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               classname="mock-css."
               type="button"
             >
-              Start Journey
               <mock-styled.div />
+              Start Journey
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -927,8 +904,8 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
           <mock-styled.button
             classname="mock-css."
           >
-            MAP
             <mock-styled.div />
+            MAP
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -938,6 +915,7 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
         >
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               placeholder="Enter location"
               value=""
             />
@@ -1086,7 +1064,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                 <mock-styled.div>
                   <mock-styled.span
                     classname=""
-                    style="font-size: 1.25rem;"
                   >
                     <svg />
                   </mock-styled.span>
@@ -1097,7 +1074,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1105,7 +1081,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1113,7 +1088,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1220,7 +1194,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                 <mock-styled.div>
                   <mock-styled.span
                     classname=""
-                    style="font-size: 1.25rem;"
                   >
                     <svg />
                   </mock-styled.span>
@@ -1231,7 +1204,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1239,7 +1211,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1247,7 +1218,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1328,7 +1298,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                 <mock-styled.div>
                   <mock-styled.span
                     classname=""
-                    style="font-size: 1.25rem;"
                   >
                     <svg />
                   </mock-styled.span>
@@ -1339,7 +1308,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1347,7 +1315,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1355,7 +1322,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1436,7 +1402,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                 <mock-styled.div>
                   <mock-styled.span
                     classname=""
-                    style="font-size: 1.25rem;"
                   >
                     <svg />
                   </mock-styled.span>
@@ -1447,7 +1412,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1455,7 +1419,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1463,7 +1426,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1544,7 +1506,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                 <mock-styled.div>
                   <mock-styled.span
                     classname=""
-                    style="font-size: 1.25rem;"
                   >
                     <svg />
                   </mock-styled.span>
@@ -1555,7 +1516,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1563,7 +1523,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1571,7 +1530,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1626,7 +1584,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                 <mock-styled.div>
                   <mock-styled.span
                     classname=""
-                    style="font-size: 1.25rem;"
                   >
                     <svg />
                   </mock-styled.span>
@@ -1637,7 +1594,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1645,7 +1601,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1653,7 +1608,6 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                   <mock-styled.div>
                     <mock-styled.span
                       classname=""
-                      style="font-size: 1.25rem;"
                     >
                       <svg />
                     </mock-styled.span>
@@ -1814,8 +1768,8 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             classname="mock-css."
             type="button"
           >
-            Start Journey
             <mock-styled.div />
+            Start Journey
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -1893,8 +1847,8 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
             <mock-styled.button
               classname="mock-css."
             >
-              MAP
               <mock-styled.div />
+              MAP
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -1904,6 +1858,7 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
           >
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 placeholder="Enter location"
                 value=""
               />
@@ -2079,8 +2034,8 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
               classname="mock-css."
               type="button"
             >
-              Start Journey
               <mock-styled.div />
+              Start Journey
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -2101,8 +2056,8 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
           <mock-styled.button
             classname="mock-css."
           >
-            MAP
             <mock-styled.div />
+            MAP
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -2112,6 +2067,7 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
         >
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               placeholder="Enter location"
               value=""
             />
@@ -2287,8 +2243,8 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
             classname="mock-css."
             type="button"
           >
-            Start Journey
             <mock-styled.div />
+            Start Journey
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -2366,8 +2322,8 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
             <mock-styled.button
               classname="mock-css."
             >
-              MAP
               <mock-styled.div />
+              MAP
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -2377,6 +2333,7 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
           >
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 placeholder="Enter location"
                 value=""
               />
@@ -2473,7 +2430,7 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
           >
             <div
               class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -2493,7 +2450,7 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
             </div>
             <div
               class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -2595,8 +2552,8 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
               classname="mock-css."
               type="button"
             >
-              Start Journey
               <mock-styled.div />
+              Start Journey
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -2617,8 +2574,8 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
           <mock-styled.button
             classname="mock-css."
           >
-            MAP
             <mock-styled.div />
+            MAP
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -2628,6 +2585,7 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
         >
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               placeholder="Enter location"
               value=""
             />
@@ -2724,7 +2682,7 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -2744,7 +2702,7 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -2846,8 +2804,8 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
             classname="mock-css."
             type="button"
           >
-            Start Journey
             <mock-styled.div />
+            Start Journey
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -2925,8 +2883,8 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
             <mock-styled.button
               classname="mock-css."
             >
-              MAP
               <mock-styled.div />
+              MAP
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -2936,6 +2894,7 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
           >
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 placeholder="Enter location"
                 value=""
               />
@@ -3032,7 +2991,7 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3052,7 +3011,7 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -3154,8 +3113,8 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
               classname="mock-css."
               type="button"
             >
-              Start Journey
               <mock-styled.div />
+              Start Journey
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -3176,8 +3135,8 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
           <mock-styled.button
             classname="mock-css."
           >
-            MAP
             <mock-styled.div />
+            MAP
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -3187,6 +3146,7 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
         >
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               placeholder="Enter location"
               value=""
             />
@@ -3283,7 +3243,7 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3303,7 +3263,7 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -3405,8 +3365,8 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
             classname="mock-css."
             type="button"
           >
-            Start Journey
             <mock-styled.div />
+            Start Journey
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

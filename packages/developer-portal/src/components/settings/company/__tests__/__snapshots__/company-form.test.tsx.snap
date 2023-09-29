@@ -13,6 +13,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="company"
                 placeholder="This will be the display name of the company in our AppMarket"
@@ -27,6 +28,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="telephone"
                 placeholder="A number we can discuss your developer account on"
@@ -41,6 +43,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="website"
                 placeholder="Your company's corporate website"
@@ -55,6 +58,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="true"
                 id="test-static-id"
                 name="email"
@@ -69,6 +73,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="notificationsEmail"
                 placeholder="An email address we can send notifications about your developer account to"
@@ -83,6 +88,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="noTaxRegistration"
                 type="checkbox"
@@ -97,6 +103,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="taxNumber"
@@ -112,6 +119,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="noregistrationNumber"
                 type="checkbox"
@@ -126,6 +134,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="registrationNumber"
@@ -141,6 +150,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.textarea
+                classname=""
                 name="about"
                 placeholder="Tell us about your company in a few words. This will appear on your AppMarket listing pages"
               />
@@ -152,6 +162,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="buildingName"
                 placeholder="The building of your corporate office"
@@ -166,6 +177,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="buildingNumber"
                 placeholder="The number of your corporate office"
@@ -180,6 +192,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="line1"
                 placeholder="Line one of the address for your office"
@@ -194,6 +207,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="line2"
                 placeholder="Line two of the address for your office"
@@ -208,6 +222,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="line3"
                 placeholder="Line three of the address for your office"
@@ -222,6 +237,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="line4"
                 placeholder="Line four of the address for your office"
@@ -236,6 +252,7 @@ exports[`CompanyForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="postcode"
                 placeholder="Your office postcode"
@@ -1512,8 +1529,8 @@ exports[`CompanyForm should match snapshot 1`] = `
               classname="mock-css."
               type="submit"
             >
-              Save Changes
               <mock-styled.div />
+              Save Changes
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -1529,6 +1546,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="company"
               placeholder="This will be the display name of the company in our AppMarket"
@@ -1543,6 +1561,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="telephone"
               placeholder="A number we can discuss your developer account on"
@@ -1557,6 +1576,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="website"
               placeholder="Your company's corporate website"
@@ -1571,6 +1591,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="true"
               id="test-static-id"
               name="email"
@@ -1585,6 +1606,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="notificationsEmail"
               placeholder="An email address we can send notifications about your developer account to"
@@ -1599,6 +1621,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="noTaxRegistration"
               type="checkbox"
@@ -1613,6 +1636,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="taxNumber"
@@ -1628,6 +1652,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="noregistrationNumber"
               type="checkbox"
@@ -1642,6 +1667,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="registrationNumber"
@@ -1657,6 +1683,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.textarea
+              classname=""
               name="about"
               placeholder="Tell us about your company in a few words. This will appear on your AppMarket listing pages"
             />
@@ -1668,6 +1695,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="buildingName"
               placeholder="The building of your corporate office"
@@ -1682,6 +1710,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="buildingNumber"
               placeholder="The number of your corporate office"
@@ -1696,6 +1725,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="line1"
               placeholder="Line one of the address for your office"
@@ -1710,6 +1740,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="line2"
               placeholder="Line two of the address for your office"
@@ -1724,6 +1755,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="line3"
               placeholder="Line three of the address for your office"
@@ -1738,6 +1770,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="line4"
               placeholder="Line four of the address for your office"
@@ -1752,6 +1785,7 @@ exports[`CompanyForm should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="postcode"
               placeholder="Your office postcode"
@@ -3028,8 +3062,8 @@ exports[`CompanyForm should match snapshot 1`] = `
             classname="mock-css."
             type="submit"
           >
-            Save Changes
             <mock-styled.div />
+            Save Changes
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

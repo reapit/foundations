@@ -26,6 +26,7 @@ exports[`OfficeTabFilterForm should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="name"
                 placeholder="Search for an office"
@@ -55,8 +56,8 @@ exports[`OfficeTabFilterForm should match a snapshot 1`] = `
                     classname="mock-css."
                     type="submit"
                   >
-                    Search
                     <mock-styled.div />
+                    Search
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -88,6 +89,7 @@ exports[`OfficeTabFilterForm should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="name"
               placeholder="Search for an office"
@@ -117,8 +119,8 @@ exports[`OfficeTabFilterForm should match a snapshot 1`] = `
                   classname="mock-css."
                   type="submit"
                 >
-                  Search
                   <mock-styled.div />
+                  Search
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>

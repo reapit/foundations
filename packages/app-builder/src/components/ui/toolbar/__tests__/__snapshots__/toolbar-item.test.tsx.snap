@@ -5,6 +5,7 @@ exports[`ToolbarItem should match a snapshot - Number 1`] = `
   <mock-styled.div>
     <mock-styled.label />
     <mock-styled.input
+      classname=""
       type="number"
       value=""
     />
@@ -38,6 +39,7 @@ exports[`ToolbarItem should match a snapshot - Text 1`] = `
   <mock-styled.div>
     <mock-styled.label />
     <mock-styled.input
+      classname=""
       type="text"
       value=""
     />

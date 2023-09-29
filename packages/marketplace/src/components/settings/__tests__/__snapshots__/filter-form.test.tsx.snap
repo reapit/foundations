@@ -15,6 +15,7 @@ exports[`FilterForm should render component 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="appName"
                 placeholder="Filter by App Name"
@@ -42,6 +43,7 @@ exports[`FilterForm should render component 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="appName"
               placeholder="Filter by App Name"

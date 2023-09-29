@@ -9,18 +9,18 @@ export const buildStatusToIntent = (status: string): Intent => {
     case 'COMPLETED':
       return 'success'
     case 'IN_PROGRESS':
-      return 'secondary'
-    case 'PRE_PROVISIONED':
     case 'QUEUED':
-      return 'pending'
+      return 'neutral'
     case 'FAILED':
     case 'DELETING':
     case 'DELETED':
     case 'FAILED_TO_PROVISION':
+    case 'SCHEDULED_FOR_DELETION':
       return 'danger'
+    case 'PRE_PROVISIONED':
     case 'READY_FOR_DEPLOYMENT':
     default:
-      return 'neutral'
+      return 'pending'
   }
 }
 

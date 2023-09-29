@@ -13,6 +13,7 @@ exports[`FilterForm should render component 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="organisationName"
               />
@@ -26,6 +27,7 @@ exports[`FilterForm should render component 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="userEmail"
                 type="email"
@@ -107,6 +109,7 @@ exports[`FilterForm should render component 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="organisationName"
             />
@@ -120,6 +123,7 @@ exports[`FilterForm should render component 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="userEmail"
               type="email"
