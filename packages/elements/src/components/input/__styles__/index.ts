@@ -1,4 +1,7 @@
 import { styled } from '@linaria/react'
+import { css } from '@linaria/core'
+
+export const elHasInputError = css``
 
 export const ElInput = styled.input`
   display: flex;
@@ -17,6 +20,11 @@ export const ElInput = styled.input`
 
     &:focus {
       border: var(--component-input-border-focus);
+    }
+
+    &.${elHasInputError} {
+      border: 1px solid var(--intent-danger);
+      background-color: var(--color-red-100);
     }
   }
 

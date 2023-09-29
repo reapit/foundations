@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { Input } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
@@ -12,6 +12,8 @@ The input component is by design just a styled html / react component to allow d
 
 You may also wish to add your own custom elements eg a JS Datepicker - in this case, just target the default input with your own custom component or use the CSS classes provided.
 
+<ArgsTable of={Input} />
+
 ## Input text
 
 <Canvas>
@@ -21,6 +23,16 @@ You may also wish to add your own custom elements eg a JS Datepicker - in this c
 </Canvas>
 
 <RenderHtmlMarkup component="Input" story="Input text" />
+
+## Input With Error
+
+<Canvas>
+  <Story name="Input With Error">
+    <Input type="text" placeholder="A placeholder" hasError />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Input" story="Input With Error" />
 
 ## Input email
 
