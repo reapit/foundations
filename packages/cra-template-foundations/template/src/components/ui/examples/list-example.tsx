@@ -18,7 +18,7 @@ export const ListExample: FC = () => {
   return (
     <>
       <Title>List Options</Title>
-      <PersistentNotification className={elMb7} isExpanded intent="secondary" isInline isFullWidth>
+      <PersistentNotification className={elMb7} isExpanded intent="primary" isInline isFullWidth>
         Toggling the tabs will give you two examples as to how to lay out a list of options, complete with menus in a
         responsive grid.
       </PersistentNotification>

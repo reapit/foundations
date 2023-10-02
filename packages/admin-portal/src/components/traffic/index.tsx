@@ -83,10 +83,7 @@ export const Traffic: FC = () => {
             <TableRow>
               <TableCell>{dayjs(trafficFilters.month).format('MMMM YYYY')}</TableCell>
               <TableCell>
-                <Button
-                  intent="low"
-                  onClick={handleSaveFile(trafficFile, `traffic-events-period-${trafficFilters.month}.csv`)}
-                >
+                <Button onClick={handleSaveFile(trafficFile, `traffic-events-period-${trafficFilters.month}.csv`)}>
                   Download
                 </Button>
               </TableCell>
@@ -94,7 +91,7 @@ export const Traffic: FC = () => {
           </TableRowContainer>
         </Table>
       ) : (
-        <PersistentNotification intent="secondary" isExpanded={true} isInline isFullWidth>
+        <PersistentNotification intent="primary" isExpanded={true} isInline isFullWidth>
           No traffic file available for download.
         </PersistentNotification>
       )}

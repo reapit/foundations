@@ -83,10 +83,10 @@ export const ConsentModal: FC<ConsentModalProps> = ({ Modal, closeModal, navigat
     <Modal title={title}>
       {body}
       <ButtonGroup alignment="center" className={elMt11}>
-        <Button fixedWidth intent="low" onClick={closeModal}>
+        <Button intent="default" onClick={closeModal}>
           Cancel
         </Button>
-        <Button fixedWidth intent="primary" onClick={navigate}>
+        <Button intent="primary" onClick={navigate}>
           Continue
         </Button>
       </ButtonGroup>

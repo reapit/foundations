@@ -83,7 +83,7 @@ export const Accounts: FC = () => {
         {accounts?._embedded?.length ? (
           <AccountsTable />
         ) : (
-          <PersistentNotification isInline isExpanded isFullWidth intent="secondary">
+          <PersistentNotification isInline isExpanded isFullWidth intent="primary">
             No accounts yet provisioned for your organisation
           </PersistentNotification>
         )}

@@ -110,14 +110,14 @@ const AppInstallationPerOfficeGroup: FC<AppInstallationPerOfficeGroupProps> = ({
       <InputWrapFull>
         <ButtonGroup alignment="right">
           <Button
-            intent="secondary"
+            intent="primary"
             disabled={officeGroupToggleType === 'all'}
             onClick={handleSetOfficeGroupToggleType('all', setOfficeGroupToggleType)}
           >
             Select all
           </Button>
           <Button
-            intent="secondary"
+            intent="primary"
             disabled={officeGroupToggleType === 'none'}
             onClick={handleSetOfficeGroupToggleType('none', setOfficeGroupToggleType)}
           >

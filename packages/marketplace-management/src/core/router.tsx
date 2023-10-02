@@ -3,9 +3,9 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import RoutePaths from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { FC, lazy } from 'react'
-import { catchChunkError } from '@reapit/utils-react'
+import { Login, catchChunkError } from '@reapit/utils-react'
+import { reapitConnectBrowserSession } from './connect-session'
 
-const LoginPage = lazy(() => catchChunkError(() => import('../components/pages/login')))
 const Offices = lazy(() => catchChunkError(() => import('../components/pages/offices')))
 const Users = lazy(() => catchChunkError(() => import('../components/pages/users')))
 const Marketplace = lazy(() => catchChunkError(() => import('../components/pages/marketplace')))
@@ -14,7 +14,10 @@ const MarketplaceAppPage = lazy(() => catchChunkError(() => import('../component
 
 export const RoutesComponent: FC = () => (
   <Routes>
-    <Route path={RoutePaths.LOGIN} element={<LoginPage />} />
+    <Route
+      path={RoutePaths.LOGIN}
+      element={<Login appName="AppMarket Management" reapitConnectBrowserSession={reapitConnectBrowserSession} />}
+    />
     <Route
       path={`${RoutePaths.OFFICES}/*`}
       element={

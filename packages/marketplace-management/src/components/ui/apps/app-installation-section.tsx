@@ -96,7 +96,7 @@ export const AppInstallationSection: FC<AppInstallationSectionProps> = ({
       </FormLayout>
       <ButtonGroup className={elMb7} alignment="right">
         <Button
-          intent="critical"
+          intent="primary"
           size={2}
           chevronRight
           disabled={!submitButtonEnabled}

@@ -70,7 +70,7 @@ export const SettingsPage: FC = () => {
             users in your organisation.
           </SmallText>
         )}
-        <Button onClick={logoutUser} intent="critical" chevronRight>
+        <Button onClick={logoutUser} intent="primary" chevronRight>
           Logout
         </Button>
       </SecondaryNavContainer>

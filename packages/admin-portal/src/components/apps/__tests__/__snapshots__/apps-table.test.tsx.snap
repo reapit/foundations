@@ -219,14 +219,6 @@ exports[`AppsTable should render component with apps 1`] = `
                     <mock-styled.button
                       classname="mock-css."
                       disabled="true"
-                      type="button"
-                    >
-                      <mock-styled.div />
-                      Delete
-                    </mock-styled.button>
-                    <mock-styled.button
-                      classname="mock-css."
-                      disabled="true"
                     >
                       <mock-styled.div />
                       Toggle Subscription
@@ -244,6 +236,14 @@ exports[`AppsTable should render component with apps 1`] = `
                     >
                       <mock-styled.div />
                       Togggle API Consumption
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="true"
+                      type="button"
+                    >
+                      <mock-styled.div />
+                      Delete
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -469,14 +469,6 @@ exports[`AppsTable should render component with apps 1`] = `
                   <mock-styled.button
                     classname="mock-css."
                     disabled="true"
-                    type="button"
-                  >
-                    <mock-styled.div />
-                    Delete
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="mock-css."
-                    disabled="true"
                   >
                     <mock-styled.div />
                     Toggle Subscription
@@ -494,6 +486,14 @@ exports[`AppsTable should render component with apps 1`] = `
                   >
                     <mock-styled.div />
                     Togggle API Consumption
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="true"
+                    type="button"
+                  >
+                    <mock-styled.div />
+                    Delete
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>

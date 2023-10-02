@@ -107,7 +107,7 @@ export const MarketplacePage: FC = () => {
           <Title>{orgName} AppMarket</Title>
           {isMobile && (
             <ButtonGroup alignment="right">
-              <Button intent="low" onClick={openModal}>
+              <Button intent="default" onClick={openModal}>
                 Select Org
               </Button>
               <Modal title="Page Controls">
@@ -123,7 +123,7 @@ export const MarketplacePage: FC = () => {
                   />
                 </ControlsContainer>
                 <ButtonGroup alignment="center">
-                  <Button intent="secondary" onClick={closeModal}>
+                  <Button intent="primary" onClick={closeModal}>
                     Close
                   </Button>
                 </ButtonGroup>
@@ -132,7 +132,7 @@ export const MarketplacePage: FC = () => {
           )}
         </FlexContainer>
         {!orgClientId ? (
-          <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+          <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
             No organisation selected. You need to select an organisation to view available apps.
           </PersistentNotification>
         ) : appLoading ? (

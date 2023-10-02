@@ -192,7 +192,7 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
         </InputWrapFull>
       </FormLayout>
       <ButtonGroup alignment="right">
-        <Button intent="secondary" onClick={onComplete} type="button">
+        <Button intent="primary" onClick={onComplete} type="button">
           Cancel
         </Button>
         <Button intent="primary" type="submit">

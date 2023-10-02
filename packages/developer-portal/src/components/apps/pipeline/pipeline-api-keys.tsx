@@ -179,7 +179,7 @@ export const ApiKeys: FC<ApiKeysProps> = ({ closeModal }) => {
                           text={item.apiKey ?? ''}
                           onCopy={handleCopyCode(setCopyState, item.apiKey ?? '')}
                         >
-                          <Button intent="low">{copyState === item.apiKey ? 'Copied' : 'Copy'}</Button>
+                          <Button intent="default">{copyState === item.apiKey ? 'Copied' : 'Copy'}</Button>
                         </CopyToClipboard>
                       </FlexContainer>
                     ),
@@ -211,7 +211,7 @@ export const ApiKeys: FC<ApiKeysProps> = ({ closeModal }) => {
             </PersistentNotification>
           )}
           <ButtonGroup alignment="right">
-            <Button intent="neutral" fixedWidth onClick={closeModal} disabled={isLoading}>
+            <Button intent="neutral" onClick={closeModal} disabled={isLoading}>
               Close
             </Button>
             <Button

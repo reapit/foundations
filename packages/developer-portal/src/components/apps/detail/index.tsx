@@ -204,7 +204,7 @@ export const AppDetail: FC = () => {
                   </div>
                 </FlexContainer>
                 <CopyToClipboard text={externalId} onCopy={handleCopyCode(setCopyState, 'externalId')}>
-                  <Button intent="low">{copyState.externalId}</Button>
+                  <Button intent="default">{copyState.externalId}</Button>
                 </CopyToClipboard>
               </Col>
             )}
@@ -224,12 +224,12 @@ export const AppDetail: FC = () => {
               </FlexContainer>
               {appSecret?.clientSecret ? (
                 <CopyToClipboard text={appSecret?.clientSecret} onCopy={handleCopyCode(setCopyState, 'clientSecret')}>
-                  <Button intent="low">{copyState.clientSecret}</Button>
+                  <Button intent="default">{copyState.clientSecret}</Button>
                 </CopyToClipboard>
               ) : (
                 <Button
                   onClick={handleSetShouldFetchSecret(setShouldFetchSecret)}
-                  intent="low"
+                  intent="default"
                   disabled={appSecretLoading || !isAdmin}
                   loading={appDetailLoading}
                 >
@@ -266,7 +266,7 @@ export const AppDetail: FC = () => {
                     text={rotatingExternalId}
                     onCopy={handleCopyCode(setCopyState, 'rotatingExternalId')}
                   >
-                    <Button intent="low">{copyState.rotatingExternalId}</Button>
+                    <Button intent="default">{copyState.rotatingExternalId}</Button>
                   </CopyToClipboard>
                 </Col>
                 <Col>
@@ -288,12 +288,12 @@ export const AppDetail: FC = () => {
                       text={appSecret?.rotatingClientSecret}
                       onCopy={handleCopyCode(setCopyState, 'rotatingClientSecret')}
                     >
-                      <Button intent="low">{copyState.rotatingClientSecret}</Button>
+                      <Button intent="default">{copyState.rotatingClientSecret}</Button>
                     </CopyToClipboard>
                   ) : (
                     <Button
                       onClick={handleSetShouldFetchSecret(setShouldFetchSecret)}
-                      intent="low"
+                      intent="default"
                       disabled={appSecretLoading || !isAdmin}
                       loading={appDetailLoading}
                     >
@@ -329,7 +329,7 @@ export const AppDetail: FC = () => {
               </div>
             </FlexContainer>
             <CopyToClipboard text={externalId} onCopy={handleCopyCode(setCopyState, 'externalId')}>
-              <Button intent="low">{copyState.externalId}</Button>
+              <Button intent="default">{copyState.externalId}</Button>
             </CopyToClipboard>
           </Col>
         )}
@@ -345,7 +345,7 @@ export const AppDetail: FC = () => {
               </div>
             </FlexContainer>
             <CopyToClipboard text={id} onCopy={handleCopyCode(setCopyState, 'appId')}>
-              <Button intent="low">{copyState.appId}</Button>
+              <Button intent="default">{copyState.appId}</Button>
             </CopyToClipboard>
           </Col>
         )}

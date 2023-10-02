@@ -45,11 +45,12 @@ exports[`Menu should match a snapshot 1`] = `
             />
           </mock-styled.span>
           <mock-styled.span
-            classname="mock-css.
-  font-size: 2.5rem;
-"
+            classname=""
+            style="height: 24px; width: 100px;"
           >
-            <svg />
+            <svg
+              style="height: 24px; width: 100px;"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -190,11 +191,12 @@ exports[`Menu should match a snapshot 1`] = `
           />
         </mock-styled.span>
         <mock-styled.span
-          classname="mock-css.
-  font-size: 2.5rem;
-"
+          classname=""
+          style="height: 24px; width: 100px;"
         >
-          <svg />
+          <svg
+            style="height: 24px; width: 100px;"
+          />
         </mock-styled.span>
         <mock-styled.span
           classname="mock-css.

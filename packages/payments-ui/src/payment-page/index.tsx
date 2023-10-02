@@ -44,7 +44,7 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
       <Grid className={elMb11}>
         <Col>
           <FlexContainer>
-            <Icon className={elMr4} icon="poundSystem" intent="secondary" iconSize="medium" />
+            <Icon className={elMr4} icon="poundSystem" intent="primary" iconSize="medium" />
             <div>
               <Subtitle hasNoMargin>Payment Amount</Subtitle>
               <BodyText hasGreyText>{amount ? amount.toFixed(2) : 0}</BodyText>

@@ -292,7 +292,7 @@ export const AppsDetail: FC = () => {
         <>
           {/* Feature flagging sales banner in production */}
           {process.env.appEnv !== 'production' && (
-            <PersistentNotification onClick={salesBannerClick} isExpanded={salesBannerVisible} intent="critical">
+            <PersistentNotification onClick={salesBannerClick} isExpanded={salesBannerVisible} intent="primary">
               Interested in hearing more about this app? Click here and one of the Reapit Team will be in touch!
             </PersistentNotification>
           )}
@@ -302,7 +302,7 @@ export const AppsDetail: FC = () => {
           <AppsDetailHeader app={app} />
           <ButtonGroup className={elMb11} alignment="left">
             {!isInstalled && (isAdmin || isSboxDev) && (
-              <Button intent="critical" onClick={installModalOpen}>
+              <Button intent="primary" onClick={installModalOpen}>
                 {isDirectApi ? 'Enable Integration' : 'Install App'}
               </Button>
             )}
@@ -317,7 +317,7 @@ export const AppsDetail: FC = () => {
                   body: `Thank you for your interest in ‘${name}’, to make an enquiry please click ‘Continue’ below. We will launch your default mail client and your information will be shared with ‘${developer}’.`,
                 }}
                 content={
-                  <Button intent="low">{isDirectApi ? 'Enquire About Integration' : 'Enquire About App'}</Button>
+                  <Button intent="default">{isDirectApi ? 'Enquire About Integration' : 'Enquire About App'}</Button>
                 }
               />
             )}
@@ -339,7 +339,7 @@ export const AppsDetail: FC = () => {
               />
               {videos && Boolean(videos?.length) && (
                 <ButtonGroup>
-                  <Button intent="low" onClick={videoModalOpenHowTo}>
+                  <Button intent="default" onClick={videoModalOpenHowTo}>
                     <FlexContainer isFlexAlignCenter>
                       <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
                       {VideoType.HowTo}
@@ -347,7 +347,7 @@ export const AppsDetail: FC = () => {
                     </FlexContainer>
                   </Button>
                   {videos && videos?.length > 1 && (
-                    <Button intent="low" onClick={videoModalOpenMarketing}>
+                    <Button intent="default" onClick={videoModalOpenMarketing}>
                       <FlexContainer isFlexAlignCenter>
                         <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
                         {VideoType.Marketing}
@@ -509,7 +509,7 @@ export const AppsDetail: FC = () => {
           allowFullScreen
         />
         <ButtonGroup alignment="center">
-          <Button fixedWidth onClick={videoModalClose} intent="low">
+          <Button onClick={videoModalClose} intent="default">
             Close
           </Button>
         </ButtonGroup>

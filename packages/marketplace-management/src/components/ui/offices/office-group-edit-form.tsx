@@ -270,7 +270,7 @@ export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup,
           </BodyText>
         )}
         <ButtonGroup alignment="right">
-          <Button onClick={closeModal} intent="low" type="button">
+          <Button onClick={closeModal} intent="default" type="button">
             Close
           </Button>
           {!hasInstallations && (

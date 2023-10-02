@@ -178,7 +178,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
       )}
       {hasFilters && (
         <ButtonGroup className={cx(appsSearchMobileControls, elMb5)}>
-          <Button onClick={clearSearch} intent="low">
+          <Button onClick={clearSearch} intent="default">
             Clear Search Filters
           </Button>
         </ButtonGroup>
@@ -194,7 +194,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
           />
         </FlexContainer>
         {hasFilters && (
-          <Button onClick={clearSearch} intent="low">
+          <Button onClick={clearSearch} intent="default">
             Clear Search Filters
           </Button>
         )}

@@ -60,7 +60,7 @@ export const PipelinesAbout = () => {
           and non-mission critical services.
         </BodyText>
         <Button
-          intent="low"
+          intent="default"
           onClick={openNewPage(ExternalPages.pipelineDocs)}
           onMouseOver={() => {
             setDocsIsAnimated(true)

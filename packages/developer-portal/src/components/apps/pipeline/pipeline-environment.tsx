@@ -142,7 +142,7 @@ export const PipelineEnvironment = () => {
                     <TableCell>{key}</TableCell>
                     <TableCell>
                       <Button
-                        intent="low"
+                        intent="default"
                         onClick={() => {
                           resetField('key')
                           resetField('value')
@@ -194,10 +194,10 @@ export const PipelineEnvironment = () => {
             </InputWrap>
           </FormLayout>
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="neutral" onClick={closeModal}>
+            <Button intent="neutral" onClick={closeModal}>
               Close
             </Button>
-            <Button fixedWidth intent="primary" type="submit" disabled={sending} loading={sending}>
+            <Button intent="primary" type="submit" disabled={sending} loading={sending}>
               Create
             </Button>
           </ButtonGroup>

@@ -152,7 +152,7 @@ export const Invite: FC = () => {
               >
                 Decline
               </Button>
-              <Button fixedWidth intent="primary" loading={isLoading} disabled={isLoading} type="submit">
+              <Button intent="primary" loading={isLoading} disabled={isLoading} type="submit">
                 Confirm
               </Button>
             </ButtonGroup>
@@ -167,7 +167,7 @@ export const Invite: FC = () => {
             Portal. If not, you will shortly receive an email with instructions on setting up your login credentials.
           </BodyText>
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="primary" onClick={navigateRoute(navigate, Routes.LOGIN)}>
+            <Button intent="primary" onClick={navigateRoute(navigate, Routes.LOGIN)}>
               Login
             </Button>
           </ButtonGroup>

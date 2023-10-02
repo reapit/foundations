@@ -242,25 +242,17 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
               content: (
                 <>
                   <ButtonGroup alignment="center">
-                    <Button intent="secondary" onClick={openNewPage(`${process.env.appMarketUri}/apps/${id}`)}>
+                    <Button intent="default" onClick={openNewPage(`${process.env.appMarketUri}/apps/${id}`)}>
                       View in AppMarket
                     </Button>
                     <Button
-                      intent="secondary"
+                      intent="default"
                       disabled={hasReadAccess}
                       onClick={openNewPage(`${process.env.developerPortalUri}/apps/${id}`)}
                     >
                       View in DevPortal
                     </Button>
                     <CheckAWSButton appId={id ?? ''} />
-                    <Button
-                      type="button"
-                      intent="danger"
-                      disabled={hasReadAccess}
-                      onClick={handleOpenModal(openModal, setAppIdDelete, id)}
-                    >
-                      Delete
-                    </Button>
                     <Button
                       onClick={handleAppIdSubs(setAppIdSubs, setAppIdFeatured, setAppIdConsumption, id)}
                       intent="primary"
@@ -281,6 +273,14 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                       onClick={handleAppIdConsumption(setAppIdConsumption, setAppIdSubs, setAppIdFeatured, id)}
                     >
                       Togggle API Consumption
+                    </Button>
+                    <Button
+                      type="button"
+                      intent="danger"
+                      disabled={hasReadAccess}
+                      onClick={handleOpenModal(openModal, setAppIdDelete, id)}
+                    >
+                      Delete
                     </Button>
                   </ButtonGroup>
                   {appIdFeatured && appIdFeatured === id && (
@@ -304,10 +304,10 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
           remove all app data including all revisions and listings.
         </BodyText>
         <ButtonGroup alignment="center">
-          <Button fixedWidth intent="secondary" onClick={closeModal}>
+          <Button intent="primary" onClick={closeModal}>
             Cancel
           </Button>
-          <Button fixedWidth intent="danger" onClick={handleDeleteApp(deleteApp, setIndexExpandedRow, appIdDelete)}>
+          <Button intent="danger" onClick={handleDeleteApp(deleteApp, setIndexExpandedRow, appIdDelete)}>
             Confirm
           </Button>
         </ButtonGroup>
@@ -315,7 +315,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
     </div>
   ) : (
     <div className={elMb11}>
-      <PersistentNotification isExpanded isFullWidth isInline intent="secondary">
+      <PersistentNotification isExpanded isFullWidth isInline intent="primary">
         No results found for your selected filters
       </PersistentNotification>
     </div>

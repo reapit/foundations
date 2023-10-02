@@ -213,7 +213,7 @@ export const AdminPage: FC = () => {
           className={elMb3}
           disabled={isLoading}
           loading={updateLoading || createLoading}
-          intent="critical"
+          intent="primary"
           onClick={openUpdateModal}
         >
           Save Config
@@ -275,7 +275,7 @@ export const AdminPage: FC = () => {
                     {logoUri && <img src={logoUri} />}
                   </FlexContainer>
                   <ButtonGroup alignment="center">
-                    <Button intent="low" onClick={closeFilePreviewModal}>
+                    <Button intent="default" onClick={closeFilePreviewModal}>
                       Close
                     </Button>
                   </ButtonGroup>
@@ -324,11 +324,11 @@ export const AdminPage: FC = () => {
               the app and that you have validated that all credentials are accurate.
             </PersistentNotification>
             <ButtonGroup alignment="center">
-              <Button intent="low" onClick={closeUpdateModal}>
+              <Button intent="default" onClick={closeUpdateModal}>
                 Cancel
               </Button>
               <Button
-                intent="critical"
+                intent="primary"
                 disabled={isLoading}
                 loading={updateLoading || createLoading}
                 onClick={submitHandler}
@@ -343,7 +343,7 @@ export const AdminPage: FC = () => {
               and that the app will no longer function for all users.
             </PersistentNotification>
             <ButtonGroup alignment="center">
-              <Button intent="low" onClick={closeDeleteModal}>
+              <Button intent="default" onClick={closeDeleteModal}>
                 Cancel
               </Button>
               <Button

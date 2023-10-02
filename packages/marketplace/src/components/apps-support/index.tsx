@@ -76,7 +76,7 @@ export const AppsSupportPage: FC = () => {
           <AppsSearchInput type="text" placeholder="Search by App or Developer" onChange={debouncedSearch} />
         </FlexContainer>
         {!search && !appsLoading && (
-          <PersistentNotification isInline isExpanded isFullWidth intent="secondary">
+          <PersistentNotification isInline isExpanded isFullWidth intent="primary">
             Search for an app or developer name to get support contact details
           </PersistentNotification>
         )}

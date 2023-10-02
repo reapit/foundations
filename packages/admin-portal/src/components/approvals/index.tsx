@@ -80,11 +80,11 @@ export const AdminApprovals: FC = () => {
                   content: (
                     <>
                       <ButtonGroup alignment="center">
-                        <Button intent="secondary" onClick={openNewPage(`${process.env.appMarketUri}/apps/${appId}`)}>
+                        <Button intent="default" onClick={openNewPage(`${process.env.appMarketUri}/apps/${appId}`)}>
                           View in AppMarket
                         </Button>
                         <Button
-                          intent="secondary"
+                          intent="default"
                           disabled={hasReadAccess}
                           onClick={openNewPage(`${process.env.developerPortalUri}/apps/${appId}`)}
                         >
@@ -92,13 +92,13 @@ export const AdminApprovals: FC = () => {
                         </Button>
                         <Button
                           type="button"
-                          intent="primary"
+                          intent="default"
                           onClick={handleSetDiffApproval(setDiffApproval, setConsentApproval, approval)}
                         >
                           View Revision
                         </Button>
                         <Button
-                          intent="secondary"
+                          intent="default"
                           onClick={handleSetConsentApproval(setConsentApproval, setDiffApproval, approval)}
                         >
                           View Consents

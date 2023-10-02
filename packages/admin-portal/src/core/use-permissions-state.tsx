@@ -76,7 +76,7 @@ export const PermissionsProvider: FC<PropsWithChildren> = ({ children }) => {
           className={elMt5}
           onClick={handleBannerClick(setBannerVisible, bannerVisible)}
           isExpanded={bannerVisible}
-          intent="secondary"
+          intent="primary"
         >
           You have read only access to the Admin Portal. This means some buttons and actions will be unavailable or
           disabled while using the app.

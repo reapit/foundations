@@ -46,7 +46,7 @@ export const DSNComponent: FC<TableCellProps> = ({ value }) => {
 
   return (
     <CopyToClipboard text={value} onCopy={handleCopyCode(setCopyMessage)}>
-      <Button onMouseLeave={handleMouseLeave(setCopyMessage, 'Copy DSN')} intent="low">
+      <Button onMouseLeave={handleMouseLeave(setCopyMessage, 'Copy DSN')} intent="default">
         {copyMessage}
       </Button>
     </CopyToClipboard>
@@ -58,7 +58,7 @@ export const URLComponent: FC<TableCellProps> = ({ value }) => {
 
   return (
     <CopyToClipboard text={value} onCopy={handleCopyCode(setCopyMessage)}>
-      <Button onMouseLeave={handleMouseLeave(setCopyMessage, 'Copy URL')} intent="low">
+      <Button onMouseLeave={handleMouseLeave(setCopyMessage, 'Copy URL')} intent="default">
         {copyMessage}
       </Button>
     </CopyToClipboard>

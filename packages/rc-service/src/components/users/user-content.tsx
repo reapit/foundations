@@ -302,7 +302,7 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
       {activeAuthenticator && isSupport && shouldFetch.authenticators ? (
         <ActiveAuthenticator activeAuthenticator={activeAuthenticator} refreshAuthenticators={refreshAuthenticators} />
       ) : shouldFetch.authenticators ? (
-        <PersistantNotification isFullWidth isExpanded isInline intent="secondary">
+        <PersistantNotification isFullWidth isExpanded isInline intent="primary">
           No authenticators configured for this user.
         </PersistantNotification>
       ) : null}
@@ -320,14 +320,14 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
           </Table>
         </>
       ) : shouldFetch.officeGroups ? (
-        <PersistantNotification isFullWidth isExpanded isInline intent="secondary">
+        <PersistantNotification isFullWidth isExpanded isInline intent="primary">
           User not part of an office group.
         </PersistantNotification>
       ) : null}
       {userInfo && shouldFetch.loginLogs && userInfo.idpData?.authEvents?.length ? (
         userInfo.idpData?.authEvents.slice(0, 5).map((event) => <DisplayChip key={event}>{event}</DisplayChip>)
       ) : shouldFetch.loginLogs ? (
-        <PersistantNotification isFullWidth isExpanded isInline intent="secondary">
+        <PersistantNotification isFullWidth isExpanded isInline intent="primary">
           No info available for this user.
         </PersistantNotification>
       ) : null}
@@ -343,7 +343,7 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
             >
               Reset Password
             </Button>
-            <Button intent="low" onClick={handleShouldFetch(setShouldFetch, {})}>
+            <Button intent="default" onClick={handleShouldFetch(setShouldFetch, {})}>
               Cancel
             </Button>
           </ButtonGroup>
@@ -366,7 +366,7 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
                 Remove from list
               </Button>
             )}
-            <Button intent="low" onClick={handleShouldFetch(setShouldFetch, {})}>
+            <Button intent="default" onClick={handleShouldFetch(setShouldFetch, {})}>
               Cancel
             </Button>
           </ButtonGroup>

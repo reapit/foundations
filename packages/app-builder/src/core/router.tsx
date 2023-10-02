@@ -14,12 +14,11 @@ import { useIntrospection } from '@/components/hooks/use-introspection'
 import { getDesktopContext, unsetDesktopContext } from './desktop-integration'
 import { useEffect } from 'react'
 import { isEditor } from './config'
-import { catchChunkError } from '@reapit/utils-react'
+import { Login, catchChunkError } from '@reapit/utils-react'
 
 const HomePage = React.lazy(() => catchChunkError(() => import('../components/pages/home')))
 const AppSelect = React.lazy(() => catchChunkError(() => import('../components/pages/app-select')))
 const AppView = React.lazy(() => catchChunkError(() => import('../components/pages/app-view')))
-const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 
 const reapitConnectBrowserSession = getReapitConnectBrowserSession(process.env)
 const client = createClient(reapitConnectBrowserSession)
@@ -30,12 +29,8 @@ const AppEditor = () => {
         <BrowserRouter>
           <Routes>
             <Route
-              path="/login"
-              element={
-                <PrivateRouteWrapper reapitConnectBrowserSession={reapitConnectBrowserSession}>
-                  <LoginPage />
-                </PrivateRouteWrapper>
-              }
+              path={RoutePaths.LOGIN}
+              element={<Login appName="App Builder" reapitConnectBrowserSession={reapitConnectBrowserSession} />}
             />
             <Route
               path="/logout"
@@ -111,12 +106,8 @@ const AppViewer = () => {
         <BrowserRouter>
           <Routes>
             <Route
-              path="/login"
-              element={
-                <PrivateRouteWrapper reapitConnectBrowserSession={session}>
-                  <LoginPage />
-                </PrivateRouteWrapper>
-              }
+              path={RoutePaths.LOGIN}
+              element={<Login appName="App Builder" reapitConnectBrowserSession={reapitConnectBrowserSession} />}
             />
             <Route
               path="/logout"

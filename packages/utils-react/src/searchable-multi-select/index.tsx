@@ -161,7 +161,7 @@ export const SearchableMultiSelect: FC<SearchableMultiSelectProps> = forwardRef(
           </PersistentNotification>
         )}
         {response && !data.length && (
-          <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+          <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
             No results found for your search query
           </PersistentNotification>
         )}

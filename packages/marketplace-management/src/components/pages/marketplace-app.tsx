@@ -81,7 +81,7 @@ const MarketplaceAppPage: FC = () => {
         <Button
           className={elMb5}
           type="button"
-          intent="critical"
+          intent="primary"
           chevronRight
           onClick={handleLoadAppListing(connectIsDesktop, app?.id as string)}
         >
@@ -90,7 +90,7 @@ const MarketplaceAppPage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         {!orgClientId ? (
-          <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+          <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
             No organisation selected. You need to select an organisation to view the app details.
           </PersistentNotification>
         ) : !app || !desktopIntegrationTypes ? (

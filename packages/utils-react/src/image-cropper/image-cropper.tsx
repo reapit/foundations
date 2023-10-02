@@ -133,7 +133,7 @@ export const ImageCropperFileInput: ImageCropperWithInputPropsWrapped = forwardR
         <ElFileInputWrap>
           {label && <Label>{label}</Label>}
           <FlexContainer isFlexAlignCenter>
-            <Button className={elMr4} type="button" intent="low">
+            <Button className={elMr4} type="button" intent="default">
               {fileUrl ? 'Change' : 'Upload'}
             </Button>
             <ElFileInput accept={accept} type="file" onChange={handleFileChange(setFileName, setVisible)} />
@@ -190,7 +190,7 @@ export const ImageCropperFileInput: ImageCropperWithInputPropsWrapped = forwardR
               </div>
               <ButtonGroup alignment="right">
                 <Button
-                  intent="low"
+                  intent="default"
                   type="button"
                   onClick={onCloseHandler({ setVisible, setFileName, setCroppedImage })}
                 >

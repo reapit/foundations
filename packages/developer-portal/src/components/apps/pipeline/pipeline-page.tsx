@@ -43,7 +43,7 @@ export const PipelinePage: FC = () => {
         <Modal title="Controls">
           <Helper />
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="neutral" onClick={closeModal}>
+            <Button intent="neutral" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>

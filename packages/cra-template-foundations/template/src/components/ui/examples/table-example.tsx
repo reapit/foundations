@@ -25,7 +25,7 @@ export const TableExample: FC = () => {
   return (
     <>
       <Title>Table Example</Title>
-      <PersistentNotification className={elMb7} isExpanded intent="secondary" isInline isFullWidth>
+      <PersistentNotification className={elMb7} isExpanded intent="primary" isInline isFullWidth>
         Straight from the Elements docs, the customised table example also has a button in the slide down that triggers
         a Modal dialogue. The custom setIndexExpandedRow function allows a callback to collapse the row when the modal
         is closed.
@@ -162,7 +162,7 @@ export const TableExample: FC = () => {
                 value: 'Pending',
                 children: (
                   <>
-                    <StatusIndicator intent="critical" /> Pending
+                    <StatusIndicator intent="primary" /> Pending
                   </>
                 ),
                 narrowTable: {
@@ -193,7 +193,7 @@ export const TableExample: FC = () => {
         </PersistentNotification>
         <BodyText hasGreyText>Typically Modals are used to confirm or deny things.</BodyText>
         <ButtonGroup alignment="center">
-          <Button intent="secondary" onClick={handleOnCloseModal(setIndexExpandedRow, closeModal)}>
+          <Button intent="primary" onClick={handleOnCloseModal(setIndexExpandedRow, closeModal)}>
             Close
           </Button>
         </ButtonGroup>

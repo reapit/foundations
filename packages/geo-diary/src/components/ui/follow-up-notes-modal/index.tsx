@@ -72,10 +72,10 @@ export const FollowUpNotesModal: FC<FollowUpNotesModalProps> = ({ appointment, c
           <Label>Follow up notes</Label>
         </InputGroup>
         <FlexContainer isFlexJustifyEvenly>
-          <Button intent="secondary" size={2} disabled={loading} onClick={closeModal} type="button">
+          <Button intent="primary" size={2} disabled={loading} onClick={closeModal} type="button">
             Cancel
           </Button>
-          <Button intent="critical" size={2} loading={loading} type="submit">
+          <Button intent="primary" size={2} loading={loading} type="submit">
             Submit
           </Button>
         </FlexContainer>

@@ -3,13 +3,13 @@ export const statusOptions = [
     label: 'Not Requested',
     description: 'Payment has not yet been requested from customer',
     value: 'awaitingAuthorisation',
-    intent: 'low',
+    intent: 'default',
   },
   {
     label: 'Awaiting Payment',
     description: 'Payment has been requested but not yet actioned by the customer',
     value: 'awaitingPosting',
-    intent: 'critical',
+    intent: 'pending',
   },
   {
     label: 'Paid',

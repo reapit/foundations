@@ -559,13 +559,6 @@ exports[`AppsPage should render a component when has data 1`] = `
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
-                        type="button"
-                      >
-                        <mock-styled.div />
-                        Delete
-                      </mock-styled.button>
-                      <mock-styled.button
-                        classname="mock-css."
                       >
                         <mock-styled.div />
                         Toggle Subscription
@@ -581,6 +574,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                       >
                         <mock-styled.div />
                         Togggle API Consumption
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
+                        type="button"
+                      >
+                        <mock-styled.div />
+                        Delete
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
@@ -1176,13 +1176,6 @@ exports[`AppsPage should render a component when has data 1`] = `
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
-                      type="button"
-                    >
-                      <mock-styled.div />
-                      Delete
-                    </mock-styled.button>
-                    <mock-styled.button
-                      classname="mock-css."
                     >
                       <mock-styled.div />
                       Toggle Subscription
@@ -1198,6 +1191,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                     >
                       <mock-styled.div />
                       Togggle API Consumption
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      type="button"
+                    >
+                      <mock-styled.div />
+                      Delete
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>

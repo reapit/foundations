@@ -95,11 +95,9 @@ export const InviteMemberModalForm: FC<InviteMemberModalFormProps> = ({ develope
           />
         </InputWrapFull>
       </FormLayout>
-      <ButtonGroup alignment="center">
-        <Button fixedWidth intent="low" onClick={closeModal}>
-          Close
-        </Button>
-        <Button fixedWidth intent="primary" type="submit">
+      <ButtonGroup alignment="right">
+        <Button onClick={closeModal}>Close</Button>
+        <Button intent="primary" type="submit">
           Send Invite
         </Button>
       </ButtonGroup>

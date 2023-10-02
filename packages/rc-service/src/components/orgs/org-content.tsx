@@ -138,7 +138,7 @@ export const OrgContent: FC<OrgContentProps> = ({ org, refreshOrgs }) => {
           </form>
         </>
       ) : shouldFetch.orgConfig ? (
-        <PersistantNotification isFullWidth isExpanded isInline intent="secondary">
+        <PersistantNotification isFullWidth isExpanded isInline intent="primary">
           No config for this organisation.
         </PersistantNotification>
       ) : null}

@@ -236,7 +236,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
 
   if (!payment) {
     return (
-      <PersistentNotification className={elFadeIn} intent="secondary" isFullWidth isInline isExpanded>
+      <PersistentNotification className={elFadeIn} intent="primary" isFullWidth isInline isExpanded>
         We do not have any information about this payment.
       </PersistentNotification>
     )

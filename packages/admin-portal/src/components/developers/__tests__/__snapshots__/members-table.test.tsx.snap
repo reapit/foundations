@@ -246,13 +246,6 @@ exports[`MembersTable should render component with data 1`] = `
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
-                      disabled="true"
-                    >
-                      <mock-styled.div />
-                      Enable
-                    </mock-styled.button>
-                    <mock-styled.button
-                      classname="mock-css."
                       disabled="false"
                     >
                       <mock-styled.div />
@@ -265,6 +258,13 @@ exports[`MembersTable should render component with data 1`] = `
                     >
                       <mock-styled.div />
                       Delete Member
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="true"
+                    >
+                      <mock-styled.div />
+                      Enable
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -472,13 +472,6 @@ exports[`MembersTable should render component with data 1`] = `
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
-                    disabled="true"
-                  >
-                    <mock-styled.div />
-                    Enable
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="mock-css."
                     disabled="false"
                   >
                     <mock-styled.div />
@@ -491,6 +484,13 @@ exports[`MembersTable should render component with data 1`] = `
                   >
                     <mock-styled.div />
                     Delete Member
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="true"
+                  >
+                    <mock-styled.div />
+                    Enable
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>

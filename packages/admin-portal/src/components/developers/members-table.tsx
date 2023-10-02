@@ -229,18 +229,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
                       Set As {role === 'admin' ? 'User' : 'Admin'}
                     </Button>
                     <Button
-                      intent="danger"
-                      disabled={hasReadAccess || memberUpdating}
-                      loading={memberUpdating}
-                      onClick={handleSetUpdateMember(setMemberUpdate, {
-                        ...member,
-                        status: status === 'active' ? 'inactive' : 'active',
-                      })}
-                    >
-                      {status === 'active' ? 'Disable' : 'Enable'}
-                    </Button>
-                    <Button
-                      intent="secondary"
+                      intent="primary"
                       disabled={userInfoLoading}
                       loading={userInfoLoading}
                       onClick={handleSetMemberEmail(setMemberEmail, email)}
@@ -254,6 +243,17 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
                       onClick={handleMemberDelete(setMemberDelete, openModal, member)}
                     >
                       Delete Member
+                    </Button>
+                    <Button
+                      intent="danger"
+                      disabled={hasReadAccess || memberUpdating}
+                      loading={memberUpdating}
+                      onClick={handleSetUpdateMember(setMemberUpdate, {
+                        ...member,
+                        status: status === 'active' ? 'inactive' : 'active',
+                      })}
+                    >
+                      {status === 'active' ? 'Disable' : 'Enable'}
                     </Button>
                   </ButtonGroup>
                   {userInfoLoading && <Loader className={elMt5} />}
@@ -269,7 +269,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
                       })}
                     </>
                   ) : userInfo && memberEmail === email ? (
-                    <PersistentNotification className={elMt5} isExpanded isFullWidth isInline intent="secondary">
+                    <PersistentNotification className={elMt5} isExpanded isFullWidth isInline intent="primary">
                       No login information for user
                     </PersistentNotification>
                   ) : null}
@@ -286,10 +286,8 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
       />
       <Modal title="Delete Member">
         <BodyText hasGreyText>Are you sure you want to delete this member? This action cannot be undone.</BodyText>
-        <ButtonGroup alignment="center">
-          <Button intent="low" onClick={closeModal}>
-            Cancel
-          </Button>
+        <ButtonGroup alignment="right">
+          <Button onClick={closeModal}>Cancel</Button>
           <Button intent="danger" onClick={handleDeleteMember(setMemberDelete, closeModal, deleteMember)}>
             Delete
           </Button>
@@ -297,7 +295,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
       </Modal>
     </div>
   ) : (
-    <PersistentNotification className={elMt5} isExpanded isFullWidth isInline intent="secondary">
+    <PersistentNotification className={elMt5} isExpanded isFullWidth isInline intent="primary">
       No results found for your selected filters
     </PersistentNotification>
   )

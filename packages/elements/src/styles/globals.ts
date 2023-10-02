@@ -162,6 +162,12 @@ export const elGlobals = css`
 
     body {
       height: 100%;
+      background: #4e56ea;
+    }
+
+    #root {
+      height: 100%;
+      background: #fff;
     }
 
     a {

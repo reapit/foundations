@@ -56,11 +56,9 @@ export const ResendConsentModal: FC<ResendConsentModalProps> = ({ email, closeMo
           />
         </InputWrapFull>
       </FormLayout>
-      <ButtonGroup alignment="center">
-        <Button fixedWidth intent="low" onClick={closeModal}>
-          Cancel
-        </Button>
-        <Button fixedWidth intent="primary" type="submit">
+      <ButtonGroup alignment="right">
+        <Button onClick={closeModal}>Cancel</Button>
+        <Button intent="primary" type="submit">
           Confirm
         </Button>
       </ButtonGroup>
