@@ -1,0 +1,1236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <mock-styled.p
+        classname=""
+      >
+        Calculation of Total Consumption Cost - Methodology (On last day of monthly billing period):
+      </mock-styled.p>
+      <mock-styled.div
+        classname="mock-css.
+  margin-bottom: 2.5rem;
+"
+        data-has-call-to-action="false"
+        data-has-expandable-action="false"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
+            Month API Call
+          </mock-styled.div>
+          <mock-styled.div>
+            First 1,000
+          </mock-styled.div>
+          <mock-styled.div>
+            1,001 - 2,500
+          </mock-styled.div>
+          <mock-styled.div>
+            2,501 - 5,000
+          </mock-styled.div>
+          <mock-styled.div>
+            5,001 - 10,000
+          </mock-styled.div>
+          <mock-styled.div>
+            10,001 - 25,000
+          </mock-styled.div>
+          <mock-styled.div>
+            25,001 - 50,000
+          </mock-styled.div>
+          <mock-styled.div>
+            above 50,000
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="Month API Call"
+              >
+                1-5
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="First 1,000"
+              >
+                £0.010000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="1,001 - 2,500"
+              >
+                £0.008000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="2,501 - 5,000"
+              >
+                £0.006000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="5,001 - 10,000"
+              >
+                £0.005000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="10,001 - 25,000"
+              >
+                £0.004000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="25,001 - 50,000"
+              >
+                £0.002500
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="above 50,000"
+              >
+                £0.001000
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="Month API Call"
+              >
+                6-10
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="First 1,000"
+              >
+                £0.011000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="1,001 - 2,500"
+              >
+                £0.008800
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="2,501 - 5,000"
+              >
+                £0.006600
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="5,001 - 10,000"
+              >
+                £0.005500
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="10,001 - 25,000"
+              >
+                £0.004400
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="25,001 - 50,000"
+              >
+                £0.00270
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="above 50,000"
+              >
+                £0.001100
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="Month API Call"
+              >
+                11-20
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="First 1,000"
+              >
+                £0.012500
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="1,001 - 2,500"
+              >
+                £0.010000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="2,501 - 5,000"
+              >
+                £0.007500
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="5,001 - 10,000"
+              >
+                £0.006250
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="10,001 - 25,000"
+              >
+                £0.005000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="25,001 - 50,000"
+              >
+                £0.003125
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="above 50,000"
+              >
+                £0.001250
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="Month API Call"
+              >
+                21-30
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="First 1,000"
+              >
+                £0.014500
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="1,001 - 2,500"
+              >
+                £0.011600
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="2,501 - 5,000"
+              >
+                £0.008700
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="5,001 - 10,000"
+              >
+                £0.007250
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="10,001 - 25,000"
+              >
+                £0.005800
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="25,001 - 50,000"
+              >
+                £0.003625
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="above 50,000"
+              >
+                £0.001450
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="Month API Call"
+              >
+                31-40
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="First 1,000"
+              >
+                £0.017000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="1,001 - 2,500"
+              >
+                £0.013600
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="2,501 - 5,000"
+              >
+                £0.010200
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="5,001 - 10,000"
+              >
+                £0.008500
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="10,001 - 25,000"
+              >
+                £0.006800
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="25,001 - 50,000"
+              >
+                £0.004250
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="above 50,000"
+              >
+                £0.001700
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="Month API Call"
+              >
+                41-50
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="First 1,000"
+              >
+                £0.020000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="1,001 - 2,500"
+              >
+                £0.016000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="2,501 - 5,000"
+              >
+                £0.012000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="5,001 - 10,000"
+              >
+                £0.010000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="10,001 - 25,000"
+              >
+                £0.008000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="25,001 - 50,000"
+              >
+                £0.005000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="above 50,000"
+              >
+                £0.002000
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="Month API Call"
+              >
+                51+
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="First 1,000"
+              >
+                £0.023500
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="1,001 - 2,500"
+              >
+                £0.018800
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="2,501 - 5,000"
+              >
+                £0.014000
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="5,001 - 10,000"
+              >
+                £0.011750
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="10,001 - 25,000"
+              >
+                £0.009400
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="25,001 - 50,000"
+              >
+                £0.005875
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="above 50,000"
+              >
+                £0.002350
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.p
+      classname=""
+    >
+      Calculation of Total Consumption Cost - Methodology (On last day of monthly billing period):
+    </mock-styled.p>
+    <mock-styled.div
+      classname="mock-css.
+  margin-bottom: 2.5rem;
+"
+      data-has-call-to-action="false"
+      data-has-expandable-action="false"
+    >
+      <mock-styled.div>
+        <mock-styled.div>
+          Month API Call
+        </mock-styled.div>
+        <mock-styled.div>
+          First 1,000
+        </mock-styled.div>
+        <mock-styled.div>
+          1,001 - 2,500
+        </mock-styled.div>
+        <mock-styled.div>
+          2,501 - 5,000
+        </mock-styled.div>
+        <mock-styled.div>
+          5,001 - 10,000
+        </mock-styled.div>
+        <mock-styled.div>
+          10,001 - 25,000
+        </mock-styled.div>
+        <mock-styled.div>
+          25,001 - 50,000
+        </mock-styled.div>
+        <mock-styled.div>
+          above 50,000
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="Month API Call"
+            >
+              1-5
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="First 1,000"
+            >
+              £0.010000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="1,001 - 2,500"
+            >
+              £0.008000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="2,501 - 5,000"
+            >
+              £0.006000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="5,001 - 10,000"
+            >
+              £0.005000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="10,001 - 25,000"
+            >
+              £0.004000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="25,001 - 50,000"
+            >
+              £0.002500
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="above 50,000"
+            >
+              £0.001000
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="Month API Call"
+            >
+              6-10
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="First 1,000"
+            >
+              £0.011000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="1,001 - 2,500"
+            >
+              £0.008800
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="2,501 - 5,000"
+            >
+              £0.006600
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="5,001 - 10,000"
+            >
+              £0.005500
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="10,001 - 25,000"
+            >
+              £0.004400
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="25,001 - 50,000"
+            >
+              £0.00270
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="above 50,000"
+            >
+              £0.001100
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="Month API Call"
+            >
+              11-20
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="First 1,000"
+            >
+              £0.012500
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="1,001 - 2,500"
+            >
+              £0.010000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="2,501 - 5,000"
+            >
+              £0.007500
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="5,001 - 10,000"
+            >
+              £0.006250
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="10,001 - 25,000"
+            >
+              £0.005000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="25,001 - 50,000"
+            >
+              £0.003125
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="above 50,000"
+            >
+              £0.001250
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="Month API Call"
+            >
+              21-30
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="First 1,000"
+            >
+              £0.014500
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="1,001 - 2,500"
+            >
+              £0.011600
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="2,501 - 5,000"
+            >
+              £0.008700
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="5,001 - 10,000"
+            >
+              £0.007250
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="10,001 - 25,000"
+            >
+              £0.005800
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="25,001 - 50,000"
+            >
+              £0.003625
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="above 50,000"
+            >
+              £0.001450
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="Month API Call"
+            >
+              31-40
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="First 1,000"
+            >
+              £0.017000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="1,001 - 2,500"
+            >
+              £0.013600
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="2,501 - 5,000"
+            >
+              £0.010200
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="5,001 - 10,000"
+            >
+              £0.008500
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="10,001 - 25,000"
+            >
+              £0.006800
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="25,001 - 50,000"
+            >
+              £0.004250
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="above 50,000"
+            >
+              £0.001700
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="Month API Call"
+            >
+              41-50
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="First 1,000"
+            >
+              £0.020000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="1,001 - 2,500"
+            >
+              £0.016000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="2,501 - 5,000"
+            >
+              £0.012000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="5,001 - 10,000"
+            >
+              £0.010000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="10,001 - 25,000"
+            >
+              £0.008000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="25,001 - 50,000"
+            >
+              £0.005000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="above 50,000"
+            >
+              £0.002000
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="Month API Call"
+            >
+              51+
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="First 1,000"
+            >
+              £0.023500
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="1,001 - 2,500"
+            >
+              £0.018800
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="2,501 - 5,000"
+            >
+              £0.014000
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="5,001 - 10,000"
+            >
+              £0.011750
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="10,001 - 25,000"
+            >
+              £0.009400
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="25,001 - 50,000"
+            >
+              £0.005875
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div
+              data-narrow-label="above 50,000"
+            >
+              £0.002350
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

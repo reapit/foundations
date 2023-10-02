@@ -1,0 +1,80 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.15.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - react-chartjs-2 > lodash:
+        patched: '2020-06-03T13:18:59.109Z'
+    - swagger-ui-react > lodash:
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > formik > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - swagger-ui-react > react-redux > lodash:
+        patched: '2020-06-03T13:18:59.109Z'
+    - swagger-ui-react > redux > lodash:
+        patched: '2020-06-03T13:18:59.109Z'
+    - swagger-ui-react > swagger-client > lodash:
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > gh-pages > async > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > styled-components > @babel/traverse > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > styled-components > babel-plugin-styled-components > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > styled-components > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > styled-components > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > styled-components > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > styled-components > babel-plugin-styled-components > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > styled-components > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > styled-components > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > styled-components > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > styled-components > babel-plugin-styled-components > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > @storybook/theming > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > styled-components > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > styled-components > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-03T13:18:59.109Z'
+    - '@reapit/elements > linaria > @babel/register > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > linaria > @babel/core > @babel/helpers > @babel/traverse > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > formik > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > gh-pages > async > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > styled-components > @babel/traverse > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > styled-components > babel-plugin-styled-components > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > styled-components > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > styled-components > babel-plugin-styled-components > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > styled-components > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > @storybook/theming > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-15T12:09:30.794Z'
+    - '@reapit/elements > styled-components > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-15T12:09:30.794Z'

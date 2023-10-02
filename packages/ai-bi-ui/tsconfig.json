@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "baseUrl": "./",
+    "sourceRoot": "/",
+    "typeRoots": ["../../node_modules/@types", "src/types"],
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/elements": ["../elements/src"],
+      "@reapit/utils-common": ["../utils-common/src"],
+      "@reapit/utils-react": ["../utils-react"],
+      "@reapit/use-reapit-data": ["../use-reapit-data"],
+      "@reapit/connect-session": ["../connect-session/src"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["public", "dist", "node_modules", "src/tests/coverage"]
+}

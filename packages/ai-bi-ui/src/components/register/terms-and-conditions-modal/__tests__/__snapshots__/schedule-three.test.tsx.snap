@@ -1,0 +1,284 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Schedule Three it matches a snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <mock-styled.h2
+        classname=""
+      >
+        Schedule 3 - Developer Obligations
+      </mock-styled.h2>
+      <mock-styled.ol>
+        <mock-styled.li>
+          The Developer agrees that:
+          <mock-styled.ul>
+            <mock-styled.li>
+              access to the Foundations Platform is solely for the purpose of developing Applications and/or accessing Reapit’s Application Programming Interfaces;
+            </mock-styled.li>
+            <mock-styled.li>
+              it will not interfere with or access any other developer’s Application, without that developer and Reapit’s express prior written permission;
+            </mock-styled.li>
+            <mock-styled.li>
+              it will not interfere with or disrupt the Foundations Platform, or any services or network used to provide access to the Foundations Platform;
+            </mock-styled.li>
+            <mock-styled.li>
+              it will not collect any data or Personal Data on the Foundations Platform, other than through its Application and in accordance with the Application User Terms Principles;
+            </mock-styled.li>
+            <mock-styled.li>
+              it will not re-identify (or seek to re-identify) any anonymised data (whether Personal Data or not);
+            </mock-styled.li>
+            <mock-styled.li>
+              it will provide feedback when requested by Reapit, in relation to the performance of the Foundations Platform;
+            </mock-styled.li>
+            <mock-styled.li>
+              it will co-operate in all matters relating to this Agreement with Reapit;
+            </mock-styled.li>
+            <mock-styled.li>
+              t will not provide access to the Foundations Platform to anyone who has not entered into a direct agreement with Reapit on the same terms as this Agreement and, without prejudice to the foregoing, it will not share (i) any API access credentials provided by Reapit and/or (ii) the Registration Details with any third party;
+            </mock-styled.li>
+            <mock-styled.li>
+              it will conduct an industry-standard penetration test on each Application at least once every calendar year and provide Reapit with the results of such test;
+            </mock-styled.li>
+            <mock-styled.li>
+              it will not use the Foundations Platform in a manner, develop an Application, or share any or Developer Feedback, that:
+              <mock-styled.ul>
+                <mock-styled.li>
+                  is false or misleading;
+                </mock-styled.li>
+                <mock-styled.li>
+                  is defamatory, derogatory, degrading or harassing of another or constitutes a personal attack;
+                </mock-styled.li>
+                <mock-styled.li>
+                  invades another’s privacy or includes, copies or transmits another’s confidential, sensitive or personal information;
+                </mock-styled.li>
+                <mock-styled.li>
+                  promotes bigotry, racism, hatred or harm against any group or individual;
+                </mock-styled.li>
+                <mock-styled.li>
+                  is obscene or not in good taste;
+                </mock-styled.li>
+                <mock-styled.li>
+                  infringes or promotes the infringement of a Third Party’s rights, including Intellectual Property Rights;
+                </mock-styled.li>
+                <mock-styled.li>
+                  promotes the infringement of any Applicable Laws;
+                </mock-styled.li>
+                <mock-styled.li>
+                  contains a solicitation of funds, goods or services, or promotes or advertises goods or services (other than the Application itself); or
+                </mock-styled.li>
+                <mock-styled.li>
+                  contains any viruses, Trojan horses, or other components designed to limit or harm the functionality of a computer.
+                </mock-styled.li>
+              </mock-styled.ul>
+            </mock-styled.li>
+          </mock-styled.ul>
+        </mock-styled.li>
+        <mock-styled.li>
+          The Developer must make available upon request access to the Application in both test and production environments for Reapit to conduct random spot-checks.
+        </mock-styled.li>
+        <mock-styled.li>
+          When reading Data from end points the Developer must update those end points and write back associated Data, for example, but not limited to, the “Negotiators diary” in order to ensure that the Foundations Platform remains the Single source of truth for the benefit of all Marketplace Applications
+        </mock-styled.li>
+        <mock-styled.li>
+          Server Side Applications, that are not a companion to a Client Side Application listed on the Marketplace, must use Reapit Connect in their non-Marketplace application(s).
+        </mock-styled.li>
+        <mock-styled.li>
+          The Developer must use Reapit Connect and Reapit Elements UI component library when building Client Side Applications for the Marketplace.
+        </mock-styled.li>
+        <mock-styled.li>
+          The Developer must not exceed or circumvent (or seek to circumvent) the Monthly API Calls and the Developer is solely responsible for ensuring that it keeps track of its current consumption of Monthly API Calls.
+        </mock-styled.li>
+        <mock-styled.li>
+          The Monthly API Calls rates must not exceed: (i) 20 requests per second (ii) 5 concurrent requests for each customer that has installed your app (iii) a maximum of 250,000 requests per day
+        </mock-styled.li>
+        <mock-styled.li>
+          The Developer acknowledges and agrees that the Foundations Platform API is to be used for a transactional basis only, including - Retrieval of data in real-time as and when the Application requires it; and
+        </mock-styled.li>
+        <mock-styled.li>
+          Storage of data as a transactional, operational data store for the Application. The Foundations Platform APIs must not be used for:
+          <mock-styled.ul>
+            <mock-styled.li>
+              Bulk extraction of data, historical or otherwise, into third party applications, databases, or data warehouses to support business intelligence (BI), data mining, and other decision support applications.
+            </mock-styled.li>
+            <mock-styled.li>
+              Automated or scheduled routines to acquire non-transactional data without a requirement to immediately process it for your applications use case (this does not include webhooks).
+            </mock-styled.li>
+            <mock-styled.li>
+              Load or volume testing of your application using sandbox or customer data.
+            </mock-styled.li>
+          </mock-styled.ul>
+        </mock-styled.li>
+        <mock-styled.li>
+          An Application must maintain no more than 5 API interaction threads and awaits completion of previous requests before submitting new ones
+        </mock-styled.li>
+      </mock-styled.ol>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.h2
+      classname=""
+    >
+      Schedule 3 - Developer Obligations
+    </mock-styled.h2>
+    <mock-styled.ol>
+      <mock-styled.li>
+        The Developer agrees that:
+        <mock-styled.ul>
+          <mock-styled.li>
+            access to the Foundations Platform is solely for the purpose of developing Applications and/or accessing Reapit’s Application Programming Interfaces;
+          </mock-styled.li>
+          <mock-styled.li>
+            it will not interfere with or access any other developer’s Application, without that developer and Reapit’s express prior written permission;
+          </mock-styled.li>
+          <mock-styled.li>
+            it will not interfere with or disrupt the Foundations Platform, or any services or network used to provide access to the Foundations Platform;
+          </mock-styled.li>
+          <mock-styled.li>
+            it will not collect any data or Personal Data on the Foundations Platform, other than through its Application and in accordance with the Application User Terms Principles;
+          </mock-styled.li>
+          <mock-styled.li>
+            it will not re-identify (or seek to re-identify) any anonymised data (whether Personal Data or not);
+          </mock-styled.li>
+          <mock-styled.li>
+            it will provide feedback when requested by Reapit, in relation to the performance of the Foundations Platform;
+          </mock-styled.li>
+          <mock-styled.li>
+            it will co-operate in all matters relating to this Agreement with Reapit;
+          </mock-styled.li>
+          <mock-styled.li>
+            t will not provide access to the Foundations Platform to anyone who has not entered into a direct agreement with Reapit on the same terms as this Agreement and, without prejudice to the foregoing, it will not share (i) any API access credentials provided by Reapit and/or (ii) the Registration Details with any third party;
+          </mock-styled.li>
+          <mock-styled.li>
+            it will conduct an industry-standard penetration test on each Application at least once every calendar year and provide Reapit with the results of such test;
+          </mock-styled.li>
+          <mock-styled.li>
+            it will not use the Foundations Platform in a manner, develop an Application, or share any or Developer Feedback, that:
+            <mock-styled.ul>
+              <mock-styled.li>
+                is false or misleading;
+              </mock-styled.li>
+              <mock-styled.li>
+                is defamatory, derogatory, degrading or harassing of another or constitutes a personal attack;
+              </mock-styled.li>
+              <mock-styled.li>
+                invades another’s privacy or includes, copies or transmits another’s confidential, sensitive or personal information;
+              </mock-styled.li>
+              <mock-styled.li>
+                promotes bigotry, racism, hatred or harm against any group or individual;
+              </mock-styled.li>
+              <mock-styled.li>
+                is obscene or not in good taste;
+              </mock-styled.li>
+              <mock-styled.li>
+                infringes or promotes the infringement of a Third Party’s rights, including Intellectual Property Rights;
+              </mock-styled.li>
+              <mock-styled.li>
+                promotes the infringement of any Applicable Laws;
+              </mock-styled.li>
+              <mock-styled.li>
+                contains a solicitation of funds, goods or services, or promotes or advertises goods or services (other than the Application itself); or
+              </mock-styled.li>
+              <mock-styled.li>
+                contains any viruses, Trojan horses, or other components designed to limit or harm the functionality of a computer.
+              </mock-styled.li>
+            </mock-styled.ul>
+          </mock-styled.li>
+        </mock-styled.ul>
+      </mock-styled.li>
+      <mock-styled.li>
+        The Developer must make available upon request access to the Application in both test and production environments for Reapit to conduct random spot-checks.
+      </mock-styled.li>
+      <mock-styled.li>
+        When reading Data from end points the Developer must update those end points and write back associated Data, for example, but not limited to, the “Negotiators diary” in order to ensure that the Foundations Platform remains the Single source of truth for the benefit of all Marketplace Applications
+      </mock-styled.li>
+      <mock-styled.li>
+        Server Side Applications, that are not a companion to a Client Side Application listed on the Marketplace, must use Reapit Connect in their non-Marketplace application(s).
+      </mock-styled.li>
+      <mock-styled.li>
+        The Developer must use Reapit Connect and Reapit Elements UI component library when building Client Side Applications for the Marketplace.
+      </mock-styled.li>
+      <mock-styled.li>
+        The Developer must not exceed or circumvent (or seek to circumvent) the Monthly API Calls and the Developer is solely responsible for ensuring that it keeps track of its current consumption of Monthly API Calls.
+      </mock-styled.li>
+      <mock-styled.li>
+        The Monthly API Calls rates must not exceed: (i) 20 requests per second (ii) 5 concurrent requests for each customer that has installed your app (iii) a maximum of 250,000 requests per day
+      </mock-styled.li>
+      <mock-styled.li>
+        The Developer acknowledges and agrees that the Foundations Platform API is to be used for a transactional basis only, including - Retrieval of data in real-time as and when the Application requires it; and
+      </mock-styled.li>
+      <mock-styled.li>
+        Storage of data as a transactional, operational data store for the Application. The Foundations Platform APIs must not be used for:
+        <mock-styled.ul>
+          <mock-styled.li>
+            Bulk extraction of data, historical or otherwise, into third party applications, databases, or data warehouses to support business intelligence (BI), data mining, and other decision support applications.
+          </mock-styled.li>
+          <mock-styled.li>
+            Automated or scheduled routines to acquire non-transactional data without a requirement to immediately process it for your applications use case (this does not include webhooks).
+          </mock-styled.li>
+          <mock-styled.li>
+            Load or volume testing of your application using sandbox or customer data.
+          </mock-styled.li>
+        </mock-styled.ul>
+      </mock-styled.li>
+      <mock-styled.li>
+        An Application must maintain no more than 5 API interaction threads and awaits completion of previous requests before submitting new ones
+      </mock-styled.li>
+    </mock-styled.ol>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

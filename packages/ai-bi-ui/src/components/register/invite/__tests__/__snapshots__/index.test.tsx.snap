@@ -1,0 +1,471 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AcceptedModal should match snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css."
+      />
+      <mock-styled.div
+        classname="mock-css."
+      >
+        <mock-styled.div>
+          Reapit Foundations Invitation
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.p
+            classname=""
+          >
+            You have been invited to join the '
+            ' organisation on Reapit Foundations.
+          </mock-styled.p>
+          <mock-styled.p
+            classname=""
+          >
+            Before confirming your account, please ensure your details are correct below.
+          </mock-styled.p>
+          <mock-styled.p
+            classname=""
+          >
+            <strong>
+              Important: 
+            </strong>
+            If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
+          </mock-styled.p>
+          <form>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    id="test-static-id"
+                    name="name"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Name
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    id="test-static-id"
+                    name="jobTitle"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Job Title
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.button
+                  classname="mock-css. mock-css."
+                  disabled="false"
+                  type="button"
+                >
+                  Decline
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css. mock-css."
+                  disabled="false"
+                  type="submit"
+                >
+                  Confirm
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </form>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css."
+    />
+    <mock-styled.div
+      classname="mock-css."
+    >
+      <mock-styled.div>
+        Reapit Foundations Invitation
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.p
+          classname=""
+        >
+          You have been invited to join the '
+          ' organisation on Reapit Foundations.
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
+        >
+          Before confirming your account, please ensure your details are correct below.
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
+        >
+          <strong>
+            Important: 
+          </strong>
+          If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
+        </mock-styled.p>
+        <form>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  name="name"
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Name
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  name="jobTitle"
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Job Title
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.button
+                classname="mock-css. mock-css."
+                disabled="false"
+                type="button"
+              >
+                Decline
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.button
+                classname="mock-css. mock-css."
+                disabled="false"
+                type="submit"
+              >
+                Confirm
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
+        </form>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AcceptedModal should match snapshot when an invite is accepted or rejected 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css."
+      />
+      <mock-styled.div
+        classname="mock-css."
+      >
+        <mock-styled.div>
+          Reapit Foundations Invitation
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.p
+            classname=""
+          >
+            You have been invited to join the '
+            ' organisation on Reapit Foundations.
+          </mock-styled.p>
+          <mock-styled.p
+            classname=""
+          >
+            Before confirming your account, please ensure your details are correct below.
+          </mock-styled.p>
+          <mock-styled.p
+            classname=""
+          >
+            <strong>
+              Important: 
+            </strong>
+            If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
+          </mock-styled.p>
+          <form>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    id="test-static-id"
+                    name="name"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Name
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    id="test-static-id"
+                    name="jobTitle"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Job Title
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.button
+                  classname="mock-css. mock-css."
+                  disabled="false"
+                  type="button"
+                >
+                  Decline
+                  <mock-styled.div />
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css. mock-css."
+                  disabled="false"
+                  type="submit"
+                >
+                  Confirm
+                  <mock-styled.div />
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </form>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css."
+    />
+    <mock-styled.div
+      classname="mock-css."
+    >
+      <mock-styled.div>
+        Reapit Foundations Invitation
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.p
+          classname=""
+        >
+          You have been invited to join the '
+          ' organisation on Reapit Foundations.
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
+        >
+          Before confirming your account, please ensure your details are correct below.
+        </mock-styled.p>
+        <mock-styled.p
+          classname=""
+        >
+          <strong>
+            Important: 
+          </strong>
+          If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
+        </mock-styled.p>
+        <form>
+          <mock-styled.div
+            classname="mock-css."
+          >
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  name="name"
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Name
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  id="test-static-id"
+                  name="jobTitle"
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Job Title
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.button
+                classname="mock-css. mock-css."
+                disabled="false"
+                type="button"
+              >
+                Decline
+                <mock-styled.div />
+              </mock-styled.button>
+              <mock-styled.button
+                classname="mock-css. mock-css."
+                disabled="false"
+                type="submit"
+              >
+                Confirm
+                <mock-styled.div />
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
+        </form>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
