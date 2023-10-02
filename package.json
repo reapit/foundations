@@ -46,7 +46,8 @@
       "packages/utils-common",
       "packages/utils-node",
       "packages/utils-react",
-      "packages/utils-nest"
+      "packages/utils-nest",
+      "packages/ai-bi"
     ]
   },
   "scripts": {
