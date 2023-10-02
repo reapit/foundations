@@ -8,7 +8,7 @@ import {
   PageContainer,
   SecondaryNavContainer,
   SmallText,
-  Subtitle,
+  BodyText,
   Title,
   useModal,
 } from '@reapit/elements'
@@ -66,9 +66,8 @@ export const AppBrowseUpsert: FC<{}> = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>AppMarket Admin</Title>
         <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
-        <Subtitle>Getting Started</Subtitle>
+        <BodyText>Getting Started</BodyText>
         <SmallText hasGreyText>
           The AppMarket does not render anything on the browse page without this dashboard. Each section on the page is
           configured by type and differing information is required for each confg item type.
