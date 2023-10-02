@@ -10,8 +10,8 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is AWSOnly 
         classname="mock-css."
         disabled="false"
       >
-        Check AWS Only
         <mock-styled.div />
+        Check AWS Only
       </mock-styled.button>
     </div>
   </body>,
@@ -21,8 +21,8 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is AWSOnly 
       classname="mock-css."
       disabled="false"
     >
-      Check AWS Only
       <mock-styled.div />
+      Check AWS Only
     </mock-styled.button>
   </div>,
   "debug": [Function],
@@ -89,8 +89,8 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is AllUsers
         classname="mock-css."
         disabled="false"
       >
-        Check AWS Only
         <mock-styled.div />
+        Check AWS Only
       </mock-styled.button>
     </div>
   </body>,
@@ -100,8 +100,8 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is AllUsers
       classname="mock-css."
       disabled="false"
     >
-      Check AWS Only
       <mock-styled.div />
+      Check AWS Only
     </mock-styled.button>
   </div>,
   "debug": [Function],
@@ -168,8 +168,8 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is unfetche
         classname="mock-css."
         disabled="false"
       >
-        Check AWS Only
         <mock-styled.div />
+        Check AWS Only
       </mock-styled.button>
     </div>
   </body>,
@@ -179,8 +179,8 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is unfetche
       classname="mock-css."
       disabled="false"
     >
-      Check AWS Only
       <mock-styled.div />
+      Check AWS Only
     </mock-styled.button>
   </div>,
   "debug": [Function],

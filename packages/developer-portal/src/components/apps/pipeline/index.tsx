@@ -36,7 +36,7 @@ export const AppPipeline: FC = () => {
       <PersistentNotification
         onClick={handleSandboxClick(setBetaBannerVisible, betaBannerVisible)}
         isExpanded={betaBannerVisible}
-        intent="secondary"
+        intent="primary"
       >
         Pipelines are in public beta and under active development. Please give us feeback and report bugs via{' '}
         <a href={ExternalPages.iaasBugs} target="_blank" rel="noopener noreferrer">

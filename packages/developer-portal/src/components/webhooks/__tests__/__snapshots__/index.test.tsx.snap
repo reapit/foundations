@@ -6,16 +6,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+      <mock-styled.h1
+        classname=""
       >
-        <mock-styled.h1
-          classname=""
+        Webhooks
+      </mock-styled.h1>
+      <mock-styled.div
+        classname=""
+      />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css. mock-css."
         >
-          Webhooks
-        </mock-styled.h1>
+          <mock-styled.div />
+          <mock-styled.span
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
+"
+          >
+            <svg />
+          </mock-styled.span>
+        </mock-styled.button>
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css.
@@ -38,13 +51,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               About Webhooks
@@ -64,13 +79,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Add Webhook
@@ -90,13 +107,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Manage Webhooks
@@ -116,13 +135,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Transaction Logs
@@ -140,16 +161,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
+    <mock-styled.h1
+      classname=""
     >
-      <mock-styled.h1
-        classname=""
+      Webhooks
+    </mock-styled.h1>
+    <mock-styled.div
+      classname=""
+    />
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.button
+        classname="mock-css. mock-css."
       >
-        Webhooks
-      </mock-styled.h1>
+        <mock-styled.div />
+        <mock-styled.span
+          classname="mock-css.
+  font-size: var(--font-size-subheading);
+"
+        >
+          <svg />
+        </mock-styled.span>
+      </mock-styled.button>
     </mock-styled.div>
     <mock-styled.div
       classname="mock-css.
@@ -172,13 +206,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             About Webhooks
@@ -198,13 +234,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Add Webhook
@@ -224,13 +262,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Manage Webhooks
@@ -250,13 +290,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Transaction Logs
@@ -331,16 +373,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+      <mock-styled.h1
+        classname=""
       >
-        <mock-styled.h1
-          classname=""
+        Webhooks
+      </mock-styled.h1>
+      <mock-styled.div
+        classname=""
+      />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css. mock-css."
         >
-          Webhooks
-        </mock-styled.h1>
+          <mock-styled.div />
+          <mock-styled.span
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
+"
+          >
+            <svg />
+          </mock-styled.span>
+        </mock-styled.button>
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css.
@@ -363,13 +418,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               About Webhooks
@@ -389,13 +446,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Add Webhook
@@ -415,13 +474,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Manage Webhooks
@@ -441,13 +502,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Transaction Logs
@@ -465,16 +528,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
+    <mock-styled.h1
+      classname=""
     >
-      <mock-styled.h1
-        classname=""
+      Webhooks
+    </mock-styled.h1>
+    <mock-styled.div
+      classname=""
+    />
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.button
+        classname="mock-css. mock-css."
       >
-        Webhooks
-      </mock-styled.h1>
+        <mock-styled.div />
+        <mock-styled.span
+          classname="mock-css.
+  font-size: var(--font-size-subheading);
+"
+        >
+          <svg />
+        </mock-styled.span>
+      </mock-styled.button>
     </mock-styled.div>
     <mock-styled.div
       classname="mock-css.
@@ -497,13 +573,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             About Webhooks
@@ -523,13 +601,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Add Webhook
@@ -549,13 +629,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Manage Webhooks
@@ -575,13 +657,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Transaction Logs
@@ -656,16 +740,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+      <mock-styled.h1
+        classname=""
       >
-        <mock-styled.h1
-          classname=""
+        Webhooks
+      </mock-styled.h1>
+      <mock-styled.div
+        classname=""
+      />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css. mock-css."
         >
-          Webhooks
-        </mock-styled.h1>
+          <mock-styled.div />
+          <mock-styled.span
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
+"
+          >
+            <svg />
+          </mock-styled.span>
+        </mock-styled.button>
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css.
@@ -688,13 +785,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               About Webhooks
@@ -714,13 +813,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Add Webhook
@@ -740,13 +841,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Manage Webhooks
@@ -766,13 +869,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Transaction Logs
@@ -790,16 +895,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
+    <mock-styled.h1
+      classname=""
     >
-      <mock-styled.h1
-        classname=""
+      Webhooks
+    </mock-styled.h1>
+    <mock-styled.div
+      classname=""
+    />
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.button
+        classname="mock-css. mock-css."
       >
-        Webhooks
-      </mock-styled.h1>
+        <mock-styled.div />
+        <mock-styled.span
+          classname="mock-css.
+  font-size: var(--font-size-subheading);
+"
+        >
+          <svg />
+        </mock-styled.span>
+      </mock-styled.button>
     </mock-styled.div>
     <mock-styled.div
       classname="mock-css.
@@ -822,13 +940,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             About Webhooks
@@ -848,13 +968,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Add Webhook
@@ -874,13 +996,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Manage Webhooks
@@ -900,13 +1024,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Transaction Logs
@@ -981,16 +1107,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+      <mock-styled.h1
+        classname=""
       >
-        <mock-styled.h1
-          classname=""
+        Webhooks
+      </mock-styled.h1>
+      <mock-styled.div
+        classname=""
+      />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css. mock-css."
         >
-          Webhooks
-        </mock-styled.h1>
+          <mock-styled.div />
+          <mock-styled.span
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
+"
+          >
+            <svg />
+          </mock-styled.span>
+        </mock-styled.button>
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css.
@@ -1013,13 +1152,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               About Webhooks
@@ -1039,13 +1180,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Add Webhook
@@ -1065,13 +1208,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Manage Webhooks
@@ -1091,13 +1236,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Transaction Logs
@@ -1115,16 +1262,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
+    <mock-styled.h1
+      classname=""
     >
-      <mock-styled.h1
-        classname=""
+      Webhooks
+    </mock-styled.h1>
+    <mock-styled.div
+      classname=""
+    />
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.button
+        classname="mock-css. mock-css."
       >
-        Webhooks
-      </mock-styled.h1>
+        <mock-styled.div />
+        <mock-styled.span
+          classname="mock-css.
+  font-size: var(--font-size-subheading);
+"
+        >
+          <svg />
+        </mock-styled.span>
+      </mock-styled.button>
     </mock-styled.div>
     <mock-styled.div
       classname="mock-css.
@@ -1147,13 +1307,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             About Webhooks
@@ -1173,13 +1335,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Add Webhook
@@ -1199,13 +1363,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Manage Webhooks
@@ -1225,13 +1391,15 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Transaction Logs

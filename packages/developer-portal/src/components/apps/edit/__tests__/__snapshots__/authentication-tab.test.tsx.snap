@@ -22,6 +22,7 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="redirectUris"
               placeholder="Enter your Redirect URI(s)"
@@ -37,6 +38,7 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="signoutUris"
               placeholder="Enter your Sign Out URI(s)"
@@ -70,6 +72,7 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="redirectUris"
             placeholder="Enter your Redirect URI(s)"
@@ -85,6 +88,7 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="signoutUris"
             placeholder="Enter your Sign Out URI(s)"

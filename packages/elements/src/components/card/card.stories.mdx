@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Story, Canvas, ArgsTable, Meta } from '@storybook/addon-docs'
 import {
   CardWrap,
   CardHeading,
@@ -6,6 +6,7 @@ import {
   CardSubHeadingAdditional,
   CardHeadingWrap,
   CardImageWrap,
+  CardAvatarWrap,
   CardBodyWrap,
   CardListHeading,
   CardListSubHeading,
@@ -14,14 +15,10 @@ import {
   CardListItemTextWrap,
   CardListItemTextPrimary,
   CardListItemTextSecondary,
-  CardContextMenuWrapper,
-  CardContextMenuItems,
-  CardContextMenuItem,
-  CardContextMenuToggle,
   CardMainWrap,
   CardListMainWrap,
 } from './card'
-import { elCardContextMenuOpen, elCardFocussed } from './__styles__'
+import { elCardContextMenuOpen, elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
 import { Icon } from '../icon'
 import { elMb5 } from '../../styles/spacing'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
@@ -41,17 +38,56 @@ If you wish to combine a list and an image card, this can be done too - see the 
 
 For non-React users, the following examples show how applying and removing classes will toggle various pieces of the UI.
 
-React users, may wish to revert to the React example below where this heavy lifting is done for you.
+React users, may wish to use the shorthand component to reduce markup.
 
-## Basic Usage - Card With Image
+## Card With Avatar
 
 <Canvas>
-  <Story name="Basic Usage - Card With Image">
+  <Story name="Card With Avatar">
+    <CardWrap>
+      <CardMainWrap>
+        <CardAvatarWrap>
+          <Icon icon="placeholderSmall" iconSize="small" />
+        </CardAvatarWrap>
+        <CardHeadingWrap className={elCardSubHeadingWrapAvatar}>
+          <CardHeading>Main Heading</CardHeading>
+          <CardSubHeading>Sub Heading</CardSubHeading>
+          <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
+        </CardHeadingWrap>
+      </CardMainWrap>
+    </CardWrap>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="Card With Avatar" />
+
+## Card With Image
+
+<Canvas>
+  <Story name="Card With Image">
     <CardWrap>
       <CardMainWrap>
         <CardImageWrap>
-          <Icon icon="placeholderSmall" iconSize="medium" />
+          <Icon icon="placeholderSmall" iconSize="small" />
         </CardImageWrap>
+        <CardHeadingWrap>
+          <CardHeading>Main Heading</CardHeading>
+          <CardSubHeading>Sub Heading</CardSubHeading>
+          <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
+        </CardHeadingWrap>
+      </CardMainWrap>
+    </CardWrap>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="Card With Image" />
+
+## Card With Body
+
+<Canvas>
+  <Story name="Card With Body">
+    <CardWrap>
+      <CardMainWrap>
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
@@ -68,16 +104,18 @@ React users, may wish to revert to the React example below where this heavy lift
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Card" story="Basic Usage - Card With Image" />
+<RenderHtmlMarkup component="Card" story="Card With Body" />
 
-## Basic Usage - Card With Image Focussed
+## Card Focussed
+
+Adding the `elCardFocussed` class to the `CardWrap` will draw the user's attention.
 
 <Canvas>
-  <Story name="Card With Image Focussed">
+  <Story name="Card Focussed">
     <CardWrap className={elCardFocussed}>
       <CardMainWrap>
         <CardImageWrap>
-          <Icon icon="placeholderSmall" iconSize="medium" />
+          <Icon icon="placeholderSmall" iconSize="small" />
         </CardImageWrap>
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
@@ -95,98 +133,12 @@ React users, may wish to revert to the React example below where this heavy lift
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Card" story="Card With Image Focussed" />
+<RenderHtmlMarkup component="Card" story="Card Focussed" />
 
-## Card With Image and Context Menu
-
-<Canvas>
-  <Story name="Card With Image and Context Menu">
-    <CardWrap>
-      <CardContextMenuWrapper>
-        <CardContextMenuToggle>
-          <Icon icon="moreSystem" fontSize="1.25rem" />
-        </CardContextMenuToggle>
-        <CardContextMenuItems className={elCardContextMenuOpen}>
-          <CardContextMenuItem>
-            <Icon icon="closeSystem" />
-          </CardContextMenuItem>
-          <CardContextMenuItem>
-            <Icon icon="trashSystem" intent="danger" />
-          </CardContextMenuItem>
-          <CardContextMenuItem>
-            <Icon icon="shareSystem" />
-          </CardContextMenuItem>
-        </CardContextMenuItems>
-      </CardContextMenuWrapper>
-      <CardMainWrap>
-        <CardImageWrap>
-          <Icon icon="placeholderSmall" iconSize="medium" />
-        </CardImageWrap>
-        <CardHeadingWrap>
-          <CardHeading>Main Heading</CardHeading>
-          <CardSubHeading>Sub Heading</CardSubHeading>
-          <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
-        </CardHeadingWrap>
-      </CardMainWrap>
-      <CardBodyWrap>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur.
-      </CardBodyWrap>
-    </CardWrap>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Card" story="Card With Image and Context Menu" />
-
-## Card With Image and Context Menu Closed
+## Card With List
 
 <Canvas>
-  <Story name="Card With Image and Context Menu Closed">
-    <CardWrap>
-      <CardContextMenuWrapper>
-        <CardContextMenuToggle>
-          <Icon icon="moreSystem" fontSize="1.25rem" />
-        </CardContextMenuToggle>
-        <CardContextMenuItems>
-          <CardContextMenuItem>
-            <Icon icon="closeSystem" />
-          </CardContextMenuItem>
-          <CardContextMenuItem>
-            <Icon icon="trashSystem" intent="danger" />
-          </CardContextMenuItem>
-          <CardContextMenuItem>
-            <Icon icon="shareSystem" />
-          </CardContextMenuItem>
-        </CardContextMenuItems>
-      </CardContextMenuWrapper>
-      <CardMainWrap>
-        <CardImageWrap>
-          <Icon icon="placeholderSmall" iconSize="medium" />
-        </CardImageWrap>
-        <CardHeadingWrap>
-          <CardHeading>Main Heading</CardHeading>
-          <CardSubHeading>Sub Heading</CardSubHeading>
-          <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
-        </CardHeadingWrap>
-      </CardMainWrap>
-      <CardBodyWrap>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur.
-      </CardBodyWrap>
-    </CardWrap>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Card" story="Card With Image and Context Menu Closed" />
-
-## Basic Usage - Card With List
-
-<Canvas>
-  <Story name="Basic Usage - Card With List">
+  <Story name="Card With List">
     <CardWrap>
       <CardListMainWrap>
         <CardListHeading>Secondary Heading</CardListHeading>
@@ -214,127 +166,16 @@ React users, may wish to revert to the React example below where this heavy lift
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Card" story="Basic Usage - Card With List" />
+<RenderHtmlMarkup component="Card" story="Card With List" />
 
-## Card With List and Context Menu
-
-<Canvas>
-  <Story name="Card With List and Context Menu">
-    <CardWrap>
-      <CardListMainWrap>
-        <CardContextMenuWrapper>
-          <CardContextMenuToggle>
-            <Icon icon="moreSystem" fontSize="1.25rem" />
-          </CardContextMenuToggle>
-          <CardContextMenuItems className={elCardContextMenuOpen}>
-            <CardContextMenuItem>
-              <Icon icon="closeSystem" />
-            </CardContextMenuItem>
-            <CardContextMenuItem>
-              <Icon icon="trashSystem" intent="danger" />
-            </CardContextMenuItem>
-            <CardContextMenuItem>
-              <Icon icon="shareSystem" />
-            </CardContextMenuItem>
-          </CardContextMenuItems>
-        </CardContextMenuWrapper>
-        <CardListHeading>Secondary Heading</CardListHeading>
-        <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
-      </CardListMainWrap>
-      <CardListItem>
-        <CardListIcon>
-          <Icon icon="houseInfographic" />
-        </CardListIcon>
-        <CardListItemTextWrap>
-          <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
-          <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
-        </CardListItemTextWrap>
-      </CardListItem>
-      <CardListItem>
-        <CardListIcon>
-          <Icon icon="applicantInfographic" />
-        </CardListIcon>
-        <CardListItemTextWrap>
-          <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
-          <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
-        </CardListItemTextWrap>
-      </CardListItem>
-    </CardWrap>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Card" story="Card With List and Context Menu" />
-
-## Card With List and Context Menu Closed
+## Card Complete Example
 
 <Canvas>
-  <Story name="Card With List and Context Menu Closed">
+  <Story name="Card Complete Example">
     <CardWrap>
-      <CardListMainWrap>
-        <CardContextMenuWrapper>
-          <CardContextMenuToggle>
-            <Icon icon="moreSystem" fontSize="1.25rem" />
-          </CardContextMenuToggle>
-          <CardContextMenuItems>
-            <CardContextMenuItem>
-              <Icon icon="closeSystem" />
-            </CardContextMenuItem>
-            <CardContextMenuItem>
-              <Icon icon="trashSystem" intent="danger" />
-            </CardContextMenuItem>
-            <CardContextMenuItem>
-              <Icon icon="shareSystem" />
-            </CardContextMenuItem>
-          </CardContextMenuItems>
-        </CardContextMenuWrapper>
-        <CardListHeading>Secondary Heading</CardListHeading>
-        <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
-      </CardListMainWrap>
-      <CardListItem>
-        <CardListIcon>
-          <Icon icon="houseInfographic" />
-        </CardListIcon>
-        <CardListItemTextWrap>
-          <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
-          <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
-        </CardListItemTextWrap>
-      </CardListItem>
-      <CardListItem>
-        <CardListIcon>
-          <Icon icon="applicantInfographic" />
-        </CardListIcon>
-        <CardListItemTextWrap>
-          <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
-          <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
-        </CardListItemTextWrap>
-      </CardListItem>
-    </CardWrap>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Card" story="Card With List and Context Menu Closed" />
-
-## Complete Example Open
-
-<Canvas>
-  <Story name="Complete Example Open">
-    <CardWrap>
-      <CardContextMenuWrapper>
-        <CardContextMenuItems className={elCardContextMenuOpen}>
-          <CardContextMenuItem>
-            <Icon icon="closeSystem" />
-          </CardContextMenuItem>
-          <CardContextMenuItem>
-            <Icon icon="trashSystem" intent="danger" />
-          </CardContextMenuItem>
-          <CardContextMenuItem>
-            <Icon icon="shareSystem" />
-          </CardContextMenuItem>
-        </CardContextMenuItems>
-      </CardContextMenuWrapper>
       <CardMainWrap>
         <CardImageWrap>
-          <Icon icon="placeholderSmall" iconSize="medium" />
+          <Icon icon="placeholderSmall" iconSize="small" />
         </CardImageWrap>
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
@@ -349,22 +190,6 @@ React users, may wish to revert to the React example below where this heavy lift
         pariatur.
       </CardBodyWrap>
       <CardListMainWrap>
-        <CardContextMenuWrapper>
-          <CardContextMenuToggle>
-            <Icon icon="moreSystem" fontSize="1.25rem" />
-          </CardContextMenuToggle>
-          <CardContextMenuItems className={elCardContextMenuOpen}>
-            <CardContextMenuItem>
-              <Icon icon="closeSystem" />
-            </CardContextMenuItem>
-            <CardContextMenuItem>
-              <Icon icon="trashSystem" intent="danger" />
-            </CardContextMenuItem>
-            <CardContextMenuItem>
-              <Icon icon="shareSystem" />
-            </CardContextMenuItem>
-          </CardContextMenuItems>
-        </CardContextMenuWrapper>
         <CardListHeading>Secondary Heading</CardListHeading>
         <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
       </CardListMainWrap>
@@ -390,112 +215,43 @@ React users, may wish to revert to the React example below where this heavy lift
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Card" story="Complete Example Open" />
+<RenderHtmlMarkup component="Card" story="Card Complete Example" />
 
-## Complete Example Closed
+## React Shorthand
 
-<Canvas>
-  <Story name="Complete Example Closed">
-    <CardWrap>
-      <CardContextMenuWrapper>
-        <CardContextMenuToggle>
-          <Icon icon="moreSystem" fontSize="1.25rem" />
-        </CardContextMenuToggle>
-        <CardContextMenuItems>
-          <CardContextMenuItem>
-            <Icon icon="closeSystem" />
-          </CardContextMenuItem>
-          <CardContextMenuItem>
-            <Icon icon="trashSystem" intent="danger" />
-          </CardContextMenuItem>
-          <CardContextMenuItem>
-            <Icon icon="shareSystem" />
-          </CardContextMenuItem>
-        </CardContextMenuItems>
-      </CardContextMenuWrapper>
-      <CardMainWrap>
-        <CardImageWrap>
-          <Icon icon="placeholderSmall" iconSize="medium" />
-        </CardImageWrap>
-        <CardHeadingWrap>
-          <CardHeading>Main Heading</CardHeading>
-          <CardSubHeading>Sub Heading</CardSubHeading>
-          <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
-        </CardHeadingWrap>
-      </CardMainWrap>
-      <CardBodyWrap className={elMb5}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur.
-      </CardBodyWrap>
-      <CardListMainWrap>
-        <CardContextMenuWrapper>
-          <CardContextMenuToggle>
-            <Icon icon="moreSystem" fontSize="1.25rem" />
-          </CardContextMenuToggle>
-          <CardContextMenuItems>
-            <CardContextMenuItem>
-              <Icon icon="closeSystem" />
-            </CardContextMenuItem>
-            <CardContextMenuItem>
-              <Icon icon="trashSystem" intent="danger" />
-            </CardContextMenuItem>
-            <CardContextMenuItem>
-              <Icon icon="shareSystem" />
-            </CardContextMenuItem>
-          </CardContextMenuItems>
-        </CardContextMenuWrapper>
-        <CardListHeading>Secondary Heading</CardListHeading>
-        <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
-      </CardListMainWrap>
-      <CardListItem>
-        <CardListIcon>
-          <Icon icon="houseInfographic" />
-        </CardListIcon>
-        <CardListItemTextWrap>
-          <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
-          <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
-        </CardListItemTextWrap>
-      </CardListItem>
-      <CardListItem>
-        <CardListIcon>
-          <Icon icon="applicantInfographic" />
-        </CardListIcon>
-        <CardListItemTextWrap>
-          <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
-          <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
-        </CardListItemTextWrap>
-      </CardListItem>
-    </CardWrap>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Card" story="Complete Example Closed" />
-
-## React Example
-
-In the React example, you can compose your card by applying props as appropriate following the `CardProps` interface:
+In the React Shorthand, you can compose your card by applying props as appropriate following the `CardProps` interface:
 
 <ArgsTable component={Card} />
 
-As you can see, all of the props are optional - a completed version with all options is below:
+All of the props are optional - you can have Avatar, Image, List and Complete versions depending on how you mix and match the props.
+
+## React Shorthand Avatar & Body
 
 <Canvas>
-  <Story name="React Example">
+  <Story name="React Shorthand Avatar & Body">
     <MediaStateProvider>
       <Card
         hasMainCard
         hasListCard
-        mainContextMenuItems={[
-          { icon: 'trashSystem', onClick: () => console.log('Clicking'), intent: 'danger' },
-          { icon: 'shareSystem', onClick: () => console.log('Clicking') },
-        ]}
         mainCardHeading="Main Heading"
         mainCardSubHeading="Main Subheading"
         mainCardSubHeadingAdditional="Main Subheading Additional"
         mainCardBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        mainCardImgUrl={<Icon icon="placeholderSmall" iconSize="medium" />}
+        mainCardAvatarUrl={<Icon icon="placeholderSmall" iconSize="small" />}
+      />
+    </MediaStateProvider>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="React Shorthand Avatar & Body" />
+
+## React Shorthand List
+
+<Canvas>
+  <Story name="React Shorthand List">
+    <MediaStateProvider>
+      <Card
+        hasListCard
         listCardHeading="List Card Heading"
         listCardSubHeading="List Card Sub Heading"
         listCardItems={[
@@ -512,57 +268,45 @@ As you can see, all of the props are optional - a completed version with all opt
             onClick: () => console.log('Clicking'),
           },
         ]}
-        listContextMenuItems={[
-          { icon: 'trashSystem', onClick: () => console.log('Clicking'), intent: 'danger' },
-          { icon: 'shareSystem', onClick: () => console.log('Clicking') },
+      />
+    </MediaStateProvider>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="React Shorthand List" />
+
+## React Shorthand Complete
+
+<Canvas>
+  <Story name="React Shorthand Complete">
+    <MediaStateProvider>
+      <Card
+        hasMainCard
+        hasListCard
+        mainCardHeading="Main Heading"
+        mainCardSubHeading="Main Subheading"
+        mainCardSubHeadingAdditional="Main Subheading Additional"
+        mainCardBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        mainCardImgUrl={<Icon icon="placeholderSmall" iconSize="small" />}
+        listCardHeading="List Card Heading"
+        listCardSubHeading="List Card Sub Heading"
+        listCardItems={[
+          {
+            listCardItemHeading: 'Applicant',
+            listCardItemSubHeading: 'Bob Smith',
+            listCardItemIcon: 'applicantInfographic',
+            onClick: () => console.log('Clicking'),
+          },
+          {
+            listCardItemHeading: 'Property',
+            listCardItemSubHeading: 'Some Address',
+            listCardItemIcon: 'houseInfographic',
+            onClick: () => console.log('Clicking'),
+          },
         ]}
       />
     </MediaStateProvider>
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Card" story="React Example" />
-
-To explain the docs further, the annotated interfaces are below:
-
-```tsx
-export interface CardListItemProps {
-  // Card list items have a heading, a sub heading an icon name from our icon list and an onClick action
-  listCardItemHeading?: string
-  listCardItemSubHeading?: string
-  listCardItemIcon?: IconNames
-  onClick?: () => void
-}
-
-export interface ContextMenuItem {
-  icon: IconNames
-  onClick: () => void
-  intent?: Intent
-}
-
-// As per above, each of the context menu options should have an icon name, a click action and
-// optionally, an intent for example "danger", will render a red icon
-export interface CardContextMenuProps extends HTMLAttributes<HTMLDivElement> {
-  contextMenuItems?: ContextMenuItem[]
-}
-
-export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  hasMainCard?: boolean // Should we render an Image card as the main card?
-  // Supplied text options for the various fields
-  mainCardHeading?: string
-  mainCardSubHeading?: string
-  mainCardSubHeadingAdditional?: string
-  mainCardBody?: string
-  mainCardImgUrl?: string
-  // A list of context menu options
-  mainContextMenuItems?: ContextMenuItem[]
-  // Should we render a bottom list section. If supplied without hasMainCard, will just render a list
-  hasListCard?: boolean
-  // Heading strings for the list
-  listCardHeading?: string
-  listCardSubHeading?: string
-  listCardItems?: CardListItemProps[] // A list of options for the list - see CardList item above
-  listContextMenuItems?: ContextMenuItem[]
-  isSelected?: boolean // Does the card have the blue selected border
-}
-```
+<RenderHtmlMarkup component="Card" story="React Shorthand Complete" />

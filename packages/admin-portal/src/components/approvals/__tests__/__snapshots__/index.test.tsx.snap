@@ -122,10 +122,12 @@ exports[`AdminApprovals should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -172,28 +174,28 @@ exports[`AdminApprovals should render component with data 1`] = `
                     <mock-styled.button
                       classname="mock-css."
                     >
-                      View in AppMarket
                       <mock-styled.div />
+                      View in AppMarket
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="true"
                     >
-                      View in DevPortal
                       <mock-styled.div />
+                      View in DevPortal
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       type="button"
                     >
-                      View Revision
                       <mock-styled.div />
+                      View Revision
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                     >
-                      View Consents
                       <mock-styled.div />
+                      View Consents
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -258,10 +260,12 @@ exports[`AdminApprovals should render component with data 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -308,28 +312,28 @@ exports[`AdminApprovals should render component with data 1`] = `
                   <mock-styled.button
                     classname="mock-css."
                   >
-                    View in AppMarket
                     <mock-styled.div />
+                    View in AppMarket
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="true"
                   >
-                    View in DevPortal
                     <mock-styled.div />
+                    View in DevPortal
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     type="button"
                   >
-                    View Revision
                     <mock-styled.div />
+                    View Revision
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                   >
-                    View Consents
                     <mock-styled.div />
+                    View Consents
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>

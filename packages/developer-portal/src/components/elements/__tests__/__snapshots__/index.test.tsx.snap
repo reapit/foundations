@@ -12,11 +12,6 @@ exports[`ElementsPage should match a snapshot 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            UI
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -26,11 +21,11 @@ exports[`ElementsPage should match a snapshot 1`] = `
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Reapit Elements
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -41,16 +36,16 @@ exports[`ElementsPage should match a snapshot 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
           >
-            View Docs
             <mock-styled.div />
+            View Docs
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
           >
-            Storybook
             <mock-styled.div />
+            Storybook
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section
@@ -83,11 +78,6 @@ exports[`ElementsPage should match a snapshot 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          UI
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -97,11 +87,11 @@ exports[`ElementsPage should match a snapshot 1`] = `
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.h2
+        <mock-styled.p
           classname=""
         >
           Reapit Elements
-        </mock-styled.h2>
+        </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
         >
@@ -112,16 +102,16 @@ exports[`ElementsPage should match a snapshot 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
         >
-          View Docs
           <mock-styled.div />
+          View Docs
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
         >
-          Storybook
           <mock-styled.div />
+          Storybook
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section

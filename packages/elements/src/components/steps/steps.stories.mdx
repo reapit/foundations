@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { Steps, StepsVertical } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { BodyText, Subtitle } from '../typography'
@@ -99,7 +99,7 @@ export interface StepsVerticalStep {
                 cupiditate quam. Aut, enim?
               </BodyText>
               <ButtonGroup alignment="right">
-                <Button intent="secondary" size={2} chevronRight type="submit" onClick={() => setSelectedStep('2')}>
+                <Button intent="primary" type="submit" onClick={() => setSelectedStep('2')}>
                   Complete Step 1
                 </Button>
               </ButtonGroup>
@@ -117,7 +117,7 @@ export interface StepsVerticalStep {
                 cupiditate quam. Aut, enim?
               </BodyText>
               <ButtonGroup alignment="right">
-                <Button intent="secondary" size={2} chevronRight type="submit" onClick={() => setSelectedStep('3')}>
+                <Button intent="primary" type="submit" onClick={() => setSelectedStep('3')}>
                   Complete Step 2
                 </Button>
               </ButtonGroup>
@@ -135,7 +135,7 @@ export interface StepsVerticalStep {
                 cupiditate quam. Aut, enim?
               </BodyText>
               <ButtonGroup alignment="right">
-                <Button intent="secondary" size={2} chevronRight type="submit" onClick={() => setSelectedStep('4')}>
+                <Button intent="primary" type="submit" onClick={() => setSelectedStep('4')}>
                   Complete Step 3
                 </Button>
               </ButtonGroup>
@@ -153,7 +153,7 @@ export interface StepsVerticalStep {
                 cupiditate quam. Aut, enim?
               </BodyText>
               <ButtonGroup alignment="right">
-                <Button intent="secondary" size={2} chevronRight type="submit" onClick={() => setSelectedStep('5')}>
+                <Button intent="primary" type="submit" onClick={() => setSelectedStep('5')}>
                   Complete Step 4
                 </Button>
               </ButtonGroup>
@@ -171,7 +171,7 @@ export interface StepsVerticalStep {
                 cupiditate quam. Aut, enim?
               </BodyText>
               <ButtonGroup alignment="right">
-                <Button intent="critical" size={2} chevronRight type="submit" onClick={() => setSelectedStep('1')}>
+                <Button intent="primary" type="submit" onClick={() => setSelectedStep('1')}>
                   Restart Steps
                 </Button>
               </ButtonGroup>

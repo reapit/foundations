@@ -30,16 +30,16 @@ exports[`AcceptPermissionChangePage should match snapshot  1`] = `
                 classname="mock-css."
               >
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                 >
-                  Ignore
                   <mock-styled.div />
+                  Ignore
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                 >
-                  Accept
                   <mock-styled.div />
+                  Accept
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>

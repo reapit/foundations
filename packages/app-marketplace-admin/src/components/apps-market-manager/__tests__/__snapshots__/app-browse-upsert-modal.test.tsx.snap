@@ -56,6 +56,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
 "
                 >
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     placeholder="Search"
                   />
@@ -251,6 +252,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     Title
                   </mock-styled.label>
                   <mock-styled.input
+                    classname=""
                     name="content.title"
                   />
                 </mock-styled.div>
@@ -261,6 +263,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     Strapline
                   </mock-styled.label>
                   <mock-styled.input
+                    classname=""
                     name="content.strapline"
                   />
                 </mock-styled.div>
@@ -577,6 +580,11 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                       reapit logo infographic
                     </option>
                     <option
+                      value="reapitLogoSmallInfographic"
+                    >
+                      reapit logo small infographic
+                    </option>
+                    <option
                       value="reapitUserInfographic"
                     >
                       reapit user infographic
@@ -721,8 +729,8 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
  mock-css."
                         type="button"
                       >
-                        Upload
                         <mock-styled.div />
+                        Upload
                       </mock-styled.button>
                       <mock-styled.input
                         data-testid="el-file-input"
@@ -756,6 +764,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     Live From
                   </mock-styled.label>
                   <mock-styled.input
+                    classname=""
                     name="live.timeFrom"
                     type="datetime-local"
                   />
@@ -767,6 +776,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     Live To
                   </mock-styled.label>
                   <mock-styled.input
+                    classname=""
                     name="live.timeTo"
                     type="datetime-local"
                   />
@@ -780,7 +790,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                 >
                   <div
                     class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -800,7 +810,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   </div>
                   <div
                     class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -840,8 +850,8 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   classname="mock-css."
                   disabled="false"
                 >
-                  Save
                   <mock-styled.div />
+                  Save
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -902,6 +912,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Search"
                 />
@@ -1097,6 +1108,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   Title
                 </mock-styled.label>
                 <mock-styled.input
+                  classname=""
                   name="content.title"
                 />
               </mock-styled.div>
@@ -1107,6 +1119,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   Strapline
                 </mock-styled.label>
                 <mock-styled.input
+                  classname=""
                   name="content.strapline"
                 />
               </mock-styled.div>
@@ -1423,6 +1436,11 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     reapit logo infographic
                   </option>
                   <option
+                    value="reapitLogoSmallInfographic"
+                  >
+                    reapit logo small infographic
+                  </option>
+                  <option
                     value="reapitUserInfographic"
                   >
                     reapit user infographic
@@ -1567,8 +1585,8 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
  mock-css."
                       type="button"
                     >
-                      Upload
                       <mock-styled.div />
+                      Upload
                     </mock-styled.button>
                     <mock-styled.input
                       data-testid="el-file-input"
@@ -1602,6 +1620,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   Live From
                 </mock-styled.label>
                 <mock-styled.input
+                  classname=""
                   name="live.timeFrom"
                   type="datetime-local"
                 />
@@ -1613,6 +1632,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   Live To
                 </mock-styled.label>
                 <mock-styled.input
+                  classname=""
                   name="live.timeTo"
                   type="datetime-local"
                 />
@@ -1626,7 +1646,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
               >
                 <div
                   class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1646,7 +1666,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                 </div>
                 <div
                   class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -1686,8 +1706,8 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                 classname="mock-css."
                 disabled="false"
               >
-                Save
                 <mock-styled.div />
+                Save
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>

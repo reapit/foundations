@@ -24,7 +24,9 @@ exports[`AppCard should match a snapshot 1`] = `
 "
       >
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
             <mock-styled.h5>
               Geo Diary
             </mock-styled.h5>
@@ -41,7 +43,11 @@ exports[`AppCard should match a snapshot 1`] = `
         >
           GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-top: 0.75rem;
+"
+        >
           <mock-styled.h5>
             Installation and Visibility
           </mock-styled.h5>
@@ -104,7 +110,9 @@ exports[`AppCard should match a snapshot 1`] = `
 "
     >
       <mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
           <mock-styled.h5>
             Geo Diary
           </mock-styled.h5>
@@ -121,7 +129,11 @@ exports[`AppCard should match a snapshot 1`] = `
       >
         GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
       </mock-styled.div>
-      <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-top: 0.75rem;
+"
+      >
         <mock-styled.h5>
           Installation and Visibility
         </mock-styled.h5>

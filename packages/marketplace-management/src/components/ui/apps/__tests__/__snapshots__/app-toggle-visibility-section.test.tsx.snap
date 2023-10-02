@@ -22,6 +22,7 @@ exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
       >
         <mock-styled.input
           checked="true"
+          classname=""
           id="test-static-id"
           type="checkbox"
         />
@@ -51,6 +52,7 @@ exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
     >
       <mock-styled.input
         checked="true"
+        classname=""
         id="test-static-id"
         type="checkbox"
       />

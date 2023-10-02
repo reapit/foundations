@@ -5,14 +5,12 @@ import RoutePaths from '../../../constants/routes'
 import {
   elFadeIn,
   elHFull,
-  elMb8,
   FlexContainer,
   Loader,
   PageContainer,
   SecondaryNav,
   SecondaryNavContainer,
   SecondaryNavItem,
-  Title,
 } from '@reapit/elements'
 import { navigateRoute } from '../../../utils/navigation'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
@@ -26,7 +24,6 @@ import AppInstallationsPage from '../installations'
 import { useAppState } from '../state/use-app-state'
 import { getCurrentPage } from '../utils/get-current-page'
 import { Helper } from './helper'
-import { cx } from '@linaria/core'
 import { useGlobalState } from '../../../core/use-global-state'
 import AppConsentsPage from '../consents'
 import { checkShouldRenderConsents } from '../utils/consents'
@@ -66,9 +63,6 @@ export const AppsPage: FC = () => {
         <FlexContainer isFlexAuto>
           {appsLoading || !apps ? (
             <>
-              <SecondaryNavContainer>
-                <Title>Apps</Title>
-              </SecondaryNavContainer>
               <PageContainer className={elHFull}>
                 <Loader />
               </PageContainer>
@@ -79,8 +73,7 @@ export const AppsPage: FC = () => {
             <>
               {Boolean(apps.totalCount) && (
                 <SecondaryNavContainer>
-                  <Title>Apps</Title>
-                  <SecondaryNav className={cx(elMb8, elFadeIn)}>
+                  <SecondaryNav className={elFadeIn}>
                     <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.APPS)} active={isAppsList}>
                       My Apps
                     </SecondaryNavItem>

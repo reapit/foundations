@@ -2,46 +2,54 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import {
   elIntentPrimary,
-  elIntentSecondary,
-  elIntentCritical,
   elIntentSuccess,
+  elIntentWarning,
   elIntentDanger,
+  elIntentNeutral,
+  elIntentDefault,
+  elIntentPending,
 } from '../../../styles/intent'
 
 export const ElSnack = styled.div`
   display: inline-flex;
   border-radius: var(--default-border-radius);
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 0.75rem;
   align-items: center;
+  background: var(--color-grey-100);
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 
   &.${elIntentPrimary} {
-    background: var(--intent-primary-light);
-    color: var(--intent-primary-light-text);
+    background: var(--intent-primary-lightest);
   }
 
-  &.${elIntentSecondary} {
-    background: var(--intent-secondary-light);
-    color: var(--intent-secondary-light-text);
-  }
-
-  &.${elIntentCritical} {
-    background: var(--intent-critical-light);
-    color: var(--intent-critical-light-text);
+  &.${elIntentNeutral} {
+    background: var(--intent-neutral-lightest);
   }
 
   &.${elIntentSuccess} {
-    background: var(--intent-success-light);
-    color: var(--intent-success-light-text);
+    background: var(--intent-success-lightest);
+  }
+
+  &.${elIntentPending} {
+    background: var(--intent-pending-lightest);
+  }
+
+  &.${elIntentWarning} {
+    background: var(--intent-warning-lightest);
   }
 
   &.${elIntentDanger} {
-    background: var(--intent-danger-light);
-    color: var(--intent-danger-light-text);
+    background: var(--intent-danger-lightest);
+  }
+
+  &.${elIntentDefault} {
+    background: var(--intent-default-lightest);
   }
 `
 
 export const elSnackIcon = css`
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 `
 
 export const elSnackCloseIcon = css`
@@ -62,6 +70,6 @@ export const ElSnackHolder = styled.div`
   ${ElSnack} {
     display: flex;
     margin-bottom: 1rem;
-    box-shadow: 3px 3px 5px var(--color-grey-medium);
+    /* box-shadow: 3px 3px 5px var(--color-grey-400); */
   }
 `

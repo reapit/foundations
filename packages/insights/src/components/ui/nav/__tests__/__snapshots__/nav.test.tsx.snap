@@ -14,16 +14,24 @@ exports[`Nav should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  @media screen and (max-width: 767px) {
-    margin-left: 0.75rem;
-  }
+  margin-right: 0.375rem;
 "
-            style="font-size: 2.5rem;"
+            style="font-size: 1.5rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.5rem;"
+            />
           </mock-styled.span>
           <mock-styled.span
-            classname="mock-css. mock-css.
+            classname=""
+            style="height: 24px; width: 100px;"
+          >
+            <svg
+              style="height: 24px; width: 100px;"
+            />
+          </mock-styled.span>
+          <mock-styled.span
+            classname="mock-css.
   margin-left: auto;
  mock-css.
   margin-right: 0.375rem;
@@ -32,48 +40,45 @@ exports[`Nav should match a snapshot 1`] = `
     height: 0;
     width: 0;
     visibility: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
   }
-"
-            style="font-size: 2rem;"
+
+  svg {
+    height: 1.2rem;
+  }
+ mock-css."
+            style="font-size: 1.2rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.2rem;"
+            />
           </mock-styled.span>
         </mock-styled.a>
         <mock-styled.a
           classname=""
         >
-          <mock-styled.span
-            classname="mock-css.
-  @media screen and (max-width: 767px) {
-    margin-left: 0.75rem;
-  }
- mock-css.
-  font-size: 2.5rem;
-"
-          >
-            <svg />
-          </mock-styled.span>
           Apps
         </mock-styled.a>
         <mock-styled.a
           classname="mock-css.
   @media screen and (min-width: 768px) {
-    margin-top: auto;
+    margin-left: auto;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 "
         >
           <mock-styled.span
-            classname="mock-css.
-  @media screen and (max-width: 767px) {
-    margin-left: 0.75rem;
-  }
- mock-css.
-  font-size: 2.5rem;
-"
+            classname=""
+            style="font-size: 32px;"
           >
-            <svg />
+            <svg
+              style="font-size: 32px;"
+            />
           </mock-styled.span>
-          Logout
         </mock-styled.a>
       </mock-styled.nav>
     </div>
@@ -88,16 +93,24 @@ exports[`Nav should match a snapshot 1`] = `
       >
         <mock-styled.span
           classname="mock-css.
-  @media screen and (max-width: 767px) {
-    margin-left: 0.75rem;
-  }
+  margin-right: 0.375rem;
 "
-          style="font-size: 2.5rem;"
+          style="font-size: 1.5rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.5rem;"
+          />
         </mock-styled.span>
         <mock-styled.span
-          classname="mock-css. mock-css.
+          classname=""
+          style="height: 24px; width: 100px;"
+        >
+          <svg
+            style="height: 24px; width: 100px;"
+          />
+        </mock-styled.span>
+        <mock-styled.span
+          classname="mock-css.
   margin-left: auto;
  mock-css.
   margin-right: 0.375rem;
@@ -106,48 +119,45 @@ exports[`Nav should match a snapshot 1`] = `
     height: 0;
     width: 0;
     visibility: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
   }
-"
-          style="font-size: 2rem;"
+
+  svg {
+    height: 1.2rem;
+  }
+ mock-css."
+          style="font-size: 1.2rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.2rem;"
+          />
         </mock-styled.span>
       </mock-styled.a>
       <mock-styled.a
         classname=""
       >
-        <mock-styled.span
-          classname="mock-css.
-  @media screen and (max-width: 767px) {
-    margin-left: 0.75rem;
-  }
- mock-css.
-  font-size: 2.5rem;
-"
-        >
-          <svg />
-        </mock-styled.span>
         Apps
       </mock-styled.a>
       <mock-styled.a
         classname="mock-css.
   @media screen and (min-width: 768px) {
-    margin-top: auto;
+    margin-left: auto;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 "
       >
         <mock-styled.span
-          classname="mock-css.
-  @media screen and (max-width: 767px) {
-    margin-left: 0.75rem;
-  }
- mock-css.
-  font-size: 2.5rem;
-"
+          classname=""
+          style="font-size: 32px;"
         >
-          <svg />
+          <svg
+            style="font-size: 32px;"
+          />
         </mock-styled.span>
-        Logout
       </mock-styled.a>
     </mock-styled.nav>
   </div>,

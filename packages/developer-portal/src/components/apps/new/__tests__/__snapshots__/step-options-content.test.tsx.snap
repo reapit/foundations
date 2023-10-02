@@ -33,6 +33,7 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -49,6 +50,7 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -96,6 +98,7 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -112,6 +115,7 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -216,6 +220,7 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -232,6 +237,7 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -279,6 +285,7 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -295,6 +302,7 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -399,6 +407,7 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -415,6 +424,7 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -462,6 +472,7 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -478,6 +489,7 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -582,6 +594,7 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -598,6 +611,7 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -645,6 +659,7 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -661,6 +676,7 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -765,6 +781,7 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -781,6 +798,7 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -828,6 +846,7 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -844,6 +863,7 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -948,6 +968,7 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -964,6 +985,7 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -1011,6 +1033,7 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -1027,6 +1050,7 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -1131,6 +1155,7 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -1147,6 +1172,7 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -1194,6 +1220,7 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -1210,6 +1237,7 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -1314,6 +1342,7 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -1330,6 +1359,7 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -1377,6 +1407,7 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -1393,6 +1424,7 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -1497,6 +1529,7 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -1513,6 +1546,7 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -1560,6 +1594,7 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -1576,6 +1611,7 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -1680,6 +1716,7 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -1696,6 +1733,7 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -1743,6 +1781,7 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -1759,6 +1798,7 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -1863,6 +1903,7 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -1879,6 +1920,7 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="text"
             />
@@ -1926,6 +1968,7 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />
@@ -1942,6 +1985,7 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="text"
           />

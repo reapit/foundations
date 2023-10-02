@@ -1,5 +1,6 @@
-import { Meta, Story, Canvas, ArgsTable, RenderHtmlMarkup } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { StatusIndicator } from './'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 <Meta title="StatusIndicator" component={StatusIndicator} />
 
@@ -15,7 +16,9 @@ Props available for the React version of the component;
 
 <Canvas>
   <Story name="Basic usage">
-    <div><StatusIndicator intent="critical" /> Something is happening</div>
+    <div>
+      <StatusIndicator /> Something is happening
+    </div>
   </Story>
 </Canvas>
 
@@ -25,22 +28,51 @@ Different intents are supported, to enable buttons to be used in different conte
 
 <Canvas>
   <Story name="Intent: Primary">
-    <div><StatusIndicator intent="primary" /> Primary</div>
+    <div>
+      <StatusIndicator intent="primary" /> Primary
+    </div>
   </Story>
-  <Story name="Intent: Secondary">
-    <div><StatusIndicator intent="secondary" /> Secondary</div>
-  </Story>
-  <Story name="Intent: Critical">
-    <div><StatusIndicator intent="critical" /> Critical</div>
+  <Story name="Intent: Neutral">
+    <div>
+      <StatusIndicator intent="neutral" /> Neutral
+    </div>
   </Story>
   <Story name="Intent: Success">
-    <div><StatusIndicator intent="success" /> Success</div>
+    <div>
+      <StatusIndicator intent="success" /> Success
+    </div>
+  </Story>
+  <Story name="Intent: Pending">
+    <div>
+      <StatusIndicator intent="pending" /> Pending
+    </div>
+  </Story>
+  <Story name="Intent: Warning">
+    <div>
+      <StatusIndicator intent="warning" /> Warning
+    </div>
   </Story>
   <Story name="Intent: Danger">
-    <div><StatusIndicator intent="danger" /> Danger</div>
+    <div>
+      <StatusIndicator intent="danger" /> Danger
+    </div>
   </Story>
-   <Story name="Intent: none">
-    <div><StatusIndicator /> Nothing</div>
+  <Story name="Intent: Default">
+    <div>
+      <StatusIndicator intent="default" /> Default
+    </div>
   </Story>
 </Canvas>
 
+<RenderHtmlMarkup
+  component="StatusIndicator"
+  story={[
+    'Intent: Primary',
+    'Intent: Neutral',
+    'Intent: Success',
+    'Intent: Pending',
+    'Intent: Warning',
+    'Intent: Danger',
+    'Intent: Default',
+  ]}
+/>

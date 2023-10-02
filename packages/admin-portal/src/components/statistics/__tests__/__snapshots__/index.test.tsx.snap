@@ -19,8 +19,8 @@ exports[`Statistics should render component with apps 1`] = `
               classname="mock-css."
               type="button"
             >
-              Download CSV
               <mock-styled.div />
+              Download CSV
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -42,8 +42,8 @@ exports[`Statistics should render component with apps 1`] = `
             classname="mock-css."
             type="button"
           >
-            Download CSV
             <mock-styled.div />
+            Download CSV
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -122,8 +122,8 @@ exports[`Statistics should render component with billing 1`] = `
               classname="mock-css."
               type="button"
             >
-              Download CSV
               <mock-styled.div />
+              Download CSV
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -145,8 +145,8 @@ exports[`Statistics should render component with billing 1`] = `
             classname="mock-css."
             type="button"
           >
-            Download CSV
             <mock-styled.div />
+            Download CSV
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

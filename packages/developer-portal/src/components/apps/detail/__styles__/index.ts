@@ -2,8 +2,8 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
 export const PermissionChip = styled.div`
-  background: var(--color-grey-light);
-  color: var(--color-grey-dark);
+  background: var(--color-grey-100);
+  color: var(--color-grey-500);
   font-size: var(--font-size-small);
   border-radius: 1rem;
   padding: 0.25rem 0.625rem;
@@ -12,8 +12,8 @@ export const PermissionChip = styled.div`
 `
 
 export const LinkChip = styled.div`
-  background: var(--color-grey-light);
-  color: var(--color-grey-dark);
+  background: var(--color-grey-100);
+  color: var(--color-grey-500);
   font-size: var(--font-size-small);
   border-radius: 1rem;
   padding: 0.25rem 0.625rem;

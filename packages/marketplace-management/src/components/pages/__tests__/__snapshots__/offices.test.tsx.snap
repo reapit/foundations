@@ -137,6 +137,7 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Search for an office"
@@ -166,8 +167,8 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
                         classname="mock-css."
                         type="submit"
                       >
-                        Search
                         <mock-styled.div />
+                        Search
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
@@ -319,6 +320,7 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   placeholder="Search for an office"
@@ -348,8 +350,8 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
                       classname="mock-css."
                       type="submit"
                     >
-                      Search
                       <mock-styled.div />
+                      Search
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -558,6 +560,7 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Search for an office"
@@ -587,8 +590,8 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
                         classname="mock-css."
                         type="submit"
                       >
-                        Search
                         <mock-styled.div />
+                        Search
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
@@ -740,6 +743,7 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   placeholder="Search for an office"
@@ -769,8 +773,8 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
                       classname="mock-css."
                       type="submit"
                     >
-                      Search
                       <mock-styled.div />
+                      Search
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -979,6 +983,7 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Search for an office"
@@ -1008,8 +1013,8 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
                         classname="mock-css."
                         type="submit"
                       >
-                        Search
                         <mock-styled.div />
+                        Search
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
@@ -1161,6 +1166,7 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   placeholder="Search for an office"
@@ -1190,8 +1196,8 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
                       classname="mock-css."
                       type="submit"
                     >
-                      Search
                       <mock-styled.div />
+                      Search
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>

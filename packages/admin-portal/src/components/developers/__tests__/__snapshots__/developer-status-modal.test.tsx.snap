@@ -94,6 +94,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="true"
                 id="test-static-id"
                 name="reapitReference"
@@ -109,6 +110,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.textarea
+                classname=""
                 name="notes"
                 placeholder="Notes on developer"
                 type="text"
@@ -124,17 +126,17 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
             classname="mock-css."
           >
             <mock-styled.button
-              classname="mock-css. mock-css."
+              classname="mock-css."
             >
-              Cancel
               <mock-styled.div />
+              Cancel
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css. mock-css."
+              classname="mock-css."
               type="submit"
             >
-              Confirm
               <mock-styled.div />
+              Confirm
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -231,6 +233,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="true"
               id="test-static-id"
               name="reapitReference"
@@ -246,6 +249,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.textarea
+              classname=""
               name="notes"
               placeholder="Notes on developer"
               type="text"
@@ -261,17 +265,17 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
           classname="mock-css."
         >
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
             type="submit"
           >
-            Confirm
             <mock-styled.div />
+            Confirm
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

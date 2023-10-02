@@ -32,13 +32,15 @@ exports[`PipelineNew Should match snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Deployments
@@ -58,13 +60,15 @@ exports[`PipelineNew Should match snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Configure
@@ -84,13 +88,15 @@ exports[`PipelineNew Should match snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Environment Variables
@@ -119,6 +125,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
                 Name
               </mock-styled.label>
               <mock-styled.input
+                classname=""
                 name="name"
               />
             </mock-styled.div>
@@ -129,6 +136,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
                 Deployment Branch
               </mock-styled.label>
               <mock-styled.input
+                classname=""
                 name="branch"
               />
             </mock-styled.div>
@@ -139,6 +147,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
                 Github Repository
               </mock-styled.label>
               <mock-styled.input
+                classname=""
                 name="repository"
                 placeholder="https://github.com/org/repo"
               />
@@ -177,6 +186,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
                 Build Command
               </mock-styled.label>
               <mock-styled.input
+                classname=""
                 name="buildCommand"
               />
             </mock-styled.div>
@@ -187,6 +197,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
                 Build Directory
               </mock-styled.label>
               <mock-styled.input
+                classname=""
                 name="outDir"
               />
             </mock-styled.div>
@@ -202,14 +213,14 @@ exports[`PipelineNew Should match snapshot 1`] = `
         <mock-styled.button
           classname="mock-css. mock-css."
         >
+          <mock-styled.div />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.25rem;
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.div />
         </mock-styled.button>
       </mock-styled.div>
     </div>
@@ -242,13 +253,15 @@ exports[`PipelineNew Should match snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Deployments
@@ -268,13 +281,15 @@ exports[`PipelineNew Should match snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Configure
@@ -294,13 +309,15 @@ exports[`PipelineNew Should match snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Environment Variables
@@ -329,6 +346,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
               Name
             </mock-styled.label>
             <mock-styled.input
+              classname=""
               name="name"
             />
           </mock-styled.div>
@@ -339,6 +357,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
               Deployment Branch
             </mock-styled.label>
             <mock-styled.input
+              classname=""
               name="branch"
             />
           </mock-styled.div>
@@ -349,6 +368,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
               Github Repository
             </mock-styled.label>
             <mock-styled.input
+              classname=""
               name="repository"
               placeholder="https://github.com/org/repo"
             />
@@ -387,6 +407,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
               Build Command
             </mock-styled.label>
             <mock-styled.input
+              classname=""
               name="buildCommand"
             />
           </mock-styled.div>
@@ -397,6 +418,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
               Build Directory
             </mock-styled.label>
             <mock-styled.input
+              classname=""
               name="outDir"
             />
           </mock-styled.div>
@@ -412,14 +434,14 @@ exports[`PipelineNew Should match snapshot 1`] = `
       <mock-styled.button
         classname="mock-css. mock-css."
       >
+        <mock-styled.div />
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.25rem;
+          classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.div />
       </mock-styled.button>
     </mock-styled.div>
   </div>,
@@ -514,13 +536,15 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Deployments
@@ -540,13 +564,15 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Configure
@@ -566,13 +592,15 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Environment Variables
@@ -601,6 +629,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
                 Name
               </mock-styled.label>
               <mock-styled.input
+                classname=""
                 name="name"
               />
             </mock-styled.div>
@@ -611,6 +640,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
                 Deployment Branch
               </mock-styled.label>
               <mock-styled.input
+                classname=""
                 name="branch"
               />
             </mock-styled.div>
@@ -621,6 +651,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
                 Github Repository
               </mock-styled.label>
               <mock-styled.input
+                classname=""
                 name="repository"
                 placeholder="https://github.com/org/repo"
               />
@@ -659,6 +690,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
                 Build Command
               </mock-styled.label>
               <mock-styled.input
+                classname=""
                 name="buildCommand"
               />
             </mock-styled.div>
@@ -669,6 +701,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
                 Build Directory
               </mock-styled.label>
               <mock-styled.input
+                classname=""
                 name="outDir"
               />
             </mock-styled.div>
@@ -684,14 +717,14 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
         <mock-styled.button
           classname="mock-css. mock-css."
         >
+          <mock-styled.div />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.25rem;
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.div />
         </mock-styled.button>
       </mock-styled.div>
     </div>
@@ -724,13 +757,15 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Deployments
@@ -750,13 +785,15 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Configure
@@ -776,13 +813,15 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Environment Variables
@@ -811,6 +850,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
               Name
             </mock-styled.label>
             <mock-styled.input
+              classname=""
               name="name"
             />
           </mock-styled.div>
@@ -821,6 +861,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
               Deployment Branch
             </mock-styled.label>
             <mock-styled.input
+              classname=""
               name="branch"
             />
           </mock-styled.div>
@@ -831,6 +872,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
               Github Repository
             </mock-styled.label>
             <mock-styled.input
+              classname=""
               name="repository"
               placeholder="https://github.com/org/repo"
             />
@@ -869,6 +911,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
               Build Command
             </mock-styled.label>
             <mock-styled.input
+              classname=""
               name="buildCommand"
             />
           </mock-styled.div>
@@ -879,6 +922,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
               Build Directory
             </mock-styled.label>
             <mock-styled.input
+              classname=""
               name="outDir"
             />
           </mock-styled.div>
@@ -894,14 +938,14 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
       <mock-styled.button
         classname="mock-css. mock-css."
       >
+        <mock-styled.div />
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.25rem;
+          classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.div />
       </mock-styled.button>
     </mock-styled.div>
   </div>,

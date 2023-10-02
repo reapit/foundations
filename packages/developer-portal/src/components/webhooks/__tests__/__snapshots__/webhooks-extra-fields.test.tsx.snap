@@ -51,6 +51,7 @@ exports[`WebhooksExtraFields should match a snapshot 1`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -126,6 +127,7 @@ exports[`WebhooksExtraFields should match a snapshot 1`] = `
           >
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 placeholder="Type and press enter to add a field"
                 value=""

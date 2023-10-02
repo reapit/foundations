@@ -52,10 +52,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -139,6 +141,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                   <mock-styled.div>
                     <mock-styled.div>
                       <mock-styled.input
+                        classname=""
                         id="test-static-id"
                         placeholder="Search"
                       />
@@ -197,15 +200,15 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                       classname="mock-css."
                       type="button"
                     >
-                      Cancel
                       <mock-styled.div />
+                      Cancel
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       type="submit"
                     >
-                      Submit
                       <mock-styled.div />
+                      Submit
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -293,6 +296,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                   <mock-styled.div>
                     <mock-styled.div>
                       <mock-styled.input
+                        classname=""
                         id="test-static-id"
                         placeholder="Search"
                       />
@@ -351,15 +355,15 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                       classname="mock-css."
                       type="button"
                     >
-                      Cancel
                       <mock-styled.div />
+                      Cancel
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       type="submit"
                     >
-                      Submit
                       <mock-styled.div />
+                      Submit
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -447,6 +451,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                   <mock-styled.div>
                     <mock-styled.div>
                       <mock-styled.input
+                        classname=""
                         id="test-static-id"
                         placeholder="Search"
                       />
@@ -505,15 +510,15 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                       classname="mock-css."
                       type="button"
                     >
-                      Cancel
                       <mock-styled.div />
+                      Cancel
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       type="submit"
                     >
-                      Submit
                       <mock-styled.div />
+                      Submit
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -601,10 +606,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css."
             style="font-size: 1.2rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.2rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -688,6 +695,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       id="test-static-id"
                       placeholder="Search"
                     />
@@ -746,15 +754,15 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                     classname="mock-css."
                     type="button"
                   >
-                    Cancel
                     <mock-styled.div />
+                    Cancel
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     type="submit"
                   >
-                    Submit
                     <mock-styled.div />
+                    Submit
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -842,6 +850,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       id="test-static-id"
                       placeholder="Search"
                     />
@@ -900,15 +909,15 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                     classname="mock-css."
                     type="button"
                   >
-                    Cancel
                     <mock-styled.div />
+                    Cancel
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     type="submit"
                   >
-                    Submit
                     <mock-styled.div />
+                    Submit
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -996,6 +1005,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       id="test-static-id"
                       placeholder="Search"
                     />
@@ -1054,15 +1064,15 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                     classname="mock-css."
                     type="button"
                   >
-                    Cancel
                     <mock-styled.div />
+                    Cancel
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     type="submit"
                   >
-                    Submit
                     <mock-styled.div />
+                    Submit
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -1178,7 +1188,7 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1198,7 +1208,7 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -1228,7 +1238,7 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
     >
       <div
         class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1248,7 +1258,7 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
       </div>
       <div
         class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -1334,7 +1344,7 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1354,7 +1364,7 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -1383,7 +1393,7 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1403,7 +1413,7 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;

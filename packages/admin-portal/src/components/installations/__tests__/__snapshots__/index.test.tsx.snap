@@ -26,6 +26,7 @@ exports[`Installations should render component when loading 1`] = `
 "
                 >
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     placeholder="Search"
                   />
@@ -121,6 +122,7 @@ exports[`Installations should render component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="installedDateFrom"
                   type="date"
@@ -135,6 +137,7 @@ exports[`Installations should render component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="installedDateTo"
                   type="date"
@@ -212,8 +215,8 @@ exports[`Installations should render component when loading 1`] = `
                 classname="mock-css."
                 type="button"
               >
-                Download CSV
                 <mock-styled.div />
+                Download CSV
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>
@@ -250,6 +253,7 @@ exports[`Installations should render component when loading 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Search"
                 />
@@ -345,6 +349,7 @@ exports[`Installations should render component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="installedDateFrom"
                 type="date"
@@ -359,6 +364,7 @@ exports[`Installations should render component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="installedDateTo"
                 type="date"
@@ -436,8 +442,8 @@ exports[`Installations should render component when loading 1`] = `
               classname="mock-css."
               type="button"
             >
-              Download CSV
               <mock-styled.div />
+              Download CSV
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -531,6 +537,7 @@ exports[`Installations should render component with data 1`] = `
 "
                 >
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     placeholder="Search"
                   />
@@ -626,6 +633,7 @@ exports[`Installations should render component with data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="installedDateFrom"
                   type="date"
@@ -640,6 +648,7 @@ exports[`Installations should render component with data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="installedDateTo"
                   type="date"
@@ -717,8 +726,8 @@ exports[`Installations should render component with data 1`] = `
                 classname="mock-css."
                 type="button"
               >
-                Download CSV
                 <mock-styled.div />
+                Download CSV
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>
@@ -758,10 +767,12 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -870,8 +881,8 @@ exports[`Installations should render component with data 1`] = `
                     <mock-styled.button
                       classname="mock-css."
                     >
-                      Togggle API Consumption
                       <mock-styled.div />
+                      Togggle API Consumption
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -933,6 +944,7 @@ exports[`Installations should render component with data 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Search"
                 />
@@ -1028,6 +1040,7 @@ exports[`Installations should render component with data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="installedDateFrom"
                 type="date"
@@ -1042,6 +1055,7 @@ exports[`Installations should render component with data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="installedDateTo"
                 type="date"
@@ -1119,8 +1133,8 @@ exports[`Installations should render component with data 1`] = `
               classname="mock-css."
               type="button"
             >
-              Download CSV
               <mock-styled.div />
+              Download CSV
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -1160,10 +1174,12 @@ exports[`Installations should render component with data 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -1272,8 +1288,8 @@ exports[`Installations should render component with data 1`] = `
                   <mock-styled.button
                     classname="mock-css."
                   >
-                    Togggle API Consumption
                     <mock-styled.div />
+                    Togggle API Consumption
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>

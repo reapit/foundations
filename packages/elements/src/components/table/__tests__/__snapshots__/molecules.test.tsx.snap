@@ -262,7 +262,9 @@ exports[`TableCtaTriggerCell Component should match a snapshot with no children 
             classname="mock-css."
             style="font-size: 1.2rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.2rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -275,7 +277,9 @@ exports[`TableCtaTriggerCell Component should match a snapshot with no children 
           classname="mock-css."
           style="font-size: 1.2rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.2rem;"
+          />
         </mock-styled.span>
       </mock-styled.div>
     </mock-styled.div>

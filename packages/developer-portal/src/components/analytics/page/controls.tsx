@@ -1,15 +1,16 @@
 import React, { FC, SetStateAction, Dispatch, useMemo } from 'react'
 import {
+  BodyText,
   elBorderRadius,
   elFadeIn,
   elMb3,
+  elMb7,
   elWFull,
   Icon,
   InputGroup,
   Label,
   Select,
   SmallText,
-  Subtitle,
 } from '@reapit/elements'
 import { ControlsContainer, inputFullWidth, overflowHidden, visiblyHidden } from './__styles__'
 import { cx } from '@linaria/core'
@@ -74,9 +75,9 @@ export const Controls: FC = () => {
   const options = useMemo(handleInstallationsToOptions(installations?.data), [installations])
 
   return (
-    <div className={cx(isCalcPage && visiblyHidden, elFadeIn)}>
+    <div className={cx(isCalcPage && visiblyHidden, elFadeIn, elMb7)}>
       <Icon className={cx(isCalcPage && visiblyHidden, elMb3)} icon="crmInfographic" iconSize="large" />
-      <Subtitle className={cx(isCalcPage && visiblyHidden)}>Filter By</Subtitle>
+      <BodyText className={cx(isCalcPage && visiblyHidden)}>Filter By</BodyText>
       <SmallText hasGreyText>
         Please use the filters below to search. Please note, we only hold transactional records for the last 12 months.
       </SmallText>
@@ -144,7 +145,7 @@ export const Controls: FC = () => {
                   None selected
                 </option>
                 {options.map(({ name, value }) => (
-                  <option key={value} value={value}>
+                  <option key={name} value={value}>
                     {name}
                   </option>
                 ))}

@@ -28,7 +28,9 @@ exports[`Carousel should match a snapshot with options 1`] = `
             classname="mock-css."
             style="font-size: 0.75em;"
           >
-            <svg />
+            <svg
+              style="font-size: 0.75em;"
+            />
           </mock-styled.span>
         </mock-styled.mock-styled.a>
         <mock-styled.div
@@ -79,7 +81,9 @@ exports[`Carousel should match a snapshot with options 1`] = `
           classname="mock-css."
           style="font-size: 0.75em;"
         >
-          <svg />
+          <svg
+            style="font-size: 0.75em;"
+          />
         </mock-styled.span>
       </mock-styled.mock-styled.a>
       <mock-styled.div

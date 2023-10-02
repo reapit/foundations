@@ -21,6 +21,8 @@ exports[`Controls should match a snapshot 1`] = `
   animation-fill-mode: both;
   animation-delay: 0.1s;
   animation-name: fade-in;
+ mock-css.
+  margin-bottom: 1.25rem;
 "
       >
         <mock-styled.span
@@ -32,11 +34,11 @@ exports[`Controls should match a snapshot 1`] = `
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.h2
+        <mock-styled.p
           classname=""
         >
           Filter By
-        </mock-styled.h2>
+        </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
         >
@@ -61,6 +63,7 @@ exports[`Controls should match a snapshot 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   max="2019-10-10"
                   min="2018-10-10"
@@ -85,6 +88,7 @@ exports[`Controls should match a snapshot 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   max="2019-10-10"
                   min="2019-10-03"
@@ -109,6 +113,7 @@ exports[`Controls should match a snapshot 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   max="2019-10"
                   min="2018-10"
@@ -133,6 +138,7 @@ exports[`Controls should match a snapshot 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   max="2019-10"
                   min="2019-10"
@@ -230,6 +236,8 @@ exports[`Controls should match a snapshot 1`] = `
   animation-fill-mode: both;
   animation-delay: 0.1s;
   animation-name: fade-in;
+ mock-css.
+  margin-bottom: 1.25rem;
 "
     >
       <mock-styled.span
@@ -241,11 +249,11 @@ exports[`Controls should match a snapshot 1`] = `
       >
         <svg />
       </mock-styled.span>
-      <mock-styled.h2
+      <mock-styled.p
         classname=""
       >
         Filter By
-      </mock-styled.h2>
+      </mock-styled.p>
       <mock-styled.p
         classname="mock-css."
       >
@@ -270,6 +278,7 @@ exports[`Controls should match a snapshot 1`] = `
 "
             >
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 max="2019-10-10"
                 min="2018-10-10"
@@ -294,6 +303,7 @@ exports[`Controls should match a snapshot 1`] = `
 "
             >
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 max="2019-10-10"
                 min="2019-10-03"
@@ -318,6 +328,7 @@ exports[`Controls should match a snapshot 1`] = `
 "
             >
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 max="2019-10"
                 min="2018-10"
@@ -342,6 +353,7 @@ exports[`Controls should match a snapshot 1`] = `
 "
             >
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 max="2019-10"
                 min="2019-10"

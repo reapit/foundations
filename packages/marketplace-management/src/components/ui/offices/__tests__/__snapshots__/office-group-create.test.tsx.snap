@@ -53,6 +53,7 @@ exports[`OfficeGroupCreate should match a snapshot 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       id="test-static-id"
                       name="name"
                       placeholder="Enter an office group name"
@@ -120,6 +121,7 @@ exports[`OfficeGroupCreate should match a snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Enter an office group name"
@@ -244,6 +246,7 @@ exports[`OfficeGroupCreate should match a snapshot where there is no orgId 1`] =
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.input
+                      classname=""
                       id="test-static-id"
                       name="name"
                       placeholder="Enter an office group name"
@@ -311,6 +314,7 @@ exports[`OfficeGroupCreate should match a snapshot where there is no orgId 1`] =
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Enter an office group name"

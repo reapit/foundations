@@ -31,13 +31,13 @@ export const SnackHolder: FC<SnackHolderProps> = ({ snacks, removeSnackById, ...
   )
 }
 
-export const Snack: FC<SnackProps> = ({ icon, intent = 'secondary', className, onRemove, children, ...rest }) => {
+export const Snack: FC<SnackProps> = ({ icon, intent = 'primary', className, onRemove, children, ...rest }) => {
   const intentClassName = getIntentClassName(intent)
   const combinedClassName = cx(className, intentClassName)
 
   return (
     <ElSnack className={combinedClassName} {...rest}>
-      {icon && <Icon className={elSnackIcon} intent={intent} fontSize="1.25rem" icon={icon} />}
+      {icon && <Icon className={elSnackIcon} intent={intent} icon={icon} />}
       {children}
       {onRemove && <Icon className={elSnackCloseIcon} data-testid="close-icon" onClick={onRemove} icon="closeSystem" />}
     </ElSnack>

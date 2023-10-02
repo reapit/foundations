@@ -4,7 +4,7 @@ import { styled } from '@linaria/react'
 export const ImageTextPair = styled.div`
   padding: 0.75rem;
   border-radius: 4px;
-  background-color: var(--color-grey-light);
+  background-color: var(--color-grey-50);
   display: flex;
 `
 
@@ -65,7 +65,7 @@ export const videoModal = css`
 
 export const SubscribeContainer = styled.div`
   border-radius: 4px;
-  background-color: var(--color-grey-light);
+  background-color: var(--color-grey-50);
   padding-top: 2rem;
 `
 
@@ -205,7 +205,7 @@ export const subscribingContractedContainer = css`
   }
 `
 
-export const SubscribeImageBars = styled.img`
+export const SubscribeImageBars = styled.div`
   transition: transform 0.3s linear, left 0.3s linear, bottom 0.3s linear;
   position: absolute;
   z-index: 1;
@@ -273,7 +273,7 @@ export const imgBarsSubscribing = css`
   }
 `
 
-export const SubscribeImageDevices = styled.img`
+export const SubscribeImageDevices = styled.div`
   transition: transform 0.3s linear, left 0.3s linear, bottom 0.3s linear;
   position: absolute;
   z-index: 3;
@@ -350,7 +350,7 @@ export const imgDevicesSubscribing = css`
   }
 `
 
-export const SubscribeImageFooter = styled.img`
+export const SubscribeImageFooter = styled.div`
   transition: bottom 0.3s linear;
   width: 100%;
   position: absolute;
@@ -422,7 +422,7 @@ export const PriceSection = styled.div`
   }
 
   > div {
-    border-top: 1px solid var(--color-grey-medium);
+    border-top: 1px solid var(--color-grey-400);
     display: flex;
     margin: 0rem auto 1rem auto;
     padding: 0 1rem;
@@ -431,5 +431,5 @@ export const PriceSection = styled.div`
 `
 
 export const hasGreyText = css`
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 `

@@ -18,6 +18,7 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="password"
                 placeholder="Current Password"
@@ -33,6 +34,7 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="newPassword"
                 placeholder="New Password"
@@ -48,6 +50,7 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="confirmPassword"
                 placeholder="Confirm New Password"
@@ -69,8 +72,8 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
               classname="mock-css."
               type="submit"
             >
-              Save Changes
               <mock-styled.div />
+              Save Changes
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -84,14 +87,14 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
         <mock-styled.button
           classname="mock-css. mock-css."
         >
+          <mock-styled.div />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.25rem;
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.div />
         </mock-styled.button>
       </mock-styled.div>
     </div>
@@ -110,6 +113,7 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="password"
               placeholder="Current Password"
@@ -125,6 +129,7 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="newPassword"
               placeholder="New Password"
@@ -140,6 +145,7 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="confirmPassword"
               placeholder="Confirm New Password"
@@ -161,8 +167,8 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
             classname="mock-css."
             type="submit"
           >
-            Save Changes
             <mock-styled.div />
+            Save Changes
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -176,14 +182,14 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
       <mock-styled.button
         classname="mock-css. mock-css."
       >
+        <mock-styled.div />
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.25rem;
+          classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.div />
       </mock-styled.button>
     </mock-styled.div>
   </div>,
@@ -264,6 +270,7 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="password"
                 placeholder="Current Password"
@@ -279,6 +286,7 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="newPassword"
                 placeholder="New Password"
@@ -294,6 +302,7 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="confirmPassword"
                 placeholder="Confirm New Password"
@@ -315,8 +324,8 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
               classname="mock-css."
               type="submit"
             >
-              Save Changes
               <mock-styled.div />
+              Save Changes
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -330,14 +339,14 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
         <mock-styled.button
           classname="mock-css. mock-css."
         >
+          <mock-styled.div />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.25rem;
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.div />
         </mock-styled.button>
       </mock-styled.div>
     </div>
@@ -356,6 +365,7 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="password"
               placeholder="Current Password"
@@ -371,6 +381,7 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="newPassword"
               placeholder="New Password"
@@ -386,6 +397,7 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="confirmPassword"
               placeholder="Confirm New Password"
@@ -407,8 +419,8 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
             classname="mock-css."
             type="submit"
           >
-            Save Changes
             <mock-styled.div />
+            Save Changes
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -422,14 +434,14 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
       <mock-styled.button
         classname="mock-css. mock-css."
       >
+        <mock-styled.div />
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.25rem;
+          classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.div />
       </mock-styled.button>
     </mock-styled.div>
   </div>,

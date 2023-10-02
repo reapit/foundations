@@ -198,7 +198,7 @@ export const WebhooksNew: FC = () => {
       {!nextStep && (
         <ButtonGroup className={cx(elMb11, createCta)} alignment="left">
           <Button
-            intent="critical"
+            intent="primary"
             size={2}
             chevronRight
             type="submit"

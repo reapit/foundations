@@ -18,6 +18,7 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="receipientEmail"
                 type="email"
@@ -32,6 +33,7 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 max="2019-11-10"
                 min="2019-10-10"
@@ -54,15 +56,15 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
               classname="mock-css."
               type="button"
             >
-              Cancel
               <mock-styled.div />
+              Cancel
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               type="submit"
             >
-              Send Payment Request
               <mock-styled.div />
+              Send Payment Request
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -83,6 +85,7 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="receipientEmail"
               type="email"
@@ -97,6 +100,7 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               max="2019-11-10"
               min="2019-10-10"
@@ -119,15 +123,15 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
             classname="mock-css."
             type="button"
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             type="submit"
           >
-            Send Payment Request
             <mock-styled.div />
+            Send Payment Request
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

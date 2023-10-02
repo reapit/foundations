@@ -23,6 +23,7 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="reapitReference"
             placeholder="Enter your Reapit reference here"
@@ -51,16 +52,16 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
             <mock-styled.button
               classname="mock-css."
             >
-              Close
               <mock-styled.div />
+              Close
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               disabled="false"
               type="submit"
             >
-              Submit
               <mock-styled.div />
+              Submit
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -86,6 +87,7 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
 "
       >
         <mock-styled.input
+          classname=""
           id="test-static-id"
           name="reapitReference"
           placeholder="Enter your Reapit reference here"
@@ -114,16 +116,16 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
           <mock-styled.button
             classname="mock-css."
           >
-            Close
             <mock-styled.div />
+            Close
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
             type="submit"
           >
-            Submit
             <mock-styled.div />
+            Submit
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -206,6 +208,7 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="reapitReference"
             placeholder="Enter your Reapit reference here"
@@ -234,16 +237,16 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
             <mock-styled.button
               classname="mock-css."
             >
-              Close
               <mock-styled.div />
+              Close
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               disabled="false"
               type="submit"
             >
-              Submit
               <mock-styled.div />
+              Submit
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -269,6 +272,7 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
 "
       >
         <mock-styled.input
+          classname=""
           id="test-static-id"
           name="reapitReference"
           placeholder="Enter your Reapit reference here"
@@ -297,16 +301,16 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
           <mock-styled.button
             classname="mock-css."
           >
-            Close
             <mock-styled.div />
+            Close
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
             type="submit"
           >
-            Submit
             <mock-styled.div />
+            Submit
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -384,8 +388,8 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
           <mock-styled.button
             classname="mock-css."
           >
-            Close
             <mock-styled.div />
+            Close
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -405,8 +409,8 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
         <mock-styled.button
           classname="mock-css."
         >
-          Close
           <mock-styled.div />
+          Close
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -504,8 +508,8 @@ exports[`SubmitReviewModal should match a snapshot where not a customer 1`] = `
           <mock-styled.button
             classname="mock-css."
           >
-            Close
             <mock-styled.div />
+            Close
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -546,8 +550,8 @@ exports[`SubmitReviewModal should match a snapshot where not a customer 1`] = `
         <mock-styled.button
           classname="mock-css."
         >
-          Close
           <mock-styled.div />
+          Close
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>

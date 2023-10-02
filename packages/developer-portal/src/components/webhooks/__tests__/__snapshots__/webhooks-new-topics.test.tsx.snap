@@ -41,6 +41,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -109,6 +110,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Search"
           />
@@ -234,6 +236,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -302,6 +305,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Search"
           />

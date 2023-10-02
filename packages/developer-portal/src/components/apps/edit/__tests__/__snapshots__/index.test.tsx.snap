@@ -32,13 +32,15 @@ exports[`AppEditPage should match a snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               About Listings
@@ -58,13 +60,15 @@ exports[`AppEditPage should match a snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               AppMarket Listing
@@ -84,13 +88,15 @@ exports[`AppEditPage should match a snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Authentication
@@ -110,13 +116,15 @@ exports[`AppEditPage should match a snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               Permissions
@@ -136,13 +144,15 @@ exports[`AppEditPage should match a snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
             >
               AgencyCloud Integration
@@ -166,14 +176,14 @@ exports[`AppEditPage should match a snapshot 1`] = `
         <mock-styled.button
           classname="mock-css. mock-css."
         >
+          <mock-styled.div />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.25rem;
+            classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.div />
         </mock-styled.button>
       </mock-styled.div>
     </div>
@@ -206,13 +216,15 @@ exports[`AppEditPage should match a snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             About Listings
@@ -232,13 +244,15 @@ exports[`AppEditPage should match a snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             AppMarket Listing
@@ -258,13 +272,15 @@ exports[`AppEditPage should match a snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Authentication
@@ -284,13 +300,15 @@ exports[`AppEditPage should match a snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             Permissions
@@ -310,13 +328,15 @@ exports[`AppEditPage should match a snapshot 1`] = `
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
   border-bottom: 2px solid var(--color-white);
   white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
           >
             AgencyCloud Integration
@@ -340,14 +360,14 @@ exports[`AppEditPage should match a snapshot 1`] = `
       <mock-styled.button
         classname="mock-css. mock-css."
       >
+        <mock-styled.div />
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.25rem;
+          classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.div />
       </mock-styled.button>
     </mock-styled.div>
   </div>,
@@ -495,7 +515,7 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -515,7 +535,7 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -533,7 +553,7 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -553,7 +573,7 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;

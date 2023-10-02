@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { MediaStateProvider } from './'
 import { MediaMobileExample, AllBreakPointExample } from './media.stories'
 
@@ -67,7 +67,6 @@ export const AllBreakPointExample = () => {
   if (is4KScreen) {
     return <h1>Is Tablet</h1>
   }
-
 }
 ```
 
@@ -79,11 +78,11 @@ export const AllBreakPointExample = () => {
   </Story>
 </Canvas>
 
-Variable | breakpoint sum 
---- | ---
-`isMobile` | < 768
-`isTable` | >= 768 && < 1024
-`isDesktop` | >= 1024 && < 1440
-`isWideScreen` | >= 1440 && < 1920
-`isSuperWideScreen` | >= 1920 && < 2560
-`is4KScreen` | >= 2560
+| Variable            | breakpoint sum    |
+| ------------------- | ----------------- |
+| `isMobile`          | < 768             |
+| `isTable`           | >= 768 && < 1024  |
+| `isDesktop`         | >= 1024 && < 1440 |
+| `isWideScreen`      | >= 1440 && < 1920 |
+| `isSuperWideScreen` | >= 1920 && < 2560 |
+| `is4KScreen`        | >= 2560           |

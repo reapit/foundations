@@ -25,6 +25,7 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="due"
             type="date"
@@ -46,6 +47,7 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
 "
         >
           <mock-styled.textarea
+            classname=""
             name="notes"
           />
           <mock-styled.label>
@@ -58,31 +60,19 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
 "
         >
           <mock-styled.button
-            classname="mock-css. mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+            classname="mock-css."
             disabled="false"
             type="button"
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css. mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+            classname="mock-css."
             type="submit"
           >
-            Submit
             <mock-styled.div />
+            Submit
           </mock-styled.button>
         </mock-styled.div>
       </form>
@@ -109,6 +99,7 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
 "
       >
         <mock-styled.input
+          classname=""
           id="test-static-id"
           name="due"
           type="date"
@@ -130,6 +121,7 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
 "
       >
         <mock-styled.textarea
+          classname=""
           name="notes"
         />
         <mock-styled.label>
@@ -142,31 +134,19 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
 "
       >
         <mock-styled.button
-          classname="mock-css. mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+          classname="mock-css."
           disabled="false"
           type="button"
         >
-          Cancel
           <mock-styled.div />
+          Cancel
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css. mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
+          classname="mock-css."
           type="submit"
         >
-          Submit
           <mock-styled.div />
+          Submit
         </mock-styled.button>
       </mock-styled.div>
     </form>

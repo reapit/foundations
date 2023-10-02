@@ -96,6 +96,7 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
             >
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="searchTerm"
                 placeholder="Developer or App"
@@ -150,7 +151,9 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.h5>
                       Test App Dev
                     </mock-styled.h5>
@@ -164,10 +167,9 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                 </mock-styled.div>
                 <mock-styled.div
                   classname="mock-css.
-  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
 "
-                />
-                <mock-styled.div>
+                >
                   <mock-styled.h5>
                     Installation and Visibility
                   </mock-styled.h5>
@@ -230,12 +232,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Insights-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </mock-styled.mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.h5>
                       Reapit Insights
                     </mock-styled.h5>
@@ -252,7 +256,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                 >
                   Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
                 </mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-top: 0.75rem;
+"
+                >
                   <mock-styled.h5>
                     Installation and Visibility
                   </mock-styled.h5>
@@ -315,12 +323,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-Management-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </mock-styled.mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.h5>
                       Marketplace Management
                     </mock-styled.h5>
@@ -337,7 +347,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                 >
                   Description Description Description Description Description Description Description Description
                 </mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-top: 0.75rem;
+"
+                >
                   <mock-styled.h5>
                     Installation and Visibility
                   </mock-styled.h5>
@@ -400,12 +414,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Holly-Test-App-icon(1).png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </mock-styled.mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.h5>
                       Holly Test App
                     </mock-styled.h5>
@@ -422,7 +438,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                 >
                   https://holly.com https://holly.com https://holly.com https://holly.comhttps://holly.com https://holly.comhttps://holly.com https://holly.com
                 </mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-top: 0.75rem;
+"
+                >
                   <mock-styled.h5>
                     Installation and Visibility
                   </mock-styled.h5>
@@ -485,12 +505,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Payments-Portal-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </mock-styled.mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.h5>
                       Reapit Payments Portal
                     </mock-styled.h5>
@@ -507,7 +529,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                 >
                   It takes your money and sends it to Sage Pay. Then it updates RPS.
                 </mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-top: 0.75rem;
+"
+                >
                   <mock-styled.h5>
                     Installation and Visibility
                   </mock-styled.h5>
@@ -570,12 +596,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Data-Warehouse-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </mock-styled.mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.h5>
                       Data Warehouse
                     </mock-styled.h5>
@@ -592,7 +620,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                 >
                   The data warehouse houses lots of data. The data warehouse houses lots of data.
                 </mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-top: 0.75rem;
+"
+                >
                   <mock-styled.h5>
                     Installation and Visibility
                   </mock-styled.h5>
@@ -655,12 +687,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </mock-styled.mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.h5>
                       Reapit Connect
                     </mock-styled.h5>
@@ -679,7 +713,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                 >
                   Reapit Connect removes the overhead of having to build and maintain a user credential directory for your app.
                 </mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-top: 0.75rem;
+"
+                >
                   <mock-styled.h5>
                     Installation and Visibility
                   </mock-styled.h5>
@@ -742,12 +780,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </mock-styled.mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.h5>
                       Online Check List
                     </mock-styled.h5>
@@ -764,7 +804,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                 >
                   Helps you to get organised, simplify your workflow, and to ensure checks are carried out. Manage your checks online from anywhere.
                 </mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-top: 0.75rem;
+"
+                >
                   <mock-styled.h5>
                     Installation and Visibility
                   </mock-styled.h5>
@@ -827,12 +871,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.mock-styled.div>
                     <img
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Geo-Diary-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </mock-styled.mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.h5>
                       Geo Diary
                     </mock-styled.h5>
@@ -849,7 +895,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                 >
                   GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
                 </mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  margin-top: 0.75rem;
+"
+                >
                   <mock-styled.h5>
                     Installation and Visibility
                   </mock-styled.h5>
@@ -1017,6 +1067,7 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="searchTerm"
               placeholder="Developer or App"
@@ -1071,7 +1122,9 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.h5>
                     Test App Dev
                   </mock-styled.h5>
@@ -1085,10 +1138,9 @@ exports[`MarketplacePage should match a snapshot 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="mock-css.
-  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
 "
-              />
-              <mock-styled.div>
+              >
                 <mock-styled.h5>
                   Installation and Visibility
                 </mock-styled.h5>
@@ -1151,12 +1203,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Insights-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div>
+                </mock-styled.mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.h5>
                     Reapit Insights
                   </mock-styled.h5>
@@ -1173,7 +1227,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
               >
                 Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-top: 0.75rem;
+"
+              >
                 <mock-styled.h5>
                   Installation and Visibility
                 </mock-styled.h5>
@@ -1236,12 +1294,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-Management-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div>
+                </mock-styled.mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.h5>
                     Marketplace Management
                   </mock-styled.h5>
@@ -1258,7 +1318,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
               >
                 Description Description Description Description Description Description Description Description
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-top: 0.75rem;
+"
+              >
                 <mock-styled.h5>
                   Installation and Visibility
                 </mock-styled.h5>
@@ -1321,12 +1385,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Holly-Test-App-icon(1).png"
                   />
-                </mock-styled.div>
-                <mock-styled.div>
+                </mock-styled.mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.h5>
                     Holly Test App
                   </mock-styled.h5>
@@ -1343,7 +1409,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
               >
                 https://holly.com https://holly.com https://holly.com https://holly.comhttps://holly.com https://holly.comhttps://holly.com https://holly.com
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-top: 0.75rem;
+"
+              >
                 <mock-styled.h5>
                   Installation and Visibility
                 </mock-styled.h5>
@@ -1406,12 +1476,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Payments-Portal-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div>
+                </mock-styled.mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.h5>
                     Reapit Payments Portal
                   </mock-styled.h5>
@@ -1428,7 +1500,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
               >
                 It takes your money and sends it to Sage Pay. Then it updates RPS.
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-top: 0.75rem;
+"
+              >
                 <mock-styled.h5>
                   Installation and Visibility
                 </mock-styled.h5>
@@ -1491,12 +1567,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Data-Warehouse-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div>
+                </mock-styled.mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.h5>
                     Data Warehouse
                   </mock-styled.h5>
@@ -1513,7 +1591,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
               >
                 The data warehouse houses lots of data. The data warehouse houses lots of data.
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-top: 0.75rem;
+"
+              >
                 <mock-styled.h5>
                   Installation and Visibility
                 </mock-styled.h5>
@@ -1576,12 +1658,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div>
+                </mock-styled.mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.h5>
                     Reapit Connect
                   </mock-styled.h5>
@@ -1600,7 +1684,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
               >
                 Reapit Connect removes the overhead of having to build and maintain a user credential directory for your app.
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-top: 0.75rem;
+"
+              >
                 <mock-styled.h5>
                   Installation and Visibility
                 </mock-styled.h5>
@@ -1663,12 +1751,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div>
+                </mock-styled.mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.h5>
                     Online Check List
                   </mock-styled.h5>
@@ -1685,7 +1775,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
               >
                 Helps you to get organised, simplify your workflow, and to ensure checks are carried out. Manage your checks online from anywhere.
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-top: 0.75rem;
+"
+              >
                 <mock-styled.h5>
                   Installation and Visibility
                 </mock-styled.h5>
@@ -1748,12 +1842,14 @@ exports[`MarketplacePage should match a snapshot 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.mock-styled.div>
                   <img
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Geo-Diary-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div>
+                </mock-styled.mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.h5>
                     Geo Diary
                   </mock-styled.h5>
@@ -1770,7 +1866,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
               >
                 GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-top: 0.75rem;
+"
+              >
                 <mock-styled.h5>
                   Installation and Visibility
                 </mock-styled.h5>
@@ -1995,6 +2095,7 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
 "
             >
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="searchTerm"
                 placeholder="Developer or App"
@@ -2029,7 +2130,7 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
           >
             <div
               class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -2049,7 +2150,7 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
             </div>
             <div
               class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -2154,6 +2255,7 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="searchTerm"
               placeholder="Developer or App"
@@ -2188,7 +2290,7 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -2208,7 +2310,7 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;

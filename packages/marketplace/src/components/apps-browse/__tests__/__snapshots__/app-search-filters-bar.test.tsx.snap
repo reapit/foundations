@@ -224,7 +224,9 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -454,7 +456,9 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
 "
           style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
         <mock-styled.input
           placeholder="Search by App or Developer"
@@ -563,7 +567,9 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.input
               placeholder="Search by App or Developer"
@@ -750,8 +756,8 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
           <mock-styled.button
             classname="mock-css."
           >
-            Clear Search Filters
             <mock-styled.div />
+            Clear Search Filters
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -798,7 +804,9 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -808,8 +816,8 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         <mock-styled.button
           classname="mock-css."
         >
-          Clear Search Filters
           <mock-styled.div />
+          Clear Search Filters
         </mock-styled.button>
       </mock-styled.div>
     </div>
@@ -856,7 +864,9 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -1043,8 +1053,8 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         <mock-styled.button
           classname="mock-css."
         >
-          Clear Search Filters
           <mock-styled.div />
+          Clear Search Filters
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -1091,7 +1101,9 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
 "
           style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
         <mock-styled.input
           placeholder="Search by App or Developer"
@@ -1101,8 +1113,8 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
       <mock-styled.button
         classname="mock-css."
       >
-        Clear Search Filters
         <mock-styled.div />
+        Clear Search Filters
       </mock-styled.button>
     </mock-styled.div>
   </div>,

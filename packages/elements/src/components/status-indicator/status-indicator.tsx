@@ -8,7 +8,7 @@ export interface StatusIndicatorProps extends HTMLAttributes<HTMLSpanElement> {
   shape?: 'circle' | 'tag'
 }
 
-export const StatusIndicator: FC<StatusIndicatorProps> = ({ intent, shape, className, ...rest }) => (
+export const StatusIndicator: FC<StatusIndicatorProps> = ({ intent = 'primary', shape, className, ...rest }) => (
   <ElStatusIndicator
     className={cx(intent && getIntentClassName(intent), shape && shape === 'tag' && elShapeTag, className)}
     {...rest}

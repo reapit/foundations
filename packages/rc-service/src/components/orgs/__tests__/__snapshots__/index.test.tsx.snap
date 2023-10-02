@@ -13,6 +13,7 @@ exports[`OrgsPage should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="name"
                 placeholder="Search by org name"
@@ -27,6 +28,7 @@ exports[`OrgsPage should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="agencyCloudId"
                 placeholder="Search Client Code"
@@ -86,10 +88,12 @@ exports[`OrgsPage should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -192,8 +196,8 @@ exports[`OrgsPage should match a snapshot 1`] = `
                         classname="mock-css."
                         disabled="true"
                       >
-                        Load Management Form
                         <mock-styled.div />
+                        Load Management Form
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
@@ -248,6 +252,7 @@ exports[`OrgsPage should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="name"
               placeholder="Search by org name"
@@ -262,6 +267,7 @@ exports[`OrgsPage should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="agencyCloudId"
               placeholder="Search Client Code"
@@ -321,10 +327,12 @@ exports[`OrgsPage should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css."
             style="font-size: 1.2rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.2rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -427,8 +435,8 @@ exports[`OrgsPage should match a snapshot 1`] = `
                       classname="mock-css."
                       disabled="true"
                     >
-                      Load Management Form
                       <mock-styled.div />
+                      Load Management Form
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>

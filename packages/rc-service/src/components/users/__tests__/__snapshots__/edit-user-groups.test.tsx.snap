@@ -55,8 +55,8 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
               disabled="false"
               type="submit"
             >
-              Submit
               <mock-styled.div />
+              Submit
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -114,8 +114,8 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
             disabled="false"
             type="submit"
           >
-            Submit
             <mock-styled.div />
+            Submit
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

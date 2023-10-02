@@ -3,6 +3,10 @@ import { getDefaultNavIndex, Menu } from '../menu'
 import Routes from '../../constants/routes'
 import { render } from '../../tests/react-testing'
 
+jest.mock('uuid', () => ({
+  validate: jest.fn(() => true),
+}))
+
 describe('Menu', () => {
   afterEach(() => {
     jest.clearAllMocks()

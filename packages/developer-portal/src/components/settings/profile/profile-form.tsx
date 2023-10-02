@@ -191,7 +191,7 @@ export const ProfileForm: FC = () => {
         )}
       </FormLayout>
       {(isClient || hasProducts) && (
-        <PersistentNotification className={elMb11} isInline isExpanded isFullWidth intent="secondary">
+        <PersistentNotification className={elMb11} isInline isExpanded isFullWidth intent="primary">
           Please note, you will need to log out and log back in again to see this change take effect
         </PersistentNotification>
       )}

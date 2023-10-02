@@ -25,16 +25,16 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
             classname="mock-css."
             type="button"
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
             type="button"
           >
-            Confirm
             <mock-styled.div />
+            Confirm
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -61,16 +61,16 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
           classname="mock-css."
           type="button"
         >
-          Cancel
           <mock-styled.div />
+          Cancel
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
           disabled="false"
           type="button"
         >
-          Confirm
           <mock-styled.div />
+          Confirm
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -172,16 +172,16 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
             classname="mock-css."
             type="button"
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
             type="button"
           >
-            Confirm
             <mock-styled.div />
+            Confirm
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -226,16 +226,16 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           classname="mock-css."
           type="button"
         >
-          Cancel
           <mock-styled.div />
+          Cancel
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
           disabled="false"
           type="button"
         >
-          Confirm
           <mock-styled.div />
+          Confirm
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -323,16 +323,16 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
             classname="mock-css."
             type="button"
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
             type="button"
           >
-            Confirm
             <mock-styled.div />
+            Confirm
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -363,16 +363,16 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           classname="mock-css."
           type="button"
         >
-          Cancel
           <mock-styled.div />
+          Cancel
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
           disabled="false"
           type="button"
         >
-          Confirm
           <mock-styled.div />
+          Confirm
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>

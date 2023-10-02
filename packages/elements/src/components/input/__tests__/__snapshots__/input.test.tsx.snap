@@ -5,11 +5,15 @@ exports[`Input component should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.input />
+      <mock-styled.input
+        classname=""
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.input />
+    <mock-styled.input
+      classname=""
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

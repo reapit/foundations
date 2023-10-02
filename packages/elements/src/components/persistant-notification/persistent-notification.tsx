@@ -5,6 +5,7 @@ import { Icon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 import { elPnContent, elPnIcon, elPnIsFixed, elPnIsFullWidth, elPnIsInline } from '../persistent-notification'
+import { useDeprecateComponent } from '../../storybook/deprecate-var'
 
 export interface IPersistantNotification extends HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
@@ -38,9 +39,9 @@ export const PersistantNotification: FC<IPersistantNotification> = ({
     isFixed && elPnIsFixed,
     isInline && elPnIsInline,
   )
-  console.info(
-    'This component has been re-named PersistentNotification to correct a spelling mistake. You should update your components as this will be removed in future versions',
-  )
+
+  useDeprecateComponent('PersistantNotification')
+
   return (
     <ElPersistantNotification className={combinedClassName} {...rest}>
       <div

@@ -52,10 +52,8 @@ exports[`HelperContent should match a snapshot 1`] = `
               >
                 Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
               </mock-styled.p>
-              <img
-                alt="Video placeholder"
-                src="[object Object]"
-                style="width: 100%;"
+              <svg
+                width="100%"
               />
             </div>
             <div
@@ -104,11 +102,7 @@ exports[`HelperContent should match a snapshot 1`] = `
               >
                 For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
               </mock-styled.p>
-              <img
-                alt="Video placeholder"
-                src="[object Object]"
-                style="width: 100%;"
-              />
+              <svg />
             </div>
             <div
               class=""
@@ -217,11 +211,7 @@ exports[`HelperContent should match a snapshot 1`] = `
               >
                 It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
               </mock-styled.p>
-              <img
-                alt="Video placeholder"
-                src="[object Object]"
-                style="width: 100%;"
-              />
+              <svg />
             </div>
             <div
               class=""
@@ -378,11 +368,7 @@ exports[`HelperContent should match a snapshot 1`] = `
   margin-bottom: 1.25rem;
 "
             >
-              <img
-                alt="Video placeholder"
-                src="[object Object]"
-                style="width: 100%;"
-              />
+              <svg />
             </div>
             <div
               class=""
@@ -510,10 +496,8 @@ exports[`HelperContent should match a snapshot 1`] = `
             >
               Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
             </mock-styled.p>
-            <img
-              alt="Video placeholder"
-              src="[object Object]"
-              style="width: 100%;"
+            <svg
+              width="100%"
             />
           </div>
           <div
@@ -562,11 +546,7 @@ exports[`HelperContent should match a snapshot 1`] = `
             >
               For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
             </mock-styled.p>
-            <img
-              alt="Video placeholder"
-              src="[object Object]"
-              style="width: 100%;"
-            />
+            <svg />
           </div>
           <div
             class=""
@@ -675,11 +655,7 @@ exports[`HelperContent should match a snapshot 1`] = `
             >
               It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
             </mock-styled.p>
-            <img
-              alt="Video placeholder"
-              src="[object Object]"
-              style="width: 100%;"
-            />
+            <svg />
           </div>
           <div
             class=""
@@ -836,11 +812,7 @@ exports[`HelperContent should match a snapshot 1`] = `
   margin-bottom: 1.25rem;
 "
           >
-            <img
-              alt="Video placeholder"
-              src="[object Object]"
-              style="width: 100%;"
-            />
+            <svg />
           </div>
           <div
             class=""

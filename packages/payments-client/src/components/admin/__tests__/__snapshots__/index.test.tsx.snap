@@ -36,8 +36,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
   margin-bottom: 0.5rem;
  mock-css."
         >
+          <mock-styled.div />
           View Docs
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -45,8 +45,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
  mock-css."
           disabled="false"
         >
+          <mock-styled.div />
           Save Config
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -54,8 +54,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
  mock-css."
           disabled="false"
         >
-          Delete Config
           <mock-styled.div />
+          Delete Config
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
@@ -96,7 +96,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -116,7 +116,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -142,6 +142,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="companyName"
                   type="email"
@@ -169,8 +170,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
  mock-css."
                     type="button"
                   >
-                    Upload
                     <mock-styled.div />
+                    Upload
                   </mock-styled.button>
                   <mock-styled.input
                     data-testid="el-file-input"
@@ -210,6 +211,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="vendorName"
                   type="email"
@@ -247,6 +249,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="integrationKey"
                   type="email"
@@ -261,6 +264,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="passKey"
                   type="email"
@@ -274,6 +278,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="configId"
                 type="hidden"
@@ -316,8 +321,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
   margin-bottom: 0.5rem;
  mock-css."
       >
+        <mock-styled.div />
         View Docs
-        <mock-styled.div />
       </mock-styled.button>
       <mock-styled.button
         classname="mock-css.
@@ -325,8 +330,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
  mock-css."
         disabled="false"
       >
+        <mock-styled.div />
         Save Config
-        <mock-styled.div />
       </mock-styled.button>
       <mock-styled.button
         classname="mock-css.
@@ -334,8 +339,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
  mock-css."
         disabled="false"
       >
-        Delete Config
         <mock-styled.div />
+        Delete Config
       </mock-styled.button>
     </mock-styled.aside>
     <mock-styled.section>
@@ -376,7 +381,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -396,7 +401,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -422,6 +427,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="companyName"
                 type="email"
@@ -449,8 +455,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
  mock-css."
                   type="button"
                 >
-                  Upload
                   <mock-styled.div />
+                  Upload
                 </mock-styled.button>
                 <mock-styled.input
                   data-testid="el-file-input"
@@ -490,6 +496,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="vendorName"
                 type="email"
@@ -527,6 +534,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="integrationKey"
                 type="email"
@@ -541,6 +549,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="passKey"
                 type="email"
@@ -554,6 +563,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="configId"
               type="hidden"
@@ -653,8 +663,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
   margin-bottom: 0.5rem;
  mock-css."
         >
+          <mock-styled.div />
           View Docs
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -662,8 +672,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
  mock-css."
           disabled="false"
         >
+          <mock-styled.div />
           Save Config
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -671,8 +681,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
  mock-css."
           disabled="false"
         >
-          Delete Config
           <mock-styled.div />
+          Delete Config
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
@@ -713,7 +723,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -733,7 +743,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -759,6 +769,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="companyName"
                   type="email"
@@ -786,8 +797,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
  mock-css."
                     type="button"
                   >
-                    Upload
                     <mock-styled.div />
+                    Upload
                   </mock-styled.button>
                   <mock-styled.input
                     data-testid="el-file-input"
@@ -827,6 +838,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="vendorName"
                   type="email"
@@ -864,6 +876,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="integrationKey"
                   type="email"
@@ -878,6 +891,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="passKey"
                   type="email"
@@ -891,6 +905,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="configId"
                 type="hidden"
@@ -933,8 +948,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
   margin-bottom: 0.5rem;
  mock-css."
       >
+        <mock-styled.div />
         View Docs
-        <mock-styled.div />
       </mock-styled.button>
       <mock-styled.button
         classname="mock-css.
@@ -942,8 +957,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
  mock-css."
         disabled="false"
       >
+        <mock-styled.div />
         Save Config
-        <mock-styled.div />
       </mock-styled.button>
       <mock-styled.button
         classname="mock-css.
@@ -951,8 +966,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
  mock-css."
         disabled="false"
       >
-        Delete Config
         <mock-styled.div />
+        Delete Config
       </mock-styled.button>
     </mock-styled.aside>
     <mock-styled.section>
@@ -993,7 +1008,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1013,7 +1028,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -1039,6 +1054,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="companyName"
                 type="email"
@@ -1066,8 +1082,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
  mock-css."
                   type="button"
                 >
-                  Upload
                   <mock-styled.div />
+                  Upload
                 </mock-styled.button>
                 <mock-styled.input
                   data-testid="el-file-input"
@@ -1107,6 +1123,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="vendorName"
                 type="email"
@@ -1144,6 +1161,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="integrationKey"
                 type="email"
@@ -1158,6 +1176,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="passKey"
                 type="email"
@@ -1171,6 +1190,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="configId"
               type="hidden"
@@ -1270,8 +1290,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
   margin-bottom: 0.5rem;
  mock-css."
         >
+          <mock-styled.div />
           View Docs
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -1279,8 +1299,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
  mock-css."
           disabled="false"
         >
+          <mock-styled.div />
           Save Config
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -1288,8 +1308,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
  mock-css."
           disabled="false"
         >
-          Delete Config
           <mock-styled.div />
+          Delete Config
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
@@ -1330,7 +1350,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1350,7 +1370,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -1376,6 +1396,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="companyName"
                   type="email"
@@ -1403,8 +1424,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
  mock-css."
                     type="button"
                   >
-                    Upload
                     <mock-styled.div />
+                    Upload
                   </mock-styled.button>
                   <mock-styled.input
                     data-testid="el-file-input"
@@ -1444,6 +1465,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="vendorName"
                   type="email"
@@ -1481,6 +1503,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="integrationKey"
                   type="email"
@@ -1495,6 +1518,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="passKey"
                   type="email"
@@ -1508,6 +1532,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="configId"
                 type="hidden"
@@ -1550,8 +1575,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
   margin-bottom: 0.5rem;
  mock-css."
       >
+        <mock-styled.div />
         View Docs
-        <mock-styled.div />
       </mock-styled.button>
       <mock-styled.button
         classname="mock-css.
@@ -1559,8 +1584,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
  mock-css."
         disabled="false"
       >
+        <mock-styled.div />
         Save Config
-        <mock-styled.div />
       </mock-styled.button>
       <mock-styled.button
         classname="mock-css.
@@ -1568,8 +1593,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
  mock-css."
         disabled="false"
       >
-        Delete Config
         <mock-styled.div />
+        Delete Config
       </mock-styled.button>
     </mock-styled.aside>
     <mock-styled.section>
@@ -1610,7 +1635,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1630,7 +1655,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -1656,6 +1681,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="companyName"
                 type="email"
@@ -1683,8 +1709,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
  mock-css."
                   type="button"
                 >
-                  Upload
                   <mock-styled.div />
+                  Upload
                 </mock-styled.button>
                 <mock-styled.input
                   data-testid="el-file-input"
@@ -1724,6 +1750,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="vendorName"
                 type="email"
@@ -1761,6 +1788,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="integrationKey"
                 type="email"
@@ -1775,6 +1803,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="passKey"
                 type="email"
@@ -1788,6 +1817,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="configId"
               type="hidden"

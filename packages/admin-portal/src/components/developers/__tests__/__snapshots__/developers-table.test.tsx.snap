@@ -50,10 +50,12 @@ exports[`DevelopersTable should render component with developers 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -145,50 +147,50 @@ exports[`DevelopersTable should render component with developers 1`] = `
                       disabled="true"
                       type="button"
                     >
+                      <mock-styled.div />
                       Update Status
-                      <mock-styled.div />
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="true"
                       type="button"
                     >
+                      <mock-styled.div />
                       DevEdition is Free
-                      <mock-styled.div />
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="true"
                     >
+                      <mock-styled.div />
                       Toggle Subscription 
-                      <mock-styled.div />
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="true"
                     >
+                      <mock-styled.div />
                       Invite Member
-                      <mock-styled.div />
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                     >
+                      <mock-styled.div />
                       Fetch Members
-                      <mock-styled.div />
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                     >
-                      Fetch Apps
                       <mock-styled.div />
+                      Fetch Apps
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="true"
                       type="button"
                     >
-                      Delete Developer
                       <mock-styled.div />
+                      Delete Developer
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -245,10 +247,12 @@ exports[`DevelopersTable should render component with developers 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -340,50 +344,50 @@ exports[`DevelopersTable should render component with developers 1`] = `
                     disabled="true"
                     type="button"
                   >
+                    <mock-styled.div />
                     Update Status
-                    <mock-styled.div />
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="true"
                     type="button"
                   >
+                    <mock-styled.div />
                     DevEdition is Free
-                    <mock-styled.div />
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="true"
                   >
+                    <mock-styled.div />
                     Toggle Subscription 
-                    <mock-styled.div />
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="true"
                   >
+                    <mock-styled.div />
                     Invite Member
-                    <mock-styled.div />
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                   >
+                    <mock-styled.div />
                     Fetch Members
-                    <mock-styled.div />
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                   >
-                    Fetch Apps
                     <mock-styled.div />
+                    Fetch Apps
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="true"
                     type="button"
                   >
-                    Delete Developer
                     <mock-styled.div />
+                    Delete Developer
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -463,7 +467,7 @@ exports[`DevelopersTable should render component with no developers 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -483,7 +487,7 @@ exports[`DevelopersTable should render component with no developers 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -507,7 +511,7 @@ exports[`DevelopersTable should render component with no developers 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -527,7 +531,7 @@ exports[`DevelopersTable should render component with no developers 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;

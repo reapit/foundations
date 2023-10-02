@@ -12,6 +12,7 @@ export interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElem
   icon?: IconNames | null
   label?: string
   inputAddOnText?: string
+  hasError?: boolean
   /**
    * This is passed down and added directly to the `Icon` and `InputAddOn`
    *components (if in use)
@@ -36,7 +37,7 @@ export type InputGroupWrapped = React.ForwardRefExoticComponent<
 
 export const InputGroup: InputGroupWrapped = forwardRef(
   (
-    { icon, label, className, id, intent, inputAddOnText, children, errorMessage, ...rest }: InputGroupProps,
+    { icon, label, className, id, intent, inputAddOnText, children, errorMessage, hasError, ...rest }: InputGroupProps,
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
   ) => {
     const groupId = useMemo(() => {
@@ -47,7 +48,7 @@ export const InputGroup: InputGroupWrapped = forwardRef(
     if (!children)
       return (
         <ElInputGroup className={className}>
-          <Input id={groupId} {...rest} ref={ref} />
+          <Input hasError={Boolean(hasError || errorMessage)} id={groupId} {...rest} ref={ref} />
           {icon && <Icon intent={intent} icon={icon} />}
           {label && <Label htmlFor={groupId}>{label}</Label>}
           {inputAddOnText && <InputAddOn intent={intent}>{inputAddOnText}</InputAddOn>}

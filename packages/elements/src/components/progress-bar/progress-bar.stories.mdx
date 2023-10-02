@@ -1,19 +1,21 @@
 import { useState } from 'react'
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import {
   ProgressBarPercentage,
   ProgressBarSteps,
   ProgressBarContainer,
   ProgressBarInner,
   ProgressBarItem,
+  ProgressBarLabel,
 } from './progress-bar'
 import {
   elProgressBarLabelRight,
+  elProgressBarItemPurple,
   elProgressBarItemDarkBlue,
   elProgressBarItemLightBlue,
   elProgressBarItemLightestBlue,
   elProgressBarItemMediumBlue,
-  elProgressBarItemOrange,
+  elProgressBarItemYellow,
   elProgressBarLabelLeft,
 } from './__styles__'
 
@@ -37,11 +39,11 @@ In this example we add the width as an inline style so we can control progress b
   <Story name="Basic Example - ProgressBarPercentage">
     <ProgressBarContainer>
       <ProgressBarInner style={{ width: '50%', transitionDuration: '1s' }}>
+        <ProgressBarItem className={elProgressBarItemPurple} />
         <ProgressBarItem className={elProgressBarItemDarkBlue} />
         <ProgressBarItem className={elProgressBarItemMediumBlue} />
         <ProgressBarItem className={elProgressBarItemLightBlue} />
-        <ProgressBarItem className={elProgressBarItemLightestBlue} />
-        <ProgressBarItem className={elProgressBarItemOrange} />
+        <ProgressBarItem className={elProgressBarItemYellow} />
       </ProgressBarInner>
       <ProgressBarLabel className={elProgressBarLabelRight}>50%</ProgressBarLabel>
     </ProgressBarContainer>
@@ -56,11 +58,11 @@ The progress bar steps example is very similar in terms of markup with the excep
   <Story name="Basic Example - ProgressBarSteps">
     <ProgressBarContainer>
       <ProgressBarInner style={{ width: '50%', transitionDuration: '1s' }}>
+        <ProgressBarItem className={elProgressBarItemPurple} />
         <ProgressBarItem className={elProgressBarItemDarkBlue} />
         <ProgressBarItem className={elProgressBarItemMediumBlue} />
         <ProgressBarItem className={elProgressBarItemLightBlue} />
-        <ProgressBarItem className={elProgressBarItemLightestBlue} />
-        <ProgressBarItem className={elProgressBarItemOrange} />
+        <ProgressBarItem className={elProgressBarItemYellow} />
       </ProgressBarInner>
       <ProgressBarLabel className={elProgressBarLabelLeft}>5/10 Completed</ProgressBarLabel>
     </ProgressBarContainer>

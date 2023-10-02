@@ -22,7 +22,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchema } from './validation-schema'
 import { KeyAnimation } from '@reapit/utils-react'
 import { useForm, UseFormGetValues } from 'react-hook-form'
-import reapitLogo from '../../assets/images/reapit-logo.svg'
+import { ReactComponent as ReapitLogo } from '../../assets/images/reapit-logo.svg'
 import { LoginContainer, LoginImageContainer, LoginContentWrapper } from '../login/__styles__'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { createDeveloperService } from '../../services/developer'
@@ -122,7 +122,7 @@ export const Register: FC = () => {
         <KeyAnimation step={formStep} />
       </LoginImageContainer>
       <LoginContentWrapper>
-        <img src={reapitLogo} alt="Reapit Connect Graphic" />
+        <ReapitLogo />
         <FlexContainer isFlexColumn>
           <Title hasNoMargin hasCenteredText>
             Register
@@ -221,7 +221,7 @@ export const Register: FC = () => {
                 isSubmitting={developerState === 'LOADING'}
               />
               <ButtonGroup alignment="center" className={elMb12}>
-                <Button type="submit" loading={developerState === 'LOADING'} intent="critical" chevronRight size={3}>
+                <Button type="submit" loading={developerState === 'LOADING'} intent="primary" chevronRight size={3}>
                   Register
                 </Button>
               </ButtonGroup>

@@ -18,8 +18,7 @@ export const HtmlContentWrap = styled.div`
   div,
   ol,
   ul {
-    margin-bottom: 1rem;
-    color: var(--color-grey-dark);
+    color: var(--color-black);
   }
 
   h5 {
@@ -58,12 +57,12 @@ export const HtmlContentWrap = styled.div`
 
   i {
     font-style: italic;
-    color: var(--color-grey-dark);
+    color: var(--color-black);
   }
 
   b {
     font-weight: bold;
-    color: var(--color-grey-dark);
+    color: var(--color-black);
   }
 
   &:after {

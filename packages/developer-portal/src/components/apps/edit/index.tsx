@@ -47,8 +47,8 @@ export const AppEditPage: FC = () => {
       {isMobile && (
         <Modal title="Controls">
           <Helper />
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="secondary" onClick={closeModal}>
+          <ButtonGroup alignment="right">
+            <Button fixedWidth intent="neutral" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>
@@ -98,7 +98,7 @@ export const AppEditPage: FC = () => {
       <MobileControls onClick={openModal} />
     </>
   ) : (
-    <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
+    <PersistentNotification intent="primary" isExpanded isFullWidth isInline>
       No record of this app found
     </PersistentNotification>
   )

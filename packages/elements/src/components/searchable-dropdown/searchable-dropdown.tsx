@@ -11,7 +11,7 @@ import {
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { handleSetNativeInput } from '../multi-select'
-import { v4 as uuid } from 'uuid'
+import { generateRandomId } from '../../storybook/random-id'
 
 export interface SearchableDropdownProps<T> extends React.InputHTMLAttributes<HTMLInputElement> {
   getResults: (query: string) => Promise<T[]>
@@ -31,8 +31,6 @@ export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAtt
   onClear: () => void
   icon?: IconNames
 }
-
-const generateRandomId = () => uuid()
 
 export const SearchableDropdownControlledInner = <T extends unknown>(
   {

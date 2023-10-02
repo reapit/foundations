@@ -1,6 +1,6 @@
 import { toId } from '@storybook/csf'
 import React, { useState, useRef, useEffect } from 'react'
-import { Canvas } from '@storybook/addon-docs/blocks'
+import { Canvas } from '@storybook/addon-docs'
 import prettier from 'prettier/standalone'
 import htmlParser from 'prettier/parser-html'
 

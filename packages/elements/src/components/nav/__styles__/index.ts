@@ -1,111 +1,171 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { colorBlueLight } from '../../../styles/globals'
-
-const chevronRight = (fill: string) =>
-  `data:image/svg+xml;utf8,<svg width="18" height="25" viewBox="0 0 18 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L8.8012 0C10.5501 0 13.0962 2.1362 12.6186 2.80527L17.6261 18.8053C17.8695 19.5832 17.8695 20.4168 17.6261 21.1947L12.6186 37.1947C12.0962 38.8638 10.5501 40 8.8012 40H0V0Z" fill="${encodeURIComponent(
-    fill,
-  )}"/></svg>`
 
 export const ElNavContainer = styled.nav`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
-  background-color: var(--nav-menu-background-dark);
+  align-items: center;
+  background-color: var(--color-white);
   height: auto;
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 3;
+  height: auto;
+  flex: 0 0 auto;
+  overflow: hidden;
+  flex-wrap: wrap;
 
   @media screen and (min-width: 768px) {
-    height: 100%;
-    width: 80px;
-    flex: 0 0 80px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    height: 3.5rem;
+    flex: 0 0 3.5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--color-grey-100);
   }
 `
 
 export const ElNavSubContainer = styled.div`
   background-color: var(--nav-menu-background-accent);
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`
+
+export const elNavItemSecondary = css`
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 `
 
 export const ElNavItem = styled.a`
   font-family: var(--font-sans-serif);
-  color: var(--nav-menu-text);
+  font-size: var(--font-size-small);
+  color: var(--color-grey-400);
   display: flex;
   text-align: center;
   justify-content: flex-start;
   align-items: center;
-  height: 0;
-  padding: 0 0.75rem;
   opacity: 0;
   cursor: pointer;
-  transition: height 0.15s linear, opacity 0.15s linear, padding-top 0.15s linear, padding-bottom 0.15s linear;
+  height: 3.5rem;
+  align-items: center;
+  opacity: 1;
+  flex: 1 0 100%;
+  width: 100%;
+  border-left: 3px solid var(--color-white);
 
   svg {
-    margin-right: 0.5rem;
     height: 2rem;
   }
 
   &:hover {
-    color: var(--nav-menu-text-hover);
-    background-color: var(--nav-menu-background-accent);
+    color: var(--color-purple-300);
+    background-color: var(--color-purple-50);
+  }
+
+  &:hover:not(:first-child) {
+    border-left: 3px solid var(--color-purple-300);
   }
 
   &:first-child {
-    height: 56px;
     opacity: 1;
     padding: 0;
-    background-color: var(--nav-menu-background-dark);
+    background-color: var(--color-white);
+    margin-right: auto;
+    width: 100%;
+    padding: 0rem 0.75rem;
+    border-bottom: 1px solid var(--color-grey-100);
+  }
+
+  :not(:first-child) {
+    height: 0;
+    overflow: hidden;
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 12px;
-    font-weight: bold;
-    flex-direction: column;
+    height: 3.5rem;
+    flex: 0 0 auto;
     justify-content: center;
-    height: 72px;
-    align-items: center;
-    padding: 0.5rem;
-    opacity: 1;
+    font-size: var(--font-size-default);
+    padding: 0 0.75rem;
+    width: auto;
+    border-left: none;
 
-    svg {
-      margin-right: 0;
+    :not(:first-child) {
+      overflow: visible;
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.25rem;
+      height: 2rem;
+      border-top: none;
+      margin-right: 1rem;
+    }
+
+    &:hover:not(:first-child) {
+      background-color: var(--color-grey-100);
+      border-left: none;
+
+      &.${elNavItemSecondary} {
+        background-color: var(--color-white);
+      }
     }
 
     &:first-child {
-      height: 72px;
+      width: auto;
+      border-bottom: none;
+    }
 
-      &:hover {
-        background-color: var(--nav-menu-background-accent);
-      }
+    svg {
+      height: 2rem;
     }
   }
 `
 
 export const elNavItemActive = css`
+  &:not(:first-child) {
+    background-color: var(--color-purple-50);
+    border-left: 3px solid var(--color-purple-500);
+    color: var(--color-purple-500);
+  }
+
   @media screen and (min-width: 768px) {
-    --nav-menu-icon-primary-accent: var(--color-white);
-    color: var(--nav-menu-text-hover);
-    background-color: var(--nav-menu-background-accent);
+    &:not(:first-child) {
+      --nav-menu-icon-primary-accent: var(--color-purple-500);
+      --nav-menu-icon-secondary-accent: var(--color-purple-300);
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.25rem;
+      background-color: var(--color-grey-100);
+      border-left: none;
+      height: 2rem;
+
+      &.${elNavItemSecondary} {
+        background-color: var(--color-white);
+      }
+    }
   }
 `
 
 export const elNavItemExpanded = css`
-  @media screen and (max-width: 767px) {
-    height: 48px;
-    opacity: 1;
-    padding: 0.5rem 0.75rem;
+  :not(:first-child) {
+    height: 2rem;
   }
-`
 
-export const elNavItemHideDesktop = css`
-  @media screen and (min-width: 768px) {
-    height: 0;
-    width: 0;
-    visibility: hidden;
+  @media screen and (max-width: 767px) {
+    opacity: 1;
+    padding: 0.625rem 1.5rem;
+    overflow: visible;
+    height: auto;
+
+    &:last-child {
+      border-bottom: 1px solid var(--color-grey-100);
+    }
   }
 `
 
@@ -118,19 +178,15 @@ export const elNavItemIcon = css`
 export const ElNavSubItem = styled.a`
   height: 0;
   font-family: var(--font-sans-serif);
-  color: var(--color-white);
+  font-size: var(--font-size-small);
+  color: var(--color-grey-400);
   opacity: 0;
   display: flex;
-  text-align: center;
+  text-align: flex-start;
   justify-content: flex-start;
   align-items: center;
   transition: all 0.3s linear;
-  padding: 0;
-  margin-left: 3.25rem;
-
-  * {
-    padding: 0.2rem 0.5rem;
-  }
+  border-left: 3px solid var(--color-white);
 
   @media screen and (min-width: 768px) {
     display: none;
@@ -139,76 +195,37 @@ export const ElNavSubItem = styled.a`
 
 export const elNavSubItemExpanded = css`
   @media screen and (max-width: 767px) {
-    height: 32px;
+    height: auto;
     width: 100%;
-    padding-bottom: 0;
+    display: block;
     opacity: 1;
+    padding: 0.625rem 1.5rem;
+    margin-left: 1rem;
 
     &:hover {
-      color: var(--color-white);
-    }
-
-    &:last-child {
-      padding-bottom: 0.25rem;
-    }
-
-    &:first-child {
-      padding-top: 0.25rem;
+      color: var(--color-purple-300);
     }
   }
 `
 
 export const elNavSubItemActive = css`
-  * {
-    display: flex;
-    flex-shrink: 1;
-    border-radius: 0.25rem;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(to right, var(--color-blue-light), var(--color-blue-light));
-    outline-color: var(--nav-menu-background-dark);
-    background-size: calc(100% - 1rem) 100%;
-    background-position-x: left;
-    padding-right: 1.5rem;
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      height: 25px;
-      width: 100%;
-      top: 0;
-      right: 6px;
-      background-image: url('${chevronRight(colorBlueLight)}');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: right;
-    }
-  }
+  color: var(--color-purple-500);
+  margin-left: 1rem;
 `
 
-export const elNavItemSecondary = css`
+export const elNavItemHideDesktop = css`
   @media screen and (min-width: 768px) {
-    margin-top: auto;
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  svg {
+    height: 1.2rem;
   }
 `
 
-export const elNavIsDesktop = css`
-  --nav-menu-background-dark: var(--color-grey-light);
-  --nav-menu-background-accent: var(--intent-primary);
-  --nav-menu-text: var(--intent-primary);
-  --nav-menu-text-hover: var(--color-white);
-  --nav-menu-icon-primary-accent: var(--intent-primary);
-  --nav-menu-icon-secondary-accent: var(--intent-secondary);
-
-  ${ElNavItem} {
-    &:hover {
-      --nav-menu-icon-primary-accent: var(--color-white);
-    }
-  }
-
-  .${elNavItemActive} {
-    @media screen and (min-width: 768px) {
-      --nav-menu-icon-primary-accent: var(--color-white);
-    }
-  }
-`
+// Deprecated, we use the same interface for desktop and web - left class in to avoid breaking changes
+export const elNavIsDesktop = css``

@@ -9,7 +9,7 @@ describe('PersistantNotification component', () => {
   })
 
   it('should match a snapshot when given an intent', () => {
-    const wrapper = render(<PersistantNotification intent="critical">I am notification</PersistantNotification>)
+    const wrapper = render(<PersistantNotification intent="primary">I am notification</PersistantNotification>)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -21,7 +21,7 @@ describe('PersistantNotification component', () => {
   it('should fire the onStepClick event correctly', async () => {
     const spy = jest.fn()
     const wrapper = render(
-      <PersistantNotification intent="critical" onExpansionToggle={spy}>
+      <PersistantNotification intent="primary" onExpansionToggle={spy}>
         I am notification
       </PersistantNotification>,
     )

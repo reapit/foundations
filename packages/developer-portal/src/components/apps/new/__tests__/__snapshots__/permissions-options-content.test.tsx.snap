@@ -13,6 +13,7 @@ exports[`PermissionsOptionsContent should match a snapshot 1`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Search permissions to get started"
           />
@@ -45,6 +46,7 @@ exports[`PermissionsOptionsContent should match a snapshot 1`] = `
 "
       >
         <mock-styled.input
+          classname=""
           id="test-static-id"
           placeholder="Search permissions to get started"
         />

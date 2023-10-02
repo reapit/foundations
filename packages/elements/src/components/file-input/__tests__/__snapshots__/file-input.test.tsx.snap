@@ -17,8 +17,8 @@ exports[`FileInput component should match a snapshot 1`] = `
  mock-css."
             type="button"
           >
-            Upload
             <mock-styled.div />
+            Upload
           </mock-styled.button>
           <mock-styled.input
             data-testid="el-file-input"
@@ -49,8 +49,8 @@ exports[`FileInput component should match a snapshot 1`] = `
  mock-css."
           type="button"
         >
-          Upload
           <mock-styled.div />
+          Upload
         </mock-styled.button>
         <mock-styled.input
           data-testid="el-file-input"
@@ -141,8 +141,8 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
  mock-css."
             type="button"
           >
-            Change
             <mock-styled.div />
+            Change
           </mock-styled.button>
           <mock-styled.input
             data-testid="el-file-input"
@@ -187,8 +187,8 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
  mock-css."
           type="button"
         >
-          Change
           <mock-styled.div />
+          Change
         </mock-styled.button>
         <mock-styled.input
           data-testid="el-file-input"

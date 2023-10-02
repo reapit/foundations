@@ -42,10 +42,10 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             All config items can be configured to go live bettween given dates using the config options provided, or can be toggled on or off in live time.
           </mock-styled.p>
           <mock-styled.button
-            classname=""
+            classname="mock-css."
           >
-            View Docs
             <mock-styled.div />
+            View Docs
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section>
@@ -74,8 +74,8 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             <mock-styled.button
               classname="mock-css."
             >
-              Add
               <mock-styled.div />
+              Add
             </mock-styled.button>
           </div>
           <div
@@ -98,8 +98,8 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             <mock-styled.button
               classname="mock-css."
             >
-              Add
               <mock-styled.div />
+              Add
             </mock-styled.button>
           </div>
           <div
@@ -127,8 +127,8 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             <mock-styled.button
               classname="mock-css."
             >
-              Add
               <mock-styled.div />
+              Add
             </mock-styled.button>
           </div>
           <div
@@ -156,8 +156,8 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             <mock-styled.button
               classname="mock-css."
             >
-              Add
               <mock-styled.div />
+              Add
             </mock-styled.button>
           </div>
           <div
@@ -183,8 +183,8 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             <mock-styled.button
               classname="mock-css."
             >
-              Add
               <mock-styled.div />
+              Add
             </mock-styled.button>
           </div>
         </mock-styled.section>
@@ -229,10 +229,10 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           All config items can be configured to go live bettween given dates using the config options provided, or can be toggled on or off in live time.
         </mock-styled.p>
         <mock-styled.button
-          classname=""
+          classname="mock-css."
         >
-          View Docs
           <mock-styled.div />
+          View Docs
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
@@ -261,8 +261,8 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           <mock-styled.button
             classname="mock-css."
           >
-            Add
             <mock-styled.div />
+            Add
           </mock-styled.button>
         </div>
         <div
@@ -285,8 +285,8 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           <mock-styled.button
             classname="mock-css."
           >
-            Add
             <mock-styled.div />
+            Add
           </mock-styled.button>
         </div>
         <div
@@ -314,8 +314,8 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           <mock-styled.button
             classname="mock-css."
           >
-            Add
             <mock-styled.div />
+            Add
           </mock-styled.button>
         </div>
         <div
@@ -343,8 +343,8 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           <mock-styled.button
             classname="mock-css."
           >
-            Add
             <mock-styled.div />
+            Add
           </mock-styled.button>
         </div>
         <div
@@ -370,8 +370,8 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           <mock-styled.button
             classname="mock-css."
           >
-            Add
             <mock-styled.div />
+            Add
           </mock-styled.button>
         </div>
       </mock-styled.section>

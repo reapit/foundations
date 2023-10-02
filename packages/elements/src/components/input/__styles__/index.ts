@@ -1,35 +1,41 @@
 import { styled } from '@linaria/react'
+import { css } from '@linaria/core'
+
+export const elHasInputError = css``
 
 export const ElInput = styled.input`
   display: flex;
-  color: black;
+  color: var(--color-black);
   background: var(--component-input-bg);
-  padding: 0 0.5rem;
-  border: none;
+  padding: 0.5rem 0.6875rem;
   margin: 0;
   font-family: var(--font-sans-serif);
-  font-size: 1rem;
+  font-size: var(--font-size-small);
 
   &:not([type='checkbox']):not([type='radio']) {
     flex-grow: 1;
-    border-radius: 0;
-    border-bottom: var(--component-input-border-bottom);
+    border-radius: 0.125rem;
+    border: var(--component-input-border);
     height: 2rem;
 
     &:focus {
-      border-bottom: var(--component-input-border-bottom-focus);
+      border: var(--component-input-border-focus);
+    }
+
+    &.${elHasInputError} {
+      border: 1px solid var(--intent-danger);
+      background-color: var(--color-red-100);
     }
   }
 
   &:focus {
     outline: none;
-    background: var(--component-input-focus-bg);
   }
 
   &::placeholder {
-    color: var(--color-grey-dark);
+    color: var(--color-grey-400);
     font-family: var(--font-sans-serif);
-    font-size: 1rem;
+    font-size: var(--font-size-small);
   }
 
   &:disabled {
@@ -46,9 +52,9 @@ export const ElInput = styled.input`
 
   &[type='checkbox'] {
     appearance: none;
-    border: 1px solid var(--color-grey-medium);
+    border: var(--component-input-border);
     background-color: var(--color-white);
-    border-radius: 0.25rem;
+    border-radius: 0.125rem;
     width: 1.5rem;
     height: 1.5rem;
 
@@ -57,7 +63,7 @@ export const ElInput = styled.input`
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 0.75rem;
-      border: 1px solid var(--color-grey-medium);
+      border: 1px solid var(--color-grey-400);
       background-color: var(--intent-primary);
       border: 1px solid var(--intent-primary);
     }
@@ -65,7 +71,7 @@ export const ElInput = styled.input`
 
   &[type='radio'] {
     appearance: none;
-    border: 1px solid var(--color-grey-light);
+    border: var(--component-input-border);
     background-color: var(--color-white);
     border-radius: 100%;
     width: 1.5rem;
