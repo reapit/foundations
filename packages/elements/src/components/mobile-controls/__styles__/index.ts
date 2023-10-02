@@ -2,7 +2,7 @@ import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 import { isTablet } from '../../../styles/media'
 import { elIsActive } from '../../../styles/states'
-import { ElIcon } from '../../icon'
+import { ElIcon } from '../../icon/__styles__'
 
 export const elMobileControlsVisible = css`
   display: flex;
