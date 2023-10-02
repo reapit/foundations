@@ -347,15 +347,6 @@ export const elGlobals = css`
       --nav-menu-icon-primary-accent: var(--color-grey-600);
       --nav-menu-icon-secondary-accent: var(--color-grey-400);
 
-      /** InfoGraphic variables */
-      --info-graphic-accent-color-darkest: var(--color-grey-600);
-      --info-graphic-accent-color-dark: var(--color-grey-500);
-      --info-graphic-accent-color-med: var(--color-grey-400);
-      --info-graphic-accent-color-light: var(--color-grey-300);
-      --info-graphic-accent-color-lightest: var(--color-grey-150);
-      --info-graphic-accent-color-white: var(--color-white);
-      --info-graphic-accent-color-bright: var(--color-purple-300);
-
       /** To deprecated, left in to avoid breaking changes, some duplication */
       --color-blue-light: var(--color-purple-300);
       --color-blue-light2: var(--color-purple-300);

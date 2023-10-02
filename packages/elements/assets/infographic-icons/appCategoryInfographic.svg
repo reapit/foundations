@@ -1,10 +1,10 @@
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.3333 2H27.6667C29.7801 2 31.5 3.61522 31.5 5.6V34.4C31.5 36.3848 29.7801 38 27.6667 38H12.3333C10.2199 38 8.5 36.3848 8.5 34.4V5.6C8.5 3.61522 10.2199 2 12.3333 2Z" fill="var(--info-graphic-accent-color-lightest)"/>
-<path d="M20 35.2708C21.1046 35.2708 22 34.3753 22 33.2708C22 32.1662 21.1046 31.2708 20 31.2708C18.8954 31.2708 18 32.1662 18 33.2708C18 34.3753 18.8954 35.2708 20 35.2708Z" fill="var(--info-graphic-accent-color-med)"/>
-<path d="M23.5 4H19.5C18.9473 4 18.5 4.44734 18.5 5C18.5 5.55266 18.9473 6 19.5 6H23.5C24.0527 6 24.5 5.55266 24.5 5C24.5 4.44734 24.0527 4 23.5 4Z" fill="var(--info-graphic-accent-color-med)"/>
-<path d="M16.5 6C17.0523 6 17.5 5.55228 17.5 5C17.5 4.44772 17.0523 4 16.5 4C15.9477 4 15.5 4.44772 15.5 5C15.5 5.55228 15.9477 6 16.5 6Z" fill="var(--info-graphic-accent-color-med)"/>
-<rect x="27" y="9" width="8" height="8" rx="2" fill="var(--info-graphic-accent-color-med)"/>
-<rect x="17" y="9" width="8" height="8" rx="2" fill="var(--info-graphic-accent-color-white)"/>
-<rect x="27" y="19" width="8" height="8" rx="2" fill="var(--info-graphic-accent-color-light)"/>
-<rect x="17" y="19" width="8" height="8" rx="2" fill="var(--info-graphic-accent-color-med)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.3333 2H27.6667C29.7801 2 31.5 3.61522 31.5 5.6V34.4C31.5 36.3848 29.7801 38 27.6667 38H12.3333C10.2199 38 8.5 36.3848 8.5 34.4V5.6C8.5 3.61522 10.2199 2 12.3333 2Z" fill="#d8dee4"/>
+<path d="M20 35.2708C21.1046 35.2708 22 34.3753 22 33.2708C22 32.1662 21.1046 31.2708 20 31.2708C18.8954 31.2708 18 32.1662 18 33.2708C18 34.3753 18.8954 35.2708 20 35.2708Z" fill="#798da1"/>
+<path d="M23.5 4H19.5C18.9473 4 18.5 4.44734 18.5 5C18.5 5.55266 18.9473 6 19.5 6H23.5C24.0527 6 24.5 5.55266 24.5 5C24.5 4.44734 24.0527 4 23.5 4Z" fill="#798da1"/>
+<path d="M16.5 6C17.0523 6 17.5 5.55228 17.5 5C17.5 4.44772 17.0523 4 16.5 4C15.9477 4 15.5 4.44772 15.5 5C15.5 5.55228 15.9477 6 16.5 6Z" fill="#798da1"/>
+<rect x="27" y="9" width="8" height="8" rx="2" fill="#798da1"/>
+<rect x="17" y="9" width="8" height="8" rx="2" fill="#fff"/>
+<rect x="27" y="19" width="8" height="8" rx="2" fill="#9faebc"/>
+<rect x="17" y="19" width="8" height="8" rx="2" fill="#798da1"/>
 </svg>

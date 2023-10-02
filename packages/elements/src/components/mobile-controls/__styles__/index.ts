@@ -3,6 +3,7 @@ import { css } from '@linaria/core'
 import { isTablet } from '../../../styles/media'
 import { elIsActive } from '../../../styles/states'
 import { ElIcon } from '../../icon/__styles__'
+import { elIntentDefault } from '../../../styles/intent'
 
 export const elMobileControlsVisible = css`
   display: flex;
@@ -34,7 +35,7 @@ export const ElMobileControls = styled.div`
   right: 0.75rem;
   z-index: 99;
 
-  ${ElIcon} {
+  ${ElIcon}.${elIntentDefault} {
     color: var(--color-white);
   }
 

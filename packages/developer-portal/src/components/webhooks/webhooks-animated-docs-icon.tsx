@@ -190,7 +190,7 @@ export const WebhooksAnimatedDocsIcon: FC<WebhooksAnimatedDocsIconProps> = ({ is
             id="exzbnYXRMC54"
             d="M119.024,61.4515L69.9983,44.21L20.9727,61.4515L69.9983,78.9543L119.024,61.4515Z"
             transform="translate(-69.99835,-61.58215)"
-            fill="var(--info-graphic-accent-color-light)"
+            fill="#9faebc"
             stroke="none"
             strokeWidth="1"
           />
@@ -200,7 +200,7 @@ export const WebhooksAnimatedDocsIcon: FC<WebhooksAnimatedDocsIconProps> = ({ is
             id="exzbnYXRMC55"
             d="M119.022,61.4515L69.9961,44.21L69.9961,78.9543L119.022,61.4515Z"
             transform="translate(-94.509052,-61.58215)"
-            fill="var(--info-graphic-accent-color-med)"
+            fill="#798da1"
             stroke="none"
             strokeWidth="1"
           />
@@ -210,14 +210,14 @@ export const WebhooksAnimatedDocsIcon: FC<WebhooksAnimatedDocsIconProps> = ({ is
             <path
               id="exzbnYXRMC58"
               d="M88.5528,8.83691L50.3176,8.83691C46.6078,8.83691,43.5898,11.9163,43.5898,15.7005L43.5898,97.8934C43.5898,101.678,46.6078,104.757,50.3176,104.757L88.5528,104.757C92.2626,104.757,95.2814,101.678,95.2814,97.8934L95.2814,15.7005C95.2814,11.9163,92.2626,8.83691,88.5528,8.83691L88.5528,8.83691Z"
-              fill="var(--info-graphic-accent-color-dark)"
+              fill="#607890"
               stroke="none"
               strokeWidth="1"
             />
             <path
               id="exzbnYXRMC59"
               d="M88.529,12.8105L82.8467,12.8105C82.3106,12.8105,81.8764,13.2534,81.8764,13.7994C81.8764,15.1111,80.8249,16.1837,79.5399,16.1837L59.2847,16.1837C57.9988,16.1837,56.9473,15.1111,56.9473,13.7994C56.9473,13.2534,56.5132,12.8105,55.977,12.8105L50.2947,12.8105C48.7295,12.8105,47.4609,14.1046,47.4609,15.7003L47.4609,80.5489L91.3628,80.5489L91.3628,15.7003C91.3628,14.1046,90.0942,12.8105,88.529,12.8105Z"
-              fill="var(--info-graphic-accent-color-white)"
+              fill="#fff"
               stroke="none"
               strokeWidth="1"
             />
@@ -226,28 +226,28 @@ export const WebhooksAnimatedDocsIcon: FC<WebhooksAnimatedDocsIconProps> = ({ is
             <path
               id="exzbnYXRMC511"
               d="M50.8828,45.4146L69.4588,27.1992L88.0348,45.4146L88.0348,70.5692L50.8828,70.5692L50.8828,45.4146Z"
-              fill="var(--info-graphic-accent-color-dark)"
+              fill="#607890"
               stroke="none"
               strokeWidth="1"
             />
             <path
               id="exzbnYXRMC512"
               d="M50.8828,45.4146L69.4588,27.1992L88.0348,45.4146L88.0348,59.7267L50.8828,45.4146Z"
-              fill="var(--info-graphic-accent-color-light)"
+              fill="#9faebc"
               stroke="none"
               strokeWidth="1"
             />
             <path
               id="exzbnYXRMC513"
               d="M88.036,70.5692L77.1623,70.5692L61.7578,34.7519L69.46,27.1992L88.036,45.4146L88.036,70.5692Z"
-              fill="var(--info-graphic-accent-color-med)"
+              fill="#798da1"
               stroke="none"
               strokeWidth="1"
             />
             <path
               id="exzbnYXRMC514"
               d="M88.036,45.4146L88.036,59.7267L69.46,52.6606L61.7578,34.7519L69.46,27.1992L88.036,45.4146Z"
-              fill="var(--info-graphic-accent-color-light)"
+              fill="#9faebc"
               stroke="none"
               strokeWidth="1"
             />
@@ -259,7 +259,7 @@ export const WebhooksAnimatedDocsIcon: FC<WebhooksAnimatedDocsIconProps> = ({ is
               id="exzbnYXRMC516"
               d="M70.011522,75.96449C69.821404,76.74574,69.94991,79.38574,70.011522,81.24449L73.915483,77.719668L70.011522,75.96449Z"
               transform="matrix(1 0 0 1 0.000001 0.000003)"
-              fill="var(--info-graphic-accent-color-dark)"
+              fill="#607890"
               stroke="none"
               strokeWidth="0.28"
             />
@@ -267,7 +267,7 @@ export const WebhooksAnimatedDocsIcon: FC<WebhooksAnimatedDocsIconProps> = ({ is
               id="exzbnYXRMC517"
               d="M69.992961,76.053166L69.975852,81.339889L73.932592,77.719668L69.992961,76.053166Z"
               transform="matrix(-1.168966 0 0 -1.168966 151.807857 171.062202)"
-              fill="var(--info-graphic-accent-color-darkest)"
+              fill="#506478"
               stroke="none"
               strokeWidth="0.28"
             />
@@ -276,14 +276,14 @@ export const WebhooksAnimatedDocsIcon: FC<WebhooksAnimatedDocsIconProps> = ({ is
         <path
           id="exzbnYXRMC518"
           d="M69.9983,79.0023L20.9727,61.4512L20.9727,124.568L69.9983,140.345L69.9983,79.0023Z"
-          fill="var(--info-graphic-accent-color-darkest)"
+          fill="#506478"
           stroke="none"
           strokeWidth="1"
         />
         <path
           id="exzbnYXRMC519"
           d="M119.022,124.568L119.022,61.4512L69.9961,79.0023L69.9961,140.345L119.022,124.568Z"
-          fill="var(--info-graphic-accent-color-dark)"
+          fill="#607890"
           stroke="none"
           strokeWidth="1"
         />
@@ -292,7 +292,7 @@ export const WebhooksAnimatedDocsIcon: FC<WebhooksAnimatedDocsIconProps> = ({ is
             id="exzbnYXRMC520"
             d="M20.9715,61.4521L4,81.8288L53.9483,100.246L69.9972,78.955L20.9715,61.4521Z"
             transform="translate(-36.9986,-80.849051)"
-            fill="var(--info-graphic-accent-color-light)"
+            fill="#9faebc"
             stroke="none"
             strokeWidth="1"
           />
@@ -302,7 +302,7 @@ export const WebhooksAnimatedDocsIcon: FC<WebhooksAnimatedDocsIconProps> = ({ is
             id="exzbnYXRMC521"
             d="M119.022,61.4512L135.999,81.8278L86.0506,100.245L69.9961,78.954L119.022,61.4512Z"
             transform="translate(-102.997547,-80.848101)"
-            fill="var(--info-graphic-accent-color-light)"
+            fill="#9faebc"
             stroke="none"
             strokeWidth="1"
           />
@@ -337,7 +337,7 @@ export const WebhooksAnimatedDocsIcon: FC<WebhooksAnimatedDocsIconProps> = ({ is
                 rx="5"
                 ry="5"
                 transform="translate(-12.60465,-12.6889)"
-                fill="var(--info-graphic-accent-color-bright)"
+                fill="#7e9bfa"
                 stroke="none"
                 strokeWidth="1"
               />
@@ -376,16 +376,7 @@ export const WebhooksAnimatedDocsIcon: FC<WebhooksAnimatedDocsIconProps> = ({ is
         </g>
       </g>
       <clipPath id="exzbnYXRMC526">
-        <rect
-          id="exzbnYXRMC527"
-          width="140"
-          height="140"
-          rx="0"
-          ry="0"
-          fill="var(--info-graphic-accent-color-white)"
-          stroke="none"
-          strokeWidth="1"
-        />
+        <rect id="exzbnYXRMC527" width="140" height="140" rx="0" ry="0" fill="#fff" stroke="none" strokeWidth="1" />
       </clipPath>
     </g>
   </svg>
