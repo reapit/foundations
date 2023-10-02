@@ -39,6 +39,7 @@ exports[`OfficesTab should match a snapshot where there are no offices 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="name"
                 placeholder="Search for an office"
@@ -68,8 +69,8 @@ exports[`OfficesTab should match a snapshot where there are no offices 1`] = `
                     classname="mock-css."
                     type="submit"
                   >
-                    Search
                     <mock-styled.div />
+                    Search
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -121,6 +122,7 @@ exports[`OfficesTab should match a snapshot where there are no offices 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="name"
               placeholder="Search for an office"
@@ -150,8 +152,8 @@ exports[`OfficesTab should match a snapshot where there are no offices 1`] = `
                   classname="mock-css."
                   type="submit"
                 >
-                  Search
                   <mock-styled.div />
+                  Search
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -260,6 +262,7 @@ exports[`OfficesTab should match a snapshot where there are offices 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="name"
                 placeholder="Search for an office"
@@ -289,8 +292,8 @@ exports[`OfficesTab should match a snapshot where there are offices 1`] = `
                     classname="mock-css."
                     type="submit"
                   >
-                    Search
                     <mock-styled.div />
+                    Search
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -342,6 +345,7 @@ exports[`OfficesTab should match a snapshot where there are offices 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="name"
               placeholder="Search for an office"
@@ -371,8 +375,8 @@ exports[`OfficesTab should match a snapshot where there are offices 1`] = `
                   classname="mock-css."
                   type="submit"
                 >
-                  Search
                   <mock-styled.div />
+                  Search
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -480,6 +484,7 @@ exports[`OfficesTab should match a snapshot where there is no orgId 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="name"
                 placeholder="Search for an office"
@@ -509,8 +514,8 @@ exports[`OfficesTab should match a snapshot where there is no orgId 1`] = `
                     classname="mock-css."
                     type="submit"
                   >
-                    Search
                     <mock-styled.div />
+                    Search
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -523,7 +528,7 @@ exports[`OfficesTab should match a snapshot where there is no orgId 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -543,7 +548,7 @@ exports[`OfficesTab should match a snapshot where there is no orgId 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -588,6 +593,7 @@ exports[`OfficesTab should match a snapshot where there is no orgId 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="name"
               placeholder="Search for an office"
@@ -617,8 +623,8 @@ exports[`OfficesTab should match a snapshot where there is no orgId 1`] = `
                   classname="mock-css."
                   type="submit"
                 >
-                  Search
                   <mock-styled.div />
+                  Search
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -631,7 +637,7 @@ exports[`OfficesTab should match a snapshot where there is no orgId 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -651,7 +657,7 @@ exports[`OfficesTab should match a snapshot where there is no orgId 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;

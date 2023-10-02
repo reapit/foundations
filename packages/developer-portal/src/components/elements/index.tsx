@@ -7,7 +7,7 @@ import {
   Icon,
   PageContainer,
   SecondaryNavContainer,
-  Subtitle,
+  BodyText,
   Title,
 } from '@reapit/elements'
 import React, { FC } from 'react'
@@ -18,9 +18,8 @@ export const ElementsPage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>UI</Title>
         <Icon className={elMb5} icon="elementsInfographic" iconSize="large" />
-        <Subtitle>Reapit Elements</Subtitle>
+        <BodyText>Reapit Elements</BodyText>
         <SmallText hasGreyText>
           Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean,
           interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design
@@ -29,7 +28,7 @@ export const ElementsPage: FC = () => {
         <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.elementsDocs)}>
           View Docs
         </Button>
-        <Button className={elMb5} intent="critical" onClick={openNewPage(process.env.elementsUri)}>
+        <Button className={elMb5} intent="primary" onClick={openNewPage(process.env.elementsUri)}>
           Storybook
         </Button>
       </SecondaryNavContainer>

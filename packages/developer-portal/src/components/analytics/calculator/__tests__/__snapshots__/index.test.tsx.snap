@@ -82,6 +82,7 @@ exports[`AnalyticsCalculator should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="apiCalls"
                 type="text"
@@ -100,21 +101,21 @@ exports[`AnalyticsCalculator should match snapshot 1`] = `
 "
         >
           <mock-styled.div
-            classname="mock-css."
+            classname=""
           >
             <mock-styled.button
               classname="mock-css."
               type="button"
             >
-              clear
               <mock-styled.div />
+              Clear
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               type="submit"
             >
-              Calculate
               <mock-styled.div />
+              Calculate
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -199,6 +200,7 @@ exports[`AnalyticsCalculator should match snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="apiCalls"
               type="text"
@@ -217,21 +219,21 @@ exports[`AnalyticsCalculator should match snapshot 1`] = `
 "
       >
         <mock-styled.div
-          classname="mock-css."
+          classname=""
         >
           <mock-styled.button
             classname="mock-css."
             type="button"
           >
-            clear
             <mock-styled.div />
+            Clear
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             type="submit"
           >
-            Calculate
             <mock-styled.div />
+            Calculate
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

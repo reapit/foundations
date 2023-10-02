@@ -51,8 +51,8 @@ exports[`GoogleMapComponent should match snapshot with an appointment 1`] = `
             classname="mock-css."
             type="button"
           >
-            Start Journey
             <mock-styled.div />
+            Start Journey
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -105,8 +105,8 @@ exports[`GoogleMapComponent should match snapshot with an appointment 1`] = `
           classname="mock-css."
           type="button"
         >
-          Start Journey
           <mock-styled.div />
+          Start Journey
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>

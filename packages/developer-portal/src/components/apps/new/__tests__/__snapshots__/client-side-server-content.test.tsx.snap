@@ -16,7 +16,9 @@ exports[`ClientServerSideContent should match a snapshot 1`] = `
 "
           style="font-size: 2rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 2rem;"
+          />
         </mock-styled.span>
         <mock-styled.div>
           Client Side App
@@ -31,7 +33,9 @@ exports[`ClientServerSideContent should match a snapshot 1`] = `
 "
           style="font-size: 2rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 2rem;"
+          />
         </mock-styled.span>
         <mock-styled.div>
           Server Side Integration
@@ -51,7 +55,9 @@ exports[`ClientServerSideContent should match a snapshot 1`] = `
 "
         style="font-size: 2rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 2rem;"
+        />
       </mock-styled.span>
       <mock-styled.div>
         Client Side App
@@ -66,7 +72,9 @@ exports[`ClientServerSideContent should match a snapshot 1`] = `
 "
         style="font-size: 2rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 2rem;"
+        />
       </mock-styled.span>
       <mock-styled.div>
         Server Side Integration

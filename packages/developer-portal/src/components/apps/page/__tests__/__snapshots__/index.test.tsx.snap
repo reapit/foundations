@@ -12,15 +12,8 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Apps
-          </mock-styled.h1>
           <mock-styled.div
             classname="mock-css.
-  margin-bottom: 1.5rem;
- mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -62,6 +55,8 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
   animation-fill-mode: both;
   animation-delay: 0.1s;
   animation-name: fade-in;
+ mock-css.
+  margin-bottom: 1.25rem;
 "
           >
             <mock-styled.span
@@ -73,24 +68,28 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
             >
               <svg />
             </mock-styled.span>
-            <mock-styled.h2
+            <mock-styled.p
               classname=""
             >
               Apps Documentation
-            </mock-styled.h2>
+            </mock-styled.p>
             <mock-styled.p
               classname="mock-css."
             >
               This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
             </mock-styled.p>
-            <mock-styled.button
-              classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-            >
-              View Docs
-              <mock-styled.div />
-            </mock-styled.button>
+            <mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.button
+                  classname="mock-css."
+                >
+                  <mock-styled.div />
+                  View Docs
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
         </mock-styled.aside>
         <mock-styled.section
@@ -131,56 +130,15 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
                   <mock-styled.div
                     classname=""
                   >
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
                     <mock-styled.h5>
                       MOCK_APP_NAME
                     </mock-styled.h5>
                     <mock-styled.h6 />
                     <mock-styled.h6 />
                   </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname=""
-                >
-                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
@@ -207,56 +165,15 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
                   <mock-styled.div
                     classname=""
                   >
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
                     <mock-styled.h5>
                       MOCK_APP_NAME_ANOTHER
                     </mock-styled.h5>
                     <mock-styled.h6 />
                     <mock-styled.h6 />
                   </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname=""
-                >
-                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
@@ -270,14 +187,14 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
             <mock-styled.button
               classname="mock-css. mock-css."
             >
+              <mock-styled.div />
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.25rem;
+                classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
               >
                 <svg />
               </mock-styled.span>
-              <mock-styled.div />
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.section>
@@ -292,15 +209,8 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Apps
-        </mock-styled.h1>
         <mock-styled.div
           classname="mock-css.
-  margin-bottom: 1.5rem;
- mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -342,6 +252,8 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
   animation-fill-mode: both;
   animation-delay: 0.1s;
   animation-name: fade-in;
+ mock-css.
+  margin-bottom: 1.25rem;
 "
         >
           <mock-styled.span
@@ -353,24 +265,28 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Apps Documentation
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
             This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
           </mock-styled.p>
-          <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-          >
-            View Docs
-            <mock-styled.div />
-          </mock-styled.button>
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.button
+                classname="mock-css."
+              >
+                <mock-styled.div />
+                View Docs
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
       </mock-styled.aside>
       <mock-styled.section
@@ -411,56 +327,15 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname=""
-                    style="font-size: 1.25rem;"
-                  >
-                    <svg />
-                  </mock-styled.span>
-                </mock-styled.div>
                 <mock-styled.div
                   classname=""
                 >
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
                   <mock-styled.h5>
                     MOCK_APP_NAME
                   </mock-styled.h5>
                   <mock-styled.h6 />
                   <mock-styled.h6 />
                 </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
-              >
-                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -487,56 +362,15 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname=""
-                    style="font-size: 1.25rem;"
-                  >
-                    <svg />
-                  </mock-styled.span>
-                </mock-styled.div>
                 <mock-styled.div
                   classname=""
                 >
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
                   <mock-styled.h5>
                     MOCK_APP_NAME_ANOTHER
                   </mock-styled.h5>
                   <mock-styled.h6 />
                   <mock-styled.h6 />
                 </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
-              >
-                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -550,14 +384,14 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
           <mock-styled.button
             classname="mock-css. mock-css."
           >
+            <mock-styled.div />
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.25rem;
+              classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
             >
               <svg />
             </mock-styled.span>
-            <mock-styled.div />
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.section>
@@ -628,13 +462,6 @@ exports[`AppsPage should match a snapshot when apps are loading 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Apps
-          </mock-styled.h1>
-        </mock-styled.aside>
         <mock-styled.section
           classname="mock-css.
   height: 100%;
@@ -658,13 +485,6 @@ exports[`AppsPage should match a snapshot when apps are loading 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Apps
-        </mock-styled.h1>
-      </mock-styled.aside>
       <mock-styled.section
         classname="mock-css.
   height: 100%;
@@ -746,15 +566,8 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Apps
-          </mock-styled.h1>
           <mock-styled.div
             classname="mock-css.
-  margin-bottom: 1.5rem;
- mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -796,6 +609,8 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
   animation-fill-mode: both;
   animation-delay: 0.1s;
   animation-name: fade-in;
+ mock-css.
+  margin-bottom: 1.25rem;
 "
           >
             <mock-styled.span
@@ -807,24 +622,28 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
             >
               <svg />
             </mock-styled.span>
-            <mock-styled.h2
+            <mock-styled.p
               classname=""
             >
               Apps Documentation
-            </mock-styled.h2>
+            </mock-styled.p>
             <mock-styled.p
               classname="mock-css."
             >
               This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
             </mock-styled.p>
-            <mock-styled.button
-              classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-            >
-              View Docs
-              <mock-styled.div />
-            </mock-styled.button>
+            <mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.button
+                  classname="mock-css."
+                >
+                  <mock-styled.div />
+                  View Docs
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
           </div>
         </mock-styled.aside>
         <mock-styled.section
@@ -865,56 +684,15 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
                   <mock-styled.div
                     classname=""
                   >
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
                     <mock-styled.h5>
                       MOCK_APP_NAME
                     </mock-styled.h5>
                     <mock-styled.h6 />
                     <mock-styled.h6 />
                   </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname=""
-                >
-                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
@@ -941,56 +719,15 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
                   <mock-styled.div
                     classname=""
                   >
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
                     <mock-styled.h5>
                       MOCK_APP_NAME_ANOTHER
                     </mock-styled.h5>
                     <mock-styled.h6 />
                     <mock-styled.h6 />
                   </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname=""
-                >
-                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
@@ -1004,14 +741,14 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
             <mock-styled.button
               classname="mock-css. mock-css."
             >
+              <mock-styled.div />
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.25rem;
+                classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
               >
                 <svg />
               </mock-styled.span>
-              <mock-styled.div />
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.section>
@@ -1026,15 +763,8 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Apps
-        </mock-styled.h1>
         <mock-styled.div
           classname="mock-css.
-  margin-bottom: 1.5rem;
- mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -1076,6 +806,8 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
   animation-fill-mode: both;
   animation-delay: 0.1s;
   animation-name: fade-in;
+ mock-css.
+  margin-bottom: 1.25rem;
 "
         >
           <mock-styled.span
@@ -1087,24 +819,28 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Apps Documentation
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
             This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
           </mock-styled.p>
-          <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-          >
-            View Docs
-            <mock-styled.div />
-          </mock-styled.button>
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.button
+                classname="mock-css."
+              >
+                <mock-styled.div />
+                View Docs
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
         </div>
       </mock-styled.aside>
       <mock-styled.section
@@ -1145,56 +881,15 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname=""
-                    style="font-size: 1.25rem;"
-                  >
-                    <svg />
-                  </mock-styled.span>
-                </mock-styled.div>
                 <mock-styled.div
                   classname=""
                 >
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
                   <mock-styled.h5>
                     MOCK_APP_NAME
                   </mock-styled.h5>
                   <mock-styled.h6 />
                   <mock-styled.h6 />
                 </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
-              >
-                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -1221,56 +916,15 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname=""
-                    style="font-size: 1.25rem;"
-                  >
-                    <svg />
-                  </mock-styled.span>
-                </mock-styled.div>
                 <mock-styled.div
                   classname=""
                 >
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
                   <mock-styled.h5>
                     MOCK_APP_NAME_ANOTHER
                   </mock-styled.h5>
                   <mock-styled.h6 />
                   <mock-styled.h6 />
                 </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
-              >
-                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -1284,14 +938,14 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
           <mock-styled.button
             classname="mock-css. mock-css."
           >
+            <mock-styled.div />
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.25rem;
+              classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
             >
               <svg />
             </mock-styled.span>
-            <mock-styled.div />
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.section>
@@ -1400,56 +1054,15 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
                   <mock-styled.div
                     classname=""
                   >
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
                     <mock-styled.h5>
                       MOCK_APP_NAME
                     </mock-styled.h5>
                     <mock-styled.h6 />
                     <mock-styled.h6 />
                   </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname=""
-                >
-                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
@@ -1476,56 +1089,15 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
                   <mock-styled.div
                     classname=""
                   >
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname=""
-                        style="font-size: 1.25rem;"
-                      >
-                        <svg />
-                      </mock-styled.span>
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
                     <mock-styled.h5>
                       MOCK_APP_NAME_ANOTHER
                     </mock-styled.h5>
                     <mock-styled.h6 />
                     <mock-styled.h6 />
                   </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname=""
-                >
-                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
@@ -1539,14 +1111,14 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
             <mock-styled.button
               classname="mock-css. mock-css."
             >
+              <mock-styled.div />
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.25rem;
+                classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
               >
                 <svg />
               </mock-styled.span>
-              <mock-styled.div />
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.section>
@@ -1598,56 +1170,15 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname=""
-                    style="font-size: 1.25rem;"
-                  >
-                    <svg />
-                  </mock-styled.span>
-                </mock-styled.div>
                 <mock-styled.div
                   classname=""
                 >
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
                   <mock-styled.h5>
                     MOCK_APP_NAME
                   </mock-styled.h5>
                   <mock-styled.h6 />
                   <mock-styled.h6 />
                 </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
-              >
-                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -1674,56 +1205,15 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname=""
-                    style="font-size: 1.25rem;"
-                  >
-                    <svg />
-                  </mock-styled.span>
-                </mock-styled.div>
                 <mock-styled.div
                   classname=""
                 >
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname=""
-                      style="font-size: 1.25rem;"
-                    >
-                      <svg />
-                    </mock-styled.span>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
                   <mock-styled.h5>
                     MOCK_APP_NAME_ANOTHER
                   </mock-styled.h5>
                   <mock-styled.h6 />
                   <mock-styled.h6 />
                 </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
-              >
-                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -1737,14 +1227,14 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
           <mock-styled.button
             classname="mock-css. mock-css."
           >
+            <mock-styled.div />
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.25rem;
+              classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
             >
               <svg />
             </mock-styled.span>
-            <mock-styled.div />
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.section>

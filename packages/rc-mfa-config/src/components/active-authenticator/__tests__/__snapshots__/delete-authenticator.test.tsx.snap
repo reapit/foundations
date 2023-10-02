@@ -10,8 +10,8 @@ exports[`DeleteAuthenticator should render component with props 1`] = `
         classname="mock-css."
         disabled="false"
       >
-        Reset Authenticator
         <mock-styled.div />
+        Reset Authenticator
       </mock-styled.button>
     </div>
   </body>,
@@ -21,8 +21,8 @@ exports[`DeleteAuthenticator should render component with props 1`] = `
       classname="mock-css."
       disabled="false"
     >
-      Reset Authenticator
       <mock-styled.div />
+      Reset Authenticator
     </mock-styled.button>
   </div>,
   "debug": [Function],

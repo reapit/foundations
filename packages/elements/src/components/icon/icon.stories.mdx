@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { Icon } from './index'
 import { iconSet } from '../../icons'
 import { elMb5 } from '../../styles/spacing'
@@ -35,27 +35,27 @@ For a basic icon, just select an icon name from one of the tables below. They ar
 
 <RenderHtmlMarkup component="Icon" story={['Basic Usage']} />
 
-## Icon Sizes - Font Size
+## Icon Font Size
 
 Set the `fontSize` prop to scale the icon up or down on a granular level. Note the `el-mb-5` class is purely presentational for this story.
 
 <Canvas>
-  <Story name="Icon Sizes - Font Size">
+  <Story name="Icon Font Size">
     <Icon className={elMb5} fontSize="2rem" icon="addSystem" />
     <Icon className={elMb5} fontSize="0.75rem" icon="addSystem" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Icon" story={['Icon Sizes - Font Size']} />
+<RenderHtmlMarkup component="Icon" story={['Icon Font Size']} />
 
-## Icon Sizes - Set Sizes
+## Icon Set Sizes
 
 You can use one of the pre-defined sizes we ship using the `iconSize` prop. See the props table in the basic usage story for the available sizes.
 
 For non React users, the sizes map directly to css classes - see the rendered markup for these. Note the `el-mb-5` class is purely presentational for this story.
 
 <Canvas>
-  <Story name="Icon Sizes - Set Sizes">
+  <Story name="Icon Set Sizes">
     <Icon className={elMb5} iconSize="smallest" icon="checkSolidSystem" />
     <Icon className={elMb5} iconSize="small" icon="checkSolidSystem" />
     <Icon className={elMb5} iconSize="medium" icon="checkSolidSystem" />
@@ -64,25 +64,38 @@ For non React users, the sizes map directly to css classes - see the rendered ma
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Icon" story={['Icon Sizes - Set Sizes']} />
+<RenderHtmlMarkup component="Icon" story={['Icon Set Sizes']} />
 
-## Intent
+## Icon Custom Sizes
+
+By setting a custom height and width prop, you can scale the icon to custom requirements e.g. non-square svgs.
+
+<Canvas>
+  <Story name="Icon Custom Sizes">
+    <Icon height="20px" width="100px" icon="reapitLogoMenu" />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Icon" story={['Icon Custom Sizes']} />
+
+## System Icon Intent
 
 Set the `intent` prop to enable Icons to be used in different contexts by assigning colors. Note this only applies to icons in the System Icons table above.
 
 Again, non React users can apply the relevant classes to achieve the same behaviour.
 
 <Canvas>
-  <Story name="Intent">
+  <Story name="System Icon Intent">
     <Icon className={elMb5} intent="primary" icon="cloudSolidSystem" />
-    <Icon className={elMb5} intent="secondary" icon="cloudSolidSystem" />
-    <Icon className={elMb5} intent="critical" icon="cloudSolidSystem" />
     <Icon className={elMb5} intent="success" icon="cloudSolidSystem" />
+    <Icon className={elMb5} intent="pending" icon="cloudSolidSystem" />
+    <Icon className={elMb5} intent="warning" icon="cloudSolidSystem" />
     <Icon className={elMb5} intent="danger" icon="cloudSolidSystem" />
+    <Icon className={elMb5} intent="neutral" icon="cloudSolidSystem" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Icon" story={['Intent']} />
+<RenderHtmlMarkup component="Icon" story={['System Icon Intent']} />
 
 ## Infographic Icons - Full Colour Large
 
@@ -342,42 +355,17 @@ Icons used for global navigation in the `Nav` component.
 
 <Canvas>
   <Story name="Menu Icons - Medium">
-    <Icon iconSize="medium" className={elIconMenu} icon="accountMenu" />
+    <Icon height="32px" width="32px" icon="appLauncherMenu" />
   </Story>
 </Canvas>
 
-| Icon Name              | Small Icon                                                                      |
-| ---------------------- | ------------------------------------------------------------------------------- |
-| accountMenu            | <Icon iconSize="medium" className={elIconMenu} icon="accountMenu" />            |
-| analyticsMenu          | <Icon iconSize="medium" className={elIconMenu} icon="analyticsMenu" />          |
-| apiMenu                | <Icon iconSize="medium" className={elIconMenu} icon="apiMenu" />                |
-| appsMenu               | <Icon iconSize="medium" className={elIconMenu} icon="appsMenu" />               |
-| dataMenu               | <Icon iconSize="medium" className={elIconMenu} icon="dataMenu" />               |
-| defaultMenu            | <Icon iconSize="medium" className={elIconMenu} icon="defaultMenu" />            |
-| desktopMenu            | <Icon iconSize="medium" className={elIconMenu} icon="desktopMenu" />            |
-| developersMenu         | <Icon iconSize="medium" className={elIconMenu} icon="developersMenu" />         |
-| docsMenu               | <Icon iconSize="medium" className={elIconMenu} icon="docsMenu" />               |
-| hamburgerMenu          | <Icon iconSize="medium" icon="hamburgerMenu" />                                 |
-| hamburgerOpenMenu      | <Icon iconSize="medium" icon="hamburgerOpenMenu" />                             |
-| helpMenu               | <Icon iconSize="medium" className={elIconMenu} icon="helpMenu" />               |
-| installedMenu          | <Icon iconSize="medium" className={elIconMenu} icon="installedMenu" />          |
-| logoutMenu             | <Icon iconSize="medium" className={elIconMenu} icon="logoutMenu" />             |
-| manageMenu             | <Icon iconSize="medium" className={elIconMenu} icon="manageMenu" />             |
-| mapMenu                | <Icon iconSize="medium" className={elIconMenu} icon="mapMenu" />                |
-| marketplaceMenu        | <Icon iconSize="medium" className={elIconMenu} icon="marketplaceMenu" />        |
-| myAccountMenu          | <Icon iconSize="medium" className={elIconMenu} icon="myAccountMenu" />          |
-| officesMenu            | <Icon iconSize="medium" className={elIconMenu} icon="officesMenu" />            |
-| paymentsMenu           | <Icon iconSize="medium" className={elIconMenu} icon="paymentsMenu" />           |
-| profileMenu            | <Icon iconSize="medium" className={elIconMenu} icon="profileMenu" />            |
-| reapitLogoMenu         | <Icon iconSize="medium" className={elIconMenu} icon="reapitLogoMenu" />         |
-| reapitLogoSelectedMenu | <Icon iconSize="medium" className={elIconMenu} icon="reapitLogoSelectedMenu" /> |
-| reapitLogoTextMenu     | <Icon iconSize="medium" className={elIconMenu} icon="reapitLogoTextMenu" />     |
-| resultsMenu            | <Icon iconSize="medium" className={elIconMenu} icon="resultsMenu" />            |
-| searchMenu             | <Icon iconSize="medium" className={elIconMenu} icon="searchMenu" />             |
-| supportMenu            | <Icon iconSize="medium" className={elIconMenu} icon="supportMenu" />            |
-| uiMenu                 | <Icon iconSize="medium" className={elIconMenu} icon="uiMenu" />                 |
-| usersMenu              | <Icon iconSize="medium" className={elIconMenu} icon="usersMenu" />              |
-| webhooksMenu           | <Icon iconSize="medium" className={elIconMenu} icon="webhooksMenu" />           |
+| Icon Name       | Custom Size                                                |
+| --------------- | ---------------------------------------------------------- |
+| appLauncherMenu | <Icon height="32px" width="32px" icon="appLauncherMenu" /> |
+| logoutMenu      | <Icon height="32px" width="32px" icon="logoutMenu" />      |
+| profileMenu     | <Icon height="32px" width="32px" icon="profileMenu" />     |
+| usersMenu       | <Icon height="32px" width="32px" icon="usersMenu" />       |
+| reapitLogoMenu  | <Icon height="20px" width="100px" icon="reapitLogoMenu" /> |
 
 ## Misc Icons
 
@@ -385,12 +373,13 @@ Other icons exported by the project with no specific category like placeholders 
 
 <Canvas>
   <Story name="Misc Icons">
-    <Icon iconSize="large" icon="reapitLogoInfographic" />
+    <Icon iconSize="medium" icon="reapitLogoSmallInfographic" />
   </Story>
 </Canvas>
 
-| Misc Icon Name        | Displayed Size - Various                               |
-| --------------------- | ------------------------------------------------------ |
-| reapitLogoInfographic | <Icon iconSize="large" icon="reapitLogoInfographic" /> |
-| placeholderSmall      | <Icon iconSize="medium" icon="placeholderSmall" />     |
-| placeholderLarge      | <Icon iconSize="large" icon="placeholderLarge" />      |
+| Misc Icon Name             | Displayed Size - Various                                          |
+| -------------------------- | ----------------------------------------------------------------- |
+| reapitLogoInfographic      | <Icon height="20px" width="100px" icon="reapitLogoInfographic" /> |
+| reapitLogoSmallInfographic | <Icon iconSize="medium" icon="reapitLogoSmallInfographic" />      |
+| placeholderSmall           | <Icon iconSize="medium" icon="placeholderSmall" />                |
+| placeholderLarge           | <Icon iconSize="large" icon="placeholderLarge" />                 |

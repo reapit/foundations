@@ -6,26 +6,54 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/about page 1
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.button
+      <mock-styled.div
         classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+  margin-bottom: 1.25rem;
+"
       >
-        Video
-        <mock-styled.div />
-      </mock-styled.button>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            Video
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.button
+    <mock-styled.div
       classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+  margin-bottom: 1.25rem;
+"
     >
-      Video
-      <mock-styled.div />
-    </mock-styled.button>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css."
+        >
+          <mock-styled.div />
+          View Docs
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+        >
+          <mock-styled.div />
+          Video
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -135,6 +163,7 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               max="2019-10-10"
               min="2019-04"
@@ -158,6 +187,7 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               max="2019-10-10"
               min="2019-10-10"
@@ -211,6 +241,7 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="entityId"
               type="text"
@@ -232,6 +263,7 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="eventId"
               type="text"
@@ -245,22 +277,28 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
           </mock-styled.div>
         </mock-styled.div>
       </div>
-      <mock-styled.button
+      <mock-styled.div
         classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+  margin-bottom: 1.25rem;
+"
       >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
-      >
-        Video
-        <mock-styled.div />
-      </mock-styled.button>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            Video
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
@@ -313,6 +351,7 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             max="2019-10-10"
             min="2019-04"
@@ -336,6 +375,7 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             max="2019-10-10"
             min="2019-10-10"
@@ -389,6 +429,7 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="entityId"
             type="text"
@@ -410,6 +451,7 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="eventId"
             type="text"
@@ -423,22 +465,28 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
         </mock-styled.div>
       </mock-styled.div>
     </div>
-    <mock-styled.button
+    <mock-styled.div
       classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+  margin-bottom: 1.25rem;
+"
     >
-      View Docs
-      <mock-styled.div />
-    </mock-styled.button>
-    <mock-styled.button
-      classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
-    >
-      Video
-      <mock-styled.div />
-    </mock-styled.button>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css."
+        >
+          <mock-styled.div />
+          View Docs
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+        >
+          <mock-styled.div />
+          Video
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -540,22 +588,28 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/manage page 
           </mock-styled.div>
         </mock-styled.div>
       </div>
-      <mock-styled.button
+      <mock-styled.div
         classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+  margin-bottom: 1.25rem;
+"
       >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
-      >
-        Video
-        <mock-styled.div />
-      </mock-styled.button>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            Video
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
@@ -600,22 +654,28 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/manage page 
         </mock-styled.div>
       </mock-styled.div>
     </div>
-    <mock-styled.button
+    <mock-styled.div
       classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+  margin-bottom: 1.25rem;
+"
     >
-      View Docs
-      <mock-styled.div />
-    </mock-styled.button>
-    <mock-styled.button
-      classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
-    >
-      Video
-      <mock-styled.div />
-    </mock-styled.button>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css."
+        >
+          <mock-styled.div />
+          View Docs
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+        >
+          <mock-styled.div />
+          Video
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -677,26 +737,54 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/new page 1`]
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.button
+      <mock-styled.div
         classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+  margin-bottom: 1.25rem;
+"
       >
-        Video
-        <mock-styled.div />
-      </mock-styled.button>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            Video
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.button
+    <mock-styled.div
       classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+  margin-bottom: 1.25rem;
+"
     >
-      Video
-      <mock-styled.div />
-    </mock-styled.button>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.button
+          classname="mock-css."
+        >
+          <mock-styled.div />
+          View Docs
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+        >
+          <mock-styled.div />
+          Video
+        </mock-styled.button>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

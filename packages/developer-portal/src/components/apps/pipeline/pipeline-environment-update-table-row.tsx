@@ -93,7 +93,7 @@ export const PipelineEnvUpdateTableRow = ({
               </InputGroup>
             </InputWrap>
           </FormLayout>
-          <ButtonGroup>
+          <ButtonGroup alignment="center">
             <Button loading={sending} disabled={sending} intent="primary">
               Save
             </Button>

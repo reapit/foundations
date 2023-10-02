@@ -118,14 +118,14 @@ export const WebhooksLogs: FC = () => {
 
   if (!applicationId || !from || !to)
     return (
-      <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+      <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
         No app or date range selected. Please use the filters option to get started.
       </PersistentNotification>
     )
   if (logsLoading) return <Loader />
   if (!logs?.length || !rows.length)
     return (
-      <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+      <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
         No logs found for this application. Select another app, date range or trigger a webhook to see the logs appear
         here.
       </PersistentNotification>

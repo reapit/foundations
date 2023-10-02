@@ -5,11 +5,15 @@ exports[`TextArea component should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.textarea />
+      <mock-styled.textarea
+        classname=""
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.textarea />
+    <mock-styled.textarea
+      classname=""
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

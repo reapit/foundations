@@ -45,8 +45,7 @@
   ],
   "dependencies": {
     "@linaria/core": "^4.2.8",
-    "@linaria/react": "^4.3.6",
-    "uuid": "^8.3.2"
+    "@linaria/react": "^4.3.6"
   },
   "devDependencies": {
     "@linaria/babel-preset": "^4.4.3",

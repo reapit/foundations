@@ -26,10 +26,12 @@ exports[`DataSetsTable should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -86,8 +88,8 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                     classname="mock-css."
                     disabled="false"
                   >
-                    Create Share
                     <mock-styled.div />
+                    Create Share
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -147,8 +149,8 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                     classname="mock-css."
                     disabled="false"
                   >
-                    Create Share
                     <mock-styled.div />
+                    Create Share
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -180,10 +182,12 @@ exports[`DataSetsTable should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css."
             style="font-size: 1.2rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.2rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -240,8 +244,8 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                   classname="mock-css."
                   disabled="false"
                 >
-                  Create Share
                   <mock-styled.div />
+                  Create Share
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -301,8 +305,8 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                   classname="mock-css."
                   disabled="false"
                 >
-                  Create Share
                   <mock-styled.div />
+                  Create Share
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>

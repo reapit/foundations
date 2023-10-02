@@ -270,6 +270,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   disabled="false"
                   id="test-static-id"
                   name="customerFirstName"
@@ -286,6 +287,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   disabled="false"
                   id="test-static-id"
                   name="customerLastName"
@@ -302,6 +304,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   disabled="false"
                   id="test-static-id"
                   name="email"
@@ -318,6 +321,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   disabled="false"
                   id="test-static-id"
                   name="address1"
@@ -334,6 +338,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   disabled="false"
                   id="test-static-id"
                   name="city"
@@ -350,6 +355,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   disabled="false"
                   id="test-static-id"
                   name="postalCode"
@@ -1638,6 +1644,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               <mock-styled.div>
                 <mock-styled.input
                   autocomplete="cardNumber"
+                  classname=""
                   disabled="false"
                   id="cardNumber"
                   inputmode="numeric"
@@ -1672,6 +1679,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   disabled="false"
                   id="test-static-id"
                   name="cardholderName"
@@ -1689,6 +1697,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               <mock-styled.div>
                 <mock-styled.input
                   autocomplete="expiryDate"
+                  classname=""
                   disabled="false"
                   id="expiryDate"
                   inputmode="numeric"
@@ -1708,6 +1717,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   disabled="false"
                   id="test-static-id"
                   maxlength="3"
@@ -1732,8 +1742,8 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
                 disabled="false"
                 type="submit"
               >
-                Make Payment
                 <mock-styled.div />
+                Make Payment
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>
@@ -2007,6 +2017,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="customerFirstName"
@@ -2023,6 +2034,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="customerLastName"
@@ -2039,6 +2051,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="email"
@@ -2055,6 +2068,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="address1"
@@ -2071,6 +2085,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="city"
@@ -2087,6 +2102,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="postalCode"
@@ -3375,6 +3391,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.input
                 autocomplete="cardNumber"
+                classname=""
                 disabled="false"
                 id="cardNumber"
                 inputmode="numeric"
@@ -3409,6 +3426,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="cardholderName"
@@ -3426,6 +3444,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.input
                 autocomplete="expiryDate"
+                classname=""
                 disabled="false"
                 id="expiryDate"
                 inputmode="numeric"
@@ -3445,6 +3464,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 maxlength="3"
@@ -3469,8 +3489,8 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               disabled="false"
               type="submit"
             >
-              Make Payment
               <mock-styled.div />
+              Make Payment
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>

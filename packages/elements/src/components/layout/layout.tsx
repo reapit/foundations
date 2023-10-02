@@ -25,6 +25,7 @@ import {
   elFlexAlignStart,
   elFlexAlignEnd,
 } from '../../styles/flexbox'
+import { useDeprecateComponent } from '../../storybook/deprecate-var'
 
 export interface ContainerProps extends HTMLAttributes<HTMLElement> {}
 
@@ -65,7 +66,10 @@ export const SecondaryNavContainer: FC<ContainerProps> = ({ children, ...rest })
   <ElSecondaryNavContainer {...rest}>{children}</ElSecondaryNavContainer>
 )
 
-export const Molecule: FC<ContainerProps> = ({ children, ...rest }) => <ElMolecule {...rest}>{children}</ElMolecule>
+export const Molecule: FC<ContainerProps> = ({ children, ...rest }) => {
+  useDeprecateComponent('Molecule')
+  return <ElMolecule {...rest}>{children}</ElMolecule>
+}
 
 export const FlexContainer: FC<ContainerFlexProps> = ({
   children,

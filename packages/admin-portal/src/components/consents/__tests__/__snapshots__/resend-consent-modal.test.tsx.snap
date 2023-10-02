@@ -15,6 +15,7 @@ exports[`ResendConsentModal should render a component with without an email and 
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="recipient"
                 placeholder="Email of the recipient"
@@ -32,17 +33,17 @@ exports[`ResendConsentModal should render a component with without an email and 
             classname="mock-css."
           >
             <mock-styled.button
-              classname="mock-css. mock-css."
+              classname="mock-css."
             >
-              Cancel
               <mock-styled.div />
+              Cancel
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css. mock-css."
+              classname="mock-css."
               type="submit"
             >
-              Confirm
               <mock-styled.div />
+              Confirm
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -60,6 +61,7 @@ exports[`ResendConsentModal should render a component with without an email and 
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="recipient"
               placeholder="Email of the recipient"
@@ -77,17 +79,17 @@ exports[`ResendConsentModal should render a component with without an email and 
           classname="mock-css."
         >
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
             type="submit"
           >
-            Confirm
             <mock-styled.div />
+            Confirm
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

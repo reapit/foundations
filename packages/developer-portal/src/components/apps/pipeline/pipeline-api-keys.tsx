@@ -206,12 +206,12 @@ export const ApiKeys: FC<ApiKeysProps> = ({ closeModal }) => {
               }))}
             />
           ) : (
-            <PersistentNotification className={elMb11} intent="secondary" isExpanded isFullWidth isInline>
+            <PersistentNotification className={elMb11} intent="primary" isExpanded isFullWidth isInline>
               No API keys currently configured for your organisation. You can create an API key below.
             </PersistentNotification>
           )}
-          <ButtonGroup alignment="center">
-            <Button intent="low" fixedWidth onClick={closeModal} disabled={isLoading}>
+          <ButtonGroup alignment="right">
+            <Button intent="neutral" fixedWidth onClick={closeModal} disabled={isLoading}>
               Close
             </Button>
             <Button

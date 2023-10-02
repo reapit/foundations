@@ -46,8 +46,8 @@ export const HitsByResourceChart: FC<HitsByResourceChartProps> = ({ trafficEvent
               if (!chartArea) return
 
               const gradient = ctx.createLinearGradient(chartArea.left, 0, chartArea.right, 0)
-              gradient.addColorStop(1, 'rgba(236, 99, 27, 1)')
-              gradient.addColorStop(0, 'rgba(236, 99, 27, 0.5)')
+              gradient.addColorStop(1, '#0080ff')
+              gradient.addColorStop(0, '#66b2ff')
 
               return gradient
             },

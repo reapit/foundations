@@ -15,7 +15,7 @@ import {
   SecondaryNav,
   SecondaryNavContainer,
   SecondaryNavItem,
-  Subtitle,
+  BodyText,
   Title,
 } from '@reapit/elements'
 import { iframeWrapper } from './__styles__/index'
@@ -41,7 +41,6 @@ const DocsPage: FC = () => {
     <ErrorBoundary>
       <FlexContainer isFlexAuto>
         <SecondaryNavContainer>
-          <Title>Docs</Title>
           <SecondaryNav className={elMb9}>
             <SecondaryNavItem onClick={navigateRoute(navigate, Routes.API_DOCS)} active={isDocsPage}>
               APIs
@@ -51,7 +50,7 @@ const DocsPage: FC = () => {
             </SecondaryNavItem>
           </SecondaryNav>
           <Icon className={elMb5} icon="apiDocsInfographic" iconSize="large" />
-          <Subtitle>Welcome</Subtitle>
+          <BodyText>Welcome</BodyText>
           <SmallText hasGreyText>
             We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages
             accross these pages.
@@ -64,12 +63,12 @@ const DocsPage: FC = () => {
             Go to Github
           </Button>
           {isDocsPage && (
-            <Button className={elMb5} intent="critical" onClick={openNewPage(ExternalPages.baseDocs)}>
+            <Button className={elMb5} intent="primary" onClick={openNewPage(ExternalPages.baseDocs)}>
               Open Docs
             </Button>
           )}
           {isSchemaPage && isDevEnv && (
-            <Button className={elMb5} intent="critical" onClick={openNewPage(process.env.analyticsSchemaDocsUrl)}>
+            <Button className={elMb5} intent="primary" onClick={openNewPage(process.env.analyticsSchemaDocsUrl)}>
               Open Schema
             </Button>
           )}

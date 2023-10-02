@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas } from '@storybook/addon-docs'
 import { TextArea } from './index'
 import { RenderHtmlMarkup } from './../../storybook/render-html-markup'
 
@@ -7,6 +7,8 @@ import { RenderHtmlMarkup } from './../../storybook/render-html-markup'
 # TextArea
 
 A standard HTMl / JSX text area component for use in forms.
+
+<ArgsTable of={TextArea} />
 
 ## Basic Usage
 
@@ -27,3 +29,13 @@ A standard HTMl / JSX text area component for use in forms.
 </Canvas>
 
 <RenderHtmlMarkup component="TextArea" story="Text Area placeholder" />
+
+## Has Error
+
+<Canvas>
+  <Story name="Text Area Error">
+    <TextArea type="text" hasError />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="TextArea" story="Text Area Error" />

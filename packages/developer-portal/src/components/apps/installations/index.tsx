@@ -4,11 +4,11 @@ import {
   Button,
   ButtonGroup,
   elMb11,
-  FlexContainer,
   FormLayout,
   InputGroup,
   InputWrapFull,
   Loader,
+  MobileControls,
   Pagination,
   PersistentNotification,
   Table,
@@ -150,21 +150,12 @@ export const AppInstallations: FC = () => {
 
   return (
     <>
-      <FlexContainer isFlexJustifyBetween>
-        <Title>Installations</Title>
-        {isMobile && (
-          <ButtonGroup alignment="right">
-            <Button intent="low" onClick={openModalDocs}>
-              Controls
-            </Button>
-          </ButtonGroup>
-        )}
-      </FlexContainer>
+      <Title>Installations</Title>
       {isMobile && (
         <ModalDocs title="Controls">
           <Helper />
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="secondary" onClick={closeModalDocs}>
+          <ButtonGroup alignment="right">
+            <Button fixedWidth intent="neutral" onClick={closeModalDocs}>
               Close
             </Button>
           </ButtonGroup>
@@ -236,7 +227,7 @@ export const AppInstallations: FC = () => {
                     <>
                       <ButtonGroup alignment="center">
                         {officeGroup?.offices?.length ? (
-                          <Button intent="secondary" onClick={handleSetOffices(setOffices, officeGroup.offices)}>
+                          <Button intent="primary" onClick={handleSetOffices(setOffices, officeGroup.offices)}>
                             Show Installed Offices
                           </Button>
                         ) : null}
@@ -275,7 +266,7 @@ export const AppInstallations: FC = () => {
                 </InputWrapFull>
               </FormLayout>
               <ButtonGroup alignment="right">
-                <Button intent="low" type="button" onClick={closeModal}>
+                <Button intent="neutral" type="button" onClick={closeModal}>
                   Close
                 </Button>
                 <Button disabled={uninstalling} loading={uninstalling} intent="danger" type="submit">
@@ -286,10 +277,11 @@ export const AppInstallations: FC = () => {
           </Modal>
         </>
       ) : installations ? (
-        <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
+        <PersistentNotification intent="primary" isExpanded isFullWidth isInline>
           No installations for the application.
         </PersistentNotification>
       ) : null}
+      <MobileControls onClick={openModalDocs} />
     </>
   )
 }

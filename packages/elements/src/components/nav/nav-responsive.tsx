@@ -1,39 +1,38 @@
 import { cx } from '@linaria/core'
-import React, { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState } from 'react'
+import React, { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction } from 'react'
 import { useNavState } from '../../hooks/use-nav-state'
 import { useMediaQuery } from '../../hooks/use-media-query'
-import { elIntentNeutral } from '../../styles/intent'
 import { Icon, IconNames } from '../icon'
 import { Nav, NavItem, NavSubNav, NavSubNavItem } from './nav'
 import {
-  elNavIsDesktop,
   elNavItemActive,
   elNavItemExpanded,
   elNavItemHideDesktop,
-  elNavItemIcon,
   elNavSubItemActive,
   elNavSubItemExpanded,
 } from './__styles__'
 import { elMlAuto, elMr2 } from '../../styles/spacing'
-import { v4 as uuid } from 'uuid'
+import { generateRandomId } from '../../storybook/random-id'
 
 export type NavResponsiveItemType = 'ICON' | 'ITEM' | 'SECONDARY'
 
 export interface NavResponsiveOption {
   itemIndex: number
   isSecondary?: boolean
-  icon?: ReactNode
-  iconId?: IconNames
   callback?: () => void
   text?: string
   href?: string
   subItems?: NavResponsiveOption[]
+  /* Deprecated unless the isSecondary boolean is set - to be removed in v5 */
+  icon?: ReactNode
+  /* Deprecated unless the isSecondary boolean is set - to be removed in v5 */
+  iconId?: IconNames
 }
 
 export interface NavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
   options: NavResponsiveOption[]
   defaultNavIndex?: number
-  defaultNavSubIndex?: number
+  defaultNavSubIndex?: number // deprecated
 }
 
 export type LogoIcon = 'reapitLogoSelectedMenu' | 'reapitLogoMenu'
@@ -51,50 +50,40 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
   ...rest
 }) => {
   const { navState, setNavState } = useNavState(defaultNavIndex, defaultNavSubIndex)
-  const [logoState, setLogoState] = useState<LogoIcon>('reapitLogoMenu')
   const { isMobile } = useMediaQuery()
-  const { navItemIndex, navMenuOpen, navSubItemIndex, navSubMenuIndex } = navState
-  const isDesktop = Boolean(window['__REAPIT_MARKETPLACE_GLOBALS__'])
+  const { navItemIndex, navSubItemIndex, navMenuOpen } = navState
 
   return (
-    <Nav className={cx(isDesktop && elNavIsDesktop, className)} {...rest}>
+    <Nav className={cx(className)} {...rest}>
       {options.map(
         (
           { icon, iconId, href, callback, isSecondary, text, subItems, itemIndex }: NavResponsiveOption,
           index: number,
         ) => {
+          const hasSubItems = subItems && subItems.length > 0
           if (!index) {
             return (
-              <NavItem
-                className={cx(navItemIndex === itemIndex && elNavItemActive)}
-                key={itemIndex}
-                href={href}
-                onMouseEnter={handleToggleLogo(logoState, setLogoState)}
-                onMouseLeave={handleToggleLogo(logoState, setLogoState)}
-                onClick={setNavState({
-                  navItemIndex: itemIndex,
-                  callback,
-                })}
-              >
+              <NavItem className={cx(navItemIndex === itemIndex && elNavItemActive)} key={itemIndex} href={href}>
+                <Icon
+                  className={cx(elMr2)}
+                  icon="appLauncherMenu"
+                  fontSize="1.5rem"
+                  onClick={() => (window.location.href = 'https://marketplace.reapit.cloud/installed')}
+                />
                 {icon ? (
                   icon
                 ) : iconId ? (
-                  <Icon iconSize="medium" className={elNavItemIcon} icon={iconId} />
+                  <Icon iconSize="medium" icon={iconId} />
                 ) : (
-                  <Icon
-                    fontSize={isMobile ? '7rem' : '2.5rem'}
-                    className={elNavItemIcon}
-                    icon={isMobile ? 'reapitLogoTextMenu' : logoState}
-                  />
+                  <Icon height="24px" width="100px" icon="reapitLogoInfographic" />
                 )}
-                {text}
                 <Icon
-                  className={cx(elIntentNeutral, elMlAuto, elMr2, elNavItemHideDesktop)}
-                  icon={navMenuOpen ? 'hamburgerOpenMenu' : 'hamburgerMenu'}
-                  fontSize="2rem"
+                  className={cx(elMlAuto, elMr2, elNavItemHideDesktop)}
+                  icon="moreSolidSystem"
+                  fontSize="1.2rem"
+                  intent={navMenuOpen ? 'primary' : 'default'}
                   onClick={setNavState({
                     navMenuOpen: !navMenuOpen,
-                    navSubMenuIndex: null,
                   })}
                 />
               </NavItem>
@@ -108,27 +97,32 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 href={href}
                 isSecondary={isSecondary}
                 onClick={
-                  isMobile
+                  hasSubItems
                     ? setNavState({
                         navItemIndex: itemIndex,
-                        navSubMenuIndex: navMenuOpen && navSubMenuIndex === itemIndex ? null : itemIndex,
-                        navSubItemIndex: navMenuOpen && navSubMenuIndex === itemIndex ? null : navSubItemIndex,
+                        navSubItemIndex: navItemIndex === itemIndex && navSubItemIndex ? navSubItemIndex : 0,
                         callback,
                       })
-                    : setNavState({ navItemIndex: itemIndex, callback })
+                    : setNavState({ navItemIndex: itemIndex, callback, navMenuOpen: !navMenuOpen })
                 }
               >
-                {icon ? icon : iconId ? <Icon iconSize="medium" className={elNavItemIcon} icon={iconId} /> : ''}
-                {text}
-                {isMobile && subItems && (
+                {(!isSecondary || isMobile) && text}
+                {isSecondary && !isMobile && icon ? (
+                  icon
+                ) : isSecondary && !isMobile && iconId ? (
+                  <Icon fontSize="32px" icon={iconId} />
+                ) : null}
+                {hasSubItems && isMobile && (
                   <Icon
-                    className={cx(elIntentNeutral, elMlAuto)}
-                    icon={navSubMenuIndex === itemIndex ? 'upSystem' : 'downSystem'}
+                    className={elMlAuto}
+                    icon={navMenuOpen && navItemIndex === itemIndex ? 'upSystem' : 'downSystem'}
+                    height="16px"
+                    width="16px"
                   />
                 )}
               </NavItem>
-              {subItems && subItems.length > 0 && (
-                <NavSubNav key={uuid()}>
+              {hasSubItems && (
+                <NavSubNav key={generateRandomId()}>
                   {subItems.map(
                     ({
                       callback: innerCallback,
@@ -140,11 +134,15 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                         <NavSubNavItem
                           className={cx(
                             navSubItemIndex === innerItemIndex && elNavSubItemActive,
-                            navSubMenuIndex === itemIndex && elNavSubItemExpanded,
+                            navMenuOpen && navItemIndex === itemIndex && elNavSubItemExpanded,
                           )}
                           href={innerHref}
                           key={innerItemIndex}
-                          onClick={setNavState({ navSubItemIndex: innerItemIndex, callback: innerCallback })}
+                          onClick={setNavState({
+                            navSubItemIndex: innerItemIndex,
+                            callback: innerCallback,
+                            navMenuOpen: !navMenuOpen,
+                          })}
                         >
                           <span>{innerText}</span>
                         </NavSubNavItem>

@@ -28,10 +28,12 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -177,10 +179,12 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css."
             style="font-size: 1.2rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.2rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>

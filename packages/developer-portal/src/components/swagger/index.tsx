@@ -83,7 +83,7 @@ export const SwaggerPage: FC<SwaggerPageProps> = ({ swaggerUri }) => {
       <PersistentNotification
         onClick={handleSandboxClick(setSandboxVisible, sandboxVisible)}
         isExpanded={sandboxVisible}
-        intent="secondary"
+        intent="primary"
       >
         This is a sandbox environment, with anonymised test data and isolated from production
       </PersistentNotification>

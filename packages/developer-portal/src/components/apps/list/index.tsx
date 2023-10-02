@@ -31,8 +31,8 @@ export const AppsList: FC = () => {
       {isMobile && (
         <Modal title="Controls">
           <Helper />
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="secondary" onClick={closeModal}>
+          <ButtonGroup alignment="right">
+            <Button fixedWidth intent="neutral" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>

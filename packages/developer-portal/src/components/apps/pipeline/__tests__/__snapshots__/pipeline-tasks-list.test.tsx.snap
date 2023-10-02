@@ -11,7 +11,7 @@ exports[`TaskList should match snapshot with no tasks 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -31,7 +31,7 @@ exports[`TaskList should match snapshot with no tasks 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -49,7 +49,7 @@ exports[`TaskList should match snapshot with no tasks 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -69,7 +69,7 @@ exports[`TaskList should match snapshot with no tasks 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -316,8 +316,8 @@ exports[`TaskList should match snapshot with tasks 1`] = `
           classname="mock-css."
           disabled="true"
         >
-          Download Logs
           <mock-styled.div />
+          Download Logs
         </mock-styled.button>
       </div>
     </div>
@@ -501,8 +501,8 @@ exports[`TaskList should match snapshot with tasks 1`] = `
         classname="mock-css."
         disabled="true"
       >
-        Download Logs
         <mock-styled.div />
+        Download Logs
       </mock-styled.button>
     </div>
   </div>,

@@ -42,6 +42,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                   />
@@ -55,6 +56,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="jobTitle"
                   />
@@ -71,20 +73,20 @@ exports[`AcceptedModal should match snapshot 1`] = `
                 classname="mock-css."
               >
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                   disabled="false"
                   type="button"
                 >
-                  Decline
                   <mock-styled.div />
+                  Decline
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                   disabled="false"
                   type="submit"
                 >
-                  Confirm
                   <mock-styled.div />
+                  Confirm
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -131,6 +133,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                 />
@@ -144,6 +147,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="jobTitle"
                 />
@@ -160,20 +164,20 @@ exports[`AcceptedModal should match snapshot 1`] = `
               classname="mock-css."
             >
               <mock-styled.button
-                classname="mock-css. mock-css."
+                classname="mock-css."
                 disabled="false"
                 type="button"
               >
-                Decline
                 <mock-styled.div />
+                Decline
               </mock-styled.button>
               <mock-styled.button
-                classname="mock-css. mock-css."
+                classname="mock-css."
                 disabled="false"
                 type="submit"
               >
-                Confirm
                 <mock-styled.div />
+                Confirm
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>
@@ -277,6 +281,7 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                   />
@@ -290,6 +295,7 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="jobTitle"
                   />
@@ -306,20 +312,20 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
                 classname="mock-css."
               >
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                   disabled="false"
                   type="button"
                 >
-                  Decline
                   <mock-styled.div />
+                  Decline
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  classname="mock-css."
                   disabled="false"
                   type="submit"
                 >
-                  Confirm
                   <mock-styled.div />
+                  Confirm
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -366,6 +372,7 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                 />
@@ -379,6 +386,7 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="jobTitle"
                 />
@@ -395,20 +403,20 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
               classname="mock-css."
             >
               <mock-styled.button
-                classname="mock-css. mock-css."
+                classname="mock-css."
                 disabled="false"
                 type="button"
               >
-                Decline
                 <mock-styled.div />
+                Decline
               </mock-styled.button>
               <mock-styled.button
-                classname="mock-css. mock-css."
+                classname="mock-css."
                 disabled="false"
                 type="submit"
               >
-                Confirm
                 <mock-styled.div />
+                Confirm
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>

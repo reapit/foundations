@@ -10,8 +10,8 @@ exports[`Button should match a snapshot 1`] = `
         disabled="false"
         type="submit"
       >
-        button text
         <mock-styled.div />
+        button text
       </mock-styled.button>
     </div>
   </body>,
@@ -21,8 +21,8 @@ exports[`Button should match a snapshot 1`] = `
       disabled="false"
       type="submit"
     >
-      button text
       <mock-styled.div />
+      button text
     </mock-styled.button>
   </div>,
   "debug": [Function],
@@ -89,14 +89,14 @@ exports[`Button should match a snapshot 2`] = `
         disabled="false"
         type="submit"
       >
+        <mock-styled.div />
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.25rem;
+          classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.div />
       </mock-styled.button>
     </div>
   </body>,
@@ -106,14 +106,14 @@ exports[`Button should match a snapshot 2`] = `
       disabled="false"
       type="submit"
     >
+      <mock-styled.div />
       <mock-styled.span
-        classname="mock-css. mock-css.
-  font-size: 1.25rem;
+        classname="mock-css.
+  font-size: var(--font-size-subheading);
 "
       >
         <svg />
       </mock-styled.span>
-      <mock-styled.div />
     </mock-styled.button>
   </div>,
   "debug": [Function],
@@ -176,259 +176,23 @@ exports[`Button should match a snapshot with all modifiers 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.button
-        classname="some-class mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: 0.5rem;
-  padding-left: ,rem;
-
-  , {
-    padding-left: 1.25rem;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left;
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
- mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
- mock-css. mock-css."
+        classname="some-class mock-css. mock-css."
         disabled="true"
         type="submit"
       >
-        button text
         <mock-styled.div />
+        button text
       </mock-styled.button>
     </div>
   </body>,
   "container": <div>
     <mock-styled.button
-      classname="some-class mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: 0.5rem;
-  padding-left: ,rem;
-
-  , {
-    padding-left: 1.25rem;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left;
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::before {
-      background-image: url(',');
-    }
-  }
- mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
- mock-css. mock-css."
+      classname="some-class mock-css. mock-css."
       disabled="true"
       type="submit"
     >
-      button text
       <mock-styled.div />
+      button text
     </mock-styled.button>
   </div>,
   "debug": [Function],
@@ -495,22 +259,22 @@ exports[`ButtonGroup should match a snapshot for align center 1`] = `
           classname="mock-css."
         >
           <mock-styled.button
-            classname=""
+            classname="mock-css."
           >
+            <mock-styled.div />
             1
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
-            classname=""
+            classname="mock-css."
           >
+            <mock-styled.div />
             2
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
-            classname=""
+            classname="mock-css."
           >
-            3
             <mock-styled.div />
+            3
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -522,22 +286,22 @@ exports[`ButtonGroup should match a snapshot for align center 1`] = `
         classname="mock-css."
       >
         <mock-styled.button
-          classname=""
+          classname="mock-css."
         >
+          <mock-styled.div />
           1
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
-          classname=""
+          classname="mock-css."
         >
+          <mock-styled.div />
           2
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
-          classname=""
+          classname="mock-css."
         >
-          3
           <mock-styled.div />
+          3
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -606,22 +370,22 @@ exports[`ButtonGroup should match a snapshot for align left 1`] = `
           classname="mock-css."
         >
           <mock-styled.button
-            classname=""
+            classname="mock-css."
           >
+            <mock-styled.div />
             1
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
-            classname=""
+            classname="mock-css."
           >
+            <mock-styled.div />
             2
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
-            classname=""
+            classname="mock-css."
           >
-            3
             <mock-styled.div />
+            3
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -633,22 +397,22 @@ exports[`ButtonGroup should match a snapshot for align left 1`] = `
         classname="mock-css."
       >
         <mock-styled.button
-          classname=""
+          classname="mock-css."
         >
+          <mock-styled.div />
           1
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
-          classname=""
+          classname="mock-css."
         >
+          <mock-styled.div />
           2
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
-          classname=""
+          classname="mock-css."
         >
-          3
           <mock-styled.div />
+          3
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -717,22 +481,22 @@ exports[`ButtonGroup should match a snapshot for align right 1`] = `
           classname="mock-css."
         >
           <mock-styled.button
-            classname=""
+            classname="mock-css."
           >
+            <mock-styled.div />
             1
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
-            classname=""
+            classname="mock-css."
           >
+            <mock-styled.div />
             2
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
-            classname=""
+            classname="mock-css."
           >
-            3
             <mock-styled.div />
+            3
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -744,22 +508,22 @@ exports[`ButtonGroup should match a snapshot for align right 1`] = `
         classname="mock-css."
       >
         <mock-styled.button
-          classname=""
+          classname="mock-css."
         >
+          <mock-styled.div />
           1
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
-          classname=""
+          classname="mock-css."
         >
+          <mock-styled.div />
           2
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
-          classname=""
+          classname="mock-css."
         >
-          3
           <mock-styled.div />
+          3
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>

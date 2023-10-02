@@ -77,10 +77,12 @@ exports[`Table Component should match a snapshot for cta content alternate setti
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -96,7 +98,9 @@ exports[`Table Component should match a snapshot for cta content alternate setti
                   classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.2rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -113,10 +117,12 @@ exports[`Table Component should match a snapshot for cta content alternate setti
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css."
             style="font-size: 1.2rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.2rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -132,7 +138,9 @@ exports[`Table Component should match a snapshot for cta content alternate setti
                 classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -446,7 +454,9 @@ exports[`Table Component should match a snapshot with full props and cta content
                   classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.2rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -570,7 +580,9 @@ exports[`Table Component should match a snapshot with full props and cta content
                 classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -670,10 +682,12 @@ exports[`Table Component should match a snapshot with full props and expandable 
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -805,10 +819,12 @@ exports[`Table Component should match a snapshot with full props and expandable 
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css."
             style="font-size: 1.2rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.2rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>

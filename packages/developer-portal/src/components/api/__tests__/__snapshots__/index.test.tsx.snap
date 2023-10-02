@@ -12,16 +12,7 @@ exports[`Api should match a snapshot 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            API
-          </mock-styled.h1>
-          <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2rem;
-"
-          >
+          <mock-styled.div>
             <mock-styled.div
               classname=""
             >
@@ -60,16 +51,7 @@ exports[`Api should match a snapshot 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          API
-        </mock-styled.h1>
-        <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2rem;
-"
-        >
+        <mock-styled.div>
           <mock-styled.div
             classname=""
           >

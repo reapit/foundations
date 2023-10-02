@@ -1,6 +1,6 @@
 import React, { createContext, useState, useRef, useContext, PropsWithChildren, FC } from 'react'
 import { SnackProps, SnackHolder } from '../../components/snack'
-import { v4 as uuid } from 'uuid'
+import { generateRandomId } from '../../storybook/random-id'
 
 export interface SnackContextProps {
   addSnackWithTimeout: (snack: SnackProps, timeout: number) => void
@@ -21,7 +21,7 @@ export const SnackProvider: FC<PropsWithChildren> = ({ children }) => {
   }
 
   const addSnackWithTimeout = (snack: SnackProps, timeout: number) => {
-    const _id = uuid()
+    const _id = generateRandomId()
     setSnacks([...snacks, { ...snack, _id }])
     if (timeout > 0) {
       window.setTimeout(() => removeSnackById(_id), timeout)
@@ -55,13 +55,13 @@ export const useSnack = (): UseSnack => {
     addSnackWithTimeout({ intent: 'success', icon: 'checkSolidSystem', text }, timeout)
   }
   const info = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'secondary', icon: 'infoSolidSystem', text }, timeout)
+    addSnackWithTimeout({ intent: 'primary', icon: 'infoSolidSystem', text }, timeout)
   }
   const error = (text: string, timeout = DEFAULT_TIMEOUT) => {
     addSnackWithTimeout({ intent: 'danger', icon: 'errorSolidSystem', text }, timeout)
   }
   const warning = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'critical', icon: 'warningSolidSystem', text }, timeout)
+    addSnackWithTimeout({ intent: 'warning', icon: 'warningSolidSystem', text }, timeout)
   }
 
   return { custom, success, info, error, warning }

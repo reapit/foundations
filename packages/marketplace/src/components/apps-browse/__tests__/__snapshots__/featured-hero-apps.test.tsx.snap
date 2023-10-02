@@ -65,11 +65,11 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.mock-styled.p>
@@ -86,11 +86,11 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  Find Out More
                   <mock-styled.div />
+                  Find Out More
                 </mock-styled.button>
               </mock-styled.div>
               <mock-styled.div>
@@ -215,11 +215,11 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  Find Out More
                   <mock-styled.div />
+                  Find Out More
                 </mock-styled.button>
               </mock-styled.div>
               <mock-styled.mock-styled.p>
@@ -236,11 +236,11 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                 style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
               >
-                Find Out More
                 <mock-styled.div />
+                Find Out More
               </mock-styled.button>
             </mock-styled.div>
             <mock-styled.div>
@@ -416,11 +416,11 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.mock-styled.p>
@@ -437,11 +437,11 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  Find Out More
                   <mock-styled.div />
+                  Find Out More
                 </mock-styled.button>
               </mock-styled.div>
               <mock-styled.div>
@@ -560,11 +560,11 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  Find Out More
                   <mock-styled.div />
+                  Find Out More
                 </mock-styled.button>
               </mock-styled.div>
               <mock-styled.mock-styled.p>
@@ -581,11 +581,11 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                 style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
               >
-                Find Out More
                 <mock-styled.div />
+                Find Out More
               </mock-styled.button>
             </mock-styled.div>
             <mock-styled.div>

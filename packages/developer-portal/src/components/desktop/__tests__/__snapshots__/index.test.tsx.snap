@@ -47,7 +47,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
               classname="mock-css.
   margin-bottom: 1rem;
  mock-css.
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 "
             >
               Reapit's Agency Cloud is a desktop application that offers estate agencies a comprehensive range of market leading agency products, including a Sales CRM, Lettings CRM, Client Accounts, Property Management and real-time Analytics.
@@ -66,9 +66,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
             >
               <mock-styled.div>
                 <mock-styled.div>
-                  <img
-                    src="[object Object]"
-                  />
+                  <svg />
                   <mock-styled.div>
                     Become familiar with our CRM software using sandbox data
                   </mock-styled.div>
@@ -76,9 +74,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div>
-                  <img
-                    src="[object Object]"
-                  />
+                  <svg />
                   <mock-styled.div>
                     Test your Marketplace application inside Agency Cloud
                   </mock-styled.div>
@@ -86,9 +82,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div>
-                  <img
-                    src="[object Object]"
-                  />
+                  <svg />
                   <mock-styled.div>
                     Understand how customers will interact with your application
                   </mock-styled.div>
@@ -137,7 +131,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                   classname="mock-css.
   margin-bottom: 1rem;
  mock-css.
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 "
                 >
                   Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
@@ -146,7 +140,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                   classname="mock-css.
   margin-bottom: 1rem;
  mock-css.
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 "
                 >
                   For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
@@ -155,7 +149,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                   classname="mock-css.
   margin-bottom: 1rem;
  mock-css.
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 "
                 >
                   To learn more about what’s possible with the Desktop API, please visit the
@@ -198,12 +192,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                   How your app integrates with the Developer Edition of Agency Cloud
                 </mock-styled.h2>
                 <mock-styled.div>
-                  <img
-                    src="[object Object]"
-                  />
+                  <svg />
                   <mock-styled.p
                     classname="mock-css.
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 "
                   >
                     The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the desktop application using sandbox data.
@@ -279,12 +271,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   margin-right: 0.625rem;
 "
                     >
-                      <img
-                        src="[object Object]"
-                      />
+                      <svg />
                       <mock-styled.div
                         classname="mock-css.
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 "
                       >
                         The application is licensed per user / developer of an organisation and requires a Windows machine to install.
@@ -322,79 +312,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                         per licence / per month
                       </div>
                       <mock-styled.button
-                        classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
- mock-css.
-  width: 100%;
-"
+                        classname="mock-css."
                       >
-                        Subscribe Now
                         <mock-styled.div />
+                        Subscribe Now
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
@@ -407,7 +328,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                   <mock-styled.div
                     classname=""
                   >
-                    <mock-styled.img
+                    <mock-styled.div
                       classname="mock-css.
   left: 5%;
   bottom: 19%;
@@ -435,9 +356,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   @media (min-width: 1700px) {
   }
 "
-                      src="[object Object]"
-                    />
-                    <mock-styled.img
+                    >
+                      <svg />
+                    </mock-styled.div>
+                    <mock-styled.div
                       classname="mock-css.
   bottom: 20%;
   left: 30%;
@@ -472,9 +394,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   @media (min-width: 1700px) {
   }
 "
-                      src="[object Object]"
-                    />
-                    <mock-styled.img
+                    >
+                      <svg />
+                    </mock-styled.div>
+                    <mock-styled.div
                       classname="mock-css.
   bottom: 0;
 
@@ -500,8 +423,9 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
     bottom: -30%;
   }
 "
-                      src="[object Object]"
-                    />
+                    >
+                      <svg />
+                    </mock-styled.div>
                   </mock-styled.div>
                 </div>
               </div>
@@ -554,7 +478,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
             classname="mock-css.
   margin-bottom: 1rem;
  mock-css.
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 "
           >
             Reapit's Agency Cloud is a desktop application that offers estate agencies a comprehensive range of market leading agency products, including a Sales CRM, Lettings CRM, Client Accounts, Property Management and real-time Analytics.
@@ -573,9 +497,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div>
-                <img
-                  src="[object Object]"
-                />
+                <svg />
                 <mock-styled.div>
                   Become familiar with our CRM software using sandbox data
                 </mock-styled.div>
@@ -583,9 +505,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.div>
-                <img
-                  src="[object Object]"
-                />
+                <svg />
                 <mock-styled.div>
                   Test your Marketplace application inside Agency Cloud
                 </mock-styled.div>
@@ -593,9 +513,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.div>
-                <img
-                  src="[object Object]"
-                />
+                <svg />
                 <mock-styled.div>
                   Understand how customers will interact with your application
                 </mock-styled.div>
@@ -644,7 +562,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 classname="mock-css.
   margin-bottom: 1rem;
  mock-css.
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 "
               >
                 Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
@@ -653,7 +571,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 classname="mock-css.
   margin-bottom: 1rem;
  mock-css.
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 "
               >
                 For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
@@ -662,7 +580,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 classname="mock-css.
   margin-bottom: 1rem;
  mock-css.
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 "
               >
                 To learn more about what’s possible with the Desktop API, please visit the
@@ -705,12 +623,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 How your app integrates with the Developer Edition of Agency Cloud
               </mock-styled.h2>
               <mock-styled.div>
-                <img
-                  src="[object Object]"
-                />
+                <svg />
                 <mock-styled.p
                   classname="mock-css.
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 "
                 >
                   The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the desktop application using sandbox data.
@@ -786,12 +702,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   margin-right: 0.625rem;
 "
                   >
-                    <img
-                      src="[object Object]"
-                    />
+                    <svg />
                     <mock-styled.div
                       classname="mock-css.
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 "
                     >
                       The application is licensed per user / developer of an organisation and requires a Windows machine to install.
@@ -829,79 +743,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                       per licence / per month
                     </div>
                     <mock-styled.button
-                      classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
- mock-css.
-  width: 100%;
-"
+                      classname="mock-css."
                     >
-                      Subscribe Now
                       <mock-styled.div />
+                      Subscribe Now
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -914,7 +759,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 <mock-styled.div
                   classname=""
                 >
-                  <mock-styled.img
+                  <mock-styled.div
                     classname="mock-css.
   left: 5%;
   bottom: 19%;
@@ -942,9 +787,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   @media (min-width: 1700px) {
   }
 "
-                    src="[object Object]"
-                  />
-                  <mock-styled.img
+                  >
+                    <svg />
+                  </mock-styled.div>
+                  <mock-styled.div
                     classname="mock-css.
   bottom: 20%;
   left: 30%;
@@ -979,9 +825,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   @media (min-width: 1700px) {
   }
 "
-                    src="[object Object]"
-                  />
-                  <mock-styled.img
+                  >
+                    <svg />
+                  </mock-styled.div>
+                  <mock-styled.div
                     classname="mock-css.
   bottom: 0;
 
@@ -1007,8 +854,9 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
     bottom: -30%;
   }
 "
-                    src="[object Object]"
-                  />
+                  >
+                    <svg />
+                  </mock-styled.div>
                 </mock-styled.div>
               </div>
             </div>

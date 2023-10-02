@@ -41,8 +41,8 @@ exports[`HomePage should render component when loading 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
           >
-            Docs
             <mock-styled.div />
+            Docs
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section
@@ -107,8 +107,8 @@ exports[`HomePage should render component when loading 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
         >
-          Docs
           <mock-styled.div />
+          Docs
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section
@@ -230,8 +230,8 @@ exports[`HomePage should render component with data 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
           >
-            Docs
             <mock-styled.div />
+            Docs
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section
@@ -265,7 +265,7 @@ exports[`HomePage should render component with data 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -285,7 +285,7 @@ exports[`HomePage should render component with data 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -373,8 +373,8 @@ exports[`HomePage should render component with data 1`] = `
           <mock-styled.button
             classname="mock-css."
           >
-            Reset Authenticator
             <mock-styled.div />
+            Reset Authenticator
           </mock-styled.button>
         </mock-styled.section>
       </mock-styled.div>
@@ -417,8 +417,8 @@ exports[`HomePage should render component with data 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
         >
-          Docs
           <mock-styled.div />
+          Docs
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section
@@ -452,7 +452,7 @@ exports[`HomePage should render component with data 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -472,7 +472,7 @@ exports[`HomePage should render component with data 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -560,8 +560,8 @@ exports[`HomePage should render component with data 1`] = `
         <mock-styled.button
           classname="mock-css."
         >
-          Reset Authenticator
           <mock-styled.div />
+          Reset Authenticator
         </mock-styled.button>
       </mock-styled.section>
     </mock-styled.div>
@@ -661,8 +661,8 @@ exports[`HomePage should render component with no data 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
           >
-            Docs
             <mock-styled.div />
+            Docs
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section
@@ -696,7 +696,7 @@ exports[`HomePage should render component with no data 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -716,7 +716,7 @@ exports[`HomePage should render component with no data 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -732,8 +732,8 @@ exports[`HomePage should render component with no data 1`] = `
               <mock-styled.button
                 classname="mock-css."
               >
-                Configure MFA Device
                 <mock-styled.div />
+                Configure MFA Device
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>
@@ -778,8 +778,8 @@ exports[`HomePage should render component with no data 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
         >
-          Docs
           <mock-styled.div />
+          Docs
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section
@@ -813,7 +813,7 @@ exports[`HomePage should render component with no data 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -833,7 +833,7 @@ exports[`HomePage should render component with no data 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -849,8 +849,8 @@ exports[`HomePage should render component with no data 1`] = `
             <mock-styled.button
               classname="mock-css."
             >
-              Configure MFA Device
               <mock-styled.div />
+              Configure MFA Device
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>

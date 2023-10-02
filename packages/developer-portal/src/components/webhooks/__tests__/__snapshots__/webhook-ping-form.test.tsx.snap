@@ -64,88 +64,21 @@ exports[`WebhooksPingForm should match a snapshot 1`] = `
 "
             >
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.button
                   classname="mock-css."
                   type="button"
                 >
-                  Cancel
                   <mock-styled.div />
+                  Cancel
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-"
+                  classname="mock-css."
                   type="submit"
                 >
-                  Test
                   <mock-styled.div />
+                  Test
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -214,88 +147,21 @@ exports[`WebhooksPingForm should match a snapshot 1`] = `
 "
           >
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.button
                 classname="mock-css."
                 type="button"
               >
-                Cancel
                 <mock-styled.div />
+                Cancel
               </mock-styled.button>
               <mock-styled.button
-                classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-"
+                classname="mock-css."
                 type="submit"
               >
-                Test
                 <mock-styled.div />
+                Test
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>

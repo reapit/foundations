@@ -156,6 +156,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="true"
               id="test-static-id"
               name="limitToClientIds"
@@ -324,6 +325,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             disabled="true"
             id="test-static-id"
             name="limitToClientIds"
@@ -483,6 +485,7 @@ exports[`PermissionsTab should match a snapshot when loading 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="true"
               id="test-static-id"
               name="limitToClientIds"
@@ -585,6 +588,7 @@ exports[`PermissionsTab should match a snapshot when loading 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             disabled="true"
             id="test-static-id"
             name="limitToClientIds"

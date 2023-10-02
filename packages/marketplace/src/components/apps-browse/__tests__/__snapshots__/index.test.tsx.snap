@@ -48,7 +48,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
@@ -72,7 +74,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -285,7 +289,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.input
               placeholder="Search by App or Developer"
@@ -346,11 +352,11 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                       style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                     >
-                      Find Out More
                       <mock-styled.div />
+                      Find Out More
                     </mock-styled.button>
                   </mock-styled.div>
                   <mock-styled.mock-styled.p>
@@ -367,11 +373,11 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.div>
@@ -668,7 +674,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                 classname="mock-css."
                 style="font-size: 0.75em;"
               >
-                <svg />
+                <svg
+                  style="font-size: 0.75em;"
+                />
               </mock-styled.span>
             </mock-styled.mock-styled.a>
             <mock-styled.div
@@ -689,7 +697,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
                       style="font-size: 5em;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 5em;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -721,7 +731,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
                       style="font-size: 5em;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 5em;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -753,7 +765,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
                       style="font-size: 5em;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 5em;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -785,7 +799,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
                       style="font-size: 5em;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 5em;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -817,7 +833,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
                       style="font-size: 5em;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 5em;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -849,7 +867,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
                       style="font-size: 5em;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 5em;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -944,7 +964,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -968,7 +990,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -1181,7 +1205,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -1242,11 +1268,11 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.mock-styled.p>
@@ -1263,11 +1289,11 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  Find Out More
                   <mock-styled.div />
+                  Find Out More
                 </mock-styled.button>
               </mock-styled.div>
               <mock-styled.div>
@@ -1564,7 +1590,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
               classname="mock-css."
               style="font-size: 0.75em;"
             >
-              <svg />
+              <svg
+                style="font-size: 0.75em;"
+              />
             </mock-styled.span>
           </mock-styled.mock-styled.a>
           <mock-styled.div
@@ -1585,7 +1613,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
                     style="font-size: 5em;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 5em;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -1617,7 +1647,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
                     style="font-size: 5em;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 5em;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -1649,7 +1681,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
                     style="font-size: 5em;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 5em;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -1681,7 +1715,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
                     style="font-size: 5em;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 5em;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -1713,7 +1749,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
                     style="font-size: 5em;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 5em;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -1745,7 +1783,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
                     style="font-size: 5em;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 5em;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.

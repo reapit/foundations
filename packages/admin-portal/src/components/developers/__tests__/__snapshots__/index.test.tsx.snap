@@ -21,6 +21,7 @@ exports[`DevsManagement should render component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   type="search"
@@ -35,6 +36,7 @@ exports[`DevsManagement should render component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="company"
                   type="search"
@@ -49,6 +51,7 @@ exports[`DevsManagement should render component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="gitHubUsername"
                   type="search"
@@ -63,6 +66,7 @@ exports[`DevsManagement should render component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="registeredFrom"
                   type="date"
@@ -77,6 +81,7 @@ exports[`DevsManagement should render component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="registeredTo"
                   type="date"
@@ -158,6 +163,7 @@ exports[`DevsManagement should render component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="name"
                 type="search"
@@ -172,6 +178,7 @@ exports[`DevsManagement should render component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="company"
                 type="search"
@@ -186,6 +193,7 @@ exports[`DevsManagement should render component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="gitHubUsername"
                 type="search"
@@ -200,6 +208,7 @@ exports[`DevsManagement should render component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
@@ -214,6 +223,7 @@ exports[`DevsManagement should render component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
@@ -352,6 +362,7 @@ exports[`DevsManagement should render component with data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   type="search"
@@ -366,6 +377,7 @@ exports[`DevsManagement should render component with data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="company"
                   type="search"
@@ -380,6 +392,7 @@ exports[`DevsManagement should render component with data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="gitHubUsername"
                   type="search"
@@ -394,6 +407,7 @@ exports[`DevsManagement should render component with data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="registeredFrom"
                   type="date"
@@ -408,6 +422,7 @@ exports[`DevsManagement should render component with data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="registeredTo"
                   type="date"
@@ -475,8 +490,8 @@ exports[`DevsManagement should render component with data 1`] = `
                 classname="mock-css."
                 type="button"
               >
-                Download CSV
                 <mock-styled.div />
+                Download CSV
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>
@@ -525,10 +540,12 @@ exports[`DevsManagement should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.2rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -619,47 +636,47 @@ exports[`DevsManagement should render component with data 1`] = `
                         classname="mock-css."
                         type="button"
                       >
-                        Update Status
                         <mock-styled.div />
+                        Update Status
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
                         type="button"
                       >
-                        DevEdition is Free
                         <mock-styled.div />
+                        DevEdition is Free
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
                         disabled="false"
                       >
+                        <mock-styled.div />
                         Toggle Subscription 
-                        <mock-styled.div />
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
                       >
+                        <mock-styled.div />
                         Invite Member
-                        <mock-styled.div />
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
                       >
+                        <mock-styled.div />
                         Fetch Members
-                        <mock-styled.div />
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
                       >
-                        Fetch Apps
                         <mock-styled.div />
+                        Fetch Apps
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
                         type="button"
                       >
-                        Delete Developer
                         <mock-styled.div />
+                        Delete Developer
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
@@ -717,6 +734,7 @@ exports[`DevsManagement should render component with data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="name"
                 type="search"
@@ -731,6 +749,7 @@ exports[`DevsManagement should render component with data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="company"
                 type="search"
@@ -745,6 +764,7 @@ exports[`DevsManagement should render component with data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="gitHubUsername"
                 type="search"
@@ -759,6 +779,7 @@ exports[`DevsManagement should render component with data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
@@ -773,6 +794,7 @@ exports[`DevsManagement should render component with data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
@@ -840,8 +862,8 @@ exports[`DevsManagement should render component with data 1`] = `
               classname="mock-css."
               type="button"
             >
-              Download CSV
               <mock-styled.div />
+              Download CSV
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -890,10 +912,12 @@ exports[`DevsManagement should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -984,47 +1008,47 @@ exports[`DevsManagement should render component with data 1`] = `
                       classname="mock-css."
                       type="button"
                     >
-                      Update Status
                       <mock-styled.div />
+                      Update Status
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       type="button"
                     >
-                      DevEdition is Free
                       <mock-styled.div />
+                      DevEdition is Free
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="false"
                     >
+                      <mock-styled.div />
                       Toggle Subscription 
-                      <mock-styled.div />
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                     >
+                      <mock-styled.div />
                       Invite Member
-                      <mock-styled.div />
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                     >
+                      <mock-styled.div />
                       Fetch Members
-                      <mock-styled.div />
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                     >
-                      Fetch Apps
                       <mock-styled.div />
+                      Fetch Apps
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       type="button"
                     >
-                      Delete Developer
                       <mock-styled.div />
+                      Delete Developer
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>

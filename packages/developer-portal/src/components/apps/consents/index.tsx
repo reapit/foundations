@@ -180,7 +180,7 @@ export const AppConsentsPage: FC = () => {
       ) : (
         <>
           <Title>{name} Consents</Title>
-          <PersistentNotification className={elMb11} intent="secondary" isExpanded isFullWidth isInline>
+          <PersistentNotification className={elMb11} intent="primary" isExpanded isFullWidth isInline>
             No record of any consents for this app - it looks like you need to send an email requesting that your
             customers agree to your new permission settings. You can do this below or our team will do it as part of the
             review process.

@@ -15,6 +15,7 @@ import { styled } from '@linaria/react'
 import { selectIsCustomer, selectLoginIdentity } from '../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
+import { validate as isUuid } from 'uuid'
 
 const XmasImage = styled.img`
   height: 2.5rem;
@@ -74,9 +75,10 @@ export const Menu: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const loginIdentity = selectLoginIdentity(connectSession)
   const { pathname } = location
-  const appId = pathname.includes('apps') ? pathname.split('/')[2] : ''
+  const appIdFromPath = pathname.includes('apps') ? pathname.split('/')[2] : ''
   const hasPipelines = loginIdentity?.developerId && process.env.pipelineWhitelist.includes(loginIdentity.developerId)
   const isCustomer = selectIsCustomer(connectSession)
+  const appId = isUuid(appIdFromPath) ? appIdFromPath : null
 
   if (pathname === Routes.INVITE) return null
 
@@ -93,160 +95,160 @@ export const Menu: FC = () => {
       text: 'Apps',
       subItems: [
         {
-          itemIndex: 0,
+          itemIndex: 2,
           callback: navigateRoute(navigate, Routes.APPS),
           text: 'My Apps',
         },
         appId && {
-          itemIndex: 1,
+          itemIndex: 3,
           callback: navigateRoute(navigate, `${Routes.APPS}/${appId}`),
           text: 'App Details',
         },
         appId && {
-          itemIndex: 2,
+          itemIndex: 4,
           callback: navigateRoute(navigate, `${Routes.APPS}/${appId}/edit/general`),
           text: 'Edit App',
         },
         appId && {
-          itemIndex: 3,
+          itemIndex: 5,
           callback: navigateRoute(navigate, `${Routes.APPS}/${appId}/installations`),
           text: 'Installations',
         },
         appId &&
           hasPipelines && {
-            itemIndex: 4,
+            itemIndex: 6,
             callback: navigateRoute(navigate, `${Routes.APPS}/${appId}/pipeline`),
             text: 'Pipeline',
           },
         {
-          itemIndex: 5,
+          itemIndex: 7,
           callback: navigateRoute(navigate, Routes.APPS_NEW),
           text: 'New App',
         },
       ].filter(Boolean),
     },
     {
-      itemIndex: 2,
+      itemIndex: 8,
       callback: navigateRoute(navigate, Routes.ANALYTICS_API_CALLS),
       iconId: 'analyticsMenu',
       text: 'Analytics',
       subItems: [
         {
-          itemIndex: 6,
+          itemIndex: 9,
           callback: navigateRoute(navigate, Routes.ANALYTICS_API_CALLS),
           text: 'API Usage',
         },
         {
-          itemIndex: 7,
+          itemIndex: 10,
           callback: navigateRoute(navigate, Routes.ANALYTICS_COSTS),
           text: 'Costs',
         },
         {
-          itemIndex: 8,
+          itemIndex: 11,
           callback: navigateRoute(navigate, Routes.ANALYTICS_INSTALLATIONS),
           text: 'Installations',
         },
         isCustomer && {
-          itemIndex: 9,
+          itemIndex: 12,
           callback: navigateRoute(navigate, Routes.ANALYTICS_COST_CALCULATOR),
           text: 'Cost Calculator',
         },
       ].filter(Boolean),
     },
     {
-      itemIndex: 3,
+      itemIndex: 13,
       callback: navigateRoute(navigate, Routes.SWAGGER),
       iconId: 'apiMenu',
       text: 'API',
       subItems: [
         {
-          itemIndex: 10,
+          itemIndex: 14,
           callback: navigateRoute(navigate, Routes.SWAGGER),
           text: 'Foundations API',
         },
         {
-          itemIndex: 11,
+          itemIndex: 15,
           callback: navigateRoute(navigate, Routes.WEBHOOKS_ABOUT),
           text: 'Webhooks',
         },
         {
-          itemIndex: 12,
+          itemIndex: 16,
           callback: navigateRoute(navigate, Routes.GRAPHQL),
           text: 'GraphQL',
         },
         {
-          itemIndex: 13,
+          itemIndex: 17,
           callback: navigateRoute(navigate, Routes.DESKTOP),
           text: 'Desktop',
         },
       ],
     },
     {
-      itemIndex: 4,
+      itemIndex: 18,
       callback: navigateRoute(navigate, Routes.ELEMENTS),
       iconId: 'uiMenu',
       text: 'UI',
     },
     loginIdentity?.developerId &&
       process.env.pipelineWhitelist.includes(loginIdentity?.developerId) && {
-        itemIndex: 5,
+        itemIndex: 19,
         callback: navigateRoute(navigate, Routes.IAAS),
         iconId: 'dataMenu',
         text: 'IaaS',
       },
     {
-      itemIndex: 6,
+      itemIndex: 20,
       callback: navigateRoute(navigate, Routes.API_DOCS),
       iconId: 'docsMenu',
       text: 'Docs',
       subItems: [
         {
-          itemIndex: 14,
+          itemIndex: 21,
           callback: navigateRoute(navigate, Routes.API_DOCS),
           text: 'APIs',
         },
         {
-          itemIndex: 15,
+          itemIndex: 22,
           callback: navigateRoute(navigate, Routes.ANALYTICS_SCHEMA_DOCS),
           text: 'Warehouse',
         },
       ],
     },
     {
-      itemIndex: 7,
+      itemIndex: 23,
       callback: () => (window.location.href = process.env.marketplaceUrl),
       iconId: 'marketplaceMenu',
       text: 'AppMarket',
     },
     {
-      itemIndex: 8,
+      itemIndex: 24,
       callback: navigateRoute(navigate, Routes.SETTINGS_PROFILE),
       iconId: 'myAccountMenu',
-      text: 'Settings',
       isSecondary: true,
+      text: 'Settings',
       subItems: [
         {
-          itemIndex: 16,
+          itemIndex: 25,
           callback: navigateRoute(navigate, Routes.SETTINGS_PROFILE),
           text: 'Profile',
         },
         {
-          itemIndex: 17,
+          itemIndex: 26,
           callback: navigateRoute(navigate, Routes.SETTINGS_PASSWORD),
           text: 'Password',
         },
         {
-          itemIndex: 18,
+          itemIndex: 27,
           callback: navigateRoute(navigate, Routes.SETTINGS_MEMBERS),
           text: 'Members',
         },
         {
-          itemIndex: 19,
+          itemIndex: 28,
           callback: navigateRoute(navigate, Routes.SETTINGS_COMPANY),
           text: 'Company',
         },
         {
-          itemIndex: 20,
+          itemIndex: 29,
           callback: navigateRoute(navigate, Routes.SETTINGS_SUBSCRIPTIONS),
           text: 'Subscriptions',
         },

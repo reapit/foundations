@@ -12,15 +12,8 @@ exports[`SettingsPage should match a snapshot 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Settings
-          </mock-styled.h1>
           <mock-styled.div
             classname="mock-css.
-  margin-bottom: 1.5rem;
- mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -62,101 +55,46 @@ exports[`SettingsPage should match a snapshot 1`] = `
               Subscriptions
             </mock-styled.div>
           </mock-styled.div>
-          <mock-styled.span
-            classname="mock-css.
+          <div
+            class="mock-css.
+  margin-bottom: 1.25rem;
+"
+          >
+            <mock-styled.span
+              classname="mock-css.
   font-size: 5rem;
 "
-          >
-            <svg />
-          </mock-styled.span>
-          <mock-styled.h2
-            classname=""
-          >
-            Settings
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="mock-css."
-          >
-            You can manage the information we hold about you and change your password in these pages.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="mock-css."
-          >
-            Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-"
-          >
-            Logout
-            <mock-styled.div />
-          </mock-styled.button>
+            >
+              <svg />
+            </mock-styled.span>
+            <mock-styled.h2
+              classname=""
+            >
+              Settings
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
+            >
+              You can manage the information we hold about you and change your password in these pages.
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css."
+            >
+              Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
+            </mock-styled.p>
+            <mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.button
+                  classname="mock-css."
+                >
+                  <mock-styled.div />
+                  Logout
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </div>
         </mock-styled.aside>
         <mock-styled.section
           classname="mock-css.
@@ -174,15 +112,8 @@ exports[`SettingsPage should match a snapshot 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Settings
-        </mock-styled.h1>
         <mock-styled.div
           classname="mock-css.
-  margin-bottom: 1.5rem;
- mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -224,101 +155,46 @@ exports[`SettingsPage should match a snapshot 1`] = `
             Subscriptions
           </mock-styled.div>
         </mock-styled.div>
-        <mock-styled.span
-          classname="mock-css.
+        <div
+          class="mock-css.
+  margin-bottom: 1.25rem;
+"
+        >
+          <mock-styled.span
+            classname="mock-css.
   font-size: 5rem;
 "
-        >
-          <svg />
-        </mock-styled.span>
-        <mock-styled.h2
-          classname=""
-        >
-          Settings
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="mock-css."
-        >
-          You can manage the information we hold about you and change your password in these pages.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="mock-css."
-        >
-          Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-"
-        >
-          Logout
-          <mock-styled.div />
-        </mock-styled.button>
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.h2
+            classname=""
+          >
+            Settings
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            You can manage the information we hold about you and change your password in these pages.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
+          </mock-styled.p>
+          <mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.button
+                classname="mock-css."
+              >
+                <mock-styled.div />
+                Logout
+              </mock-styled.button>
+            </mock-styled.div>
+          </mock-styled.div>
+        </div>
       </mock-styled.aside>
       <mock-styled.section
         classname="mock-css.

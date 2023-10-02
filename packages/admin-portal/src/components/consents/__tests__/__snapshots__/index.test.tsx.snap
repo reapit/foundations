@@ -194,7 +194,7 @@ exports[`AppConsents should match snapshot where there are no consents returned 
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -214,7 +214,7 @@ exports[`AppConsents should match snapshot where there are no consents returned 
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -229,10 +229,10 @@ exports[`AppConsents should match snapshot where there are no consents returned 
           classname="mock-css."
         >
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
           >
-            Send Requests
             <mock-styled.div />
+            Send Requests
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -256,7 +256,7 @@ exports[`AppConsents should match snapshot where there are no consents returned 
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -276,7 +276,7 @@ exports[`AppConsents should match snapshot where there are no consents returned 
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -291,10 +291,10 @@ exports[`AppConsents should match snapshot where there are no consents returned 
         classname="mock-css."
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="mock-css."
         >
-          Send Requests
           <mock-styled.div />
+          Send Requests
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -450,7 +450,9 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
                   classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.2rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -552,7 +554,9 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
                 classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>

@@ -50,10 +50,10 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
           <mock-styled.button
             classname="mock-css.
   margin-bottom: 0.75rem;
-"
+ mock-css."
           >
-            Docs
             <mock-styled.div />
+            Docs
           </mock-styled.button>
           <div
             class="mock-css.
@@ -131,6 +131,7 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="email"
                     placeholder="Search for a user"
@@ -145,6 +146,7 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Search for a user"
@@ -215,10 +217,10 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
         <mock-styled.button
           classname="mock-css.
   margin-bottom: 0.75rem;
-"
+ mock-css."
         >
-          Docs
           <mock-styled.div />
+          Docs
         </mock-styled.button>
         <div
           class="mock-css.
@@ -296,6 +298,7 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="email"
                   placeholder="Search for a user"
@@ -310,6 +313,7 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   placeholder="Search for a user"
@@ -437,10 +441,10 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
           <mock-styled.button
             classname="mock-css.
   margin-bottom: 0.75rem;
-"
+ mock-css."
           >
-            Docs
             <mock-styled.div />
+            Docs
           </mock-styled.button>
           <div
             class="mock-css.
@@ -518,6 +522,7 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="email"
                     placeholder="Search for a user"
@@ -532,6 +537,7 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Search for a user"
@@ -602,10 +608,10 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
         <mock-styled.button
           classname="mock-css.
   margin-bottom: 0.75rem;
-"
+ mock-css."
         >
-          Docs
           <mock-styled.div />
+          Docs
         </mock-styled.button>
         <div
           class="mock-css.
@@ -683,6 +689,7 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="email"
                   placeholder="Search for a user"
@@ -697,6 +704,7 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   placeholder="Search for a user"

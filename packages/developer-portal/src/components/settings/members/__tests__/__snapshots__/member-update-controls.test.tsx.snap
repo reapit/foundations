@@ -14,36 +14,36 @@ exports[`MemberUpdateControls should match snapshot 1`] = `
             classname="mock-css."
             disabled="false"
           >
+            <mock-styled.div />
             Set As 
             User
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
           >
+            <mock-styled.div />
             Invite Again
-            <mock-styled.div />
-          </mock-styled.button>
-          <mock-styled.button
-            classname="mock-css."
-            disabled="false"
-          >
-            Disable
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
           >
+            <mock-styled.div />
             Set As Main Contact
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
           >
-            Delete
             <mock-styled.div />
+            Disable
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
+          >
+            <mock-styled.div />
+            Delete
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -59,36 +59,36 @@ exports[`MemberUpdateControls should match snapshot 1`] = `
           classname="mock-css."
           disabled="false"
         >
+          <mock-styled.div />
           Set As 
           User
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
           disabled="false"
         >
+          <mock-styled.div />
           Invite Again
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css."
-          disabled="false"
-        >
-          Disable
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
         >
+          <mock-styled.div />
           Set As Main Contact
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
           disabled="false"
         >
-          Delete
           <mock-styled.div />
+          Disable
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+          disabled="false"
+        >
+          <mock-styled.div />
+          Delete
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>

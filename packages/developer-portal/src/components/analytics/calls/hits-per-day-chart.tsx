@@ -45,20 +45,20 @@ export const HitsPerDayChart: FC<HitsPerDayChartProps> = ({ trafficEvents }) => 
               if (!chartArea) return
 
               const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top)
-              gradient.addColorStop(1, 'rgba(122, 44, 129, 0.5)')
-              gradient.addColorStop(0, '#fff')
+              gradient.addColorStop(1, '#0080ff')
+              gradient.addColorStop(0, '#66b2ff')
 
               return gradient
             },
-            borderColor: '#7A2C81',
+            borderColor: '#0080ff',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: '#7A2C81',
-            pointBackgroundColor: '#7A2C81',
+            pointBorderColor: '#0080ff',
+            pointBackgroundColor: '#0080ff',
             pointHoverRadius: 4,
-            pointHoverBackgroundColor: '#7A2C81',
-            pointHoverBorderColor: '#7A2C81',
+            pointHoverBackgroundColor: '#0080ff',
+            pointHoverBorderColor: '#0080ff',
             pointHoverBorderWidth: 4,
 
             data: sortedTrafficEvents?.data,

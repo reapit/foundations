@@ -14,7 +14,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
           style="font-size: 2rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 2rem;"
+          />
         </mock-styled.span>
         <mock-styled.div>
           AgencyCloud Functionality
@@ -34,7 +36,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
           style="font-size: 2rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 2rem;"
+          />
         </mock-styled.span>
         <mock-styled.div>
           Create an External Web Application
@@ -49,7 +53,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
           style="font-size: 2rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 2rem;"
+          />
         </mock-styled.span>
         <mock-styled.div>
           Data / Portal / Reporting Feed
@@ -64,7 +70,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
           style="font-size: 2rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 2rem;"
+          />
         </mock-styled.span>
         <mock-styled.div>
           Website Feed
@@ -79,7 +87,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
           style="font-size: 2rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 2rem;"
+          />
         </mock-styled.span>
         <mock-styled.div>
           WebServices to Platform
@@ -94,7 +104,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
           style="font-size: 2rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 2rem;"
+          />
         </mock-styled.span>
         <mock-styled.div>
           Reapit Connect as ID Provider
@@ -109,7 +121,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
           style="font-size: 2rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 2rem;"
+          />
         </mock-styled.span>
         <mock-styled.div>
           Client Side App
@@ -124,7 +138,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
           style="font-size: 2rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 2rem;"
+          />
         </mock-styled.span>
         <mock-styled.div>
           Server Side Integration
@@ -142,7 +158,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
         style="font-size: 2rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 2rem;"
+        />
       </mock-styled.span>
       <mock-styled.div>
         AgencyCloud Functionality
@@ -162,7 +180,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
         style="font-size: 2rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 2rem;"
+        />
       </mock-styled.span>
       <mock-styled.div>
         Create an External Web Application
@@ -177,7 +197,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
         style="font-size: 2rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 2rem;"
+        />
       </mock-styled.span>
       <mock-styled.div>
         Data / Portal / Reporting Feed
@@ -192,7 +214,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
         style="font-size: 2rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 2rem;"
+        />
       </mock-styled.span>
       <mock-styled.div>
         Website Feed
@@ -207,7 +231,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
         style="font-size: 2rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 2rem;"
+        />
       </mock-styled.span>
       <mock-styled.div>
         WebServices to Platform
@@ -222,7 +248,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
         style="font-size: 2rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 2rem;"
+        />
       </mock-styled.span>
       <mock-styled.div>
         Reapit Connect as ID Provider
@@ -237,7 +265,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
         style="font-size: 2rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 2rem;"
+        />
       </mock-styled.span>
       <mock-styled.div>
         Client Side App
@@ -252,7 +282,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
 "
         style="font-size: 2rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 2rem;"
+        />
       </mock-styled.span>
       <mock-styled.div>
         Server Side Integration

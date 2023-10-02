@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { Input } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
@@ -8,156 +8,169 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 The input component is by design just a styled html / react component to allow developers maximum flexibility to use whatever form library they choose, or simply by listening on the native `onChange` event, accessing the `value` property of the input.
 
+> For all users, we recommend combining with the `InputGroup` and `FormLayout` components to ensure a consistent responsive layout, spacing and combining with labels, error messages and icons. See separate stories for more information.
+
 You may also wish to add your own custom elements eg a JS Datepicker - in this case, just target the default input with your own custom component or use the CSS classes provided.
 
-## Type - text
+<ArgsTable of={Input} />
+
+## Input text
 
 <Canvas>
-  <Story name="Type - text">
+  <Story name="Input text">
     <Input type="text" placeholder="A placeholder" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - text" />
+<RenderHtmlMarkup component="Input" story="Input text" />
 
-## Type - email
+## Input With Error
 
 <Canvas>
-  <Story name="Type - email">
+  <Story name="Input With Error">
+    <Input type="text" placeholder="A placeholder" hasError />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Input" story="Input With Error" />
+
+## Input email
+
+<Canvas>
+  <Story name="Input email">
     <Input type="email" placeholder="Enter your email" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - email" />
+<RenderHtmlMarkup component="Input" story="Input email" />
 
-## Type - password
+## Input password
 
 <Canvas>
-  <Story name="Type - password">
+  <Story name="Input password">
     <Input type="password" placeholder="Enter password" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - password" />
+<RenderHtmlMarkup component="Input" story="Input password" />
 
-## Type - number
+## Input number
 
 <Canvas>
-  <Story name="Type - number">
+  <Story name="Input number">
     <Input type="number" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - number" />
+<RenderHtmlMarkup component="Input" story="Input number" />
 
-## Type - tel (for telephone numbers)
+## Input tel (for telephone numbers)
 
 <Canvas>
-  <Story name="Type - tel">
+  <Story name="Input tel">
     <Input type="tel" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - tel" />
+<RenderHtmlMarkup component="Input" story="Input tel" />
 
-## Type - url
+## Input url
 
 <Canvas>
-  <Story name="Type - url">
+  <Story name="Input url">
     <Input type="url" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - url" />
+<RenderHtmlMarkup component="Input" story="Input url" />
 
-## Type - search
+## Input search
 
 <Canvas>
-  <Story name="Type - search">
+  <Story name="Input search">
     <Input type="search" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - search" />
+<RenderHtmlMarkup component="Input" story="Input search" />
 
-## Type - date
+## Input date
 
 <Canvas>
-  <Story name="Type - date">
+  <Story name="Input date">
     <Input type="date" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - date" />
+<RenderHtmlMarkup component="Input" story="Input date" />
 
-## Type - time
+## Input time
 
 <Canvas>
-  <Story name="Type - time">
+  <Story name="Input time">
     <Input type="time" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - time" />
+<RenderHtmlMarkup component="Input" story="Input time" />
 
-## Type - datetime-local
+## Input datetime-local
 
 <Canvas>
-  <Story name="Type - datetime-local">
+  <Story name="Input datetime-local">
     <Input type="datetime-local" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - datetime-local" />
+<RenderHtmlMarkup component="Input" story="Input datetime-local" />
 
-## Type - week
+## Input week
 
 <Canvas>
-  <Story name="Type - week">
+  <Story name="Input week">
     <Input type="week" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - week" />
+<RenderHtmlMarkup component="Input" story="Input week" />
 
-## Type - month
+## Input month
 
 <Canvas>
-  <Story name="Type - month">
+  <Story name="Input month">
     <Input type="month" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - month" />
+<RenderHtmlMarkup component="Input" story="Input month" />
 
-
-## Type - file
+## Input file
 
 <Canvas>
-  <Story name="Type - file">
+  <Story name="Input file">
     <Input type="file" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - file" />
+<RenderHtmlMarkup component="Input" story="Input file" />
 
 ## Checkbox
 
 <Canvas>
-  <Story name="Type - checkbox">
+  <Story name="Input checkbox">
     <Input type="checkbox" name="property" value="xyz" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - checkbox" />
+<RenderHtmlMarkup component="Input" story="Input checkbox" />
 
 ## Radio
 
 <Canvas>
-  <Story name="Type - radio">
+  <Story name="Input radio">
     <Input type="radio" name="property" value="abc" />
     <Input type="radio" name="property" value="xyz" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Input" story="Type - radio" />
+<RenderHtmlMarkup component="Input" story="Input radio" />

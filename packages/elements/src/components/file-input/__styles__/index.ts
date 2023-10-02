@@ -7,7 +7,7 @@ export const ElFileInput = styled.input`
   &[type='file'] {
     font-family: var(--font-sans-serif);
     position: absolute;
-    height: 2rem;
+    height: 34px;
     width: 5.5rem;
     opacity: 0;
     z-index: 10;
@@ -25,7 +25,7 @@ export const ElFileInputWrap = styled.div`
   position: relative;
 
   ${ElButton} {
-    height: 2rem;
+    height: 34px;
     padding: 1rem;
   }
 
@@ -37,16 +37,18 @@ export const ElFileInputWrap = styled.div`
 
 export const ElFileInputIconContainer = styled.div`
   display: flex;
-  height: 2rem;
+  height: 34px;
 
   ${ElIcon} {
-    background: var(--color-grey-light);
+    background: var(--color-white);
+    border: 1px solid var(--component-input-focus-bg);
     border-radius: 0.25rem;
     height: 100%;
-    width: 2rem;
+    width: 34px;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
 `
 export const ElFileInputHidden = styled.input`

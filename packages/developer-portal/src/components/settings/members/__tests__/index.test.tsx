@@ -30,8 +30,8 @@ describe('getIntentFromStatus', () => {
   const statuses = [
     { status: 'active', intent: 'success' },
     { status: 'rejected', intent: 'danger' },
-    { status: 'pending', intent: 'critical' },
-    { status: 'any', intent: 'low' },
+    { status: 'pending', intent: 'pending' },
+    { status: 'any', intent: 'default' },
   ]
 
   statuses.forEach((status) => {

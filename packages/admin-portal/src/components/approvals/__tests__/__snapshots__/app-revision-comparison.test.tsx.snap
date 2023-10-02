@@ -3192,22 +3192,22 @@ exports[`AppRevisionComparison should render a component with approval props and
               classname="mock-css."
               disabled="true"
             >
+              <mock-styled.div />
               Decline Revision
-              <mock-styled.div />
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               disabled="true"
             >
+              <mock-styled.div />
               Approve Revision
-              <mock-styled.div />
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               disabled="true"
             >
-              Send Consent Emails
               <mock-styled.div />
+              Send Consent Emails
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -6402,22 +6402,22 @@ exports[`AppRevisionComparison should render a component with approval props and
             classname="mock-css."
             disabled="true"
           >
+            <mock-styled.div />
             Decline Revision
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="true"
           >
+            <mock-styled.div />
             Approve Revision
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="true"
           >
-            Send Consent Emails
             <mock-styled.div />
+            Send Consent Emails
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -9363,22 +9363,22 @@ exports[`AppRevisionComparison should render a component with approval props and
               classname="mock-css."
               disabled="true"
             >
+              <mock-styled.div />
               Decline Revision
-              <mock-styled.div />
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               disabled="true"
             >
+              <mock-styled.div />
               Approve Revision
-              <mock-styled.div />
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               disabled="true"
             >
-              Send Consent Emails
               <mock-styled.div />
+              Send Consent Emails
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -12267,22 +12267,22 @@ exports[`AppRevisionComparison should render a component with approval props and
             classname="mock-css."
             disabled="true"
           >
+            <mock-styled.div />
             Decline Revision
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="true"
           >
+            <mock-styled.div />
             Approve Revision
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="true"
           >
-            Send Consent Emails
             <mock-styled.div />
+            Send Consent Emails
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -15534,22 +15534,22 @@ exports[`AppRevisionComparison should render a component with approval props and
               classname="mock-css."
               disabled="true"
             >
+              <mock-styled.div />
               Decline Revision
-              <mock-styled.div />
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               disabled="true"
             >
+              <mock-styled.div />
               Approve Revision
-              <mock-styled.div />
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               disabled="true"
             >
-              Send Consent Emails
               <mock-styled.div />
+              Send Consent Emails
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -18744,22 +18744,22 @@ exports[`AppRevisionComparison should render a component with approval props and
             classname="mock-css."
             disabled="true"
           >
+            <mock-styled.div />
             Decline Revision
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="true"
           >
+            <mock-styled.div />
             Approve Revision
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="true"
           >
-            Send Consent Emails
             <mock-styled.div />
+            Send Consent Emails
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -18832,7 +18832,7 @@ exports[`AppRevisionComparison should render a component with no approvals or da
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -18852,7 +18852,7 @@ exports[`AppRevisionComparison should render a component with no approvals or da
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -18872,7 +18872,7 @@ exports[`AppRevisionComparison should render a component with no approvals or da
     >
       <div
         class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -18892,7 +18892,7 @@ exports[`AppRevisionComparison should render a component with no approvals or da
       </div>
       <div
         class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;

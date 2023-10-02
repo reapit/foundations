@@ -51,6 +51,7 @@ exports[`FilterForm should render component with data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="month"
                 type="month"
@@ -160,6 +161,7 @@ exports[`FilterForm should render component with data 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="month"
               type="month"
@@ -326,6 +328,7 @@ exports[`FilterForm should render component with no data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="month"
                 type="month"
@@ -422,6 +425,7 @@ exports[`FilterForm should render component with no data 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="month"
               type="month"

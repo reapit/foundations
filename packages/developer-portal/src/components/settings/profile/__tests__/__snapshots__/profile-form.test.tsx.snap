@@ -18,6 +18,7 @@ exports[`ProfileForm should match snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   placeholder="Your full name here"
@@ -32,6 +33,7 @@ exports[`ProfileForm should match snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="jobTitle"
                   placeholder="What role do you have at your company"
@@ -46,6 +48,7 @@ exports[`ProfileForm should match snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="gitHubUsername"
                   placeholder="Github handles help us tracking issues"
@@ -197,7 +200,7 @@ exports[`ProfileForm should match snapshot 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -217,7 +220,7 @@ exports[`ProfileForm should match snapshot 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -234,8 +237,8 @@ exports[`ProfileForm should match snapshot 1`] = `
               classname="mock-css."
               type="submit"
             >
-              Save Changes
               <mock-styled.div />
+              Save Changes
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -256,6 +259,7 @@ exports[`ProfileForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="name"
                 placeholder="Your full name here"
@@ -270,6 +274,7 @@ exports[`ProfileForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="jobTitle"
                 placeholder="What role do you have at your company"
@@ -284,6 +289,7 @@ exports[`ProfileForm should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="gitHubUsername"
                 placeholder="Github handles help us tracking issues"
@@ -435,7 +441,7 @@ exports[`ProfileForm should match snapshot 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -455,7 +461,7 @@ exports[`ProfileForm should match snapshot 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -472,8 +478,8 @@ exports[`ProfileForm should match snapshot 1`] = `
             classname="mock-css."
             type="submit"
           >
-            Save Changes
             <mock-styled.div />
+            Save Changes
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

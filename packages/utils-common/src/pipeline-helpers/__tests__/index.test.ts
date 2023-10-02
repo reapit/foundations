@@ -2,33 +2,18 @@ import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '..
 
 describe('pipeline helpers', () => {
   describe('buildStatusToIntent', () => {
-    it('primary', () => {
+    it('should return the correct intent', () => {
       expect(buildStatusToIntent('PROVISIONING')).toBe('primary')
       expect(buildStatusToIntent('SUCCEEDED')).toBe('success')
-    })
-
-    it('secondary', () => {
-      expect(buildStatusToIntent('IN_PROGRESS')).toBe('secondary')
-      expect(buildStatusToIntent('PROVISION_REQUEST')).toBe('neutral')
-    })
-
-    it('critical', () => {
-      expect(buildStatusToIntent('QUEUED')).toBe('critical')
-    })
-
-    it('neutral', () => {
-      expect(buildStatusToIntent('PENDING')).toBe('neutral')
-      expect(buildStatusToIntent('SCHEDULED_FOR_DELETION')).toBe('neutral')
-    })
-
-    it('danger', () => {
+      expect(buildStatusToIntent('IN_PROGRESS')).toBe('neutral')
+      expect(buildStatusToIntent('PROVISION_REQUEST')).toBe('pending')
+      expect(buildStatusToIntent('QUEUED')).toBe('neutral')
+      expect(buildStatusToIntent('PENDING')).toBe('pending')
+      expect(buildStatusToIntent('SCHEDULED_FOR_DELETION')).toBe('danger')
       expect(buildStatusToIntent('FAILED')).toBe('danger')
       expect(buildStatusToIntent('DELETING')).toBe('danger')
       expect(buildStatusToIntent('DELETED')).toBe('danger')
-    })
-
-    it('low', () => {
-      expect(buildStatusToIntent('READY_FOR_DEPLOYMENT')).toBe('low')
+      expect(buildStatusToIntent('READY_FOR_DEPLOYMENT')).toBe('pending')
     })
   })
 

@@ -16,7 +16,7 @@ addons.setConfig({
     appBorderRadius: 0,
 
     // Typography
-    fontBase: '"PT Sans", sans-serif',
+    fontBase: "'Inter', sans-serif",
     fontCode: 'monospace',
 
     // Text colors

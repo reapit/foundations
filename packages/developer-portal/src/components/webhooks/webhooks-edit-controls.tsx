@@ -79,7 +79,7 @@ export const WebhooksEditControls: FC<WebhooksEditControlsProps> = ({
                 text={JSON.stringify(publicKeyResponse.keys[0])}
                 onCopy={handleCopyPublicKey(setCopyState)}
               >
-                <Button intent="low">{copyState ? 'Public Key Copied' : 'Copy Public Key'}</Button>
+                <Button intent="neutral">{copyState ? 'Public Key Copied' : 'Copy Public Key'}</Button>
               </CopyToClipboard>
             ) : (
               <Button

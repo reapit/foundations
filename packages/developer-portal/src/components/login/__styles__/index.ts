@@ -23,13 +23,10 @@ export const LoginRoleTile = styled.div`
   align-items: center;
   padding: 1rem;
   margin: 0.625rem;
-  border-radius: 0.25rem;
-  border: 1px solid var(--color-grey-light);
   cursor: pointer;
-  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
 
   &:hover {
-    border: 1px solid var(--intent-secondary);
+    background-color: var(--color-purple-50);
   }
 
   a {
