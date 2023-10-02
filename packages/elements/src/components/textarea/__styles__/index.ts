@@ -13,6 +13,7 @@ export const ElTextArea = styled.textarea`
   min-height: 8rem;
   font-family: var(--font-sans-serif);
   font-size: var(--font-size-small);
+  border-radius: 0.125rem;
 
   &:focus {
     outline: none;
