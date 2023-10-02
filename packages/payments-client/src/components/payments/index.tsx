@@ -220,7 +220,7 @@ export const PaymentsPage: FC = () => {
                             Email Request
                           </Button>
                           <Button
-                            intent="critical"
+                            intent="primary"
                             chevronRight
                             disabled={status === 'posted' || configNotConfigured}
                             onClick={navigateRoute(navigate, `${RoutePaths.PAYMENTS}/${id}`)}
@@ -240,7 +240,7 @@ export const PaymentsPage: FC = () => {
               />
             </>
           ) : !paymentsLoading ? (
-            <PersistentNotification className={elFadeIn} intent="secondary" isExpanded isFullWidth isInline>
+            <PersistentNotification className={elFadeIn} intent="primary" isExpanded isFullWidth isInline>
               No payments match your search criteria
             </PersistentNotification>
           ) : null}

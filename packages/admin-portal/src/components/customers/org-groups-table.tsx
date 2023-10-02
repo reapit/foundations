@@ -71,7 +71,7 @@ export const OrgGroupsTable: FC<OrgGroupsProps> = ({ orgId }) => {
           <Statistics area="OFFICE_GROUPS" data={orgGroups} setPageSize={setPageSize} />
         </>
       ) : (
-        <PersistentNotification className={elMt7} isInline isExpanded isFullWidth intent="secondary">
+        <PersistentNotification className={elMt7} isInline isExpanded isFullWidth intent="primary">
           No office groups found for this organisation
         </PersistentNotification>
       )}

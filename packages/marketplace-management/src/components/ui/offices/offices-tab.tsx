@@ -147,13 +147,13 @@ const OfficesTab: FC = () => {
         {!orgName ? <Title>Offices</Title> : <Title>{orgName} Offices</Title>}
         {isMobile && (
           <ButtonGroup alignment="right">
-            <Button intent="low" onClick={openModal}>
+            <Button intent="default" onClick={openModal}>
               Select Org
             </Button>
             <Modal title="Select Organisation">
               <OrgIdSelect />
               <ButtonGroup alignment="center">
-                <Button intent="secondary" onClick={closeModal}>
+                <Button intent="primary" onClick={closeModal}>
                   Close
                 </Button>
               </ButtonGroup>
@@ -170,11 +170,11 @@ const OfficesTab: FC = () => {
           <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
         </>
       ) : orgClientId ? (
-        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
           No results found for your office search
         </PersistentNotification>
       ) : (
-        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
           No organisation selected. You need to select an organisation to view offices.
         </PersistentNotification>
       )}

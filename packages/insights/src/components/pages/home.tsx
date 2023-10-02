@@ -124,7 +124,7 @@ export const Home: FC = () => {
           <Title>Reapit Insights</Title>
           {isMobile && (
             <ButtonGroup alignment="right">
-              <Button intent="low" onClick={openModal}>
+              <Button intent="default" onClick={openModal}>
                 Select Report
               </Button>
               <Modal title="Select Report">
@@ -140,7 +140,7 @@ export const Home: FC = () => {
                   <Label htmlFor="myId">Select Report</Label>
                 </InputGroup>
                 <ButtonGroup className={elMt5} alignment="center">
-                  <Button intent="secondary" onClick={closeModal}>
+                  <Button intent="primary" onClick={closeModal}>
                     Close
                   </Button>
                 </ButtonGroup>
@@ -150,7 +150,7 @@ export const Home: FC = () => {
         </FlexContainer>
         {!selectedReport ? (
           <>
-            <PersistentNotification isFullWidth isExpanded isInline intent="secondary">
+            <PersistentNotification isFullWidth isExpanded isInline intent="primary">
               {loading ? 'Loading your Power BI Reports.' : 'Please select a report to get started'}
             </PersistentNotification>
             {loading && <Loader fullPage label="Loading" />}

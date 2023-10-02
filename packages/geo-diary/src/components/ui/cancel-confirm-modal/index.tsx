@@ -53,11 +53,11 @@ export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({ appointm
         <BodyText className={elTextCenter}>Are you sure you want to cancel this appointment?</BodyText>
       </div>
       <FlexContainer isFlexJustifyEvenly>
-        <Button intent="secondary" size={2} disabled={loading} onClick={closeModal} type="button">
+        <Button intent="primary" size={2} disabled={loading} onClick={closeModal} type="button">
           No
         </Button>
         <Button
-          intent="critical"
+          intent="primary"
           size={2}
           loading={loading}
           onClick={handleUpdateAppointment({ updateAppointment, appointment })}

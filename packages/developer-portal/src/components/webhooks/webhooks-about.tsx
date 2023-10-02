@@ -64,7 +64,7 @@ export const WebhooksAbout: FC = () => {
           <Button
             onMouseEnter={handleDocsMouseOver(setDocsIsAnimated, true)}
             onMouseLeave={handleDocsMouseOver(setDocsIsAnimated, false)}
-            intent="low"
+            intent="default"
             onClick={openNewPage(ExternalPages.webhooksDocs)}
           >
             View Docs

@@ -77,7 +77,7 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
             For guidelines on completing your app listing, visit the documentation link below before getting started.
           </BodyText>
           <Button
-            intent="low"
+            intent="default"
             onMouseEnter={handleMouseOver(setDocsIsAnimated, true)}
             onMouseLeave={handleMouseOver(setDocsIsAnimated, false)}
             onClick={openNewPage(ExternalPages.listingAppDocs)}
@@ -120,7 +120,7 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
           )}
         </div>
         <ButtonGroup alignment="right">
-          <Button fixedWidth intent="neutral" onClick={closeModal}>
+          <Button intent="neutral" onClick={closeModal}>
             Close
           </Button>
         </ButtonGroup>

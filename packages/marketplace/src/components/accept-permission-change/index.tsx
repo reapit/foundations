@@ -66,10 +66,10 @@ export const AcceptPermissionChangePage: FC = () => {
         To accept the permissions as requested by {appDetail?.name} please click &lsquo;Accept&rsquo; below.
       </BodyText>
       <ButtonGroup alignment="center">
-        <Button fixedWidth intent="low" onClick={handleCancel(closeModal, navigate)}>
+        <Button intent="default" onClick={handleCancel(closeModal, navigate)}>
           Ignore
         </Button>
-        <Button fixedWidth intent="primary" onClick={handleApprove(approveConsent, closeModal, navigate, email)}>
+        <Button intent="primary" onClick={handleApprove(approveConsent, closeModal, navigate, email)}>
           Accept
         </Button>
       </ButtonGroup>

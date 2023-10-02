@@ -2,15 +2,18 @@ import React, { FC, lazy } from 'react'
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import { RoutePaths } from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
-import { catchChunkError } from '@reapit/utils-react'
+import { Login, catchChunkError } from '@reapit/utils-react'
+import { reapitConnectBrowserSession } from './connect-session'
 
-const LoginPage = lazy(() => catchChunkError(() => import('../components/login')))
 const UsersPage = lazy(() => catchChunkError(() => import('../components/users')))
 const OrgsPage = lazy(() => catchChunkError(() => import('../components/orgs')))
 
 export const RoutesComponent: FC = () => (
   <Routes>
-    <Route path={RoutePaths.LOGIN} element={<LoginPage />} />
+    <Route
+      path={RoutePaths.LOGIN}
+      element={<Login appName="Reapit Connect Service App" reapitConnectBrowserSession={reapitConnectBrowserSession} />}
+    />
     <Route
       path={RoutePaths.USERS}
       element={

@@ -142,7 +142,7 @@ export const TableExpandableRowTriggerCell: FC<TableExpandableRowTriggerCellProp
       className={cx(className, narrowIsFullWidth && elTableNarrowCellIsFullWidth)}
       {...rest}
     >
-      {children ? children : <Icon intent={isOpen ? 'primary' : 'low'} icon="moreSolidSystem" />}
+      {children ? children : <Icon intent={isOpen ? 'primary' : 'default'} icon="moreSolidSystem" />}
     </ElTableExpandableRowTriggerCell>
   )
 }

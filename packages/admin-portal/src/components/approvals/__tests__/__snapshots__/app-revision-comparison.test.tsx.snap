@@ -29,8 +29,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -66,8 +67,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -103,8 +105,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -140,8 +143,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -177,8 +181,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -207,8 +212,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -244,8 +250,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -321,8 +327,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -358,8 +365,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -395,8 +403,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -432,8 +441,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -460,8 +470,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -497,8 +508,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -534,8 +546,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -571,8 +584,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -608,8 +622,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -645,8 +660,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -715,8 +730,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -785,8 +800,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -826,8 +841,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -867,8 +882,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -908,8 +923,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -949,8 +964,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -990,8 +1005,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1031,8 +1046,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1072,8 +1087,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1113,8 +1128,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1154,8 +1169,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1195,8 +1210,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1236,8 +1251,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1277,8 +1292,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1318,8 +1333,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1359,8 +1374,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1400,8 +1415,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1441,8 +1456,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1482,8 +1497,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1523,8 +1538,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1564,8 +1579,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1605,8 +1620,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1646,8 +1661,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1687,8 +1702,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1728,8 +1743,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1769,8 +1784,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1810,8 +1825,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1851,8 +1866,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1892,8 +1907,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1933,8 +1948,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -1974,8 +1989,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2015,8 +2030,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2056,8 +2071,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2097,8 +2112,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2138,8 +2153,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2179,8 +2194,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2220,8 +2235,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2261,8 +2276,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2302,8 +2317,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2343,8 +2358,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2384,8 +2399,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2425,8 +2440,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2466,8 +2481,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2507,8 +2522,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2548,8 +2563,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2589,8 +2604,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2630,8 +2645,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2671,8 +2686,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2712,8 +2727,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2753,8 +2768,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2823,8 +2838,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2893,8 +2908,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -2935,8 +2950,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3021,8 +3036,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3111,8 +3126,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3239,8 +3254,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3276,8 +3292,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3313,8 +3330,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3350,8 +3368,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3387,8 +3406,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3417,8 +3437,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3454,8 +3475,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3531,8 +3552,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3568,8 +3590,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3605,8 +3628,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3642,8 +3666,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3670,8 +3695,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3707,8 +3733,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3744,8 +3771,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3781,8 +3809,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3818,8 +3847,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3855,8 +3885,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3925,8 +3955,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -3995,8 +4025,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4036,8 +4066,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4077,8 +4107,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4118,8 +4148,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4159,8 +4189,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4200,8 +4230,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4241,8 +4271,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4282,8 +4312,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4323,8 +4353,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4364,8 +4394,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4405,8 +4435,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4446,8 +4476,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4487,8 +4517,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4528,8 +4558,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4569,8 +4599,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4610,8 +4640,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4651,8 +4681,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4692,8 +4722,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4733,8 +4763,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4774,8 +4804,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4815,8 +4845,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4856,8 +4886,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4897,8 +4927,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4938,8 +4968,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -4979,8 +5009,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5020,8 +5050,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5061,8 +5091,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5102,8 +5132,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5143,8 +5173,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5184,8 +5214,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5225,8 +5255,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5266,8 +5296,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5307,8 +5337,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5348,8 +5378,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5389,8 +5419,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5430,8 +5460,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5471,8 +5501,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5512,8 +5542,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5553,8 +5583,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5594,8 +5624,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5635,8 +5665,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5676,8 +5706,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5717,8 +5747,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5758,8 +5788,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5799,8 +5829,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5840,8 +5870,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5881,8 +5911,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5922,8 +5952,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -5963,8 +5993,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6033,8 +6063,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6103,8 +6133,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6145,8 +6175,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6231,8 +6261,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6321,8 +6351,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6506,8 +6536,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6536,8 +6567,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6566,8 +6598,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6596,8 +6629,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6626,8 +6660,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6656,8 +6691,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6686,8 +6722,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6759,8 +6795,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6789,8 +6826,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6819,8 +6857,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6849,8 +6888,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6877,8 +6917,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6907,8 +6948,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6937,8 +6979,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6967,8 +7010,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -6997,8 +7041,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7027,8 +7072,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7068,8 +7113,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7110,8 +7155,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7151,8 +7196,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7192,8 +7237,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7233,8 +7278,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7274,8 +7319,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7315,8 +7360,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7356,8 +7401,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7397,8 +7442,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7438,8 +7483,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7479,8 +7524,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7520,8 +7565,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7561,8 +7606,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7602,8 +7647,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7643,8 +7688,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7684,8 +7729,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7725,8 +7770,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7766,8 +7811,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7807,8 +7852,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7848,8 +7893,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7889,8 +7934,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7930,8 +7975,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -7971,8 +8016,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8012,8 +8057,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8053,8 +8098,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8094,8 +8139,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8135,8 +8180,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8176,8 +8221,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8217,8 +8262,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8258,8 +8303,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8299,8 +8344,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8340,8 +8385,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8381,8 +8426,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8422,8 +8467,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8463,8 +8508,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8504,8 +8549,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8545,8 +8590,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8586,8 +8631,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8627,8 +8672,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8668,8 +8713,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8709,8 +8754,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8750,8 +8795,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8791,8 +8836,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8832,8 +8877,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8873,8 +8918,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8914,8 +8959,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8955,8 +9000,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -8996,8 +9041,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9037,8 +9082,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9078,8 +9123,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9119,8 +9164,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9160,8 +9205,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9202,8 +9247,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9285,8 +9330,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9410,8 +9455,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9440,8 +9486,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9470,8 +9517,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9500,8 +9548,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9530,8 +9579,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9560,8 +9610,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9590,8 +9641,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9663,8 +9714,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9693,8 +9745,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9723,8 +9776,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9753,8 +9807,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9781,8 +9836,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9811,8 +9867,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9841,8 +9898,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9871,8 +9929,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9901,8 +9960,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9931,8 +9991,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -9972,8 +10032,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10014,8 +10074,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10055,8 +10115,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10096,8 +10156,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10137,8 +10197,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10178,8 +10238,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10219,8 +10279,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10260,8 +10320,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10301,8 +10361,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10342,8 +10402,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10383,8 +10443,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10424,8 +10484,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10465,8 +10525,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10506,8 +10566,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10547,8 +10607,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10588,8 +10648,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10629,8 +10689,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10670,8 +10730,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10711,8 +10771,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10752,8 +10812,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10793,8 +10853,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10834,8 +10894,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10875,8 +10935,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10916,8 +10976,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10957,8 +11017,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -10998,8 +11058,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11039,8 +11099,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11080,8 +11140,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11121,8 +11181,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11162,8 +11222,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11203,8 +11263,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11244,8 +11304,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11285,8 +11345,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11326,8 +11386,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11367,8 +11427,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11408,8 +11468,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11449,8 +11509,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11490,8 +11550,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11531,8 +11591,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11572,8 +11632,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11613,8 +11673,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11654,8 +11714,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11695,8 +11755,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11736,8 +11796,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11777,8 +11837,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11818,8 +11878,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11859,8 +11919,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11900,8 +11960,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11941,8 +12001,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -11982,8 +12042,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12023,8 +12083,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12064,8 +12124,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12106,8 +12166,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12189,8 +12249,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12371,8 +12431,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12408,8 +12469,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12445,8 +12507,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12482,8 +12545,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12519,8 +12583,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12549,8 +12614,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12586,8 +12652,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12663,8 +12729,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12700,8 +12767,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12737,8 +12805,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12774,8 +12843,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12802,8 +12872,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12839,8 +12910,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12876,8 +12948,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12913,8 +12986,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12950,8 +13024,9 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -12987,8 +13062,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13057,8 +13132,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13127,8 +13202,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13168,8 +13243,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13209,8 +13284,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13250,8 +13325,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13291,8 +13366,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13332,8 +13407,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13373,8 +13448,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13414,8 +13489,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13455,8 +13530,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13496,8 +13571,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13537,8 +13612,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13578,8 +13653,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13619,8 +13694,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13660,8 +13735,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13701,8 +13776,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13742,8 +13817,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13783,8 +13858,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13824,8 +13899,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13865,8 +13940,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13906,8 +13981,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13947,8 +14022,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -13988,8 +14063,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14029,8 +14104,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14070,8 +14145,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14111,8 +14186,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14152,8 +14227,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14193,8 +14268,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14234,8 +14309,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14275,8 +14350,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14316,8 +14391,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14357,8 +14432,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14398,8 +14473,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14439,8 +14514,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14480,8 +14555,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14521,8 +14596,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14562,8 +14637,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14603,8 +14678,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14644,8 +14719,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14685,8 +14760,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14726,8 +14801,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14767,8 +14842,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14808,8 +14883,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14849,8 +14924,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14890,8 +14965,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14931,8 +15006,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -14972,8 +15047,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15013,8 +15088,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15054,8 +15129,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15095,8 +15170,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15165,8 +15240,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15235,8 +15310,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15277,8 +15352,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15363,8 +15438,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15453,8 +15528,8 @@ exports[`AppRevisionComparison should render a component with approval props and
           </mock-styled.p>
           <div
             class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15581,8 +15656,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15618,8 +15694,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15655,8 +15732,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15692,8 +15770,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15729,8 +15808,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15759,8 +15839,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15796,8 +15877,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15873,8 +15954,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15910,8 +15992,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15947,8 +16030,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -15984,8 +16068,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16012,8 +16097,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16049,8 +16135,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16086,8 +16173,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16123,8 +16211,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16160,8 +16249,9 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16197,8 +16287,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16267,8 +16357,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16337,8 +16427,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16378,8 +16468,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16419,8 +16509,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16460,8 +16550,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16501,8 +16591,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16542,8 +16632,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16583,8 +16673,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16624,8 +16714,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16665,8 +16755,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16706,8 +16796,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16747,8 +16837,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16788,8 +16878,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16829,8 +16919,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16870,8 +16960,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16911,8 +17001,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16952,8 +17042,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -16993,8 +17083,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17034,8 +17124,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17075,8 +17165,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17116,8 +17206,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17157,8 +17247,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17198,8 +17288,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17239,8 +17329,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17280,8 +17370,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17321,8 +17411,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17362,8 +17452,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17403,8 +17493,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17444,8 +17534,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17485,8 +17575,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17526,8 +17616,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17567,8 +17657,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17608,8 +17698,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17649,8 +17739,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17690,8 +17780,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17731,8 +17821,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17772,8 +17862,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17813,8 +17903,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17854,8 +17944,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17895,8 +17985,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17936,8 +18026,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -17977,8 +18067,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18018,8 +18108,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18059,8 +18149,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18100,8 +18190,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18141,8 +18231,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18182,8 +18272,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18223,8 +18313,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18264,8 +18354,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18305,8 +18395,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18375,8 +18465,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18445,8 +18535,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18487,8 +18577,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18573,8 +18663,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -18663,8 +18753,8 @@ exports[`AppRevisionComparison should render a component with approval props and
         </mock-styled.p>
         <div
           class="mock-css.
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);

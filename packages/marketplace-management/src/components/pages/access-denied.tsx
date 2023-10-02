@@ -18,10 +18,10 @@ const AccessDenied: FC = () => (
       Please contact your Organisation Administrator.
     </PersistentNotification>
     <ButtonGroup alignment="center">
-      <Button intent="secondary" onClick={onMarketplaceButtonClick}>
+      <Button intent="primary" onClick={onMarketplaceButtonClick}>
         Marketplace
       </Button>
-      <Button intent="critical" onClick={onLogoutButtonClick}>
+      <Button intent="primary" onClick={onLogoutButtonClick}>
         Logout
       </Button>
     </ButtonGroup>

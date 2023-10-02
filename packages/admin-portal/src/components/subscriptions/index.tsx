@@ -187,7 +187,7 @@ const Subscriptions: FC = () => {
             <Modal title="Cancel Subscription">
               <BodyText>Please confirm you wish to cancel this subscription</BodyText>
               <ButtonGroup alignment="right">
-                <Button intent="low" type="button" onClick={closeModal}>
+                <Button type="button" onClick={closeModal}>
                   Close
                 </Button>
                 <Button intent="danger" onClick={handleCancelSub(cancelSub, setCancelSubId)}>

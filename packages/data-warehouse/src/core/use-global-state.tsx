@@ -52,7 +52,7 @@ export const GlobalProvider: FC<PropsWithChildren> = ({ children }) => {
     </PageContainer>
   ) : !currentSubscription ? (
     <PageContainer>
-      <PersistentNotification isInline isExpanded isFullWidth intent="secondary">
+      <PersistentNotification isInline isExpanded isFullWidth intent="primary">
         Unfortunately, we have no record of a current Data Warehouse subscription for your account. If you are
         interested in this Reapit product, please contact your CSM and they will take you through the onboarding
         process.

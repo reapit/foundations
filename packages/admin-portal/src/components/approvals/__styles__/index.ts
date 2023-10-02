@@ -1,8 +1,9 @@
 import { css } from '@linaria/core'
 
 export const diffViewerContainer = css`
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
+  font-size: var(--font-size-default);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -21,8 +22,8 @@ export const redBackground = css`
 `
 
 export const checkboxContainer = css`
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -46,8 +47,8 @@ export const arow = css`
 `
 
 export const diffMediaContainer = css`
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);
@@ -92,8 +93,8 @@ export const mediaImage = css`
 `
 
 export const diffHtmlContainer = css`
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
+  border: 1px solid var(--color-grey-lightest);
   border-radius: 3px;
   padding: 10px;
   color: var(--color-black);

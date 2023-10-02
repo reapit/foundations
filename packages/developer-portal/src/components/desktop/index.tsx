@@ -140,7 +140,7 @@ export const VideoSection: FC = () => {
           allowFullScreen
         />
         <ButtonGroup alignment="right">
-          <Button fixedWidth onClick={closeModal} intent="neutral">
+          <Button onClick={closeModal} intent="neutral">
             Close
           </Button>
         </ButtonGroup>

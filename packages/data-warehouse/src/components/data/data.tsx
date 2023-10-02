@@ -90,7 +90,7 @@ export const Data: FC = () => {
         ) : dataSets?._embedded.length ? (
           <DataSetsTable dataSets={dataSets._embedded} refreshShares={refreshShares} />
         ) : (
-          <PersistentNotification className={elMb11} isInline isExpanded isFullWidth intent="secondary">
+          <PersistentNotification className={elMb11} isInline isExpanded isFullWidth intent="primary">
             No datasets available for your organisation
           </PersistentNotification>
         )}
@@ -100,7 +100,7 @@ export const Data: FC = () => {
         ) : shares?._embedded.length ? (
           <SharesTable shares={shares._embedded} refreshShares={refreshShares} />
         ) : (
-          <PersistentNotification isInline isExpanded isFullWidth intent="secondary">
+          <PersistentNotification isInline isExpanded isFullWidth intent="primary">
             No data shares available for your organisation
           </PersistentNotification>
         )}

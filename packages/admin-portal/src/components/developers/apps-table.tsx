@@ -103,7 +103,7 @@ export const AppsTable: FC<AppsTableProps> = ({ devIdApps }) => {
           ],
           expandableContent: {
             content: (
-              <PersistentNotification isExpanded isFullWidth isInline intent="secondary">
+              <PersistentNotification isExpanded isFullWidth isInline intent="primary">
                 Visit the dedicated apps page to perform actions on this app
               </PersistentNotification>
             ),
@@ -118,7 +118,7 @@ export const AppsTable: FC<AppsTableProps> = ({ devIdApps }) => {
     </div>
   ) : (
     <div className={elMt5}>
-      <PersistentNotification isExpanded isFullWidth isInline intent="secondary">
+      <PersistentNotification isExpanded isFullWidth isInline intent="primary">
         No results found for your selected filters
       </PersistentNotification>
     </div>

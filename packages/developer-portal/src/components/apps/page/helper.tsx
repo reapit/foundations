@@ -321,7 +321,7 @@ export const Helper: FC = () => {
             </BodyText>
           )}
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="neutral" onClick={closeModalDelete}>
+            <Button intent="neutral" onClick={closeModalDelete}>
               Cancel
             </Button>
             <Button

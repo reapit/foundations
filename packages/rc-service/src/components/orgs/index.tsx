@@ -125,7 +125,7 @@ export const OrgsPage: FC = () => {
           />
         </>
       ) : (
-        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
           No organisations found based on your current search.
         </PersistentNotification>
       )}

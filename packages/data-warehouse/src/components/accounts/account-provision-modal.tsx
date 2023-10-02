@@ -173,7 +173,7 @@ export const AccountProvisionModal: FC<AccountProvisionModalProps> = ({
         </InputWrap>
       </FormLayout>
       <ButtonGroup alignment="center">
-        <Button intent="low" type="button" onClick={closeModal}>
+        <Button intent="default" type="button" onClick={closeModal}>
           Cancel
         </Button>
         <Button intent="primary" type="submit">

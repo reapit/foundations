@@ -119,7 +119,7 @@ export const Customers: FC = () => {
                   content: (
                     <>
                       <ButtonGroup alignment="center">
-                        <Button intent="secondary" onClick={handleFetchGroups(setOrgId, id)}>
+                        <Button intent="primary" onClick={handleFetchGroups(setOrgId, id)}>
                           Fetch Office Groups
                         </Button>
                       </ButtonGroup>

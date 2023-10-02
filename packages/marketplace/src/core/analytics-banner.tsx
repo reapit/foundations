@@ -124,7 +124,7 @@ export const AnalyticsBanner: FC = () => {
       onClick={trackingBannerClick}
       className={cookieBannerPosition}
       isExpanded={trackingBannerVisible}
-      intent="secondary"
+      intent="primary"
     >
       The AppMarket uses mechanisms to track your use of the environment to provide an enhanced user experience and
       provide feedback to enable Reapit to improve the product - to opt out of this tracking{' '}

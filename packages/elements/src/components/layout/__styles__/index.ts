@@ -9,7 +9,7 @@ export const ElMainContainer = styled.main`
   height: 100vh;
   overflow-y: visible;
   overflow-x: hidden;
-  background: var(--color-grey-100);
+  background: var(--color-white);
 `
 
 export const ElPageContainer = styled.section`

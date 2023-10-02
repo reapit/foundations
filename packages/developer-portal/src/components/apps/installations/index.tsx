@@ -155,7 +155,7 @@ export const AppInstallations: FC = () => {
         <ModalDocs title="Controls">
           <Helper />
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="neutral" onClick={closeModalDocs}>
+            <Button intent="neutral" onClick={closeModalDocs}>
               Close
             </Button>
           </ButtonGroup>

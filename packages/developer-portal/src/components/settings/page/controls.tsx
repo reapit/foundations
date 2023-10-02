@@ -145,10 +145,10 @@ export const Controls: FC = () => {
             </InputWrapFull>
           </FormLayout>
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="neutral" onClick={closeModal}>
+            <Button intent="neutral" onClick={closeModal}>
               Close
             </Button>
-            <Button fixedWidth intent="primary" type="submit">
+            <Button intent="primary" type="submit">
               Send Invite
             </Button>
           </ButtonGroup>

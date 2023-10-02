@@ -76,7 +76,7 @@ export const AppInstallSuccesModalContent: FC<AppInstallModalContentProps> = ({ 
         </>
       )}
       <ButtonGroup alignment="center">
-        <Button intent="low" onClick={handleClose} fixedWidth>
+        <Button intent="default" onClick={handleClose} fixedWidth>
           Back To App
         </Button>
         {!isDirectApi && launchUri && (

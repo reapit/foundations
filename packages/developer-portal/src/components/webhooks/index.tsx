@@ -33,7 +33,7 @@ export const WebhooksWrapper: FC = () => {
         <Modal title="Filters">
           <WebhooksControls />
           <ButtonGroup alignment="right">
-            <Button fixedWidth intent="primary" onClick={closeModal}>
+            <Button intent="primary" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>

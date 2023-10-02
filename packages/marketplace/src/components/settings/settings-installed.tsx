@@ -301,7 +301,7 @@ export const SettingsInstalled: FC = () => {
                 </InputWrapFull>
               </FormLayout>
               <ButtonGroup alignment="right">
-                <Button intent="low" type="button" onClick={closeUninstallModal}>
+                <Button intent="default" type="button" onClick={closeUninstallModal}>
                   Close
                 </Button>
                 <Button intent="danger" type="submit">
@@ -312,7 +312,7 @@ export const SettingsInstalled: FC = () => {
           </Modal>
         </>
       ) : installations ? (
-        <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
+        <PersistentNotification intent="primary" isExpanded isFullWidth isInline>
           No installations for the application.
         </PersistentNotification>
       ) : null}

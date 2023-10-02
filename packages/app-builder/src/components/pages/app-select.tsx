@@ -123,10 +123,10 @@ const CreateNew = ({ className }: { className?: string }) => {
             </InputWrapFull>
           </FormLayout>
           <ButtonGroup alignment="center">
-            <Button intent="low" fixedWidth onClick={closeModal}>
+            <Button intent="default" onClick={closeModal}>
               Close
             </Button>
-            <Button intent="primary" fixedWidth type="submit">
+            <Button intent="primary" type="submit">
               Create
             </Button>
           </ButtonGroup>
@@ -174,7 +174,7 @@ const AppSelector = () => {
             <>
               {loading && <Loader />}
               {!loading && (
-                <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
+                <PersistentNotification intent="primary" isExpanded isFullWidth isInline>
                   No apps found. You can create a new app from the sidebar.
                 </PersistentNotification>
               )}

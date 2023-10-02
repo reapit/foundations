@@ -235,14 +235,14 @@ export const ManageTableExpandableContent: FC<ManageTableExpandableContentProps>
         </Col>
       </Grid>
       <ButtonGroup>
-        <Button onClick={openNewPage(`${process.env.marketplaceUrl}/apps?previewId=${configItem.id}`)} intent="low">
+        <Button onClick={openNewPage(`${process.env.marketplaceUrl}/apps?previewId=${configItem.id}`)} intent="default">
           Preview
         </Button>
         <Button
           onClick={() => {
             setSelectedItem(configItem)
           }}
-          intent="secondary"
+          intent="primary"
         >
           Edit
         </Button>

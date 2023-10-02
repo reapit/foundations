@@ -83,10 +83,7 @@ export const AdminBilling: FC = () => {
             <TableRow>
               <TableCell>{dayjs(billingFilters.month).format('MMMM YYYY')}</TableCell>
               <TableCell>
-                <Button
-                  intent="low"
-                  onClick={handleSaveFile(billingFile, `billing-developer-period-${billingFilters.month}.csv`)}
-                >
+                <Button onClick={handleSaveFile(billingFile, `billing-developer-period-${billingFilters.month}.csv`)}>
                   Download
                 </Button>
               </TableCell>
@@ -94,7 +91,7 @@ export const AdminBilling: FC = () => {
           </TableRowContainer>
         </Table>
       ) : (
-        <PersistentNotification intent="secondary" isExpanded={true} isInline isFullWidth>
+        <PersistentNotification intent="primary" isExpanded={true} isInline isFullWidth>
           No billing file available for download.
         </PersistentNotification>
       )}

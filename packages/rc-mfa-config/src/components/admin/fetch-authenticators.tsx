@@ -43,7 +43,7 @@ export const FetchAuthenticators: FC<FetchAuthenticatorsProps> = ({ userId }) =>
       ) : activeAuthenticator ? (
         <ActiveAuthenticator activeAuthenticator={activeAuthenticator} refreshAuthenticators={refreshAuthenticators} />
       ) : shouldFetch ? (
-        <PersistentNotification isFullWidth isExpanded isInline intent="secondary">
+        <PersistentNotification isFullWidth isExpanded isInline intent="primary">
           No authenticators configured for this user.
         </PersistentNotification>
       ) : null}

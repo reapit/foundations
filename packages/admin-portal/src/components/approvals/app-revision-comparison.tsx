@@ -345,7 +345,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
 
   if (!approval || !app || !revision || !desktopIntegrationTypes || !scopes) {
     return (
-      <PersistentNotification className={elMb11} intent="secondary" isExpanded isFullWidth isInline>
+      <PersistentNotification className={elMb11} intent="primary" isExpanded isFullWidth isInline>
         Data not returned to complete this request
       </PersistentNotification>
     )
@@ -419,16 +419,14 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
         <Button onClick={openApproveModal} disabled={hasReadAccess} intent="primary">
           Approve Revision
         </Button>
-        <Button intent="secondary" onClick={handleSendConstents(createConsentEmails, email)} disabled={hasReadAccess}>
+        <Button intent="primary" onClick={handleSendConstents(createConsentEmails, email)} disabled={hasReadAccess}>
           Send Consent Emails
         </Button>
       </ButtonGroup>
       <ApproveModal title={`Approve ${app.name} Revision`}>
         <BodyText>Are your sure you want to approve the revision for &lsquo;{app.name}&rsquo;?</BodyText>
         <ButtonGroup alignment="center">
-          <Button fixedWidth intent="low" onClick={closeApproveModal}>
-            Cancel
-          </Button>
+          <Button onClick={closeApproveModal}>Cancel</Button>
           <Button
             fixedWidth
             intent="primary"
@@ -457,9 +455,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
             </InputWrapFull>
           </FormLayout>
           <ButtonGroup alignment="center">
-            <Button intent="low" onClick={closeDeclineModal}>
-              Cancel
-            </Button>
+            <Button onClick={closeDeclineModal}>Cancel</Button>
             <Button intent="danger" type="submit">
               Decline
             </Button>

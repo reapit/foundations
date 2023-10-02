@@ -267,10 +267,10 @@ export const PipelineControls: FC = () => {
           cannot be recovered.
         </BodyText>
         <ButtonGroup alignment="right">
-          <Button fixedWidth intent="neutral" onClick={closeModal}>
+          <Button intent="neutral" onClick={closeModal}>
             Close
           </Button>
-          <Button fixedWidth intent="danger" onClick={handleDeletePipeline(deleteFunc, closeModal)}>
+          <Button intent="danger" onClick={handleDeletePipeline(deleteFunc, closeModal)}>
             Delete
           </Button>
         </ButtonGroup>

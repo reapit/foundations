@@ -23,7 +23,7 @@ import {
 export const FormExample: FC = () => (
   <>
     <Title>Form Example</Title>
-    <PersistentNotification className={elMb7} isExpanded intent="secondary" isInline isFullWidth>
+    <PersistentNotification className={elMb7} isExpanded intent="primary" isInline isFullWidth>
       The form example is designed to show the various form and responsive form layout components. You can use any Form
       library or just straight React to manage your form state however, we strongly recommend React Hook Form (we use
       this internally). We have also tested Elements successfully with Formik.
@@ -131,12 +131,8 @@ export const FormExample: FC = () => (
         </InputWrapFull>
       </FormLayout>
       <ButtonGroup alignment="right">
-        <Button size={2} intent="primary">
-          Cancel
-        </Button>
-        <Button size={2} chevronRight intent="critical">
-          Submit
-        </Button>
+        <Button intent="default">Cancel</Button>
+        <Button intent="primary">Submit</Button>
       </ButtonGroup>
     </form>
   </>
