@@ -19093,6 +19093,8 @@ export interface Transactions {
   )[]
   createdFrom?: string
   createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   outstandingFrom?: number
   outstandingTo?: number
 }
