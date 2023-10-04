@@ -6844,7 +6844,7 @@ export interface CreatePropertyLettingModel {
    */
   rent?: number // double
   /**
-   * The frequency at which rent will be collected (weekly/monthly/yearly)
+   * The frequency at which rent will be collected (weekly/monthly/annually)
    */
   rentFrequency?: string
   /**
@@ -7410,7 +7410,7 @@ export interface CreatePropertyModel {
      */
     rent?: number // double
     /**
-     * The frequency at which rent will be collected (weekly/monthly/yearly)
+     * The frequency at which rent will be collected (weekly/monthly/annually)
      */
     rentFrequency?: string
     /**
@@ -13188,7 +13188,7 @@ export interface PropertyLettingModel {
    */
   rent?: number // double
   /**
-   * The frequency at which rent will be collected (weekly/monthly/yearly)
+   * The frequency at which rent will be collected (weekly/monthly/annually)
    */
   rentFrequency?: string
   /**
@@ -14045,7 +14045,7 @@ export interface PropertyModel {
      */
     rent?: number // double
     /**
-     * The frequency at which rent will be collected (weekly/monthly/yearly)
+     * The frequency at which rent will be collected (weekly/monthly/annually)
      */
     rentFrequency?: string
     /**
@@ -15021,7 +15021,7 @@ export interface PropertyModelPagedResult {
        */
       rent?: number // double
       /**
-       * The frequency at which rent will be collected (weekly/monthly/yearly)
+       * The frequency at which rent will be collected (weekly/monthly/annually)
        */
       rentFrequency?: string
       /**
@@ -19093,6 +19093,8 @@ export interface Transactions {
   )[]
   createdFrom?: string
   createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   outstandingFrom?: number
   outstandingTo?: number
 }
@@ -21556,7 +21558,7 @@ export interface UpdatePropertyLettingModel {
    */
   rent?: number // double
   /**
-   * The frequency at which rent will be collected (weekly/monthly/yearly)
+   * The frequency at which rent will be collected (weekly/monthly/annually)
    */
   rentFrequency?: string
   /**
@@ -22243,7 +22245,7 @@ export interface UpdatePropertyModel {
      */
     rent?: number // double
     /**
-     * The frequency at which rent will be collected (weekly/monthly/yearly)
+     * The frequency at which rent will be collected (weekly/monthly/annually)
      */
     rentFrequency?: string
     /**
