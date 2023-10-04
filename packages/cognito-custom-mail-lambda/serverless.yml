@@ -54,8 +54,11 @@ package:
 functions:
   cognitoCustomMailerHandler:
     handler: src/app.cognitoCustomMailerHandler
-    events:
-      - CognitoUserPool:
-        pool: ${self:custom.env.COGNITO_USERPOOL_ID}
-        trigger: CustomMessage
-        existing: true
+
+resources:
+  Outputs:
+    CustomMailerArn:
+      Value: 
+        Ref: cognitoCustomMailerHandler
+      Export:
+          Name: ${self:provider.stage}-CognitoCustomMailerHandlerArn
