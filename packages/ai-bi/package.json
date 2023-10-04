@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
+    "aws-sdk": "^2.1469.0",
     "cdk": "^2.99.1",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"

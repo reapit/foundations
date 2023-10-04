@@ -71,6 +71,20 @@ class AiBiStack extends cdk.Stack {
         stageName: 'prod',
       },
     })
+
+    const hostedZone = cdk.aws_route53.HostedZone.fromLookup(this, 'hosted-zone', {
+      domainName: config.ROOT_DOMAIN,
+    })
+
+    const r53 = new cdk.aws_route53.ARecord(this, 'route', {
+      target: cdk.aws_route53.RecordTarget.fromAlias(new cdk.aws_route53_targets.ApiGateway(api)),
+      zone: hostedZone,
+      recordName: AiBiStack.SUBDOMAIN_NAME,
+    })
+
+    new cdk.CfnOutput(this, 'url', {
+      value: r53.domainName,
+    })
   }
 
   private env() {

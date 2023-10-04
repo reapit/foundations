@@ -18383,6 +18383,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@types/aws-lambda": ^8.10.122
     aws-lambda: ^1.0.7
+    aws-sdk: ^2.1469.0
     cdk: ^2.99.1
     openai: ^4.11.0
     tsup: ^7.2.0
@@ -19722,6 +19723,24 @@ __metadata:
     uuid: 8.0.0
     xml2js: 0.5.0
   checksum: eedc32f216b3574ac18b064d07c569e5d99742087a9d8e091cc9bd8626a0d118a3be1e8e92052a2b87cb7cb03a99ea9ea79278d12bc3b09393772b8585f5824d
+  languageName: node
+  linkType: hard
+
+"aws-sdk@npm:^2.1469.0":
+  version: 2.1469.0
+  resolution: "aws-sdk@npm:2.1469.0"
+  dependencies:
+    buffer: 4.9.2
+    events: 1.1.1
+    ieee754: 1.1.13
+    jmespath: 0.16.0
+    querystring: 0.2.0
+    sax: 1.2.1
+    url: 0.10.3
+    util: ^0.12.4
+    uuid: 8.0.0
+    xml2js: 0.5.0
+  checksum: 91e2c353aa8a7d268013a790a83f6c5e8d6005b558212d0387f6e71cc497778b32a310fc977995b1ca16503c38189517e750ed4fde30dbe53a5e8951807fe6f9
   languageName: node
   linkType: hard
 
