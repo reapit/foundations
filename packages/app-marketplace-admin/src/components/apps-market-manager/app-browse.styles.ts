@@ -39,6 +39,10 @@ export const ImageContainer = styled.div`
 `
 export const iconButton = css`
   padding: 0.25rem;
+
+  span {
+    margin: 0 !important;
+  }
 `
 
 export const capitaliseText = css`

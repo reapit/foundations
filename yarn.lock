@@ -11874,7 +11874,7 @@ __metadata:
     vite: ^4.3.4
     vite-plugin-checker: ^0.6.0
     vite-plugin-graphql-loader: ^2.0.0
-    vite-plugin-node-polyfills: ^0.12.0
+    vite-plugin-node-polyfills: ^0.15.0
     vite-plugin-pwa: ^0.16.2
     vite-plugin-svgr: ^3.2.0
     vite-plugin-top-level-await: ^1.3.0
@@ -21006,17 +21006,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001332, caniuse-lite@npm:^1.0.30001400":
-  version: 1.0.30001447
-  resolution: "caniuse-lite@npm:1.0.30001447"
-  checksum: b45ae1c4f2df2fb9ad71dc543b1d71c00b125c1aea1ffa25086fe4bee6c17163222dfaa6c0b8488e403b801f6550889f712d1624ba000a7acb8538a62c738c56
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001464":
-  version: 1.0.30001489
-  resolution: "caniuse-lite@npm:1.0.30001489"
-  checksum: 94585a351fd7661b855c83eace474db0ee5a617159b46f2eff1f6fe4b85d7a205418471fdec8cf5cd647a7f79958706d5e664c0bbf3c7c09118b35db9bb95a1b
+"caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001332, caniuse-lite@npm:^1.0.30001400, caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001464":
+  version: 1.0.30001546
+  resolution: "caniuse-lite@npm:1.0.30001546"
+  checksum: d3ef82f5ee94743002c5b2dd61c84342debcc94b2d5907b64ade3514ecfc4f20bbe86a6bc453fd6436d5fbcf6582e07405d7c2077565675a71c83adc238a11fa
   languageName: node
   linkType: hard
 
@@ -45051,9 +45044,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"vite-plugin-node-polyfills@npm:^0.12.0":
-  version: 0.12.0
-  resolution: "vite-plugin-node-polyfills@npm:0.12.0"
+"vite-plugin-node-polyfills@npm:^0.15.0":
+  version: 0.15.0
+  resolution: "vite-plugin-node-polyfills@npm:0.15.0"
   dependencies:
     "@rollup/plugin-inject": ^5.0.3
     buffer-polyfill: "npm:buffer@^6.0.3"
@@ -45061,7 +45054,7 @@ fsevents@^1.2.7:
     process: ^0.11.10
   peerDependencies:
     vite: ^2.0.0 || ^3.0.0 || ^4.0.0
-  checksum: b996ba67d64938620b80bcf1f1c9c97ffa717df82807a62238e0ea3ae4aa36252e8a1fd5bf2f5eafe9f9c860a1efe9b5db127353e976c7d615f7dbd8fc25871f
+  checksum: 414abec8cf42270b814d7ace894dfab932042ac183224f8a1c1f74d36225427d463845efbfcffed2845d672ff30451d2d3eea750e252518bedf956854f42de69
   languageName: node
   linkType: hard
 

@@ -8,7 +8,6 @@ import {
   Button,
   elHFull,
   elMb5,
-  elMb9,
   FlexContainer,
   Icon,
   PageContainer,
@@ -16,7 +15,6 @@ import {
   SecondaryNavContainer,
   SecondaryNavItem,
   SmallText,
-  Title,
 } from '@reapit/elements'
 import { navigateRoute } from '../../utils/navigation'
 import { selectIsAdmin } from '../../utils/auth'
@@ -42,9 +40,8 @@ export const SettingsPage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Settings</Title>
         {isAdmin && (
-          <SecondaryNav className={elMb9}>
+          <SecondaryNav>
             <SecondaryNavItem
               onClick={navigateRoute(navigate, RoutePaths.SETTINGS_PROFILE)}
               active={pathname === RoutePaths.SETTINGS_PROFILE}

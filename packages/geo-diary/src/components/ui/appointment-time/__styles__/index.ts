@@ -1,19 +1,13 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { isTablet } from '../../../../core/__styles__/media'
-import {
-  appointmentListWidthDesktop,
-  appointmentTimeContainerHeight,
-  controlsHeightDesktop,
-  navControlsHeightMobile,
-} from '../../../../core/__styles__/page-layout-variables'
 
 export const appointmentTimeContainerExpanded = css``
 
 export const AppointmentTimeContainer = styled.div`
   height: 0;
   position: sticky;
-  top: ${navControlsHeightMobile};
+  top: 10rem;
   padding: 0 1.5rem 0 1.5rem;
   background-color: var(--color-grey-light);
   width: 100%;
@@ -23,13 +17,12 @@ export const AppointmentTimeContainer = styled.div`
   z-index: 1;
 
   ${isTablet} {
-    top: ${controlsHeightDesktop};
-    width: ${appointmentListWidthDesktop};
+    width: 23rem;
     z-index: 0;
   }
 
   &.${appointmentTimeContainerExpanded} {
-    height: ${appointmentTimeContainerHeight};
+    height: 3.75rem;
     padding: 1.25rem 1.5rem 0 1.5rem;
     opacity: 1;
   }

@@ -35,8 +35,8 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -61,8 +61,8 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -279,13 +279,19 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
               style="font-size: 1.25rem;"
             >
@@ -695,10 +701,10 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
                       <svg
-                        style="font-size: 5em;"
+                        style="font-size: 80px;"
                       />
                     </mock-styled.span>
                     <mock-styled.div
@@ -729,10 +735,10 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
                       <svg
-                        style="font-size: 5em;"
+                        style="font-size: 80px;"
                       />
                     </mock-styled.span>
                     <mock-styled.div
@@ -763,10 +769,10 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
                       <svg
-                        style="font-size: 5em;"
+                        style="font-size: 80px;"
                       />
                     </mock-styled.span>
                     <mock-styled.div
@@ -797,10 +803,10 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
                       <svg
-                        style="font-size: 5em;"
+                        style="font-size: 80px;"
                       />
                     </mock-styled.span>
                     <mock-styled.div
@@ -831,10 +837,10 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
                       <svg
-                        style="font-size: 5em;"
+                        style="font-size: 80px;"
                       />
                     </mock-styled.span>
                     <mock-styled.div
@@ -865,10 +871,10 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
                       <svg
-                        style="font-size: 5em;"
+                        style="font-size: 80px;"
                       />
                     </mock-styled.span>
                     <mock-styled.div
@@ -951,8 +957,8 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -977,8 +983,8 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -1195,13 +1201,19 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
             style="font-size: 1.25rem;"
           >
@@ -1611,10 +1623,10 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
                     <svg
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     />
                   </mock-styled.span>
                   <mock-styled.div
@@ -1645,10 +1657,10 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
                     <svg
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     />
                   </mock-styled.span>
                   <mock-styled.div
@@ -1679,10 +1691,10 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
                     <svg
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     />
                   </mock-styled.span>
                   <mock-styled.div
@@ -1713,10 +1725,10 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
                     <svg
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     />
                   </mock-styled.span>
                   <mock-styled.div
@@ -1747,10 +1759,10 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
                     <svg
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     />
                   </mock-styled.span>
                   <mock-styled.div
@@ -1781,10 +1793,10 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
                     <svg
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     />
                   </mock-styled.span>
                   <mock-styled.div

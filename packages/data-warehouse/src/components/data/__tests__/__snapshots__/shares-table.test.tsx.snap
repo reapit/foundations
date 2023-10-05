@@ -125,14 +125,14 @@ exports[`SharesTable should match a snapshot 1`] = `
                     disabled="false"
                   >
                     <mock-styled.div />
-                    Delete Share
+                    Refresh Share
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="false"
                   >
                     <mock-styled.div />
-                    Refresh Share
+                    Delete Share
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -263,14 +263,14 @@ exports[`SharesTable should match a snapshot 1`] = `
                   disabled="false"
                 >
                   <mock-styled.div />
-                  Delete Share
+                  Refresh Share
                 </mock-styled.button>
                 <mock-styled.button
                   classname="mock-css."
                   disabled="false"
                 >
                   <mock-styled.div />
-                  Refresh Share
+                  Delete Share
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>

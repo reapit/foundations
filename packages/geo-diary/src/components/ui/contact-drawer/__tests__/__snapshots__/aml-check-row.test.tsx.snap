@@ -39,6 +39,7 @@ exports[`AmlCheckRow should match snapshot 1`] = `
             <div
               class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
             >
               Will
@@ -81,7 +82,7 @@ exports[`AmlCheckRow should match snapshot 1`] = `
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -89,7 +90,7 @@ exports[`AmlCheckRow should match snapshot 1`] = `
                   <span
                     class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                   >
                     <svg
@@ -176,6 +177,7 @@ exports[`AmlCheckRow should match snapshot 1`] = `
           <div
             class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
           >
             Will
@@ -218,7 +220,7 @@ exports[`AmlCheckRow should match snapshot 1`] = `
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -226,7 +228,7 @@ exports[`AmlCheckRow should match snapshot 1`] = `
                 <span
                   class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                 >
                   <svg

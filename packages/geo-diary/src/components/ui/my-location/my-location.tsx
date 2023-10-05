@@ -4,6 +4,7 @@ import {
   DepartureIcon,
   DestinationLocationSection,
   destinationSectionExpanded,
+  inputWithIcon,
   JourneyIcon,
   myLocationHasDestination,
   MyLocationIconContainer,
@@ -101,7 +102,7 @@ export const MyLocation: FC = () => {
     appState
   const debouncedGeolocate = useCallback(debounce(fetchLocationResults, 1000), [locationQueryAddress])
   const hasDesination = tab === 'MAP' && destinationAddress
-
+  const hasIcon = locationQueryResults.length || hasGeoLocation
   useEffect(handleFetchLocationResults({ debouncedGeolocate, setAppState, appState }), [locationQueryAddress])
 
   return (
@@ -116,11 +117,12 @@ export const MyLocation: FC = () => {
       <MyLocationInnerWrap className={cx(hasDesination && myLocationHasDestination)}>
         <MyLocationSection>
           <Input
+            className={cx(hasIcon && inputWithIcon)}
             placeholder={locationAddress ? locationAddress : 'Enter location'}
             onChange={handleSetLocationQuery(setAppState)}
             value={locationQueryAddress ?? ''}
           />
-          {(locationQueryResults.length || hasGeoLocation) && (
+          {hasIcon && (
             <MyLocationIconContainer onClick={handleGeoLocateMe(setAppState)}>
               {locationQueryResults.length ? <BiX onClick={handleCloseResults(setAppState)} /> : null}
               {hasGeoLocation && <BiCurrentLocation />}

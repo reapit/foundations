@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { Icon, NavResponsive, NavResponsiveOption } from '@reapit/elements'
+import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { RoutePaths } from '../../constants/routes'
 import { navigateRoute, navigateExternal } from '../../utils/navigation'
 // Commenting out after Christmas
@@ -68,31 +68,26 @@ export const Nav: FC = () => {
     {
       itemIndex: 0,
       callback: navigateRoute(navigate, RoutePaths.HOME),
-      icon: <Icon iconSize="medium" icon="reapitLogoMenu" />,
     },
     {
       itemIndex: 1,
       text: 'Browse Apps',
-      iconId: 'appsMenu',
       callback: navigateRoute(navigate, RoutePaths.APPS_BROWSE),
     },
     {
       itemIndex: 2,
       text: 'My Apps',
-      iconId: 'installedMenu',
       callback: navigateRoute(navigate, RoutePaths.APPS_INSTALLED),
     },
     {
       itemIndex: 4,
       text: 'Support',
-      iconId: 'supportMenu',
-      isSecondary: true,
       callback: navigateRoute(navigate, RoutePaths.SUPPORT),
     },
     {
       itemIndex: 5,
-      text: 'Settings',
       iconId: 'profileMenu',
+      isSecondary: true,
       callback: navigateRoute(navigate, RoutePaths.SETTINGS_PROFILE),
       subItems: [
         {

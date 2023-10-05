@@ -12,11 +12,6 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Support
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -72,13 +67,19 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
               style="font-size: 1.25rem;"
             >
@@ -137,11 +138,6 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Support
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -197,13 +193,19 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
             style="font-size: 1.25rem;"
           >
@@ -319,11 +321,6 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Support
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -379,13 +376,19 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
               style="font-size: 1.25rem;"
             >
@@ -417,11 +420,6 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Support
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -477,13 +475,19 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
             style="font-size: 1.25rem;"
           >

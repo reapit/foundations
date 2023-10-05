@@ -42,7 +42,6 @@ export const fetchDestinationInformation = ({
 export const getGeoCoords = (): Promise<Partial<AppState>> => {
   return new Promise((resolve) => {
     const hasGeoLocation = Boolean(navigator.geolocation)
-
     if (!hasGeoLocation) return resolve({})
 
     navigator.geolocation.getCurrentPosition(

@@ -39,6 +39,7 @@ exports[`EtaTextRow should match snapshot with a phone number and populated stat
             <div
               class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
             >
               0777777777
@@ -140,6 +141,7 @@ exports[`EtaTextRow should match snapshot with a phone number and populated stat
           <div
             class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
           >
             0777777777

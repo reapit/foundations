@@ -20,26 +20,26 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
           Are you sure you want to cancel this appointment?
         </mock-styled.p>
       </div>
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-evenly;
-"
-      >
-        <mock-styled.button
+      <mock-styled.div>
+        <mock-styled.div
           classname="mock-css."
-          disabled="false"
-          type="button"
         >
-          <mock-styled.div />
-          No
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css."
-          type="button"
-        >
-          <mock-styled.div />
-          Yes
-        </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
+            type="button"
+          >
+            <mock-styled.div />
+            No
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            type="button"
+          >
+            <mock-styled.div />
+            Yes
+          </mock-styled.button>
+        </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
@@ -59,26 +59,26 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
         Are you sure you want to cancel this appointment?
       </mock-styled.p>
     </div>
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-evenly;
-"
-    >
-      <mock-styled.button
+    <mock-styled.div>
+      <mock-styled.div
         classname="mock-css."
-        disabled="false"
-        type="button"
       >
-        <mock-styled.div />
-        No
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css."
-        type="button"
-      >
-        <mock-styled.div />
-        Yes
-      </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+          disabled="false"
+          type="button"
+        >
+          <mock-styled.div />
+          No
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+          type="button"
+        >
+          <mock-styled.div />
+          Yes
+        </mock-styled.button>
+      </mock-styled.div>
     </mock-styled.div>
   </div>,
   "debug": [Function],

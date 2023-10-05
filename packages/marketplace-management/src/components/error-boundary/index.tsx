@@ -7,7 +7,7 @@ export class ErrorBoundary extends React.Component<PropsWithChildren> {
     return (
       <Sentry.ErrorBoundary
         fallback={() => (
-          <PersistentNotification isFullWidth isExpanded isInline intent="danger">
+          <PersistentNotification isFullWidth isExpanded intent="danger">
             Something went wrong here, try refreshing your page.
           </PersistentNotification>
         )}

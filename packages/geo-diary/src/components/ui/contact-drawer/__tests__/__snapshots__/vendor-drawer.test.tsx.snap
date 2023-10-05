@@ -39,7 +39,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
  mock-css.
@@ -54,7 +54,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
           <span
             class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
           >
             <svg
@@ -127,6 +127,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
             <div
               class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
             >
               07890 123456
@@ -169,7 +170,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -177,7 +178,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                   <span
                     class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                   >
                     <svg
@@ -242,7 +243,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -250,7 +251,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                   <span
                     class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                   >
                     <svg
@@ -339,7 +340,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -347,7 +348,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                   <span
                     class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                   >
                     <svg
@@ -424,6 +425,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
             <div
               class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
             >
               01234 567890
@@ -466,7 +468,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -474,7 +476,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                   <span
                     class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                   >
                     <svg
@@ -551,6 +553,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
             <div
               class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
             >
               03242343244
@@ -593,7 +596,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -601,7 +604,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                   <span
                     class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                   >
                     <svg
@@ -678,6 +681,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
             <div
               class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
             >
               example@email.com
@@ -720,7 +724,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -728,7 +732,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                   <span
                     class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                   >
                     <svg
@@ -800,6 +804,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
             <div
               class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
             >
               Mr John Smith
@@ -842,7 +847,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -850,7 +855,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                   <span
                     class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                   >
                     <svg
@@ -937,7 +942,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
  mock-css.
@@ -952,7 +957,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
         <span
           class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
         >
           <svg
@@ -1025,6 +1030,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
           <div
             class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
           >
             07890 123456
@@ -1067,7 +1073,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -1075,7 +1081,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                 <span
                   class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                 >
                   <svg
@@ -1140,7 +1146,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -1148,7 +1154,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                 <span
                   class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                 >
                   <svg
@@ -1237,7 +1243,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -1245,7 +1251,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                 <span
                   class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                 >
                   <svg
@@ -1322,6 +1328,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
           <div
             class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
           >
             01234 567890
@@ -1364,7 +1371,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -1372,7 +1379,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                 <span
                   class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                 >
                   <svg
@@ -1449,6 +1456,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
           <div
             class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
           >
             03242343244
@@ -1491,7 +1499,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -1499,7 +1507,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                 <span
                   class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                 >
                   <svg
@@ -1576,6 +1584,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
           <div
             class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
           >
             example@email.com
@@ -1618,7 +1627,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -1626,7 +1635,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                 <span
                   class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                 >
                   <svg
@@ -1698,6 +1707,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
           <div
             class="mock-css.
   text-align: left;
+  font-size: var(--font-size-default);
 "
           >
             Mr John Smith
@@ -1740,7 +1750,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -1748,7 +1758,7 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
                 <span
                   class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
                 >
                   <svg

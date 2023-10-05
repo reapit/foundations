@@ -32,6 +32,7 @@ export const contactOptionRow = css`
 
 export const contactOptionValue = css`
   text-align: left;
+  font-size: var(--font-size-default);
 `
 export const contactOptionIcons = css`
   display: flex;
@@ -56,7 +57,7 @@ export const FaIconWrap = styled.div`
   margin: 0 0.65rem;
 
   svg {
-    color: black;
+    color: var(--color-grey-500);
     height: 100%;
     width: 100%;
   }
