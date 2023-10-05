@@ -1,16 +1,19 @@
 import * as React from 'react'
-import logo from '@/assets/images/reapit-connect.png'
-import RowSection from '@/components/ui/section'
-import developerPortalImage from '@/assets/images/DeveloperPortalGraphic.jpg'
-import marketplaceGraphicImage from '@/assets/images/MarketplaceGraphic.jpg'
-import mainHeadingGraphicImage from '@/assets/images/MainHeadingGraphic.jpg'
-import agencyCloudGraphicImage from '@/assets/images/AgencyCloudGraphic.jpg'
-import { logoWrapStyle, logoStyle, buttonStyle, developerPortalButton, marketplaceButton } from './__styles__'
-import { cx } from '@linaria/core'
-import { useReapitConnect, ReapitConnectHook } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { URLS } from '@/constants/urls'
-import { MainContainer, PageContainer } from '@reapit/elements'
+import { ReapitConnectHook, useReapitConnect } from '@reapit/connect-session'
+import { URLS } from '../../../constants/urls'
+import {
+  BodyText,
+  FlexContainer,
+  Icon,
+  MainContainer,
+  PageContainer,
+  SmallText,
+  Subtitle,
+  elMb7,
+  elMr5,
+} from '@reapit/elements'
+import { LoginContainer, LoginContentWrapper, LoginRoleTile } from './__styles__'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 type WelcomeProps = {}
 
@@ -33,65 +36,69 @@ export const Welcome: React.FC<WelcomeProps> = () => {
 
   return (
     <MainContainer>
-      <PageContainer style={{ paddingLeft: 0, paddingRight: 0 }}>
-        <div className={logoWrapStyle}>
-          <img className={logoStyle} src={logo} alt="logo" />
-        </div>
-        <RowSection
-          heading="Welcome to Reapit Connect"
-          subheading="Your account has been successfully created"
-          description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
-          image={mainHeadingGraphicImage}
-        />
-        {isShowAgencyCloudSection && (
-          <RowSection
-            background="#015b73"
-            heading="Agency Cloud"
-            subheading="Account Successfully Created"
-            description="If you have Agency Cloud already installed on your machine, you can now login via Reapit Connect with your new credentials. If not, please contact your IT Department or Administrator to arrange installation."
-            image={agencyCloudGraphicImage}
-          />
-        )}
-        {isDeveloper && (
-          <RowSection
-            background="#209bd4"
-            heading="Developer Portal"
-            subheading="A self-service platform"
-            description="The Foundations Developer Portal provides a fully scalable, high-performance platform that developers can
-        quickly onboard in minutes to build powerful new apps that can be published directly to the Reapit App
-        Marketplace to extend Agency Cloud and Property Cloud functionality."
-            image={developerPortalImage}
-            button={
-              <a
-                className={cx('button', buttonStyle, developerPortalButton)}
-                target="_blank"
-                rel="noopener noreferrer"
-                href={URLS[appEnv].developerPortal}
-              >
-                DEVELOPER PORTAL
-              </a>
-            }
-          />
-        )}
-        {(isDeveloper || isShowAgencyCloudSection) && (
-          <RowSection
-            background="#1e2554"
-            heading="Marketplace"
-            subheading="Enhancing the power of Agency Cloud"
-            description="The Foundations App Marketplace provides agencies with a variety of app and software integrations that have been tested and approved for immediate integration, allowing agencies to customise their Reapit CRM software to suit their business needs."
-            image={marketplaceGraphicImage}
-            button={
-              <a
-                className={cx('button', buttonStyle, marketplaceButton)}
-                target="_blank"
-                rel="noopener noreferrer"
-                href={URLS[appEnv].marketplacePortal}
-              >
-                Marketplace
-              </a>
-            }
-          />
-        )}
+      <PageContainer>
+        <LoginContainer>
+          <LoginContentWrapper>
+            <Icon className={elMb7} height="40px" width="200px" icon="reapitLogoInfographic" />
+            <Subtitle hasNoMargin hasCenteredText>
+              Welcome to Reapit Connect
+            </Subtitle>
+            <BodyText hasCenteredText>Your account has been successfully created</BodyText>
+            <BodyText hasCenteredText>
+              Reapit Connect is our single sign on solution which allows you to seamlessly access products and services
+              provided by Reapit Ltd.
+            </BodyText>
+            {isShowAgencyCloudSection && (
+              <LoginRoleTile>
+                <FlexContainer>
+                  <Icon className={elMr5} fontSize="4rem" icon="agencyCloudInfographic" />
+                  <FlexContainer isFlexJustifyCenter isFlexColumn>
+                    <BodyText>Agency Cloud</BodyText>
+                    <SmallText hasGreyText hasNoMargin>
+                      If you have Agency Cloud already installed on your machine, you can now login via Reapit Connect
+                      with your new credentials. If not, please contact your IT Department or Administrator to arrange
+                      installation.
+                    </SmallText>
+                  </FlexContainer>
+                </FlexContainer>
+              </LoginRoleTile>
+            )}
+            {isDeveloper && (
+              <LoginRoleTile>
+                <a href={URLS[appEnv].developerPortal} target="_blank" rel="noopener noreferrer">
+                  <FlexContainer>
+                    <Icon className={elMr5} fontSize="4rem" icon="developerAppsInfographic" />
+                    <FlexContainer isFlexJustifyCenter isFlexColumn>
+                      <BodyText>Developer Portal</BodyText>
+                      <SmallText hasGreyText hasNoMargin>
+                        The Foundations Developer Portal provides a fully scalable, high-performance platform that
+                        developers can quickly onboard in minutes to build powerful new apps that can be published
+                        directly to the Reapit App Marketplace to extend Agency Cloud and Property Cloud functionality.
+                      </SmallText>
+                    </FlexContainer>
+                  </FlexContainer>
+                </a>
+              </LoginRoleTile>
+            )}
+            {(isDeveloper || isShowAgencyCloudSection) && (
+              <LoginRoleTile>
+                <a href={URLS[appEnv].marketplacePortal} target="_blank" rel="noopener noreferrer">
+                  <FlexContainer>
+                    <Icon className={elMr5} fontSize="4rem" icon="appMarketInfographic" />
+                    <FlexContainer isFlexJustifyCenter isFlexColumn>
+                      <BodyText>AppMarket</BodyText>
+                      <SmallText hasGreyText hasNoMargin>
+                        The Reapit AppMarket provides agencies with a variety of app and software integrations that have
+                        been tested and approved for immediate integration, allowing agencies to customise their Reapit
+                        CRM software to suit their business needs
+                      </SmallText>
+                    </FlexContainer>
+                  </FlexContainer>
+                </a>
+              </LoginRoleTile>
+            )}
+          </LoginContentWrapper>
+        </LoginContainer>
       </PageContainer>
     </MainContainer>
   )

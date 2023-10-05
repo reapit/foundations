@@ -12,6 +12,7 @@ import {
   Button,
   ButtonGroup,
   elFadeIn,
+  elMb3,
   elP8,
   ElToggleItem,
   FormLayout,
@@ -243,7 +244,13 @@ export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup,
           </Toggle>
         </InputWrap>
         <InputWrapFull>
-          <InputGroup onChange={debouncedSearch} icon="searchSystem" placeholder="Search" label="Offices" />
+          <InputGroup
+            className={elMb3}
+            onChange={debouncedSearch}
+            icon="searchSystem"
+            placeholder="Search"
+            label="Offices"
+          />
           <MultiSelectInput
             id={`office-group-edit-edit-ids-${officeGroup.id}`}
             noneSelectedLabel="No offices selected for this group"

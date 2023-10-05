@@ -109,7 +109,6 @@ export const ElMultiSelectSelected = styled.div`
   padding: 0.25rem 0.5rem;
   background-color: var(--color-white);
   border: 1px solid var(--color-grey-100);
-  border-bottom: none;
   border-radius: 2px 2px 0 0;
   min-height: 3rem;
   padding: 0.25rem 0.5rem;
@@ -128,6 +127,7 @@ export const ElMultiSelectUnSelected = styled.div`
   padding: 0.25rem 0.5rem;
   background-color: var(--color-white);
   border: 1px solid var(--color-grey-100);
+  border-top: none;
   border-radius: 0 0 4px 4px;
   padding: 0.25rem 0.5rem;
   position: relative;

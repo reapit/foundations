@@ -2,9 +2,8 @@ import React, { FC } from 'react'
 import { useNavigate } from 'react-router'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import Routes from '../../../constants/routes'
-import { Card, elFadeIn } from '@reapit/elements'
+import { Card, PlaceholderImage, elFadeIn } from '@reapit/elements'
 import { navigateRoute } from '../../../utils/navigation'
-import defaultAppIcon from '../../../assets/images/default-app-icon.jpg'
 import { cx } from '@linaria/core'
 import { cardCursor } from './__styles__'
 
@@ -25,7 +24,7 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
       mainCardHeading={name}
       mainCardSubHeading={developer}
       mainCardSubHeadingAdditional={isDirectApi ? 'Integration' : ''}
-      mainCardImgUrl={iconUri ?? defaultAppIcon}
+      mainCardAvatarUrl={iconUri ?? <PlaceholderImage placeholder="placeholderSmall" size={50} />}
     />
   )
 }

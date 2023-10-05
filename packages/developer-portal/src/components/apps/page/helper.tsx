@@ -194,7 +194,6 @@ export const Helper: FC = () => {
                 intent="primary"
                 loading={isRefreshing}
                 onClick={handleSetAppEditSaving(setAppEditSaving, true, openModal, developerStatus)}
-                chevronRight
               >
                 Submit Review
               </Button>
@@ -243,7 +242,6 @@ export const Helper: FC = () => {
                   intent="primary"
                   loading={isRefreshing}
                   onClick={handleSetAppEditSaving(setAppEditSaving, true, openModal, developerStatus)}
-                  chevronRight
                 >
                   Create Revision
                 </Button>
@@ -321,7 +319,7 @@ export const Helper: FC = () => {
             </BodyText>
           )}
           <ButtonGroup alignment="right">
-            <Button intent="neutral" onClick={closeModalDelete}>
+            <Button intent="default" onClick={closeModalDelete}>
               Cancel
             </Button>
             <Button
@@ -358,7 +356,7 @@ export const Helper: FC = () => {
         </SmallText>
         <SmallText hasGreyText>You can also request that the email is re-sent to each customer individually.</SmallText>
         <ButtonGroup>
-          <Button intent="neutral" onClick={openNewPage(ExternalPages.appPermissionsDocs)}>
+          <Button intent="default" onClick={openNewPage(ExternalPages.appPermissionsDocs)}>
             View Docs
           </Button>
         </ButtonGroup>
@@ -376,7 +374,7 @@ export const Helper: FC = () => {
           created an app before or you need help, please take the time to view our getting started guide.
         </SmallText>
         <ButtonGroup className={elMb3}>
-          <Button intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
+          <Button intent="default" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
             View Docs
           </Button>
         </ButtonGroup>
@@ -394,7 +392,7 @@ export const Helper: FC = () => {
         created an app before or you need help, please take the time to view our getting started guide.
       </SmallText>
       <ButtonGroup>
-        <Button intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
+        <Button intent="default" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
           View Docs
         </Button>
       </ButtonGroup>

@@ -41,7 +41,6 @@ export const WebhooksAbout: FC = () => {
           <Button
             onMouseEnter={handleNewMouseOver(setNewIsAnimated, true)}
             onMouseLeave={handleNewMouseOver(setNewIsAnimated, false)}
-            chevronRight
             intent="primary"
             onClick={navigateRoute(navigate, Routes.WEBHOOKS_NEW)}
           >

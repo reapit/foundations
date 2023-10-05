@@ -12,11 +12,6 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Admin
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -424,11 +419,6 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Admin
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -893,11 +883,6 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Admin
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1102,11 +1087,6 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Admin
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1368,11 +1348,6 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Admin
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1655,11 +1630,6 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Admin
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1999,11 +1969,6 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Admin
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -2360,11 +2325,6 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Admin
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;

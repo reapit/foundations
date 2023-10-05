@@ -12,16 +12,7 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Offices
-          </mock-styled.h1>
-          <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2rem;
-"
-          >
+          <mock-styled.div>
             <mock-styled.div
               classname=""
             >
@@ -52,11 +43,11 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
   margin-bottom: 0.75rem;
 "
           >
-            <mock-styled.h2
+            <mock-styled.p
               classname=""
             >
               Organisations
-            </mock-styled.h2>
+            </mock-styled.p>
             <mock-styled.p
               classname="mock-css."
             >
@@ -195,16 +186,7 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Offices
-        </mock-styled.h1>
-        <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2rem;
-"
-        >
+        <mock-styled.div>
           <mock-styled.div
             classname=""
           >
@@ -235,11 +217,11 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
   margin-bottom: 0.75rem;
 "
         >
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Organisations
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -435,16 +417,7 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Offices
-          </mock-styled.h1>
-          <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2rem;
-"
-          >
+          <mock-styled.div>
             <mock-styled.div
               classname=""
             >
@@ -475,11 +448,11 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
   margin-bottom: 0.75rem;
 "
           >
-            <mock-styled.h2
+            <mock-styled.p
               classname=""
             >
               Organisations
-            </mock-styled.h2>
+            </mock-styled.p>
             <mock-styled.p
               classname="mock-css."
             >
@@ -618,16 +591,7 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Offices
-        </mock-styled.h1>
-        <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2rem;
-"
-        >
+        <mock-styled.div>
           <mock-styled.div
             classname=""
           >
@@ -658,11 +622,11 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
   margin-bottom: 0.75rem;
 "
         >
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Organisations
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -858,16 +822,7 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Offices
-          </mock-styled.h1>
-          <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2rem;
-"
-          >
+          <mock-styled.div>
             <mock-styled.div
               classname=""
             >
@@ -898,11 +853,11 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
   margin-bottom: 0.75rem;
 "
           >
-            <mock-styled.h2
+            <mock-styled.p
               classname=""
             >
               Organisations
-            </mock-styled.h2>
+            </mock-styled.p>
             <mock-styled.p
               classname="mock-css."
             >
@@ -1041,16 +996,7 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Offices
-        </mock-styled.h1>
-        <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2rem;
-"
-        >
+        <mock-styled.div>
           <mock-styled.div
             classname=""
           >
@@ -1081,11 +1027,11 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
   margin-bottom: 0.75rem;
 "
         >
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Organisations
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >

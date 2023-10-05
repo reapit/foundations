@@ -26,33 +26,22 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
 "
           >
             <mock-styled.div
-              classname="mock-css.
-  justify-content: space-between;
-"
+              classname=""
             >
-              <mock-styled.div
-                classname=""
-              >
-                <img
-                  alt="logo"
-                  class="mock-css.
+              <img
+                alt="logo"
+                class="mock-css.
   margin-right: 0.625rem;
 "
-                  height="34"
-                  src="https://logo.png"
-                />
-                <mock-styled.h1
-                  classname=""
-                >
-                  Card Payment
-                  , requested by Reapit Ltd
-                </mock-styled.h1>
-              </mock-styled.div>
-              <mock-styled.div>
-                <img
-                  src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-                />
-              </mock-styled.div>
+                height="34"
+                src="https://logo.png"
+              />
+              <mock-styled.h1
+                classname=""
+              >
+                Card Payment
+                , requested by Reapit Ltd
+              </mock-styled.h1>
             </mock-styled.div>
             <mock-styled.h2
               classname=""
@@ -1779,33 +1768,22 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
 "
         >
           <mock-styled.div
-            classname="mock-css.
-  justify-content: space-between;
-"
+            classname=""
           >
-            <mock-styled.div
-              classname=""
-            >
-              <img
-                alt="logo"
-                class="mock-css.
+            <img
+              alt="logo"
+              class="mock-css.
   margin-right: 0.625rem;
 "
-                height="34"
-                src="https://logo.png"
-              />
-              <mock-styled.h1
-                classname=""
-              >
-                Card Payment
-                , requested by Reapit Ltd
-              </mock-styled.h1>
-            </mock-styled.div>
-            <mock-styled.div>
-              <img
-                src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-              />
-            </mock-styled.div>
+              height="34"
+              src="https://logo.png"
+            />
+            <mock-styled.h1
+              classname=""
+            >
+              Card Payment
+              , requested by Reapit Ltd
+            </mock-styled.h1>
           </mock-styled.div>
           <mock-styled.h2
             classname=""

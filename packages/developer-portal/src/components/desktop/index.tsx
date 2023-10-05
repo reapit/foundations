@@ -140,7 +140,7 @@ export const VideoSection: FC = () => {
           allowFullScreen
         />
         <ButtonGroup alignment="right">
-          <Button onClick={closeModal} intent="neutral">
+          <Button onClick={closeModal} intent="default">
             Close
           </Button>
         </ButtonGroup>
@@ -183,12 +183,7 @@ export const SubscribeSection: FC = () => {
                 <PriceSection>
                   <h3>{desktopIsFree ? 'FREE' : '£300'}</h3>
                   <div className={elFadeIn}>per licence / per month</div>
-                  <Button
-                    onClick={handleSetSubscribingState(setSubscribingState, 'SUBSCRIBE_NOW')}
-                    intent="primary"
-                    chevronRight
-                    fullWidth
-                  >
+                  <Button onClick={handleSetSubscribingState(setSubscribingState, 'SUBSCRIBE_NOW')} intent="primary">
                     Subscribe Now
                   </Button>
                 </PriceSection>
@@ -203,19 +198,10 @@ export const SubscribeSection: FC = () => {
                     to install it.
                   </BodyText>
                   <SubscribeButtonContainer>
-                    <Button
-                      intent="primary"
-                      fullWidth
-                      onClick={handleSetSubscribingState(setSubscribingState, 'INITIAL')}
-                    >
+                    <Button intent="primary" onClick={handleSetSubscribingState(setSubscribingState, 'INITIAL')}>
                       Cancel
                     </Button>
-                    <Button
-                      intent="primary"
-                      chevronRight
-                      fullWidth
-                      onClick={handleSetSubscribingState(setSubscribingState, 'CONFIRMING')}
-                    >
+                    <Button intent="primary" onClick={handleSetSubscribingState(setSubscribingState, 'CONFIRMING')}>
                       Subscribe
                     </Button>
                   </SubscribeButtonContainer>

@@ -153,7 +153,7 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
             >
               Cancel
             </Button>
-            <Button intent="primary" chevronRight type="submit" disabled={pingingWebhook}>
+            <Button intent="primary" type="submit" disabled={pingingWebhook}>
               Test
             </Button>
           </ButtonGroup>

@@ -112,7 +112,7 @@ export const AnalyticsCalculator: FC = () => {
           </InputWrap>
         </FormLayout>
         <ButtonGroup className={elMb11}>
-          <Button intent="neutral" type="button" onClick={onClear as () => void}>
+          <Button intent="default" type="button" onClick={onClear as () => void}>
             Clear
           </Button>
           <Button intent="primary" type="submit">

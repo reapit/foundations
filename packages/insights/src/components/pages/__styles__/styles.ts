@@ -71,7 +71,6 @@ export const MetabaseContainer = styled.div`
 `
 
 export const ControlsContainer = styled.div`
-  padding: 0.75rem 0.5rem;
   background-color: #fff;
   width: 100%;
 `

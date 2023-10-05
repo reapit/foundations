@@ -125,7 +125,7 @@ export const EditUserForm: FC<EditUserFormProps> = ({ onComplete, user, orgId })
         </InputWrapFull>
       </FormLayout>
       <ButtonGroup alignment="right">
-        <Button intent="primary" onClick={onComplete} type="button">
+        <Button intent="neutral" onClick={onComplete} type="button">
           Cancel
         </Button>
         <Button intent="primary" type="submit">

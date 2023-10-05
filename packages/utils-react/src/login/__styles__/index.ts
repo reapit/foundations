@@ -40,7 +40,7 @@ export const LoginRoleTile = styled.div`
 `
 
 export const LoginContentWrapper = styled.div`
-  max-width: 25rem;
+  max-width: 27rem;
   pointer-events: auto;
   display: flex;
   flex-wrap: wrap;
@@ -48,6 +48,10 @@ export const LoginContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin: auto;
+  background-color: var(--color-white);
+  padding: 1.25rem;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
 
   img {
     margin: 0 auto 3rem auto;

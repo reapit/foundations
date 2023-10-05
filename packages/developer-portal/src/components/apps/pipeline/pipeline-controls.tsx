@@ -257,7 +257,7 @@ export const PipelineControls: FC = () => {
             Delete Pipeline
           </Button>
         )}
-        <Button intent="neutral" onClick={openNewPage(ExternalPages.iaasDocs)}>
+        <Button intent="default" onClick={openNewPage(ExternalPages.iaasDocs)}>
           View Docs
         </Button>
       </ButtonGroup>
@@ -267,7 +267,7 @@ export const PipelineControls: FC = () => {
           cannot be recovered.
         </BodyText>
         <ButtonGroup alignment="right">
-          <Button intent="neutral" onClick={closeModal}>
+          <Button intent="default" onClick={closeModal}>
             Close
           </Button>
           <Button intent="danger" onClick={handleDeletePipeline(deleteFunc, closeModal)}>

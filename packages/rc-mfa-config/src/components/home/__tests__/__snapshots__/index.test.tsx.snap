@@ -12,11 +12,6 @@ exports[`HomePage should render component when loading 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Configure
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -78,11 +73,6 @@ exports[`HomePage should render component when loading 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Configure
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -201,11 +191,6 @@ exports[`HomePage should render component with data 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Configure
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -388,11 +373,6 @@ exports[`HomePage should render component with data 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Configure
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -632,11 +612,6 @@ exports[`HomePage should render component with no data 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Configure
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -749,11 +724,6 @@ exports[`HomePage should render component with no data 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Configure
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;

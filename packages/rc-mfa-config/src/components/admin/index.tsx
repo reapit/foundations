@@ -114,7 +114,6 @@ export const AdminPage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Admin</Title>
         <Icon className={elMb5} icon="userAuthInfographic" iconSize="large" />
         <Subtitle>Your User Config</Subtitle>
         <SmallText hasGreyText>

@@ -1,44 +1,20 @@
-import { KeyAnimation } from '@reapit/utils-react'
-import React, { FC, useState } from 'react'
-import { ReactComponent as ReapitLogo } from '../../assets/images/reapit-logo.svg'
-import {
-  FlexContainer,
-  Subtitle,
-  Icon,
-  useModal,
-  BodyText,
-  elMb7,
-  elPx6,
-  elMr5,
-  SmallText,
-  Title,
-} from '@reapit/elements'
+import React, { FC } from 'react'
+import { FlexContainer, Subtitle, Icon, useModal, BodyText, elMb7, elPx6, elMr5, SmallText } from '@reapit/elements'
 import { onLoginButtonClick } from '.'
-import { LoginContainer, LoginContentWrapper, LoginImageContainer, LoginRoleTile } from './__styles__'
+import { LoginContainer, LoginContentWrapper, LoginRoleTile } from './__styles__'
 import { cx } from '@linaria/core'
 
 export const SelectRolePage: FC = () => {
-  const [keyStep, setKeyStep] = useState<1 | 2 | 3>(1)
   const { Modal, openModal } = useModal()
 
   return (
     <LoginContainer>
-      <LoginImageContainer>
-        <KeyAnimation step={keyStep} />
-      </LoginImageContainer>
-      <LoginContentWrapper
-        onMouseOver={() => {
-          setKeyStep(3)
-        }}
-        onMouseOut={() => {
-          setKeyStep(1)
-        }}
-      >
-        <ReapitLogo />
-        <Title hasNoMargin hasCenteredText>
+      <LoginContentWrapper>
+        <Icon className={elMb7} height="40px" width="200px" icon="reapitLogoInfographic" />
+        <Subtitle hasNoMargin hasCenteredText>
           Select an option to register
-        </Title>
-        <Subtitle hasCenteredText>that best describes you</Subtitle>
+        </Subtitle>
+        <BodyText hasCenteredText>that best describes you</BodyText>
         <LoginRoleTile>
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLScn5aNAt2hem0j-zRFhxd8i6ToaJOCYu5ktIN9PVyHuXuPI-w/viewform?vc=0&c=0&w=1&flr=0"
@@ -74,7 +50,7 @@ export const SelectRolePage: FC = () => {
           </a>
         </LoginRoleTile>
         <LoginRoleTile>
-          <FlexContainer onClick={onLoginButtonClick()}>
+          <FlexContainer onClick={onLoginButtonClick}>
             <Icon className={elMr5} fontSize="4rem" icon="foundationsCustomerInfographic" />
             <FlexContainer isFlexJustifyCenter isFlexColumn>
               <BodyText>Existing Customer</BodyText>

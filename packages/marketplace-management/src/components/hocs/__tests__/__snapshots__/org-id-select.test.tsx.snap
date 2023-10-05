@@ -10,11 +10,11 @@ exports[`OrgIdSelect should match a snapshot 1`] = `
   margin-bottom: 0.75rem;
 "
       >
-        <mock-styled.h2
+        <mock-styled.p
           classname=""
         >
           Organisations
-        </mock-styled.h2>
+        </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
         >
@@ -64,11 +64,11 @@ exports[`OrgIdSelect should match a snapshot 1`] = `
   margin-bottom: 0.75rem;
 "
     >
-      <mock-styled.h2
+      <mock-styled.p
         classname=""
       >
         Organisations
-      </mock-styled.h2>
+      </mock-styled.p>
       <mock-styled.p
         classname="mock-css."
       >

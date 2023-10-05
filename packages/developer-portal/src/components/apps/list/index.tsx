@@ -32,7 +32,7 @@ export const AppsList: FC = () => {
         <Modal title="Controls">
           <Helper />
           <ButtonGroup alignment="right">
-            <Button intent="neutral" onClick={closeModal}>
+            <Button intent="default" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>

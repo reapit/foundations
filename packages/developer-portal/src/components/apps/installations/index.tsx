@@ -155,7 +155,7 @@ export const AppInstallations: FC = () => {
         <ModalDocs title="Controls">
           <Helper />
           <ButtonGroup alignment="right">
-            <Button intent="neutral" onClick={closeModalDocs}>
+            <Button intent="default" onClick={closeModalDocs}>
               Close
             </Button>
           </ButtonGroup>
@@ -266,7 +266,7 @@ export const AppInstallations: FC = () => {
                 </InputWrapFull>
               </FormLayout>
               <ButtonGroup alignment="right">
-                <Button intent="neutral" type="button" onClick={closeModal}>
+                <Button intent="default" type="button" onClick={closeModal}>
                   Close
                 </Button>
                 <Button disabled={uninstalling} loading={uninstalling} intent="danger" type="submit">

@@ -10,7 +10,7 @@ import {
   getInstallationsForOfficeGroups,
   getInstallationsForWholeOrg,
 } from './app-installation-manager'
-import { Card, elFadeIn } from '@reapit/elements'
+import { Card, PlaceholderImage, elFadeIn } from '@reapit/elements'
 import { useOrgId } from '../../../utils/use-org-id'
 import { navigateRoute } from '../nav/nav'
 import { useNavigate } from 'react-router'
@@ -75,7 +75,7 @@ export const AppCard: FC<AppCardProps> = ({ app, connectSession }: AppCardProps)
       mainCardSubHeading={app.developer}
       mainCardSubHeadingAdditional={app.isDirectApi ? 'Integration' : ''}
       mainCardBody={app.summary}
-      mainCardImgUrl={app.iconUri || defaultAppIcon}
+      mainCardAvatarUrl={app.iconUri ?? <PlaceholderImage placeholder="placeholderSmall" size={50} />}
       listCardHeading="Installation and Visibility"
       listCardItems={[
         {

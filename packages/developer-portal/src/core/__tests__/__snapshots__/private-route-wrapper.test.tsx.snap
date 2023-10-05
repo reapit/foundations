@@ -46,11 +46,12 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
               />
             </mock-styled.span>
             <mock-styled.span
-              classname="mock-css.
-  font-size: 2.5rem;
-"
+              classname=""
+              style="height: 24px; width: 100px;"
             >
-              <svg />
+              <svg
+                style="height: 24px; width: 100px;"
+              />
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
@@ -188,11 +189,6 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
             </mock-styled.a>
           </mock-styled.div>
           <mock-styled.a
-            classname=""
-          >
-            AppMarket
-          </mock-styled.a>
-          <mock-styled.a
             classname="mock-css.
   @media screen and (min-width: 768px) {
     margin-left: auto;
@@ -296,11 +292,12 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
             />
           </mock-styled.span>
           <mock-styled.span
-            classname="mock-css.
-  font-size: 2.5rem;
-"
+            classname=""
+            style="height: 24px; width: 100px;"
           >
-            <svg />
+            <svg
+              style="height: 24px; width: 100px;"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -437,11 +434,6 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
             </span>
           </mock-styled.a>
         </mock-styled.div>
-        <mock-styled.a
-          classname=""
-        >
-          AppMarket
-        </mock-styled.a>
         <mock-styled.a
           classname="mock-css.
   @media screen and (min-width: 768px) {

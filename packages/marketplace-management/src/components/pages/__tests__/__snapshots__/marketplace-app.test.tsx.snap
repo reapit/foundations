@@ -145,11 +145,6 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Apps
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -159,11 +154,11 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Marketplace Visibility and Installation Management
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -443,11 +438,6 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Apps
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -457,11 +447,11 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.h2
+        <mock-styled.p
           classname=""
         >
           Marketplace Visibility and Installation Management
-        </mock-styled.h2>
+        </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
         >
@@ -798,11 +788,6 @@ exports[`MarketplaceAppPage should match a snapshot when loading 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Apps
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -812,11 +797,11 @@ exports[`MarketplaceAppPage should match a snapshot when loading 1`] = `
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Marketplace Visibility and Installation Management
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -865,11 +850,6 @@ exports[`MarketplaceAppPage should match a snapshot when loading 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Apps
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -879,11 +859,11 @@ exports[`MarketplaceAppPage should match a snapshot when loading 1`] = `
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.h2
+        <mock-styled.p
           classname=""
         >
           Marketplace Visibility and Installation Management
-        </mock-styled.h2>
+        </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
         >
@@ -989,11 +969,6 @@ exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Apps
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1003,11 +978,11 @@ exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Marketplace Visibility and Installation Management
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -1018,11 +993,11 @@ exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 
   margin-bottom: 0.75rem;
 "
           >
-            <mock-styled.h2
+            <mock-styled.p
               classname=""
             >
               Organisations
-            </mock-styled.h2>
+            </mock-styled.p>
             <mock-styled.p
               classname="mock-css."
             >
@@ -1134,11 +1109,6 @@ exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Apps
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1148,11 +1118,11 @@ exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.h2
+        <mock-styled.p
           classname=""
         >
           Marketplace Visibility and Installation Management
-        </mock-styled.h2>
+        </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
         >
@@ -1163,11 +1133,11 @@ exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 
   margin-bottom: 0.75rem;
 "
         >
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Organisations
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >

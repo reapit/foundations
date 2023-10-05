@@ -1,4 +1,4 @@
-import { BodyText, elBorderRadius, elMb5, elWFull, InputGroup, Label, Select, Subtitle } from '@reapit/elements'
+import { BodyText, elBorderRadius, elMb5, elWFull, InputGroup, Label, Select, SmallText } from '@reapit/elements'
 import React, { FC } from 'react'
 import { useOrgId } from '../../utils/use-org-id'
 import { ControlsContainer } from './__styles__/index'
@@ -13,11 +13,11 @@ export const OrgIdSelect: FC = () => {
 
   return (
     <div className={elMb5}>
-      <Subtitle>Organisations</Subtitle>
-      <BodyText hasGreyText>
+      <BodyText>Organisations</BodyText>
+      <SmallText hasGreyText>
         You are an admin for multiple organisations - select from the list below for data specific to one of these
         organisations
-      </BodyText>
+      </SmallText>
       <ControlsContainer className={elBorderRadius}>
         <InputGroup>
           <Select className={elWFull} value={orgId ?? ''} onChange={setOrgIdState}>

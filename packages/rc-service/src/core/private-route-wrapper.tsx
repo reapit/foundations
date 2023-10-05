@@ -23,7 +23,7 @@ import { openNewPage } from '../utils/navigation'
 export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
-  const currentUri = `${location?.pathname}${location?.search}`
+  const currentUri = location?.pathname
   const { isAdmin, isFoundationsAdmin } = getIsAdmin(connectSession)
 
   if (!connectSession) {
@@ -57,7 +57,6 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
       <Nav />
       <FlexContainer isFlexAuto>
         <SecondaryNavContainer>
-          <Title>Service App</Title>
           <Icon className={elMb5} icon="leadGenerationInfographic" iconSize="large" />
           <SmallText hasGreyText>
             This app will allow Reapit Employees to manage Reapit Connect user accounts. Specially, you can see

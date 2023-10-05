@@ -59,7 +59,7 @@ const DocsPage: FC = () => {
             You can also visit us on Github where you can raise and track issues, look at code examples and view our
             milestones.
           </SmallText>
-          <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.github)}>
+          <Button className={elMb5} intent="default" onClick={openNewPage(ExternalPages.github)}>
             Go to Github
           </Button>
           {isDocsPage && (

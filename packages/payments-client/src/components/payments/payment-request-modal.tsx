@@ -237,7 +237,7 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
           {errors.sessionExpiresAt?.message && <InputError message={errors.sessionExpiresAt.message} />}
         </InputWrapFull>
       </FormLayout>
-      <ButtonGroup alignment="center">
+      <ButtonGroup alignment="right">
         <Button intent="default" onClick={closeModal} type="button" disabled={isLoading}>
           Cancel
         </Button>

@@ -95,7 +95,7 @@ export const Controls: FC = () => {
             Invite Developer
           </Button>
         )}
-        <Button onClick={handleLogout(connectLogoutRedirect)} intent="neutral" chevronRight>
+        <Button onClick={handleLogout(connectLogoutRedirect)} intent="primary">
           Logout
         </Button>
       </ButtonGroup>
@@ -145,7 +145,7 @@ export const Controls: FC = () => {
             </InputWrapFull>
           </FormLayout>
           <ButtonGroup alignment="right">
-            <Button intent="neutral" onClick={closeModal}>
+            <Button intent="default" onClick={closeModal}>
               Close
             </Button>
             <Button intent="primary" type="submit">

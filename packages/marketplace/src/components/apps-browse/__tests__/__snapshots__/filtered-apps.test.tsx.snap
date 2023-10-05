@@ -35,9 +35,9 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
 "
           >
             <mock-styled.div>
-              <mock-styled.mock-styled.div>
+              <mock-styled.div>
                 <mock-styled.div
-                  style="font-size: 2.1875em; width: 56px; height: 56px;"
+                  style="font-size: 1.953125em; width: 50px; height: 50px;"
                 >
                   <svg
                     fill="none"
@@ -52,9 +52,9 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
                     />
                   </svg>
                 </mock-styled.div>
-              </mock-styled.mock-styled.div>
+              </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.h5>
                   MOCK_APP_NAME
@@ -110,9 +110,9 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
 "
           >
             <mock-styled.div>
-              <mock-styled.mock-styled.div>
+              <mock-styled.div>
                 <mock-styled.div
-                  style="font-size: 2.1875em; width: 56px; height: 56px;"
+                  style="font-size: 1.953125em; width: 50px; height: 50px;"
                 >
                   <svg
                     fill="none"
@@ -127,9 +127,9 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
                     />
                   </svg>
                 </mock-styled.div>
-              </mock-styled.mock-styled.div>
+              </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.h5>
                   MOCK_APP_NAME_ANOTHER
@@ -196,9 +196,9 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
 "
         >
           <mock-styled.div>
-            <mock-styled.mock-styled.div>
+            <mock-styled.div>
               <mock-styled.div
-                style="font-size: 2.1875em; width: 56px; height: 56px;"
+                style="font-size: 1.953125em; width: 50px; height: 50px;"
               >
                 <svg
                   fill="none"
@@ -213,9 +213,9 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
                   />
                 </svg>
               </mock-styled.div>
-            </mock-styled.mock-styled.div>
+            </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.h5>
                 MOCK_APP_NAME
@@ -271,9 +271,9 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
 "
         >
           <mock-styled.div>
-            <mock-styled.mock-styled.div>
+            <mock-styled.div>
               <mock-styled.div
-                style="font-size: 2.1875em; width: 56px; height: 56px;"
+                style="font-size: 1.953125em; width: 50px; height: 50px;"
               >
                 <svg
                   fill="none"
@@ -288,9 +288,9 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
                   />
                 </svg>
               </mock-styled.div>
-            </mock-styled.mock-styled.div>
+            </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.h5>
                 MOCK_APP_NAME_ANOTHER
