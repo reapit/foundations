@@ -54,11 +54,3 @@ package:
 functions:
   cognitoCustomMailerHandler:
     handler: src/app.cognitoCustomMailerHandler
-
-resources:
-  Outputs:
-    CustomMailerArn:
-      Value: 
-        Ref: cognitoCustomMailerHandler
-      Export:
-          Name: ${self:provider.stage}-CognitoCustomMailerHandlerArn
