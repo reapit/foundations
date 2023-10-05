@@ -88,11 +88,6 @@ exports[`Nav should match a snapshot 1`] = `
           Data
         </mock-styled.a>
         <mock-styled.a
-          classname=""
-        >
-          Apps
-        </mock-styled.a>
-        <mock-styled.a
           classname="mock-css.
   @media screen and (min-width: 768px) {
     margin-left: auto;
@@ -197,11 +192,6 @@ exports[`Nav should match a snapshot 1`] = `
         classname=""
       >
         Data
-      </mock-styled.a>
-      <mock-styled.a
-        classname=""
-      >
-        Apps
       </mock-styled.a>
       <mock-styled.a
         classname="mock-css.

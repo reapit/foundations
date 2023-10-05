@@ -12,11 +12,6 @@ exports[`Data should match a snapshot with data 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Data
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -26,11 +21,11 @@ exports[`Data should match a snapshot with data 1`] = `
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Support
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -59,14 +54,16 @@ exports[`Data should match a snapshot with data 1`] = `
             <mock-styled.div />
             View Docs
           </mock-styled.button>
-          <mock-styled.button
-            classname="mock-css.
+          <div>
+            <mock-styled.button
+              classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
-          >
-            <mock-styled.div />
-            Video
-          </mock-styled.button>
+            >
+              <mock-styled.div />
+              Video
+            </mock-styled.button>
+          </div>
           <mock-styled.button
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -373,14 +370,14 @@ exports[`Data should match a snapshot with data 1`] = `
                         disabled="false"
                       >
                         <mock-styled.div />
-                        Delete Share
+                        Refresh Share
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
                         disabled="false"
                       >
                         <mock-styled.div />
-                        Refresh Share
+                        Delete Share
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
@@ -400,11 +397,6 @@ exports[`Data should match a snapshot with data 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Data
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -414,11 +406,11 @@ exports[`Data should match a snapshot with data 1`] = `
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.h2
+        <mock-styled.p
           classname=""
         >
           Support
-        </mock-styled.h2>
+        </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
         >
@@ -447,14 +439,16 @@ exports[`Data should match a snapshot with data 1`] = `
           <mock-styled.div />
           View Docs
         </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
+        <div>
+          <mock-styled.button
+            classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
-        >
-          <mock-styled.div />
-          Video
-        </mock-styled.button>
+          >
+            <mock-styled.div />
+            Video
+          </mock-styled.button>
+        </div>
         <mock-styled.button
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -761,14 +755,14 @@ exports[`Data should match a snapshot with data 1`] = `
                       disabled="false"
                     >
                       <mock-styled.div />
-                      Delete Share
+                      Refresh Share
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="false"
                     >
                       <mock-styled.div />
-                      Refresh Share
+                      Delete Share
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -845,11 +839,6 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Data
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -859,11 +848,11 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Support
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -892,14 +881,16 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
             <mock-styled.div />
             View Docs
           </mock-styled.button>
-          <mock-styled.button
-            classname="mock-css.
+          <div>
+            <mock-styled.button
+              classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
-          >
-            <mock-styled.div />
-            Video
-          </mock-styled.button>
+            >
+              <mock-styled.div />
+              Video
+            </mock-styled.button>
+          </div>
           <mock-styled.button
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -965,11 +956,6 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Data
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -979,11 +965,11 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.h2
+        <mock-styled.p
           classname=""
         >
           Support
-        </mock-styled.h2>
+        </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
         >
@@ -1012,14 +998,16 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
           <mock-styled.div />
           View Docs
         </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
+        <div>
+          <mock-styled.button
+            classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
-        >
-          <mock-styled.div />
-          Video
-        </mock-styled.button>
+          >
+            <mock-styled.div />
+            Video
+          </mock-styled.button>
+        </div>
         <mock-styled.button
           classname="mock-css.
   margin-bottom: 0.75rem;

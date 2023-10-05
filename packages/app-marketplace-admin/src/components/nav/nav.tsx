@@ -27,7 +27,6 @@ export const Nav: FC = () => {
     {
       itemIndex: 1,
       text: 'Home',
-      iconId: 'appsMenu',
       callback: navigateRoute(navigate, RoutePaths.APPS_BROWSE_MANAGER),
     },
   ]

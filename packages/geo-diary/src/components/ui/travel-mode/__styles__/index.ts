@@ -11,7 +11,7 @@ export const ToggleTravelLabel = styled.label`
   cursor: pointer;
   height: 5rem;
   width: 2.5rem;
-  background: var(--color-blue-dark2);
+  background: var(--intent-primary);
   border-radius: 0.25rem;
   display: flex;
   flex-direction: column;

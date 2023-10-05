@@ -3,8 +3,6 @@ import * as sizes from '../../../../core/__styles__/sizes'
 import * as colors from '../../../../core/__styles__/colors'
 import { appointmentListWidthDesktop } from '../../../../core/__styles__/page-layout-variables'
 
-const menuOffSet = '5rem'
-
 export const drawerBg = css`
   position: fixed;
   top: 0;
@@ -16,7 +14,6 @@ export const drawerBg = css`
 
   @media (min-width: 769px) {
     width: ${appointmentListWidthDesktop};
-    left: ${menuOffSet};
   }
 `
 export const drawerBgOpen = css`
@@ -48,7 +45,6 @@ export const drawer = css`
 
   @media (min-width: 769px) {
     width: ${appointmentListWidthDesktop};
-    left: ${menuOffSet};
   }
 `
 export const drawerOpen = css`
