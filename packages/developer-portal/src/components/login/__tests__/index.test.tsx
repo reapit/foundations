@@ -13,8 +13,8 @@ describe('Login', () => {
 describe('onLoginButtonClick', () => {
   it('should run correctly', () => {
     const spyFn = jest.spyOn(reapitConnectBrowserSession, 'connectLoginRedirect')
-    const fn = onLoginButtonClick()
-    fn()
+    onLoginButtonClick()
+
     expect(spyFn).toBeCalled()
   })
 })

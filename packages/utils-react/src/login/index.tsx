@@ -1,5 +1,5 @@
 import React, { FC, useCallback } from 'react'
-import { BodyText, Button, ButtonGroup, Subtitle, Title, FlexContainer, elMb12, Icon, elMb7 } from '@reapit/elements'
+import { Button, ButtonGroup, Subtitle, FlexContainer, elMb12, Icon, elMb7, BodyText } from '@reapit/elements'
 import { LoginContainer, LoginContentWrapper } from './__styles__'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
@@ -23,15 +23,14 @@ export const Login: FC<LoginProps> = ({ appName, reapitConnectBrowserSession, re
       <LoginContentWrapper>
         <Icon className={elMb7} height="40px" width="200px" icon="reapitLogoInfographic" />
         <FlexContainer isFlexColumn>
-          <Title hasCenteredText>Welcome</Title>
-          <Subtitle hasCenteredText>{appName}</Subtitle>
+          <Subtitle hasCenteredText>Welcome</Subtitle>
+          <BodyText hasCenteredText>{appName}</BodyText>
         </FlexContainer>
         <ButtonGroup alignment="center" className={elMb12}>
           <Button onClick={loginUser} intent="primary" size={3}>
             Login With Reapit
           </Button>
         </ButtonGroup>
-        <BodyText hasGreyText>{process.env.APP_VERSION}</BodyText>
       </LoginContentWrapper>
     </LoginContainer>
   )

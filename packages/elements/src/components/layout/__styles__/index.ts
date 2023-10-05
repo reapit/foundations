@@ -16,7 +16,7 @@ export const ElPageContainer = styled.section`
   display: block;
   padding: 0.5rem 1.25rem;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 56px);
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: var(--color-white);

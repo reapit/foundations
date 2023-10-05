@@ -178,10 +178,10 @@ export const WebhooksControls: FC = () => {
         </>
       )}
       <ButtonGroup className={elMb7}>
-        <Button intent="neutral" onClick={openNewPage(ExternalPages.webhooksDocs)}>
+        <Button intent="default" onClick={openNewPage(ExternalPages.webhooksDocs)}>
           View Docs
         </Button>
-        <Button intent="neutral" onClick={openModal}>
+        <Button intent="default" onClick={openModal}>
           Video
         </Button>
       </ButtonGroup>
@@ -197,7 +197,7 @@ export const WebhooksControls: FC = () => {
           allowFullScreen
         />
         <ButtonGroup alignment="right">
-          <Button intent="neutral" onClick={closeModal}>
+          <Button intent="default" onClick={closeModal}>
             Close
           </Button>
         </ButtonGroup>

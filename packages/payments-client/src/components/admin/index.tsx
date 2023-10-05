@@ -30,7 +30,7 @@ import {
   Toggle,
   useModal,
 } from '@reapit/elements'
-import { ClientConfigCreateModel, ClientConfigDeleteModel, ClientConfigModel, PaymentLogo } from '@reapit/payments-ui'
+import { ClientConfigCreateModel, ClientConfigDeleteModel, ClientConfigModel } from '@reapit/payments-ui'
 import {
   SendFunction,
   UpdateActionNames,
@@ -197,9 +197,8 @@ export const AdminPage: FC = () => {
   const logoUri = watch('logoUri')
 
   return (
-    <>
+    <FlexContainer>
       <SecondaryNavContainer>
-        <Title>Admin</Title>
         <Icon className={elMb5} iconSize="large" icon="lockedInfographic" />
         <SmallText hasGreyText>This form is required to get started with Reapit Payments.</SmallText>
         <SmallText hasGreyText>
@@ -230,10 +229,7 @@ export const AdminPage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer>
         <ErrorBoundary>
-          <FlexContainer isFlexJustifyBetween>
-            <Title>Reapit Payments App Configuration</Title>
-            <PaymentLogo />
-          </FlexContainer>
+          <Title>Reapit Payments App Configuration</Title>
           {config?.isConfigured ? (
             <PersistentNotification className={cx(elFadeIn, elMb7)} intent="success" isExpanded isFullWidth isInline>
               Your app is currently configured to use Reapit Payments. You can update your details however, you will be
@@ -358,7 +354,7 @@ export const AdminPage: FC = () => {
           </DeleteModal>
         </ErrorBoundary>
       </PageContainer>
-    </>
+    </FlexContainer>
   )
 }
 

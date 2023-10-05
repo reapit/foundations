@@ -140,7 +140,7 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
             />
           </InputWrapFull>
         </FormLayout>
-        <ButtonGroup alignment="center">
+        <ButtonGroup alignment="right">
           <Button type="button" intent="default" onClick={closeModal}>
             Cancel
           </Button>

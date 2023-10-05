@@ -5,7 +5,6 @@ import {
   FormLayout,
   InputWrapFull,
   PersistentNotification,
-  Title,
   Subtitle,
   BodyText,
   Button,
@@ -13,6 +12,8 @@ import {
   ButtonGroup,
   elMb12,
   useSnack,
+  Icon,
+  elMb7,
 } from '@reapit/elements'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import TermsAndConditionsModal from './terms-and-conditions-modal'
@@ -20,10 +21,8 @@ import Routes from '../../constants/routes'
 import { formFields } from './form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchema } from './validation-schema'
-import { KeyAnimation } from '@reapit/utils-react'
 import { useForm, UseFormGetValues } from 'react-hook-form'
-import { ReactComponent as ReapitLogo } from '../../assets/images/reapit-logo.svg'
-import { LoginContainer, LoginImageContainer, LoginContentWrapper } from '../login/__styles__'
+import { LoginContainer, LoginContentWrapper } from '../login/__styles__'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { createDeveloperService } from '../../services/developer'
 
@@ -118,16 +117,13 @@ export const Register: FC = () => {
 
   return (
     <LoginContainer>
-      <LoginImageContainer>
-        <KeyAnimation step={formStep} />
-      </LoginImageContainer>
       <LoginContentWrapper>
-        <ReapitLogo />
+        <Icon className={elMb7} height="40px" width="200px" icon="reapitLogoInfographic" />
         <FlexContainer isFlexColumn>
-          <Title hasNoMargin hasCenteredText>
+          <Subtitle hasNoMargin hasCenteredText>
             Register
-          </Title>
-          <Subtitle hasCenteredText>for Reapit Foundations Developer Portal</Subtitle>
+          </Subtitle>
+          <BodyText hasCenteredText>for Reapit Foundations Developer Portal</BodyText>
         </FlexContainer>
         {developerState === 'SUCCESS' ? (
           <>
@@ -136,7 +132,7 @@ export const Register: FC = () => {
               please check your email to confirm your account.
             </PersistentNotification>
             <ButtonGroup alignment="center" className={elMb12}>
-              <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
+              <Button onClick={onLoginButtonClick()} intent="primary">
                 Login With Reapit
               </Button>
             </ButtonGroup>
@@ -220,14 +216,11 @@ export const Register: FC = () => {
                 onDecline={onDeclineTermsAndConditions(setAgreeModalVisable)}
                 isSubmitting={developerState === 'LOADING'}
               />
-              <ButtonGroup alignment="center" className={elMb12}>
-                <Button type="submit" loading={developerState === 'LOADING'} intent="primary" chevronRight size={3}>
+              <ButtonGroup alignment="center">
+                <Button type="submit" loading={developerState === 'LOADING'} intent="primary">
                   Register
                 </Button>
               </ButtonGroup>
-              <BodyText hasGreyText hasCenteredText>
-                {process.env.APP_VERSION}
-              </BodyText>
             </form>
           </>
         )}

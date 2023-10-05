@@ -8,8 +8,8 @@ export const visiblyHidden = css`
 `
 
 export const ControlsContainer = styled.div`
-  padding: 0.75rem 0.5rem;
   background-color: #fff;
+  margin-bottom: 0.5rem;
 
   &.${visiblyHidden} {
     visibility: hidden;

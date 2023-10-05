@@ -19,7 +19,7 @@ import {
   Pagination,
   PersistentNotification,
   SecondaryNavContainer,
-  Subtitle,
+  SmallText,
   Title,
   useMediaQuery,
   useModal,
@@ -82,13 +82,12 @@ export const MarketplacePage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Apps</Title>
-        <Icon className={elMb5} icon="appInfographicAlt" iconSize="large" />
-        <Subtitle>AppMarket Visibility and Installation Management</Subtitle>
-        <BodyText hasGreyText>
+        <Icon className={elMb5} icon="appMarketInfographic" iconSize="large" />
+        <BodyText>AppMarket Visibility and Installation Management</BodyText>
+        <SmallText hasGreyText>
           To set the visibility of an app in the AppMarket or to manage installations for your organisation or specific
           office groups, please select an app.
-        </BodyText>
+        </SmallText>
         <OrgIdSelect />
         <ControlsContainer>
           <InputGroup

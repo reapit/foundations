@@ -25,7 +25,7 @@ export const ElementsPage: FC = () => {
           interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design
           System, our in house styleguide.
         </SmallText>
-        <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.elementsDocs)}>
+        <Button className={elMb5} intent="default" onClick={openNewPage(ExternalPages.elementsDocs)}>
           View Docs
         </Button>
         <Button className={elMb5} intent="primary" onClick={openNewPage(process.env.elementsUri)}>

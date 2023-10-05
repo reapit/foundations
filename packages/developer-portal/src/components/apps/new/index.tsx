@@ -233,7 +233,7 @@ export const AppsNewPage: FC = () => {
           <Modal title="Controls">
             <Helper />
             <ButtonGroup alignment="right">
-              <Button intent="neutral" onClick={closeModal}>
+              <Button intent="default" onClick={closeModal}>
                 Close
               </Button>
             </ButtonGroup>
@@ -256,32 +256,21 @@ export const AppsNewPage: FC = () => {
               <ButtonGroup alignment="center">
                 <Button
                   intent="primary"
-                  size={2}
                   disabled={!prevStep || appCreating}
                   onClick={handleSetSteps(setAppWizardState, false, authFlow, nextStep, trigger)}
-                  chevronLeft
                 >
                   Prev
                 </Button>
                 {!lastStep ? (
                   <Button
                     intent="primary"
-                    size={2}
                     disabled={!nextStep || appCreating}
                     onClick={handleSetSteps(setAppWizardState, true, authFlow, nextStep, trigger)}
-                    chevronRight
                   >
                     Next
                   </Button>
                 ) : (
-                  <Button
-                    intent="primary"
-                    type="submit"
-                    size={2}
-                    chevronRight
-                    disabled={appCreating}
-                    loading={appCreating}
-                  >
+                  <Button intent="primary" type="submit" disabled={appCreating} loading={appCreating}>
                     Create App
                   </Button>
                 )}

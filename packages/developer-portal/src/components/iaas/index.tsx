@@ -70,7 +70,7 @@ export const IaaS: FC = () => {
           Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to
           simplify your development process
         </SmallText>
-        <Button intent="neutral" onClick={openNewPage(ExternalPages.pipelineDocs)}>
+        <Button intent="default" onClick={openNewPage(ExternalPages.pipelineDocs)}>
           View Docs
         </Button>
       </SecondaryNavContainer>

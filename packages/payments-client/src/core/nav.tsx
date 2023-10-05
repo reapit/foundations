@@ -39,7 +39,6 @@ export const Nav: FC = () => {
     {
       itemIndex: 1,
       text: 'Payments',
-      iconId: 'paymentsMenu',
       callback: navigateRoute(navigate, RoutePaths.PAYMENTS),
     },
   ]
@@ -48,27 +47,18 @@ export const Nav: FC = () => {
     navOptions.push({
       itemIndex: 2,
       callback: navigateRoute(navigate, RoutePaths.ADMIN),
-      iconId: 'myAccountMenu',
       text: 'Admin',
     })
   }
 
   if (!connectIsDesktop) {
-    navOptions.push(
-      {
-        itemIndex: 4,
-        callback: callbackAppClick,
-        iconId: 'appsMenu',
-        text: 'Apps',
-      },
-      {
-        itemIndex: 5,
-        callback: connectLogoutRedirect,
-        isSecondary: true,
-        iconId: 'logoutMenu',
-        text: 'Logout',
-      },
-    )
+    navOptions.push({
+      itemIndex: 5,
+      callback: connectLogoutRedirect,
+      isSecondary: true,
+      iconId: 'logoutMenu',
+      text: 'Logout',
+    })
   }
 
   return <NavResponsive options={navOptions} defaultNavIndex={getDefaultNavIndex(window.location.pathname)} />

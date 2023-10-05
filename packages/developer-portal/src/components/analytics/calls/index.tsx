@@ -49,7 +49,7 @@ export const AnalyticsCalls: FC = () => {
         <Modal title="Controls">
           <Controls />
           <ButtonGroup alignment="right">
-            <Button intent="neutral" onClick={closeModal}>
+            <Button intent="default" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>

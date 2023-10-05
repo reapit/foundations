@@ -5,11 +5,11 @@ import {
   Button,
   elMb3,
   elMb5,
+  FlexContainer,
   Icon,
   PageContainer,
   SecondaryNavContainer,
   SmallText,
-  Title,
   useModal,
 } from '@reapit/elements'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
@@ -37,9 +37,8 @@ export const PaymentPage: FC = () => {
   const [payment, , , refreshPayment] = paymentRequest
 
   return (
-    <>
+    <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Payment</Title>
         <Icon className={elMb5} iconSize="large" icon="newCustomerInfographic" />
         <SmallText hasGreyText>
           From this page you can either send an email request for payment to the customer using the button below, or
@@ -58,7 +57,7 @@ export const PaymentPage: FC = () => {
       <Modal title={`Request Payment of £${payment?.amount ? payment?.amount.toFixed(2) : 0} for ${payment?.id}`}>
         <PaymentRequestModal closeModal={closeModal} refreshPayments={refreshPayment} selectedPayment={payment} />
       </Modal>
-    </>
+    </FlexContainer>
   )
 }
 

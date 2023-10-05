@@ -22,16 +22,16 @@ exports[`Login should match a snapshot 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.h1
-              classname="mock-css."
-            >
-              Welcome
-            </mock-styled.h1>
             <mock-styled.h2
               classname="mock-css."
             >
-              test app
+              Welcome
             </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
+            >
+              test app
+            </mock-styled.p>
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css.
@@ -49,9 +49,6 @@ exports[`Login should match a snapshot 1`] = `
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>
-          <mock-styled.p
-            classname="mock-css."
-          />
         </mock-styled.div>
       </mock-styled.div>
     </div>
@@ -74,16 +71,16 @@ exports[`Login should match a snapshot 1`] = `
   flex-direction: column;
 "
         >
-          <mock-styled.h1
-            classname="mock-css."
-          >
-            Welcome
-          </mock-styled.h1>
           <mock-styled.h2
             classname="mock-css."
           >
-            test app
+            Welcome
           </mock-styled.h2>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            test app
+          </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div
           classname="mock-css.
@@ -101,9 +98,6 @@ exports[`Login should match a snapshot 1`] = `
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
-        <mock-styled.p
-          classname="mock-css."
-        />
       </mock-styled.div>
     </mock-styled.div>
   </div>,

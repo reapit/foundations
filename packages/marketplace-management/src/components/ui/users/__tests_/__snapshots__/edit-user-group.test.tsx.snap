@@ -38,7 +38,11 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
 "
         >
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 0.5rem;
+"
+            >
               <mock-styled.input
                 classname=""
                 id="test-static-id"
@@ -148,7 +152,11 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
 "
       >
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+"
+          >
             <mock-styled.input
               classname=""
               id="test-static-id"

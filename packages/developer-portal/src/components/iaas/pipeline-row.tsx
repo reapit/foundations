@@ -77,11 +77,7 @@ export const PipelineRow: FC<PipelineRowProps> = ({ pipeline, connectSession }) 
               Deployments
             </Button>
             {pipelineViewable(appPipeline.buildStatus as string) && (
-              <Button
-                intent="neutral"
-                chevronRight
-                onClick={openNewPage(`https://${appPipeline.subDomain}.iaas.paas.reapit.cloud`)}
-              >
+              <Button intent="default" onClick={openNewPage(`https://${appPipeline.subDomain}.iaas.paas.reapit.cloud`)}>
                 View App
               </Button>
             )}

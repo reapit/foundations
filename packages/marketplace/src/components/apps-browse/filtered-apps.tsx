@@ -67,7 +67,7 @@ export const FilteredAppsCollection: FC<FiltersAppsCollectionProps> = ({ collect
               }
               mainCardSubHeadingAdditional={isDirectApi ? 'Integration' : ''}
               mainCardBody={summary}
-              mainCardImgUrl={iconUri ?? <PlaceholderImage placeholder="placeholderSmall" size={56} />}
+              mainCardAvatarUrl={iconUri ?? <PlaceholderImage placeholder="placeholderSmall" size={50} />}
             />
           </Col>
         ))}

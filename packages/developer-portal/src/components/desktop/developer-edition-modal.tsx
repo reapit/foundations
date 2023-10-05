@@ -164,7 +164,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
             &apos;Billing&apos; tab.
           </BodyText>
           <ButtonGroup alignment="right">
-            <Button intent="neutral" onClick={handleCloseModal(setSubscribingState, closeModal)}>
+            <Button intent="default" onClick={handleCloseModal(setSubscribingState, closeModal)}>
               Close
             </Button>
             <Button intent="primary" type="submit" onClick={handleDownload}>
@@ -183,7 +183,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
             </a>
           </BodyText>
           <ButtonGroup alignment="right">
-            <Button intent="neutral" onClick={handleCloseModal(setSubscribingState, closeModal)}>
+            <Button intent="default" onClick={handleCloseModal(setSubscribingState, closeModal)}>
               Close
             </Button>
             <Button intent="primary" type="submit" onClick={handleDownload}>
@@ -199,7 +199,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
             <Link to={Routes.SETTINGS_PROFILE}>click here</Link> to update your information.
           </BodyText>
           <ButtonGroup alignment="right">
-            <Button intent="neutral" onClick={handleCloseModal(setSubscribingState, closeModal)}>
+            <Button intent="default" onClick={handleCloseModal(setSubscribingState, closeModal)}>
               Cancel
             </Button>
           </ButtonGroup>
@@ -208,7 +208,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
         <>
           <BodyText hasGreyText>{billingContent}</BodyText>
           <ButtonGroup alignment="right">
-            <Button intent="neutral" onClick={handleCloseModal(setSubscribingState, closeModal)}>
+            <Button intent="default" onClick={handleCloseModal(setSubscribingState, closeModal)}>
               Cancel
             </Button>
           </ButtonGroup>
@@ -226,7 +226,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
             To proceed, please confirm your subscription below for <strong>{currentMember?.name}</strong>
           </BodyText>
           <ButtonGroup alignment="right">
-            <Button intent="neutral" onClick={handleCloseModal(setSubscribingState, closeModal)}>
+            <Button intent="default" onClick={handleCloseModal(setSubscribingState, closeModal)}>
               Cancel
             </Button>
             <Button

@@ -15,6 +15,7 @@ import {
   Button,
   ButtonGroup,
   elFadeIn,
+  elMb3,
   elP8,
   FormLayout,
   InputGroup,
@@ -176,7 +177,13 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
       </BodyText>
       <FormLayout hasMargin className={elFadeIn}>
         <InputWrapFull>
-          <InputGroup onChange={debouncedSearch} icon="searchSystem" placeholder="Search" label="Users" />
+          <InputGroup
+            className={elMb3}
+            onChange={debouncedSearch}
+            icon="searchSystem"
+            placeholder="Search"
+            label="Users"
+          />
           <MultiSelectInput
             id={`user-groups-ids-${userGroup.id}`}
             noneSelectedLabel="No users selected for this group"
@@ -192,7 +199,7 @@ export const EditUserGroupForm: FC<EditUserGroupFormProps> = ({ userGroup, onCom
         </InputWrapFull>
       </FormLayout>
       <ButtonGroup alignment="right">
-        <Button intent="primary" onClick={onComplete} type="button">
+        <Button intent="default" onClick={onComplete} type="button">
           Cancel
         </Button>
         <Button intent="primary" type="submit">

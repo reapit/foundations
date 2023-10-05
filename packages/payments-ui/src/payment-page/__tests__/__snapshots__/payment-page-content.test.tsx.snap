@@ -31,24 +31,13 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+          classname=""
         >
-          <mock-styled.div
+          <mock-styled.h1
             classname=""
           >
-            <mock-styled.h1
-              classname=""
-            >
-              Card Payment
-            </mock-styled.h1>
-          </mock-styled.div>
-          <mock-styled.div>
-            <img
-              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-            />
-          </mock-styled.div>
+            Card Payment
+          </mock-styled.h1>
         </mock-styled.div>
         <mock-styled.h2
           classname=""
@@ -1778,24 +1767,13 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+        classname=""
       >
-        <mock-styled.div
+        <mock-styled.h1
           classname=""
         >
-          <mock-styled.h1
-            classname=""
-          >
-            Card Payment
-          </mock-styled.h1>
-        </mock-styled.div>
-        <mock-styled.div>
-          <img
-            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-          />
-        </mock-styled.div>
+          Card Payment
+        </mock-styled.h1>
       </mock-styled.div>
       <mock-styled.h2
         classname=""

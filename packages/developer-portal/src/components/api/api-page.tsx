@@ -142,13 +142,13 @@ export const ApiPage: FC = () => {
                   </ControlsContainer>
                 </>
               )}
-              <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.platformAPIDocs)}>
+              <Button className={elMb5} intent="default" onClick={openNewPage(ExternalPages.platformAPIDocs)}>
                 View Docs
               </Button>
-              <Button className={elMb5} intent="neutral" onClick={openNewPage(swaggerUri ?? '')}>
+              <Button className={elMb5} intent="default" onClick={openNewPage(swaggerUri ?? '')}>
                 Download Spec
               </Button>
-              <Button className={elMb5} intent="neutral" onClick={openModal}>
+              <Button className={elMb5} intent="default" onClick={openModal}>
                 Video
               </Button>
               <Modal title="Swagger">
@@ -163,7 +163,7 @@ export const ApiPage: FC = () => {
                   allowFullScreen
                 />
                 <ButtonGroup alignment="right">
-                  <Button intent="neutral" onClick={closeModal}>
+                  <Button intent="default" onClick={closeModal}>
                     Close
                   </Button>
                 </ButtonGroup>
@@ -179,7 +179,7 @@ export const ApiPage: FC = () => {
                 GraphQL gives clients the power to ask for exactly what they need and nothing more, makes it easier to
                 evolve APIs over time, and enables powerful developer tools.
               </SmallText>
-              <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.graphQLDocs)}>
+              <Button className={elMb5} intent="default" onClick={openNewPage(ExternalPages.graphQLDocs)}>
                 View Docs
               </Button>
               <Button className={elMb5} intent="primary" onClick={openNewPage(process.env.graphQLUri)}>

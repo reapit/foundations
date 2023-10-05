@@ -86,7 +86,6 @@ export const Menu: FC = () => {
     {
       itemIndex: 0,
       callback: navigateRoute(navigate, Routes.APPS),
-      icon: <XmasLogo />,
     },
     {
       itemIndex: 1,
@@ -216,14 +215,8 @@ export const Menu: FC = () => {
     },
     {
       itemIndex: 23,
-      callback: () => (window.location.href = process.env.marketplaceUrl),
-      iconId: 'marketplaceMenu',
-      text: 'AppMarket',
-    },
-    {
-      itemIndex: 24,
       callback: navigateRoute(navigate, Routes.SETTINGS_PROFILE),
-      iconId: 'myAccountMenu',
+      iconId: 'profileMenu',
       isSecondary: true,
       text: 'Settings',
       subItems: [

@@ -106,7 +106,6 @@ export const HomePage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Configure</Title>
         <Icon className={elMb5} icon="userAuthInfographic" iconSize="large" />
         <Subtitle>Your MFA Config</Subtitle>
         <SmallText hasGreyText>
