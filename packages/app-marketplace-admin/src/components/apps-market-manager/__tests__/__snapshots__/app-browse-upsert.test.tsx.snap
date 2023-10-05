@@ -12,11 +12,6 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            AppMarket Admin
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.5rem;
@@ -26,11 +21,11 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Getting Started
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -199,11 +194,6 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          AppMarket Admin
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.5rem;
@@ -213,11 +203,11 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.h2
+        <mock-styled.p
           classname=""
         >
           Getting Started
-        </mock-styled.h2>
+        </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
         >

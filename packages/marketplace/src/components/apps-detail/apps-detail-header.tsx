@@ -40,13 +40,13 @@ export const AppsDetailHeader: FC<AppsDetailHeaderProps> = ({ app }) => {
             <FlexContainer>
               {isInstalled && (
                 <>
-                  <Icon icon="tickSolidSystem" className={elMr2} intent="success" />
+                  <Icon icon="checkSolidSystem" className={elMr2} intent="success" />
                   <SmallText className={cx(elMr2, appDetailInfoLineAdjust)} hasNoMargin>
                     {isDirectApi ? 'Integration Enabled' : 'App Installed'}
                   </SmallText>
                 </>
               )}
-              <Icon icon="tickSolidSystem" className={elMr2} intent="success" />
+              <Icon icon="checkSolidSystem" className={elMr2} intent="success" />
               <SmallText className={cx(elMr2, appDetailInfoLineAdjust)} hasNoMargin>
                 Verified by Reapit
               </SmallText>
@@ -98,13 +98,13 @@ export const AppsDetailHeader: FC<AppsDetailHeaderProps> = ({ app }) => {
         <FlexContainer>
           {isInstalled && (
             <>
-              <Icon icon="tickSolidSystem" className={elMr5} intent="success" />
+              <Icon icon="checkSolidSystem" className={elMr5} intent="success" />
               <SmallText className={elMr5} hasNoMargin>
                 {isDirectApi ? 'Integration Enabled' : 'App Installed'}
               </SmallText>
             </>
           )}
-          <Icon icon="tickSolidSystem" className={elMr5} intent="success" />
+          <Icon icon="checkSolidSystem" className={elMr5} intent="success" />
           <SmallText className={elMr5} hasNoMargin>
             Verified by Reapit
           </SmallText>

@@ -24,7 +24,7 @@ exports[`IconButton component should match a snapshot 1`] = `
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -32,7 +32,7 @@ exports[`IconButton component should match a snapshot 1`] = `
         <span
           class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
         >
           <svg
@@ -90,7 +90,7 @@ exports[`IconButton component should match a snapshot 1`] = `
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 "
@@ -98,7 +98,7 @@ exports[`IconButton component should match a snapshot 1`] = `
       <span
         class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
       >
         <svg
@@ -213,7 +213,7 @@ exports[`IconButton component should match a snapshot when disabled 1`] = `
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
  mock-css.
@@ -224,7 +224,7 @@ exports[`IconButton component should match a snapshot when disabled 1`] = `
         <span
           class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
         >
           <svg
@@ -282,7 +282,7 @@ exports[`IconButton component should match a snapshot when disabled 1`] = `
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
  mock-css.
@@ -293,7 +293,7 @@ exports[`IconButton component should match a snapshot when disabled 1`] = `
       <span
         class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
       >
         <svg
@@ -408,7 +408,7 @@ exports[`IconButton component should match a snapshot when in dark mode 1`] = `
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
  mock-css.
@@ -418,7 +418,7 @@ exports[`IconButton component should match a snapshot when in dark mode 1`] = `
         <span
           class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
           style="color: white;"
         >
@@ -477,7 +477,7 @@ exports[`IconButton component should match a snapshot when in dark mode 1`] = `
   }
 
   , {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
  mock-css.
@@ -487,7 +487,7 @@ exports[`IconButton component should match a snapshot when in dark mode 1`] = `
       <span
         class="mock-css.
   display: flex;
-  color: black;
+  color: var(--color-grey-500);
 "
         style="color: white;"
       >

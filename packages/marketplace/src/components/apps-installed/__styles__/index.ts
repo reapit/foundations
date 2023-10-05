@@ -4,7 +4,7 @@ import { forMobileAndAbove, forWidescreenAndAbove } from '../../../core/__styles
 export const InstalledAppsContainer = styled.div`
   width: 100%;
   height: 100%;
-  background-color: var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
   padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -122,7 +122,7 @@ export const InstalledSuggestedImage = styled.img`
 export const InstalledSuggestedImageWrapper = styled.div`
   width: 100%;
   height: 245px;
-  background-color: var(--color-grey-light);
+  background-color: var(--color-grey-lightest);
   border-radius: 0.25rem;
   cursor: pointer;
 `

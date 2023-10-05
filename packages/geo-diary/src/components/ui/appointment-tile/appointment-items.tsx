@@ -7,6 +7,18 @@ import { PropertyItem } from './property-item'
 import { ContactDrawerType } from '../contact-drawer'
 import { VendorItem } from './vendor-item'
 import { LandlordItem } from './landlord-item'
+import {
+  CardListItem,
+  elCardListItemExpanded,
+  CardListIcon,
+  CardListItemTextWrap,
+  CardListItemTextPrimary,
+  CardListItemTextSecondary,
+  useModal,
+  Icon,
+} from '@reapit/elements'
+import { CancelConfirmModal } from '../cancel-confirm-modal'
+import { FollowUpNotesModal } from '../follow-up-notes-modal'
 
 export type RenderIconItemsProps = {
   appointment: ExtendedAppointmentModel
@@ -47,12 +59,40 @@ export const handleOpenContactDrawer =
   }
 
 export const AppointmentItems: FC<RenderIconItemsProps> = ({ appointment }) => {
+  const { Modal: FollowUpModal, openModal: openFollowUpModal, closeModal: closeFollowUpModal } = useModal()
+  const { Modal: CancelModal, openModal: openCancelModal, closeModal: closeCancelModal } = useModal()
   return (
     <>
       <PropertyItem appointment={appointment} />
       <AttendeeItem appointment={appointment} />
       <VendorItem appointment={appointment} />
       <LandlordItem appointment={appointment} />
+      <CardListItem className={elCardListItemExpanded}>
+        <CardListIcon>
+          <Icon icon="editSystem" intent="primary" />
+        </CardListIcon>
+        <CardListItemTextWrap onClick={openFollowUpModal}>
+          <CardListItemTextPrimary>Notes</CardListItemTextPrimary>
+          <CardListItemTextSecondary>Add Follow Up Notes</CardListItemTextSecondary>
+        </CardListItemTextWrap>
+      </CardListItem>
+      {!appointment.cancelled && (
+        <CardListItem className={elCardListItemExpanded}>
+          <CardListIcon>
+            <Icon icon="trashSystem" intent="danger" />
+          </CardListIcon>
+          <CardListItemTextWrap onClick={openCancelModal}>
+            <CardListItemTextPrimary>Cancel</CardListItemTextPrimary>
+            <CardListItemTextSecondary>Cancel This Appointment</CardListItemTextSecondary>
+          </CardListItemTextWrap>
+        </CardListItem>
+      )}
+      <FollowUpModal title="Follow up notes">
+        <FollowUpNotesModal closeModal={closeFollowUpModal} appointment={appointment} />
+      </FollowUpModal>
+      <CancelModal title="Cancel appointment?">
+        <CancelConfirmModal closeModal={closeCancelModal} appointment={appointment} />
+      </CancelModal>
     </>
   )
 }

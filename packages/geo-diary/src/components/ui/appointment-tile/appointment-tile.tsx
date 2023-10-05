@@ -5,7 +5,6 @@ import { AppointmentItems } from './appointment-items'
 import { AppState, useAppState } from '../../../core/app-state'
 import { cx } from '@linaria/core'
 import {
-  CardContextMenu,
   CardListHeading,
   CardListMainWrap,
   CardListSubHeading,
@@ -13,11 +12,8 @@ import {
   elCardFocussed,
   elCardListMainWrapExpanded,
   elMb6,
-  useModal,
 } from '@reapit/elements'
-import { CancelConfirmModal } from '../cancel-confirm-modal'
-import { cancelledTile, subheadingAdditional } from './__styles__/styles'
-import { FollowUpNotesModal } from '../follow-up-notes-modal'
+import { cancelledTile } from './__styles__/styles'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import dayjs from 'dayjs'
 
@@ -51,8 +47,6 @@ export const handleScrollIntoView =
 
 export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
   const { appState, setAppState } = useAppState()
-  const { Modal: FollowUpModal, openModal: openFollowUpModal, closeModal: closeFollowUpModal } = useModal()
-  const { Modal: CancelModal, openModal: openCancelModal, closeModal: closeCancelModal } = useModal()
   const { appointmentId, time } = appState
   const tileRef = useRef<HTMLDivElement>(null)
   const { id, start: appointmentStart } = appointment
@@ -71,37 +65,13 @@ export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
         onClick={handleSetAppointmentId(setAppState, appointment)}
       >
         <CardListMainWrap className={elCardListMainWrapExpanded}>
-          {!appointment.cancelled && (
-            <CardContextMenu
-              contextMenuItems={[
-                {
-                  icon: 'editSystem',
-                  onClick: openFollowUpModal,
-                  intent: 'primary',
-                },
-                {
-                  icon: 'trashSystem',
-                  onClick: openCancelModal,
-                  intent: 'danger',
-                },
-              ]}
-            />
-          )}
           <CardListHeading>{headingText}</CardListHeading>
-          <CardListSubHeading>{appointmentType}</CardListSubHeading>
-        </CardListMainWrap>
-        {time === 'WEEK' && (
-          <CardListSubHeading className={subheadingAdditional}>
-            {dayjs(appointmentStart).format('dddd, Do MMMM')}
+          <CardListSubHeading>
+            {appointmentType}
+            {time === 'WEEK' && `, ${dayjs(appointmentStart).format('ddd, Do MMMM')}`}
           </CardListSubHeading>
-        )}
+        </CardListMainWrap>
         <AppointmentItems appointment={appointment} />
-        <FollowUpModal title="Follow up notes">
-          <FollowUpNotesModal closeModal={closeFollowUpModal} appointment={appointment} />
-        </FollowUpModal>
-        <CancelModal title="Cancel appointment?">
-          <CancelConfirmModal closeModal={closeCancelModal} appointment={appointment} />
-        </CancelModal>
       </CardWrap>
     </div>
   )

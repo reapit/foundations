@@ -58,11 +58,6 @@ exports[`PrivateRouter should match a snapshot 1`] = `
             </mock-styled.span>
           </mock-styled.a>
           <mock-styled.a
-            classname=""
-          >
-            Apps
-          </mock-styled.a>
-          <mock-styled.a
             classname="mock-css.
   @media screen and (min-width: 768px) {
     margin-left: auto;
@@ -174,11 +169,6 @@ exports[`PrivateRouter should match a snapshot 1`] = `
               style="font-size: 1.2rem;"
             />
           </mock-styled.span>
-        </mock-styled.a>
-        <mock-styled.a
-          classname=""
-        >
-          Apps
         </mock-styled.a>
         <mock-styled.a
           classname="mock-css.
