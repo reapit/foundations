@@ -2,10 +2,12 @@ import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 import {
   elIntentPrimary,
-  elIntentSecondary,
-  elIntentCritical,
   elIntentSuccess,
   elIntentDanger,
+  elIntentWarning,
+  elIntentPending,
+  elIntentDefault,
+  elIntentNeutral,
 } from '../../../styles/intent'
 
 export const elShapeTag = css``
@@ -16,36 +18,42 @@ export const ElStatusIndicator = styled.span`
   width: 0.75rem;
   height: 0.75rem;
   margin: 0 0.25rem;
-  background: var(--color-grey-medium);
+  background: var(--color-grey-400);
+  color: var(--color-black);
 
   &.${elIntentPrimary} {
     background-image: linear-gradient(to right, var(--intent-primary), var(--intent-primary));
-    color: var(--intent-primary-text);
     outline-color: var(--intent-primary-dark);
   }
 
-  &.${elIntentSecondary} {
-    background-image: linear-gradient(to right, var(--intent-secondary), var(--intent-secondary));
-    color: var(--intent-secondary-text);
-    outline-color: var(--intent-secondary-dark);
-  }
-
-  &.${elIntentCritical} {
-    background-image: linear-gradient(to right, var(--intent-critical), var(--intent-critical));
-    color: var(--intent-critical-text);
-    outline-color: var(--intent-critical-dark);
+  &.${elIntentNeutral} {
+    background-image: linear-gradient(to right, var(--intent-neutral), var(--intent-neutral));
+    outline-color: var(--intent-neutral-dark);
   }
 
   &.${elIntentSuccess} {
     background-image: linear-gradient(to right, var(--intent-success), var(--intent-success));
-    color: var(--intent-success-text);
     outline-color: var(--intent-success-dark);
+  }
+
+  &.${elIntentPending} {
+    background-image: linear-gradient(to right, var(--intent-pending), var(--intent-pending));
+    outline-color: var(--intent-pending-dark);
+  }
+
+  &.${elIntentWarning} {
+    background-image: linear-gradient(to right, var(--intent-warning), var(--intent-warning));
+    outline-color: var(--intent-warning-dark);
   }
 
   &.${elIntentDanger} {
     background-image: linear-gradient(to right, var(--intent-danger), var(--intent-danger));
-    color: var(--intent-danger-text);
     outline-color: var(--intent-danger-dark);
+  }
+
+  &.${elIntentDefault} {
+    background-image: linear-gradient(to right, var(--intent-default), var(--intent-default));
+    outline-color: var(--intent-default-dark);
   }
 
   &.${elShapeTag} {

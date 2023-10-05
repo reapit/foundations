@@ -1,33 +1,33 @@
 import { css } from '@linaria/core'
 
 export const elBorderGrey = css`
-  border: 1px solid var(--color-grey-light, '#dbdbdb');
+  border: 1px solid var(--color-grey-100, '#dbdbdb');
 `
 
 export const elBorderGreyT = css`
-  border-top: 1px solid var(--color-grey-light, '#dbdbdb');
+  border-top: 1px solid var(--color-grey-100, '#dbdbdb');
 `
 
 export const elBorderGreyB = css`
-  border-bottom: 1px solid var(--color-grey-light, '#dbdbdb');
+  border-bottom: 1px solid var(--color-grey-100, '#dbdbdb');
 `
 
 export const elBorderGreyL = css`
-  border-left: 1px solid var(--color-grey-light, '#dbdbdb');
+  border-left: 1px solid var(--color-grey-100, '#dbdbdb');
 `
 
 export const elBorderGreyR = css`
-  border-right: 1px solid var(--color-grey-light, '#dbdbdb');
+  border-right: 1px solid var(--color-grey-100, '#dbdbdb');
 `
 
 export const elBorderGreyX = css`
-  border-left: 1px solid var(--color-grey-light, '#dbdbdb');
-  border-right: 1px solid var(--color-grey-light, '#dbdbdb');
+  border-left: 1px solid var(--color-grey-100, '#dbdbdb');
+  border-right: 1px solid var(--color-grey-100, '#dbdbdb');
 `
 
 export const elBorderGreyY = css`
-  border-top: 1px solid var(--color-grey-light, '#dbdbdb');
-  border-bottom: 1px solid var(--color-grey-light, '#dbdbdb');
+  border-top: 1px solid var(--color-grey-100, '#dbdbdb');
+  border-bottom: 1px solid var(--color-grey-100, '#dbdbdb');
 `
 
 export const elBorderBlue = css`

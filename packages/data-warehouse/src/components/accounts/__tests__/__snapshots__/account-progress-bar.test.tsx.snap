@@ -21,27 +21,27 @@ exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
           >
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
             />
           </mock-styled.div>
@@ -69,27 +69,27 @@ exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
         >
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
           />
         </mock-styled.div>
@@ -174,27 +174,27 @@ exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
           >
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
             />
           </mock-styled.div>
@@ -222,27 +222,27 @@ exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
         >
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
           />
         </mock-styled.div>
@@ -327,27 +327,27 @@ exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
           >
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
             />
           </mock-styled.div>
@@ -375,27 +375,27 @@ exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
         >
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
           />
         </mock-styled.div>
@@ -480,27 +480,27 @@ exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
           >
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
             />
           </mock-styled.div>
@@ -528,27 +528,27 @@ exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
         >
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
           />
         </mock-styled.div>
@@ -633,27 +633,27 @@ exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
           >
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
             />
           </mock-styled.div>
@@ -681,27 +681,27 @@ exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
         >
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
           />
         </mock-styled.div>
@@ -786,27 +786,27 @@ exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
           >
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
             />
           </mock-styled.div>
@@ -834,27 +834,27 @@ exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
         >
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
           />
         </mock-styled.div>
@@ -939,27 +939,27 @@ exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
           >
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
             />
           </mock-styled.div>
@@ -987,27 +987,27 @@ exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
         >
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
           />
         </mock-styled.div>
@@ -1092,27 +1092,27 @@ exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
           >
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
             />
             <mock-styled.div
               classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
             />
           </mock-styled.div>
@@ -1145,27 +1145,27 @@ exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
         >
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-purple-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-primary);
+  background-color: var(--color-blue-700);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--intent-secondary);
+  background-color: var(--color-blue-500);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-blue-light2);
+  background-color: var(--color-blue-300);
 "
           />
           <mock-styled.div
             classname="mock-css.
-  background-color: var(--color-accent-orange);
+  background-color: var(--color-yellow-500);
 "
           />
         </mock-styled.div>

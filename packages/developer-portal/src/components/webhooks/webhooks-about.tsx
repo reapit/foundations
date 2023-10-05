@@ -23,7 +23,7 @@ export const WebhooksAbout: FC = () => {
 
   return (
     <>
-      <PersistentNotification className={elMb11} isFullWidth isExpanded intent="secondary" isInline>
+      <PersistentNotification className={elMb11} isFullWidth isExpanded intent="primary" isInline>
         Please note that apps and integrations developed using Webhooks for topics other than application
         install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
       </PersistentNotification>
@@ -41,8 +41,7 @@ export const WebhooksAbout: FC = () => {
           <Button
             onMouseEnter={handleNewMouseOver(setNewIsAnimated, true)}
             onMouseLeave={handleNewMouseOver(setNewIsAnimated, false)}
-            chevronRight
-            intent="critical"
+            intent="primary"
             onClick={navigateRoute(navigate, Routes.WEBHOOKS_NEW)}
           >
             Add new webhook
@@ -64,7 +63,7 @@ export const WebhooksAbout: FC = () => {
           <Button
             onMouseEnter={handleDocsMouseOver(setDocsIsAnimated, true)}
             onMouseLeave={handleDocsMouseOver(setDocsIsAnimated, false)}
-            intent="low"
+            intent="default"
             onClick={openNewPage(ExternalPages.webhooksDocs)}
           >
             View Docs

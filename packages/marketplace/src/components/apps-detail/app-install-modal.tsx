@@ -202,7 +202,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
         </>
       </div>
       <ButtonGroup alignment="center">
-        <Button intent="low" onClick={closeWithoutInstalling} fixedWidth>
+        <Button intent="default" onClick={closeWithoutInstalling} fixedWidth>
           Cancel
         </Button>
         <Button

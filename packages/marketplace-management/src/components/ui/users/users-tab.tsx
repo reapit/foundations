@@ -123,13 +123,13 @@ const UsersTab: FC = () => {
         {!orgName ? <Title>Users</Title> : <Title>{orgName} Users</Title>}
         {isMobile && (
           <ButtonGroup alignment="right">
-            <Button intent="low" onClick={openModal}>
+            <Button intent="default" onClick={openModal}>
               Select Org
             </Button>
             <Modal title="Select Organisation">
               <OrgIdSelect />
               <ButtonGroup alignment="center">
-                <Button intent="secondary" onClick={closeModal}>
+                <Button intent="primary" onClick={closeModal}>
                   Close
                 </Button>
               </ButtonGroup>
@@ -160,11 +160,11 @@ const UsersTab: FC = () => {
           <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
         </>
       ) : orgId ? (
-        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
           No users found
         </PersistentNotification>
       ) : (
-        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
           No organisation selected. You need to select an organisation to view users.
         </PersistentNotification>
       )}

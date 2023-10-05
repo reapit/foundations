@@ -19,7 +19,6 @@ exports[`Drawer component should match a snapshot when closed 1`] = `
 
   @media (min-width: 769px) {
     width: ,;
-    left: ,;
   }
 "
       />
@@ -49,7 +48,6 @@ exports[`Drawer component should match a snapshot when closed 1`] = `
 
   @media (min-width: 769px) {
     width: ,;
-    left: ,;
   }
 "
       >
@@ -72,7 +70,6 @@ exports[`Drawer component should match a snapshot when closed 1`] = `
 
   @media (min-width: 769px) {
     width: ,;
-    left: ,;
   }
 "
     />
@@ -102,7 +99,6 @@ exports[`Drawer component should match a snapshot when closed 1`] = `
 
   @media (min-width: 769px) {
     width: ,;
-    left: ,;
   }
 "
     >
@@ -182,7 +178,6 @@ exports[`Drawer component should match a snapshot when open 1`] = `
 
   @media (min-width: 769px) {
     width: ,;
-    left: ,;
   }
  mock-css.
   background-color: rgba(100, 100, 100, 0.2);
@@ -215,7 +210,6 @@ exports[`Drawer component should match a snapshot when open 1`] = `
 
   @media (min-width: 769px) {
     width: ,;
-    left: ,;
   }
  mock-css.
   z-index: 4;
@@ -242,7 +236,6 @@ exports[`Drawer component should match a snapshot when open 1`] = `
 
   @media (min-width: 769px) {
     width: ,;
-    left: ,;
   }
  mock-css.
   background-color: rgba(100, 100, 100, 0.2);
@@ -275,7 +268,6 @@ exports[`Drawer component should match a snapshot when open 1`] = `
 
   @media (min-width: 769px) {
     width: ,;
-    left: ,;
   }
  mock-css.
   z-index: 4;

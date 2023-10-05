@@ -12,11 +12,6 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Users
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -26,11 +21,11 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Support
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -47,32 +42,34 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
  mock-css."
             disabled="false"
           >
+            <mock-styled.div />
             Provision User
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
           >
+            <mock-styled.div />
             View Docs
-            <mock-styled.div />
           </mock-styled.button>
+          <div>
+            <mock-styled.button
+              classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
+            >
+              <mock-styled.div />
+              Video
+            </mock-styled.button>
+          </div>
           <mock-styled.button
             classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
           >
-            Video
             <mock-styled.div />
-          </mock-styled.button>
-          <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
-          >
             Help
-            <mock-styled.div />
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section>
@@ -113,10 +110,12 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.2rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -169,15 +168,15 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                         classname="mock-css."
                         disabled="false"
                       >
-                        Update
                         <mock-styled.div />
+                        Update
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
                         disabled="false"
                       >
-                        Deactivate
                         <mock-styled.div />
+                        Deactivate
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
@@ -197,11 +196,6 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Users
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -211,11 +205,11 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.h2
+        <mock-styled.p
           classname=""
         >
           Support
-        </mock-styled.h2>
+        </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
         >
@@ -232,32 +226,34 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
  mock-css."
           disabled="false"
         >
+          <mock-styled.div />
           Provision User
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
         >
+          <mock-styled.div />
           View Docs
-          <mock-styled.div />
         </mock-styled.button>
+        <div>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
+          >
+            <mock-styled.div />
+            Video
+          </mock-styled.button>
+        </div>
         <mock-styled.button
           classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
         >
-          Video
           <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
-        >
           Help
-          <mock-styled.div />
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
@@ -298,10 +294,12 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -354,15 +352,15 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                       classname="mock-css."
                       disabled="false"
                     >
-                      Update
                       <mock-styled.div />
+                      Update
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="false"
                     >
-                      Deactivate
                       <mock-styled.div />
+                      Deactivate
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -439,11 +437,6 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Users
-          </mock-styled.h1>
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -453,11 +446,11 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Support
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -474,32 +467,34 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
  mock-css."
             disabled="false"
           >
+            <mock-styled.div />
             Provision User
-            <mock-styled.div />
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
           >
+            <mock-styled.div />
             View Docs
-            <mock-styled.div />
           </mock-styled.button>
+          <div>
+            <mock-styled.button
+              classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
+            >
+              <mock-styled.div />
+              Video
+            </mock-styled.button>
+          </div>
           <mock-styled.button
             classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
           >
-            Video
             <mock-styled.div />
-          </mock-styled.button>
-          <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
-          >
             Help
-            <mock-styled.div />
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section>
@@ -528,7 +523,7 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -548,7 +543,7 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -569,11 +564,6 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Users
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -583,11 +573,11 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.h2
+        <mock-styled.p
           classname=""
         >
           Support
-        </mock-styled.h2>
+        </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
         >
@@ -604,32 +594,34 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
  mock-css."
           disabled="false"
         >
+          <mock-styled.div />
           Provision User
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
         >
+          <mock-styled.div />
           View Docs
-          <mock-styled.div />
         </mock-styled.button>
+        <div>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css."
+          >
+            <mock-styled.div />
+            Video
+          </mock-styled.button>
+        </div>
         <mock-styled.button
           classname="mock-css.
   margin-bottom: 0.75rem;
  mock-css."
         >
-          Video
           <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
-        >
           Help
-          <mock-styled.div />
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
@@ -658,7 +650,7 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -678,7 +670,7 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;

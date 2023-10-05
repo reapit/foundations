@@ -22,7 +22,9 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
 "
               style="font-size: 3.75rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 3.75rem;"
+              />
             </mock-styled.span>
             <mock-styled.mock-styled.p>
               Apps you are currently developing show here. These will not be visible to users until approved for public listing.
@@ -142,7 +144,9 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
 "
             style="font-size: 3.75rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 3.75rem;"
+            />
           </mock-styled.span>
           <mock-styled.mock-styled.p>
             Apps you are currently developing show here. These will not be visible to users until approved for public listing.

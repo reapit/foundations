@@ -29,7 +29,7 @@ const intendedTaskOrder = ['DOWNLOAD_SOURCE', 'INSTALL', 'BUILD', 'TEST', 'DEPLO
 export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildStatus, created }) => {
   if (!tasks || !tasks.length) {
     return (
-      <PersistentNotification isInline isFullWidth isExpanded intent="secondary">
+      <PersistentNotification isInline isFullWidth isExpanded intent="primary">
         No progress reported for this deployment
       </PersistentNotification>
     )
@@ -69,7 +69,7 @@ export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildS
       </Table>
       <div className={cx(elMt6)}>
         <Button
-          intent="secondary"
+          intent="primary"
           disabled={!s3BuildLogsLocation || !['FAILED', 'SUCCEEDED'].includes(buildStatus) || logsExpired}
           onClick={() => {
             s3BuildLogsLocation && openNewPage(s3BuildLogsLocation)()

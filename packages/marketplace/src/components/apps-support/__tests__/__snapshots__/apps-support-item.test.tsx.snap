@@ -9,7 +9,9 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
           <mock-styled.h5>
             MOCK_APP_NAME
           </mock-styled.h5>
@@ -157,7 +159,9 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
     <mock-styled.div
       classname=""
     >
-      <mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
         <mock-styled.h5>
           MOCK_APP_NAME
         </mock-styled.h5>
@@ -362,7 +366,9 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
       <mock-styled.div
         classname=""
       >
-        <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
           <mock-styled.h5>
             MOCK_APP_NAME
           </mock-styled.h5>
@@ -478,7 +484,9 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
     <mock-styled.div
       classname=""
     >
-      <mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
         <mock-styled.h5>
           MOCK_APP_NAME
         </mock-styled.h5>

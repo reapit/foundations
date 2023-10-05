@@ -21,21 +21,13 @@ export const Nav: React.FC = () => {
   ]
 
   if (!connectIsDesktop && !demoEnv) {
-    navOptions.push(
-      {
-        itemIndex: 1,
-        callback: callbackAppClick,
-        iconId: 'appsMenu',
-        text: 'Apps',
-      },
-      {
-        itemIndex: 2,
-        callback: connectLogoutRedirect,
-        isSecondary: true,
-        iconId: 'logoutMenu',
-        text: 'Logout',
-      },
-    )
+    navOptions.push({
+      itemIndex: 2,
+      callback: connectLogoutRedirect,
+      isSecondary: true,
+      iconId: 'logoutMenu',
+      text: 'Logout',
+    })
   }
 
   return <NavResponsive options={navOptions} />

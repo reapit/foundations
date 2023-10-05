@@ -34,7 +34,7 @@ export const LandlordItem: FC<LandlordItemProps> = ({ appointment }) => {
   if (!landlordContactList.length) return null
 
   return (
-    <div className={elFadeIn}>
+    <>
       {landlordContactList.map((landlord: VendorLandlordRelatedModel) => (
         <CardListItem key={landlord.id} className={cx(elFadeIn, elCardListItemExpanded)}>
           <CardListIcon>
@@ -48,6 +48,6 @@ export const LandlordItem: FC<LandlordItemProps> = ({ appointment }) => {
           </CardListItemTextWrap>
         </CardListItem>
       ))}
-    </div>
+    </>
   )
 }

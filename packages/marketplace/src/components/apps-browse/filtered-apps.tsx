@@ -67,13 +67,13 @@ export const FilteredAppsCollection: FC<FiltersAppsCollectionProps> = ({ collect
               }
               mainCardSubHeadingAdditional={isDirectApi ? 'Integration' : ''}
               mainCardBody={summary}
-              mainCardImgUrl={iconUri ?? <PlaceholderImage placeholder="placeholderSmall" size={56} />}
+              mainCardAvatarUrl={iconUri ?? <PlaceholderImage placeholder="placeholderSmall" size={50} />}
             />
           </Col>
         ))}
       </Grid>
       {!appsLoading && apps?.data && Boolean(!apps.data.length) && (
-        <PersistentNotification isInline isExpanded isFullWidth intent="secondary">
+        <PersistentNotification isInline isExpanded isFullWidth intent="primary">
           Unfortunately, there are &lsquo;No Results&rsquo; matching your search term or filtering options. Some of our
           categories have been recently added and our developers are updating their listings so, please come back and
           check again. Alternately, you could try searching by app or developer name.

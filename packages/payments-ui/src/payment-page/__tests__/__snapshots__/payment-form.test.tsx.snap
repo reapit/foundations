@@ -34,6 +34,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="customerFirstName"
@@ -50,6 +51,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="customerLastName"
@@ -66,6 +68,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="email"
@@ -82,6 +85,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="address1"
@@ -98,6 +102,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="city"
@@ -114,6 +119,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="postalCode"
@@ -1402,6 +1408,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
             <mock-styled.div>
               <mock-styled.input
                 autocomplete="cardNumber"
+                classname=""
                 disabled="false"
                 id="cardNumber"
                 inputmode="numeric"
@@ -1436,6 +1443,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="cardholderName"
@@ -1453,6 +1461,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
             <mock-styled.div>
               <mock-styled.input
                 autocomplete="expiryDate"
+                classname=""
                 disabled="false"
                 id="expiryDate"
                 inputmode="numeric"
@@ -1472,6 +1481,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 maxlength="3"
@@ -1496,8 +1506,8 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
               disabled="false"
               type="submit"
             >
-              Make Payment
               <mock-styled.div />
+              Make Payment
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -1534,6 +1544,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="customerFirstName"
@@ -1550,6 +1561,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="customerLastName"
@@ -1566,6 +1578,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="email"
@@ -1582,6 +1595,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="address1"
@@ -1598,6 +1612,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="city"
@@ -1614,6 +1629,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="postalCode"
@@ -2902,6 +2918,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           <mock-styled.div>
             <mock-styled.input
               autocomplete="cardNumber"
+              classname=""
               disabled="false"
               id="cardNumber"
               inputmode="numeric"
@@ -2936,6 +2953,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="cardholderName"
@@ -2953,6 +2971,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           <mock-styled.div>
             <mock-styled.input
               autocomplete="expiryDate"
+              classname=""
               disabled="false"
               id="expiryDate"
               inputmode="numeric"
@@ -2972,6 +2991,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               maxlength="3"
@@ -2996,8 +3016,8 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
             disabled="false"
             type="submit"
           >
-            Make Payment
             <mock-styled.div />
+            Make Payment
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -3091,6 +3111,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="customerFirstName"
@@ -3107,6 +3128,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="customerLastName"
@@ -3123,6 +3145,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="email"
@@ -3139,6 +3162,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="address1"
@@ -3155,6 +3179,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="city"
@@ -3171,6 +3196,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="postalCode"
@@ -4459,6 +4485,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
             <mock-styled.div>
               <mock-styled.input
                 autocomplete="cardNumber"
+                classname=""
                 disabled="false"
                 id="cardNumber"
                 inputmode="numeric"
@@ -4493,6 +4520,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="cardholderName"
@@ -4510,6 +4538,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
             <mock-styled.div>
               <mock-styled.input
                 autocomplete="expiryDate"
+                classname=""
                 disabled="false"
                 id="expiryDate"
                 inputmode="numeric"
@@ -4529,6 +4558,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 maxlength="3"
@@ -4553,8 +4583,8 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
               disabled="false"
               type="submit"
             >
-              Make Payment
               <mock-styled.div />
+              Make Payment
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -4591,6 +4621,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="customerFirstName"
@@ -4607,6 +4638,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="customerLastName"
@@ -4623,6 +4655,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="email"
@@ -4639,6 +4672,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="address1"
@@ -4655,6 +4689,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="city"
@@ -4671,6 +4706,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="postalCode"
@@ -5959,6 +5995,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           <mock-styled.div>
             <mock-styled.input
               autocomplete="cardNumber"
+              classname=""
               disabled="false"
               id="cardNumber"
               inputmode="numeric"
@@ -5993,6 +6030,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="cardholderName"
@@ -6010,6 +6048,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           <mock-styled.div>
             <mock-styled.input
               autocomplete="expiryDate"
+              classname=""
               disabled="false"
               id="expiryDate"
               inputmode="numeric"
@@ -6029,6 +6068,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               maxlength="3"
@@ -6053,8 +6093,8 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
             disabled="false"
             type="submit"
           >
-            Make Payment
             <mock-styled.div />
+            Make Payment
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -6141,7 +6181,7 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -6161,7 +6201,7 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -6177,6 +6217,7 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="customerFirstName"
                 placeholder="First name here"
@@ -6192,6 +6233,7 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="customerLastName"
                 placeholder="Last name here"
@@ -6207,6 +6249,7 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="email"
                 placeholder="Email here"
@@ -6233,8 +6276,8 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
               disabled="false"
               type="submit"
             >
-              Re-send Confirmation
               <mock-styled.div />
+              Re-send Confirmation
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -6264,7 +6307,7 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -6284,7 +6327,7 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -6300,6 +6343,7 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="customerFirstName"
               placeholder="First name here"
@@ -6315,6 +6359,7 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="customerLastName"
               placeholder="Last name here"
@@ -6330,6 +6375,7 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="email"
               placeholder="Email here"
@@ -6356,8 +6402,8 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
             disabled="false"
             type="submit"
           >
-            Re-send Confirmation
             <mock-styled.div />
+            Re-send Confirmation
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -6444,7 +6490,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -6464,7 +6510,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -6501,6 +6547,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="customerFirstName"
@@ -6517,6 +6564,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="customerLastName"
@@ -6533,6 +6581,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="email"
@@ -6549,6 +6598,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="address1"
@@ -6565,6 +6615,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="city"
@@ -6581,6 +6632,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="postalCode"
@@ -7869,6 +7921,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
             <mock-styled.div>
               <mock-styled.input
                 autocomplete="cardNumber"
+                classname=""
                 disabled="false"
                 id="cardNumber"
                 inputmode="numeric"
@@ -7903,6 +7956,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 name="cardholderName"
@@ -7920,6 +7974,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
             <mock-styled.div>
               <mock-styled.input
                 autocomplete="expiryDate"
+                classname=""
                 disabled="false"
                 id="expiryDate"
                 inputmode="numeric"
@@ -7939,6 +7994,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 disabled="false"
                 id="test-static-id"
                 maxlength="3"
@@ -7963,8 +8019,8 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
               disabled="false"
               type="submit"
             >
-              Make Payment
               <mock-styled.div />
+              Make Payment
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -7994,7 +8050,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -8014,7 +8070,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -8051,6 +8107,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="customerFirstName"
@@ -8067,6 +8124,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="customerLastName"
@@ -8083,6 +8141,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="email"
@@ -8099,6 +8158,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="address1"
@@ -8115,6 +8175,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="city"
@@ -8131,6 +8192,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="postalCode"
@@ -9419,6 +9481,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           <mock-styled.div>
             <mock-styled.input
               autocomplete="cardNumber"
+              classname=""
               disabled="false"
               id="cardNumber"
               inputmode="numeric"
@@ -9453,6 +9516,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               name="cardholderName"
@@ -9470,6 +9534,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           <mock-styled.div>
             <mock-styled.input
               autocomplete="expiryDate"
+              classname=""
               disabled="false"
               id="expiryDate"
               inputmode="numeric"
@@ -9489,6 +9554,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               disabled="false"
               id="test-static-id"
               maxlength="3"
@@ -9513,8 +9579,8 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
             disabled="false"
             type="submit"
           >
-            Make Payment
             <mock-styled.div />
+            Make Payment
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

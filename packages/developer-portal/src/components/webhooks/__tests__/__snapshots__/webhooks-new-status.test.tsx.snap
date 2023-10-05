@@ -61,6 +61,7 @@ exports[`WebhooksNewStatus should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="checkbox"
             />
@@ -136,6 +137,7 @@ exports[`WebhooksNewStatus should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="checkbox"
           />

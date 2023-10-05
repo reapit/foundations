@@ -49,9 +49,9 @@ export const handleSetFilters =
 export const handleIconSize = (mediaQuery: MediaType) => () => {
   const { isMobile } = mediaQuery
 
-  if (isMobile) return '3.75em'
+  if (isMobile) return '60px'
 
-  return '5em'
+  return '80px'
 }
 
 export const AppFiltersCollection: FC<AppFiltersCollectionProps> = memo(({ configItem }) => {

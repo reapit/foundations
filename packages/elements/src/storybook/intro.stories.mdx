@@ -1,3 +1,5 @@
+import { Meta } from '@storybook/addon-docs'
+
 <Meta title="Introduction" />
 
 # Introduction
@@ -6,17 +8,11 @@ Welcome to Reapit Elements UI Library.
 
 Within this Storybook, there are all the basic components and classes you will need to build clean, composable UI interfaces for the Reapit Marketplace and Platform.
 
-## Design System
-
-The UI library itself is based on the Reapit Foundations Design system which is distributed as a [Figma community file here](https://www.figma.com/community/file/999608115908775282).
-
-To get a sense of the thinking behind the library and for information on the base design principles behind it, we would advise strongly looking at the design system before getting started with your Elements project.
-
 ## Getting Started
 
 ### Installation
 
-Elements is distributed via NPM as a CommonJS, ESM and UDM module. Your first step is, with NodeJS installed, to run;
+Elements is distributed via NPM as a CommonJS or ESM module. Your first step is, with NodeJS installed, to run;
 
 ```bash
 npm install @reapit/elements
@@ -52,7 +48,7 @@ or in a css file
 @import '~@reapit/elements/dist/index.css';
 ```
 
-And that's it - the stylesheet will include the PT Sans Google Font and some basic defaults, with the component CSS classes providng the majority of the styles.
+And that's it - the stylesheet will include the Inter Google Font and some basic defaults, with the component CSS classes providng the majority of the styles.
 
 ### Dependencies
 
@@ -67,7 +63,7 @@ As such there is only one core dependency on the React side of the library - the
 - Zero runtime so it's extremely performant.
 - CSS extraction - we can export the CSS in our CSS at compile time.
 - Friendly, semantic class names - the `camelCased` class names and `PascalCased` components can be output to readable `kebab-case` CSS classes, with no hashed ids.
-- Tiny footprint - the core library is [only 282b](https://bundlephobia.com/package/linaria@2.1.0)!
+- Tiny footprint - the only core dependency is linaria which compiles to less than 1kb.
 
 Because the project is compiled, you should have no issues using Linaria components out the box. If you want to use it yourself alongside Elements, please see the [integration guide here](https://github.com/callstack/linaria/blob/master/docs/BUNDLERS_INTEGRATION.md).
 
@@ -100,9 +96,19 @@ Because of the extensive use of CSS Variables, and other modern CSS features lik
 
 When building for the Reapit Marketplace, your application will render in a Chromium browser, currently at version 69 although we expect this to upgrade to a more recent version in the coming months. We will always support the Reapit Marketplace Chromium version as a minimum version.
 
+### Migrating from v3
+
+Elements v4 is an evolution of v3 and has very few critical breaking changes other than deprecated props and CSS classes. The UI will change significantly however, where possible all changes are cosmetic and do not effect either markup or TypeScript definitions. Care has been taken to add all changes to the Changelog and we suggest you read this before upgrading.
+
+v5 of Elements will include a number of breaking changes where unused props and CSS classes will be removed. Where this is planned, we have put `console.warn` notices in the codebase and annotated interfaces in the docs. You should look to fix these notices before upgrading to v5.
+
+For most users, if you have used Elements out the box, it should be just a case of updating from v3 to v4 and making some light touch tweaks based on the changelog notes and console warnings.
+
 ### Migrating from v2
 
-> Elements v3 is a ground-up re-write. Because of this, it is not possible to document all breaking changes as the API has changed fundamentally. Future versions will be based on the v3 codebase and will retain better backwards compatibility where possible.
+> Elements v2 is now deprecated and will only be supported for breaking changes via GitHub issues until the end of April 2024. We strongly recommend you migrate to v3 or v4 as soon as possible.
+
+> Elements v3 is a ground-up re-write. Because of this, it is not possible to document all breaking changes as the API has changed fundamentally. v4 is based on the v3 codebase so it may be easier to migrate to v3 first and then v4.
 
 If you are on version 2 of Elements and this is working for your application the first question is "why migrate"? As previously stated, v3 is a ground up re-write with better performance, radically smaller size, better docs and a more friendly API. You will also benefit from much longer term support, new features and of course all the benefits of our clean, professional in house design system.
 
@@ -128,7 +134,7 @@ require('@reapit/elements/v3/index.css')
 
 This will mean you can update from v2 to v3 at your own pace.
 
-The elements v2 components are detailed on a [separate Storybook here](https://elements-legacy.prod.paas.reapit.cloud). v2 will have a long term support for at least the next year and we will provide a deprecation notice at install 6 months prior to the end of official support for v2.
+The elements v2 components are detailed on a [separate Storybook here](https://elements-legacy.prod.paas.reapit.cloud).
 
 ### Issues
 

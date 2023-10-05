@@ -20,6 +20,7 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="username"
                 placeholder="Your username here"
@@ -35,6 +36,7 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="password"
                 placeholder="*********"
@@ -50,6 +52,7 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="passwordConfirm"
                 placeholder="*********"
@@ -71,15 +74,15 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
               classname="mock-css."
               type="button"
             >
-              Cancel
               <mock-styled.div />
+              Cancel
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               type="submit"
             >
-              Provision
               <mock-styled.div />
+              Provision
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -102,6 +105,7 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="username"
               placeholder="Your username here"
@@ -117,6 +121,7 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="password"
               placeholder="*********"
@@ -132,6 +137,7 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="passwordConfirm"
               placeholder="*********"
@@ -153,15 +159,15 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
             classname="mock-css."
             type="button"
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             type="submit"
           >
-            Provision
             <mock-styled.div />
+            Provision
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

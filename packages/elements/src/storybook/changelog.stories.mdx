@@ -1,3 +1,5 @@
+import { Meta } from '@storybook/addon-docs'
+
 <Meta title="ChangeLog" />
 
 # Change Log
@@ -13,6 +15,36 @@ We are also open to feature requests - in the same way please request [here](htt
 We will publish release version history and changes here. Where possible, we will adhere to Semver versioning.
 
 Beta versions should be relatively stable but subject to occssional breaking changes.
+
+### **4.0.0 - 18/10/23**
+
+**Major Release - UI Refresh**
+
+The UI of Elements has undergone a full refresh to align the Reapit Group of companies around a common design system. In all components this means;
+
+- A new color palette
+- A new default Font Family - Inter rather than PT Sans
+- Adjustments to spacing and sizing of components
+- New logos and some new iconography
+
+Additionally, there are multiple significant changes in this release however, for the majority of users upgrading from v3.x.x, these should be visual and cosmetic. There will be some UI adjustments undoubtedly required but we have tried to keep these to a minimum and it should be a case of validating your app and making appropriate light touch tweaks.
+
+No functions, CSS classes or React props have been removed however, many have been deprecated. In all cases where there has been a deprecation, React there are console warnings and nothing will be removed that will break your build until the next major release v5.
+
+Key components that have changed:
+
+- `Button` is now only available in `primary`, `default` and `danger` intents. Buttons also no longer support fixed width, specific sizing and chevron variants.
+- `Card` component now supports an avatar or image option to better display visual graphics. Cards also no longer support a context menu.
+- `Nav` component now sits horizontally at all resolutions rather than as a side bar. This may break some layouts where a secondary nav is used however, this can be fixed by adjusting the flex-direction property on any inner containers used. The `MainContainer` change should fix this issue for most users.
+- `Nav` icons have been largely deprecated.
+- `Grid` and `FormLayout` components have smaller gutters and margins for a more compact UI.
+- `BodyText` and `SmallText` components are slightly smaller in font size.
+- `Icon` compents and graphics have been themed to reflect the new color palette.
+- `Input` fields have a subtly different look and a new error state.
+- `intent` props have been changed - `scondary`, `critical` and `low` are deprecated and `pending`, `warning` and `default` have been added. In all cases, new colors have been used to reflect intents.
+- `Icon`, `StatusIndicator`, `PersistentNotification`, `Snack` and other components that use the `intent` prop have been updated to reflect the new color palette and intent names.
+
+We hope the migration process will be relatively smooth in virtually all cases however, if you feel you need any support, please reach out to us via Github Issues in the normal way.
 
 ### **3.12.2 - 21/06/23**
 

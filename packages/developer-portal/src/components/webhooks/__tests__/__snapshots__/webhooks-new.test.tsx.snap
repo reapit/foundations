@@ -483,6 +483,7 @@ exports[`getStepContent should match a snapshot for step content 1 2`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -529,6 +530,7 @@ exports[`getStepContent should match a snapshot for step content 1 2`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Enter secure https:// url"
           />
@@ -688,6 +690,7 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -737,6 +740,7 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -805,6 +809,7 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Search"
           />
@@ -982,6 +987,7 @@ exports[`getStepContent should match a snapshot for step content 1 4`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -1031,6 +1037,7 @@ exports[`getStepContent should match a snapshot for step content 1 4`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -1391,6 +1398,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -1440,6 +1448,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -1608,6 +1617,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -1683,6 +1693,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
           >
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 placeholder="Type and press enter to add a field"
                 value=""
@@ -1857,6 +1868,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -1906,6 +1918,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -2074,6 +2087,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -2158,6 +2172,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="checkbox"
             />
@@ -2233,6 +2248,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="checkbox"
           />
@@ -2568,6 +2584,7 @@ exports[`getStepContent should match a snapshot for step content 2 2`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -2614,6 +2631,7 @@ exports[`getStepContent should match a snapshot for step content 2 2`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Enter secure https:// url"
           />
@@ -2773,6 +2791,7 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -2822,6 +2841,7 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -2890,6 +2910,7 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Search"
           />
@@ -3067,6 +3088,7 @@ exports[`getStepContent should match a snapshot for step content 2 4`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -3116,6 +3138,7 @@ exports[`getStepContent should match a snapshot for step content 2 4`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -3476,6 +3499,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -3525,6 +3549,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -3693,6 +3718,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -3768,6 +3794,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
           >
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 placeholder="Type and press enter to add a field"
                 value=""
@@ -3942,6 +3969,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -3991,6 +4019,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -4159,6 +4188,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -4243,6 +4273,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="checkbox"
             />
@@ -4318,6 +4349,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="checkbox"
           />
@@ -4653,6 +4685,7 @@ exports[`getStepContent should match a snapshot for step content 3 2`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -4699,6 +4732,7 @@ exports[`getStepContent should match a snapshot for step content 3 2`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Enter secure https:// url"
           />
@@ -4858,6 +4892,7 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -4907,6 +4942,7 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -4975,6 +5011,7 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Search"
           />
@@ -5152,6 +5189,7 @@ exports[`getStepContent should match a snapshot for step content 3 4`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -5201,6 +5239,7 @@ exports[`getStepContent should match a snapshot for step content 3 4`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -5561,6 +5600,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -5610,6 +5650,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -5778,6 +5819,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -5853,6 +5895,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
           >
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 placeholder="Type and press enter to add a field"
                 value=""
@@ -6027,6 +6070,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -6076,6 +6120,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -6244,6 +6289,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -6328,6 +6374,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="checkbox"
             />
@@ -6403,6 +6450,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="checkbox"
           />
@@ -6738,6 +6786,7 @@ exports[`getStepContent should match a snapshot for step content 4 2`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -6784,6 +6833,7 @@ exports[`getStepContent should match a snapshot for step content 4 2`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Enter secure https:// url"
           />
@@ -6943,6 +6993,7 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -6992,6 +7043,7 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -7060,6 +7112,7 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Search"
           />
@@ -7237,6 +7290,7 @@ exports[`getStepContent should match a snapshot for step content 4 4`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -7286,6 +7340,7 @@ exports[`getStepContent should match a snapshot for step content 4 4`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -7646,6 +7701,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -7695,6 +7751,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -7863,6 +7920,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -7938,6 +7996,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
           >
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 placeholder="Type and press enter to add a field"
                 value=""
@@ -8112,6 +8171,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -8161,6 +8221,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -8329,6 +8390,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -8413,6 +8475,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="checkbox"
             />
@@ -8488,6 +8551,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="checkbox"
           />
@@ -8823,6 +8887,7 @@ exports[`getStepContent should match a snapshot for step content 5 2`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -8869,6 +8934,7 @@ exports[`getStepContent should match a snapshot for step content 5 2`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Enter secure https:// url"
           />
@@ -9028,6 +9094,7 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -9077,6 +9144,7 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -9145,6 +9213,7 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Search"
           />
@@ -9322,6 +9391,7 @@ exports[`getStepContent should match a snapshot for step content 5 4`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -9371,6 +9441,7 @@ exports[`getStepContent should match a snapshot for step content 5 4`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -9731,6 +9802,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -9780,6 +9852,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -9948,6 +10021,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -10023,6 +10097,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
           >
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 placeholder="Type and press enter to add a field"
                 value=""
@@ -10197,6 +10272,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -10246,6 +10322,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -10414,6 +10491,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -10498,6 +10576,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="checkbox"
             />
@@ -10573,6 +10652,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="checkbox"
           />
@@ -10908,6 +10988,7 @@ exports[`getStepContent should match a snapshot for step content 6 2`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -10954,6 +11035,7 @@ exports[`getStepContent should match a snapshot for step content 6 2`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Enter secure https:// url"
           />
@@ -11113,6 +11195,7 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -11162,6 +11245,7 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -11230,6 +11314,7 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Search"
           />
@@ -11407,6 +11492,7 @@ exports[`getStepContent should match a snapshot for step content 6 4`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -11456,6 +11542,7 @@ exports[`getStepContent should match a snapshot for step content 6 4`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -11816,6 +11903,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -11865,6 +11953,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -12033,6 +12122,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -12108,6 +12198,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
           >
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 placeholder="Type and press enter to add a field"
                 value=""
@@ -12282,6 +12373,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -12331,6 +12423,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
 "
           >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -12499,6 +12592,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
             >
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
@@ -12583,6 +12677,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               type="checkbox"
             />
@@ -12658,6 +12753,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             type="checkbox"
           />

@@ -2,7 +2,7 @@ import React from 'react'
 import { useMutation } from '@apollo/client'
 import UPDATE_APPOINTMENT_BY_ID from '../../../graphql/mutations/update-appointment-by-id.graphql'
 import { ExtendedAppointmentModel } from '../../../types/global'
-import { BodyText, Button, elMb6, elTextCenter, FlexContainer } from '@reapit/elements'
+import { BodyText, Button, ButtonGroup, elMb6, elTextCenter } from '@reapit/elements'
 
 export type CancelConfirmModalProps = {
   appointment: ExtendedAppointmentModel
@@ -52,20 +52,19 @@ export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({ appointm
       <div className={elMb6}>
         <BodyText className={elTextCenter}>Are you sure you want to cancel this appointment?</BodyText>
       </div>
-      <FlexContainer isFlexJustifyEvenly>
-        <Button intent="secondary" size={2} disabled={loading} onClick={closeModal} type="button">
+      <ButtonGroup alignment="right">
+        <Button intent="default" disabled={loading} onClick={closeModal} type="button">
           No
         </Button>
         <Button
-          intent="critical"
-          size={2}
+          intent="danger"
           loading={loading}
           onClick={handleUpdateAppointment({ updateAppointment, appointment })}
           type="button"
         >
           Yes
         </Button>
-      </FlexContainer>
+      </ButtonGroup>
     </>
   )
 }

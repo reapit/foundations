@@ -46,7 +46,7 @@ const ExamplesPage: FC = () => {
           The examples on this page are taken from the Elements doucmentation and demonstrate how they fit into a
           standard layout. You just need to link up with your data source to get started.
         </BodyText>
-        <Button className={elMb5} intent="critical" onClick={openNewPage('https://elements.reapit.cloud')}>
+        <Button className={elMb5} intent="primary" onClick={openNewPage('https://elements.reapit.cloud')}>
           Visit Elements
         </Button>
       </SecondaryNavContainer>

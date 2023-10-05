@@ -9,7 +9,6 @@ import {
   elMb5,
   elMb7,
   elMb8,
-  elMb9,
   elWFull,
   FlexContainer,
   Icon,
@@ -21,8 +20,7 @@ import {
   SecondaryNavItem,
   Select,
   SmallText,
-  Subtitle,
-  Title,
+  BodyText,
   useModal,
 } from '@reapit/elements'
 import { ExternalPages, navigateRoute, openNewPage } from '../../utils/navigation'
@@ -93,8 +91,7 @@ export const ApiPage: FC = () => {
     <ErrorBoundary>
       <FlexContainer isFlexAuto>
         <SecondaryNavContainer>
-          <Title>API</Title>
-          <SecondaryNav className={elMb9}>
+          <SecondaryNav>
             <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.SWAGGER)} active={isSwaggerPage}>
               REST API
             </SecondaryNavItem>
@@ -111,14 +108,14 @@ export const ApiPage: FC = () => {
           {isSwaggerPage && (
             <>
               <Icon className={elMb5} icon="apiInfographic" iconSize="large" />
-              <Subtitle>Open API Specification</Subtitle>
+              <BodyText>Open API Specification</BodyText>
               <div>
                 <Label>API Version</Label>
-                <p className={elMb5}>2020-01-31</p>
+                <SmallText>2020-01-31</SmallText>
               </div>
               <div>
                 <Label>API Location</Label>
-                <p className={elMb5}>https://platform.reapit.cloud</p>
+                <SmallText>https://platform.reapit.cloud</SmallText>
               </div>
               {hasProducts && (
                 <>
@@ -145,13 +142,13 @@ export const ApiPage: FC = () => {
                   </ControlsContainer>
                 </>
               )}
-              <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.platformAPIDocs)}>
+              <Button className={elMb5} intent="default" onClick={openNewPage(ExternalPages.platformAPIDocs)}>
                 View Docs
               </Button>
-              <Button className={elMb5} intent="neutral" onClick={openNewPage(swaggerUri ?? '')}>
+              <Button className={elMb5} intent="default" onClick={openNewPage(swaggerUri ?? '')}>
                 Download Spec
               </Button>
-              <Button className={elMb5} intent="neutral" onClick={openModal}>
+              <Button className={elMb5} intent="default" onClick={openModal}>
                 Video
               </Button>
               <Modal title="Swagger">
@@ -165,8 +162,8 @@ export const ApiPage: FC = () => {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
-                <ButtonGroup alignment="center">
-                  <Button fixedWidth intent="low" onClick={closeModal}>
+                <ButtonGroup alignment="right">
+                  <Button intent="default" onClick={closeModal}>
                     Close
                   </Button>
                 </ButtonGroup>
@@ -176,16 +173,16 @@ export const ApiPage: FC = () => {
           {isGrapQlPage && (
             <>
               <Icon className={elMb5} icon="graphQlInfographic" iconSize="large" />
-              <Subtitle>GraphQL Playground</Subtitle>
+              <BodyText>GraphQL Playground</BodyText>
               <SmallText hasGreyText>
                 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
                 GraphQL gives clients the power to ask for exactly what they need and nothing more, makes it easier to
                 evolve APIs over time, and enables powerful developer tools.
               </SmallText>
-              <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.graphQLDocs)}>
+              <Button className={elMb5} intent="default" onClick={openNewPage(ExternalPages.graphQLDocs)}>
                 View Docs
               </Button>
-              <Button className={elMb5} intent="critical" onClick={openNewPage(process.env.graphQLUri)}>
+              <Button className={elMb5} intent="primary" onClick={openNewPage(process.env.graphQLUri)}>
                 Open Explorer
               </Button>
             </>
@@ -193,22 +190,19 @@ export const ApiPage: FC = () => {
           {(isAboutPage || isNewPage) && (
             <>
               <Icon className={elMb5} icon="webhooksInfographic" iconSize="large" />
-              <Subtitle>Webhooks Documentation</Subtitle>
+              <BodyText>Webhooks Documentation</BodyText>
               <SmallText hasGreyText>
                 This system is designed to flexibly work with how your application is built and deployed. If you wish,
                 you can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to
                 set up a different webhook subscription per topic or per customer. For more information about Webhooks,
                 please see our documentation.
               </SmallText>
-              <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.webhooksDocs)}>
-                View Docs
-              </Button>
             </>
           )}
           {(isManagePage || isLogsPage) && (
             <>
               <Icon className={elMb5} icon="webhooksInfographic" iconSize="large" />
-              <Subtitle>Filters</Subtitle>
+              <BodyText>Filters</BodyText>
               <div className={elMb8}>
                 <Label>
                   {isManagePage

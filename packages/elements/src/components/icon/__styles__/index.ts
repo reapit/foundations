@@ -2,11 +2,12 @@ import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 import {
   elIntentPrimary,
-  elIntentSecondary,
-  elIntentCritical,
   elIntentSuccess,
   elIntentDanger,
   elIntentNeutral,
+  elIntentPending,
+  elIntentWarning,
+  elIntentDefault,
 } from '../../../styles/intent'
 
 export const elIconSizeSmallest = css`
@@ -14,7 +15,7 @@ export const elIconSizeSmallest = css`
 `
 
 export const elIconSizeSmall = css`
-  font-size: 1.25rem;
+  font-size: var(--font-size-subheading);
 `
 
 export const elIconSizeMedium = css`
@@ -37,7 +38,7 @@ export const elIconMenu = css`
 
 export const ElIcon = styled.span`
   display: flex;
-  color: black;
+  color: var(--color-grey-400);
 
   svg {
     width: 1em;
@@ -47,19 +48,28 @@ export const ElIcon = styled.span`
   &.${elIntentPrimary} {
     color: var(--intent-primary);
   }
-  &.${elIntentSecondary} {
-    color: var(--intent-secondary);
+
+  &.${elIntentNeutral} {
+    color: var(--intent-neutral);
   }
-  &.${elIntentCritical} {
-    color: var(--intent-critical);
-  }
+
   &.${elIntentSuccess} {
     color: var(--intent-success);
   }
+
+  &.${elIntentPending} {
+    color: var(--intent-pending);
+  }
+
+  &.${elIntentWarning} {
+    color: var(--intent-warning);
+  }
+
   &.${elIntentDanger} {
     color: var(--intent-danger);
   }
-  &.${elIntentNeutral} {
-    color: var(--intent-primary-text);
+
+  &.${elIntentDefault} {
+    color: var(--intent-default);
   }
 `

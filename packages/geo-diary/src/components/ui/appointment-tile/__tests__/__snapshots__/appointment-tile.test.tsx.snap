@@ -77,6 +77,32 @@ exports[`AppointmentTile should match snapshot 1`] = `
               <mock-styled.div />
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
+          >
+            <mock-styled.div>
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                Notes
+              </mock-styled.div>
+              <mock-styled.div>
+                Add Follow Up Notes
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </mock-styled.div>
       </div>
     </div>
@@ -152,6 +178,32 @@ exports[`AppointmentTile should match snapshot 1`] = `
               Attendee
             </mock-styled.div>
             <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
+        >
+          <mock-styled.div>
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              Notes
+            </mock-styled.div>
+            <mock-styled.div>
+              Add Follow Up Notes
+            </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>

@@ -8,7 +8,7 @@ export const isNarrow = '@media only screen and (max-width: 1024px)'
 const EXPANDABLE_TRIGGER_CELL_WIDTH = '40px'
 const CALL_TO_ACTION_CELL_WIDTH = '100px'
 
-const MAX_HEADER_HEIGHT = '40px'
+const MAX_HEADER_HEIGHT = '3rem'
 const MAX_TABLE_CONTENT_HEIGHT = '60px'
 const MAX_LINE_LENGTH = 2
 
@@ -144,7 +144,7 @@ export const elTableNarrowCellIsFullWidth = css`
 export const elTableCellHasDarkText = css``
 
 export const elTableRowFocused = css`
-  box-shadow: 0px 0px 2px var(--color-blue-light);
+  background: var(--color-purple-50);
 `
 
 // molecules
@@ -180,6 +180,7 @@ export const ElTableHeadersRow = styled.div`
   grid-template-columns:
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
     var(--component-table-expandable-trigger-width, 0);
+  border-bottom: 1px solid var(--color-grey-100);
 
   ${isNarrow} {
     display: none;
@@ -187,27 +188,18 @@ export const ElTableHeadersRow = styled.div`
 `
 
 export const ElTableHeader = styled.div`
-  background: var(--color-grey-light);
-  color: var(--color-black);
-  padding: 0.75rem;
-  margin-right: 2px;
+  color: var(--color-grey-400);
+  padding: 1rem 0.5rem;
   display: flex;
   align-items: center;
   height: ${MAX_HEADER_HEIGHT};
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 0.875rem;
+  font-size: var(--font-size-smallest);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
 
   ${cellOrders}
-
-  &:last-child {
-    margin-right: 0;
-    border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
-  }
-
-  &:first-child {
-    border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  }
 `
 
 export const ElTableRow = styled.div`
@@ -217,8 +209,7 @@ export const ElTableRow = styled.div`
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
     var(--component-table-expandable-trigger-width, 0);
   background: var(--color-white);
-  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
-  border-radius: var(--default-border-radius);
+  border-bottom: 1px solid var(--color-grey-100);
 
   ${isNarrow} {
     grid-template-columns: 1fr 1fr;
@@ -231,9 +222,8 @@ export const ElTableCtaCell = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding: 0.75rem;
+  padding: 0.75rem 0.5rem;
   order: 12;
-  border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
 
   ${isNarrow} {
     grid-column-end: span 2;
@@ -242,34 +232,6 @@ export const ElTableCtaCell = styled.div`
     justify-self: end;
     padding: 0;
     grid-column-end: 3;
-    border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
-  }
-`
-
-export const ElTableRowContainer = styled.div`
-  border-radius: var(--default-border-radius);
-  border: 1px solid var(--color-white);
-  margin-top: 0.5rem;
-
-  &:hover,
-  &:focus,
-  &.${elIsActive} {
-    border: 1px solid var(--color-blue-light2);
-    box-shadow: 0px 2px 9px rgba(20, 164, 224, 0.15);
-
-    > ${ElTableRow} {
-      box-shadow: none;
-    }
-  }
-
-  &.${elIsActive} {
-    ${ElTableRow} {
-      border-radius: var(--default-border-radius) var(--default-border-radius) 0 0;
-    }
-
-    ${ElTableCtaCell} {
-      border-radius: 0 var(--default-border-radius) 0 0;
-    }
   }
 `
 
@@ -278,10 +240,10 @@ export const ElTableCell = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  color: var(--color-grey-dark);
-  margin-right: 2px;
+  color: var(--color-grey-500);
+  /* margin-right: 2px; */
   word-break: break-word;
-  font-size: 0.875rem;
+  font-size: var(--font-size-small);
 
   &:last-child {
     margin-right: 0;
@@ -295,6 +257,49 @@ export const ElTableCell = styled.div`
 
   &.${elTableCellHasDarkText} {
     color: var(--color-black);
+  }
+`
+
+export const ElTableExpandableRowTriggerCell = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.75rem;
+  order: 12;
+
+  ${isNarrow} {
+    grid-column-end: span 2;
+    text-align: center;
+    justify-self: end;
+    grid-column-end: 3;
+  }
+`
+
+export const ElTableRowContainer = styled.div`
+  &:hover:not(.${elIsActive}) {
+    background-color: var(--color-grey-100);
+
+    ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
+      background-color: var(--color-grey-100);
+    }
+  }
+
+  &:focus,
+  &.${elIsActive}, .${elTableRowFocused} {
+    background: var(--color-purple-50);
+
+    ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
+      background: var(--color-purple-50);
+    }
+  }
+
+  &:not(.${elIsActive}) {
+    background: var(--color-white);
+
+    ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
+      background: var(--color-white);
+    }
   }
 `
 
@@ -319,40 +324,14 @@ export const ElTableCellContent = styled.div`
 `
 
 export const ElTableCtaIconContainer = styled.div`
-  padding: 1rem;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
-
   ${isNarrow} {
     padding: 0.75rem;
-    border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
-  }
-`
-
-export const ElTableExpandableRowTriggerCell = styled.div`
-  background: var(--color-grey-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 0.75rem;
-  order: 12;
-  border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
-
-  ${isNarrow} {
-    grid-column-end: span 2;
-    text-align: center;
-    justify-self: end;
-    grid-column-end: 3;
-    border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
   }
 `
 
 export const ElTableExpandableRow = styled.div`
   height: 0;
   background: var(--color-white);
-  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
-  border-radius: 0 0 var(--default-border-radius) var(--default-border-radius);
   opacity: 0;
   border: none;
   overflow-y: scroll;
@@ -361,13 +340,12 @@ export const ElTableExpandableRow = styled.div`
   &.${elIsActive} {
     height: auto;
     opacity: 1;
-    border-top: 1px solid var(--color-grey-light);
-    box-shadow: none;
   }
 `
 
 export const ElTableExpandableContainer = styled.div`
-  padding: 1.25rem;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid var(--color-grey-100);
 `
 
 export const ElTable = styled.div`
@@ -377,7 +355,6 @@ export const ElTable = styled.div`
       text-align: center;
       justify-self: end;
       grid-column-end: 3;
-      border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
     }
 
     ${ElTableCtaCell} {
@@ -387,12 +364,10 @@ export const ElTable = styled.div`
       justify-self: end;
       padding: 0;
       grid-column-end: 3;
-      border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
     }
 
     ${ElTableCtaIconContainer} {
       padding: 0.75rem;
-      border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
     }
 
     ${ElTableCellContent} {

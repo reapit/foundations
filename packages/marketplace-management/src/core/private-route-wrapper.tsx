@@ -19,7 +19,7 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   if (!connectSession) {
     return (
       <MainContainer>
-        <Loader label="Loading" fullPage />
+        <Loader fullPage />
       </MainContainer>
     )
   }

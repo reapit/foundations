@@ -54,7 +54,7 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors }) =>
               </InputGroup>
             </>
           ) : (
-            <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+            <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
               No apps found. This is probably because you have not yet created an app from the apps page. When you have
               created your first app, you will be able to add a webhook here.
             </PersistentNotification>

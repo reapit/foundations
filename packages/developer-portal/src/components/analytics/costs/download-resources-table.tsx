@@ -115,7 +115,7 @@ export const DownloadResourcesTable: FC<DownloadResourcesTableProps> = ({ billin
         ]}
       />
       {!appId && (
-        <PersistentNotification isInline isFullWidth isExpanded intent="secondary">
+        <PersistentNotification isInline isFullWidth isExpanded intent="primary">
           Please select an app from the filters to download transaction history
         </PersistentNotification>
       )}

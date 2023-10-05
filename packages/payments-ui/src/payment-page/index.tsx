@@ -1,6 +1,5 @@
 import React, { Dispatch, FC, SetStateAction } from 'react'
 import { PaymentForm } from './payment-form'
-import { PaymentLogo } from './payment-logo'
 import { PaymentProvider } from '../payment-provider'
 import { BodyText, Col, elFadeIn, elMb11, elMr4, FlexContainer, Grid, Icon, Subtitle, Title } from '@reapit/elements'
 import { combineAddress } from '@reapit/utils-common'
@@ -33,18 +32,15 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
           <Icon icon="backSolidSystem" intent="primary" />
         </PaymentsBackButton>
       )}
-      <FlexContainer isFlexJustifyBetween>
-        <FlexContainer>
-          {isPortal && config.logoUri && <img className={elMr4} src={config.logoUri} alt="logo" height="34" />}
-          <Title>Card Payment{isPortal && companyName && `, requested by ${companyName}`}</Title>
-        </FlexContainer>
-        <PaymentLogo />
+      <FlexContainer>
+        {isPortal && config.logoUri && <img className={elMr4} src={config.logoUri} alt="logo" height="34" />}
+        <Title>Card Payment{isPortal && companyName && `, requested by ${companyName}`}</Title>
       </FlexContainer>
       <Subtitle>Payment Details{id && `, Ref: ${id}`}</Subtitle>
       <Grid className={elMb11}>
         <Col>
           <FlexContainer>
-            <Icon className={elMr4} icon="poundSystem" intent="secondary" iconSize="medium" />
+            <Icon className={elMr4} icon="poundSystem" intent="default" iconSize="medium" />
             <div>
               <Subtitle hasNoMargin>Payment Amount</Subtitle>
               <BodyText hasGreyText>{amount ? amount.toFixed(2) : 0}</BodyText>

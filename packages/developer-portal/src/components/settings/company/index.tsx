@@ -27,8 +27,8 @@ export const SettingsCompanyPage: FC = () => {
       {isMobile && (
         <Modal title="Controls">
           <Controls />
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="secondary" onClick={closeModal}>
+          <ButtonGroup alignment="right">
+            <Button intent="default" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>

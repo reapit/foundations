@@ -409,7 +409,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {previewImage && <img src={previewImage} />}
           </FlexContainer>
           <ButtonGroup alignment="right">
-            <Button intent="low" onClick={handleClosePreviewImage(setPreviewImage, closeModal)}>
+            <Button intent="default" onClick={handleClosePreviewImage(setPreviewImage, closeModal)}>
               Close
             </Button>
           </ButtonGroup>

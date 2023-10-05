@@ -7,86 +7,6 @@ exports[`LandlordItem should match snapshot with landlords in state 1`] = `
     <div>
       <mock-styled.div />
        
-      <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
-      >
-        <mock-styled.div
-          classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  height: 2.5rem;
-  margin-bottom: 0.5rem;
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-"
-        >
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              Landlord
-            </mock-styled.div>
-            <mock-styled.div>
-              Mr John Smith
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-     
-    <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
-    >
       <mock-styled.div
         classname="mock-css.
   @keyframes fade-in {
@@ -128,6 +48,50 @@ exports[`LandlordItem should match snapshot with landlords in state 1`] = `
         </mock-styled.div>
       </mock-styled.div>
     </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+     
+    <mock-styled.div
+      classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
+    >
+      <mock-styled.div>
+        <mock-styled.span
+          classname=""
+        >
+          <svg />
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          Landlord
+        </mock-styled.div>
+        <mock-styled.div>
+          Mr John Smith
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

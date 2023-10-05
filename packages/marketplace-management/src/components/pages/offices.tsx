@@ -9,14 +9,12 @@ import {
   Button,
   elHFull,
   elMb5,
-  elMb9,
   FlexContainer,
   Icon,
   PageContainer,
   SecondaryNav,
   SecondaryNavContainer,
   SecondaryNavItem,
-  Title,
 } from '@reapit/elements'
 import { navigateRoute } from '../ui/nav/nav'
 import OfficeGroupCreate from '../ui/offices/office-group-create'
@@ -40,8 +38,7 @@ const OfficesPage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Offices</Title>
-        <SecondaryNav className={elMb9}>
+        <SecondaryNav>
           <SecondaryNavItem
             onClick={navigateRoute(navigate, RoutePaths.OFFICES)}
             active={pathname === RoutePaths.OFFICES}

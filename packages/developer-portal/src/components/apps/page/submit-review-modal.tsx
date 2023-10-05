@@ -121,7 +121,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
           to contact a member of the team.
         </BodyText>
         <ButtonGroup alignment="right">
-          <Button intent="low" onClick={closeModal}>
+          <Button intent="default" onClick={closeModal}>
             Close
           </Button>
         </ButtonGroup>
@@ -137,7 +137,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
           will be notified via email when this has been completed and you can continue with your app submission.
         </BodyText>
         <ButtonGroup alignment="right">
-          <Button intent="low" onClick={closeModal}>
+          <Button intent="default" onClick={closeModal}>
             Close
           </Button>
         </ButtonGroup>
@@ -193,7 +193,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
           ‘Organisation’ page to view the member options.
         </BodyText>
         <ButtonGroup alignment="right">
-          <Button intent="low" onClick={closeModal}>
+          <Button intent="default" onClick={closeModal}>
             Close
           </Button>
         </ButtonGroup>
@@ -225,7 +225,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
         this has been completed and you can continue with your app submission.
       </BodyText>
       <ButtonGroup alignment="right">
-        <Button intent="low" onClick={closeModal}>
+        <Button intent="default" onClick={closeModal}>
           Close
         </Button>
         <Button intent="primary" type="submit" disabled={updateDeveloperLoading} loading={updateDeveloperLoading}>

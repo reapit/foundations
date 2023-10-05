@@ -1,37 +1,33 @@
+import { Meta } from '@storybook/addon-docs'
+
 <Meta title="Concepts" />
 
 # Basic Concepts and Patterns
 
-We have tried to make Elements as flexible and friendly to use as possible, with an intuitive API. This brief guide gives you an intro to some core concepts we have used across the library. 
+We have tried to make Elements as flexible and friendly to use as possible, with an intuitive API. This brief guide gives you an intro to some core concepts we have used across the library.
 
 ## Component Syntax
 
-When using a React Component, you are essentially importing a series of JSX elements with classes added to them. 
+When using a React Component, you are essentially importing a series of JSX elements with classes added to them.
 
 Base styles are largely handled by `PascalCased` react components, whereas modifiers are handled by standalone `camelCased` classes that are applied using the `className` prop.
 
-All of out component and class names are then `kebab-cased` by the compiler for use in your code. 
+All of out component and class names are then `kebab-cased` by the compiler for use in your code.
 
 By convention **all** classes are prefixed by the `el-` modifier, to avoid conflicting with any other similar CSS classes you may have on your page.
 
 Take the contrived example below;
 
 ```tsx
-import { FooBar, elFooMod } from "@reapit/elements"
+import { FooBar, elFooMod } from '@reapit/elements'
 
-const MyComponent = () => (
-  <FooBar className={elFooMod}>My cool content</FooBar>
-)
-
+const MyComponent = () => <FooBar className={elFooMod}>My cool content</FooBar>
 ```
 
 This will render your cool content like this:
 
 ```html
-<div class="el-foo-bar el-foo-mod">
-  My cool content
-</div>
-
+<div class="el-foo-bar el-foo-mod">My cool content</div>
 ```
 
 The styled component base has provided you the `.el-foo-bar` class and the modifier has applied `.el-foo-mod` as an additional style.
@@ -49,43 +45,39 @@ All of our components inherit via props their underlying HTML properties - we ap
 For example, if I were to import an `Input` from elements, I can apply via props, all of the native props of a react `input`, contrived example below;
 
 ```tsx
-import { Input } from "@reapit/elements"
+import { Input } from '@reapit/elements'
 
-
-const MyComponent = () => (
-  <Input type="text" onChange={(e) => console.log('Pass me to your form library!', e)} />
-)
+const MyComponent = () => <Input type="text" onChange={(e) => console.log('Pass me to your form library!', e)} />
 ```
 
-This is a very importand concept when working with Elements as it means you can integrate our components with any additional libraries or custom behaviours you wish, using the native React API. 
+This is a very importand concept when working with Elements as it means you can integrate our components with any additional libraries or custom behaviours you wish, using the native React API.
 
 In addtion all of our non-closing tags render React `children` so that you can wrap any content you choose within them.
 
 ## Intents
 
-Intent is another concept we use widely in the library. 
+Intent is another concept we use widely in the library.
 
 For elements like buttons, icons and notifications, it is common for them to come in "flavours" like "warning" or "success". We have normalised this across our components so where relevant, you can apply an `intent` prop and it will style the component appropriate to that intent eg;
 
 ```tsx
-import { Icon } from "@reapit/elements"
+import { Icon } from '@reapit/elements'
 
 // Will render a "danger" icon in red
-const MyComponent = () => (
-  <Icon intent="danger" icon="systemAdd" />
-)
+const MyComponent = () => <Icon intent="danger" icon="systemAdd" />
 ```
 
 The various intent types are below and are consistent across the library.
 
-| Intent    | Usage                                                                                                  |
-| --------- | ------------------------------------------------------------------------------------------------------ |
-| primary   | The main/most likely action a user might want to take                                                  |
-| secondary | Typically used alonside a primary button to offer an alternative action, e.g. a Cancel or Close button |
-| critical  | An action that should be the very next, or only logical action that a user can take                    |
-| success   | An action that would lead to a good or pleasant outcome                                                |
-| danger    | An action that would lead to a potentially bad or dangerous outcome, e.g a delete button               |
-| neutral   | An action that has no specific meaning - essentially no intent is inferred from                        |
+| Intent  | Usage                                                                                       |
+| ------- | ------------------------------------------------------------------------------------------- |
+| primary | The main/most likely action a user might want to take                                       |
+| neutral | An action that has no specific meaning - essentially no intent is inferred from             |
+| pending | An action that is pending resolution based on a further action                              |
+| success | An action that would lead to a good or pleasant outcome                                     |
+| warning | An action that you may wish to perform but requires thought e.g. editing a sensitive record |
+| danger  | An action that would lead to a potentially bad or dangerous outcome, e.g a delete button    |
+| default | An intent applied if no other intent specified                                              |
 
 ## Theming
 

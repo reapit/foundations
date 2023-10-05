@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useNavigate, useLocation } from 'react-router'
 import Routes from '../../constants/routes'
-import { Icon, NavResponsive, NavResponsiveOption } from '@reapit/elements'
+import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { memo } from 'react'
 import { navigateRoute } from '../../utils/navigation'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -45,66 +45,55 @@ export const Menu: FC = () => {
     {
       itemIndex: 0,
       callback: navigateRoute(navigate, Routes.ROOT),
-      icon: <Icon iconSize="medium" icon="reapitLogoMenu" />,
     },
     {
       itemIndex: 1,
       callback: navigateRoute(navigate, Routes.APPROVALS),
-      iconId: 'searchMenu',
       text: 'Approvals',
     },
     {
       itemIndex: 2,
       callback: navigateRoute(navigate, Routes.APPS),
-      iconId: 'appsMenu',
       text: 'Apps',
     },
     {
       itemIndex: 3,
       callback: navigateRoute(navigate, Routes.DEV_MANAGEMENT),
-      iconId: 'developersMenu',
       text: 'Developers',
     },
     {
       itemIndex: 4,
       callback: navigateRoute(navigate, Routes.INSTALLATIONS),
-      iconId: 'installedMenu',
       text: 'Installations',
     },
     {
       itemIndex: 5,
       callback: navigateRoute(navigate, Routes.BILLING),
-      iconId: 'paymentsMenu',
       text: 'Billing',
     },
     {
       itemIndex: 6,
       callback: navigateRoute(navigate, Routes.TRAFFIC),
-      iconId: 'mapMenu',
       text: 'Traffic',
     },
     {
       itemIndex: 7,
       callback: navigateRoute(navigate, Routes.CUSTOMERS),
-      iconId: 'usersMenu',
       text: 'Customers',
     },
     {
       itemIndex: 8,
       callback: navigateRoute(navigate, Routes.SUBSCRIPTIONS),
-      iconId: 'resultsMenu',
       text: 'Subs',
     },
     {
       itemIndex: 9,
       callback: navigateRoute(navigate, Routes.USAGE),
-      iconId: 'analyticsMenu',
       text: 'Usage',
     },
     {
       itemIndex: 10,
       callback: navigateRoute(navigate, Routes.IAAS),
-      iconId: 'dataMenu',
       text: 'IAAS',
     },
     {

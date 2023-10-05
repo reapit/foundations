@@ -106,7 +106,6 @@ export const HomePage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Configure</Title>
         <Icon className={elMb5} icon="userAuthInfographic" iconSize="large" />
         <Subtitle>Your MFA Config</Subtitle>
         <SmallText hasGreyText>
@@ -127,7 +126,7 @@ export const HomePage: FC = () => {
           <Loader className={elMb11} />
         ) : activeAuthenticator ? (
           <>
-            <PersistentNotification className={cx(elMb7, elFadeIn)} isFullWidth isExpanded isInline intent="secondary">
+            <PersistentNotification className={cx(elMb7, elFadeIn)} isFullWidth isExpanded isInline intent="primary">
               You have an active authenticator registered for your account. If you want to re-configure, click the
               &lsquo;Reset Authenticator&rsquo; button below.
             </PersistentNotification>
@@ -138,12 +137,12 @@ export const HomePage: FC = () => {
           </>
         ) : (
           <>
-            <PersistentNotification className={cx(elMb7, elFadeIn)} isFullWidth isExpanded isInline intent="secondary">
+            <PersistentNotification className={cx(elMb7, elFadeIn)} isFullWidth isExpanded isInline intent="primary">
               No authenticators configured for your user account. Please use the button below to configure one.
             </PersistentNotification>
             <ButtonGroup>
               <Button
-                intent="critical"
+                intent="primary"
                 onClick={handleGetQrCode(requestQrCode)}
                 loading={qrCodeLoading}
                 disabled={qrCodeLoading}

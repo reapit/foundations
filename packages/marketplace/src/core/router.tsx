@@ -3,11 +3,11 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import { createBrowserHistory, History } from 'history'
 import { RoutePaths } from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
-import { catchChunkError } from '@reapit/utils-react'
+import { Login, catchChunkError } from '@reapit/utils-react'
+import { reapitConnectBrowserSession } from './connect-session'
 
 export const history: History<any> = createBrowserHistory()
 
-const LoginPage = lazy(() => catchChunkError(() => import('../components/login')))
 const AppsBrowsePage = lazy(() => catchChunkError(() => import('../components/apps-browse')))
 const AppsDetailPage = lazy(() => catchChunkError(() => import('../components/apps-detail')))
 const AppsInstalledPage = lazy(() => catchChunkError(() => import('../components/apps-installed')))
@@ -17,7 +17,16 @@ const PermissionChangePage = lazy(() => catchChunkError(() => import('../compone
 
 export const RoutesComponent: FC = () => (
   <Routes>
-    <Route path={RoutePaths.LOGIN} element={<LoginPage />} />
+    <Route
+      path={RoutePaths.LOGIN}
+      element={
+        <Login
+          appName="AppMarket"
+          reapitConnectBrowserSession={reapitConnectBrowserSession}
+          redirectPath={RoutePaths.APPS_BROWSE}
+        />
+      }
+    />
     <Route
       path={RoutePaths.HOME}
       element={

@@ -38,8 +38,13 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
 "
         >
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 0.5rem;
+"
+            >
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 placeholder="Search"
               />
@@ -98,15 +103,15 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
               classname="mock-css."
               type="button"
             >
-              Cancel
               <mock-styled.div />
+              Cancel
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               type="submit"
             >
-              Submit
               <mock-styled.div />
+              Submit
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -147,8 +152,13 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
 "
       >
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+"
+          >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -207,15 +217,15 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
             classname="mock-css."
             type="button"
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             type="submit"
           >
-            Submit
             <mock-styled.div />
+            Submit
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

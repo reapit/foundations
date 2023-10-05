@@ -142,7 +142,11 @@ exports[`NavItem component should match a snapshot for a secondary item 1`] = `
       <mock-styled.a
         classname="mock-css.
   @media screen and (min-width: 768px) {
-    margin-top: auto;
+    margin-left: auto;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 "
       />
@@ -152,7 +156,11 @@ exports[`NavItem component should match a snapshot for a secondary item 1`] = `
     <mock-styled.a
       classname="mock-css.
   @media screen and (min-width: 768px) {
-    margin-top: auto;
+    margin-left: auto;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 "
     />

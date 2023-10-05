@@ -569,6 +569,10 @@ export interface IdentityClientUserInfoModel {
    */
   id?: string
   /**
+   * The name of the user in the third party IdP
+   */
+  name?: string
+  /**
    * Flag indicating whether or not the user is enabled in the third party IdP
    * Note that this does not necessarily mean active in all IdPs
    */

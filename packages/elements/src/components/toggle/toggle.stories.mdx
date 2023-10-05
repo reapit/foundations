@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { Toggle, ToggleRadio } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { ElToggleItem } from './__styles__'
@@ -29,6 +29,21 @@ Props available for the React version of the component are just those of a stand
 </Canvas>
 
 <RenderHtmlMarkup component="Toggle" story="Basic Usage" />
+
+## Toggle - Switch
+
+If you just want your toggle to behave like a switch without text, simply leave the toggle items empty.
+
+<Canvas>
+  <Story name="Toggle - Switch">
+    <Toggle id="my-cool-toggle-variants-switch">
+      <ElToggleItem></ElToggleItem>
+      <ElToggleItem></ElToggleItem>
+    </Toggle>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Toggle" story="Toggle - Switch" />
 
 ## Toggle - Grey Bg
 
@@ -137,7 +152,6 @@ Where rendering a toggle on a white background, you should apply the hasGreyBg p
 
 ## Toggle Disabled
 
-
 <Canvas>
   <Story name="Toggle Radio - Disabled">
     <ToggleRadio
@@ -147,19 +161,19 @@ Where rendering a toggle on a white background, you should apply the hasGreyBg p
         {
           id: 'option-1',
           value: 'option-1',
-          text: 'Option 1',
+          text: 'Opt 1',
           isChecked: true,
         },
         {
           id: 'option-2',
           value: 'option-2',
-          text: 'Option 2',
+          text: 'Opt 2',
           isChecked: false,
         },
         {
           id: 'option-3',
           value: 'option-3',
-          text: 'Option 3',
+          text: 'Opt 3',
           isChecked: false,
         },
       ]}

@@ -80,7 +80,7 @@ const AppInstallationConfirmationModal: FC<AppInstallationConfirmationModalProps
         </>
       )}
       <ButtonGroup alignment="right">
-        <Button intent="secondary" type="button" onClick={onClose}>
+        <Button intent="primary" type="button" onClick={onClose}>
           Cancel
         </Button>
         <Button

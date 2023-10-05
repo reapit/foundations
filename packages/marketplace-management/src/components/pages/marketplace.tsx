@@ -19,7 +19,7 @@ import {
   Pagination,
   PersistentNotification,
   SecondaryNavContainer,
-  Subtitle,
+  SmallText,
   Title,
   useMediaQuery,
   useModal,
@@ -82,13 +82,12 @@ export const MarketplacePage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Apps</Title>
-        <Icon className={elMb5} icon="appInfographicAlt" iconSize="large" />
-        <Subtitle>AppMarket Visibility and Installation Management</Subtitle>
-        <BodyText hasGreyText>
+        <Icon className={elMb5} icon="appMarketInfographic" iconSize="large" />
+        <BodyText>AppMarket Visibility and Installation Management</BodyText>
+        <SmallText hasGreyText>
           To set the visibility of an app in the AppMarket or to manage installations for your organisation or specific
           office groups, please select an app.
-        </BodyText>
+        </SmallText>
         <OrgIdSelect />
         <ControlsContainer>
           <InputGroup
@@ -107,7 +106,7 @@ export const MarketplacePage: FC = () => {
           <Title>{orgName} AppMarket</Title>
           {isMobile && (
             <ButtonGroup alignment="right">
-              <Button intent="low" onClick={openModal}>
+              <Button intent="default" onClick={openModal}>
                 Select Org
               </Button>
               <Modal title="Page Controls">
@@ -123,7 +122,7 @@ export const MarketplacePage: FC = () => {
                   />
                 </ControlsContainer>
                 <ButtonGroup alignment="center">
-                  <Button intent="secondary" onClick={closeModal}>
+                  <Button intent="primary" onClick={closeModal}>
                     Close
                   </Button>
                 </ButtonGroup>
@@ -132,7 +131,7 @@ export const MarketplacePage: FC = () => {
           )}
         </FlexContainer>
         {!orgClientId ? (
-          <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+          <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
             No organisation selected. You need to select an organisation to view available apps.
           </PersistentNotification>
         ) : appLoading ? (

@@ -8,11 +8,11 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
       <mock-styled.div />
        
       <mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css."
+        classname="mock-css. mock-css. mock-css."
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -32,7 +32,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -47,11 +47,11 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
     <mock-styled.div />
      
     <mock-styled.div
-      classname="mock-css. mock-css. mock-css. mock-css."
+      classname="mock-css. mock-css. mock-css."
     >
       <div
         class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -71,7 +71,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
       </div>
       <div
         class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;

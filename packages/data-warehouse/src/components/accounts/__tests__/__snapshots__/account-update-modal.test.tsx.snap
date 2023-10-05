@@ -20,6 +20,7 @@ exports[`AccountUpdateModal should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="password"
                 placeholder="*********"
@@ -35,6 +36,7 @@ exports[`AccountUpdateModal should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="passwordConfirm"
                 placeholder="*********"
@@ -56,15 +58,15 @@ exports[`AccountUpdateModal should match a snapshot 1`] = `
               classname="mock-css."
               type="button"
             >
-              Cancel
               <mock-styled.div />
+              Cancel
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               type="submit"
             >
-              Update
               <mock-styled.div />
+              Update
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -87,6 +89,7 @@ exports[`AccountUpdateModal should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="password"
               placeholder="*********"
@@ -102,6 +105,7 @@ exports[`AccountUpdateModal should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="passwordConfirm"
               placeholder="*********"
@@ -123,15 +127,15 @@ exports[`AccountUpdateModal should match a snapshot 1`] = `
             classname="mock-css."
             type="button"
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             type="submit"
           >
-            Update
             <mock-styled.div />
+            Update
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

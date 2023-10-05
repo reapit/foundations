@@ -37,6 +37,7 @@ exports[`WebhooksNewUrl should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Enter secure https:// url"
             />
@@ -83,6 +84,7 @@ exports[`WebhooksNewUrl should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             placeholder="Enter secure https:// url"
           />

@@ -281,15 +281,12 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
                       Invite Member
                     </Button>
                     <Button
-                      intent="secondary"
+                      intent="primary"
                       onClick={handleDevIdMembers(setDevIdMembers, setDevIdSubs, setDevIdApps, id)}
                     >
                       Fetch Members
                     </Button>
-                    <Button
-                      intent="secondary"
-                      onClick={handleDevIdApps(setDevIdApps, setDevIdSubs, setDevIdMembers, id)}
-                    >
+                    <Button intent="primary" onClick={handleDevIdApps(setDevIdApps, setDevIdSubs, setDevIdMembers, id)}>
                       Fetch Apps
                     </Button>
                     <Button
@@ -322,10 +319,8 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
       </Modal>
       <DeleteConfirmModal title="Delete Developer">
         <BodyText hasGreyText>Are you sure you want to delete this developer? This action cannot be undone.</BodyText>
-        <ButtonGroup alignment="center">
-          <Button intent="low" onClick={closeDeleteConfirmModal}>
-            Cancel
-          </Button>
+        <ButtonGroup alignment="right">
+          <Button onClick={closeDeleteConfirmModal}>Cancel</Button>
           <Button
             intent="danger"
             onClick={handleDeleteDev(setDevIdDelete, closeDeleteConfirmModal, deleteDeveloper, refreshDevelopers)}
@@ -340,7 +335,7 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
     </div>
   ) : (
     <div className={elMb11}>
-      <PersistentNotification isExpanded isFullWidth isInline intent="secondary">
+      <PersistentNotification isExpanded isFullWidth isInline intent="primary">
         No results found for your selected filters
       </PersistentNotification>
     </div>

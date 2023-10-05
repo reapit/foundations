@@ -68,7 +68,7 @@ export const AppsWelcomePage: FC = () => {
                   </BodyText>
                 </div>
                 <ButtonGroup alignment="left">
-                  <Button onClick={openNewPage(ExternalPages.baseDocs)} intent="primary" size={2} chevronRight>
+                  <Button onClick={openNewPage(ExternalPages.baseDocs)} intent="default">
                     View Docs
                   </Button>
                 </ButtonGroup>
@@ -96,7 +96,7 @@ export const AppsWelcomePage: FC = () => {
                   </BodyText>
                 </div>
                 <ButtonGroup alignment="left">
-                  <Button intent="critical" size={2} onClick={navigateRoute(navigate, Routes.APPS_NEW)} chevronRight>
+                  <Button intent="primary" size={2} onClick={navigateRoute(navigate, Routes.APPS_NEW)}>
                     Create App
                   </Button>
                 </ButtonGroup>

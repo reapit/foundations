@@ -40,6 +40,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="name"
                 placeholder="Enter an office group name"
@@ -73,8 +74,13 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
             </mock-styled.label>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 0.5rem;
+"
+            >
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 placeholder="Search"
               />
@@ -232,15 +238,15 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
               classname="mock-css."
               type="button"
             >
-              Delete
               <mock-styled.div />
+              Delete
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               type="submit"
             >
-              Submit
               <mock-styled.div />
+              Submit
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -283,6 +289,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="name"
               placeholder="Enter an office group name"
@@ -316,8 +323,13 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+"
+          >
             <mock-styled.input
+              classname=""
               id="test-static-id"
               placeholder="Search"
             />
@@ -475,15 +487,15 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
             classname="mock-css."
             type="button"
           >
-            Delete
             <mock-styled.div />
+            Delete
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             type="submit"
           >
-            Submit
             <mock-styled.div />
+            Submit
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

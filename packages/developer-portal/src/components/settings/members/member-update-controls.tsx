@@ -109,29 +109,16 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
         Set As {member.role === 'admin' ? 'User' : 'Admin'}
       </Button>
       <Button
-        intent="secondary"
+        intent="primary"
         disabled={isDisabled}
         loading={isLoading}
         onClick={handleReinviteMember(reinviteMember, member, connectSession)}
       >
         Invite Again
       </Button>
-      {member.status === 'active' && (
-        <Button
-          intent="low"
-          disabled={isDisabled}
-          loading={isLoading}
-          onClick={handleUpdateMember(updateMember, {
-            ...member,
-            status: 'inactive',
-          })}
-        >
-          Disable
-        </Button>
-      )}
       {!member.isMainContact && (
         <Button
-          intent="secondary"
+          intent="primary"
           disabled={isLoading}
           loading={isLoading}
           onClick={handleUpdateMember(updateMember, {
@@ -140,6 +127,19 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
           })}
         >
           Set As Main Contact
+        </Button>
+      )}
+      {member.status === 'active' && (
+        <Button
+          intent="danger"
+          disabled={isDisabled}
+          loading={isLoading}
+          onClick={handleUpdateMember(updateMember, {
+            ...member,
+            status: 'inactive',
+          })}
+        >
+          Disable
         </Button>
       )}
       <Button intent="danger" disabled={isDisabled} loading={isLoading} onClick={handleDeleteMember(deleteMember)}>

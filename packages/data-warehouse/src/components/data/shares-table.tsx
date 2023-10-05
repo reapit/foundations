@@ -46,7 +46,7 @@ export const DSNComponent: FC<TableCellProps> = ({ value }) => {
 
   return (
     <CopyToClipboard text={value} onCopy={handleCopyCode(setCopyMessage)}>
-      <Button onMouseLeave={handleMouseLeave(setCopyMessage, 'Copy DSN')} intent="low">
+      <Button onMouseLeave={handleMouseLeave(setCopyMessage, 'Copy DSN')} intent="default">
         {copyMessage}
       </Button>
     </CopyToClipboard>
@@ -58,7 +58,7 @@ export const URLComponent: FC<TableCellProps> = ({ value }) => {
 
   return (
     <CopyToClipboard text={value} onCopy={handleCopyCode(setCopyMessage)}>
-      <Button onMouseLeave={handleMouseLeave(setCopyMessage, 'Copy URL')} intent="low">
+      <Button onMouseLeave={handleMouseLeave(setCopyMessage, 'Copy URL')} intent="default">
         {copyMessage}
       </Button>
     </CopyToClipboard>
@@ -129,20 +129,20 @@ export const SharesTable: FC<SharesTableProps> = ({ shares, refreshShares }) => 
               <URLComponent value={url} />
               <DSNComponent value={dsn} />
               <Button
-                intent="danger"
-                onClick={handleDeleteShare(deleteShare, refreshShares, id)}
-                disabled={isLoading}
-                loading={deletingShare}
-              >
-                Delete Share
-              </Button>
-              <Button
                 intent="primary"
                 onClick={handleRefreshShare(refreshShare, refreshShares, id)}
                 disabled={isLoading}
                 loading={refreshingShare}
               >
                 Refresh Share
+              </Button>
+              <Button
+                intent="danger"
+                onClick={handleDeleteShare(deleteShare, refreshShares, id)}
+                disabled={isLoading}
+                loading={deletingShare}
+              >
+                Delete Share
               </Button>
             </ButtonGroup>
           ),

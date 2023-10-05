@@ -263,7 +263,9 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                     classname="mock-css."
                     style="font-size: 1.2rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 1.2rem;"
+                    />
                   </mock-styled.span>
                 </mock-styled.div>
               </mock-styled.div>
@@ -411,7 +413,9 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                   classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.2rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>

@@ -48,40 +48,38 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline 
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
         </mock-styled.p>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-          disabled="true"
-        >
-          Deploy
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        >
-          API Keys
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-          disabled="false"
-        >
-          Delete Pipeline
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        >
-          View Docs
-          <mock-styled.div />
-        </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.button
+              classname="mock-css."
+              disabled="true"
+            >
+              <mock-styled.div />
+              Deploy
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+            >
+              <mock-styled.div />
+              API Keys
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+              disabled="false"
+            >
+              <mock-styled.div />
+              Delete Pipeline
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+            >
+              <mock-styled.div />
+              View Docs
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
@@ -123,40 +121,38 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline 
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
       </mock-styled.p>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="true"
-      >
-        Deploy
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        API Keys
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="false"
-      >
-        Delete Pipeline
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css."
+            disabled="true"
+          >
+            <mock-styled.div />
+            Deploy
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            API Keys
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
+          >
+            <mock-styled.div />
+            Delete Pipeline
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],
@@ -264,40 +260,38 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
         </mock-styled.p>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-          disabled="true"
-        >
-          Deploy
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        >
-          API Keys
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-          disabled="false"
-        >
-          Delete Pipeline
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        >
-          View Docs
-          <mock-styled.div />
-        </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.button
+              classname="mock-css."
+              disabled="true"
+            >
+              <mock-styled.div />
+              Deploy
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+            >
+              <mock-styled.div />
+              API Keys
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+              disabled="false"
+            >
+              <mock-styled.div />
+              Delete Pipeline
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+            >
+              <mock-styled.div />
+              View Docs
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
@@ -339,40 +333,38 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
       </mock-styled.p>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="true"
-      >
-        Deploy
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        API Keys
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="false"
-      >
-        Delete Pipeline
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css."
+            disabled="true"
+          >
+            <mock-styled.div />
+            Deploy
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            API Keys
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
+          >
+            <mock-styled.div />
+            Delete Pipeline
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],
@@ -486,40 +478,38 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
         </mock-styled.p>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-          disabled="true"
-        >
-          Deploy
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        >
-          API Keys
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-          disabled="false"
-        >
-          Delete Pipeline
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        >
-          View Docs
-          <mock-styled.div />
-        </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.button
+              classname="mock-css."
+              disabled="true"
+            >
+              <mock-styled.div />
+              Deploy
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+            >
+              <mock-styled.div />
+              API Keys
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+              disabled="false"
+            >
+              <mock-styled.div />
+              Delete Pipeline
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+            >
+              <mock-styled.div />
+              View Docs
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
@@ -561,40 +551,38 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
       </mock-styled.p>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="true"
-      >
-        Deploy
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        API Keys
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="false"
-      >
-        Delete Pipeline
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css."
+            disabled="true"
+          >
+            <mock-styled.div />
+            Deploy
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            API Keys
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
+          >
+            <mock-styled.div />
+            Delete Pipeline
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],
@@ -705,40 +693,38 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
         </mock-styled.p>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-          disabled="true"
-        >
-          Deploy
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        >
-          API Keys
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-          disabled="false"
-        >
-          Delete Pipeline
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        >
-          View Docs
-          <mock-styled.div />
-        </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.button
+              classname="mock-css."
+              disabled="true"
+            >
+              <mock-styled.div />
+              Deploy
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+            >
+              <mock-styled.div />
+              API Keys
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+              disabled="false"
+            >
+              <mock-styled.div />
+              Delete Pipeline
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+            >
+              <mock-styled.div />
+              View Docs
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
@@ -780,40 +766,38 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
       </mock-styled.p>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="true"
-      >
-        Deploy
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        API Keys
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="false"
-      >
-        Delete Pipeline
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css."
+            disabled="true"
+          >
+            <mock-styled.div />
+            Deploy
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            API Keys
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
+          >
+            <mock-styled.div />
+            Delete Pipeline
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],
@@ -933,40 +917,38 @@ exports[`PipelineControls should match snapshot where pipeline is provisioning 1
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
         </mock-styled.p>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css. mock-css."
-          disabled="true"
-        >
-          Provision
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        >
-          API Keys
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-          disabled="true"
-        >
-          Delete Pipeline
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        >
-          View Docs
-          <mock-styled.div />
-        </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.button
+              classname="mock-css. mock-css."
+              disabled="true"
+            >
+              <mock-styled.div />
+              Provision
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+            >
+              <mock-styled.div />
+              API Keys
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+              disabled="true"
+            >
+              <mock-styled.div />
+              Delete Pipeline
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+            >
+              <mock-styled.div />
+              View Docs
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
@@ -1008,40 +990,38 @@ exports[`PipelineControls should match snapshot where pipeline is provisioning 1
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
       </mock-styled.p>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css. mock-css."
-        disabled="true"
-      >
-        Provision
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        API Keys
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="true"
-      >
-        Delete Pipeline
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css. mock-css."
+            disabled="true"
+          >
+            <mock-styled.div />
+            Provision
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            API Keys
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="true"
+          >
+            <mock-styled.div />
+            Delete Pipeline
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],
@@ -1158,22 +1138,24 @@ exports[`PipelineControls should match snapshot where there is no pipeline 1`] =
         >
           To get started with Reapit IAAS pipelines, first take the time to read the documentation. Then visit this page to configure your first pipeline.
         </mock-styled.p>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        >
-          API Keys
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        >
-          View Docs
-          <mock-styled.div />
-        </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.button
+              classname="mock-css."
+            >
+              <mock-styled.div />
+              API Keys
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+            >
+              <mock-styled.div />
+              View Docs
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
@@ -1215,22 +1197,24 @@ exports[`PipelineControls should match snapshot where there is no pipeline 1`] =
       >
         To get started with Reapit IAAS pipelines, first take the time to read the documentation. Then visit this page to configure your first pipeline.
       </mock-styled.p>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        API Keys
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            API Keys
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],

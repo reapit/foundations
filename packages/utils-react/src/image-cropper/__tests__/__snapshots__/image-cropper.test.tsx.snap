@@ -17,8 +17,8 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 1
  mock-css."
             type="button"
           >
-            Upload
             <mock-styled.div />
+            Upload
           </mock-styled.button>
           <mock-styled.input
             type="file"
@@ -50,8 +50,8 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 1
  mock-css."
           type="button"
         >
-          Upload
           <mock-styled.div />
+          Upload
         </mock-styled.button>
         <mock-styled.input
           type="file"
@@ -140,8 +140,8 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
  mock-css."
             type="button"
           >
-            Upload
             <mock-styled.div />
+            Upload
           </mock-styled.button>
           <mock-styled.input
             type="file"
@@ -172,8 +172,8 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
  mock-css."
             type="button"
           >
-            Upload
             <mock-styled.div />
+            Upload
           </mock-styled.button>
           <mock-styled.input
             type="file"
@@ -205,8 +205,8 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
  mock-css."
           type="button"
         >
-          Upload
           <mock-styled.div />
+          Upload
         </mock-styled.button>
         <mock-styled.input
           type="file"

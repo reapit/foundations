@@ -10,23 +10,22 @@
   height: 180px;
 }
 
-
 .pell-content {
   overflow-x: scroll;
   overflow-wrap: normal;
   outline: none;
-  padding:  10px;
-  min-height:  80px;
+  padding: 10px;
+  min-height: 80px;
   height: 100%;
   overflow-y: scroll;
   box-sizing: border-box;
   background-color: #fff;
-  box-shadow: inset 0px -1px 0px var(--color-grey-medium);  
+  border: solid 1px var(--color-white);
+  box-shadow: inset 0px -1px 0px var(--color-grey-light);
 }
 
 .pell-content:focus {
-  background-color: var(--color-grey-light);
-  border-bottom: solid 1px var(--color-grey-dark);
+  border: solid 1px var(--color-accent-blue);
 }
 
 .pell-actionbar {
@@ -34,7 +33,7 @@
   padding-left: 8px;
   min-height: 40px;
   height: 25%;
-  border: 1px solid var(--color-grey-medium);
+  border: 1px solid var(--color-grey-light);
 }
 
 .pell-button {

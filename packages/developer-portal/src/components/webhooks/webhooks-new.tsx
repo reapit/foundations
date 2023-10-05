@@ -197,14 +197,7 @@ export const WebhooksNew: FC = () => {
       <StepsVertical steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
       {!nextStep && (
         <ButtonGroup className={cx(elMb11, createCta)} alignment="left">
-          <Button
-            intent="critical"
-            size={2}
-            chevronRight
-            type="submit"
-            disabled={webhookCreating}
-            loading={webhookCreating}
-          >
+          <Button intent="primary" type="submit" disabled={webhookCreating} loading={webhookCreating}>
             Create
           </Button>
         </ButtonGroup>

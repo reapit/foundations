@@ -28,9 +28,8 @@ export const Accounts: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Users</Title>
-        <Icon className={elMb5} icon="elementsInfographic" iconSize="large" />
-        <Subtitle>Support</Subtitle>
+        <Icon className={elMb5} icon="webhooksInfographic" iconSize="large" />
+        <BodyText>Support</BodyText>
         <SmallText hasGreyText>
           Your first step is to provision a user account for the solution using the button below.
         </SmallText>
@@ -51,9 +50,15 @@ export const Accounts: FC = () => {
         >
           View Docs
         </Button>
-        <Button className={elMb5} intent="neutral" onClick={openNewPage('https://www.youtube.com/watch?v=hro2CVE4Rn4')}>
-          Video
-        </Button>
+        <div>
+          <Button
+            className={elMb5}
+            intent="neutral"
+            onClick={openNewPage('https://www.youtube.com/watch?v=hro2CVE4Rn4')}
+          >
+            Video
+          </Button>
+        </div>
         <Button className={elMb5} intent="neutral" onClick={openNewPage('mailto:dwh@reapitfoundations.zendesk.com')}>
           Help
         </Button>
@@ -83,7 +88,7 @@ export const Accounts: FC = () => {
         {accounts?._embedded?.length ? (
           <AccountsTable />
         ) : (
-          <PersistentNotification isInline isExpanded isFullWidth intent="secondary">
+          <PersistentNotification isInline isExpanded isFullWidth intent="primary">
             No accounts yet provisioned for your organisation
           </PersistentNotification>
         )}

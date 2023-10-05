@@ -14,15 +14,15 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
               classname="mock-css."
               disabled="false"
             >
-              Select all
               <mock-styled.div />
+              Select all
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               disabled="false"
             >
-              Deselect all
               <mock-styled.div />
+              Deselect all
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -286,15 +286,15 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
             classname="mock-css."
             disabled="false"
           >
-            Select all
             <mock-styled.div />
+            Select all
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
           >
-            Deselect all
             <mock-styled.div />
+            Deselect all
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

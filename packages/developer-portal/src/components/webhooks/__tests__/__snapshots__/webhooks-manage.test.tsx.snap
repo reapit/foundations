@@ -90,7 +90,7 @@ exports[`WebhooksManage should match a snapshot where no appId 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -110,7 +110,7 @@ exports[`WebhooksManage should match a snapshot where no appId 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -128,7 +128,7 @@ exports[`WebhooksManage should match a snapshot where no appId 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -148,7 +148,7 @@ exports[`WebhooksManage should match a snapshot where no appId 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -223,7 +223,7 @@ exports[`WebhooksManage should match a snapshot where no data 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -243,7 +243,7 @@ exports[`WebhooksManage should match a snapshot where no data 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -261,7 +261,7 @@ exports[`WebhooksManage should match a snapshot where no data 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -281,7 +281,7 @@ exports[`WebhooksManage should match a snapshot where no data 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -374,10 +374,12 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -439,21 +441,21 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
                     <mock-styled.button
                       classname="mock-css."
                     >
-                      Edit
                       <mock-styled.div />
+                      Edit
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                     >
-                      Ping
                       <mock-styled.div />
+                      Ping
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="false"
                     >
-                      Fetch Public Key
                       <mock-styled.div />
+                      Fetch Public Key
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -518,10 +520,12 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css."
             style="font-size: 1.2rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.2rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -583,21 +587,21 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
                   <mock-styled.button
                     classname="mock-css."
                   >
-                    Edit
                     <mock-styled.div />
+                    Edit
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                   >
-                    Ping
                     <mock-styled.div />
+                    Ping
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="false"
                   >
-                    Fetch Public Key
                     <mock-styled.div />
+                    Fetch Public Key
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>

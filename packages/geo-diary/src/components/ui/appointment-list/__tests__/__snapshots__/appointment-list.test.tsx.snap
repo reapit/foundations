@@ -77,6 +77,32 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
               <mock-styled.div />
             </mock-styled.div>
           </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
+          >
+            <mock-styled.div>
+              <mock-styled.span
+                classname="mock-css."
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                Notes
+              </mock-styled.div>
+              <mock-styled.div>
+                Add Follow Up Notes
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </mock-styled.div>
       </div>
     </div>
@@ -154,6 +180,32 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
             <mock-styled.div />
           </mock-styled.div>
         </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+"
+        >
+          <mock-styled.div>
+            <mock-styled.span
+              classname="mock-css."
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              Notes
+            </mock-styled.div>
+            <mock-styled.div>
+              Add Follow Up Notes
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </mock-styled.div>
     </div>
   </div>,
@@ -223,7 +275,7 @@ exports[`AppointmentList should match snapshot with no appointments 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -243,7 +295,7 @@ exports[`AppointmentList should match snapshot with no appointments 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -262,7 +314,7 @@ exports[`AppointmentList should match snapshot with no appointments 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -282,7 +334,7 @@ exports[`AppointmentList should match snapshot with no appointments 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;

@@ -141,7 +141,7 @@ export const Invite: FC = () => {
                 />
               </InputWrap>
             </FormLayout>
-            <ButtonGroup alignment="center">
+            <ButtonGroup alignment="right">
               <Button
                 fixedWidth
                 intent="danger"
@@ -152,7 +152,7 @@ export const Invite: FC = () => {
               >
                 Decline
               </Button>
-              <Button fixedWidth intent="primary" loading={isLoading} disabled={isLoading} type="submit">
+              <Button intent="primary" loading={isLoading} disabled={isLoading} type="submit">
                 Confirm
               </Button>
             </ButtonGroup>
@@ -166,8 +166,8 @@ export const Invite: FC = () => {
             If you already had a Developer account, you can use your existing credentials to login to the Developers
             Portal. If not, you will shortly receive an email with instructions on setting up your login credentials.
           </BodyText>
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="primary" onClick={navigateRoute(navigate, Routes.LOGIN)}>
+          <ButtonGroup alignment="right">
+            <Button intent="primary" onClick={navigateRoute(navigate, Routes.LOGIN)}>
               Login
             </Button>
           </ButtonGroup>

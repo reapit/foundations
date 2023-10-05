@@ -1,58 +1,70 @@
-import { css } from '@linaria/core'
+import { styled } from '@linaria/react'
 
-export const logoWrapStyle = css`
-  text-align: center;
-  @media screen and (min-width: 768px) {
-    text-align: left;
-    margin-left: 2em;
+export const LoginContainer = styled.div`
+  min-width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background: url('./login-bg.svg') left center no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow-y: auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
   }
 `
 
-export const logoStyle = css`
-  width: 8em;
-`
+export const LoginRoleTile = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 0.625rem;
+  cursor: pointer;
+  background-color: var(--color-white);
+  border-radius: 0.25rem;
 
-export const buttonStyle = css`
-  border-color: transparent;
-  color: white;
-  min-width: 200px;
-  padding: 1em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  align-self: flex-start;
-  text-align: center;
-
-  @media screen and (max-width: 768px) {
-    align-self: stretch;
-    padding-top: 1em;
-    padding-bottom: 1em;
-
-  }
-
-  &:active {
-    color: white;
-  }
-  &:focus {
-    color: white;
-    box-shadow: none;
-  }
   &:hover {
-    color: white;
-    border-color: transparent;
+    background-color: var(--color-purple-50);
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `
 
-export const developerPortalButton = css`
-  background-color: #1e2454;
-  &:hover {
-    background-color: #0e112a;
+export const LoginContentWrapper = styled.div`
+  max-width: 27rem;
+  pointer-events: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  background-color: var(--color-white);
+  padding: 1.25rem;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
+
+  img {
+    margin: 0 auto 3rem auto;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0 auto;
   }
 `
 
-export const marketplaceButton = css`
-  background-color: #209bd4;
-  border-color: transparent;
-  &:hover {
-    background-color: #0f4d6a;
+export const LoginImageContainer = styled.div`
+  @media (max-width: 768px) {
+    display: none;
   }
 `

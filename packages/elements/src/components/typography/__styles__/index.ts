@@ -13,7 +13,7 @@ export const elHasCapitalisedText = css``
 
 export const ElTitle = styled.h1`
   font-family: var(--font-sans-serif);
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   color: var(--color-black);
   font-size: var(--font-size-heading);
   line-height: 2.25rem;
@@ -21,19 +21,19 @@ export const ElTitle = styled.h1`
   margin-bottom: 2rem;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-dark);
+    color: var(--color-grey-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-medium);
+    color: var(--color-grey-400);
 
     a {
-      color: var(--color-grey-medium);
+      color: var(--color-grey-400);
     }
   }
 
   &.${elHasRegularText} {
-    font-weight: normal;
+    font-weight: var(--font-weight-default);
   }
 
   &.${elHasItalicText} {
@@ -45,7 +45,7 @@ export const ElTitle = styled.h1`
   }
 
   &.${elHasSectionMargin} {
-    margin-bottom: 3.75rem;
+    margin-bottom: 2rem;
   }
 
   &.${elHasCenteredText} {
@@ -59,7 +59,7 @@ export const ElTitle = styled.h1`
 
 export const ElSubtitle = styled.h2`
   font-family: var(--font-sans-serif);
-  font-weight: normal;
+  font-weight: var(--font-weight-default);
   color: var(--color-black);
   font-size: var(--font-size-subheading);
   line-height: 1.5rem;
@@ -67,19 +67,19 @@ export const ElSubtitle = styled.h2`
   margin-bottom: 1.25rem;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-dark);
+    color: var(--color-grey-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-medium);
+    color: var(--color-grey-400);
 
     a {
-      color: var(--color-grey-medium);
+      color: var(--color-grey-400);
     }
   }
 
   &.${elHasBoldText} {
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
   }
 
   &.${elHasItalicText} {
@@ -91,7 +91,7 @@ export const ElSubtitle = styled.h2`
   }
 
   &.${elHasSectionMargin} {
-    margin-bottom: 3.75rem;
+    margin-bottom: 2rem;
   }
 
   &.${elHasCenteredText} {
@@ -105,7 +105,7 @@ export const ElSubtitle = styled.h2`
 
 export const ElBodyText = styled.p`
   font-family: var(--font-sans-serif);
-  font-weight: normal;
+  font-weight: var(--font-weight-default);
   color: var(--color-black);
   font-size: var(--font-size-default);
   line-height: 1.25rem;
@@ -113,19 +113,19 @@ export const ElBodyText = styled.p`
   margin-bottom: 1rem;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-dark);
+    color: var(--color-grey-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-medium);
+    color: var(--color-grey-400);
 
     a {
-      color: var(--color-grey-medium);
+      color: var(--color-grey-400);
     }
   }
 
   &.${elHasBoldText} {
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
   }
 
   &.${elHasItalicText} {
@@ -137,7 +137,7 @@ export const ElBodyText = styled.p`
   }
 
   &.${elHasSectionMargin} {
-    margin-bottom: 3.75rem;
+    margin-bottom: 2rem;
   }
 
   &.${elHasCenteredText} {
@@ -151,7 +151,7 @@ export const ElBodyText = styled.p`
 
 export const ElSmallText = styled.p`
   font-family: var(--font-sans-serif);
-  font-weight: normal;
+  font-weight: var(--font-weight-default);
   color: var(--color-black);
   font-size: var(--font-size-small);
   line-height: 1.125rem;
@@ -159,19 +159,19 @@ export const ElSmallText = styled.p`
   margin-bottom: 1rem;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-dark);
+    color: var(--color-grey-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-medium);
+    color: var(--color-grey-400);
 
     a {
-      color: var(--color-grey-medium);
+      color: var(--color-grey-400);
     }
   }
 
   &.${elHasBoldText} {
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
   }
 
   &.${elHasItalicText} {
@@ -183,7 +183,7 @@ export const ElSmallText = styled.p`
   }
 
   &.${elHasSectionMargin} {
-    margin-bottom: 3.75rem;
+    margin-bottom: 2rem;
   }
 
   &.${elHasCenteredText} {

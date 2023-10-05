@@ -16,6 +16,7 @@ import {
   TableHeadersRow,
   Title,
   elMb5,
+  FlexContainer,
 } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
@@ -62,15 +63,14 @@ export const IaaS: FC = () => {
   if (!connectSession) return null
 
   return (
-    <>
+    <FlexContainer>
       <SecondaryNavContainer>
-        <Title>IaaS</Title>
         <Icon className={elMb5} iconSize="large" icon="webDeveloperInfographic" />
         <SmallText hasGreyText>
           Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to
           simplify your development process
         </SmallText>
-        <Button intent="neutral" onClick={openNewPage(ExternalPages.pipelineDocs)}>
+        <Button intent="default" onClick={openNewPage(ExternalPages.pipelineDocs)}>
           View Docs
         </Button>
       </SecondaryNavContainer>
@@ -116,7 +116,7 @@ export const IaaS: FC = () => {
           </PusherProvider>
         </ErrorBoundary>
       </PageContainer>
-    </>
+    </FlexContainer>
   )
 }
 

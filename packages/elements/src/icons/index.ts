@@ -10,6 +10,7 @@ import { ReactComponent as appCategoryInfographic } from '../../assets/infograph
 import { ReactComponent as appInfographic } from '../../assets/infographic-icons/appInfographic.svg'
 import { ReactComponent as appInfographicAlt } from '../../assets/infographic-icons/appInfographicAlt.svg'
 import { ReactComponent as applicantInfographic } from '../../assets/infographic-icons/applicantInfographic.svg'
+import { ReactComponent as appLauncherMenu } from '../../assets/menu-icons/appLauncherMenu.svg'
 import { ReactComponent as appMarketDarkInfographic } from '../../assets/infographic-icons/appMarketDarkInfographic.svg'
 import { ReactComponent as appMarketInfographic } from '../../assets/infographic-icons/appMarketInfographic.svg'
 import { ReactComponent as appSettingsAuthDarkInfographic } from '../../assets/infographic-icons/appSettingsAuthDarkInfographic.svg'
@@ -167,6 +168,7 @@ import { ReactComponent as reapitConnectInfographic } from '../../assets/infogra
 import { ReactComponent as reapitConnectSettingsDevicesDarkInfographic } from '../../assets/infographic-icons/reapitConnectSettingsDevicesDarkInfographic.svg'
 import { ReactComponent as reapitConnectSettingsDevicesInfographic } from '../../assets/infographic-icons/reapitConnectSettingsDevicesInfographic.svg'
 import { ReactComponent as reapitLogoInfographic } from '../../assets/infographic-icons/reapitLogoInfographic.svg'
+import { ReactComponent as reapitLogoSmallInfographic } from '../../assets/infographic-icons/reapitLogoSmallInfographic.svg'
 import { ReactComponent as reapitLogoMenu } from '../../assets/menu-icons/reapitLogoMenu.svg'
 import { ReactComponent as reapitLogoSelectedMenu } from '../../assets/menu-icons/reapitLogoSelectedMenu.svg'
 import { ReactComponent as reapitLogoTextMenu } from '../../assets/menu-icons/reapitLogoTextMenu.svg'
@@ -295,6 +297,7 @@ export const iconSet = {
   reapitConnectSettingsDevicesDarkInfographic,
   reapitConnectSettingsDevicesInfographic,
   reapitLogoInfographic,
+  reapitLogoSmallInfographic,
   reapitUserInfographic,
   refreshInfographic,
   reportInfographic,
@@ -429,6 +432,7 @@ export const iconSet = {
   warningSolidSystem,
   // Menu Icons
   accountMenu,
+  appLauncherMenu,
   analyticsMenu,
   apiMenu,
   appsMenu,

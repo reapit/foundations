@@ -24,6 +24,7 @@ import {
   elBorderRadius,
   Select,
   elWFull,
+  BodyText,
 } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -105,6 +106,7 @@ export const AdminPage: FC = () => {
   const adminOrgs = getAdminOrgs(userOrgs)
   const hasMultiOrgs = adminOrgs.length > 1
   const orgId = adminOrgs.length === 1 ? adminOrgs[0].organisationId : null
+  const orgName = (users?._embedded && users._embedded[0] && users._embedded[0].organisationName) ?? null
 
   useEffect(handleSetAdminFilters(setUserSearch, watch), [])
   useEffect(handleInitialUserOrgSet(setOrganisationId, orgId), [orgId])
@@ -112,7 +114,6 @@ export const AdminPage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Admin</Title>
         <Icon className={elMb5} icon="userAuthInfographic" iconSize="large" />
         <Subtitle>Your User Config</Subtitle>
         <SmallText hasGreyText>
@@ -158,7 +159,7 @@ export const AdminPage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <ErrorBoundary>
-          <Title>Users List</Title>
+          <Title>Users List {orgName && `- ${orgName}`}</Title>
           <form>
             <FormLayout hasMargin>
               <InputWrap>
@@ -227,6 +228,7 @@ export const AdminPage: FC = () => {
             <Loader />
           ) : users?._embedded?.length ? (
             <>
+              <BodyText>Total Users: {users?.totalCount}</BodyText>
               <Table
                 className={cx(elFadeIn, elMb11)}
                 rows={users?._embedded?.map(({ id, name, email, jobTitle, inactive }) => ({
@@ -277,11 +279,11 @@ export const AdminPage: FC = () => {
               />
             </>
           ) : !organisationId ? (
-            <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+            <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
               Please select an organisation from the left hand side before proceeding.
             </PersistentNotification>
           ) : (
-            <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+            <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
               No users found based on your current search.
             </PersistentNotification>
           )}

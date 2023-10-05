@@ -45,9 +45,8 @@ export const Data: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Data</Title>
         <Icon className={elMb5} icon="elementsInfographic" iconSize="large" />
-        <Subtitle>Support</Subtitle>
+        <BodyText>Support</BodyText>
         <SmallText hasGreyText>
           Please see our{' '}
           <a
@@ -67,9 +66,15 @@ export const Data: FC = () => {
         >
           View Docs
         </Button>
-        <Button className={elMb5} intent="neutral" onClick={openNewPage('https://www.youtube.com/watch?v=hro2CVE4Rn4')}>
-          Video
-        </Button>
+        <div>
+          <Button
+            className={elMb5}
+            intent="neutral"
+            onClick={openNewPage('https://www.youtube.com/watch?v=hro2CVE4Rn4')}
+          >
+            Video
+          </Button>
+        </div>
         <Button className={elMb5} intent="neutral" onClick={openNewPage('mailto:dwh@reapitfoundations.zendesk.com')}>
           Help
         </Button>
@@ -90,7 +95,7 @@ export const Data: FC = () => {
         ) : dataSets?._embedded.length ? (
           <DataSetsTable dataSets={dataSets._embedded} refreshShares={refreshShares} />
         ) : (
-          <PersistentNotification className={elMb11} isInline isExpanded isFullWidth intent="secondary">
+          <PersistentNotification className={elMb11} isInline isExpanded isFullWidth intent="primary">
             No datasets available for your organisation
           </PersistentNotification>
         )}
@@ -100,7 +105,7 @@ export const Data: FC = () => {
         ) : shares?._embedded.length ? (
           <SharesTable shares={shares._embedded} refreshShares={refreshShares} />
         ) : (
-          <PersistentNotification isInline isExpanded isFullWidth intent="secondary">
+          <PersistentNotification isInline isExpanded isFullWidth intent="primary">
             No data shares available for your organisation
           </PersistentNotification>
         )}

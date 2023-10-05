@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { InputGroup } from './index'
 import { Input } from '../input'
 import { Icon } from '../icon'
@@ -110,41 +110,41 @@ React shorthand with `icon` and `label` props
 ## Checkbox
 
 <Canvas>
-  <Story name="Type: checkbox">
+  <Story name="Input checkbox">
     <InputGroup type="checkbox" icon="phoneSystem" label="Status" InputAddOn="Listed" />
   </Story>
-  <Story name="Type: checkbox - with intent">
+  <Story name="Input checkbox - with intent">
     <InputGroup type="checkbox" icon="infoSystem" intent="danger" label="Status" InputAddOn="Listed" />
   </Story>
-  <Story name="Type: checkbox - no icon">
+  <Story name="Input checkbox - no icon">
     <InputGroup type="checkbox" label="Status" InputAddOn="Listed" />
   </Story>
-  <Story name="Type: checkbox - no label">
+  <Story name="Input checkbox - no label">
     <InputGroup type="checkbox" InputAddOn="Listed" />
   </Story>
 </Canvas>
 
 <RenderHtmlMarkup
   component="InputGroup"
-  story={['Type: checkbox', 'Type: checkbox - with intent', 'Type: checkbox - no icon', 'Type: checkbox - no label']}
+  story={['Input checkbox', 'Input checkbox - with intent', 'Input checkbox - no icon', 'Input checkbox - no label']}
 />
 
 ## Radio
 
 <Canvas>
-  <Story name="Type: radio">
+  <Story name="Input radio">
     <Label className="el-mb2 el-flex">Preffered contact</Label>
     <InputGroup className="el-mb2" type="radio" name="phone" icon="phoneSystem" label="Mobile phone" />
     <InputGroup className="el-mb2" type="radio" name="phone" icon="homeSystem" label="Home phone" />
     <InputGroup className="el-mb2" type="radio" name="phone" icon="emailSystem" label="Email" />
   </Story>
-  <Story name="Type: radio - with intent">
+  <Story name="Input radio - with intent">
     <Label className="el-mb2 el-flex">Preffered contact</Label>
     <InputGroup className="el-mb2" type="radio" name="phone" icon="phoneSystem" label="Mobile phone" intent="danger" />
     <InputGroup className="el-mb2" type="radio" name="phone" icon="homeSystem" label="Home phone" intent="danger" />
     <InputGroup className="el-mb2" type="radio" name="phone" icon="emailSystem" label="Email" intent="danger" />
   </Story>
-  <Story name="Type: radio - no icon">
+  <Story name="Input radio - no icon">
     <Label className="el-mb2 el-flex">Preffered contact</Label>
     <InputGroup className="el-mb2" type="radio" name="phone" label="Mobile phone" />
     <InputGroup className="el-mb2" type="radio" name="phone" label="Home phone" />
@@ -154,18 +154,18 @@ React shorthand with `icon` and `label` props
 
 <RenderHtmlMarkup
   component="InputGroup"
-  story={['Type: radio', 'Type: radio - with intent', 'Type: radio - no icon']}
+  story={['Input radio', 'Input radio - with intent', 'Input radio - no icon']}
 />
 
-## Use with radio input type and InputAddOn
+## Use with radio input and InputAddOn
 
 The `inputAddOn` prop (and use of the `InputAddOn` component within `InputGroup` in general) _is_ supported with radio buttons, however with radio buttons the `Label` does most of the work.
 
 `inputAddOn` can be used but won't add that much value, and it's reccomended to use just `Label` on it's own. See an example below:
 
 <Canvas>
-  <Story name="Type: radio - with InputAddOn">
-    <Label className="el-mb2 el-flex">Preffered contact</Label>
+  <Story name="Input radio - with InputAddOn">
+    <Label className="el-mb2 el-flex">Preferred contact</Label>
     <InputGroup className="el-mb2" type="radio" name="phone" label="Mobile phone" InputAddOn="Test" />
     <InputGroup className="el-mb2" type="radio" name="phone" label="Home phone" InputAddOn="Test" />
     <InputGroup className="el-mb2" type="radio" name="phone" label="Email" InputAddOn="Test" />
@@ -178,8 +178,14 @@ Below are some examples of error messages with input groups. The error message p
 
 <Canvas>
   <Story name="Error message">
-    <InputGroup className="el-mb2" type="email" name="phone" label="Email Address" errorMessage="Email address is not valid" />
-    <Label className="el-mb2 el-flex">Preffered contact</Label>
+    <InputGroup
+      className="el-mb2"
+      type="email"
+      name="phone"
+      label="Email Address"
+      errorMessage="Email address is not valid"
+    />
+    <Label className="el-mb2 el-flex">Preferred contact</Label>
     <InputGroup className="el-mb2" type="radio" name="phone" label="Mobile phone" InputAddOn="Test" />
     <InputGroup className="el-mb2" type="radio" name="phone" label="Home phone" InputAddOn="Test" />
     <InputGroup className="el-mb2" type="radio" name="phone" label="Email" InputAddOn="Test" />

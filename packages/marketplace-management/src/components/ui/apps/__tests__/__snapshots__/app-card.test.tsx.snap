@@ -25,6 +25,26 @@ exports[`AppCard should match a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
+            <mock-styled.div
+              style="font-size: 1.953125em; width: 50px; height: 50px;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 60 35"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
+                  fill="#E3E3E3"
+                />
+              </svg>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
+          >
             <mock-styled.h5>
               Geo Diary
             </mock-styled.h5>
@@ -41,7 +61,11 @@ exports[`AppCard should match a snapshot 1`] = `
         >
           GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  margin-top: 0.75rem;
+"
+        >
           <mock-styled.h5>
             Installation and Visibility
           </mock-styled.h5>
@@ -105,6 +129,26 @@ exports[`AppCard should match a snapshot 1`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
+          <mock-styled.div
+            style="font-size: 1.953125em; width: 50px; height: 50px;"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 60 35"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
+                fill="#E3E3E3"
+              />
+            </svg>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
+        >
           <mock-styled.h5>
             Geo Diary
           </mock-styled.h5>
@@ -121,7 +165,11 @@ exports[`AppCard should match a snapshot 1`] = `
       >
         GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
       </mock-styled.div>
-      <mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  margin-top: 0.75rem;
+"
+      >
         <mock-styled.h5>
           Installation and Visibility
         </mock-styled.h5>

@@ -59,10 +59,12 @@ exports[`AppsTable should render component with apps 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -197,51 +199,51 @@ exports[`AppsTable should render component with apps 1`] = `
                     <mock-styled.button
                       classname="mock-css."
                     >
-                      View in AppMarket
                       <mock-styled.div />
+                      View in AppMarket
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="true"
                     >
-                      View in DevPortal
                       <mock-styled.div />
+                      View in DevPortal
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="false"
                     >
-                      Check AWS Only
                       <mock-styled.div />
+                      Check AWS Only
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="true"
+                    >
+                      <mock-styled.div />
+                      Toggle Subscription
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="true"
+                    >
+                      <mock-styled.div />
+                      Togggle Featured
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="true"
+                    >
+                      <mock-styled.div />
+                      Togggle API Consumption
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="true"
                       type="button"
                     >
+                      <mock-styled.div />
                       Delete
-                      <mock-styled.div />
-                    </mock-styled.button>
-                    <mock-styled.button
-                      classname="mock-css."
-                      disabled="true"
-                    >
-                      Toggle Subscription
-                      <mock-styled.div />
-                    </mock-styled.button>
-                    <mock-styled.button
-                      classname="mock-css."
-                      disabled="true"
-                    >
-                      Togggle Featured
-                      <mock-styled.div />
-                    </mock-styled.button>
-                    <mock-styled.button
-                      classname="mock-css."
-                      disabled="true"
-                    >
-                      Togggle API Consumption
-                      <mock-styled.div />
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -307,10 +309,12 @@ exports[`AppsTable should render component with apps 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -445,51 +449,51 @@ exports[`AppsTable should render component with apps 1`] = `
                   <mock-styled.button
                     classname="mock-css."
                   >
-                    View in AppMarket
                     <mock-styled.div />
+                    View in AppMarket
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="true"
                   >
-                    View in DevPortal
                     <mock-styled.div />
+                    View in DevPortal
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="false"
                   >
-                    Check AWS Only
                     <mock-styled.div />
+                    Check AWS Only
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="true"
+                  >
+                    <mock-styled.div />
+                    Toggle Subscription
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="true"
+                  >
+                    <mock-styled.div />
+                    Togggle Featured
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="true"
+                  >
+                    <mock-styled.div />
+                    Togggle API Consumption
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="true"
                     type="button"
                   >
+                    <mock-styled.div />
                     Delete
-                    <mock-styled.div />
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="mock-css."
-                    disabled="true"
-                  >
-                    Toggle Subscription
-                    <mock-styled.div />
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="mock-css."
-                    disabled="true"
-                  >
-                    Togggle Featured
-                    <mock-styled.div />
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="mock-css."
-                    disabled="true"
-                  >
-                    Togggle API Consumption
-                    <mock-styled.div />
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -569,7 +573,7 @@ exports[`AppsTable should render component with no apps 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -589,7 +593,7 @@ exports[`AppsTable should render component with no apps 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -613,7 +617,7 @@ exports[`AppsTable should render component with no apps 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -633,7 +637,7 @@ exports[`AppsTable should render component with no apps 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;

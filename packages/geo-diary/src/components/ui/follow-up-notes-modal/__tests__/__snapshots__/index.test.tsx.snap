@@ -25,6 +25,7 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
 "
         >
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="due"
             type="date"
@@ -46,44 +47,33 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
 "
         >
           <mock-styled.textarea
+            classname=""
             name="notes"
           />
           <mock-styled.label>
             Follow up notes
           </mock-styled.label>
         </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
-  justify-content: space-evenly;
-"
-        >
-          <mock-styled.button
-            classname="mock-css. mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
-            disabled="false"
-            type="button"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="mock-css."
           >
-            Cancel
-            <mock-styled.div />
-          </mock-styled.button>
-          <mock-styled.button
-            classname="mock-css. mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
-            type="submit"
-          >
-            Submit
-            <mock-styled.div />
-          </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+              disabled="false"
+              type="button"
+            >
+              <mock-styled.div />
+              Cancel
+            </mock-styled.button>
+            <mock-styled.button
+              classname="mock-css."
+              type="submit"
+            >
+              <mock-styled.div />
+              Submit
+            </mock-styled.button>
+          </mock-styled.div>
         </mock-styled.div>
       </form>
     </div>
@@ -109,6 +99,7 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
 "
       >
         <mock-styled.input
+          classname=""
           id="test-static-id"
           name="due"
           type="date"
@@ -130,44 +121,33 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
 "
       >
         <mock-styled.textarea
+          classname=""
           name="notes"
         />
         <mock-styled.label>
           Follow up notes
         </mock-styled.label>
       </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-evenly;
-"
-      >
-        <mock-styled.button
-          classname="mock-css. mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
-          disabled="false"
-          type="button"
+      <mock-styled.div>
+        <mock-styled.div
+          classname="mock-css."
         >
-          Cancel
-          <mock-styled.div />
-        </mock-styled.button>
-        <mock-styled.button
-          classname="mock-css. mock-css.
-  min-width: 8rem;
-
-  , {
-    min-width: 6rem;
-  }
-"
-          type="submit"
-        >
-          Submit
-          <mock-styled.div />
-        </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
+            type="button"
+          >
+            <mock-styled.div />
+            Cancel
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            type="submit"
+          >
+            <mock-styled.div />
+            Submit
+          </mock-styled.button>
+        </mock-styled.div>
       </mock-styled.div>
     </form>
   </div>,

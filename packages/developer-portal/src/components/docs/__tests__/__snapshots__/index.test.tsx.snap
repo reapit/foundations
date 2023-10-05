@@ -12,11 +12,6 @@ exports[`DocsPage should match a snapshot 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Docs
-          </mock-styled.h1>
           <mock-styled.div
             classname="mock-css.
   margin-bottom: 2rem;
@@ -42,11 +37,11 @@ exports[`DocsPage should match a snapshot 1`] = `
           >
             <svg />
           </mock-styled.span>
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Welcome
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -62,8 +57,8 @@ exports[`DocsPage should match a snapshot 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
           >
-            Go to Github
             <mock-styled.div />
+            Go to Github
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section
@@ -95,11 +90,6 @@ exports[`DocsPage should match a snapshot 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Docs
-        </mock-styled.h1>
         <mock-styled.div
           classname="mock-css.
   margin-bottom: 2rem;
@@ -125,11 +115,11 @@ exports[`DocsPage should match a snapshot 1`] = `
         >
           <svg />
         </mock-styled.span>
-        <mock-styled.h2
+        <mock-styled.p
           classname=""
         >
           Welcome
-        </mock-styled.h2>
+        </mock-styled.p>
         <mock-styled.p
           classname="mock-css."
         >
@@ -145,8 +135,8 @@ exports[`DocsPage should match a snapshot 1`] = `
   margin-bottom: 0.75rem;
  mock-css."
         >
-          Go to Github
           <mock-styled.div />
+          Go to Github
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section

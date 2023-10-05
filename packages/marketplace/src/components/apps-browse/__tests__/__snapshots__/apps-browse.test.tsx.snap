@@ -35,8 +35,8 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -48,7 +48,9 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
@@ -59,8 +61,8 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -72,7 +74,9 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -275,17 +279,25 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.input
               placeholder="Search by App or Developer"
@@ -346,11 +358,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                       style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                     >
-                      Find Out More
                       <mock-styled.div />
+                      Find Out More
                     </mock-styled.button>
                   </mock-styled.div>
                   <mock-styled.mock-styled.p>
@@ -367,11 +379,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.div>
@@ -462,7 +474,9 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
               classname="mock-css."
               style="font-size: 0.75em;"
             >
-              <svg />
+              <svg
+                style="font-size: 0.75em;"
+              />
             </mock-styled.span>
           </mock-styled.mock-styled.a>
           <mock-styled.div
@@ -692,7 +706,9 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                 classname="mock-css."
                 style="font-size: 0.75em;"
               >
-                <svg />
+                <svg
+                  style="font-size: 0.75em;"
+                />
               </mock-styled.span>
             </mock-styled.mock-styled.a>
             <mock-styled.div
@@ -711,9 +727,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -743,9 +761,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -775,9 +795,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -807,9 +829,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -839,9 +863,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -871,9 +897,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -955,8 +983,8 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -968,7 +996,9 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -979,8 +1009,8 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -992,7 +1022,9 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -1195,17 +1227,25 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -1266,11 +1306,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.mock-styled.p>
@@ -1287,11 +1327,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  Find Out More
                   <mock-styled.div />
+                  Find Out More
                 </mock-styled.button>
               </mock-styled.div>
               <mock-styled.div>
@@ -1382,7 +1422,9 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
             classname="mock-css."
             style="font-size: 0.75em;"
           >
-            <svg />
+            <svg
+              style="font-size: 0.75em;"
+            />
           </mock-styled.span>
         </mock-styled.mock-styled.a>
         <mock-styled.div
@@ -1612,7 +1654,9 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
               classname="mock-css."
               style="font-size: 0.75em;"
             >
-              <svg />
+              <svg
+                style="font-size: 0.75em;"
+              />
             </mock-styled.span>
           </mock-styled.mock-styled.a>
           <mock-styled.div
@@ -1631,9 +1675,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -1663,9 +1709,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -1695,9 +1743,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -1727,9 +1777,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -1759,9 +1811,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -1791,9 +1845,11 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -1932,8 +1988,8 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -1945,7 +2001,9 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
@@ -1956,8 +2014,8 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -1969,7 +2027,9 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -2172,17 +2232,25 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.input
               placeholder="Search by App or Developer"
@@ -2243,11 +2311,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                       style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                     >
-                      Find Out More
                       <mock-styled.div />
+                      Find Out More
                     </mock-styled.button>
                   </mock-styled.div>
                   <mock-styled.mock-styled.p>
@@ -2264,11 +2332,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.div>
@@ -2565,7 +2633,9 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                 classname="mock-css."
                 style="font-size: 0.75em;"
               >
-                <svg />
+                <svg
+                  style="font-size: 0.75em;"
+                />
               </mock-styled.span>
             </mock-styled.mock-styled.a>
             <mock-styled.div
@@ -2584,9 +2654,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -2616,9 +2688,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -2648,9 +2722,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -2680,9 +2756,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -2712,9 +2790,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -2744,9 +2824,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -2828,8 +2910,8 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -2841,7 +2923,9 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -2852,8 +2936,8 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -2865,7 +2949,9 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -3068,17 +3154,25 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -3139,11 +3233,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.mock-styled.p>
@@ -3160,11 +3254,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  Find Out More
                   <mock-styled.div />
+                  Find Out More
                 </mock-styled.button>
               </mock-styled.div>
               <mock-styled.div>
@@ -3461,7 +3555,9 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
               classname="mock-css."
               style="font-size: 0.75em;"
             >
-              <svg />
+              <svg
+                style="font-size: 0.75em;"
+              />
             </mock-styled.span>
           </mock-styled.mock-styled.a>
           <mock-styled.div
@@ -3480,9 +3576,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -3512,9 +3610,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -3544,9 +3644,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -3576,9 +3678,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -3608,9 +3712,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -3640,9 +3746,11 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -3781,8 +3889,8 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -3794,7 +3902,9 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
@@ -3805,8 +3915,8 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -3818,7 +3928,9 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -4021,17 +4133,25 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.input
               placeholder="Search by App or Developer"
@@ -4092,11 +4212,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                       style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                     >
-                      Find Out More
                       <mock-styled.div />
+                      Find Out More
                     </mock-styled.button>
                   </mock-styled.div>
                   <mock-styled.mock-styled.p>
@@ -4113,11 +4233,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.div>
@@ -4208,7 +4328,9 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
               classname="mock-css."
               style="font-size: 0.75em;"
             >
-              <svg />
+              <svg
+                style="font-size: 0.75em;"
+              />
             </mock-styled.span>
           </mock-styled.mock-styled.a>
           <mock-styled.div
@@ -4438,7 +4560,9 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                 classname="mock-css."
                 style="font-size: 0.75em;"
               >
-                <svg />
+                <svg
+                  style="font-size: 0.75em;"
+                />
               </mock-styled.span>
             </mock-styled.mock-styled.a>
             <mock-styled.div
@@ -4457,9 +4581,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 3.75em;"
+                      style="font-size: 60px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 60px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -4489,9 +4615,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 3.75em;"
+                      style="font-size: 60px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 60px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -4521,9 +4649,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 3.75em;"
+                      style="font-size: 60px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 60px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -4553,9 +4683,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 3.75em;"
+                      style="font-size: 60px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 60px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -4585,9 +4717,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 3.75em;"
+                      style="font-size: 60px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 60px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -4617,9 +4751,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 3.75em;"
+                      style="font-size: 60px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 60px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -4701,8 +4837,8 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -4714,7 +4850,9 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -4725,8 +4863,8 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -4738,7 +4876,9 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -4941,17 +5081,25 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -5012,11 +5160,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.mock-styled.p>
@@ -5033,11 +5181,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  Find Out More
                   <mock-styled.div />
+                  Find Out More
                 </mock-styled.button>
               </mock-styled.div>
               <mock-styled.div>
@@ -5128,7 +5276,9 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
             classname="mock-css."
             style="font-size: 0.75em;"
           >
-            <svg />
+            <svg
+              style="font-size: 0.75em;"
+            />
           </mock-styled.span>
         </mock-styled.mock-styled.a>
         <mock-styled.div
@@ -5358,7 +5508,9 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
               classname="mock-css."
               style="font-size: 0.75em;"
             >
-              <svg />
+              <svg
+                style="font-size: 0.75em;"
+              />
             </mock-styled.span>
           </mock-styled.mock-styled.a>
           <mock-styled.div
@@ -5377,9 +5529,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 3.75em;"
+                    style="font-size: 60px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 60px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -5409,9 +5563,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 3.75em;"
+                    style="font-size: 60px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 60px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -5441,9 +5597,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 3.75em;"
+                    style="font-size: 60px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 60px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -5473,9 +5631,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 3.75em;"
+                    style="font-size: 60px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 60px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -5505,9 +5665,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 3.75em;"
+                    style="font-size: 60px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 60px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -5537,9 +5699,11 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 3.75em;"
+                    style="font-size: 60px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 60px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -5678,8 +5842,8 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -5691,7 +5855,9 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
@@ -5702,8 +5868,8 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -5715,7 +5881,9 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -5918,17 +6086,25 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.input
               placeholder="Search by App or Developer"
@@ -5989,11 +6165,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                       style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                     >
-                      Find Out More
                       <mock-styled.div />
+                      Find Out More
                     </mock-styled.button>
                   </mock-styled.div>
                   <mock-styled.mock-styled.p>
@@ -6010,11 +6186,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.div>
@@ -6306,9 +6482,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -6338,9 +6516,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -6370,9 +6550,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -6402,9 +6584,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -6434,9 +6618,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -6466,9 +6652,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -6550,8 +6738,8 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -6563,7 +6751,9 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -6574,8 +6764,8 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -6587,7 +6777,9 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -6790,17 +6982,25 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -6861,11 +7061,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.mock-styled.p>
@@ -6882,11 +7082,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  Find Out More
                   <mock-styled.div />
+                  Find Out More
                 </mock-styled.button>
               </mock-styled.div>
               <mock-styled.div>
@@ -7178,9 +7378,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -7210,9 +7412,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -7242,9 +7446,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -7274,9 +7480,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -7306,9 +7514,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -7338,9 +7548,11 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -7479,8 +7691,8 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -7492,7 +7704,9 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
@@ -7503,8 +7717,8 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -7516,7 +7730,9 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -7719,17 +7935,25 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.input
               placeholder="Search by App or Developer"
@@ -7790,11 +8014,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                       style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                     >
-                      Find Out More
                       <mock-styled.div />
+                      Find Out More
                     </mock-styled.button>
                   </mock-styled.div>
                   <mock-styled.mock-styled.p>
@@ -7811,11 +8035,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.div>
@@ -7906,7 +8130,9 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
               classname="mock-css."
               style="font-size: 0.75em;"
             >
-              <svg />
+              <svg
+                style="font-size: 0.75em;"
+              />
             </mock-styled.span>
           </mock-styled.mock-styled.a>
           <mock-styled.div
@@ -8136,7 +8362,9 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                 classname="mock-css."
                 style="font-size: 0.75em;"
               >
-                <svg />
+                <svg
+                  style="font-size: 0.75em;"
+                />
               </mock-styled.span>
             </mock-styled.mock-styled.a>
             <mock-styled.div
@@ -8155,9 +8383,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -8187,9 +8417,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -8219,9 +8451,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -8251,9 +8485,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -8283,9 +8519,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -8315,9 +8553,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -8399,8 +8639,8 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -8412,7 +8652,9 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -8423,8 +8665,8 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -8436,7 +8678,9 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -8639,17 +8883,25 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -8710,11 +8962,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.mock-styled.p>
@@ -8731,11 +8983,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  Find Out More
                   <mock-styled.div />
+                  Find Out More
                 </mock-styled.button>
               </mock-styled.div>
               <mock-styled.div>
@@ -8826,7 +9078,9 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
             classname="mock-css."
             style="font-size: 0.75em;"
           >
-            <svg />
+            <svg
+              style="font-size: 0.75em;"
+            />
           </mock-styled.span>
         </mock-styled.mock-styled.a>
         <mock-styled.div
@@ -9056,7 +9310,9 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
               classname="mock-css."
               style="font-size: 0.75em;"
             >
-              <svg />
+              <svg
+                style="font-size: 0.75em;"
+              />
             </mock-styled.span>
           </mock-styled.mock-styled.a>
           <mock-styled.div
@@ -9075,9 +9331,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -9107,9 +9365,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -9139,9 +9399,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -9171,9 +9433,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -9203,9 +9467,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -9235,9 +9501,11 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -9376,8 +9644,8 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -9389,7 +9657,9 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
@@ -9400,8 +9670,8 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -9413,7 +9683,9 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -9616,17 +9888,25 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.input
               placeholder="Search by App or Developer"
@@ -9687,11 +9967,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                       style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                     >
-                      Find Out More
                       <mock-styled.div />
+                      Find Out More
                     </mock-styled.button>
                   </mock-styled.div>
                   <mock-styled.mock-styled.p>
@@ -9708,11 +9988,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.div>
@@ -10004,9 +10284,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -10036,9 +10318,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -10068,9 +10352,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -10100,9 +10386,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -10132,9 +10420,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -10164,9 +10454,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
                       classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                      style="font-size: 5em;"
+                      style="font-size: 80px;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 80px;"
+                      />
                     </mock-styled.span>
                     <mock-styled.div
                       classname="mock-css.
@@ -10248,8 +10540,8 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -10261,7 +10553,9 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -10272,8 +10566,8 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -10285,7 +10579,9 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -10488,17 +10784,25 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -10559,11 +10863,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   , {
     display: block;
   }
-"
+ mock-css."
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    Find Out More
                     <mock-styled.div />
+                    Find Out More
                   </mock-styled.button>
                 </mock-styled.div>
                 <mock-styled.mock-styled.p>
@@ -10580,11 +10884,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   , {
     display: none;
   }
-"
+ mock-css."
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  Find Out More
                   <mock-styled.div />
+                  Find Out More
                 </mock-styled.button>
               </mock-styled.div>
               <mock-styled.div>
@@ -10876,9 +11180,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -10908,9 +11214,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -10940,9 +11248,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -10972,9 +11282,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -11004,9 +11316,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -11036,9 +11350,11 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
                     classname="mock-css.
   margin-bottom: 0.75rem;
 "
-                    style="font-size: 5em;"
+                    style="font-size: 80px;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 80px;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     classname="mock-css.
@@ -11184,8 +11500,8 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -11197,7 +11513,9 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
@@ -11208,8 +11526,8 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -11221,7 +11539,9 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -11424,17 +11744,25 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
               style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.input
               placeholder="Search by App or Developer"
@@ -11486,8 +11814,8 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -11499,7 +11827,9 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -11510,8 +11840,8 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -11523,7 +11853,9 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -11726,17 +12058,25 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 "
             style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"

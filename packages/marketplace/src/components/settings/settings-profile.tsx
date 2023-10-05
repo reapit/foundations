@@ -120,7 +120,7 @@ export const SettingsProfile: FC = () => {
         <Title>Profile</Title>
         {isMobile && (
           <ButtonGroup alignment="right">
-            <Button onClick={logoutUser} intent="critical" chevronRight>
+            <Button onClick={logoutUser} intent="primary" chevronRight>
               Logout
             </Button>
           </ButtonGroup>

@@ -32,8 +32,7 @@ export const PipelinesAbout = () => {
           the Reapit Platform Cloud.
         </BodyText>
         <Button
-          intent="critical"
-          chevronRight
+          intent="primary"
           onClick={navigateRoute(navigate, Routes.APP_PIPELINE_NEW.replace(':appId', appId as string))}
           onMouseOver={() => {
             setNewPipelineAnimated(true)
@@ -60,7 +59,7 @@ export const PipelinesAbout = () => {
           and non-mission critical services.
         </BodyText>
         <Button
-          intent="low"
+          intent="default"
           onClick={openNewPage(ExternalPages.pipelineDocs)}
           onMouseOver={() => {
             setDocsIsAnimated(true)

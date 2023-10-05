@@ -30,7 +30,7 @@ import {
   Toggle,
   useModal,
 } from '@reapit/elements'
-import { ClientConfigCreateModel, ClientConfigDeleteModel, ClientConfigModel, PaymentLogo } from '@reapit/payments-ui'
+import { ClientConfigCreateModel, ClientConfigDeleteModel, ClientConfigModel } from '@reapit/payments-ui'
 import {
   SendFunction,
   UpdateActionNames,
@@ -197,9 +197,8 @@ export const AdminPage: FC = () => {
   const logoUri = watch('logoUri')
 
   return (
-    <>
+    <FlexContainer>
       <SecondaryNavContainer>
-        <Title>Admin</Title>
         <Icon className={elMb5} iconSize="large" icon="lockedInfographic" />
         <SmallText hasGreyText>This form is required to get started with Reapit Payments.</SmallText>
         <SmallText hasGreyText>
@@ -213,7 +212,7 @@ export const AdminPage: FC = () => {
           className={elMb3}
           disabled={isLoading}
           loading={updateLoading || createLoading}
-          intent="critical"
+          intent="primary"
           onClick={openUpdateModal}
         >
           Save Config
@@ -230,10 +229,7 @@ export const AdminPage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer>
         <ErrorBoundary>
-          <FlexContainer isFlexJustifyBetween>
-            <Title>Reapit Payments App Configuration</Title>
-            <PaymentLogo />
-          </FlexContainer>
+          <Title>Reapit Payments App Configuration</Title>
           {config?.isConfigured ? (
             <PersistentNotification className={cx(elFadeIn, elMb7)} intent="success" isExpanded isFullWidth isInline>
               Your app is currently configured to use Reapit Payments. You can update your details however, you will be
@@ -275,7 +271,7 @@ export const AdminPage: FC = () => {
                     {logoUri && <img src={logoUri} />}
                   </FlexContainer>
                   <ButtonGroup alignment="center">
-                    <Button intent="low" onClick={closeFilePreviewModal}>
+                    <Button intent="default" onClick={closeFilePreviewModal}>
                       Close
                     </Button>
                   </ButtonGroup>
@@ -324,11 +320,11 @@ export const AdminPage: FC = () => {
               the app and that you have validated that all credentials are accurate.
             </PersistentNotification>
             <ButtonGroup alignment="center">
-              <Button intent="low" onClick={closeUpdateModal}>
+              <Button intent="default" onClick={closeUpdateModal}>
                 Cancel
               </Button>
               <Button
-                intent="critical"
+                intent="primary"
                 disabled={isLoading}
                 loading={updateLoading || createLoading}
                 onClick={submitHandler}
@@ -343,7 +339,7 @@ export const AdminPage: FC = () => {
               and that the app will no longer function for all users.
             </PersistentNotification>
             <ButtonGroup alignment="center">
-              <Button intent="low" onClick={closeDeleteModal}>
+              <Button intent="default" onClick={closeDeleteModal}>
                 Cancel
               </Button>
               <Button
@@ -358,7 +354,7 @@ export const AdminPage: FC = () => {
           </DeleteModal>
         </ErrorBoundary>
       </PageContainer>
-    </>
+    </FlexContainer>
   )
 }
 

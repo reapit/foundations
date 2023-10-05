@@ -18,8 +18,8 @@ exports[`FetchAuthenticators should render component with data 1`] = `
             classname="mock-css."
             disabled="true"
           >
-            Fetch Current Authenticators
             <mock-styled.div />
+            Fetch Current Authenticators
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -102,8 +102,8 @@ exports[`FetchAuthenticators should render component with data 1`] = `
       <mock-styled.button
         classname="mock-css."
       >
-        Reset Authenticator
         <mock-styled.div />
+        Reset Authenticator
       </mock-styled.button>
     </div>
   </body>,
@@ -121,8 +121,8 @@ exports[`FetchAuthenticators should render component with data 1`] = `
           classname="mock-css."
           disabled="true"
         >
-          Fetch Current Authenticators
           <mock-styled.div />
+          Fetch Current Authenticators
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -205,8 +205,8 @@ exports[`FetchAuthenticators should render component with data 1`] = `
     <mock-styled.button
       classname="mock-css."
     >
-      Reset Authenticator
       <mock-styled.div />
+      Reset Authenticator
     </mock-styled.button>
   </div>,
   "debug": [Function],
@@ -281,8 +281,8 @@ exports[`FetchAuthenticators should render component with no data 1`] = `
             classname="mock-css."
             disabled="true"
           >
-            Fetch Current Authenticators
             <mock-styled.div />
+            Fetch Current Authenticators
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -302,8 +302,8 @@ exports[`FetchAuthenticators should render component with no data 1`] = `
           classname="mock-css."
           disabled="true"
         >
-          Fetch Current Authenticators
           <mock-styled.div />
+          Fetch Current Authenticators
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -380,8 +380,8 @@ exports[`FetchAuthenticators should render component with props and loading 1`] 
             classname="mock-css. mock-css."
             disabled="true"
           >
-            Fetch Current Authenticators
             <mock-styled.div />
+            Fetch Current Authenticators
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -408,8 +408,8 @@ exports[`FetchAuthenticators should render component with props and loading 1`] 
           classname="mock-css. mock-css."
           disabled="true"
         >
-          Fetch Current Authenticators
           <mock-styled.div />
+          Fetch Current Authenticators
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>

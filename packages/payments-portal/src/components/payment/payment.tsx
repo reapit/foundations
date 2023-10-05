@@ -139,7 +139,7 @@ export const Payment: FC = () => {
 
   if (configError) {
     return (
-      <PersistentNotification className={elFadeIn} intent="secondary" isFullWidth isInline isExpanded>
+      <PersistentNotification className={elFadeIn} intent="primary" isFullWidth isInline isExpanded>
         This service is currently unavailable to take payments. Please try refreshing the page and if the problem
         persists, please contact the company that requested this payment.
       </PersistentNotification>
@@ -152,7 +152,7 @@ export const Payment: FC = () => {
 
   if (!payment) {
     return (
-      <PersistentNotification className={elFadeIn} intent="secondary" isFullWidth isInline isExpanded>
+      <PersistentNotification className={elFadeIn} intent="primary" isFullWidth isInline isExpanded>
         We do not have any information about this payment. Please try refreshing the page and if the problem persists,
         please contact the company that requested this payment.
       </PersistentNotification>
@@ -161,7 +161,7 @@ export const Payment: FC = () => {
 
   if (!paymentProvider) {
     return (
-      <PersistentNotification className={elFadeIn} intent="secondary" isFullWidth isInline isExpanded>
+      <PersistentNotification className={elFadeIn} intent="primary" isFullWidth isInline isExpanded>
         This service is currently unavailable to take payments. Please try refreshing the page and if the problem
         persists, please contact the company that requested this payment.{' '}
       </PersistentNotification>

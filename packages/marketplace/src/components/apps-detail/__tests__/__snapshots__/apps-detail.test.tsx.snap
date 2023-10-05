@@ -582,7 +582,7 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -602,7 +602,7 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -743,8 +743,8 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
               <mock-styled.button
                 classname="mock-css."
               >
-                Enquire About Integration
                 <mock-styled.div />
+                Enquire About Integration
               </mock-styled.button>
             </a>
           </mock-styled.div>
@@ -776,6 +776,7 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
                 <mock-styled.button
                   classname="mock-css."
                 >
+                  <mock-styled.div />
                   <mock-styled.div
                     classname="mock-css.
   align-items: center;
@@ -787,16 +788,18 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
  mock-css."
                       style="font-size: 1.25em;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 1.25em;"
+                      />
                     </mock-styled.span>
                     Getting started with 
                     will-test-dev-co-voracious-person
                   </mock-styled.div>
-                  <mock-styled.div />
                 </mock-styled.button>
                 <mock-styled.button
                   classname="mock-css."
                 >
+                  <mock-styled.div />
                   <mock-styled.div
                     classname="mock-css.
   align-items: center;
@@ -808,12 +811,13 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
  mock-css."
                       style="font-size: 1.25em;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 1.25em;"
+                      />
                     </mock-styled.span>
                     Why 
                     will-test-dev-co-voracious-person
                   </mock-styled.div>
-                  <mock-styled.div />
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -1041,7 +1045,7 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1061,7 +1065,7 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -1202,8 +1206,8 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
             <mock-styled.button
               classname="mock-css."
             >
-              Enquire About Integration
               <mock-styled.div />
+              Enquire About Integration
             </mock-styled.button>
           </a>
         </mock-styled.div>
@@ -1235,6 +1239,7 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
               <mock-styled.button
                 classname="mock-css."
               >
+                <mock-styled.div />
                 <mock-styled.div
                   classname="mock-css.
   align-items: center;
@@ -1246,16 +1251,18 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
  mock-css."
                     style="font-size: 1.25em;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 1.25em;"
+                    />
                   </mock-styled.span>
                   Getting started with 
                   will-test-dev-co-voracious-person
                 </mock-styled.div>
-                <mock-styled.div />
               </mock-styled.button>
               <mock-styled.button
                 classname="mock-css."
               >
+                <mock-styled.div />
                 <mock-styled.div
                   classname="mock-css.
   align-items: center;
@@ -1267,12 +1274,13 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
  mock-css."
                     style="font-size: 1.25em;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 1.25em;"
+                    />
                   </mock-styled.span>
                   Why 
                   will-test-dev-co-voracious-person
                 </mock-styled.div>
-                <mock-styled.div />
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>
@@ -1566,7 +1574,7 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1586,7 +1594,7 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -1708,8 +1716,8 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
             <mock-styled.button
               classname="mock-css."
             >
-              Enable Integration
               <mock-styled.div />
+              Enable Integration
             </mock-styled.button>
             <a
               href="mailto:foo@bar.com?subject=will-test-dev-co-voracious-person%20Enquiry&body=Dear%20Will Test DevCo%2C%20%0A%0AI%20would%20like%20more%20information%20about%20will-test-dev-co-voracious-person%20featured%20in%20the%20Reapit%20AppMarket%20%0A%0ARegards"
@@ -1719,8 +1727,8 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
               <mock-styled.button
                 classname="mock-css."
               >
-                Enquire About Integration
                 <mock-styled.div />
+                Enquire About Integration
               </mock-styled.button>
             </a>
           </mock-styled.div>
@@ -1752,6 +1760,7 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
                 <mock-styled.button
                   classname="mock-css."
                 >
+                  <mock-styled.div />
                   <mock-styled.div
                     classname="mock-css.
   align-items: center;
@@ -1763,16 +1772,18 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
  mock-css."
                       style="font-size: 1.25em;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 1.25em;"
+                      />
                     </mock-styled.span>
                     Getting started with 
                     will-test-dev-co-voracious-person
                   </mock-styled.div>
-                  <mock-styled.div />
                 </mock-styled.button>
                 <mock-styled.button
                   classname="mock-css."
                 >
+                  <mock-styled.div />
                   <mock-styled.div
                     classname="mock-css.
   align-items: center;
@@ -1784,12 +1795,13 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
  mock-css."
                       style="font-size: 1.25em;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 1.25em;"
+                      />
                     </mock-styled.span>
                     Why 
                     will-test-dev-co-voracious-person
                   </mock-styled.div>
-                  <mock-styled.div />
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -2017,7 +2029,7 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -2037,7 +2049,7 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -2159,8 +2171,8 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
           <mock-styled.button
             classname="mock-css."
           >
-            Enable Integration
             <mock-styled.div />
+            Enable Integration
           </mock-styled.button>
           <a
             href="mailto:foo@bar.com?subject=will-test-dev-co-voracious-person%20Enquiry&body=Dear%20Will Test DevCo%2C%20%0A%0AI%20would%20like%20more%20information%20about%20will-test-dev-co-voracious-person%20featured%20in%20the%20Reapit%20AppMarket%20%0A%0ARegards"
@@ -2170,8 +2182,8 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
             <mock-styled.button
               classname="mock-css."
             >
-              Enquire About Integration
               <mock-styled.div />
+              Enquire About Integration
             </mock-styled.button>
           </a>
         </mock-styled.div>
@@ -2203,6 +2215,7 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
               <mock-styled.button
                 classname="mock-css."
               >
+                <mock-styled.div />
                 <mock-styled.div
                   classname="mock-css.
   align-items: center;
@@ -2214,16 +2227,18 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
  mock-css."
                     style="font-size: 1.25em;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 1.25em;"
+                    />
                   </mock-styled.span>
                   Getting started with 
                   will-test-dev-co-voracious-person
                 </mock-styled.div>
-                <mock-styled.div />
               </mock-styled.button>
               <mock-styled.button
                 classname="mock-css."
               >
+                <mock-styled.div />
                 <mock-styled.div
                   classname="mock-css.
   align-items: center;
@@ -2235,12 +2250,13 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
  mock-css."
                     style="font-size: 1.25em;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 1.25em;"
+                    />
                   </mock-styled.span>
                   Why 
                   will-test-dev-co-voracious-person
                 </mock-styled.div>
-                <mock-styled.div />
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>

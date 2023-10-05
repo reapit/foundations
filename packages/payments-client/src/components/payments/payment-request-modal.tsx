@@ -208,7 +208,7 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
       )}
     >
       {infoNotAvailable && (
-        <PersistentNotification className={elMb7} intent="secondary" isFullWidth isInline isExpanded>
+        <PersistentNotification className={elMb7} intent="primary" isFullWidth isInline isExpanded>
           Whilst we can make this payment request, we are missing some relevant information, you will likely wish to
           complete before sending to your customer. Specifically, we do not currently hold{!hasName && ' Customer Name'}
           {!hasAmount && ' Payment Amount'}
@@ -237,8 +237,8 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
           {errors.sessionExpiresAt?.message && <InputError message={errors.sessionExpiresAt.message} />}
         </InputWrapFull>
       </FormLayout>
-      <ButtonGroup alignment="center">
-        <Button intent="low" onClick={closeModal} type="button" disabled={isLoading}>
+      <ButtonGroup alignment="right">
+        <Button intent="default" onClick={closeModal} type="button" disabled={isLoading}>
           Cancel
         </Button>
         <Button intent="primary" type="submit" disabled={isLoading} loading={isLoading}>

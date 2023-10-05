@@ -6,12 +6,103 @@ exports[`PaymentPage should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
+      >
+        <mock-styled.aside>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            From this page you can either send an email request for payment to the customer using the button below, or take a payment in person using our payment form.
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+            disabled="false"
+          >
+            <mock-styled.div />
+            Email Request
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section>
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css. mock-css. mock-css. mock-css."
+          >
+            <div
+              class="mock-css.
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+              data-testid="close-icon"
+            >
+              <mock-styled.span
+                classname=""
+              >
+                <svg />
+              </mock-styled.span>
+            </div>
+            <div
+              class="mock-css.
+  padding: 1rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
+            >
+              Your payment solution has not been properly configured, please contact your Reapit Administrator if this problem persists.
+            </div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
+    >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Payment
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -31,15 +122,15 @@ exports[`PaymentPage should match a snapshot 1`] = `
   margin-bottom: 0.5rem;
  mock-css."
         >
-          View Docs
           <mock-styled.div />
+          View Docs
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
           disabled="false"
         >
-          Email Request
           <mock-styled.div />
+          Email Request
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
@@ -62,7 +153,7 @@ exports[`PaymentPage should match a snapshot 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -82,7 +173,7 @@ exports[`PaymentPage should match a snapshot 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -92,96 +183,7 @@ exports[`PaymentPage should match a snapshot 1`] = `
           </div>
         </mock-styled.div>
       </mock-styled.section>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-    <mock-styled.aside>
-      <mock-styled.h1
-        classname=""
-      >
-        Payment
-      </mock-styled.h1>
-      <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
-      >
-        <svg />
-      </mock-styled.span>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        From this page you can either send an email request for payment to the customer using the button below, or take a payment in person using our payment form.
-      </mock-styled.p>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css."
-        disabled="false"
-      >
-        Email Request
-        <mock-styled.div />
-      </mock-styled.button>
-    </mock-styled.aside>
-    <mock-styled.section>
-      <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css. mock-css. mock-css. mock-css."
-      >
-        <div
-          class="mock-css.
-  padding: 0 0.5rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
-          data-testid="close-icon"
-        >
-          <mock-styled.span
-            classname=""
-          >
-            <svg />
-          </mock-styled.span>
-        </div>
-        <div
-          class="mock-css.
-  padding: 0.75rem 1.25rem;
-  opacity: 0;
-  transition: 0.5s;
-  width: 100%;
-"
-        >
-          Your payment solution has not been properly configured, please contact your Reapit Administrator if this problem persists.
-        </div>
-      </mock-styled.div>
-    </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

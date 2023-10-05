@@ -6,12 +6,227 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
   "baseElement": <body>
     <div>
       <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
+      >
+        <mock-styled.aside>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            From this dashboard you can use the below filters to locate payments held by Reapit.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            Both options are available from the slide down on each payment item in the table.
+          </mock-styled.p>
+          <div
+            class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <form>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
+                >
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    max="2019-10-11"
+                    min="2017-10-10"
+                    name="createdFrom"
+                    type="date"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Created From
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
+                >
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    max="2019-10-11"
+                    min="2019-09-10"
+                    name="createdTo"
+                    type="date"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Created To
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.select
+                    classname="mock-css.
+  width: 100%;
+"
+                    name="status"
+                  >
+                    <option
+                      value=""
+                    >
+                      None selected
+                    </option>
+                    <option
+                      value="awaitingAuthorisation"
+                    >
+                      Not Requested
+                    </option>
+                    <option
+                      value="awaitingPosting"
+                    >
+                      Awaiting Payment
+                    </option>
+                    <option
+                      value="posted"
+                    >
+                      Paid
+                    </option>
+                    <option
+                      value="rejected"
+                    >
+                      Failed
+                    </option>
+                  </mock-styled.select>
+                  <mock-styled.label>
+                    Status
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
+                >
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="description"
+                    type="text"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Description
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+            </form>
+          </div>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section>
+          <mock-styled.h1
+            classname=""
+          >
+            Payments Dashboard
+          </mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css. mock-css. mock-css. mock-css."
+          >
+            <div
+              class="mock-css.
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+              data-testid="close-icon"
+            >
+              <mock-styled.span
+                classname=""
+              >
+                <svg />
+              </mock-styled.span>
+            </div>
+            <div
+              class="mock-css.
+  padding: 1rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
+            >
+              No payments match your search criteria
+            </div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
+    >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Payments
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -55,6 +270,7 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   max="2019-10-11"
                   min="2017-10-10"
@@ -77,6 +293,7 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   max="2019-10-11"
                   min="2019-09-10"
@@ -138,6 +355,7 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="description"
                   type="text"
@@ -154,27 +372,16 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
         <mock-styled.button
           classname="mock-css."
         >
-          View Docs
           <mock-styled.div />
+          View Docs
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
-        <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+        <mock-styled.h1
+          classname=""
         >
-          <mock-styled.h1
-            classname=""
-          >
-            Payments Dashboard
-          </mock-styled.h1>
-          <mock-styled.div>
-            <img
-              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-            />
-          </mock-styled.div>
-        </mock-styled.div>
+          Payments Dashboard
+        </mock-styled.h1>
         <mock-styled.div
           classname="mock-css.
   @keyframes fade-in {
@@ -194,7 +401,7 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -214,7 +421,7 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -224,228 +431,7 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
           </div>
         </mock-styled.div>
       </mock-styled.section>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-    <mock-styled.aside>
-      <mock-styled.h1
-        classname=""
-      >
-        Payments
-      </mock-styled.h1>
-      <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
-      >
-        <svg />
-      </mock-styled.span>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        From this dashboard you can use the below filters to locate payments held by Reapit.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        Both options are available from the slide down on each payment item in the table.
-      </mock-styled.p>
-      <div
-        class="mock-css.
-  border-radius: 0.25rem;
- mock-css.
-  overflow: hidden;
- mock-css.
-  margin-bottom: 0.75rem;
-"
-      >
-        <form>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  input {
-    width: 100%;
-  }
-"
-            >
-              <mock-styled.input
-                id="test-static-id"
-                max="2019-10-11"
-                min="2017-10-10"
-                name="createdFrom"
-                type="date"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Created From
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  input {
-    width: 100%;
-  }
-"
-            >
-              <mock-styled.input
-                id="test-static-id"
-                max="2019-10-11"
-                min="2019-09-10"
-                name="createdTo"
-                type="date"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Created To
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.select
-                classname="mock-css.
-  width: 100%;
-"
-                name="status"
-              >
-                <option
-                  value=""
-                >
-                  None selected
-                </option>
-                <option
-                  value="awaitingAuthorisation"
-                >
-                  Not Requested
-                </option>
-                <option
-                  value="awaitingPosting"
-                >
-                  Awaiting Payment
-                </option>
-                <option
-                  value="posted"
-                >
-                  Paid
-                </option>
-                <option
-                  value="rejected"
-                >
-                  Failed
-                </option>
-              </mock-styled.select>
-              <mock-styled.label>
-                Status
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  input {
-    width: 100%;
-  }
-"
-            >
-              <mock-styled.input
-                id="test-static-id"
-                name="description"
-                type="text"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Description
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </form>
-      </div>
-      <mock-styled.button
-        classname="mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
-    </mock-styled.aside>
-    <mock-styled.section>
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
-      >
-        <mock-styled.h1
-          classname=""
-        >
-          Payments Dashboard
-        </mock-styled.h1>
-        <mock-styled.div>
-          <img
-            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-          />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css. mock-css. mock-css. mock-css."
-      >
-        <div
-          class="mock-css.
-  padding: 0 0.5rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
-          data-testid="close-icon"
-        >
-          <mock-styled.span
-            classname=""
-          >
-            <svg />
-          </mock-styled.span>
-        </div>
-        <div
-          class="mock-css.
-  padding: 0.75rem 1.25rem;
-  opacity: 0;
-  transition: 0.5s;
-  width: 100%;
-"
-        >
-          No payments match your search criteria
-        </div>
-      </mock-styled.div>
-    </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -507,12 +493,405 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
+      >
+        <mock-styled.aside>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            From this dashboard you can use the below filters to locate payments held by Reapit.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            Both options are available from the slide down on each payment item in the table.
+          </mock-styled.p>
+          <div
+            class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <form>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
+                >
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    max="2019-10-11"
+                    min="2017-10-10"
+                    name="createdFrom"
+                    type="date"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Created From
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
+                >
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    max="2019-10-11"
+                    min="2019-09-10"
+                    name="createdTo"
+                    type="date"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Created To
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.select
+                    classname="mock-css.
+  width: 100%;
+"
+                    name="status"
+                  >
+                    <option
+                      value=""
+                    >
+                      None selected
+                    </option>
+                    <option
+                      value="awaitingAuthorisation"
+                    >
+                      Not Requested
+                    </option>
+                    <option
+                      value="awaitingPosting"
+                    >
+                      Awaiting Payment
+                    </option>
+                    <option
+                      value="posted"
+                    >
+                      Paid
+                    </option>
+                    <option
+                      value="rejected"
+                    >
+                      Failed
+                    </option>
+                  </mock-styled.select>
+                  <mock-styled.label>
+                    Status
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
+                >
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="description"
+                    type="text"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Description
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+            </form>
+          </div>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section>
+          <mock-styled.h1
+            classname=""
+          >
+            Payments Dashboard
+          </mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 2.5rem;
+ mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+            data-has-call-to-action="false"
+            data-has-expandable-action="true"
+            data-num-columns-excl-action-col="7"
+          >
+            <mock-styled.div>
+              <mock-styled.div>
+                Property
+              </mock-styled.div>
+              <mock-styled.div>
+                Amount
+              </mock-styled.div>
+              <mock-styled.div>
+                Customer
+              </mock-styled.div>
+              <mock-styled.div>
+                Description
+              </mock-styled.div>
+              <mock-styled.div>
+                Client A/C
+              </mock-styled.div>
+              <mock-styled.div>
+                Status
+              </mock-styled.div>
+              <mock-styled.div>
+                Request Date
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="mock-css."
+                  style="font-size: 1.2rem;"
+                >
+                  <svg
+                    style="font-size: 1.2rem;"
+                  />
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
+                >
+                  <mock-styled.span
+                    classname="mock-css."
+                  >
+                    <svg />
+                  </mock-styled.span>
+                  <mock-styled.div
+                    data-narrow-label="Property"
+                  >
+                    <div
+                      class="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+"
+                    >
+                      15 Example street Solihull West Midlands B91 2XX
+                    </div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
+                >
+                  <mock-styled.span
+                    classname="mock-css."
+                  >
+                    <svg />
+                  </mock-styled.span>
+                  <mock-styled.div
+                    data-narrow-label="Amount"
+                  >
+                    £100.00
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css."
+                >
+                  <mock-styled.span
+                    classname="mock-css."
+                  >
+                    <svg />
+                  </mock-styled.span>
+                  <mock-styled.div
+                    data-narrow-label="Customer"
+                  >
+                    Mr John Smith
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div
+                    data-narrow-label="Description"
+                  >
+                    Tenancy Check Fee
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div
+                    data-narrow-label="Client A/C"
+                  >
+                    Primary
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div
+                    data-narrow-label="Status"
+                  >
+                    <mock-styled.span
+                      classname="mock-css."
+                    />
+                     
+                    Awaiting Payment
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div
+                    data-narrow-label="Request Date"
+                  >
+                    12 Dec 2018
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.span
+                    classname="mock-css."
+                  >
+                    <svg />
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div
+                      classname="mock-css."
+                    >
+                      <mock-styled.button
+                        classname="mock-css."
+                        disabled="false"
+                      >
+                        <mock-styled.div />
+                        Email Request
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
+                        disabled="false"
+                      >
+                        <mock-styled.div />
+                        Take Payment
+                      </mock-styled.button>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                value="1"
+              />
+               of 
+              1
+            </mock-styled.div>
+            <mock-styled.button
+              data-testid="back-button"
+              type="button"
+            >
+              <mock-styled.span
+                classname=""
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.button>
+            <mock-styled.button
+              data-testid="forward-button"
+              type="button"
+            >
+              <mock-styled.span
+                classname=""
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
+    >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Payments
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -556,6 +935,7 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   max="2019-10-11"
                   min="2017-10-10"
@@ -578,6 +958,7 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   max="2019-10-11"
                   min="2019-09-10"
@@ -639,6 +1020,7 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="description"
                   type="text"
@@ -655,27 +1037,16 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
         <mock-styled.button
           classname="mock-css."
         >
-          View Docs
           <mock-styled.div />
+          View Docs
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
-        <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+        <mock-styled.h1
+          classname=""
         >
-          <mock-styled.h1
-            classname=""
-          >
-            Payments Dashboard
-          </mock-styled.h1>
-          <mock-styled.div>
-            <img
-              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-            />
-          </mock-styled.div>
-        </mock-styled.div>
+          Payments Dashboard
+        </mock-styled.h1>
         <mock-styled.div
           classname="mock-css.
   margin-bottom: 2.5rem;
@@ -722,10 +1093,12 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -855,82 +1228,15 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                       classname="mock-css."
                       disabled="false"
                     >
-                      Email Request
                       <mock-styled.div />
+                      Email Request
                     </mock-styled.button>
                     <mock-styled.button
-                      classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-"
+                      classname="mock-css."
                       disabled="false"
                     >
-                      Take Payment
                       <mock-styled.div />
+                      Take Payment
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -968,471 +1274,7 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.section>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-    <mock-styled.aside>
-      <mock-styled.h1
-        classname=""
-      >
-        Payments
-      </mock-styled.h1>
-      <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
-      >
-        <svg />
-      </mock-styled.span>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        From this dashboard you can use the below filters to locate payments held by Reapit.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        Both options are available from the slide down on each payment item in the table.
-      </mock-styled.p>
-      <div
-        class="mock-css.
-  border-radius: 0.25rem;
- mock-css.
-  overflow: hidden;
- mock-css.
-  margin-bottom: 0.75rem;
-"
-      >
-        <form>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  input {
-    width: 100%;
-  }
-"
-            >
-              <mock-styled.input
-                id="test-static-id"
-                max="2019-10-11"
-                min="2017-10-10"
-                name="createdFrom"
-                type="date"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Created From
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  input {
-    width: 100%;
-  }
-"
-            >
-              <mock-styled.input
-                id="test-static-id"
-                max="2019-10-11"
-                min="2019-09-10"
-                name="createdTo"
-                type="date"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Created To
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.select
-                classname="mock-css.
-  width: 100%;
-"
-                name="status"
-              >
-                <option
-                  value=""
-                >
-                  None selected
-                </option>
-                <option
-                  value="awaitingAuthorisation"
-                >
-                  Not Requested
-                </option>
-                <option
-                  value="awaitingPosting"
-                >
-                  Awaiting Payment
-                </option>
-                <option
-                  value="posted"
-                >
-                  Paid
-                </option>
-                <option
-                  value="rejected"
-                >
-                  Failed
-                </option>
-              </mock-styled.select>
-              <mock-styled.label>
-                Status
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  input {
-    width: 100%;
-  }
-"
-            >
-              <mock-styled.input
-                id="test-static-id"
-                name="description"
-                type="text"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Description
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </form>
-      </div>
-      <mock-styled.button
-        classname="mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
-    </mock-styled.aside>
-    <mock-styled.section>
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
-      >
-        <mock-styled.h1
-          classname=""
-        >
-          Payments Dashboard
-        </mock-styled.h1>
-        <mock-styled.div>
-          <img
-            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-          />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
-        data-has-call-to-action="false"
-        data-has-expandable-action="true"
-        data-num-columns-excl-action-col="7"
-      >
-        <mock-styled.div>
-          <mock-styled.div>
-            Property
-          </mock-styled.div>
-          <mock-styled.div>
-            Amount
-          </mock-styled.div>
-          <mock-styled.div>
-            Customer
-          </mock-styled.div>
-          <mock-styled.div>
-            Description
-          </mock-styled.div>
-          <mock-styled.div>
-            Client A/C
-          </mock-styled.div>
-          <mock-styled.div>
-            Status
-          </mock-styled.div>
-          <mock-styled.div>
-            Request Date
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-              style="font-size: 1.2rem;"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css."
-            >
-              <mock-styled.span
-                classname="mock-css."
-              >
-                <svg />
-              </mock-styled.span>
-              <mock-styled.div
-                data-narrow-label="Property"
-              >
-                <div
-                  class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
-                >
-                  15 Example street Solihull West Midlands B91 2XX
-                </div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css."
-            >
-              <mock-styled.span
-                classname="mock-css."
-              >
-                <svg />
-              </mock-styled.span>
-              <mock-styled.div
-                data-narrow-label="Amount"
-              >
-                £100.00
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css."
-            >
-              <mock-styled.span
-                classname="mock-css."
-              >
-                <svg />
-              </mock-styled.span>
-              <mock-styled.div
-                data-narrow-label="Customer"
-              >
-                Mr John Smith
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.div
-                data-narrow-label="Description"
-              >
-                Tenancy Check Fee
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.div
-                data-narrow-label="Client A/C"
-              >
-                Primary
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.div
-                data-narrow-label="Status"
-              >
-                <mock-styled.span
-                  classname="mock-css."
-                />
-                 
-                Awaiting Payment
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.div
-                data-narrow-label="Request Date"
-              >
-                12 Dec 2018
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.span
-                classname="mock-css."
-              >
-                <svg />
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div
-                  classname="mock-css."
-                >
-                  <mock-styled.button
-                    classname="mock-css."
-                    disabled="false"
-                  >
-                    Email Request
-                    <mock-styled.div />
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="mock-css. mock-css.
-  background-size: 100%;
-  background-position-x: -0.5rem;
-  padding-right: ,rem;
-
-  &., {
-    background-size: 100%;
-    background-position-x: center;
-
-    padding-left: ,rem;
-    padding-right: ,rem;
-
-    &::after {
-      right: -1rem;
-    }
-
-    &::before {
-      left: -1rem;
-    }
-  }
-
-  , {
-    padding-right: 1.25rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    background-image: url(',');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-
-  &., {
-    &::after {
-      background-image: url(',');
-    }
-  }
-"
-                    disabled="false"
-                  >
-                    Take Payment
-                    <mock-styled.div />
-                  </mock-styled.button>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            value="1"
-          />
-           of 
-          1
-        </mock-styled.div>
-        <mock-styled.button
-          data-testid="back-button"
-          type="button"
-        >
-          <mock-styled.span
-            classname=""
-          >
-            <svg />
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.button
-          data-testid="forward-button"
-          type="button"
-        >
-          <mock-styled.span
-            classname=""
-          >
-            <svg />
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1494,12 +1336,186 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
+      <mock-styled.div
+        classname="mock-css.
+  flex: 1 1 auto;
+"
+      >
+        <mock-styled.aside>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            From this dashboard you can use the below filters to locate payments held by Reapit.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            Both options are available from the slide down on each payment item in the table.
+          </mock-styled.p>
+          <div
+            class="mock-css.
+  border-radius: 0.25rem;
+ mock-css.
+  overflow: hidden;
+ mock-css.
+  margin-bottom: 0.75rem;
+"
+          >
+            <form>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
+                >
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    max="2019-10-11"
+                    min="2017-10-10"
+                    name="createdFrom"
+                    type="date"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Created From
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
+                >
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    max="2019-10-11"
+                    min="2019-09-10"
+                    name="createdTo"
+                    type="date"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Created To
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.select
+                    classname="mock-css.
+  width: 100%;
+"
+                    name="status"
+                  >
+                    <option
+                      value=""
+                    >
+                      None selected
+                    </option>
+                    <option
+                      value="awaitingAuthorisation"
+                    >
+                      Not Requested
+                    </option>
+                    <option
+                      value="awaitingPosting"
+                    >
+                      Awaiting Payment
+                    </option>
+                    <option
+                      value="posted"
+                    >
+                      Paid
+                    </option>
+                    <option
+                      value="rejected"
+                    >
+                      Failed
+                    </option>
+                  </mock-styled.select>
+                  <mock-styled.label>
+                    Status
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
+  input {
+    width: 100%;
+  }
+"
+                >
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="description"
+                    type="text"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Description
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+            </form>
+          </div>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section>
+          <mock-styled.h1
+            classname=""
+          >
+            Payments Dashboard
+          </mock-styled.h1>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.section>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname="mock-css.
+  flex: 1 1 auto;
+"
+    >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Payments
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1543,6 +1559,7 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   max="2019-10-11"
                   min="2017-10-10"
@@ -1565,6 +1582,7 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   max="2019-10-11"
                   min="2019-09-10"
@@ -1626,6 +1644,7 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
 "
               >
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="description"
                   type="text"
@@ -1642,27 +1661,16 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
         <mock-styled.button
           classname="mock-css."
         >
-          View Docs
           <mock-styled.div />
+          View Docs
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
-        <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+        <mock-styled.h1
+          classname=""
         >
-          <mock-styled.h1
-            classname=""
-          >
-            Payments Dashboard
-          </mock-styled.h1>
-          <mock-styled.div>
-            <img
-              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-            />
-          </mock-styled.div>
-        </mock-styled.div>
+          Payments Dashboard
+        </mock-styled.h1>
         <mock-styled.div
           classname=""
         >
@@ -1671,187 +1679,7 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.section>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-    <mock-styled.aside>
-      <mock-styled.h1
-        classname=""
-      >
-        Payments
-      </mock-styled.h1>
-      <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
-      >
-        <svg />
-      </mock-styled.span>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        From this dashboard you can use the below filters to locate payments held by Reapit.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        Both options are available from the slide down on each payment item in the table.
-      </mock-styled.p>
-      <div
-        class="mock-css.
-  border-radius: 0.25rem;
- mock-css.
-  overflow: hidden;
- mock-css.
-  margin-bottom: 0.75rem;
-"
-      >
-        <form>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  input {
-    width: 100%;
-  }
-"
-            >
-              <mock-styled.input
-                id="test-static-id"
-                max="2019-10-11"
-                min="2017-10-10"
-                name="createdFrom"
-                type="date"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Created From
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  input {
-    width: 100%;
-  }
-"
-            >
-              <mock-styled.input
-                id="test-static-id"
-                max="2019-10-11"
-                min="2019-09-10"
-                name="createdTo"
-                type="date"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Created To
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.select
-                classname="mock-css.
-  width: 100%;
-"
-                name="status"
-              >
-                <option
-                  value=""
-                >
-                  None selected
-                </option>
-                <option
-                  value="awaitingAuthorisation"
-                >
-                  Not Requested
-                </option>
-                <option
-                  value="awaitingPosting"
-                >
-                  Awaiting Payment
-                </option>
-                <option
-                  value="posted"
-                >
-                  Paid
-                </option>
-                <option
-                  value="rejected"
-                >
-                  Failed
-                </option>
-              </mock-styled.select>
-              <mock-styled.label>
-                Status
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  input {
-    width: 100%;
-  }
-"
-            >
-              <mock-styled.input
-                id="test-static-id"
-                name="description"
-                type="text"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Description
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </form>
-      </div>
-      <mock-styled.button
-        classname="mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
-    </mock-styled.aside>
-    <mock-styled.section>
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
-      >
-        <mock-styled.h1
-          classname=""
-        >
-          Payments Dashboard
-        </mock-styled.h1>
-        <mock-styled.div>
-          <img
-            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-          />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

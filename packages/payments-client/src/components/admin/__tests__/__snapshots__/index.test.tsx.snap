@@ -6,12 +6,283 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.aside>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            This form is required to get started with Reapit Payments.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+            disabled="false"
+          >
+            <mock-styled.div />
+            Save Config
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+            disabled="false"
+          >
+            <mock-styled.div />
+            Delete Config
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section>
+          <mock-styled.h1
+            classname=""
+          >
+            Reapit Payments App Configuration
+          </mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  margin-bottom: 1.25rem;
+ mock-css. mock-css. mock-css. mock-css."
+          >
+            <div
+              class="mock-css.
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+              data-testid="close-icon"
+            >
+              <mock-styled.span
+                classname=""
+              >
+                <svg />
+              </mock-styled.span>
+            </div>
+            <div
+              class="mock-css.
+  padding: 1rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
+            >
+              Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
+            </div>
+          </mock-styled.div>
+          <form>
+            <mock-styled.h2
+              classname=""
+            >
+              Company Details
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
+            >
+              These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+            </mock-styled.p>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="companyName"
+                    type="email"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Company Name
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.label>
+                    Email Logo Url
+                  </mock-styled.label>
+                  <mock-styled.div
+                    classname="mock-css.
+  align-items: center;
+"
+                  >
+                    <mock-styled.button
+                      classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                      type="button"
+                    >
+                      <mock-styled.div />
+                      Upload
+                    </mock-styled.button>
+                    <mock-styled.input
+                      data-testid="el-file-input"
+                      type="file"
+                    />
+                    <mock-styled.input
+                      id="test-static-id"
+                      name="logoUri"
+                    />
+                    <mock-styled.p
+                      classname="mock-css. mock-css."
+                    >
+                      Upload File
+                    </mock-styled.p>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.h2
+              classname=""
+            >
+              Opayo Credientials
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
+            >
+              These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
+            </mock-styled.p>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="vendorName"
+                    type="email"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Opayo Vendor Name
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.label>
+                    Live Opayo Environment or Test
+                  </mock-styled.label>
+                  <mock-styled.input
+                    id="is-live-env"
+                    name="isLive"
+                    type="checkbox"
+                  />
+                  <mock-styled.label
+                    classname="mock-css."
+                    htmlfor="is-live-env"
+                  >
+                    <mock-styled.span>
+                      Live
+                    </mock-styled.span>
+                    <mock-styled.span>
+                      Test
+                    </mock-styled.span>
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="integrationKey"
+                    type="email"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Opayo Integration Key
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="passKey"
+                    type="email"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Opayo Pass Key
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  classname=""
+                  id="test-static-id"
+                  name="configId"
+                  type="hidden"
+                />
+              </mock-styled.div>
+            </mock-styled.div>
+          </form>
+        </mock-styled.section>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
+    >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Admin
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -36,8 +307,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
   margin-bottom: 0.5rem;
  mock-css."
         >
+          <mock-styled.div />
           View Docs
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -45,8 +316,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
  mock-css."
           disabled="false"
         >
+          <mock-styled.div />
           Save Config
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -54,27 +325,16 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
  mock-css."
           disabled="false"
         >
-          Delete Config
           <mock-styled.div />
+          Delete Config
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
-        <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+        <mock-styled.h1
+          classname=""
         >
-          <mock-styled.h1
-            classname=""
-          >
-            Reapit Payments App Configuration
-          </mock-styled.h1>
-          <mock-styled.div>
-            <img
-              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-            />
-          </mock-styled.div>
-        </mock-styled.div>
+          Reapit Payments App Configuration
+        </mock-styled.h1>
         <mock-styled.div
           classname="mock-css.
   @keyframes fade-in {
@@ -96,7 +356,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -116,7 +376,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -142,6 +402,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="companyName"
                   type="email"
@@ -169,8 +430,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
  mock-css."
                     type="button"
                   >
-                    Upload
                     <mock-styled.div />
+                    Upload
                   </mock-styled.button>
                   <mock-styled.input
                     data-testid="el-file-input"
@@ -210,6 +471,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="vendorName"
                   type="email"
@@ -247,6 +509,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="integrationKey"
                   type="email"
@@ -261,6 +524,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="passKey"
                   type="email"
@@ -274,6 +538,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="configId"
                 type="hidden"
@@ -282,286 +547,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           </mock-styled.div>
         </form>
       </mock-styled.section>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-    <mock-styled.aside>
-      <mock-styled.h1
-        classname=""
-      >
-        Admin
-      </mock-styled.h1>
-      <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
-      >
-        <svg />
-      </mock-styled.span>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        This form is required to get started with Reapit Payments.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
-      </mock-styled.p>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="false"
-      >
-        Save Config
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="false"
-      >
-        Delete Config
-        <mock-styled.div />
-      </mock-styled.button>
-    </mock-styled.aside>
-    <mock-styled.section>
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
-      >
-        <mock-styled.h1
-          classname=""
-        >
-          Reapit Payments App Configuration
-        </mock-styled.h1>
-        <mock-styled.div>
-          <img
-            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-          />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
-      >
-        <div
-          class="mock-css.
-  padding: 0 0.5rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
-          data-testid="close-icon"
-        >
-          <mock-styled.span
-            classname=""
-          >
-            <svg />
-          </mock-styled.span>
-        </div>
-        <div
-          class="mock-css.
-  padding: 0.75rem 1.25rem;
-  opacity: 0;
-  transition: 0.5s;
-  width: 100%;
-"
-        >
-          Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
-        </div>
-      </mock-styled.div>
-      <form>
-        <mock-styled.h2
-          classname=""
-        >
-          Company Details
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="mock-css."
-        >
-          These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-        </mock-styled.p>
-        <mock-styled.div
-          classname="mock-css."
-        >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                id="test-static-id"
-                name="companyName"
-                type="email"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Company Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Email Logo Url
-              </mock-styled.label>
-              <mock-styled.div
-                classname="mock-css.
-  align-items: center;
-"
-              >
-                <mock-styled.button
-                  classname="mock-css.
-  margin-right: 0.625rem;
- mock-css."
-                  type="button"
-                >
-                  Upload
-                  <mock-styled.div />
-                </mock-styled.button>
-                <mock-styled.input
-                  data-testid="el-file-input"
-                  type="file"
-                />
-                <mock-styled.input
-                  id="test-static-id"
-                  name="logoUri"
-                />
-                <mock-styled.p
-                  classname="mock-css. mock-css."
-                >
-                  Upload File
-                </mock-styled.p>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.h2
-          classname=""
-        >
-          Opayo Credientials
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="mock-css."
-        >
-          These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="mock-css. mock-css."
-        >
-          Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
-        </mock-styled.p>
-        <mock-styled.div
-          classname="mock-css."
-        >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                id="test-static-id"
-                name="vendorName"
-                type="email"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Opayo Vendor Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Live Opayo Environment or Test
-              </mock-styled.label>
-              <mock-styled.input
-                id="is-live-env"
-                name="isLive"
-                type="checkbox"
-              />
-              <mock-styled.label
-                classname="mock-css."
-                htmlfor="is-live-env"
-              >
-                <mock-styled.span>
-                  Live
-                </mock-styled.span>
-                <mock-styled.span>
-                  Test
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                id="test-static-id"
-                name="integrationKey"
-                type="email"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Opayo Integration Key
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                id="test-static-id"
-                name="passKey"
-                type="email"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Opayo Pass Key
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              id="test-static-id"
-              name="configId"
-              type="hidden"
-            />
-          </mock-styled.div>
-        </mock-styled.div>
-      </form>
-    </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -623,12 +609,283 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.aside>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            This form is required to get started with Reapit Payments.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+            disabled="false"
+          >
+            <mock-styled.div />
+            Save Config
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+            disabled="false"
+          >
+            <mock-styled.div />
+            Delete Config
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section>
+          <mock-styled.h1
+            classname=""
+          >
+            Reapit Payments App Configuration
+          </mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  margin-bottom: 1.25rem;
+ mock-css. mock-css. mock-css. mock-css."
+          >
+            <div
+              class="mock-css.
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+              data-testid="close-icon"
+            >
+              <mock-styled.span
+                classname=""
+              >
+                <svg />
+              </mock-styled.span>
+            </div>
+            <div
+              class="mock-css.
+  padding: 1rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
+            >
+              Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
+            </div>
+          </mock-styled.div>
+          <form>
+            <mock-styled.h2
+              classname=""
+            >
+              Company Details
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
+            >
+              These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+            </mock-styled.p>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="companyName"
+                    type="email"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Company Name
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.label>
+                    Email Logo Url
+                  </mock-styled.label>
+                  <mock-styled.div
+                    classname="mock-css.
+  align-items: center;
+"
+                  >
+                    <mock-styled.button
+                      classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                      type="button"
+                    >
+                      <mock-styled.div />
+                      Upload
+                    </mock-styled.button>
+                    <mock-styled.input
+                      data-testid="el-file-input"
+                      type="file"
+                    />
+                    <mock-styled.input
+                      id="test-static-id"
+                      name="logoUri"
+                    />
+                    <mock-styled.p
+                      classname="mock-css. mock-css."
+                    >
+                      Upload File
+                    </mock-styled.p>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.h2
+              classname=""
+            >
+              Opayo Credientials
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
+            >
+              These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
+            </mock-styled.p>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="vendorName"
+                    type="email"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Opayo Vendor Name
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.label>
+                    Live Opayo Environment or Test
+                  </mock-styled.label>
+                  <mock-styled.input
+                    id="is-live-env"
+                    name="isLive"
+                    type="checkbox"
+                  />
+                  <mock-styled.label
+                    classname="mock-css."
+                    htmlfor="is-live-env"
+                  >
+                    <mock-styled.span>
+                      Live
+                    </mock-styled.span>
+                    <mock-styled.span>
+                      Test
+                    </mock-styled.span>
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="integrationKey"
+                    type="email"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Opayo Integration Key
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="passKey"
+                    type="email"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Opayo Pass Key
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  classname=""
+                  id="test-static-id"
+                  name="configId"
+                  type="hidden"
+                />
+              </mock-styled.div>
+            </mock-styled.div>
+          </form>
+        </mock-styled.section>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
+    >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Admin
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -653,8 +910,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
   margin-bottom: 0.5rem;
  mock-css."
         >
+          <mock-styled.div />
           View Docs
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -662,8 +919,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
  mock-css."
           disabled="false"
         >
+          <mock-styled.div />
           Save Config
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -671,27 +928,16 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
  mock-css."
           disabled="false"
         >
-          Delete Config
           <mock-styled.div />
+          Delete Config
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
-        <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+        <mock-styled.h1
+          classname=""
         >
-          <mock-styled.h1
-            classname=""
-          >
-            Reapit Payments App Configuration
-          </mock-styled.h1>
-          <mock-styled.div>
-            <img
-              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-            />
-          </mock-styled.div>
-        </mock-styled.div>
+          Reapit Payments App Configuration
+        </mock-styled.h1>
         <mock-styled.div
           classname="mock-css.
   @keyframes fade-in {
@@ -713,7 +959,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -733,7 +979,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -759,6 +1005,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="companyName"
                   type="email"
@@ -786,8 +1033,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
  mock-css."
                     type="button"
                   >
-                    Upload
                     <mock-styled.div />
+                    Upload
                   </mock-styled.button>
                   <mock-styled.input
                     data-testid="el-file-input"
@@ -827,6 +1074,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="vendorName"
                   type="email"
@@ -864,6 +1112,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="integrationKey"
                   type="email"
@@ -878,6 +1127,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="passKey"
                   type="email"
@@ -891,6 +1141,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="configId"
                 type="hidden"
@@ -899,286 +1150,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           </mock-styled.div>
         </form>
       </mock-styled.section>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-    <mock-styled.aside>
-      <mock-styled.h1
-        classname=""
-      >
-        Admin
-      </mock-styled.h1>
-      <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
-      >
-        <svg />
-      </mock-styled.span>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        This form is required to get started with Reapit Payments.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
-      </mock-styled.p>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="false"
-      >
-        Save Config
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="false"
-      >
-        Delete Config
-        <mock-styled.div />
-      </mock-styled.button>
-    </mock-styled.aside>
-    <mock-styled.section>
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
-      >
-        <mock-styled.h1
-          classname=""
-        >
-          Reapit Payments App Configuration
-        </mock-styled.h1>
-        <mock-styled.div>
-          <img
-            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-          />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
-      >
-        <div
-          class="mock-css.
-  padding: 0 0.5rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
-          data-testid="close-icon"
-        >
-          <mock-styled.span
-            classname=""
-          >
-            <svg />
-          </mock-styled.span>
-        </div>
-        <div
-          class="mock-css.
-  padding: 0.75rem 1.25rem;
-  opacity: 0;
-  transition: 0.5s;
-  width: 100%;
-"
-        >
-          Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
-        </div>
-      </mock-styled.div>
-      <form>
-        <mock-styled.h2
-          classname=""
-        >
-          Company Details
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="mock-css."
-        >
-          These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-        </mock-styled.p>
-        <mock-styled.div
-          classname="mock-css."
-        >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                id="test-static-id"
-                name="companyName"
-                type="email"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Company Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Email Logo Url
-              </mock-styled.label>
-              <mock-styled.div
-                classname="mock-css.
-  align-items: center;
-"
-              >
-                <mock-styled.button
-                  classname="mock-css.
-  margin-right: 0.625rem;
- mock-css."
-                  type="button"
-                >
-                  Upload
-                  <mock-styled.div />
-                </mock-styled.button>
-                <mock-styled.input
-                  data-testid="el-file-input"
-                  type="file"
-                />
-                <mock-styled.input
-                  id="test-static-id"
-                  name="logoUri"
-                />
-                <mock-styled.p
-                  classname="mock-css. mock-css."
-                >
-                  Upload File
-                </mock-styled.p>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.h2
-          classname=""
-        >
-          Opayo Credientials
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="mock-css."
-        >
-          These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="mock-css. mock-css."
-        >
-          Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
-        </mock-styled.p>
-        <mock-styled.div
-          classname="mock-css."
-        >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                id="test-static-id"
-                name="vendorName"
-                type="email"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Opayo Vendor Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Live Opayo Environment or Test
-              </mock-styled.label>
-              <mock-styled.input
-                id="is-live-env"
-                name="isLive"
-                type="checkbox"
-              />
-              <mock-styled.label
-                classname="mock-css."
-                htmlfor="is-live-env"
-              >
-                <mock-styled.span>
-                  Live
-                </mock-styled.span>
-                <mock-styled.span>
-                  Test
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                id="test-static-id"
-                name="integrationKey"
-                type="email"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Opayo Integration Key
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                id="test-static-id"
-                name="passKey"
-                type="email"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Opayo Pass Key
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              id="test-static-id"
-              name="configId"
-              type="hidden"
-            />
-          </mock-styled.div>
-        </mock-styled.div>
-      </form>
-    </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1240,12 +1212,283 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.aside>
+          <mock-styled.span
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css.
+  font-size: 5rem;
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            This form is required to get started with Reapit Payments.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="mock-css."
+          >
+            Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
+          </mock-styled.p>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+            disabled="false"
+          >
+            <mock-styled.div />
+            Save Config
+          </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css.
+  margin-bottom: 0.5rem;
+ mock-css."
+            disabled="false"
+          >
+            <mock-styled.div />
+            Delete Config
+          </mock-styled.button>
+        </mock-styled.aside>
+        <mock-styled.section>
+          <mock-styled.h1
+            classname=""
+          >
+            Reapit Payments App Configuration
+          </mock-styled.h1>
+          <mock-styled.div
+            classname="mock-css.
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-name: fade-in;
+ mock-css.
+  margin-bottom: 1.25rem;
+ mock-css. mock-css. mock-css. mock-css."
+          >
+            <div
+              class="mock-css.
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+              data-testid="close-icon"
+            >
+              <mock-styled.span
+                classname=""
+              >
+                <svg />
+              </mock-styled.span>
+            </div>
+            <div
+              class="mock-css.
+  padding: 1rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
+            >
+              Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
+            </div>
+          </mock-styled.div>
+          <form>
+            <mock-styled.h2
+              classname=""
+            >
+              Company Details
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
+            >
+              These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+            </mock-styled.p>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="companyName"
+                    type="email"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Company Name
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.label>
+                    Email Logo Url
+                  </mock-styled.label>
+                  <mock-styled.div
+                    classname="mock-css.
+  align-items: center;
+"
+                  >
+                    <mock-styled.button
+                      classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css."
+                      type="button"
+                    >
+                      <mock-styled.div />
+                      Upload
+                    </mock-styled.button>
+                    <mock-styled.input
+                      data-testid="el-file-input"
+                      type="file"
+                    />
+                    <mock-styled.input
+                      id="test-static-id"
+                      name="logoUri"
+                    />
+                    <mock-styled.p
+                      classname="mock-css. mock-css."
+                    >
+                      Upload File
+                    </mock-styled.p>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.h2
+              classname=""
+            >
+              Opayo Credientials
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="mock-css."
+            >
+              These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
+            </mock-styled.p>
+            <mock-styled.p
+              classname="mock-css. mock-css."
+            >
+              Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
+            </mock-styled.p>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="vendorName"
+                    type="email"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Opayo Vendor Name
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.label>
+                    Live Opayo Environment or Test
+                  </mock-styled.label>
+                  <mock-styled.input
+                    id="is-live-env"
+                    name="isLive"
+                    type="checkbox"
+                  />
+                  <mock-styled.label
+                    classname="mock-css."
+                    htmlfor="is-live-env"
+                  >
+                    <mock-styled.span>
+                      Live
+                    </mock-styled.span>
+                    <mock-styled.span>
+                      Test
+                    </mock-styled.span>
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="integrationKey"
+                    type="email"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Opayo Integration Key
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    id="test-static-id"
+                    name="passKey"
+                    type="email"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Opayo Pass Key
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  classname=""
+                  id="test-static-id"
+                  name="configId"
+                  type="hidden"
+                />
+              </mock-styled.div>
+            </mock-styled.div>
+          </form>
+        </mock-styled.section>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
+    >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Admin
-        </mock-styled.h1>
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1270,8 +1513,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
   margin-bottom: 0.5rem;
  mock-css."
         >
+          <mock-styled.div />
           View Docs
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -1279,8 +1522,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
  mock-css."
           disabled="false"
         >
+          <mock-styled.div />
           Save Config
-          <mock-styled.div />
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css.
@@ -1288,27 +1531,16 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
  mock-css."
           disabled="false"
         >
-          Delete Config
           <mock-styled.div />
+          Delete Config
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section>
-        <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+        <mock-styled.h1
+          classname=""
         >
-          <mock-styled.h1
-            classname=""
-          >
-            Reapit Payments App Configuration
-          </mock-styled.h1>
-          <mock-styled.div>
-            <img
-              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-            />
-          </mock-styled.div>
-        </mock-styled.div>
+          Reapit Payments App Configuration
+        </mock-styled.h1>
         <mock-styled.div
           classname="mock-css.
   @keyframes fade-in {
@@ -1330,7 +1562,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1350,7 +1582,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 0.75rem 1.25rem;
+  padding: 1rem;
   opacity: 0;
   transition: 0.5s;
   width: 100%;
@@ -1376,6 +1608,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="companyName"
                   type="email"
@@ -1403,8 +1636,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
  mock-css."
                     type="button"
                   >
-                    Upload
                     <mock-styled.div />
+                    Upload
                   </mock-styled.button>
                   <mock-styled.input
                     data-testid="el-file-input"
@@ -1444,6 +1677,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="vendorName"
                   type="email"
@@ -1481,6 +1715,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="integrationKey"
                   type="email"
@@ -1495,6 +1730,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="passKey"
                   type="email"
@@ -1508,6 +1744,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="configId"
                 type="hidden"
@@ -1516,286 +1753,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           </mock-styled.div>
         </form>
       </mock-styled.section>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-    <mock-styled.aside>
-      <mock-styled.h1
-        classname=""
-      >
-        Admin
-      </mock-styled.h1>
-      <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
-      >
-        <svg />
-      </mock-styled.span>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        This form is required to get started with Reapit Payments.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="mock-css."
-      >
-        Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
-      </mock-styled.p>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-      >
-        View Docs
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="false"
-      >
-        Save Config
-        <mock-styled.div />
-      </mock-styled.button>
-      <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css."
-        disabled="false"
-      >
-        Delete Config
-        <mock-styled.div />
-      </mock-styled.button>
-    </mock-styled.aside>
-    <mock-styled.section>
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
-      >
-        <mock-styled.h1
-          classname=""
-        >
-          Reapit Payments App Configuration
-        </mock-styled.h1>
-        <mock-styled.div>
-          <img
-            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
-          />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
-      >
-        <div
-          class="mock-css.
-  padding: 0 0.5rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
-          data-testid="close-icon"
-        >
-          <mock-styled.span
-            classname=""
-          >
-            <svg />
-          </mock-styled.span>
-        </div>
-        <div
-          class="mock-css.
-  padding: 0.75rem 1.25rem;
-  opacity: 0;
-  transition: 0.5s;
-  width: 100%;
-"
-        >
-          Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
-        </div>
-      </mock-styled.div>
-      <form>
-        <mock-styled.h2
-          classname=""
-        >
-          Company Details
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="mock-css."
-        >
-          These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-        </mock-styled.p>
-        <mock-styled.div
-          classname="mock-css."
-        >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                id="test-static-id"
-                name="companyName"
-                type="email"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Company Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Email Logo Url
-              </mock-styled.label>
-              <mock-styled.div
-                classname="mock-css.
-  align-items: center;
-"
-              >
-                <mock-styled.button
-                  classname="mock-css.
-  margin-right: 0.625rem;
- mock-css."
-                  type="button"
-                >
-                  Upload
-                  <mock-styled.div />
-                </mock-styled.button>
-                <mock-styled.input
-                  data-testid="el-file-input"
-                  type="file"
-                />
-                <mock-styled.input
-                  id="test-static-id"
-                  name="logoUri"
-                />
-                <mock-styled.p
-                  classname="mock-css. mock-css."
-                >
-                  Upload File
-                </mock-styled.p>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.h2
-          classname=""
-        >
-          Opayo Credientials
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="mock-css."
-        >
-          These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="mock-css. mock-css."
-        >
-          Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
-        </mock-styled.p>
-        <mock-styled.div
-          classname="mock-css."
-        >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                id="test-static-id"
-                name="vendorName"
-                type="email"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Opayo Vendor Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Live Opayo Environment or Test
-              </mock-styled.label>
-              <mock-styled.input
-                id="is-live-env"
-                name="isLive"
-                type="checkbox"
-              />
-              <mock-styled.label
-                classname="mock-css."
-                htmlfor="is-live-env"
-              >
-                <mock-styled.span>
-                  Live
-                </mock-styled.span>
-                <mock-styled.span>
-                  Test
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                id="test-static-id"
-                name="integrationKey"
-                type="email"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Opayo Integration Key
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                id="test-static-id"
-                name="passKey"
-                type="email"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Opayo Pass Key
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              id="test-static-id"
-              name="configId"
-              type="hidden"
-            />
-          </mock-styled.div>
-        </mock-styled.div>
-      </form>
-    </mock-styled.section>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

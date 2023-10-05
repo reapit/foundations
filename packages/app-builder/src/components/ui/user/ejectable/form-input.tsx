@@ -225,7 +225,7 @@ const FileUploadInput = ({
           {file && <img src={file} style={{ maxWidth: 420 }} />}
         </FlexContainer>
         <ButtonGroup alignment="right">
-          <Button intent="low" onClick={() => setModalIsOpen(false)}>
+          <Button intent="default" onClick={() => setModalIsOpen(false)}>
             Close
           </Button>
         </ButtonGroup>
@@ -600,7 +600,7 @@ const ListInput = React.forwardRef(
         </InputGroup>
         <Button
           type="button"
-          intent="secondary"
+          intent="primary"
           onClick={() => {
             const newListValue = listValue.slice()
             if (!formInput.fields) {

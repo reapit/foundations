@@ -113,7 +113,7 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
 
   return (
     <Modal title="Scan QR Code">
-      <PersistentNotification className={elMb7} isFullWidth isExpanded isInline intent="secondary">
+      <PersistentNotification className={elMb7} isFullWidth isExpanded isInline intent="primary">
         Scan the below QR Code in an authenticator app of your choice. We recommend Microsoft Authenticator, Google
         Authenticator or a password manager like 1Password or LastPass.
       </PersistentNotification>
@@ -126,7 +126,7 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
           handleSubmit(handleVerifyQrCode(verifyQrCode))(e)
         }}
       >
-        <PersistentNotification className={elMb7} isFullWidth isExpanded isInline intent="secondary">
+        <PersistentNotification className={elMb7} isFullWidth isExpanded isInline intent="primary">
           Enter the code from your authenticator app below and hit submit to complete configuration of MFA.
         </PersistentNotification>
         <FormLayout className={elMb7}>
@@ -140,8 +140,8 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
             />
           </InputWrapFull>
         </FormLayout>
-        <ButtonGroup alignment="center">
-          <Button type="button" intent="low" onClick={closeModal}>
+        <ButtonGroup alignment="right">
+          <Button type="button" intent="default" onClick={closeModal}>
             Cancel
           </Button>
           <Button intent="primary" type="submit" loading={qrCodeVerifyLoading} disabled={qrCodeVerifyLoading}>

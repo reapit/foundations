@@ -42,8 +42,8 @@ export const PipelinePage: FC = () => {
       {isMobile && (
         <Modal title="Controls">
           <Helper />
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="secondary" onClick={closeModal}>
+          <ButtonGroup alignment="right">
+            <Button intent="default" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>
@@ -64,7 +64,7 @@ export const PipelinePage: FC = () => {
           )}
         </>
       ) : (
-        <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
+        <PersistentNotification intent="primary" isExpanded isFullWidth isInline>
           No record of this app found, please select an app from the My Apps page.
         </PersistentNotification>
       )}

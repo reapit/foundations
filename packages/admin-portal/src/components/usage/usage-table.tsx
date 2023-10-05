@@ -99,7 +99,7 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
     </>
   ) : (
     <div>
-      <PersistentNotification isExpanded isFullWidth isInline intent="secondary">
+      <PersistentNotification isExpanded isFullWidth isInline intent="primary">
         No results found for your selected filters
       </PersistentNotification>
     </div>

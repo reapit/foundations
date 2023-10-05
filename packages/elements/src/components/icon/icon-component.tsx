@@ -21,6 +21,8 @@ export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   fontSize?: string
   className?: string
   iconSize?: IconSize
+  height?: string
+  width?: string
 }
 
 export const getIconSize = (iconSize?: IconSize): string | null => {
@@ -40,15 +42,13 @@ export const getIconSize = (iconSize?: IconSize): string | null => {
   }
 }
 
-export const Icon: FC<IconProps> = ({ icon, intent, fontSize, iconSize, className, ...rest }) => {
+export const Icon: FC<IconProps> = ({ icon, intent, fontSize, iconSize, className, height, width, ...rest }) => {
   const intentClassname = intent && getIntentClassName(intent)
   const sizeClassname = getIconSize(iconSize)
   const combinedClassName = cx(className, intentClassname, sizeClassname)
 
   if (deprecatedIconSet.includes(icon)) {
-    console.warn(
-      `The icon "${icon}" is deprecated and will be removed in the next major release. We suggest strongly finding an alterative from the Elements doucmentation`,
-    )
+    console.warn(`The icon "${icon}" is deprecated and will be removed in v5.`)
   }
 
   const Svg = iconSet[icon]
@@ -56,8 +56,8 @@ export const Icon: FC<IconProps> = ({ icon, intent, fontSize, iconSize, classNam
   if (!Svg) return <ElIcon className={combinedClassName} {...rest} />
 
   return (
-    <ElIcon className={combinedClassName} {...rest} style={{ fontSize }}>
-      <Svg />
+    <ElIcon className={combinedClassName} {...rest} style={{ fontSize, height, width }}>
+      <Svg style={{ fontSize, height, width }} />
     </ElIcon>
   )
 }

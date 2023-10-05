@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
 import { PaymentModel, PaymentModelPagedResult, PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { statusOptions } from '../../constants/filter-options'
-import { PaymentLogo, navigateRoute } from '@reapit/payments-ui'
+import { navigateRoute } from '@reapit/payments-ui'
 import { PaymentsFilterControls } from './payments-filter-controls'
 import { combineAddress, DATE_TIME_FORMAT, isTruthy, toLocalTime } from '@reapit/utils-common'
 import {
@@ -110,9 +110,8 @@ export const PaymentsPage: FC = () => {
   })
 
   return (
-    <>
+    <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Payments</Title>
         <Icon className={elMb5} iconSize="large" icon="newCustomerInfographic" />
         <SmallText hasGreyText>
           From this dashboard you can use the below filters to locate payments held by Reapit.
@@ -131,10 +130,7 @@ export const PaymentsPage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer>
         <ErrorBoundary>
-          <FlexContainer isFlexJustifyBetween>
-            <Title>Payments Dashboard</Title>
-            <PaymentLogo />
-          </FlexContainer>
+          <Title>Payments Dashboard</Title>
           {configNotConfigured && !configLoading && (
             <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isFullWidth isInline isExpanded>
               The app cannnot currently process client payments. This is likely because your payment provider has not
@@ -220,8 +216,7 @@ export const PaymentsPage: FC = () => {
                             Email Request
                           </Button>
                           <Button
-                            intent="critical"
-                            chevronRight
+                            intent="primary"
                             disabled={status === 'posted' || configNotConfigured}
                             onClick={navigateRoute(navigate, `${RoutePaths.PAYMENTS}/${id}`)}
                           >
@@ -240,7 +235,7 @@ export const PaymentsPage: FC = () => {
               />
             </>
           ) : !paymentsLoading ? (
-            <PersistentNotification className={elFadeIn} intent="secondary" isExpanded isFullWidth isInline>
+            <PersistentNotification className={elFadeIn} intent="primary" isExpanded isFullWidth isInline>
               No payments match your search criteria
             </PersistentNotification>
           ) : null}
@@ -258,7 +253,7 @@ export const PaymentsPage: FC = () => {
           </Modal>
         </ErrorBoundary>
       </PageContainer>
-    </>
+    </FlexContainer>
   )
 }
 

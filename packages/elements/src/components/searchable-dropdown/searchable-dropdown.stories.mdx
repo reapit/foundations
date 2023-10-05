@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { SearchableDropdown, ControlledSearchableDropdown, SearchableDropdownSearchLabel } from './index'
 import { Label } from '../label'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
@@ -217,7 +217,7 @@ type ObjectType = {
       getResultLabel={(result) => result.name}
       getResultValue={(result) => result.id}
       onChange={(e) => console.log(e.target.value)}
-      defaultVal={{id: '4', name: 'Forth'}}
+      defaultVal={{ id: '4', name: 'Forth' }}
     />
   </Story>
 </Canvas>

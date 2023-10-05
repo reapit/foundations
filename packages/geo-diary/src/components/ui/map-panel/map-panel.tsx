@@ -61,7 +61,7 @@ export const MapPanel: React.FC<MapPanelProps> = ({ routeInformation }: MapPanel
         <p>{routeInformation?.distance?.text}</p>
       </MapPanelItem>
       <MapPanelItem>
-        <Button type="button" intent="critical" onClick={handleOpenNativeMap({ appState })}>
+        <Button type="button" intent="primary" onClick={handleOpenNativeMap({ appState })}>
           Start Journey
         </Button>
       </MapPanelItem>

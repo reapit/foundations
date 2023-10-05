@@ -175,7 +175,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
 
   if (!orgId)
     return (
-      <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+      <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
         No organisation selected. You need to select an organisation to create an Office Group for.
       </PersistentNotification>
     )

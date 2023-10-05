@@ -1,5 +1,4 @@
 import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useEffect, useState } from 'react'
-import { elProgressBarLabelLeft } from './__styles__/index'
 import {
   ElProgressBarContainer,
   ElProgressBarLabel,
@@ -8,9 +7,10 @@ import {
   elProgressBarLabelRight,
   elProgressBarItemDarkBlue,
   elProgressBarItemLightBlue,
-  elProgressBarItemLightestBlue,
   elProgressBarItemMediumBlue,
-  elProgressBarItemOrange,
+  elProgressBarItemYellow,
+  elProgressBarLabelLeft,
+  elProgressBarItemPurple,
 } from './__styles__'
 
 export interface ProgressBarPercentageProps extends HTMLAttributes<HTMLDivElement> {
@@ -69,11 +69,11 @@ export const ProgressBarPercentage: FC<ProgressBarPercentageProps> = ({ duration
   return (
     <ProgressBarContainer {...rest}>
       <ProgressBarInner style={{ width: `${percentageComplete}%`, transitionDuration: `${transitionDuration}s` }}>
+        <ProgressBarItem className={elProgressBarItemPurple} />
         <ProgressBarItem className={elProgressBarItemDarkBlue} />
         <ProgressBarItem className={elProgressBarItemMediumBlue} />
         <ProgressBarItem className={elProgressBarItemLightBlue} />
-        <ProgressBarItem className={elProgressBarItemLightestBlue} />
-        <ProgressBarItem className={elProgressBarItemOrange} />
+        <ProgressBarItem className={elProgressBarItemYellow} />
       </ProgressBarInner>
       {showLabel && <ProgressBarLabel className={elProgressBarLabelRight}>{percentageComplete}%</ProgressBarLabel>}
     </ProgressBarContainer>
@@ -96,11 +96,11 @@ export const ProgressBarSteps: FC<ProgressBarStepProps> = ({ numberSteps, curren
   return (
     <ProgressBarContainer {...rest}>
       <ProgressBarInner style={{ width: `${percentageComplete}%` }}>
+        <ProgressBarItem className={elProgressBarItemPurple} />
         <ProgressBarItem className={elProgressBarItemDarkBlue} />
         <ProgressBarItem className={elProgressBarItemMediumBlue} />
         <ProgressBarItem className={elProgressBarItemLightBlue} />
-        <ProgressBarItem className={elProgressBarItemLightestBlue} />
-        <ProgressBarItem className={elProgressBarItemOrange} />
+        <ProgressBarItem className={elProgressBarItemYellow} />
       </ProgressBarInner>
       {showLabel && (
         <ProgressBarLabel className={elProgressBarLabelLeft}>

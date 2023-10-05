@@ -91,7 +91,7 @@ export const ServicesTable: FC<ServicesTableProps> = ({ billing }) => {
       }
     />
   ) : (
-    <PersistentNotification isExpanded isFullWidth isInline intent="secondary">
+    <PersistentNotification isExpanded isFullWidth isInline intent="primary">
       No results found for your selected filters
     </PersistentNotification>
   )

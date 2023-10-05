@@ -6387,6 +6387,89 @@ export interface CreateNegotiatorModel {
   }
 }
 /**
+ * Payload for creating a notification
+ * example:
+ * [object Object]
+ */
+export interface CreateNotificationModel {
+  /**
+   * The notification type (telephony)
+   */
+  type?: string
+  /**
+   * The sub category type (answeredCall/endedCall/incomingCall/missedCall)
+   */
+  subType?: string
+  /**
+   * The products the notification is associated too
+   */
+  products?: string[]
+  /**
+   * Payload for defining notification targets
+   */
+  targets?: {
+    /**
+     * The identifier of the negotiators associated to the notification
+     */
+    negotiatorId?: string[]
+  }
+  /**
+   * Payload for creating a notification
+   */
+  payload?: {
+    /**
+     * The unique identifier of the payload
+     */
+    id?: string
+    /**
+     * The date and time the notification was sent
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The id associated to the caller
+     */
+    callerId?: string
+    /**
+     * The id associated to the recipient
+     */
+    destinationId?: string
+  }
+}
+/**
+ * Payload for defining notification targets
+ */
+export interface CreateNotificationTargetModel {
+  /**
+   * The identifier of the negotiators associated to the notification
+   */
+  negotiatorId?: string[]
+}
+/**
+ * Payload for creating a notification
+ */
+export interface CreateNotificationTelephonyPayloadModel {
+  /**
+   * The unique identifier of the payload
+   */
+  id?: string
+  /**
+   * The date and time the notification was sent
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The id associated to the caller
+   */
+  callerId?: string
+  /**
+   * The id associated to the recipient
+   */
+  destinationId?: string
+}
+/**
  * Request body used to create a new offer
  * example:
  * [object Object]
@@ -6728,6 +6811,14 @@ export interface CreatePropertyEpcModel {
    * The potential environmental impact rating
    */
   eirPotential?: number // int32
+  /**
+   * The URL to access the full EPC document
+   */
+  fullDocumentUrl?: string
+  /**
+   * The URL to access the first page of the EPC document
+   */
+  firstPageDocumentUrl?: string
 }
 /**
  * Request body to set the external land area of a new property
@@ -6836,7 +6927,7 @@ export interface CreatePropertyLettingModel {
    */
   rent?: number // double
   /**
-   * The frequency at which rent will be collected (weekly/monthly/yearly)
+   * The frequency at which rent will be collected (weekly/monthly/annually)
    */
   rentFrequency?: string
   /**
@@ -7193,6 +7284,14 @@ export interface CreatePropertyModel {
      * The potential environmental impact rating
      */
     eirPotential?: number // int32
+    /**
+     * The URL to access the full EPC document
+     */
+    fullDocumentUrl?: string
+    /**
+     * The URL to access the first page of the EPC document
+     */
+    firstPageDocumentUrl?: string
   }
   /**
    * Request body to set the external land area of a new property
@@ -7394,7 +7493,7 @@ export interface CreatePropertyModel {
      */
     rent?: number // double
     /**
-     * The frequency at which rent will be collected (weekly/monthly/yearly)
+     * The frequency at which rent will be collected (weekly/monthly/annually)
      */
     rentFrequency?: string
     /**
@@ -11403,6 +11502,121 @@ export interface NominalAccountModelPagedResult {
   }
 }
 /**
+ * Representation of the notification
+ */
+export interface NotificationModel {
+  /**
+   * The customer and negoatiator id of the user notification relates too
+   */
+  readonly customerNegotiator?: string
+  /**
+   * The unique identifier of the notification
+   */
+  readonly id?: string
+  /**
+   * The identifier of the negotiator the notification relates too
+   */
+  negotiatorId?: string
+  /**
+   * The notification type
+   */
+  type?: string
+  /**
+   * The subscription type
+   */
+  subType?: string
+  /**
+   * The products the notification is associated too
+   */
+  products?: string[]
+  /**
+   * The data within the notification
+   */
+  payload?: string
+  /**
+   * The date time the notification was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The customer id associated to the notification
+   */
+  readonly customerId?: string
+  /**
+   * The unique identifier of the notification in the third party system
+   */
+  readonly externalEventId?: string
+  /**
+   * The caller id associated to the notification
+   */
+  readonly callerId?: string
+  /**
+   * The destination id associated to the notification
+   */
+  readonly destinationId?: string
+}
+export interface NotificationModelLitePagedResult {
+  /**
+   * List of paged data
+   */
+  readonly _embedded?: {
+    /**
+     * The customer and negoatiator id of the user notification relates too
+     */
+    readonly customerNegotiator?: string
+    /**
+     * The unique identifier of the notification
+     */
+    readonly id?: string
+    /**
+     * The identifier of the negotiator the notification relates too
+     */
+    negotiatorId?: string
+    /**
+     * The notification type
+     */
+    type?: string
+    /**
+     * The subscription type
+     */
+    subType?: string
+    /**
+     * The products the notification is associated too
+     */
+    products?: string[]
+    /**
+     * The data within the notification
+     */
+    payload?: string
+    /**
+     * The date time the notification was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The customer id associated to the notification
+     */
+    readonly customerId?: string
+    /**
+     * The unique identifier of the notification in the third party system
+     */
+    readonly externalEventId?: string
+    /**
+     * The caller id associated to the notification
+     */
+    readonly callerId?: string
+    /**
+     * The destination id associated to the notification
+     */
+    readonly destinationId?: string
+  }[]
+}
+export interface Notifications {
+  negotiatorId?: string
+}
+/**
  * Representation of the physical address of a building or premise
  */
 export interface OfferContactAddressModel {
@@ -12867,6 +13081,14 @@ export interface PropertyEpcModel {
    * The potential environment impact letter rating (A-G). This is generated from the `eirPotential` value
    */
   eirPotentialRating?: string
+  /**
+   * The URL to access the full EPC document
+   */
+  fullDocumentUrl?: string
+  /**
+   * The URL to access the first page of the EPC document
+   */
+  firstPageDocumentUrl?: string
 }
 /**
  * Representation of the external land area of a property
@@ -13164,7 +13386,7 @@ export interface PropertyLettingModel {
    */
   rent?: number // double
   /**
-   * The frequency at which rent will be collected (weekly/monthly/yearly)
+   * The frequency at which rent will be collected (weekly/monthly/annually)
    */
   rentFrequency?: string
   /**
@@ -13830,6 +14052,14 @@ export interface PropertyModel {
      * The potential environment impact letter rating (A-G). This is generated from the `eirPotential` value
      */
     eirPotentialRating?: string
+    /**
+     * The URL to access the full EPC document
+     */
+    fullDocumentUrl?: string
+    /**
+     * The URL to access the first page of the EPC document
+     */
+    firstPageDocumentUrl?: string
   }
   /**
    * Representation of property details specific to sales marketing
@@ -14013,7 +14243,7 @@ export interface PropertyModel {
      */
     rent?: number // double
     /**
-     * The frequency at which rent will be collected (weekly/monthly/yearly)
+     * The frequency at which rent will be collected (weekly/monthly/annually)
      */
     rentFrequency?: string
     /**
@@ -14798,6 +15028,14 @@ export interface PropertyModelPagedResult {
        * The potential environment impact letter rating (A-G). This is generated from the `eirPotential` value
        */
       eirPotentialRating?: string
+      /**
+       * The URL to access the full EPC document
+       */
+      fullDocumentUrl?: string
+      /**
+       * The URL to access the first page of the EPC document
+       */
+      firstPageDocumentUrl?: string
     }
     /**
      * Representation of property details specific to sales marketing
@@ -14981,7 +15219,7 @@ export interface PropertyModelPagedResult {
        */
       rent?: number // double
       /**
-       * The frequency at which rent will be collected (weekly/monthly/yearly)
+       * The frequency at which rent will be collected (weekly/monthly/annually)
        */
       rentFrequency?: string
       /**
@@ -19053,6 +19291,8 @@ export interface Transactions {
   )[]
   createdFrom?: string
   createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   outstandingFrom?: number
   outstandingTo?: number
 }
@@ -21356,6 +21596,14 @@ export interface UpdatePropertyEpcModel {
    * The potential environmental impact rating
    */
   eirPotential?: number // int32
+  /**
+   * The URL to access the full EPC document
+   */
+  fullDocumentUrl?: string
+  /**
+   * The URL to access the first page of the EPC document
+   */
+  firstPageDocumentUrl?: string
 }
 /**
  * Request body to update the external land area of an existing property
@@ -21508,7 +21756,7 @@ export interface UpdatePropertyLettingModel {
    */
   rent?: number // double
   /**
-   * The frequency at which rent will be collected (weekly/monthly/yearly)
+   * The frequency at which rent will be collected (weekly/monthly/annually)
    */
   rentFrequency?: string
   /**
@@ -21995,6 +22243,14 @@ export interface UpdatePropertyModel {
      * The potential environmental impact rating
      */
     eirPotential?: number // int32
+    /**
+     * The URL to access the full EPC document
+     */
+    fullDocumentUrl?: string
+    /**
+     * The URL to access the first page of the EPC document
+     */
+    firstPageDocumentUrl?: string
   }
   /**
    * Request body to update the external land area of an existing property
@@ -22187,7 +22443,7 @@ export interface UpdatePropertyModel {
      */
     rent?: number // double
     /**
-     * The frequency at which rent will be collected (weekly/monthly/yearly)
+     * The frequency at which rent will be collected (weekly/monthly/annually)
      */
     rentFrequency?: string
     /**
@@ -23404,6 +23660,10 @@ export interface UpdateVendorModel {
    */
   solicitorId?: string
   /**
+   * Value indicating where hard copies of correspondence should be sent for the primary contact (property/contact)
+   */
+  correspondenceAddressType?: string
+  /**
    * Representation of a vendor's source
    */
   source?: {
@@ -24113,6 +24373,11 @@ export interface VendorModel {
     }[]
   }[]
   /**
+   * Value indicating where hard copies of correspondence should be sent for the primary contact (property/contact).
+   * When set to contact, any correspondence should be sent to the related contact's address, rather than the property address
+   */
+  correspondenceAddressType?: string
+  /**
    * The unique identifier of the negotiator attached to the vendor. The first item in the collection is considered the primary negotiator
    */
   negotiatorId?: string
@@ -24313,6 +24578,11 @@ export interface VendorModelPagedResult {
         value?: string
       }[]
     }[]
+    /**
+     * Value indicating where hard copies of correspondence should be sent for the primary contact (property/contact).
+     * When set to contact, any correspondence should be sent to the related contact's address, rather than the property address
+     */
+    correspondenceAddressType?: string
     /**
      * The unique identifier of the negotiator attached to the vendor. The first item in the collection is considered the primary negotiator
      */

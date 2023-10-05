@@ -1,9 +1,7 @@
 import React, { FC, useState, Dispatch, SetStateAction } from 'react'
-import { Title, Subtitle, BodyText, Button, FlexContainer, ButtonGroup, elMb12 } from '@reapit/elements'
+import { Subtitle, BodyText, Button, FlexContainer, ButtonGroup, Icon, elMb7 } from '@reapit/elements'
 import Routes from '../../constants/routes'
-import { KeyAnimation } from '@reapit/utils-react'
-import reapitLogo from '../../assets/images/reapit-logo.svg'
-import { LoginContainer, LoginImageContainer, LoginContentWrapper } from '../login/__styles__'
+import { LoginContainer, LoginContentWrapper } from '../login/__styles__'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { selectDeveloperId, selectIsCustomer, selectIsUserAdmin } from '../../utils/auth'
@@ -52,7 +50,6 @@ export const handleSetModal =
   }
 
 export const CustomerRegister: FC = () => {
-  const [keyStep, setKeyStep] = useState<1 | 2 | 3>(1)
   const [termsModalVisible, setTermsModalVisible] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const orgName = connectSession?.loginIdentity.orgName ?? ''
@@ -77,18 +74,15 @@ export const CustomerRegister: FC = () => {
 
   return (
     <LoginContainer>
-      <LoginImageContainer>
-        <KeyAnimation step={keyStep} />
-      </LoginImageContainer>
       <LoginContentWrapper>
-        <img src={reapitLogo} alt="Reapit Connect Graphic" />
+        <Icon className={elMb7} height="40px" width="200px" icon="reapitLogoInfographic" />
         <FlexContainer isFlexColumn>
-          <Title hasNoMargin hasCenteredText>
+          <Subtitle hasNoMargin hasCenteredText>
             Welcome
-          </Title>
-          <Subtitle hasCenteredText hasSectionMargin>
-            to the Reapit Foundations Developer Portal
           </Subtitle>
+          <BodyText hasCenteredText hasSectionMargin>
+            to the Reapit Foundations Developer Portal
+          </BodyText>
         </FlexContainer>
         {hasDeveloperOrg && (
           <>
@@ -137,21 +131,12 @@ export const CustomerRegister: FC = () => {
             </BodyText>
           </>
         )}
-        <ButtonGroup
-          onMouseOver={() => {
-            setKeyStep(3)
-          }}
-          onMouseOut={() => {
-            setKeyStep(1)
-          }}
-          alignment="center"
-          className={elMb12}
-        >
-          <Button onClick={openNewPage(process.env.marketplaceUrl)} intent="primary" size={3}>
+        <ButtonGroup alignment="center">
+          <Button onClick={openNewPage(process.env.marketplaceUrl)} intent="default">
             Visit AppMarket
           </Button>
           {isCustomerAdmin && !hasDeveloperOrg && (
-            <Button onClick={handleSetModal(true, setTermsModalVisible)} intent="critical" size={3}>
+            <Button onClick={handleSetModal(true, setTermsModalVisible)} intent="primary">
               Proceed
             </Button>
           )}

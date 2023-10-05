@@ -1,7 +1,6 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { Button, ButtonProps, FloatingButton, ButtonGroup, resolveButtonSize } from '../index'
-import { elButtonSize2, elButtonSize3, elButtonSize4 } from '../__styles__'
 
 const props: ButtonProps = {
   type: 'submit',
@@ -47,10 +46,8 @@ describe('Button', () => {
     expect(props.onClick).toHaveBeenCalledTimes(1)
   })
 
-  it('should return button size class', () => {
-    expect(resolveButtonSize(2)).toBe(elButtonSize2)
-    expect(resolveButtonSize(3)).toBe(elButtonSize3)
-    expect(resolveButtonSize(4)).toBe(elButtonSize4)
+  it('should not return button size class', () => {
+    expect(resolveButtonSize(2)).toBe(undefined)
   })
 
   afterEach(() => {

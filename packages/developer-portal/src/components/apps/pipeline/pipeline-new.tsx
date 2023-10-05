@@ -13,8 +13,8 @@ export const PipelineNew: FC = () => {
       {isMobile && (
         <Modal title="Controls">
           <Helper />
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="secondary" onClick={closeModal}>
+          <ButtonGroup alignment="right">
+            <Button intent="default" onClick={closeModal}>
               Close
             </Button>
           </ButtonGroup>

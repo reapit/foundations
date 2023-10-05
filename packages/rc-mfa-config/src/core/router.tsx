@@ -2,15 +2,18 @@ import React, { FC } from 'react'
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import { RoutePaths } from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
-import { catchChunkError } from '@reapit/utils-react'
+import { Login, catchChunkError } from '@reapit/utils-react'
+import { reapitConnectBrowserSession } from './connect-session'
 
-const LoginPage = React.lazy(() => catchChunkError(() => import('../components/login')))
 const HomePage = React.lazy(() => catchChunkError(() => import('../components/home')))
 const AdminPage = React.lazy(() => catchChunkError(() => import('../components/admin')))
 
 export const RoutesComponent: FC = () => (
   <Routes>
-    <Route path={RoutePaths.LOGIN} element={<LoginPage />} />
+    <Route
+      path={RoutePaths.LOGIN}
+      element={<Login appName="Reapit Connect MFA Config" reapitConnectBrowserSession={reapitConnectBrowserSession} />}
+    />
     <Route
       path={RoutePaths.HOME}
       element={

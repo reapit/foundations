@@ -1,52 +1,34 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { BodyText, Button, ButtonGroup, Subtitle, Title, FlexContainer, elMb12 } from '@reapit/elements'
+import { Button, ButtonGroup, Subtitle, Title, FlexContainer, Icon, elMb7 } from '@reapit/elements'
 import Routes from '../../constants/routes'
-import reapitLogo from '../../assets/images/reapit-logo.svg'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { KeyAnimation } from '@reapit/utils-react'
-import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
+import { LoginContainer, LoginContentWrapper } from './__styles__'
 import { navigateRoute } from '../../utils/navigation'
 
-export const onLoginButtonClick = () => () => {
+export const onLoginButtonClick = () => {
   reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.APPS}`)
 }
 
 export const Login: FC = () => {
   const navigate = useNavigate()
-  const [keyStep, setKeyStep] = useState<1 | 2 | 3>(1)
 
   return (
     <LoginContainer>
-      <LoginImageContainer>
-        <KeyAnimation step={keyStep} />
-      </LoginImageContainer>
       <LoginContentWrapper>
-        <img src={reapitLogo} alt="Reapit Connect Graphic" />
+        <Icon className={elMb7} height="40px" width="200px" icon="reapitLogoInfographic" />
         <FlexContainer isFlexColumn>
-          <Title hasNoMargin hasCenteredText>
-            Welcome
-          </Title>
-          <Subtitle hasCenteredText>to Reapit Foundations</Subtitle>
+          <Title hasCenteredText>Welcome</Title>
+          <Subtitle hasCenteredText>Developer Portal</Subtitle>
         </FlexContainer>
-        <ButtonGroup
-          alignment="center"
-          className={elMb12}
-          onMouseOver={() => {
-            setKeyStep(3)
-          }}
-          onMouseOut={() => {
-            setKeyStep(1)
-          }}
-        >
-          <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
+        <ButtonGroup alignment="center">
+          <Button onClick={onLoginButtonClick} intent="primary" size={3}>
             Login With Reapit
           </Button>
-          <Button onClick={navigateRoute(navigate, Routes.SELECT_ROLE)} intent="secondary" size={3}>
+          <Button onClick={navigateRoute(navigate, Routes.SELECT_ROLE)} intent="default" size={3}>
             Register
           </Button>
         </ButtonGroup>
-        <BodyText hasGreyText>{process.env.APP_VERSION}</BodyText>
       </LoginContentWrapper>
     </LoginContainer>
   )

@@ -265,7 +265,7 @@ export const UsersPage: FC = () => {
           />
         </>
       ) : (
-        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
           No users found based on your current search.
         </PersistentNotification>
       )}

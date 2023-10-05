@@ -33,20 +33,20 @@ export const TermsAndConditionsModal: FC<TermsAndConditionsModalProps> = ({
           These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and
           incorporate the Registration Details, to the exclusion of all other terms.
         </BodyText>
-        <PersistentNotification className={elMb6} intent="secondary" isExpanded isFullWidth isInline>
+        <PersistentNotification className={elMb6} intent="primary" isExpanded isFullWidth isInline>
           Please agree to the Reapit Developer Terms and Conditions to proceed
         </PersistentNotification>
         <TermsAndConditions />
         <ScheduleOne />
         <ScheduleTwo />
         <ScheduleThree />
-        <ButtonGroup alignment="center">
+        <ButtonGroup alignment="right">
           {onDecline && (
-            <Button fixedWidth intent="low" type="button" onClick={onDecline}>
+            <Button intent="danger" type="button" onClick={onDecline}>
               Decline
             </Button>
           )}
-          <Button fixedWidth intent="primary" loading={isSubmitting} disabled={isSubmitting} onClick={onAccept}>
+          <Button intent="primary" loading={isSubmitting} disabled={isSubmitting} onClick={onAccept}>
             Accept
           </Button>
         </ButtonGroup>

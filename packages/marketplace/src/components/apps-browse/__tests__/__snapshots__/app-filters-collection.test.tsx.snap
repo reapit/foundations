@@ -16,9 +16,11 @@ exports[`AppFiltersCollection should match a snapshot for mobile desktop 1`] = `
             classname="mock-css.
   margin-bottom: 0.75rem;
 "
-            style="font-size: 5em;"
+            style="font-size: 80px;"
           >
-            <svg />
+            <svg
+              style="font-size: 80px;"
+            />
           </mock-styled.span>
           <mock-styled.div
             classname="mock-css.
@@ -50,9 +52,11 @@ exports[`AppFiltersCollection should match a snapshot for mobile desktop 1`] = `
           classname="mock-css.
   margin-bottom: 0.75rem;
 "
-          style="font-size: 5em;"
+          style="font-size: 80px;"
         >
-          <svg />
+          <svg
+            style="font-size: 80px;"
+          />
         </mock-styled.span>
         <mock-styled.div
           classname="mock-css.
@@ -141,9 +145,11 @@ exports[`AppFiltersCollection should match a snapshot for mobile mobile 1`] = `
             classname="mock-css.
   margin-bottom: 0.75rem;
 "
-            style="font-size: 3.75em;"
+            style="font-size: 60px;"
           >
-            <svg />
+            <svg
+              style="font-size: 60px;"
+            />
           </mock-styled.span>
           <mock-styled.div
             classname="mock-css.
@@ -175,9 +181,11 @@ exports[`AppFiltersCollection should match a snapshot for mobile mobile 1`] = `
           classname="mock-css.
   margin-bottom: 0.75rem;
 "
-          style="font-size: 3.75em;"
+          style="font-size: 60px;"
         >
-          <svg />
+          <svg
+            style="font-size: 60px;"
+          />
         </mock-styled.span>
         <mock-styled.div
           classname="mock-css.
@@ -266,9 +274,11 @@ exports[`AppFiltersCollection should match a snapshot for mobile superWidescreen
             classname="mock-css.
   margin-bottom: 0.75rem;
 "
-            style="font-size: 5em;"
+            style="font-size: 80px;"
           >
-            <svg />
+            <svg
+              style="font-size: 80px;"
+            />
           </mock-styled.span>
           <mock-styled.div
             classname="mock-css.
@@ -300,9 +310,11 @@ exports[`AppFiltersCollection should match a snapshot for mobile superWidescreen
           classname="mock-css.
   margin-bottom: 0.75rem;
 "
-          style="font-size: 5em;"
+          style="font-size: 80px;"
         >
-          <svg />
+          <svg
+            style="font-size: 80px;"
+          />
         </mock-styled.span>
         <mock-styled.div
           classname="mock-css.
@@ -391,9 +403,11 @@ exports[`AppFiltersCollection should match a snapshot for mobile tablet 1`] = `
             classname="mock-css.
   margin-bottom: 0.75rem;
 "
-            style="font-size: 5em;"
+            style="font-size: 80px;"
           >
-            <svg />
+            <svg
+              style="font-size: 80px;"
+            />
           </mock-styled.span>
           <mock-styled.div
             classname="mock-css.
@@ -425,9 +439,11 @@ exports[`AppFiltersCollection should match a snapshot for mobile tablet 1`] = `
           classname="mock-css.
   margin-bottom: 0.75rem;
 "
-          style="font-size: 5em;"
+          style="font-size: 80px;"
         >
-          <svg />
+          <svg
+            style="font-size: 80px;"
+          />
         </mock-styled.span>
         <mock-styled.div
           classname="mock-css.
@@ -516,9 +532,11 @@ exports[`AppFiltersCollection should match a snapshot for mobile widescreen 1`] 
             classname="mock-css.
   margin-bottom: 0.75rem;
 "
-            style="font-size: 5em;"
+            style="font-size: 80px;"
           >
-            <svg />
+            <svg
+              style="font-size: 80px;"
+            />
           </mock-styled.span>
           <mock-styled.div
             classname="mock-css.
@@ -550,9 +568,11 @@ exports[`AppFiltersCollection should match a snapshot for mobile widescreen 1`] 
           classname="mock-css.
   margin-bottom: 0.75rem;
 "
-          style="font-size: 5em;"
+          style="font-size: 80px;"
         >
-          <svg />
+          <svg
+            style="font-size: 80px;"
+          />
         </mock-styled.span>
         <mock-styled.div
           classname="mock-css.

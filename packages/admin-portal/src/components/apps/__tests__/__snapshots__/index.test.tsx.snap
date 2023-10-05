@@ -21,6 +21,7 @@ exports[`AppsPage should render a component when has data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="searchTerm"
                   type="search"
@@ -35,6 +36,7 @@ exports[`AppsPage should render a component when has data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="companyName"
                   type="search"
@@ -49,6 +51,7 @@ exports[`AppsPage should render a component when has data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="id"
                   type="search"
@@ -63,6 +66,7 @@ exports[`AppsPage should render a component when has data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="registeredFrom"
                   type="date"
@@ -77,6 +81,7 @@ exports[`AppsPage should render a component when has data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="registeredTo"
                   type="date"
@@ -91,6 +96,7 @@ exports[`AppsPage should render a component when has data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="publicListedDateFrom"
                   type="date"
@@ -105,6 +111,7 @@ exports[`AppsPage should render a component when has data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="publicListedDateTo"
                   type="date"
@@ -335,8 +342,8 @@ exports[`AppsPage should render a component when has data 1`] = `
                 classname="mock-css."
                 type="button"
               >
-                Download CSV
                 <mock-styled.div />
+                Download CSV
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>
@@ -394,10 +401,12 @@ exports[`AppsPage should render a component when has data 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css."
                   style="font-size: 1.2rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.2rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -532,46 +541,46 @@ exports[`AppsPage should render a component when has data 1`] = `
                       <mock-styled.button
                         classname="mock-css."
                       >
-                        View in AppMarket
                         <mock-styled.div />
+                        View in AppMarket
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
                       >
-                        View in DevPortal
                         <mock-styled.div />
+                        View in DevPortal
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
                         disabled="false"
                       >
-                        Check AWS Only
                         <mock-styled.div />
+                        Check AWS Only
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
+                      >
+                        <mock-styled.div />
+                        Toggle Subscription
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
+                      >
+                        <mock-styled.div />
+                        Togggle Featured
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="mock-css."
+                      >
+                        <mock-styled.div />
+                        Togggle API Consumption
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
                         type="button"
                       >
+                        <mock-styled.div />
                         Delete
-                        <mock-styled.div />
-                      </mock-styled.button>
-                      <mock-styled.button
-                        classname="mock-css."
-                      >
-                        Toggle Subscription
-                        <mock-styled.div />
-                      </mock-styled.button>
-                      <mock-styled.button
-                        classname="mock-css."
-                      >
-                        Togggle Featured
-                        <mock-styled.div />
-                      </mock-styled.button>
-                      <mock-styled.button
-                        classname="mock-css."
-                      >
-                        Togggle API Consumption
-                        <mock-styled.div />
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
@@ -629,6 +638,7 @@ exports[`AppsPage should render a component when has data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="searchTerm"
                 type="search"
@@ -643,6 +653,7 @@ exports[`AppsPage should render a component when has data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="companyName"
                 type="search"
@@ -657,6 +668,7 @@ exports[`AppsPage should render a component when has data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="id"
                 type="search"
@@ -671,6 +683,7 @@ exports[`AppsPage should render a component when has data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
@@ -685,6 +698,7 @@ exports[`AppsPage should render a component when has data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
@@ -699,6 +713,7 @@ exports[`AppsPage should render a component when has data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="publicListedDateFrom"
                 type="date"
@@ -713,6 +728,7 @@ exports[`AppsPage should render a component when has data 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="publicListedDateTo"
                 type="date"
@@ -943,8 +959,8 @@ exports[`AppsPage should render a component when has data 1`] = `
               classname="mock-css."
               type="button"
             >
-              Download CSV
               <mock-styled.div />
+              Download CSV
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -1002,10 +1018,12 @@ exports[`AppsPage should render a component when has data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="mock-css."
                 style="font-size: 1.2rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.2rem;"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -1140,46 +1158,46 @@ exports[`AppsPage should render a component when has data 1`] = `
                     <mock-styled.button
                       classname="mock-css."
                     >
-                      View in AppMarket
                       <mock-styled.div />
+                      View in AppMarket
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                     >
-                      View in DevPortal
                       <mock-styled.div />
+                      View in DevPortal
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="false"
                     >
-                      Check AWS Only
                       <mock-styled.div />
+                      Check AWS Only
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                    >
+                      <mock-styled.div />
+                      Toggle Subscription
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                    >
+                      <mock-styled.div />
+                      Togggle Featured
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                    >
+                      <mock-styled.div />
+                      Togggle API Consumption
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       type="button"
                     >
+                      <mock-styled.div />
                       Delete
-                      <mock-styled.div />
-                    </mock-styled.button>
-                    <mock-styled.button
-                      classname="mock-css."
-                    >
-                      Toggle Subscription
-                      <mock-styled.div />
-                    </mock-styled.button>
-                    <mock-styled.button
-                      classname="mock-css."
-                    >
-                      Togggle Featured
-                      <mock-styled.div />
-                    </mock-styled.button>
-                    <mock-styled.button
-                      classname="mock-css."
-                    >
-                      Togggle API Consumption
-                      <mock-styled.div />
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -1294,6 +1312,7 @@ exports[`AppsPage should render a component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="searchTerm"
                   type="search"
@@ -1308,6 +1327,7 @@ exports[`AppsPage should render a component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="companyName"
                   type="search"
@@ -1322,6 +1342,7 @@ exports[`AppsPage should render a component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="id"
                   type="search"
@@ -1336,6 +1357,7 @@ exports[`AppsPage should render a component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="registeredFrom"
                   type="date"
@@ -1350,6 +1372,7 @@ exports[`AppsPage should render a component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="registeredTo"
                   type="date"
@@ -1364,6 +1387,7 @@ exports[`AppsPage should render a component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="publicListedDateFrom"
                   type="date"
@@ -1378,6 +1402,7 @@ exports[`AppsPage should render a component when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="publicListedDateTo"
                   type="date"
@@ -1622,6 +1647,7 @@ exports[`AppsPage should render a component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="searchTerm"
                 type="search"
@@ -1636,6 +1662,7 @@ exports[`AppsPage should render a component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="companyName"
                 type="search"
@@ -1650,6 +1677,7 @@ exports[`AppsPage should render a component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="id"
                 type="search"
@@ -1664,6 +1692,7 @@ exports[`AppsPage should render a component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
@@ -1678,6 +1707,7 @@ exports[`AppsPage should render a component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
@@ -1692,6 +1722,7 @@ exports[`AppsPage should render a component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="publicListedDateFrom"
                 type="date"
@@ -1706,6 +1737,7 @@ exports[`AppsPage should render a component when loading 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="publicListedDateTo"
                 type="date"

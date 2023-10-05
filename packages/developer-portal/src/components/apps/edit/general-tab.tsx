@@ -49,7 +49,7 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
             approval.
           </BodyText>
           <Button
-            intent="secondary"
+            intent="primary"
             onMouseEnter={handleMouseOver(setManageIsAnimated, true)}
             onMouseLeave={handleMouseOver(setManageIsAnimated, false)}
             onClick={handleOpenModal(openModal)}
@@ -77,7 +77,7 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
             For guidelines on completing your app listing, visit the documentation link below before getting started.
           </BodyText>
           <Button
-            intent="low"
+            intent="default"
             onMouseEnter={handleMouseOver(setDocsIsAnimated, true)}
             onMouseLeave={handleMouseOver(setDocsIsAnimated, false)}
             onClick={openNewPage(ExternalPages.listingAppDocs)}
@@ -119,8 +119,8 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
             <BodyText hasGreyText>You have no unsaved changes to your app listing</BodyText>
           )}
         </div>
-        <ButtonGroup alignment="center">
-          <Button fixedWidth intent="low" onClick={closeModal}>
+        <ButtonGroup alignment="right">
+          <Button intent="default" onClick={closeModal}>
             Close
           </Button>
         </ButtonGroup>

@@ -232,8 +232,8 @@ export const AppsNewPage: FC = () => {
         {isMobile && (
           <Modal title="Controls">
             <Helper />
-            <ButtonGroup alignment="center">
-              <Button fixedWidth intent="secondary" onClick={closeModal}>
+            <ButtonGroup alignment="right">
+              <Button intent="default" onClick={closeModal}>
                 Close
               </Button>
             </ButtonGroup>
@@ -255,33 +255,22 @@ export const AppsNewPage: FC = () => {
             <ControlsContainer>
               <ButtonGroup alignment="center">
                 <Button
-                  intent="secondary"
-                  size={2}
+                  intent="primary"
                   disabled={!prevStep || appCreating}
                   onClick={handleSetSteps(setAppWizardState, false, authFlow, nextStep, trigger)}
-                  chevronLeft
                 >
                   Prev
                 </Button>
                 {!lastStep ? (
                   <Button
                     intent="primary"
-                    size={2}
                     disabled={!nextStep || appCreating}
                     onClick={handleSetSteps(setAppWizardState, true, authFlow, nextStep, trigger)}
-                    chevronRight
                   >
                     Next
                   </Button>
                 ) : (
-                  <Button
-                    intent="critical"
-                    type="submit"
-                    size={2}
-                    chevronRight
-                    disabled={appCreating}
-                    loading={appCreating}
-                  >
+                  <Button intent="primary" type="submit" disabled={appCreating} loading={appCreating}>
                     Create App
                   </Button>
                 )}

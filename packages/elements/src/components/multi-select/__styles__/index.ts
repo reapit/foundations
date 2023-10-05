@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { intentPrimary } from '../../../styles/globals'
+import { intentPrimary, intentDefault } from '../../../styles/globals'
 
 const checked = (fill: string) =>
   `data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.99996 0C3.58881 0 0 3.58872 0 7.99996C0 12.4112 3.58881 16 7.99996 16C12.4111 16 15.9999 12.4112 15.9999 7.99996C15.9999 3.58872 12.4112 0 7.99996 0ZM12.5937 6.6487L7.56771 11.6747C7.354 11.8884 7.06993 12.006 6.76774 12.006C6.46555 12.006 6.18147 11.8884 5.96777 11.6747L3.40624 9.11314C3.19254 8.89944 3.07483 8.61536 3.07483 8.31317C3.07483 8.01089 3.19254 7.72682 3.40624 7.51311C3.61986 7.29941 3.90394 7.18171 4.20621 7.18171C4.5084 7.18171 4.79256 7.29941 5.00618 7.5132L6.76765 9.27459L10.9936 5.04867C11.2073 4.83497 11.4913 4.71735 11.7935 4.71735C12.0957 4.71735 12.3798 4.83497 12.5935 5.04867C13.0348 5.48994 13.0348 6.2076 12.5937 6.6487Z" fill="${encodeURIComponent(
@@ -28,7 +28,7 @@ export const ElMultiSelectCheckbox = styled.input`
     &::before {
       content: '';
       position: absolute;
-      background-image: url('${checked(intentPrimary)}');
+      background-image: url('${checked(intentDefault)}');
       background-position: center center;
       background-repeat: no-repeat;
       height: 1rem;
@@ -44,7 +44,7 @@ export const ElMultiSelectCheckbox = styled.input`
     }
 
     &.${elHasGreyChips} {
-      background: var(--color-grey-light);
+      background: var(--color-purple-50);
     }
   }
 
@@ -74,18 +74,19 @@ export const ElMultiSelectLabel = styled.label`
   height: 28px;
   background: var(--color-white);
   border-radius: 1rem;
-  border: 1px solid var(--color-grey-light);
+  border: 1px solid var(--color-grey-100);
   padding: 0.2rem 1.5rem;
   position: relative;
-  font-size: 14px;
+  font-size: var(--font-size-small);
   transition: all 0.2s linear;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-grey-dark);
+  color: var(--color-grey-500);
 
   &.${elHasGreyChips} {
-    background: var(--color-grey-light);
+    background: var(--color-purple-50);
+    border: 1px solid var(--color-purple-50);
   }
 
   &:hover {
@@ -106,16 +107,17 @@ export const ElMultiSelectSelected = styled.div`
   align-items: center;
   flex-wrap: wrap;
   padding: 0.25rem 0.5rem;
-  background-color: var(--color-grey-light);
-  border: 1px solid var(--color-grey-light);
-  border-radius: 4px 4px 0 0;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey-100);
+  border-radius: 2px 2px 0 0;
   min-height: 3rem;
   padding: 0.25rem 0.5rem;
   position: relative;
 
   p {
     margin-left: 0.375rem;
-    font-size: 14px;
+    font-size: var(--font-size-small);
+    color: var(--color-grey-500);
   }
 `
 
@@ -124,7 +126,8 @@ export const ElMultiSelectUnSelected = styled.div`
   flex-wrap: wrap;
   padding: 0.25rem 0.5rem;
   background-color: var(--color-white);
-  border: 1px solid var(--color-grey-light);
+  border: 1px solid var(--color-grey-100);
+  border-top: none;
   border-radius: 0 0 4px 4px;
   padding: 0.25rem 0.5rem;
   position: relative;

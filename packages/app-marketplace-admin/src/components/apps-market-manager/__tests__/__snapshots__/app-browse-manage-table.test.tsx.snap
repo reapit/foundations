@@ -31,8 +31,8 @@ exports[`AppBrowseManageTable should match a snapshot 1`] = `
         <mock-styled.button
           classname="mock-css."
         >
-          Add
           <mock-styled.div />
+          Add
         </mock-styled.button>
       </div>
     </div>
@@ -64,8 +64,8 @@ exports[`AppBrowseManageTable should match a snapshot 1`] = `
       <mock-styled.button
         classname="mock-css."
       >
-        Add
         <mock-styled.div />
+        Add
       </mock-styled.button>
     </div>
   </div>,

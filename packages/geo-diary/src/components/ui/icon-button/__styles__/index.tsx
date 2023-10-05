@@ -18,7 +18,7 @@ export const iconButtonContainer = css`
   }
 
   ${iconContainer} {
-    color: black;
+    color: var(--color-grey-500);
     font-size: 1.375rem;
   }
 `

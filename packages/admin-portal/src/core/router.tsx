@@ -1,14 +1,14 @@
 import React, { FC } from 'react'
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
-import { catchChunkError, OkayPage } from '@reapit/utils-react'
+import { catchChunkError, Login, OkayPage } from '@reapit/utils-react'
 import RoutePaths from '../constants/routes'
 import { createBrowserHistory, History } from 'history'
 import { PageContainer, PersistentNotification } from '@reapit/elements'
+import { reapitConnectBrowserSession } from './connect-session'
 
 export const history: History<any> = createBrowserHistory()
 
 const PrivateRouteWrapper = React.lazy(() => catchChunkError(() => import('./private-route-wrapper')))
-const Login = React.lazy(() => catchChunkError(() => import('../components/login')))
 const ApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/approvals')))
 const DevsManagementPage = React.lazy(() => catchChunkError(() => import('../components/developers')))
 const AppsManagementPage = React.lazy(() => catchChunkError(() => import('../components/apps')))
@@ -32,7 +32,16 @@ export const RoutesComponent = () => {
   return (
     <Routes>
       <Route path={RoutePaths.OK} element={<OkayPage />} />
-      <Route path={RoutePaths.LOGIN} element={<Login />} />
+      <Route
+        path={RoutePaths.LOGIN}
+        element={
+          <Login
+            appName="Developer Admin Portal"
+            reapitConnectBrowserSession={reapitConnectBrowserSession}
+            redirectPath={RoutePaths.APPROVALS}
+          />
+        }
+      />
       <Route path={RoutePaths.FOUR_O_FOUR} element={<FourOFour />} />
       <Route
         path={RoutePaths.BILLING}

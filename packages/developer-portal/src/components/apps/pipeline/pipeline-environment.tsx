@@ -142,7 +142,7 @@ export const PipelineEnvironment = () => {
                     <TableCell>{key}</TableCell>
                     <TableCell>
                       <Button
-                        intent="low"
+                        intent="default"
                         onClick={() => {
                           resetField('key')
                           resetField('value')
@@ -163,7 +163,7 @@ export const PipelineEnvironment = () => {
               ))}
             </Table>
           ) : (
-            <PersistentNotification className={elMb11} intent="secondary" isExpanded isFullWidth isInline>
+            <PersistentNotification className={elMb11} intent="primary" isExpanded isFullWidth isInline>
               No environment variables currently configured for your pipeline. You can create an environment variable
               below.
             </PersistentNotification>
@@ -193,11 +193,11 @@ export const PipelineEnvironment = () => {
               </InputGroup>
             </InputWrap>
           </FormLayout>
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="low" onClick={closeModal}>
+          <ButtonGroup alignment="right">
+            <Button intent="default" onClick={closeModal}>
               Close
             </Button>
-            <Button fixedWidth intent="primary" type="submit" disabled={sending} loading={sending}>
+            <Button intent="primary" type="submit" disabled={sending} loading={sending}>
               Create
             </Button>
           </ButtonGroup>

@@ -128,8 +128,8 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
               classname="mock-css."
               disabled="false"
             >
-              Uninstall
               <mock-styled.div />
+              Uninstall
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -163,8 +163,8 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
             classname="mock-css."
             disabled="false"
           >
-            Uninstall
             <mock-styled.div />
+            Uninstall
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -255,8 +255,8 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
               classname="mock-css."
               disabled="false"
             >
-              Uninstall
               <mock-styled.div />
+              Uninstall
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -290,8 +290,8 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
             classname="mock-css."
             disabled="false"
           >
-            Uninstall
             <mock-styled.div />
+            Uninstall
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -382,8 +382,8 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
               classname="mock-css."
               disabled="false"
             >
-              Uninstall
               <mock-styled.div />
+              Uninstall
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -417,8 +417,8 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
             classname="mock-css."
             disabled="false"
           >
-            Uninstall
             <mock-styled.div />
+            Uninstall
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

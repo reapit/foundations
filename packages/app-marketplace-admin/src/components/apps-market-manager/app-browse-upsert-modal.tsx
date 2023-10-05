@@ -440,7 +440,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
               </InputGroup>
             </InputWrapFull>
             <InputWrapFull>
-              <PersistentNotification className={elMb5} intent="secondary" isExpanded={true} isInline isFullWidth>
+              <PersistentNotification className={elMb5} intent="primary" isExpanded={true} isInline isFullWidth>
                 If a &lsquo;Live To&rsquo; or &lsquo;Live From&rsquo; value is set, &lsquo;Is Live&rsquo; will be
                 ignored.
               </PersistentNotification>
@@ -465,7 +465,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
         <div>
           <img src={imageView as string} />
         </div>
-        <Button intent="secondary" onClick={() => setImageView(false)}>
+        <Button intent="primary" onClick={() => setImageView(false)}>
           Close
         </Button>
       </Modal>

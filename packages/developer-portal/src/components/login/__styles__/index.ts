@@ -6,11 +6,12 @@ export const LoginContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  background-color: var(--color-white);
+  background: url('./login-bg.svg') left center no-repeat;
+  background-size: cover;
   height: 100vh;
   overflow-y: auto;
 
-  ${forMobileOnly} {
+  @media (max-width: 768px) {
     flex-direction: column;
     justify-content: center;
   }
@@ -23,13 +24,12 @@ export const LoginRoleTile = styled.div`
   align-items: center;
   padding: 1rem;
   margin: 0.625rem;
-  border-radius: 0.25rem;
-  border: 1px solid var(--color-grey-light);
   cursor: pointer;
-  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
+  background-color: var(--color-white);
+  border-radius: 0.25rem;
 
   &:hover {
-    border: 1px solid var(--intent-secondary);
+    background-color: var(--color-purple-50);
   }
 
   a {
@@ -40,8 +40,7 @@ export const LoginRoleTile = styled.div`
 `
 
 export const LoginContentWrapper = styled.div`
-  background-color: var(--color-white);
-  max-width: 25rem;
+  max-width: 27rem;
   pointer-events: auto;
   display: flex;
   flex-wrap: wrap;
@@ -49,13 +48,17 @@ export const LoginContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin: auto;
+  background-color: var(--color-white);
+  padding: 1.25rem;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
 
   img {
     margin: 0 auto 3rem auto;
     display: block;
   }
 
-  ${forMobileOnly} {
+  @media (max-width: 768px) {
     width: 100%;
     margin: 0 auto;
   }

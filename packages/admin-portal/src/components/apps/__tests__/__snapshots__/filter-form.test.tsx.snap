@@ -15,6 +15,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="searchTerm"
                 type="search"
@@ -29,6 +30,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="companyName"
                 type="search"
@@ -43,6 +45,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="id"
                 type="search"
@@ -57,6 +60,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
@@ -71,6 +75,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
@@ -85,6 +90,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="publicListedDateFrom"
                 type="date"
@@ -99,6 +105,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="publicListedDateTo"
                 type="date"
@@ -460,6 +467,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="searchTerm"
               type="search"
@@ -474,6 +482,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="companyName"
               type="search"
@@ -488,6 +497,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="id"
               type="search"
@@ -502,6 +512,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="registeredFrom"
               type="date"
@@ -516,6 +527,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="registeredTo"
               type="date"
@@ -530,6 +542,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="publicListedDateFrom"
               type="date"
@@ -544,6 +557,7 @@ exports[`FilterForm should render component with apps and categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="publicListedDateTo"
               type="date"
@@ -962,6 +976,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="searchTerm"
                 type="search"
@@ -976,6 +991,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="companyName"
                 type="search"
@@ -990,6 +1006,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="id"
                 type="search"
@@ -1004,6 +1021,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
@@ -1018,6 +1036,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
@@ -1032,6 +1051,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="publicListedDateFrom"
                 type="date"
@@ -1046,6 +1066,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="publicListedDateTo"
                 type="date"
@@ -1276,6 +1297,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="searchTerm"
               type="search"
@@ -1290,6 +1312,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="companyName"
               type="search"
@@ -1304,6 +1327,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="id"
               type="search"
@@ -1318,6 +1342,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="registeredFrom"
               type="date"
@@ -1332,6 +1357,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="registeredTo"
               type="date"
@@ -1346,6 +1372,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="publicListedDateFrom"
               type="date"
@@ -1360,6 +1387,7 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="publicListedDateTo"
               type="date"

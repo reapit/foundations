@@ -127,18 +127,18 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           classname="mock-css."
         >
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
             type="button"
           >
-            Confirm
             <mock-styled.div />
+            Confirm
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -267,18 +267,18 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         classname="mock-css."
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="mock-css."
         >
-          Cancel
           <mock-styled.div />
+          Cancel
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
           disabled="false"
           type="button"
         >
-          Confirm
           <mock-styled.div />
+          Confirm
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -464,18 +464,18 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           classname="mock-css."
         >
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
             type="button"
           >
-            Confirm
             <mock-styled.div />
+            Confirm
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -604,18 +604,18 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         classname="mock-css."
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="mock-css."
         >
-          Cancel
           <mock-styled.div />
+          Cancel
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
           disabled="false"
           type="button"
         >
-          Confirm
           <mock-styled.div />
+          Confirm
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -779,18 +779,18 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
           classname="mock-css."
         >
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
             type="button"
           >
-            Confirm
             <mock-styled.div />
+            Confirm
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -897,18 +897,18 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
         classname="mock-css."
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="mock-css."
         >
-          Cancel
           <mock-styled.div />
+          Cancel
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
           disabled="false"
           type="button"
         >
-          Confirm
           <mock-styled.div />
+          Confirm
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -1090,18 +1090,18 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           classname="mock-css."
         >
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
             type="button"
           >
-            Confirm
             <mock-styled.div />
+            Confirm
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -1226,18 +1226,18 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         classname="mock-css."
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="mock-css."
         >
-          Cancel
           <mock-styled.div />
+          Cancel
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
           disabled="false"
           type="button"
         >
-          Confirm
           <mock-styled.div />
+          Confirm
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -1404,18 +1404,18 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
           classname="mock-css."
         >
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
             type="button"
           >
-            Confirm
             <mock-styled.div />
+            Confirm
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -1525,18 +1525,18 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
         classname="mock-css."
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="mock-css."
         >
-          Cancel
           <mock-styled.div />
+          Cancel
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
           disabled="false"
           type="button"
         >
-          Confirm
           <mock-styled.div />
+          Confirm
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -1720,18 +1720,18 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
           classname="mock-css."
         >
           <mock-styled.button
-            classname="mock-css. mock-css."
+            classname="mock-css."
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             disabled="false"
             type="button"
           >
-            Confirm
             <mock-styled.div />
+            Confirm
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
@@ -1858,18 +1858,18 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         classname="mock-css."
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="mock-css."
         >
-          Cancel
           <mock-styled.div />
+          Cancel
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
           disabled="false"
           type="button"
         >
-          Confirm
           <mock-styled.div />
+          Confirm
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>

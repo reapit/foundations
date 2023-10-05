@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import {
   Button,
   ButtonGroup,
-  elMb5,
+  elMb7,
   FormLayout,
   Icon,
   InputGroup,
@@ -78,27 +78,27 @@ export const Controls: FC = () => {
   })
 
   return (
-    <>
+    <div className={elMb7}>
       <Icon icon="reapitConnectInfographic" iconSize="large" />
       <Subtitle>Settings</Subtitle>
       <SmallText hasGreyText>
         You can manage the information we hold about you and change your password in these pages.
       </SmallText>
       {currentMember?.role === 'admin' && (
-        <>
-          <SmallText hasGreyText>
-            Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
-          </SmallText>
-          {pathname === Routes.SETTINGS_MEMBERS && (
-            <Button className={elMb5} onClick={openModal} intent="primary">
-              Invite Developer
-            </Button>
-          )}
-        </>
+        <SmallText hasGreyText>
+          Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
+        </SmallText>
       )}
-      <Button onClick={handleLogout(connectLogoutRedirect)} intent="critical" chevronRight>
-        Logout
-      </Button>
+      <ButtonGroup>
+        {currentMember?.role === 'admin' && pathname === Routes.SETTINGS_MEMBERS && (
+          <Button onClick={openModal} intent="primary">
+            Invite Developer
+          </Button>
+        )}
+        <Button onClick={handleLogout(connectLogoutRedirect)} intent="primary">
+          Logout
+        </Button>
+      </ButtonGroup>
       <Modal title="Invite Developer">
         <form onSubmit={handleSubmit(handleInviteMember(inviteMember, closeModal))}>
           <FormLayout hasMargin>
@@ -144,16 +144,16 @@ export const Controls: FC = () => {
               />
             </InputWrapFull>
           </FormLayout>
-          <ButtonGroup alignment="center">
-            <Button fixedWidth intent="low" onClick={closeModal}>
+          <ButtonGroup alignment="right">
+            <Button intent="default" onClick={closeModal}>
               Close
             </Button>
-            <Button fixedWidth intent="primary" type="submit">
+            <Button intent="primary" type="submit">
               Send Invite
             </Button>
           </ButtonGroup>
         </form>
       </Modal>
-    </>
+    </div>
   )
 }

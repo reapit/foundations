@@ -12,16 +12,7 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Users
-          </mock-styled.h1>
-          <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2rem;
-"
-          >
+          <mock-styled.div>
             <mock-styled.div
               classname=""
             >
@@ -50,21 +41,21 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
           <mock-styled.button
             classname="mock-css.
   margin-bottom: 0.75rem;
-"
+ mock-css."
           >
-            Docs
             <mock-styled.div />
+            Docs
           </mock-styled.button>
           <div
             class="mock-css.
   margin-bottom: 0.75rem;
 "
           >
-            <mock-styled.h2
+            <mock-styled.p
               classname=""
             >
               Organisations
-            </mock-styled.h2>
+            </mock-styled.p>
             <mock-styled.p
               classname="mock-css."
             >
@@ -131,6 +122,7 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="email"
                     placeholder="Search for a user"
@@ -145,6 +137,7 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Search for a user"
@@ -177,16 +170,7 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Users
-        </mock-styled.h1>
-        <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2rem;
-"
-        >
+        <mock-styled.div>
           <mock-styled.div
             classname=""
           >
@@ -215,21 +199,21 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
         <mock-styled.button
           classname="mock-css.
   margin-bottom: 0.75rem;
-"
+ mock-css."
         >
-          Docs
           <mock-styled.div />
+          Docs
         </mock-styled.button>
         <div
           class="mock-css.
   margin-bottom: 0.75rem;
 "
         >
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Organisations
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -296,6 +280,7 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="email"
                   placeholder="Search for a user"
@@ -310,6 +295,7 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   placeholder="Search for a user"
@@ -399,16 +385,7 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
 "
       >
         <mock-styled.aside>
-          <mock-styled.h1
-            classname=""
-          >
-            Users
-          </mock-styled.h1>
-          <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2rem;
-"
-          >
+          <mock-styled.div>
             <mock-styled.div
               classname=""
             >
@@ -437,21 +414,21 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
           <mock-styled.button
             classname="mock-css.
   margin-bottom: 0.75rem;
-"
+ mock-css."
           >
-            Docs
             <mock-styled.div />
+            Docs
           </mock-styled.button>
           <div
             class="mock-css.
   margin-bottom: 0.75rem;
 "
           >
-            <mock-styled.h2
+            <mock-styled.p
               classname=""
             >
               Organisations
-            </mock-styled.h2>
+            </mock-styled.p>
             <mock-styled.p
               classname="mock-css."
             >
@@ -518,6 +495,7 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="email"
                     placeholder="Search for a user"
@@ -532,6 +510,7 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.input
+                    classname=""
                     id="test-static-id"
                     name="name"
                     placeholder="Search for a user"
@@ -564,16 +543,7 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
 "
     >
       <mock-styled.aside>
-        <mock-styled.h1
-          classname=""
-        >
-          Users
-        </mock-styled.h1>
-        <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2rem;
-"
-        >
+        <mock-styled.div>
           <mock-styled.div
             classname=""
           >
@@ -602,21 +572,21 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
         <mock-styled.button
           classname="mock-css.
   margin-bottom: 0.75rem;
-"
+ mock-css."
         >
-          Docs
           <mock-styled.div />
+          Docs
         </mock-styled.button>
         <div
           class="mock-css.
   margin-bottom: 0.75rem;
 "
         >
-          <mock-styled.h2
+          <mock-styled.p
             classname=""
           >
             Organisations
-          </mock-styled.h2>
+          </mock-styled.p>
           <mock-styled.p
             classname="mock-css."
           >
@@ -683,6 +653,7 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="email"
                   placeholder="Search for a user"
@@ -697,6 +668,7 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   placeholder="Search for a user"

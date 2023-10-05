@@ -7,9 +7,7 @@ import UsersGroupsTab from '../ui/users/user-groups-tab'
 import {
   FlexContainer,
   SecondaryNavContainer,
-  Title,
   SecondaryNav,
-  elMb9,
   SecondaryNavItem,
   Icon,
   elMb5,
@@ -39,8 +37,7 @@ export const UsersPage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Users</Title>
-        <SecondaryNav className={elMb9}>
+        <SecondaryNav>
           <SecondaryNavItem onClick={navigateRoute(navigate, RoutePaths.USERS)} active={pathname === RoutePaths.USERS}>
             Users
           </SecondaryNavItem>

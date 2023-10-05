@@ -30,6 +30,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="name"
               placeholder="The name of your app as it will appear to users"
@@ -45,6 +46,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="supportEmail"
               placeholder="Email for customers to contact you"
@@ -61,6 +63,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="telephone"
               placeholder="Number for customers to contact you"
@@ -77,6 +80,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="homePage"
               placeholder="Your company homepage. HTTP:// or HTTPS://"
@@ -93,6 +97,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="launchUri"
               placeholder="HTTPS or HTTP only for localhost"
@@ -109,6 +114,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="termsAndConditionsUrl"
               placeholder="URL to link to your Terms and Conditions"
@@ -125,6 +131,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="privacyPolicyUrl"
               placeholder="URL to link to your Privacy Policy"
@@ -141,6 +148,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="videoUrl1"
               placeholder="YouTube embed preferred or any https hosted video"
@@ -156,6 +164,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="videoUrl2"
               placeholder="YouTube embed preferred or any https hosted video"
@@ -171,6 +180,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="pricingUrl"
               placeholder="URL to link to your Pricing Info"
@@ -187,6 +197,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="isFree"
               type="checkbox"
@@ -202,6 +213,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="deletionProtection"
               type="checkbox"
@@ -259,6 +271,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="summary"
               placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
@@ -293,8 +306,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
  mock-css."
                 type="button"
               >
-                Upload
                 <mock-styled.div />
+                Upload
               </mock-styled.button>
               <mock-styled.input
                 type="file"
@@ -328,8 +341,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
  mock-css."
                 type="button"
               >
-                Upload
                 <mock-styled.div />
+                Upload
               </mock-styled.button>
               <mock-styled.input
                 type="file"
@@ -363,8 +376,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
  mock-css."
                 type="button"
               >
-                Upload
                 <mock-styled.div />
+                Upload
               </mock-styled.button>
               <mock-styled.input
                 type="file"
@@ -398,8 +411,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
  mock-css."
                 type="button"
               >
-                Upload
                 <mock-styled.div />
+                Upload
               </mock-styled.button>
               <mock-styled.input
                 type="file"
@@ -433,8 +446,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
  mock-css."
                 type="button"
               >
-                Upload
                 <mock-styled.div />
+                Upload
               </mock-styled.button>
               <mock-styled.input
                 type="file"
@@ -468,8 +481,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
  mock-css."
                 type="button"
               >
-                Upload
                 <mock-styled.div />
+                Upload
               </mock-styled.button>
               <mock-styled.input
                 type="file"
@@ -516,6 +529,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="name"
             placeholder="The name of your app as it will appear to users"
@@ -531,6 +545,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="supportEmail"
             placeholder="Email for customers to contact you"
@@ -547,6 +562,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="telephone"
             placeholder="Number for customers to contact you"
@@ -563,6 +579,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="homePage"
             placeholder="Your company homepage. HTTP:// or HTTPS://"
@@ -579,6 +596,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="launchUri"
             placeholder="HTTPS or HTTP only for localhost"
@@ -595,6 +613,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="termsAndConditionsUrl"
             placeholder="URL to link to your Terms and Conditions"
@@ -611,6 +630,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="privacyPolicyUrl"
             placeholder="URL to link to your Privacy Policy"
@@ -627,6 +647,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="videoUrl1"
             placeholder="YouTube embed preferred or any https hosted video"
@@ -642,6 +663,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="videoUrl2"
             placeholder="YouTube embed preferred or any https hosted video"
@@ -657,6 +679,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="pricingUrl"
             placeholder="URL to link to your Pricing Info"
@@ -673,6 +696,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="isFree"
             type="checkbox"
@@ -688,6 +712,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="deletionProtection"
             type="checkbox"
@@ -745,6 +770,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="summary"
             placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
@@ -779,8 +805,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
  mock-css."
               type="button"
             >
-              Upload
               <mock-styled.div />
+              Upload
             </mock-styled.button>
             <mock-styled.input
               type="file"
@@ -814,8 +840,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
  mock-css."
               type="button"
             >
-              Upload
               <mock-styled.div />
+              Upload
             </mock-styled.button>
             <mock-styled.input
               type="file"
@@ -849,8 +875,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
  mock-css."
               type="button"
             >
-              Upload
               <mock-styled.div />
+              Upload
             </mock-styled.button>
             <mock-styled.input
               type="file"
@@ -884,8 +910,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
  mock-css."
               type="button"
             >
-              Upload
               <mock-styled.div />
+              Upload
             </mock-styled.button>
             <mock-styled.input
               type="file"
@@ -919,8 +945,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
  mock-css."
               type="button"
             >
-              Upload
               <mock-styled.div />
+              Upload
             </mock-styled.button>
             <mock-styled.input
               type="file"
@@ -954,8 +980,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
  mock-css."
               type="button"
             >
-              Upload
               <mock-styled.div />
+              Upload
             </mock-styled.button>
             <mock-styled.input
               type="file"
@@ -1059,6 +1085,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="name"
               placeholder="The name of your app as it will appear to users"
@@ -1074,6 +1101,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname="mock-css."
               id="test-static-id"
               name="supportEmail"
               placeholder="Email for customers to contact you"
@@ -1097,6 +1125,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname="mock-css."
               id="test-static-id"
               name="telephone"
               placeholder="Number for customers to contact you"
@@ -1120,6 +1149,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname="mock-css."
               id="test-static-id"
               name="homePage"
               placeholder="Your company homepage. HTTP:// or HTTPS://"
@@ -1143,6 +1173,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname="mock-css."
               id="test-static-id"
               name="launchUri"
               placeholder="HTTPS or HTTP only for localhost"
@@ -1166,6 +1197,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname="mock-css."
               id="test-static-id"
               name="termsAndConditionsUrl"
               placeholder="URL to link to your Terms and Conditions"
@@ -1189,6 +1221,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname="mock-css."
               id="test-static-id"
               name="privacyPolicyUrl"
               placeholder="URL to link to your Privacy Policy"
@@ -1212,6 +1245,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="videoUrl1"
               placeholder="YouTube embed preferred or any https hosted video"
@@ -1227,6 +1261,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="videoUrl2"
               placeholder="YouTube embed preferred or any https hosted video"
@@ -1242,6 +1277,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname="mock-css."
               id="test-static-id"
               name="pricingUrl"
               placeholder="URL to link to your Pricing Info"
@@ -1265,6 +1301,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname="mock-css."
               id="test-static-id"
               name="isFree"
               type="checkbox"
@@ -1287,6 +1324,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname=""
               id="test-static-id"
               name="deletionProtection"
               type="checkbox"
@@ -1346,6 +1384,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.input
+              classname="mock-css."
               id="test-static-id"
               name="summary"
               placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
@@ -1390,8 +1429,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
  mock-css."
                 type="button"
               >
-                Upload
                 <mock-styled.div />
+                Upload
               </mock-styled.button>
               <mock-styled.input
                 type="file"
@@ -1427,8 +1466,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
  mock-css."
                 type="button"
               >
-                Upload
                 <mock-styled.div />
+                Upload
               </mock-styled.button>
               <mock-styled.input
                 type="file"
@@ -1464,8 +1503,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
  mock-css."
                 type="button"
               >
-                Upload
                 <mock-styled.div />
+                Upload
               </mock-styled.button>
               <mock-styled.input
                 type="file"
@@ -1501,8 +1540,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
  mock-css."
                 type="button"
               >
-                Upload
                 <mock-styled.div />
+                Upload
               </mock-styled.button>
               <mock-styled.input
                 type="file"
@@ -1538,8 +1577,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
  mock-css."
                 type="button"
               >
-                Upload
                 <mock-styled.div />
+                Upload
               </mock-styled.button>
               <mock-styled.input
                 type="file"
@@ -1575,8 +1614,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
  mock-css."
                 type="button"
               >
-                Upload
                 <mock-styled.div />
+                Upload
               </mock-styled.button>
               <mock-styled.input
                 type="file"
@@ -1625,6 +1664,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="name"
             placeholder="The name of your app as it will appear to users"
@@ -1640,6 +1680,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname="mock-css."
             id="test-static-id"
             name="supportEmail"
             placeholder="Email for customers to contact you"
@@ -1663,6 +1704,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname="mock-css."
             id="test-static-id"
             name="telephone"
             placeholder="Number for customers to contact you"
@@ -1686,6 +1728,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname="mock-css."
             id="test-static-id"
             name="homePage"
             placeholder="Your company homepage. HTTP:// or HTTPS://"
@@ -1709,6 +1752,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname="mock-css."
             id="test-static-id"
             name="launchUri"
             placeholder="HTTPS or HTTP only for localhost"
@@ -1732,6 +1776,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname="mock-css."
             id="test-static-id"
             name="termsAndConditionsUrl"
             placeholder="URL to link to your Terms and Conditions"
@@ -1755,6 +1800,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname="mock-css."
             id="test-static-id"
             name="privacyPolicyUrl"
             placeholder="URL to link to your Privacy Policy"
@@ -1778,6 +1824,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="videoUrl1"
             placeholder="YouTube embed preferred or any https hosted video"
@@ -1793,6 +1840,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="videoUrl2"
             placeholder="YouTube embed preferred or any https hosted video"
@@ -1808,6 +1856,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname="mock-css."
             id="test-static-id"
             name="pricingUrl"
             placeholder="URL to link to your Pricing Info"
@@ -1831,6 +1880,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname="mock-css."
             id="test-static-id"
             name="isFree"
             type="checkbox"
@@ -1853,6 +1903,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname=""
             id="test-static-id"
             name="deletionProtection"
             type="checkbox"
@@ -1912,6 +1963,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.input
+            classname="mock-css."
             id="test-static-id"
             name="summary"
             placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
@@ -1956,8 +2008,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
  mock-css."
               type="button"
             >
-              Upload
               <mock-styled.div />
+              Upload
             </mock-styled.button>
             <mock-styled.input
               type="file"
@@ -1993,8 +2045,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
  mock-css."
               type="button"
             >
-              Upload
               <mock-styled.div />
+              Upload
             </mock-styled.button>
             <mock-styled.input
               type="file"
@@ -2030,8 +2082,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
  mock-css."
               type="button"
             >
-              Upload
               <mock-styled.div />
+              Upload
             </mock-styled.button>
             <mock-styled.input
               type="file"
@@ -2067,8 +2119,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
  mock-css."
               type="button"
             >
-              Upload
               <mock-styled.div />
+              Upload
             </mock-styled.button>
             <mock-styled.input
               type="file"
@@ -2104,8 +2156,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
  mock-css."
               type="button"
             >
-              Upload
               <mock-styled.div />
+              Upload
             </mock-styled.button>
             <mock-styled.input
               type="file"
@@ -2141,8 +2193,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
  mock-css."
               type="button"
             >
-              Upload
               <mock-styled.div />
+              Upload
             </mock-styled.button>
             <mock-styled.input
               type="file"

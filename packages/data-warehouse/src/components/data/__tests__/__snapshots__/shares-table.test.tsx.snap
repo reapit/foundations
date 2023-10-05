@@ -32,10 +32,12 @@ exports[`SharesTable should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
               style="font-size: 1.2rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.2rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -109,28 +111,28 @@ exports[`SharesTable should match a snapshot 1`] = `
                   <mock-styled.button
                     classname="mock-css."
                   >
+                    <mock-styled.div />
                     Copy URL
-                    <mock-styled.div />
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                   >
+                    <mock-styled.div />
                     Copy DSN
-                    <mock-styled.div />
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="false"
                   >
-                    Delete Share
                     <mock-styled.div />
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="mock-css."
-                    disabled="false"
-                  >
                     Refresh Share
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="false"
+                  >
                     <mock-styled.div />
+                    Delete Share
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
@@ -168,10 +170,12 @@ exports[`SharesTable should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css."
             style="font-size: 1.2rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.2rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -245,28 +249,28 @@ exports[`SharesTable should match a snapshot 1`] = `
                 <mock-styled.button
                   classname="mock-css."
                 >
+                  <mock-styled.div />
                   Copy URL
-                  <mock-styled.div />
                 </mock-styled.button>
                 <mock-styled.button
                   classname="mock-css."
                 >
+                  <mock-styled.div />
                   Copy DSN
-                  <mock-styled.div />
                 </mock-styled.button>
                 <mock-styled.button
                   classname="mock-css."
                   disabled="false"
                 >
-                  Delete Share
                   <mock-styled.div />
-                </mock-styled.button>
-                <mock-styled.button
-                  classname="mock-css."
-                  disabled="false"
-                >
                   Refresh Share
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css."
+                  disabled="false"
+                >
                   <mock-styled.div />
+                  Delete Share
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>

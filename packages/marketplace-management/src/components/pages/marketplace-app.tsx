@@ -16,13 +16,13 @@ import {
   Title,
   Icon,
   elMb5,
-  Subtitle,
   BodyText,
   Button,
   PageContainer,
   elHFull,
   ButtonGroup,
   useMediaQuery,
+  SmallText,
 } from '@reapit/elements'
 import { navigateRoute } from '../ui/nav/nav'
 import Routes from '../../constants/routes'
@@ -67,13 +67,12 @@ const MarketplaceAppPage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Apps</Title>
-        <Icon className={elMb5} icon="appInfographicAlt" iconSize="large" />
-        <Subtitle>Marketplace Visibility and Installation Management</Subtitle>
-        <BodyText hasGreyText>
+        <Icon className={elMb5} icon="appMarketInfographic" iconSize="large" />
+        <BodyText>Marketplace Visibility and Installation Management</BodyText>
+        <SmallText hasGreyText>
           To set the visibility of app in the Marketplace or manage installations, use the various sections on this
           page.
-        </BodyText>
+        </SmallText>
         {!orgClientId && <OrgIdSelect />}
         <Button className={elMb5} type="button" intent="primary" onClick={navigateRoute(navigate, Routes.MARKETPLACE)}>
           Back To Apps
@@ -81,7 +80,7 @@ const MarketplaceAppPage: FC = () => {
         <Button
           className={elMb5}
           type="button"
-          intent="critical"
+          intent="primary"
           chevronRight
           onClick={handleLoadAppListing(connectIsDesktop, app?.id as string)}
         >
@@ -90,7 +89,7 @@ const MarketplaceAppPage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         {!orgClientId ? (
-          <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+          <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
             No organisation selected. You need to select an organisation to view the app details.
           </PersistentNotification>
         ) : !app || !desktopIntegrationTypes ? (

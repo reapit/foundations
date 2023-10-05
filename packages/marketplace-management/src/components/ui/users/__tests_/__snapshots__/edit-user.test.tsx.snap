@@ -91,15 +91,15 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
               classname="mock-css."
               type="button"
             >
-              Cancel
               <mock-styled.div />
+              Cancel
             </mock-styled.button>
             <mock-styled.button
               classname="mock-css."
               type="submit"
             >
-              Submit
               <mock-styled.div />
+              Submit
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
@@ -193,15 +193,15 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
             classname="mock-css."
             type="button"
           >
-            Cancel
             <mock-styled.div />
+            Cancel
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
             type="submit"
           >
-            Submit
             <mock-styled.div />
+            Submit
           </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>

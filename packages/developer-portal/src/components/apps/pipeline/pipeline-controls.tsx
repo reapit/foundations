@@ -197,90 +197,80 @@ export const PipelineControls: FC = () => {
           to configure your first pipeline.
         </SmallText>
       )}
-      {isConfigPage && (
-        <Button
-          className={elMb3}
-          loading={deleteLoading}
-          intent="primary"
-          onClick={handleSaveConfig(setAppPipelineSaving)}
-        >
-          Save Config
-        </Button>
-      )}
-      {pipelinePreprovisionedFlow.includes(appPipeline?.buildStatus as string) ? (
-        <Button
-          className={elMb3}
-          onClick={handleSavePipeline(
-            sendPipelineUpdate,
-            createAppRevision,
-            appsDetailRefresh,
-            appRefreshRevisions,
-            appDetail,
-            developerId,
-            {
-              ...(appPipeline ?? {}),
-              buildStatus: 'PROVISION_REQUEST',
-            },
-          )}
-          disabled={pipelineProvisioning.includes(appPipeline?.buildStatus as string)}
-          loading={pipelineProvisioning.includes(appPipeline?.buildStatus as string)}
-          intent="primary"
-        >
-          Provision
-        </Button>
-      ) : appPipeline && !isConfigPage && isValidPipeline ? (
-        <>
-          <Button
-            className={elMb3}
-            loading={pipelineRunnerLoading || appPipeline.buildStatus === 'IN_PROGRESS'}
-            intent="primary"
-            onClick={handleUpdatePipelineRunner(updatePipelineRunner)}
-            disabled={
-              pipelineDeploymentDisabled.includes(appPipeline.buildStatus as string) ||
-              pipelineNotDeletable.includes(appPipeline.buildStatus as string) ||
-              appPipeline.buildStatus === 'QUEUED' ||
-              !hasAppInstalled
-            }
-          >
-            Deploy
+      <ButtonGroup>
+        {isConfigPage && (
+          <Button loading={deleteLoading} intent="primary" onClick={handleSaveConfig(setAppPipelineSaving)}>
+            Save Config
           </Button>
-        </>
-      ) : appPipeline && !isValidPipeline && !pathname.includes('configure') ? (
-        <Button
-          className={elMb3}
-          intent="secondary"
-          onClick={navigateRoute(navigate, `${Routes.APPS}/${appId}/pipeline/configure`)}
-        >
-          Configure
+        )}
+        {pipelinePreprovisionedFlow.includes(appPipeline?.buildStatus as string) ? (
+          <Button
+            onClick={handleSavePipeline(
+              sendPipelineUpdate,
+              createAppRevision,
+              appsDetailRefresh,
+              appRefreshRevisions,
+              appDetail,
+              developerId,
+              {
+                ...(appPipeline ?? {}),
+                buildStatus: 'PROVISION_REQUEST',
+              },
+            )}
+            disabled={pipelineProvisioning.includes(appPipeline?.buildStatus as string)}
+            loading={pipelineProvisioning.includes(appPipeline?.buildStatus as string)}
+            intent="primary"
+          >
+            Provision
+          </Button>
+        ) : appPipeline && !isConfigPage && isValidPipeline ? (
+          <>
+            <Button
+              loading={pipelineRunnerLoading || appPipeline.buildStatus === 'IN_PROGRESS'}
+              intent="primary"
+              onClick={handleUpdatePipelineRunner(updatePipelineRunner)}
+              disabled={
+                pipelineDeploymentDisabled.includes(appPipeline.buildStatus as string) ||
+                pipelineNotDeletable.includes(appPipeline.buildStatus as string) ||
+                appPipeline.buildStatus === 'QUEUED' ||
+                !hasAppInstalled
+              }
+            >
+              Deploy
+            </Button>
+          </>
+        ) : appPipeline && !isValidPipeline && !pathname.includes('configure') ? (
+          <Button intent="primary" onClick={navigateRoute(navigate, `${Routes.APPS}/${appId}/pipeline/configure`)}>
+            Configure
+          </Button>
+        ) : null}
+        <Button intent="primary" onClick={openModalApiKeys}>
+          API Keys
         </Button>
-      ) : null}
-      <Button className={elMb3} intent="secondary" onClick={openModalApiKeys}>
-        API Keys
-      </Button>
-      {appPipeline && (
-        <Button
-          className={elMb3}
-          loading={deleteLoading}
-          intent="neutral"
-          disabled={pipelineNotDeletable.includes(appPipeline.buildStatus as string)}
-          onClick={openModal}
-        >
-          Delete Pipeline
+        {appPipeline && (
+          <Button
+            loading={deleteLoading}
+            intent="danger"
+            disabled={pipelineNotDeletable.includes(appPipeline.buildStatus as string)}
+            onClick={openModal}
+          >
+            Delete Pipeline
+          </Button>
+        )}
+        <Button intent="default" onClick={openNewPage(ExternalPages.iaasDocs)}>
+          View Docs
         </Button>
-      )}
-      <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.iaasDocs)}>
-        View Docs
-      </Button>
+      </ButtonGroup>
       <Modal title="Delete Pipeline">
         <BodyText hasGreyText>
           Are you sure you want to delete this pipeline? This will tear down any infrastructure you have provisioned and
           cannot be recovered.
         </BodyText>
-        <ButtonGroup alignment="center">
-          <Button fixedWidth intent="low" onClick={closeModal}>
+        <ButtonGroup alignment="right">
+          <Button intent="default" onClick={closeModal}>
             Close
           </Button>
-          <Button fixedWidth intent="danger" onClick={handleDeletePipeline(deleteFunc, closeModal)}>
+          <Button intent="danger" onClick={handleDeletePipeline(deleteFunc, closeModal)}>
             Delete
           </Button>
         </ButtonGroup>

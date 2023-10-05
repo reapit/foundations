@@ -180,15 +180,9 @@ export const IaaS: FC = () => {
               Are you sure you want to delete this pipeline? This will tear down any infrastructure you have provisioned
               and cannot be recovered.
             </BodyText>
-            <ButtonGroup alignment="center">
-              <Button fixedWidth intent="low" onClick={closeModal}>
-                Close
-              </Button>
-              <Button
-                fixedWidth
-                intent="danger"
-                onClick={handleDeletePipeline(deletePipeline, closeModal, refreshPipelines)}
-              >
+            <ButtonGroup alignment="right">
+              <Button onClick={closeModal}>Close</Button>
+              <Button intent="danger" onClick={handleDeletePipeline(deletePipeline, closeModal, refreshPipelines)}>
                 Delete
               </Button>
             </ButtonGroup>

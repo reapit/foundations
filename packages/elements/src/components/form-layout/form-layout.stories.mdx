@@ -1,9 +1,9 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { InputGroup } from '../input-group'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
-import { FormLayout, InputWrap, InputWrapMed, InputWrapFull } from './form-layout'
+import { FormLayout, InputWrap, InputWrapMed, InputWrapFull, InputWrapSmall } from './form-layout'
 import { Toggle, ToggleRadio, ElToggleItem } from '../toggle'
-import { Subtitle, BodyText } from '../typography'
+import { Subtitle, SmallText } from '../typography'
 import { TextArea } from '../textarea'
 import { MultiSelectInput } from '../multi-select'
 import { Button, ButtonGroup } from '../button'
@@ -17,15 +17,16 @@ import { Label } from '../label'
 
 **To allow maximium flexibility handling submit events and having mulitiple forms on the same page, the form is not an actual `form` element.**
 
-## Form Layout
+## Form Layout Options
 
 There are four breakpoints and four form layout options depending on how many columns you wish your component to span at each resolution. See the table below for explanations;
 
-| Component       | Up to 1024px | Between 1024px and 1440px | Between 1440px and 1920px | 1920px and above |
-| --------------- | ------------ | ------------------------- | ------------------------- | ---------------- |
-| `InputWrap`     | 100% width   | 50% width                 | 33.33% width              | 25% width        |
-| `InputWrapMed`  | 100% width   | 100% width                | 66.667% width             | 50% width        |
-| `InputWrapFull` | 100% width   | 100% width                | 100% width                | 100% width       |
+| Component        | Up to 1024px | Between 1024px and 1440px | Between 1440px and 1920px | 1920px and above |
+| ---------------- | ------------ | ------------------------- | ------------------------- | ---------------- |
+| `InputWrapSmall` | 50% width    | 25% width                 | 16.65% width              | 12.5% width      |
+| `InputWrap`      | 100% width   | 50% width                 | 33.33% width              | 25% width        |
+| `InputWrapMed`   | 100% width   | 100% width                | 66.667% width             | 50% width        |
+| `InputWrapFull`  | 100% width   | 100% width                | 100% width                | 100% width       |
 
 The `InputWrap` is purely presentational and so accept no props. The rendered markup has the same behaviour for non-React users as the React components.
 
@@ -33,17 +34,14 @@ The `FormLayout` accepts an optional `hasMargin` prop to add spacing vertically 
 
 <ArgsTable of={FormLayout} />
 
-In the example below, you can see a wide range of our input types, with various input wraps applied to create a responsive form, with two levels and a block of helper text between them. This is intended as a suggested illustration of how to lay out a form in line with our styleguide.
+## Basic Form
+
+In the example below, you can see a wide range of our input types and input wraps applied to create a basic responsive form.
 
 <Canvas>
-  <Story name="Form Layout">
+  <Story name="Basic Form">
     <form>
-      <Subtitle>Main Form</Subtitle>
-      <BodyText hasGreyText hasSectionMargin>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
-        enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
-        ornare enim sed magna tincidunt volutpat.
-      </BodyText>
+      <Subtitle>Basic Form</Subtitle>
       <FormLayout hasMargin>
         <InputWrap>
           <InputGroup icon="homeSystem" label="Address" type="text" />
@@ -52,12 +50,15 @@ In the example below, you can see a wide range of our input types, with various 
           <InputGroup icon="phoneSystem" label="Phone" type="number" />
         </InputWrap>
         <InputWrap>
-          <InputGroup type="checkbox" label="Status" />
-        </InputWrap>
-        <InputWrap>
           <InputGroup icon="calendarSystem" label="Date of Birth" type="date" />
         </InputWrap>
         <InputWrap>
+          <InputGroup icon="emailSystem" label="Email" type="text" />
+        </InputWrap>
+        <InputWrapSmall>
+          <InputGroup type="checkbox" label="Status" />
+        </InputWrapSmall>
+        <InputWrapSmall>
           <InputGroup>
             <Toggle id="my-cool-toggle">
               <ElToggleItem>On</ElToggleItem>
@@ -65,7 +66,7 @@ In the example below, you can see a wide range of our input types, with various 
             </Toggle>
             <Label>Active</Label>
           </InputGroup>
-        </InputWrap>
+        </InputWrapSmall>
         <InputWrap>
           <InputGroup>
             <ToggleRadio
@@ -74,19 +75,102 @@ In the example below, you can see a wide range of our input types, with various 
                 {
                   id: 'option-1',
                   value: 'option-1',
-                  text: 'Option 1',
+                  text: 'Opt 1',
                   isChecked: true,
                 },
                 {
                   id: 'option-2',
                   value: 'option-2',
-                  text: 'Option 2',
+                  text: 'Opt 2',
                   isChecked: false,
                 },
                 {
                   id: 'option-3',
                   value: 'option-3',
-                  text: 'Option 3',
+                  text: 'Opt 3',
+                  isChecked: false,
+                },
+              ]}
+            />
+            <Label>Options</Label>
+          </InputGroup>
+        </InputWrap>
+        <InputWrapFull>
+          <InputGroup>
+            <TextArea type="text" placeholder="A placeholder" />
+            <Label>Long Description</Label>
+          </InputGroup>
+        </InputWrapFull>
+      </FormLayout>
+      <ButtonGroup alignment="left">
+        <Button intent="neutral">Cancel</Button>
+        <Button intent="primary">Submit</Button>
+      </ButtonGroup>
+    </form>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="FormLayout" story="Basic Form" />
+
+## Complex Form
+
+In the example below, the basic form has been explanded, with two levels and a block of helper text between them.
+
+<Canvas>
+  <Story name="Complex Form">
+    <form>
+      <Subtitle>Main Form</Subtitle>
+      <SmallText hasGreyText hasSectionMargin>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
+        enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
+        ornare enim sed magna tincidunt volutpat.
+      </SmallText>
+      <FormLayout hasMargin>
+        <InputWrap>
+          <InputGroup icon="homeSystem" label="Address" type="text" />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup icon="phoneSystem" label="Phone" type="number" />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup icon="calendarSystem" label="Date of Birth" type="date" />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup icon="emailSystem" label="Email" type="text" />
+        </InputWrap>
+        <InputWrapSmall>
+          <InputGroup type="checkbox" label="Status" />
+        </InputWrapSmall>
+        <InputWrapSmall>
+          <InputGroup>
+            <Toggle id="my-cool-toggle">
+              <ElToggleItem>On</ElToggleItem>
+              <ElToggleItem>Off</ElToggleItem>
+            </Toggle>
+            <Label>Active</Label>
+          </InputGroup>
+        </InputWrapSmall>
+        <InputWrap>
+          <InputGroup>
+            <ToggleRadio
+              name="my-cool-toggle-radio"
+              options={[
+                {
+                  id: 'option-1',
+                  value: 'option-1',
+                  text: 'Opt 1',
+                  isChecked: true,
+                },
+                {
+                  id: 'option-2',
+                  value: 'option-2',
+                  text: 'Opt 2',
+                  isChecked: false,
+                },
+                {
+                  id: 'option-3',
+                  value: 'option-3',
+                  text: 'Opt 3',
                   isChecked: false,
                 },
               ]}
@@ -102,18 +186,15 @@ In the example below, you can see a wide range of our input types, with various 
         </InputWrapFull>
       </FormLayout>
       <Subtitle>Sub Form</Subtitle>
-      <BodyText hasGreyText hasSectionMargin>
+      <SmallText hasGreyText hasSectionMargin>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
         enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
         ornare enim sed magna tincidunt volutpat.
-      </BodyText>
+      </SmallText>
       <FormLayout hasMargin>
         <InputWrapMed>
           <InputGroup icon="homeSystem" label="Really Long Address" type="text" />
         </InputWrapMed>
-        <InputWrap>
-          <InputGroup icon="emailSystem" label="Email" type="text" />
-        </InputWrap>
         <InputWrapFull>
           <InputGroup>
             <MultiSelectInput
@@ -129,16 +210,12 @@ In the example below, you can see a wide range of our input types, with various 
           </InputGroup>
         </InputWrapFull>
       </FormLayout>
-      <ButtonGroup alignment="right">
-        <Button size={2} intent="primary">
-          Cancel
-        </Button>
-        <Button size={2} chevronRight intent="critical">
-          Submit
-        </Button>
+      <ButtonGroup alignment="left">
+        <Button intent="neutral">Cancel</Button>
+        <Button intent="primary">Submit</Button>
       </ButtonGroup>
     </form>
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="FormLayout" story="Form Layout" />
+<RenderHtmlMarkup component="FormLayout" story="Complex Form" />

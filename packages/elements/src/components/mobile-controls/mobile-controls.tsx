@@ -56,7 +56,7 @@ export const MobileControls: FC<MobileControlsProps> = ({
             {label}
           </ElMobileControlItem>
         ))}
-        <FloatingButton intent="critical" icon={buttonIcon ? buttonIcon : 'filterSystem'} />
+        <FloatingButton intent="primary" icon={buttonIcon ? buttonIcon : 'filterSystem'} />
       </ElMobileControls>
     </>
   )

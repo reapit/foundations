@@ -11669,7 +11669,6 @@ __metadata:
     tslib: ^2.5.2
     typescript: 4.9.5
     url-loader: ^4.1.1
-    uuid: ^8.3.2
     webpack: ^5.83.1
   peerDependencies:
     react: ">=17.0.2"
@@ -11884,7 +11883,7 @@ __metadata:
     vite: ^4.3.4
     vite-plugin-checker: ^0.6.0
     vite-plugin-graphql-loader: ^2.0.0
-    vite-plugin-node-polyfills: ^0.11.1
+    vite-plugin-node-polyfills: ^0.15.0
     vite-plugin-pwa: ^0.16.2
     vite-plugin-svgr: ^3.2.0
     vite-plugin-top-level-await: ^1.3.0
@@ -21016,17 +21015,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001332, caniuse-lite@npm:^1.0.30001400":
-  version: 1.0.30001447
-  resolution: "caniuse-lite@npm:1.0.30001447"
-  checksum: b45ae1c4f2df2fb9ad71dc543b1d71c00b125c1aea1ffa25086fe4bee6c17163222dfaa6c0b8488e403b801f6550889f712d1624ba000a7acb8538a62c738c56
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001464":
-  version: 1.0.30001489
-  resolution: "caniuse-lite@npm:1.0.30001489"
-  checksum: 94585a351fd7661b855c83eace474db0ee5a617159b46f2eff1f6fe4b85d7a205418471fdec8cf5cd647a7f79958706d5e664c0bbf3c7c09118b35db9bb95a1b
+"caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001332, caniuse-lite@npm:^1.0.30001400, caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001464":
+  version: 1.0.30001546
+  resolution: "caniuse-lite@npm:1.0.30001546"
+  checksum: d3ef82f5ee94743002c5b2dd61c84342debcc94b2d5907b64ade3514ecfc4f20bbe86a6bc453fd6436d5fbcf6582e07405d7c2077565675a71c83adc238a11fa
   languageName: node
   linkType: hard
 
@@ -27906,7 +27898,7 @@ fsevents@^1.2.7:
     ts-node: ^10.9.1
     ts-node-dev: ^2.0.0
     tsconfig-paths: ^3.14.2
-    tslib: 2.6.1
+    tslib: 2.6.2
     typescript: ^4.9.5
     uuid: ^3.4.0
     vue: ^2.7.14
@@ -43537,10 +43529,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.6.1":
-  version: 2.6.1
-  resolution: "tslib@npm:2.6.1"
-  checksum: b0d176d176487905b66ae4d5856647df50e37beea7571c53b8d10ba9222c074b81f1410fb91da13debaf2cbc970663609068bdebafa844ea9d69b146527c38fe
+"tslib@npm:2.6.2":
+  version: 2.6.2
+  resolution: "tslib@npm:2.6.2"
+  checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
   languageName: node
   linkType: hard
 
@@ -45052,9 +45044,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"vite-plugin-node-polyfills@npm:^0.11.1":
-  version: 0.11.3
-  resolution: "vite-plugin-node-polyfills@npm:0.11.3"
+"vite-plugin-node-polyfills@npm:^0.15.0":
+  version: 0.15.0
+  resolution: "vite-plugin-node-polyfills@npm:0.15.0"
   dependencies:
     "@rollup/plugin-inject": ^5.0.3
     buffer-polyfill: "npm:buffer@^6.0.3"
@@ -45062,7 +45054,7 @@ fsevents@^1.2.7:
     process: ^0.11.10
   peerDependencies:
     vite: ^2.0.0 || ^3.0.0 || ^4.0.0
-  checksum: e8669b4731f92196d630a53630a414a7abe4d7551ba2fdb76e5489cc596c9a94ab2c4a12f3f7e7e5455817d7f73303061135617b39612f85f5e5dd5c45d333cf
+  checksum: 414abec8cf42270b814d7ace894dfab932042ac183224f8a1c1f74d36225427d463845efbfcffed2845d672ff30451d2d3eea750e252518bedf956854f42de69
   languageName: node
   linkType: hard
 

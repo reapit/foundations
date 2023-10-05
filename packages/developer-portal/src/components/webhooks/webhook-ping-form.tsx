@@ -144,16 +144,16 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
             will be sent to the configured URL. For more information, please{' '}
             <a onClick={openNewPage(`${Routes.API_DOCS}/api/webhooks#testing`)}>click here</a>
           </BodyText>
-          <ButtonGroup className={elMlAuto}>
+          <ButtonGroup className={elMlAuto} alignment="right">
             <Button
-              intent="secondary"
+              intent="primary"
               type="button"
               disabled={pingingWebhook}
               onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentType)}
             >
               Cancel
             </Button>
-            <Button intent="primary" chevronRight type="submit" disabled={pingingWebhook}>
+            <Button intent="primary" type="submit" disabled={pingingWebhook}>
               Test
             </Button>
           </ButtonGroup>

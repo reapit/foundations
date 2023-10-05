@@ -1,5 +1,3 @@
-import { css } from '@linaria/core'
-
 // layout
 export const layoutBase = '1rem'
 export const layoutQuarter = 'calc(1rem / 4)'
@@ -39,16 +37,3 @@ export const reapitPurple = '#a4185c'
 export const reapitGold = '#ffb71b'
 export const reapitGreen = '#a0c862'
 export const reapitRed = '#d3033d'
-
-export const globals = css`
-  :global() {
-    body {
-      background: #262f69;
-    }
-
-    #root {
-      height: 100%;
-      background: #fff;
-    }
-  }
-`
