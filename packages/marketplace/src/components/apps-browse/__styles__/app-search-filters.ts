@@ -20,13 +20,19 @@ export const appsSearchContainer = css`
 `
 
 export const appsSearchInputIcon = css`
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
-  height: 2.5rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-light);
+  border: 1px solid var(--color-grey-300);
+  border-right: none;
+
+  &:has(+ input:focus) {
+    border: 1px solid var(--intent-primary);
+    border-right: none;
+  }
 `
 
 export const appsSearchMobileControls = css`
@@ -55,8 +61,8 @@ export const appsSearchMobileIcon = css`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--color-grey-light);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--color-grey-300);
 
   &:last-child {
     margin-right: 0;
@@ -84,19 +90,22 @@ export const AppsSearchInput = styled.input`
   font-size: 14px;
   display: flex;
   flex-grow: 1;
-  border-radius: 0 0.25rem 0.25rem 0;
-  background: var(--component-input-focus-bg);
-  height: 2.5rem;
+  border-radius: 0 0.125rem 0.125rem 0;
+  height: 2.25rem;
   border: none;
   margin: 0;
   color: black;
+  border: 1px solid var(--color-grey-300);
+  border-left: none;
 
   &:focus {
     outline: none;
+    border: 1px solid var(--intent-primary);
+    border-left: none;
   }
 
   &::placeholder {
-    color: black;
+    color: var(--color-grey-dark);
     font-size: 14px;
   }
 

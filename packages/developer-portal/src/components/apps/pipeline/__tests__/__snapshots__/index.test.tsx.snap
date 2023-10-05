@@ -7,7 +7,7 @@ exports[`AppPipeline Should match snapshot where connect session is present 1`] 
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css."
+        classname="mock-css. mock-css. mock-css."
       >
         <div
           class="mock-css.
@@ -45,7 +45,7 @@ exports[`AppPipeline Should match snapshot where connect session is present 1`] 
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css. mock-css. mock-css. mock-css."
+      classname="mock-css. mock-css. mock-css."
     >
       <div
         class="mock-css.

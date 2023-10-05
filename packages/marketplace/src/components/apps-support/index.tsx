@@ -12,7 +12,6 @@ import {
   PageContainer,
   SecondaryNavContainer,
   SmallText,
-  Title,
   PersistentNotification,
 } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -57,7 +56,6 @@ export const AppsSupportPage: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Title>Support</Title>
         <Icon className={elMb5} icon="userInfographic" iconSize="large" />
         <SmallText hasGreyText>
           For AppMarket support, you will need to contact the app developer directly. You can find the relevant contact
