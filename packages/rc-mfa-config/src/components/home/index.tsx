@@ -115,7 +115,11 @@ export const HomePage: FC = () => {
         <Button
           className={elMb5}
           intent="neutral"
-          onClick={openNewPage('https://reapit-1.gitbook.io/reapit-connect-mfa/')}
+          onClick={openNewPage(
+            window.location?.hostname?.includes('.au.')
+              ? 'https://reapit-mfa-documentation.au.dev.rc.reapit.cloud'
+              : 'https://reapit-1.gitbook.io/reapit-connect-mfa/',
+          )}
         >
           Docs
         </Button>
