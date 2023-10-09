@@ -9,7 +9,7 @@
       <mj-class name="body-text" font-size="14px" color="#646464" font-family="arial" align="center" font-weight="400" />
       <mj-class name="title" font-size="20px" font-size="20px" color="#000" align="center" font-weight="900" />
       <mj-all font-family="arial"/>
-      <mj-button background-color="#0061A8" href="#" text-transform="uppercase" />
+      <mj-button background-color="#4E56EA" href="#" text-transform="uppercase" />
     </mj-attributes>
   </mj-head>
   <mj-body background-color="white">
