@@ -125,7 +125,7 @@ exports[`FlexContainer should match a snapshot and render children with all prop
   align-items: flex-start;
  mock-css.
   align-items: flex-end;
-"
+ mock-css."
       >
         <p>
           I am child
@@ -177,7 +177,7 @@ exports[`FlexContainer should match a snapshot and render children with all prop
   align-items: flex-start;
  mock-css.
   align-items: flex-end;
-"
+ mock-css."
     >
       <p>
         I am child
@@ -243,7 +243,9 @@ exports[`MainContainer should match a snapshot and render children 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.main>
+      <mock-styled.main
+        classname="mock-css."
+      >
         <p>
           I am child
         </p>
@@ -251,7 +253,9 @@ exports[`MainContainer should match a snapshot and render children 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.main>
+    <mock-styled.main
+      classname="mock-css."
+    >
       <p>
         I am child
       </p>
@@ -389,7 +393,9 @@ exports[`PageContainer should match a snapshot and render children 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.section>
+      <mock-styled.section
+        classname="mock-css."
+      >
         <p>
           I am child
         </p>
@@ -397,11 +403,90 @@ exports[`PageContainer should match a snapshot and render children 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.section>
+    <mock-styled.section
+      classname="mock-css."
+    >
       <p>
         I am child
       </p>
     </mock-styled.section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`PageContainerMaxWidth should match a snapshot and render children 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.mock-styled.section
+        classname="mock-css."
+      >
+        <p>
+          I am child
+        </p>
+      </mock-styled.mock-styled.section>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.mock-styled.section
+      classname="mock-css."
+    >
+      <p>
+        I am child
+      </p>
+    </mock-styled.mock-styled.section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -462,7 +547,9 @@ exports[`SecondaryNavContainer should match a snapshot and render children 1`] =
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <p>
           I am child
         </p>
@@ -470,7 +557,9 @@ exports[`SecondaryNavContainer should match a snapshot and render children 1`] =
     </div>
   </body>,
   "container": <div>
-    <mock-styled.aside>
+    <mock-styled.aside
+      classname=""
+    >
       <p>
         I am child
       </p>

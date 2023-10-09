@@ -1,0 +1,140 @@
+import { useState } from 'react'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import {
+  AccordionContainer,
+  AccordionItem,
+  AccordionTitle,
+  AccordionTitleContentWrapper,
+  AccordionTitleContent,
+  AccordionContent,
+  Accordion,
+} from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import { Icon } from '../icon'
+import { elMr1 } from '../../styles/spacing'
+import { elIsActive } from '../../styles/states'
+
+<Meta title="Accordion" component={Accordion} />
+
+# Accordion
+
+An accordion component allows collapsable content where space is at a premium, for example mobile views. It is often used in conjunction with the `Drawer` component for small edits and quick views to avoid navigating and losing context in your app.
+
+To open the accordion for vanilla usage, you will need to both toggle the `elIsActive` class on the content div and switch the `downSystem` icon for `upSystem` - see the different states below.
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage">
+    <AccordionContainer>
+      <AccordionItem onClick={console.log}>
+        <AccordionTitle>Accordion Item 1</AccordionTitle>
+        <AccordionTitleContentWrapper>
+          <AccordionTitleContent>
+            <Icon className={elMr1} icon="carSolidSystem" />2
+          </AccordionTitleContent>
+          <AccordionTitleContent>
+            <Icon className={elMr1} icon="usernameSolidSystem" />5
+          </AccordionTitleContent>
+          <AccordionTitleContent>
+            <Icon icon="upSystem" />
+          </AccordionTitleContent>
+        </AccordionTitleContentWrapper>
+      </AccordionItem>
+      <AccordionContent className={elIsActive}>Accordion Content 1</AccordionContent>
+      <AccordionItem onClick={console.log}>
+        <AccordionTitle>Accordion Item 2</AccordionTitle>
+        <AccordionTitleContentWrapper>
+          <AccordionTitleContent>
+            <Icon className={elMr1} icon="carSolidSystem" />2
+          </AccordionTitleContent>
+          <AccordionTitleContent>
+            <Icon className={elMr1} icon="usernameSolidSystem" />5
+          </AccordionTitleContent>
+          <AccordionTitleContent>
+            <Icon icon="downSystem" />
+          </AccordionTitleContent>
+        </AccordionTitleContentWrapper>
+      </AccordionItem>
+      <AccordionContent>Accordion Content 2</AccordionContent>
+      <AccordionItem onClick={console.log}>
+        <AccordionTitle>Accordion Item 3</AccordionTitle>
+        <AccordionTitleContentWrapper>
+          <AccordionTitleContent>
+            <Icon className={elMr1} icon="carSolidSystem" />2
+          </AccordionTitleContent>
+          <AccordionTitleContent>
+            <Icon className={elMr1} icon="usernameSolidSystem" />5
+          </AccordionTitleContent>
+          <AccordionTitleContent>
+            <Icon icon="downSystem" />
+          </AccordionTitleContent>
+        </AccordionTitleContentWrapper>
+      </AccordionItem>
+      <AccordionContent>Accordion Content 3</AccordionContent>
+    </AccordionContainer>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Accordion" story="Basic Usage" />
+
+## React Usage
+
+The React shorthand version of the Accordion handles the toggling of active classes for you. The props accepted by the `AccordionItem` are below along with the `AccordionItemProps` interface.
+
+<ArgsTable of={Accordion} />
+
+```ts
+export interface AccordionItemProps {
+  title: string
+  titleItems?: ReactNode[]
+  content: ReactNode
+}
+```
+
+<Canvas>
+  <Story name="React Usage">
+    <Accordion
+      items={[
+        {
+          title: 'Accordion Item 1',
+          content: 'Accordion Content 1',
+          titleItems: [
+            <>
+              <Icon className={elMr1} icon="carSolidSystem" />2
+            </>,
+            <>
+              <Icon className={elMr1} icon="usernameSolidSystem" />5
+            </>,
+          ],
+        },
+        {
+          title: 'Accordion Item 2',
+          content: 'Accordion Content 2',
+          titleItems: [
+            <>
+              <Icon className={elMr1} icon="carSolidSystem" />2
+            </>,
+            <>
+              <Icon className={elMr1} icon="usernameSolidSystem" />5
+            </>,
+          ],
+        },
+        {
+          title: 'Accordion Item 3',
+          content: 'Accordion Content 3',
+          titleItems: [
+            <>
+              <Icon className={elMr1} icon="carSolidSystem" />2
+            </>,
+            <>
+              <Icon className={elMr1} icon="usernameSolidSystem" />5
+            </>,
+          ],
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Accordion" story="React Usage" />

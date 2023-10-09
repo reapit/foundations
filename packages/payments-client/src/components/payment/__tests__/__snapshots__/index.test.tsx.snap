@@ -11,7 +11,9 @@ exports[`PaymentPage should match a snapshot 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -42,7 +44,9 @@ exports[`PaymentPage should match a snapshot 1`] = `
             Email Request
           </mock-styled.button>
         </mock-styled.aside>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.div
             classname="mock-css.
   @keyframes fade-in {
@@ -102,7 +106,9 @@ exports[`PaymentPage should match a snapshot 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -133,7 +139,9 @@ exports[`PaymentPage should match a snapshot 1`] = `
           Email Request
         </mock-styled.button>
       </mock-styled.aside>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css.
   @keyframes fade-in {

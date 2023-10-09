@@ -39,7 +39,9 @@ exports[`AppsList should match a snapshot 1`] = `
 "
           >
             <mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
                 <mock-styled.div
                   style="font-size: 1.953125em; width: 50px; height: 50px;"
                 >
@@ -92,7 +94,9 @@ exports[`AppsList should match a snapshot 1`] = `
 "
           >
             <mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
                 <mock-styled.div
                   style="font-size: 1.953125em; width: 50px; height: 50px;"
                 >
@@ -179,7 +183,9 @@ exports[`AppsList should match a snapshot 1`] = `
 "
         >
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
               <mock-styled.div
                 style="font-size: 1.953125em; width: 50px; height: 50px;"
               >
@@ -232,7 +238,9 @@ exports[`AppsList should match a snapshot 1`] = `
 "
         >
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
               <mock-styled.div
                 style="font-size: 1.953125em; width: 50px; height: 50px;"
               >
@@ -381,7 +389,9 @@ exports[`AppsList should match snapshot for mobile view 1`] = `
 "
           >
             <mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
                 <mock-styled.div
                   style="font-size: 1.953125em; width: 50px; height: 50px;"
                 >
@@ -434,7 +444,9 @@ exports[`AppsList should match snapshot for mobile view 1`] = `
 "
           >
             <mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
                 <mock-styled.div
                   style="font-size: 1.953125em; width: 50px; height: 50px;"
                 >
@@ -521,7 +533,9 @@ exports[`AppsList should match snapshot for mobile view 1`] = `
 "
         >
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
               <mock-styled.div
                 style="font-size: 1.953125em; width: 50px; height: 50px;"
               >
@@ -574,7 +588,9 @@ exports[`AppsList should match snapshot for mobile view 1`] = `
 "
         >
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
               <mock-styled.div
                 style="font-size: 1.953125em; width: 50px; height: 50px;"
               >

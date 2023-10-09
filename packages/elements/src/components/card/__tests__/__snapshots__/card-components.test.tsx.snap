@@ -43,8 +43,11 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.mock-styled.div>
+          <mock-styled.mock-styled.div
+            classname=""
+          >
             <img
+              alt="https://via.placeholder.com/72x72.svg"
               src="https://via.placeholder.com/72x72.svg"
             />
           </mock-styled.mock-styled.div>
@@ -191,8 +194,11 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.mock-styled.div>
+        <mock-styled.mock-styled.div
+          classname=""
+        >
           <img
+            alt="https://via.placeholder.com/72x72.svg"
             src="https://via.placeholder.com/72x72.svg"
           />
         </mock-styled.mock-styled.div>

@@ -31,7 +31,7 @@ Additionally, there are multiple significant changes in this release however, fo
 
 No functions, CSS classes or React props have been removed however, many have been deprecated. In all cases where there has been a deprecation, React there are console warnings and nothing will be removed that will break your build until the next major release v5.
 
-Key components that have changed:
+#### Key components that have changed:
 
 - `Button` is now only available in `primary`, `default` and `danger` intents. Buttons also no longer support fixed width, specific sizing and chevron variants.
 - `Card` component now supports an avatar or image option to better display visual graphics. Cards also no longer support a context menu.
@@ -43,6 +43,24 @@ Key components that have changed:
 - `Input` fields have a subtly different look and a new error state.
 - `intent` props have been changed - `scondary`, `critical` and `low` are deprecated and `pending`, `warning` and `default` have been added. In all cases, new colors have been used to reflect intents.
 - `Icon`, `StatusIndicator`, `PersistentNotification`, `Snack` and other components that use the `intent` prop have been updated to reflect the new color palette and intent names.
+
+#### New components
+
+- `Drawer` - slide out for rendering forms, tabs and 'quick view' content. Has `useDrawer` hook for programmatic control that works similarly to the useModal hook.
+- `FormSectionDivider` - to break up complex forms by section - see `FormLayout` for revised suggested layout.
+- `Accordion` - to allow users to expand and collapse content where space is at a premium.
+- `Tag` - visual indicator tag to alert users to status of actions or items.
+- `Badge` - low impact visual indicator.
+- `Chip` - like a standalone version of `MultiSelct`, a checkbox chip for toggling state or filters.
+- `PageContainerMaxWidth` - when not using a `SecondaryNav` it may be desireable to restrict the max width of the desktop page. This container fulfils this requirement - see layout docs for more info.
+- `Grid` - adds `GridThirds`, `ColSplitThird` && `ColSplitTwoThirds` components to allow for side bar and main content layouts. See above, best paired with a `PageContainerMaxWidth` view.
+- `Grid` - adds `ColHalf` and `ColQuarter` components to allow for more flexible granular layouts.
+- `ContainerProps` and `ContainerFlexProps` now support a `hasGreyBackground` modifier to support white tile on grey background UIs. See `Layout` stories for more detail.
+- `Tile` component added as an alternative to `Card` for laying out page sections. Works in conjunction with new container and grid items above.
+- `Typography` extended with a much larger range of text sizes, addtional modifiers and supports the concept of intent across all text options.
+- `Avatar` component added to support user profile images in `Card`, `Nav` and `Table` components. Has an image variant to allow property images and similar in thumbnails.
+- `KeyValueList` component added to support displaying a record like a contact or property with or without a grid.
+- `Table` adds key value cell, `Input` and image support with example code.
 
 We hope the migration process will be relatively smooth in virtually all cases however, if you feel you need any support, please reach out to us via Github Issues in the normal way.
 

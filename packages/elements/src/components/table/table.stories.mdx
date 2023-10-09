@@ -23,6 +23,11 @@ import { StatusIndicator } from '../status-indicator'
 import { elMlAuto } from '../../styles/spacing'
 import { FormLayout, InputWrap } from '../form-layout'
 import { elIsActive } from '../../styles/states'
+import { Avatar } from '../avatar'
+import { TextSM, TextXS } from '../typography'
+import { FlexContainer } from '../layout'
+import { elTextEllipsis } from '../../styles/typography'
+import { Input } from '../input'
 
 <Meta title="Table" component={Table} />
 
@@ -105,7 +110,7 @@ In the example below, you can see examples of all the different flavours of `Tab
       <TableHeadersRow>
         <TableHeader>Property</TableHeader>
         <TableHeader>Customer</TableHeader>
-        <TableHeader>Client A/C</TableHeader>
+        <TableHeader>Property Image</TableHeader>
         <TableHeader>Description</TableHeader>
         <TableHeader>Request Date</TableHeader>
         <TableHeader>Amount</TableHeader>
@@ -119,8 +124,17 @@ In the example below, you can see examples of all the different flavours of `Tab
           <TableCell narrowLabel="Name Customer" icon="usernameSystem">
             Mr Johnny Corrigan
           </TableCell>
-          <TableCell narrowLabel="Account">Alternate Lettings Client Acc</TableCell>
-          <TableCell narrowLabel="Type">Tenant Payment Request</TableCell>
+          <TableCell narrowLabel="Image">
+            <Avatar type="image" src="https://picsum.photos/200/300" />
+          </TableCell>
+          <TableCell narrowLabel="Type">
+            <FlexContainer isFlexColumn>
+              <TextSM className={elTextEllipsis}>Some description</TextSM>
+              <TextXS className={elTextEllipsis} hasGreyText>
+                Some more description
+              </TextXS>
+            </FlexContainer>
+          </TableCell>
           <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
           <TableCell darkText narrowLabel="Amount">
             £50.00
@@ -162,8 +176,17 @@ This is done by adding the `data-force-narrow-table='true'` attribute to the mai
           <TableCell narrowLabel="Name Customer" icon="usernameSystem">
             Mr Johnny Corrigan
           </TableCell>
-          <TableCell narrowLabel="Account">Alternate Lettings Client Acc</TableCell>
-          <TableCell narrowLabel="Type">Tenant Payment Request</TableCell>
+          <TableCell narrowLabel="Account">
+            <Input type="checkbox" />
+          </TableCell>
+          <TableCell narrowLabel="Type">
+            <FlexContainer isFlexColumn>
+              <TextSM className={elTextEllipsis}>Some description</TextSM>
+              <TextXS className={elTextEllipsis} hasGreyText>
+                Some more description
+              </TextXS>
+            </FlexContainer>
+          </TableCell>
           <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
           <TableCell darkText narrowLabel="Amount">
             £50.00
@@ -221,8 +244,17 @@ For this version the `data-has-expandable-action` attribute should additionally 
           <TableCell narrowLabel="Name Customer" icon="usernameSystem">
             Mr Johnny Corrigan
           </TableCell>
-          <TableCell narrowLabel="Account">Alternate Lettings Client Acc</TableCell>
-          <TableCell narrowLabel="Type">Tenant Payment Request</TableCell>
+          <TableCell narrowLabel="Account">
+            <Input type="checkbox" />
+          </TableCell>
+          <TableCell narrowLabel="Type">
+            <FlexContainer isFlexColumn>
+              <TextSM className={elTextEllipsis}>Some description</TextSM>
+              <TextXS className={elTextEllipsis} hasGreyText>
+                Some more description
+              </TextXS>
+            </FlexContainer>
+          </TableCell>
           <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
           <TableCell darkText narrowLabel="Amount">
             £50.00
@@ -281,7 +313,9 @@ For this version the `data-has-call-to-action` attribute should additionally be 
           <TableCell narrowLabel="Name Customer" icon="usernameSystem">
             Mr Johnny Corrigan
           </TableCell>
-          <TableCell narrowLabel="Account">Alternate Lettings Client Acc</TableCell>
+          <TableCell narrowLabel="Account">
+            <Input type="checkbox" />
+          </TableCell>
           <TableCell narrowLabel="Type">Tenant Payment Request</TableCell>
           <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
           <TableCell darkText narrowLabel="Amount">
@@ -325,6 +359,7 @@ export type NarrowOptionsType = {
   showLabel?: boolean // Should the header be shown as a label when in narrow mode
   isFullWidth?: boolean // Should the cell be full width in narrow mode
   order?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 // The grid order of the cell when in narrow  mode
+}
 ```
 
 For `expandableContent` and `ctaContent` the interface is the same;
@@ -362,12 +397,19 @@ export interface RowActionProps {
               narrowTable: { showLabel: true },
             },
             {
-              label: 'Client A/C',
-              value: 'Alternate Lettings Client Acc',
+              label: 'Property Image',
+              value: <Avatar type="image" src="https://picsum.photos/200/300" />,
             },
             {
               label: 'Description',
-              value: 'Tenant Payment Request',
+              value: (
+                <FlexContainer isFlexColumn>
+                  <TextSM className={elTextEllipsis}>Some description</TextSM>
+                  <TextXS className={elTextEllipsis} hasGreyText>
+                    Some more description
+                  </TextXS>
+                </FlexContainer>
+              ),
             },
             {
               label: 'Request Date',
@@ -403,12 +445,19 @@ export interface RowActionProps {
               narrowTable: { showLabel: true },
             },
             {
-              label: 'Client A/C',
-              value: 'Alternate Lettings Client Acc',
+              label: 'Property Image',
+              value: <Avatar type="image" src="https://picsum.photos/200/300" />,
             },
             {
               label: 'Description',
-              value: 'Another descriptions',
+              value: (
+                <FlexContainer isFlexColumn>
+                  <TextSM className={elTextEllipsis}>Some description</TextSM>
+                  <TextXS className={elTextEllipsis} hasGreyText>
+                    Some more description
+                  </TextXS>
+                </FlexContainer>
+              ),
             },
             {
               label: 'Request Date',
@@ -482,11 +531,18 @@ We also specify that the first row is expanded by passing an `indexExpandedRow` 
                 },
                 {
                   label: 'Client A/C',
-                  value: 'Alternate Lettings Client Acc',
+                  value: <Input type="checkbox" />,
                 },
                 {
                   label: 'Description',
-                  value: 'Tenant Payment Request',
+                  value: (
+                    <FlexContainer isFlexColumn>
+                      <TextSM className={elTextEllipsis}>Some description</TextSM>
+                      <TextXS className={elTextEllipsis} hasGreyText>
+                        Some more description
+                      </TextXS>
+                    </FlexContainer>
+                  ),
                 },
                 {
                   label: 'Request Date',
@@ -524,11 +580,18 @@ We also specify that the first row is expanded by passing an `indexExpandedRow` 
                 },
                 {
                   label: 'Client A/C',
-                  value: 'Alternate Lettings Client Acc',
+                  value: <Input type="checkbox" />,
                 },
                 {
                   label: 'Description',
-                  value: 'Another descriptions',
+                  value: (
+                    <FlexContainer isFlexColumn>
+                      <TextSM className={elTextEllipsis}>Some description</TextSM>
+                      <TextXS className={elTextEllipsis} hasGreyText>
+                        Some more description
+                      </TextXS>
+                    </FlexContainer>
+                  ),
                 },
                 {
                   label: 'Request Date',
@@ -630,7 +693,14 @@ We've also added a `TableSortHeader` element which has a arrow indicator for you
               },
               {
                 label: 'Description',
-                value: info.description,
+                value: (
+                  <FlexContainer isFlexColumn>
+                    <TextSM className={elTextEllipsis}>Some description</TextSM>
+                    <TextXS className={elTextEllipsis} hasGreyText>
+                      Some more description
+                    </TextXS>
+                  </FlexContainer>
+                ),
               },
               {
                 label: 'Request Date',

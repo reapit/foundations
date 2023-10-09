@@ -108,7 +108,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
               >
                 {(!isSecondary || isMobile) && text}
                 {isSecondary && !isMobile && icon ? (
-                  icon
+                  <>{icon}</>
                 ) : isSecondary && !isMobile && iconId ? (
                   <Icon fontSize="32px" icon={iconId} />
                 ) : null}

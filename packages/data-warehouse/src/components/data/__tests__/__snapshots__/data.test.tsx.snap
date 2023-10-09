@@ -11,7 +11,9 @@ exports[`Data should match a snapshot with data 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -73,7 +75,9 @@ exports[`Data should match a snapshot with data 1`] = `
             Help
           </mock-styled.button>
         </mock-styled.aside>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.h1
             classname=""
           >
@@ -396,7 +400,9 @@ exports[`Data should match a snapshot with data 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -458,7 +464,9 @@ exports[`Data should match a snapshot with data 1`] = `
           Help
         </mock-styled.button>
       </mock-styled.aside>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >
@@ -838,7 +846,9 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -900,7 +910,9 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
             Help
           </mock-styled.button>
         </mock-styled.aside>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.h1
             classname=""
           >
@@ -955,7 +967,9 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1017,7 +1031,9 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
           Help
         </mock-styled.button>
       </mock-styled.aside>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >

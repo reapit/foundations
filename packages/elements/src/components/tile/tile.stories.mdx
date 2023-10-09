@@ -1,0 +1,76 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Tile } from './'
+import { PageContainerMaxWidth } from '../layout'
+import { Grid, Col, ColSplitThird, ColSplitTwoThirds, GridThirds } from '../grid'
+import { elMb7 } from '../../styles/spacing'
+
+<Meta title="Tile" component={Tile} />
+
+# Tile
+
+A layout component for rendering generic content. It is typically used with a `hasGreyBackground` container (see layout) and a `Grid` to space tiles with desired effect.
+
+<ArgsTable for={Tile} />
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage">
+    <Tile>Some Content</Tile>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Tile" story="Basic Usage" />
+
+## Padding Variants
+
+For smaller tiles with more to a grid row, you may wish to consider setting the `paddingSize` prop to `small` or even `none` for self sizing components.
+
+<Canvas>
+  <Story name="Padding Variants">
+    <Tile paddingSize="small">Some Content Here</Tile>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Tile" story="Padding Variants" />
+
+## Complete Example With Layout
+
+The below illustration shows two kinds of tile layouts with different grids to give a responsive full width and split column tile view.
+
+<Canvas>
+  <Story name="Tile Layouts">
+    <PageContainerMaxWidth hasGreyBackground>
+      <Grid className={elMb7}>
+        <Col>
+          <Tile paddingSize="small">Some Content Here</Tile>
+        </Col>
+        <Col>
+          <Tile paddingSize="small">Some Content Here</Tile>
+        </Col>
+        <Col>
+          <Tile paddingSize="small">Some Content Here</Tile>
+        </Col>
+        <Col>
+          <Tile paddingSize="small">Some Content Here</Tile>
+        </Col>
+        <Col>
+          <Tile paddingSize="small">Some Content Here</Tile>
+        </Col>
+        <Col>
+          <Tile paddingSize="small">Some Content Here</Tile>
+        </Col>
+      </Grid>
+      <GridThirds>
+        <ColSplitThird>
+          <Tile>Some Content Here</Tile>
+        </ColSplitThird>
+        <ColSplitTwoThirds>
+          <Tile>Some Content Here</Tile>
+        </ColSplitTwoThirds>
+      </GridThirds>
+    </PageContainerMaxWidth>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Tile" story="Tile Layouts" />

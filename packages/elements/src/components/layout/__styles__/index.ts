@@ -1,6 +1,9 @@
 import { styled } from '@linaria/react'
 import { isMobile, isTablet } from '../../../styles/media'
 import { elHFull } from '../../../styles/sizing'
+import { css } from '@linaria/core'
+
+export const elHasGreyBackground = css``
 
 export const ElMainContainer = styled.main`
   display: flex;
@@ -10,6 +13,10 @@ export const ElMainContainer = styled.main`
   overflow-y: visible;
   overflow-x: hidden;
   background: var(--color-white);
+
+  &.${elHasGreyBackground} {
+    background: var(--color-grey-50);
+  }
 `
 
 export const ElPageContainer = styled.section`
@@ -28,6 +35,15 @@ export const ElPageContainer = styled.section`
   &.${elHFull} {
     height: 100%;
   }
+
+  &.${elHasGreyBackground} {
+    background: var(--color-grey-50);
+  }
+`
+
+export const ElPageContainerMaxWidth = styled(ElPageContainer)`
+  max-width: 1200px;
+  margin: 0 auto;
 `
 
 export const ElSecondaryNavContainer = styled.aside`
@@ -39,7 +55,7 @@ export const ElSecondaryNavContainer = styled.aside`
   overflow-x: hidden;
   scrollbar-width: none;
   background: var(--color-white);
-  border-right: 1px solid var(--color-grey-100);
+  border-right: 1px solid var(--color-grey-50);
 
   &::-webkit-scrollbar {
     display: none;
@@ -61,4 +77,8 @@ export const ElFlexContainer = styled.div`
   display: flex;
   min-height: 0;
   min-width: 0;
+
+  &.${elHasGreyBackground} {
+    background: var(--color-grey-50);
+  }
 `

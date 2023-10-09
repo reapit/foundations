@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { StatusIndicator } from '..'
 
-describe('Table component', () => {
+describe('StatusIndicator component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<StatusIndicator />)
     expect(wrapper).toMatchSnapshot()
@@ -14,7 +14,7 @@ describe('Table component', () => {
   })
 
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="primary" />)
+    const wrapper = render(<StatusIndicator intent="pending" />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -29,12 +29,17 @@ describe('Table component', () => {
   })
 
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="primary" />)
+    const wrapper = render(<StatusIndicator intent="warning" />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator />)
+    const wrapper = render(<StatusIndicator intent="neutral" />)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match a snapshot', () => {
+    const wrapper = render(<StatusIndicator intent="default" />)
     expect(wrapper).toMatchSnapshot()
   })
 })

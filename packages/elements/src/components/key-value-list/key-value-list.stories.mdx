@@ -1,0 +1,124 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { KeyValueList } from './'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+<Meta title="KeyValueList" component={KeyValueList} />
+
+# KeyValueList
+
+Really a collecation of previously defined components, but exported as a React shorthand for a best practice pattern to display key value pairs as record, for example a contact or property.
+
+The component supports any `ReactNode` for content or icon props so you can use custom elements like links or external icons as required.
+
+The basic usage variant will display the pairs in a list and can be used in a `Drawer` or narrow container.
+
+<ArgsTable of={KeyValueList} />
+
+```ts
+export interface KeyValueItem {
+  key: string
+  value: ReactNode
+  iconName?: IconNames
+  icon?: ReactNode
+  intent?: Intent
+}
+```
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage">
+    <KeyValueList
+      items={[
+        {
+          key: 'Name',
+          value: 'John Doe',
+          iconName: 'usernameSystem',
+          intent: 'primary',
+        },
+        {
+          key: 'Email',
+          value: 'email@example.com',
+          iconName: 'emailSystem',
+          intent: 'primary',
+        },
+        {
+          key: 'Address',
+          value: '1234 Main St, Foo, Bar, 12345',
+          iconName: 'homeSystem',
+          intent: 'primary',
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="KeyValueList" story="Basic Usage" />
+
+## Usage Large Grid
+
+The grid variant where you are displaying in a full page view or main container.
+
+<Canvas>
+  <Story name="Usage Large Grid">
+    <KeyValueList
+      hasLargeGrid
+      items={[
+        {
+          key: 'Name',
+          value: 'John Doe',
+          iconName: 'usernameSystem',
+          intent: 'primary',
+        },
+        {
+          key: 'Email',
+          value: 'email@example.com',
+          iconName: 'emailSystem',
+          intent: 'primary',
+        },
+        {
+          key: 'Address',
+          value: '1234 Main St, Foo, Bar, 12345',
+          iconName: 'homeSystem',
+          intent: 'primary',
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="KeyValueList" story="Usage Large Grid" />
+
+## Usage Small Grid
+
+The grid variant where you are displaying more compact data with less content.
+
+<Canvas>
+  <Story name="Usage Small Grid">
+    <KeyValueList
+      hasSmallGrid
+      items={[
+        {
+          key: 'Name',
+          value: 'John Doe',
+          iconName: 'usernameSystem',
+          intent: 'primary',
+        },
+        {
+          key: 'Email',
+          value: 'email@example.com',
+          iconName: 'emailSystem',
+          intent: 'primary',
+        },
+        {
+          key: 'Address',
+          value: '1234 Main St, Foo, Bar, 12345',
+          iconName: 'homeSystem',
+          intent: 'primary',
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="KeyValueList" story="Usage Small Grid" />

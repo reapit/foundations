@@ -6,8 +6,12 @@ exports[`PrivateRouter should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.main>
-        <mock-styled.section>
+      <mock-styled.main
+        classname=""
+      >
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.div
             classname="mock-css. mock-css. mock-css. mock-css."
           >
@@ -48,8 +52,12 @@ exports[`PrivateRouter should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.main>
-      <mock-styled.section>
+    <mock-styled.main
+      classname=""
+    >
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css. mock-css. mock-css. mock-css."
         >
@@ -147,7 +155,9 @@ exports[`PrivateRouter should match a snapshot if an employee 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.main>
+      <mock-styled.main
+        classname=""
+      >
         <mock-styled.nav
           classname=""
         >
@@ -251,7 +261,9 @@ exports[`PrivateRouter should match a snapshot if an employee 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.main>
+    <mock-styled.main
+      classname=""
+    >
       <mock-styled.nav
         classname=""
       >

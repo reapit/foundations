@@ -321,6 +321,7 @@ export const elGlobals = css`
       /** font size variables */
       --font-size-heading: 2rem;
       --font-size-subheading: 1.25rem;
+      --font-size-small-subheading: 1.125rem;
       --font-size-default: 0.9375rem;
       --font-size-small: 0.875rem;
       --font-size-smallest: 0.8125rem;

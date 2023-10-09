@@ -26,7 +26,9 @@ exports[`AppCard should match a snapshot for a regular user 1`] = `
 "
       >
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
             <mock-styled.div
               style="font-size: 1.953125em; width: 50px; height: 50px;"
             >
@@ -83,7 +85,9 @@ exports[`AppCard should match a snapshot for a regular user 1`] = `
 "
     >
       <mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
           <mock-styled.div
             style="font-size: 1.953125em; width: 50px; height: 50px;"
           >
@@ -197,7 +201,9 @@ exports[`AppCard should match a snapshot for an admin 1`] = `
 "
       >
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
             <mock-styled.div
               style="font-size: 1.953125em; width: 50px; height: 50px;"
             >
@@ -254,7 +260,9 @@ exports[`AppCard should match a snapshot for an admin 1`] = `
 "
     >
       <mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
           <mock-styled.div
             style="font-size: 1.953125em; width: 50px; height: 50px;"
           >
@@ -368,7 +376,9 @@ exports[`AppCard should match a snapshot for an admin with delete protection 1`]
 "
       >
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
             <mock-styled.div
               style="font-size: 1.953125em; width: 50px; height: 50px;"
             >
@@ -425,7 +435,9 @@ exports[`AppCard should match a snapshot for an admin with delete protection 1`]
 "
     >
       <mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
           <mock-styled.div
             style="font-size: 1.953125em; width: 50px; height: 50px;"
           >

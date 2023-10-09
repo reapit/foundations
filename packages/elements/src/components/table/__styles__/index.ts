@@ -310,7 +310,7 @@ export const ElTableCellContent = styled.div`
   -webkit-box-orient: vertical;
   max-height: calc(${MAX_TABLE_CONTENT_HEIGHT} - 0.75rem);
   overflow: hidden;
-  line-height: 1.5rem;
+  line-height: 1rem;
   text-overflow: ellipsis;
 
   ${isNarrow} {

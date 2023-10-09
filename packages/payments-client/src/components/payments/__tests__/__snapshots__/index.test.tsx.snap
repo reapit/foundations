@@ -11,7 +11,9 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -161,7 +163,9 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
             View Docs
           </mock-styled.button>
         </mock-styled.aside>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.h1
             classname=""
           >
@@ -226,7 +230,9 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -376,7 +382,9 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
           View Docs
         </mock-styled.button>
       </mock-styled.aside>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >
@@ -498,7 +506,9 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -648,7 +658,9 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
             View Docs
           </mock-styled.button>
         </mock-styled.aside>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.h1
             classname=""
           >
@@ -891,7 +903,9 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1041,7 +1055,9 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
           View Docs
         </mock-styled.button>
       </mock-styled.aside>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >
@@ -1341,7 +1357,9 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1491,7 +1509,9 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
             View Docs
           </mock-styled.button>
         </mock-styled.aside>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.h1
             classname=""
           >
@@ -1515,7 +1535,9 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1665,7 +1687,9 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
           View Docs
         </mock-styled.button>
       </mock-styled.aside>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >

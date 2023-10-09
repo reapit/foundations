@@ -11,7 +11,9 @@ exports[`ApiPage should match a snapshot for the /desktop page 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -50,7 +52,9 @@ exports[`ApiPage should match a snapshot for the /desktop page 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""
@@ -146,7 +150,9 @@ exports[`ApiPage should match a snapshot for the /graphql page 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -185,7 +191,9 @@ exports[`ApiPage should match a snapshot for the /graphql page 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""
@@ -281,7 +289,9 @@ exports[`ApiPage should match a snapshot for the /swagger page 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -320,7 +330,9 @@ exports[`ApiPage should match a snapshot for the /swagger page 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""
@@ -416,7 +428,9 @@ exports[`ApiPage should match a snapshot for the /webhooks page 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -455,7 +469,9 @@ exports[`ApiPage should match a snapshot for the /webhooks page 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""
@@ -551,7 +567,9 @@ exports[`ApiPage should match a snapshot for the /webhooks/about page 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -590,7 +608,9 @@ exports[`ApiPage should match a snapshot for the /webhooks/about page 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""
@@ -686,7 +706,9 @@ exports[`ApiPage should match a snapshot for the /webhooks/logs page 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -725,7 +747,9 @@ exports[`ApiPage should match a snapshot for the /webhooks/logs page 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""
@@ -821,7 +845,9 @@ exports[`ApiPage should match a snapshot for the /webhooks/manage page 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -860,7 +886,9 @@ exports[`ApiPage should match a snapshot for the /webhooks/manage page 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""
@@ -956,7 +984,9 @@ exports[`ApiPage should match a snapshot for the /webhooks/new page 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -995,7 +1025,9 @@ exports[`ApiPage should match a snapshot for the /webhooks/new page 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""

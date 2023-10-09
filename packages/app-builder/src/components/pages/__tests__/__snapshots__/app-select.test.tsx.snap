@@ -2,13 +2,17 @@
 
 exports[`AppSelect should match a snapshot 1`] = `
 <DocumentFragment>
-  <mock-styled.main>
+  <mock-styled.main
+    classname=""
+  >
     <mock-styled.div
       classname="mock-css.
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >

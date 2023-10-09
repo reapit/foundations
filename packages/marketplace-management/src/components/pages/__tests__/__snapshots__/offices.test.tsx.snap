@@ -11,7 +11,9 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -185,7 +187,9 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""
@@ -416,7 +420,9 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -590,7 +596,9 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""
@@ -821,7 +829,9 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -995,7 +1005,9 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""

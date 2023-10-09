@@ -6,7 +6,9 @@ exports[`UsagePage should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >
@@ -165,7 +167,9 @@ exports[`UsagePage should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.h1
         classname=""
       >
