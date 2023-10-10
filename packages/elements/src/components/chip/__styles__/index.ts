@@ -63,4 +63,5 @@ export const ElChipGroupInner = styled.div`
   column-gap: 0.25rem;
   row-gap: 0.25rem;
   width: fit-content;
+  height: fit-content;
 `

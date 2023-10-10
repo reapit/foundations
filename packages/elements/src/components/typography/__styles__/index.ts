@@ -75,7 +75,7 @@ export const ElTextBase = styled.div`
   }
 
   &.${elHasMargin} {
-    margin-bottom: 1em;
+    margin-bottom: 0.5rem;
   }
 
   &.${elHasSectionMargin} {
@@ -153,7 +153,7 @@ export const ElTitle = styled.h1`
   font-size: var(--font-size-heading);
   line-height: 2.25rem;
   letter-spacing: 0%;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   &.${elHasGreyText} {
     color: var(--color-grey-500);
@@ -235,7 +235,7 @@ export const ElSubtitle = styled.h2`
   font-size: var(--font-size-subheading);
   line-height: 1.5rem;
   letter-spacing: 0%;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 
   &.${elHasGreyText} {
     color: var(--color-grey-500);
@@ -266,7 +266,7 @@ export const ElSubtitle = styled.h2`
   }
 
   &.${elHasSectionMargin} {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   &.${elHasCenteredText} {
@@ -317,7 +317,7 @@ export const ElBodyText = styled.p`
   font-size: var(--font-size-default);
   line-height: 1.25rem;
   letter-spacing: -1%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 
   &.${elHasGreyText} {
     color: var(--color-grey-500);
@@ -348,7 +348,7 @@ export const ElBodyText = styled.p`
   }
 
   &.${elHasSectionMargin} {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   &.${elHasCenteredText} {
@@ -399,7 +399,7 @@ export const ElSmallText = styled.p`
   font-size: var(--font-size-small);
   line-height: 1.125rem;
   letter-spacing: 0%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 
   &.${elHasGreyText} {
     color: var(--color-grey-500);
@@ -430,7 +430,7 @@ export const ElSmallText = styled.p`
   }
 
   &.${elHasSectionMargin} {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   &.${elHasCenteredText} {

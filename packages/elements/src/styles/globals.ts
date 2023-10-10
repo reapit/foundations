@@ -180,6 +180,13 @@ export const elGlobals = css`
       font-weight: bold;
     }
 
+    pre,
+    code {
+      background: #f2f4f6; // grey 50
+      padding: 1rem;
+      overflow: scroll;
+    }
+
     :root {
       /* Root color pallet */
 
@@ -319,7 +326,7 @@ export const elGlobals = css`
       --font-monospace: 'Source Code Pro', monospace;
 
       /** font size variables */
-      --font-size-heading: 2rem;
+      --font-size-heading: 1.5rem;
       --font-size-subheading: 1.25rem;
       --font-size-small-subheading: 1.125rem;
       --font-size-default: 0.9375rem;

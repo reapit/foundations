@@ -15,6 +15,11 @@ export const elButtonSize2 = css``
 export const elButtonSize3 = css``
 export const elButtonSize4 = css``
 
+export const elButtonSizeSmall = css``
+export const elButtonSizeLarge = css``
+export const elButtonSizeMedium = css``
+export const elButtonIconOnly = css``
+
 export const ElButtonLoader = styled.div`
   @keyframes spinAround {
     from {
@@ -62,7 +67,7 @@ export const ElButton = styled.button`
   background-image: linear-gradient(to right, var(--color-white), var(--color-white));
   outline-color: var(--intent-primary);
   background-repeat: no-repeat;
-  max-height: 2.25rem;
+  height: 2.25rem;
 
   &:hover {
     border: 1px solid var(--color-grey-400);
@@ -95,11 +100,41 @@ export const ElButton = styled.button`
     }
   }
 
-  &.${elButtonFixedWidth} {
-    width: 9rem;
+  &.${elButtonIconOnly} {
+    padding: 0.5rem;
+  }
 
-    ${isMobile} {
-      width: 7.5rem;
+  &.${elButtonSizeSmall} {
+    height: 2rem;
+    padding: 0.375rem 0.875rem;
+
+    &.${elButtonIconOnly} {
+      padding: 0.375rem;
+    }
+  }
+
+  &.${elButtonSizeMedium} {
+    height: 2.25rem;
+    padding: 0.5rem 1rem;
+
+    &.${elButtonIconOnly} {
+      padding: 0.5rem;
+    }
+  }
+
+  &.${elButtonSizeLarge} {
+    font-size: var(--font-size-default);
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+
+    &.${elButtonIconOnly} {
+      padding: 0.5rem;
+    }
+  }
+
+  &.${elIntentDanger}, &.${elIntentPrimary} {
+    ${ElIcon} {
+      color: var(--color-white);
     }
   }
 
@@ -175,17 +210,9 @@ export const ElButton = styled.button`
   }
 `
 
-export const elButtonHasLeftChevron = css`
-  svg {
-    font-size: 12x;
-  }
-`
+export const elButtonHasLeftChevron = css``
 
-export const elButtonHasRightChevron = css`
-  svg {
-    font-size: 12x;
-  }
-`
+export const elButtonHasRightChevron = css``
 
 export const ElButtonGroup = styled.div`
   display: grid;
@@ -198,6 +225,7 @@ export const ElButtonGroupInner = styled.div`
   column-gap: 0.75rem;
   row-gap: 0.75rem;
   width: fit-content;
+  height: fit-content;
 
   &.${elButtonGroupAlignLeft} {
     margin-right: auto;

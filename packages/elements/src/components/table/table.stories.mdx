@@ -38,12 +38,12 @@ import { Input } from '../input'
 The Table component can be used in 2 main ways within
 
 1. Building a table from the Table molecule components, e.g. `TableRow`, `TableCell`, etc
-1. Using the React shorthand and supplying a `rows` prop with data. This way offers advantages such as not needing to manage the state for the expandable rows.
+2. Using the React shorthand and supplying a `rows` prop with data. This way offers advantages such as not needing to manage the state for the expandable rows.
 
 There are two visual styles for the table, dependant on screen width.
 
 1. Normal
-1. Narrow - i.e. where the screen is too small for the content on a conventional screen - below 1024px.
+2. Narrow - i.e. where the screen is too small for the content on a conventional screen - below 1024px.
 
 On the Narrow version, the table's grid switches to a 2 column layout. There are additional modifiers that can then be
 applied to cells when it's in narrow mode, e.g. showing the header within the cell and whether a cell should be full width.
@@ -108,24 +108,27 @@ In the example below, you can see examples of all the different flavours of `Tab
   <Story name="Basic Customisation - Table Cells">
     <Table>
       <TableHeadersRow>
+        <TableHeader>Selected</TableHeader>
+        <TableHeader>Property Image</TableHeader>
         <TableHeader>Property</TableHeader>
         <TableHeader>Customer</TableHeader>
-        <TableHeader>Property Image</TableHeader>
         <TableHeader>Description</TableHeader>
-        <TableHeader>Request Date</TableHeader>
         <TableHeader>Amount</TableHeader>
         <TableHeader>Payment Status</TableHeader>
       </TableHeadersRow>
       <TableRowContainer>
         <TableRow>
-          <TableCell darkText icon="homeSystem" narrowIsFullWidth>
-            Mt Ash Jacket Brassey Road
-          </TableCell>
-          <TableCell narrowLabel="Name Customer" icon="usernameSystem">
-            Mr Johnny Corrigan
+          <TableCell narrowLabel="Selected">
+            <Input type="checkbox" />
           </TableCell>
           <TableCell narrowLabel="Image">
             <Avatar type="image" src="https://picsum.photos/200/300" />
+          </TableCell>
+          <TableCell darkText icon="homeSystem" narrowIsFullWidth>
+            1 King Road, London, UK, S1 1AA
+          </TableCell>
+          <TableCell narrowLabel="Name Customer" icon="usernameSystem">
+            Mr Johnny Corrigan
           </TableCell>
           <TableCell narrowLabel="Type">
             <FlexContainer isFlexColumn>

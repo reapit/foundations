@@ -1,0 +1,72 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { BreadCrumb } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+<Meta title="BreadCrumb" component={BreadCrumb} />
+
+# BreadCrumb
+
+## Basic Usage
+
+<ArgsTable of={BreadCrumb} />
+
+Breadcrumbs are used to indicate to the user their flow in the application and provide a navigation back step to previous pages.
+
+<Canvas>
+  <Story name="Basic Usage">
+    <BreadCrumb
+      items={[
+        {
+          text: 'Home',
+          onClick: () => console.log('Home clicked'),
+        },
+        {
+          text: 'Level 1',
+          onClick: () => console.log('1 clicked'),
+        },
+        {
+          text: 'Level 2',
+          onClick: () => console.log('2 clicked'),
+        },
+        {
+          text: 'Level 3',
+          onClick: () => console.log('3 clicked'),
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="BreadCrumb" story="Basic Usage" />
+
+## Default Index
+
+By setting the `defaultActiveIndex` prop, you can open the Bread crumb at the correct level when you navigate.
+
+<Canvas>
+  <Story name="Default Index">
+    <BreadCrumb
+      defaultActiveIndex={3}
+      items={[
+        {
+          text: 'Home',
+          onClick: () => console.log('Home clicked'),
+        },
+        {
+          text: 'Level 1',
+          onClick: () => console.log('1 clicked'),
+        },
+        {
+          text: 'Level 2',
+          onClick: () => console.log('2 clicked'),
+        },
+        {
+          text: 'Level 3',
+          onClick: () => console.log('3 clicked'),
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="BreadCrumb" story="Default Index" />

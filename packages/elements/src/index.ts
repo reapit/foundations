@@ -51,6 +51,8 @@ export * from './components/chip'
 export * from './components/tile'
 export * from './components/avatar'
 export * from './components/key-value-list'
+export * from './components/page-header'
+export * from './components/breadcrumb'
 
 export * from './hooks/use-portal'
 export * from './hooks/use-snack'

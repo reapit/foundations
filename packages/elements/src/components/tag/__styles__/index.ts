@@ -13,7 +13,7 @@ export const ElTag = styled.span`
   border-radius: 3rem;
   display: inline-block;
   font-size: var(--font-size-smallest);
-  padding: 0.1875rem 1rem;
+  padding: 0.25rem 1rem;
   background: var(--color-grey-400);
   color: var(--color-white);
 
@@ -64,4 +64,5 @@ export const ElTagGroupInner = styled.div`
   column-gap: 0.25rem;
   row-gap: 0.25rem;
   width: fit-content;
+  height: fit-content;
 `

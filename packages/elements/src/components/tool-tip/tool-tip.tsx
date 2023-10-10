@@ -1,13 +1,19 @@
 import { cx } from '@linaria/core'
-import React, { FC, PropsWithChildren, useState } from 'react'
+import React, { FC, HTMLAttributes, useState } from 'react'
 import { ElToolTipChild, elToolTipActive, ElToolTipContainer } from './__styles__'
 
-interface ToolTipChildProps extends PropsWithChildren {
-  active?: boolean
+export interface ToolTipProps extends HTMLAttributes<HTMLDivElement> {
+  defaultActive?: boolean
+  tip?: string
 }
 
-export const ToolTip: FC<{ tip: string } & PropsWithChildren> = ({ children, tip }) => {
-  const [active, setActive] = useState<boolean>(false)
+export interface ToolTipChildProps extends HTMLAttributes<HTMLDivElement> {
+  active?: boolean
+  tip?: string
+}
+
+export const ToolTip: FC<ToolTipProps> = ({ children, defaultActive = false, tip }) => {
+  const [active, setActive] = useState<boolean>(defaultActive)
 
   return (
     <ElToolTipContainer onMouseOver={() => setActive(true)} onMouseOut={() => setActive(false)}>

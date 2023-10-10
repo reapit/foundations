@@ -108,6 +108,64 @@ An element to collectively group several buttons
 
 <RenderHtmlMarkup component="Button" story="Button Group" />
 
+## Button Size
+
+If you wish to size up or down a button, you can use the `buttonSize` prop.
+
+By default all of our buttons are sized to `small` in mobile and `medium` in desktop so this option is solely if you wish to force the size.
+
+<Canvas>
+  <Story name="Button Size">
+    <ButtonGroup>
+      <Button buttonSize="small">Small Button</Button>
+      <Button buttonSize="medium">Medium Button</Button>
+      <Button buttonSize="large">Large Button</Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Button" story={['Button Size']} />
+
+## Button Icons
+
+If you wish to add a system icon from the `IconList`, you can do this by passing the `buttonIcon` prop.
+
+You have the option to specify a position of `left`, `right` or `only` as a postion for your icon.
+
+<Canvas>
+  <Story name="Button Icons">
+    <ButtonGroup>
+      <Button
+        intent="primary"
+        buttonIcon={{
+          icon: 'addSystem',
+          position: 'left',
+        }}
+      >
+        Left Icon Primary
+      </Button>
+      <Button
+        buttonIcon={{
+          icon: 'addSystem',
+          position: 'right',
+        }}
+      >
+        Right Icon Default
+      </Button>
+      <Button
+        buttonIcon={{
+          icon: 'addSystem',
+          position: 'only',
+        }}
+      >
+        Only Icon
+      </Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Button" story={['Button Icons']} />
+
 ## Floating Button
 
 A circular floating icon button - supports any icon from the icon list.
