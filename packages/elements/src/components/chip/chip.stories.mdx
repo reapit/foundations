@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Chip, ChipGroup } from './'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+<Meta title="Chip" component={Chip} />
+
+# Chip
+
+Similar to the chips used on the `MultiSelect` component, the underlying element is a HTML checkbox, allowing for them to be used in a form and with form libraries.
+
+They are used to toggle filters and the state of pages on click or on form submit.
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage">
+    <ChipGroup>
+      <Chip>Content</Chip>
+    </ChipGroup>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Chip" story="Basic Usage" />
+
+## Chip Group
+
+A group of Chips has it's own wrapper to display responsively in a CSS grid.
+
+<Canvas>
+  <Story name="Chip Group">
+    <ChipGroup>
+      <Chip>Content</Chip>
+      <Chip>Content</Chip>
+      <Chip>Content</Chip>
+    </ChipGroup>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="ChipGroup" story="Chip Group" />

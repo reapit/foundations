@@ -27,3 +27,9 @@ export const elFontItalic = css`
 export const elFontUppercase = css`
   font-style: uppercase;
 `
+
+export const elTextEllipsis = css`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`

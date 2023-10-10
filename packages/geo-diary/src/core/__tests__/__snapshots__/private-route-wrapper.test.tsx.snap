@@ -7,7 +7,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
        
-      <mock-styled.main>
+      <mock-styled.main
+        classname=""
+      >
         <mock-styled.nav
           classname=""
         >
@@ -78,7 +80,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
             </mock-styled.span>
           </mock-styled.a>
         </mock-styled.nav>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.div
             classname="mock-css. mock-css. mock-css. mock-css."
           >
@@ -120,7 +124,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
      
-    <mock-styled.main>
+    <mock-styled.main
+      classname=""
+    >
       <mock-styled.nav
         classname=""
       >
@@ -191,7 +197,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           </mock-styled.span>
         </mock-styled.a>
       </mock-styled.nav>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css. mock-css. mock-css. mock-css."
         >

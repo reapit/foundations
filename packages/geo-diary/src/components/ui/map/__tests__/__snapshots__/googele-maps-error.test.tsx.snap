@@ -7,8 +7,12 @@ exports[`GoogleMapsError should match snapshot 1`] = `
     <div>
       <mock-styled.div />
        
-      <mock-styled.main>
-        <mock-styled.section>
+      <mock-styled.main
+        classname=""
+      >
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.div
             classname="mock-css. mock-css. mock-css. mock-css."
           >
@@ -50,8 +54,12 @@ exports[`GoogleMapsError should match snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
      
-    <mock-styled.main>
-      <mock-styled.section>
+    <mock-styled.main
+      classname=""
+    >
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css. mock-css. mock-css. mock-css."
         >

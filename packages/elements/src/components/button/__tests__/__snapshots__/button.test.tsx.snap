@@ -176,22 +176,36 @@ exports[`Button should match a snapshot with all modifiers 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.button
-        classname="some-class mock-css. mock-css."
+        classname="some-class mock-css. mock-css. mock-css."
         disabled="true"
         type="submit"
       >
         <mock-styled.div />
+        <mock-styled.span
+          classname="mock-css.
+  margin-right: 0.25rem;
+"
+        >
+          <svg />
+        </mock-styled.span>
         button text
       </mock-styled.button>
     </div>
   </body>,
   "container": <div>
     <mock-styled.button
-      classname="some-class mock-css. mock-css."
+      classname="some-class mock-css. mock-css. mock-css."
       disabled="true"
       type="submit"
     >
       <mock-styled.div />
+      <mock-styled.span
+        classname="mock-css.
+  margin-right: 0.25rem;
+"
+      >
+        <svg />
+      </mock-styled.span>
       button text
     </mock-styled.button>
   </div>,

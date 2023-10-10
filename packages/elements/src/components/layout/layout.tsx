@@ -1,6 +1,14 @@
 import React, { HTMLAttributes, FC } from 'react'
 import { cx } from '@linaria/core'
-import { ElMainContainer, ElPageContainer, ElSecondaryNavContainer, ElMolecule, ElFlexContainer } from './__styles__'
+import {
+  ElMainContainer,
+  ElPageContainer,
+  ElSecondaryNavContainer,
+  ElMolecule,
+  ElFlexContainer,
+  ElPageContainerMaxWidth,
+  elHasGreyBackground,
+} from './__styles__'
 import {
   elFlexRow,
   elFlexColumn,
@@ -27,7 +35,9 @@ import {
 } from '../../styles/flexbox'
 import { useDeprecateComponent } from '../../storybook/deprecate-var'
 
-export interface ContainerProps extends HTMLAttributes<HTMLElement> {}
+export interface ContainerProps extends HTMLAttributes<HTMLElement> {
+  hasGreyBackground?: boolean
+}
 
 export interface ContainerFlexProps extends ContainerProps {
   isFlexRow?: boolean
@@ -52,18 +62,31 @@ export interface ContainerFlexProps extends ContainerProps {
   isFlexAlignCenter?: boolean
   isFlexAlignStart?: boolean
   isFlexAlignEnd?: boolean
+  hasGreyBackground?: boolean
 }
 
-export const MainContainer: FC<ContainerProps> = ({ children, ...rest }) => (
-  <ElMainContainer {...rest}>{children}</ElMainContainer>
+export const MainContainer: FC<ContainerProps> = ({ children, className, hasGreyBackground, ...rest }) => (
+  <ElMainContainer className={cx(hasGreyBackground && elHasGreyBackground, className)} {...rest}>
+    {children}
+  </ElMainContainer>
 )
 
-export const PageContainer: FC<ContainerProps> = ({ children, ...rest }) => (
-  <ElPageContainer {...rest}>{children}</ElPageContainer>
+export const PageContainer: FC<ContainerProps> = ({ children, className, hasGreyBackground, ...rest }) => (
+  <ElPageContainer className={cx(hasGreyBackground && elHasGreyBackground, className)} {...rest}>
+    {children}
+  </ElPageContainer>
 )
 
-export const SecondaryNavContainer: FC<ContainerProps> = ({ children, ...rest }) => (
-  <ElSecondaryNavContainer {...rest}>{children}</ElSecondaryNavContainer>
+export const PageContainerMaxWidth: FC<ContainerProps> = ({ children, className, hasGreyBackground, ...rest }) => (
+  <ElPageContainerMaxWidth className={cx(hasGreyBackground && elHasGreyBackground, className)} {...rest}>
+    {children}
+  </ElPageContainerMaxWidth>
+)
+
+export const SecondaryNavContainer: FC<ContainerProps> = ({ children, className, hasGreyBackground, ...rest }) => (
+  <ElSecondaryNavContainer className={cx(hasGreyBackground && elHasGreyBackground, className)} {...rest}>
+    {children}
+  </ElSecondaryNavContainer>
 )
 
 export const Molecule: FC<ContainerProps> = ({ children, ...rest }) => {
@@ -95,6 +118,7 @@ export const FlexContainer: FC<ContainerFlexProps> = ({
   isFlexAlignCenter,
   isFlexAlignStart,
   isFlexAlignEnd,
+  hasGreyBackground,
   className,
   ...rest
 }) => {
@@ -121,6 +145,7 @@ export const FlexContainer: FC<ContainerFlexProps> = ({
     isFlexAlignCenter && elFlexAlignCenter,
     isFlexAlignStart && elFlexAlignStart,
     isFlexAlignEnd && elFlexAlignEnd,
+    hasGreyBackground && elHasGreyBackground,
     className,
   )
 

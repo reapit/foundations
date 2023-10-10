@@ -7,7 +7,9 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <div
             class="mock-css.
   @keyframes fade-in {
@@ -1749,7 +1751,9 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <div
           class="mock-css.
   @keyframes fade-in {
@@ -3548,8 +3552,12 @@ exports[`PaymentPage should match a snapshot when has no session and no data 1`]
     <div>
       <mock-styled.div />
       <mock-styled.div>
-        <mock-styled.section>
-          <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
+          <mock-styled.section
+            classname=""
+          >
             <mock-styled.div
               classname="mock-css. mock-css. mock-css. mock-css."
             >
@@ -3592,8 +3600,12 @@ exports[`PaymentPage should match a snapshot when has no session and no data 1`]
   "container": <div>
     <mock-styled.div />
     <mock-styled.div>
-      <mock-styled.section>
-        <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.div
             classname="mock-css. mock-css. mock-css. mock-css."
           >
@@ -3693,7 +3705,9 @@ exports[`PaymentPage should match a snapshot when loading 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.div
             classname="mock-css.
   @keyframes fade-in {
@@ -3750,7 +3764,9 @@ exports[`PaymentPage should match a snapshot when loading 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css.
   @keyframes fade-in {
@@ -3864,7 +3880,9 @@ exports[`PaymentPage should match a snapshot when no payment is returned 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.div
             classname="mock-css.
   @keyframes fade-in {
@@ -3920,7 +3938,9 @@ exports[`PaymentPage should match a snapshot when no payment is returned 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css.
   @keyframes fade-in {
@@ -4033,7 +4053,9 @@ exports[`PaymentPage should match a snapshot when there is a config error 1`] = 
     <div>
       <mock-styled.div />
       <mock-styled.div>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.div
             classname="mock-css.
   @keyframes fade-in {
@@ -4089,7 +4111,9 @@ exports[`PaymentPage should match a snapshot when there is a config error 1`] = 
   "container": <div>
     <mock-styled.div />
     <mock-styled.div>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css.
   @keyframes fade-in {

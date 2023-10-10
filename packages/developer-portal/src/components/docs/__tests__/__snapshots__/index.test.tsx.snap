@@ -11,7 +11,9 @@ exports[`DocsPage should match a snapshot 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div
             classname="mock-css.
   margin-bottom: 2rem;
@@ -89,7 +91,9 @@ exports[`DocsPage should match a snapshot 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css.
   margin-bottom: 2rem;

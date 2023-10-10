@@ -11,7 +11,9 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div
             classname="mock-css.
   @keyframes fade-in {
@@ -130,7 +132,9 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.div
                       style="font-size: 1.953125em; width: 50px; height: 50px;"
                     >
@@ -183,7 +187,9 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.div
                       style="font-size: 1.953125em; width: 50px; height: 50px;"
                     >
@@ -244,7 +250,9 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css.
   @keyframes fade-in {
@@ -363,7 +371,9 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.div
                     style="font-size: 1.953125em; width: 50px; height: 50px;"
                   >
@@ -416,7 +426,9 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.div
                     style="font-size: 1.953125em; width: 50px; height: 50px;"
                   >
@@ -637,7 +649,9 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div
             classname="mock-css.
   @keyframes fade-in {
@@ -756,7 +770,9 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.div
                       style="font-size: 1.953125em; width: 50px; height: 50px;"
                     >
@@ -809,7 +825,9 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.div
                       style="font-size: 1.953125em; width: 50px; height: 50px;"
                     >
@@ -870,7 +888,9 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css.
   @keyframes fade-in {
@@ -989,7 +1009,9 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.div
                     style="font-size: 1.953125em; width: 50px; height: 50px;"
                   >
@@ -1042,7 +1064,9 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.div
                     style="font-size: 1.953125em; width: 50px; height: 50px;"
                   >
@@ -1198,7 +1222,9 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.div
                       style="font-size: 1.953125em; width: 50px; height: 50px;"
                     >
@@ -1251,7 +1277,9 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
 "
               >
                 <mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
                     <mock-styled.div
                       style="font-size: 1.953125em; width: 50px; height: 50px;"
                     >
@@ -1350,7 +1378,9 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.div
                     style="font-size: 1.953125em; width: 50px; height: 50px;"
                   >
@@ -1403,7 +1433,9 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
 "
             >
               <mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
                   <mock-styled.div
                     style="font-size: 1.953125em; width: 50px; height: 50px;"
                   >

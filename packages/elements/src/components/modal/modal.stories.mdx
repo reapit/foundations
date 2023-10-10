@@ -93,11 +93,11 @@ It also leverages our `Portal` component to render the modal at the top level of
           </Button>
           <ModalComponent title="Welcome to the demo modal">
             <BodyText>Here's some nice content for the inside of the modal.</BodyText>
-            <FlexContainer isFlexJustifyCenter>
+            <ButtonGroup alignment="right">
               <Button intent="primary" onClick={closeModal}>
                 Close the modal
               </Button>
-            </FlexContainer>
+            </ButtonGroup>
           </ModalComponent>
         </>
       )

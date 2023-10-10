@@ -10,13 +10,23 @@ import {
   elButtonGroupAlignLeft,
   elButtonGroupAlignRight,
   ElButtonGroupInner,
+  elButtonIconOnly,
   ElButtonLoader,
+  elButtonSizeLarge,
+  elButtonSizeMedium,
+  elButtonSizeSmall,
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIntentDanger, elIntentNeutral, elIntentPrimary } from '../../styles/intent'
 import { deprecateFunction, useDeprecateVar } from '../../storybook/deprecate-var'
+import { elMl1, elMr1 } from '../../styles/spacing'
 
 export type ButtonSizeType = 2 | 3 | 4
+export type ButtonSize = 'small' | 'medium' | 'large'
+export interface ButtonIcon {
+  icon: IconNames
+  position: 'left' | 'right' | 'only'
+}
 
 export type ButtonGroupAlignment = 'left' | 'right' | 'center'
 
@@ -24,6 +34,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   intent?: Intent
   loading?: boolean
   className?: string
+  buttonSize?: ButtonSize
+  buttonIcon?: ButtonIcon
   /** Deprecated - will be removed at v5 release */
   chevronLeft?: boolean
   /** Deprecated - will be removed at v5 release */
@@ -77,20 +89,37 @@ export const Button: FC<ButtonProps> = ({
   chevronRight,
   fullWidth,
   fixedWidth,
+  buttonSize,
+  buttonIcon,
   className = '',
   children,
   size,
   ...rest
 }) => {
   const intentClassname = resolveButtonClassName(intent)
-  const combinedClassName = cx(className, intentClassname, loading && elIsLoading)
+  const isIconOnly = buttonIcon?.icon && buttonIcon.position === 'only'
+  const sizeClass = cx(
+    isIconOnly && elButtonIconOnly,
+    buttonSize === 'small' && elButtonSizeSmall,
+    buttonSize === 'large' && elButtonSizeLarge,
+    buttonSize === 'medium' && elButtonSizeMedium,
+  )
+  const combinedClassName = cx(className, sizeClass, intentClassname, loading && elIsLoading)
 
   useDeprecateVar({ chevronLeft, chevronRight, fullWidth, fixedWidth, size }, 'Button')
 
   return (
     <ElButton className={combinedClassName} {...rest}>
       <ElButtonLoader />
-      {children}
+      {isIconOnly ? (
+        <Icon icon={buttonIcon.icon} />
+      ) : (
+        <>
+          {buttonIcon?.icon && buttonIcon.position === 'left' && <Icon className={elMr1} icon={buttonIcon.icon} />}
+          {children}
+          {buttonIcon?.icon && buttonIcon.position === 'right' && <Icon className={elMl1} icon={buttonIcon.icon} />}
+        </>
+      )}
     </ElButton>
   )
 }

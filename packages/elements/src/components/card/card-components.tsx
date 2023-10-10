@@ -6,7 +6,6 @@ import {
   CardSubHeading,
   CardSubHeadingAdditional,
   CardHeadingWrap,
-  CardImageWrap,
   CardBodyWrap,
   CardListHeading,
   CardListSubHeading,
@@ -21,13 +20,13 @@ import {
   CardContextMenuItem,
   CardMainWrap,
   CardListMainWrap,
-  CardAvatarWrap,
 } from './card'
 import { elCardContextMenuOpen, elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elMb5, elMt5 } from '../../styles/spacing'
 import { Intent } from '../../helpers/intent'
 import { deprecateFunction, useDeprecateComponent } from '../../storybook/deprecate-var'
+import { Avatar } from '../avatar'
 
 export interface CardListItemProps {
   // Card list items have a heading, a sub heading an icon name from our icon list and an onClick action
@@ -172,13 +171,13 @@ export const Card: FC<CardProps> = ({
           {mainContextMenuItems && <CardContextMenu contextMenuItems={mainContextMenuItems} />}
           <CardMainWrap>
             {mainCardAvatarUrl ? (
-              <CardAvatarWrap>
-                {typeof mainCardAvatarUrl === 'string' ? <img src={mainCardAvatarUrl} /> : mainCardAvatarUrl}
-              </CardAvatarWrap>
+              <Avatar src={typeof mainCardAvatarUrl === 'string' ? mainCardAvatarUrl : undefined}>
+                {mainCardAvatarUrl}
+              </Avatar>
             ) : mainCardImgUrl ? (
-              <CardImageWrap>
-                {typeof mainCardImgUrl === 'string' ? <img src={mainCardImgUrl} /> : mainCardImgUrl}
-              </CardImageWrap>
+              <Avatar src={typeof mainCardImgUrl === 'string' ? mainCardImgUrl : undefined} type="image">
+                {mainCardImgUrl}
+              </Avatar>
             ) : null}
             <CardHeadingWrap className={cx(mainCardAvatarUrl && elCardSubHeadingWrapAvatar)}>
               <CardHeading>{mainCardHeading}</CardHeading>

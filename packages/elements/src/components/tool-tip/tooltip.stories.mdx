@@ -1,7 +1,6 @@
 import { Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { ToolTip, ToolTipChild } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
-import { ToolTipStoryComponent } from './tool-tip-story-component'
 
 <Meta title="ToolTip" component={ToolTip} />
 
@@ -9,20 +8,30 @@ import { ToolTipStoryComponent } from './tool-tip-story-component'
 
 ## Basic Usage
 
+<ArgsTable of={ToolTip} />
+
 A tool tip is used for hovering over text and displaying additional info. Below is an example of what the tool tip looks like.
 
 <Canvas>
   <Story name="Basic Usage">
-    <ToolTipStoryComponent />
+    <ToolTip tip="Some Data">Hover here</ToolTip>
   </Story>
 </Canvas>
 
-In this example, you can hover over the text and the tool tip will be displayed
+<RenderHtmlMarkup component="ToolTip" story="Basic Usage" />
+
+## Default Active
+
+<ArgsTable of={ToolTip} />
+
+If you want the initial state of the tooltip to be active, you can pass the `defaultActive` prop.
 
 <Canvas>
-  <Story name="Toggle Tool tip">
-    <div style={{ padding: '20px 0px' }}>
-      <ToolTip tip="Hello there">Hover Here</ToolTip>
-    </div>
+  <Story name="Default Active">
+    <ToolTip tip="Some Data" defaultActive>
+      Hover here
+    </ToolTip>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="ToolTip" story="Default Active" />

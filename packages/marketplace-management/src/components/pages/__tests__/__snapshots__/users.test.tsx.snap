@@ -11,7 +11,9 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -169,7 +171,9 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""
@@ -384,7 +388,9 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -542,7 +548,9 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.div
             classname=""

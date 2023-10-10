@@ -1,5 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
+import { ElAvatar } from '../../avatar'
 
 export const ElNavContainer = styled.nav`
   display: flex;
@@ -122,8 +123,10 @@ export const ElNavItem = styled.a`
       border-bottom: none;
     }
 
-    svg {
+    svg,
+    ${ElAvatar} {
       height: 2rem;
+      width: 2rem;
     }
   }
 `

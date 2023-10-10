@@ -1,13 +1,21 @@
 import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs'
 import { cx } from '@linaria/core'
 import { Nav, NavItem } from './index'
-import { elNavItemActive, elNavItemHideDesktop, elNavItemExpanded, elNavItemIcon, elNavIsDesktop } from './__styles__'
+import {
+  elNavItemActive,
+  elNavItemHideDesktop,
+  elNavItemExpanded,
+  elNavItemIcon,
+  elNavIsDesktop,
+  elNavItemSecondary,
+} from './__styles__'
 import { NavStateProvider, useNavState } from '../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../hooks/use-media-query'
 import { Icon } from '../icon'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { elMl4, elMlAuto, elMr2 } from '../../styles/spacing'
 import { NavResponsive } from './nav-responsive'
+import { Avatar, elAvatarSmall } from '../avatar'
 
 <Meta title="Nav" component={NavResponsive} />
 
@@ -35,7 +43,7 @@ If you use a `SecondaryNav` component, you will need to add these options as `Na
           className={cx(elMr2)}
           icon="appLauncherMenu"
           fontSize="1.5rem"
-          onClick={() => (window.location.href = 'https://marketplace.reapit.cloud/installed')}
+          onClick={() => (window.location.href = 'https://marketplace.reapit.cloud')}
         />
         <Icon height="24px" width="100px" icon="reapitLogoInfographic" />
         <Icon
@@ -43,7 +51,7 @@ If you use a `SecondaryNav` component, you will need to add these options as `Na
           icon="moreSolidSystem"
           fontSize="1.2rem"
           intent="default"
-          onClick={() => consoe.log('Toggle Menu')}
+          onClick={() => console.log('Toggle Menu')}
         />
       </NavItem>
       <NavItem className={elNavItemActive} href="https://marketplace.reapit.cloud/apps">
@@ -60,6 +68,43 @@ If you use a `SecondaryNav` component, you will need to add these options as `Na
 
 <RenderHtmlMarkup component="Nav" story={['Basic Example']} />
 
+## With Avatar
+
+See `Avatar` component for more information - this example shows how to pass an Avatar as the secondary nav item.
+
+<Canvas>
+  <Story name="With Avatar">
+    <Nav>
+      <NavItem>
+        <Icon
+          className={cx(elMr2)}
+          icon="appLauncherMenu"
+          fontSize="1.5rem"
+          onClick={() => (window.location.href = 'https://marketplace.reapit.cloud')}
+        />
+        <Icon height="24px" width="100px" icon="reapitLogoInfographic" />
+        <Icon
+          className={cx(elMlAuto, elMr2, elNavItemHideDesktop)}
+          icon="moreSolidSystem"
+          fontSize="1.2rem"
+          intent="default"
+          onClick={() => console.log('Toggle Menu')}
+        />
+      </NavItem>
+      <NavItem className={elNavItemActive} href="https://marketplace.reapit.cloud/apps">
+        Apps
+      </NavItem>
+      <NavItem href="https://developers.reapit.cloud/analytics">Analytics</NavItem>
+      <NavItem href="https://marketplace.reapit.cloud">Marketplace</NavItem>
+      <NavItem className={elNavItemSecondary} href="https://developers.reapit.cloud/login">
+        <Avatar className={elAvatarSmall} src="https://picsum.photos/200" />
+      </NavItem>
+    </Nav>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Nav" story={['With Avatar']} />
+
 ## Basic Example Mobile Menu Open
 
 In this example, changing the browser width to mobile will show the expanded mobile menu. You will need to use some JavaScript to toggle the `el-nav-item-expanded` class on the `NavItem` components on cllick of the more icon.
@@ -74,7 +119,7 @@ As per above if you use a `SecondaryNav` component, you will need to add these o
           className={cx(elMr2)}
           icon="appLauncherMenu"
           fontSize="1.5rem"
-          onClick={() => (window.location.href = 'https://marketplace.reapit.cloud/installed')}
+          onClick={() => (window.location.href = 'https://marketplace.reapit.cloud')}
         />
         <Icon height="24px" width="100px" icon="reapitLogoInfographic" />
         <Icon
@@ -82,7 +127,7 @@ As per above if you use a `SecondaryNav` component, you will need to add these o
           icon="moreSolidSystem"
           fontSize="1.2rem"
           intent="default"
-          onClick={() => consoe.log('Toggle Menu')}
+          onClick={() => console.log('Toggle Menu')}
         />
       </NavItem>
       <NavItem className={cx(elNavItemActive, elNavItemExpanded)} href="https://marketplace.reapit.cloud/apps">
@@ -97,7 +142,7 @@ As per above if you use a `SecondaryNav` component, you will need to add these o
       <NavItem className={elNavItemExpanded} href="https://marketplace.reapit.cloud">
         Marketplace
       </NavItem>
-      <NavItem isSecondary href="https://developers.reapit.cloud/login">
+      <NavItem className={elNavItemSecondary} href="https://developers.reapit.cloud/login">
         <Icon iconSize="medium" icon="profileMenu" />
       </NavItem>
     </Nav>
@@ -190,6 +235,75 @@ For the simple use case, the sub items are not required however, if you use a `S
               itemIndex: 4,
               callback: () => console.log('Logging out'),
               iconId: 'profileMenu',
+              isSecondary: true,
+              text: 'Logout',
+            },
+          ]}
+        />
+      </MediaStateProvider>
+    </NavStateProvider>
+  </Story>
+</Canvas>
+
+## React Shorthand With Avatar
+
+To achieve the avatar effect, simply pass in an `icon` prop instead of the `iconId`
+
+<Canvas>
+  <Story name="React Shorthand With Avatar">
+    <NavStateProvider>
+      <MediaStateProvider>
+        <NavResponsive
+          defaultNavIndex={1}
+          defaultNavSubIndex={1}
+          options={[
+            {
+              itemIndex: 0,
+              callback: () => console.log('Navigating'),
+            },
+            {
+              itemIndex: 1,
+              callback: () => console.log('Navigating'),
+              text: 'Apps',
+              subItems: [
+                {
+                  itemIndex: 0,
+                  callback: () => console.log('Navigating'),
+                  text: 'App List',
+                },
+                {
+                  itemIndex: 1,
+                  callback: () => console.log('Navigating'),
+                  text: 'Create App',
+                },
+              ],
+            },
+            {
+              itemIndex: 2,
+              callback: () => console.log('Navigating'),
+              text: 'Analytics',
+              subItems: [
+                {
+                  itemIndex: 2,
+                  callback: () => console.log('Navigating'),
+                  text: 'Hits Per Day',
+                },
+                {
+                  itemIndex: 3,
+                  callback: () => console.log('Navigating'),
+                  text: 'Weekly Hits',
+                },
+              ],
+            },
+            {
+              itemIndex: 3,
+              href: 'https://marketplace.reapit.cloud',
+              text: 'Marketplace',
+            },
+            {
+              itemIndex: 4,
+              callback: () => console.log('Logging out'),
+              icon: <Avatar className={elAvatarSmall} src="https://picsum.photos/200" />,
               isSecondary: true,
               text: 'Logout',
             },

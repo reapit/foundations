@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
-import { Button, ButtonProps, FloatingButton, ButtonGroup, resolveButtonSize } from '../index'
+import { Button, ButtonProps, FloatingButton, ButtonGroup, resolveButtonSize, ButtonSize, ButtonIcon } from '../index'
 
 const props: ButtonProps = {
   type: 'submit',
@@ -20,9 +20,11 @@ describe('Button', () => {
       ...props,
       loading: true,
       disabled: true,
-      chevronLeft: true,
-      chevronRight: true,
-      fixedWidth: true,
+      buttonSize: 'small' as ButtonSize,
+      buttonIcon: {
+        icon: 'addSystem',
+        position: 'left',
+      } as ButtonIcon,
       className: 'some-class',
     }
     expect(render(<Button {...fullProps}>button text</Button>)).toMatchSnapshot()

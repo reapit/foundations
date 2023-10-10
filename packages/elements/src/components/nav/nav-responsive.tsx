@@ -68,7 +68,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                   className={cx(elMr2)}
                   icon="appLauncherMenu"
                   fontSize="1.5rem"
-                  onClick={() => (window.location.href = 'https://marketplace.reapit.cloud/installed')}
+                  onClick={() => (window.location.href = 'https://marketplace.reapit.cloud')}
                 />
                 {icon ? (
                   icon
@@ -108,7 +108,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
               >
                 {(!isSecondary || isMobile) && text}
                 {isSecondary && !isMobile && icon ? (
-                  icon
+                  <>{icon}</>
                 ) : isSecondary && !isMobile && iconId ? (
                   <Icon fontSize="32px" icon={iconId} />
                 ) : null}

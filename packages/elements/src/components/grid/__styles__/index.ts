@@ -33,6 +33,14 @@ export const ElCol = styled.div`
   grid-column-end: span 4;
 `
 
+export const ElColHalf = styled.div`
+  grid-column-end: span 2;
+`
+
+export const ElColQuarter = styled.div`
+  grid-column-end: span 1;
+`
+
 export const ElColSplit = styled.div`
   grid-column-end: span 4;
 
@@ -46,5 +54,33 @@ export const ElColSplit = styled.div`
 
   ${is4KScreen} {
     grid-column-end: span 10;
+  }
+`
+
+export const ElGridThirds = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+
+  ${isTablet} {
+    grid-column-gap: 1.25rem;
+    grid-row-gap: 1.25rem;
+  }
+`
+
+export const ElColSplitThird = styled.div`
+  grid-column-end: span 3;
+
+  ${isDesktop} {
+    grid-column-end: span 1;
+  }
+`
+
+export const ElColSplitTwoThirds = styled.div`
+  grid-column-end: span 3;
+
+  ${isDesktop} {
+    grid-column-end: span 2;
   }
 `

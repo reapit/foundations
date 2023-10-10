@@ -1,5 +1,18 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
-import { Title, Subtitle, BodyText, SmallText } from './index'
+import {
+  Title,
+  Subtitle,
+  BodyText,
+  SmallText,
+  Text3XL,
+  Text2XL,
+  TextXL,
+  TextL,
+  TextBase,
+  TextSM,
+  TextXS,
+  Text2XS,
+} from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 <Meta title="Typography" component={Title} />
@@ -8,9 +21,73 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 The base type scale and wrappers for defining typography and type pairings.
 
-Props available for the React version of the component;
+## Base Scale
 
-<ArgsTable of={Title} />
+<Canvas>
+  <Story name="Base Scale">
+    <Text3XL>I am a Text3XL</Text3XL>
+    <Text2XL>I am a Text2XL</Text2XL>
+    <TextXL>I am a TextXL</TextXL>
+    <TextL>I am a TextL</TextL>
+    <TextBase>I am a TextBase</TextBase>
+    <TextSM>I am a TextSM</TextSM>
+    <TextXS>I am a TextXS</TextXS>
+    <Text2XS>I am a Text2XS</Text2XS>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Base Scale" />
+
+## Modifiers
+
+We support a number of modifier to override the default typography, specifically bold, italic, grey coloured and centered text. Also, removing the bottom margin when you want to manually group your text items and adding a bottom margin for denoting the end of a page section.
+
+See the table below for details of these modifiers - these all map to css modifier classes you can add to your HTML markup.
+
+<ArgsTable of={TextBase} />
+
+In all cases they map to css classes you can see in the rendered markup. Below you can see each of the modiifiers applied to a title and a body text component. They are available also for small text and subtitle.
+
+<Canvas>
+  <Story name="Typography Modifiers">
+    <TextBase hasGreyText>I am a TextBase with the hasGreyText modifier</TextBase>
+    <TextBase hasItalicText>I am a TextBase with the hasItalicText modifier</TextBase>
+    <TextBase hasRegularText>I am a TextBase with the hasRegularText modifier</TextBase>
+    <TextBase hasMediumText>I am a TextBase with the hasMediumText modifier</TextBase>
+    <TextBase hasBoldText>I am a TextBase with the hasBoldText modifier</TextBase>
+    <TextBase hasCenteredText>I am a TextBase with the hasCenteredText modifier</TextBase>
+    <TextBase hasNoMargin>I am a TextBase with the hasNoMargin modifier</TextBase>
+    <TextBase hasMargin>I am a TextBase with the hasMargin modifier</TextBase>
+    <TextBase hasSectionMargin>I am a TextBase with the hasSectionMargin modifier</TextBase>
+    <TextBase hasDisabledText>I am a TextBase with the hasDisabledText modifier</TextBase>
+    <TextBase hasCapitalisedText>i am a bodytext with hasCapitalisedText modifier</TextBase>
+    <TextBase hasUpperCasedText>i am a bodytext with hasUpperCasedText modifier</TextBase>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Typography Modifiers" />
+
+## Intent
+
+As with numerous other components, we support the concept of intent. This is a modifier that allows you to set the colour of the text to match the intent of the content.
+
+<Canvas>
+  <Story name="Intent">
+    <TextBase intent="primary">I am a TextBase primary</TextBase>
+    <TextBase intent="neutral">I am a TextBase neutral</TextBase>
+    <TextBase intent="success">I am a TextBase success</TextBase>
+    <TextBase intent="pending">I am a TextBase pending</TextBase>
+    <TextBase intent="warning">I am a TextBase warning</TextBase>
+    <TextBase intent="danger">I am a TextBase danger</TextBase>
+    <TextBase intent="default">I am a TextBase default</TextBase>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Intent" />
+
+## Helpers
+
+In addtion to the base scale, we have defined the below components that have base line default margins set semantic names and tags set for ease of use.
 
 ### Titles
 
@@ -101,35 +178,3 @@ Props available for the React version of the component;
 </Canvas>
 
 <RenderHtmlMarkup component="Typography" story="Body text and Small text" />
-
-### Modifiers
-
-We support a number of modifier to override the default typography, specifically bold, italic, grey coloured and centered text. Also, removing the bottom margin when you want to manually group your text items and adding a 60px bottom margin for denoting the end of a page section.
-
-See the table below for details of these modifiers;
-
-<ArgsTable of={Title} />
-
-In all cases they map to css classes you can see in the rendered markup. Below you can see each of the modiifiers applied to a title and a body text component. They are available also for small text and subtitle.
-
-<Canvas>
-  <Story name="Bold, Italic, Grey, Margin, Centered, Modifiers">
-    <Title hasGreyText>I am a Title with the hasGreyText modifier</Title>
-    <Title hasItalicText>I am a Title with the hasItalicText modifier</Title>
-    <Title hasRegularText>I am a Title with the hasRegularText modifier</Title>
-    <Title hasNoMargin>I am a Title with the hasNoMargin modifier</Title>
-    <Title hasCenteredText>I am a Title with the hasCenteredText modifier</Title>
-    <Title hasSectionMargin>I am a Title with the hasSectionMargin modifier</Title>
-    <Title hasDisabledText>I am a Title with the hasDisabledText modifier</Title>
-    <BodyText hasGreyText>I am a BodyText with the hasGreyText modifier</BodyText>
-    <BodyText hasItalicText>I am a BodyText with the hasItalicText modifier</BodyText>
-    <BodyText hasRegularText>I am a BodyText with the hasRegularText modifier</BodyText>
-    <BodyText hasNoMargin>I am a BodyText with the hasNoMargin modifier</BodyText>
-    <BodyText hasCenteredText>I am a BodyText with the hasCenteredText modifier</BodyText>
-    <BodyText hasSectionMargin>I am a BodyText with the hasSectionMargin modifier</BodyText>
-    <BodyText hasDisabledText>I am a BodyText with the hasDisabledText modifier</BodyText>
-    <BodyText hasCapitalisedText>i am a bodytext with hasCapitalisedText modifier</BodyText>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Typography" story="Bold, Italic, Grey, Margin, Centered, Modifiers" />

@@ -6,7 +6,9 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.main>
+      <mock-styled.main
+        classname=""
+      >
         <mock-styled.nav
           classname=""
         >
@@ -252,7 +254,9 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.main>
+    <mock-styled.main
+      classname=""
+    >
       <mock-styled.nav
         classname=""
       >
