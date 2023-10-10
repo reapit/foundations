@@ -378,5 +378,11 @@ export const elGlobals = css`
       --component-input-border-bottom: 1px solid var(--color-grey-150);
       --component-input-border-bottom-focus: 1px solid #000000;
     }
+
+    pre, code {
+      background: var(--color-grey-50);
+      padding: 1rem;
+      overflow: scroll;
+    }
   }
 `
