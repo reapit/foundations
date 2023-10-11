@@ -1,9 +1,17 @@
 import OpenAI from "openai"
 import config from '../config.json'
 import { Handler, APIGatewayEvent } from 'aws-lambda'
+import snowflake from 'snowflake-sdk'
 
 const openai = new OpenAI({
   apiKey: config.apiKey,
+})
+
+const connection = snowflake.createConnection({
+  account: 'rtcoror',
+  username: 'ashleigh',
+  password: '',
+  application: "reapitsales",
 })
 
 const propertySchema = `
@@ -32,6 +40,12 @@ const corsHeaders = {
 }
 
 export const handler: Handler = async  (event: APIGatewayEvent) => {
+
+  const snowflakeConnection = await new Promise<any>((resolve, reject) => connection.connect((error, connection) => {
+    console.log('inside snowflake connection promise')
+    if (error) reject(error)
+    resolve(connection)
+  }))
 
   if (event.httpMethod === 'options') {
     return {
@@ -71,6 +85,29 @@ export const handler: Handler = async  (event: APIGatewayEvent) => {
   })
 
   console.log('result', result)
+
+  const snowflakeResult = await snowflakeConnection.execute({
+    sqlText: result.choices[0].message.content as string,
+    complete: (err, stmt) => {
+      if (err) {
+        console.error(err)
+        throw err
+      }
+
+      const rows: any[] = []
+
+      stmt.streamRows({
+        start: Math.max(0, stmt.getNumRows() - 5),
+        end: stmt.getNumRows() - 1,
+      }).on('data', (row) => rows.push(row))
+
+      console.log('rows', rows)
+
+      return rows
+    }
+  })
+
+  console.log('snowflake result', snowflakeResult.getSqlText())
 
   return {
     statusCode: 200,

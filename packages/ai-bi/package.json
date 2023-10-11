@@ -3,8 +3,10 @@
   "packageManager": "yarn@3.1.1",
   "dependencies": {
     "@types/aws-lambda": "^8.10.122",
+    "@types/snowflake-sdk": "^1.6.14",
     "aws-lambda": "^1.0.7",
-    "openai": "^4.11.0"
+    "openai": "^4.11.0",
+    "snowflake-sdk": "^1.9.0"
   },
   "devDependencies": {
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
