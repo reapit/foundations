@@ -64,128 +64,138 @@ export const FilterForm: FC<FilterFormProps> = ({ setAppsFilters }) => {
           <InputGroup {...register('publicListedDateTo')} label="Publicly Listed To" type="date" />
         </InputWrap>
         <InputWrap>
-          <Label>In Public AppMarket</Label>
-          <ToggleRadio
-            {...register('isPublic')}
-            hasGreyBg
-            options={[
-              {
-                id: 'option-public-all',
-                value: '',
-                text: 'All',
-                isChecked: true,
-              },
-              {
-                id: 'option-public-true',
-                value: 'true',
-                text: 'Public',
-                isChecked: false,
-              },
-              {
-                id: 'option-public-false',
-                value: 'false',
-                text: 'Private',
-                isChecked: false,
-              },
-            ]}
-          />
+          <InputGroup>
+            <Label>In Public AppMarket</Label>
+            <ToggleRadio
+              {...register('isPublic')}
+              hasGreyBg
+              options={[
+                {
+                  id: 'option-public-all',
+                  value: '',
+                  text: 'All',
+                  isChecked: true,
+                },
+                {
+                  id: 'option-public-true',
+                  value: 'true',
+                  text: 'Public',
+                  isChecked: false,
+                },
+                {
+                  id: 'option-public-false',
+                  value: 'false',
+                  text: 'Private',
+                  isChecked: false,
+                },
+              ]}
+            />
+          </InputGroup>
         </InputWrap>
         <InputWrap>
-          <Label>Integration or AC Enabled</Label>
-          <ToggleRadio
-            {...register('isDirectApi')}
-            hasGreyBg
-            options={[
-              {
-                id: 'option-integration-all',
-                value: '',
-                text: 'All',
-                isChecked: true,
-              },
-              {
-                id: 'option-integration-true',
-                value: 'true',
-                text: 'Integration',
-                isChecked: false,
-              },
-              {
-                id: 'option-integration-false',
-                value: 'false',
-                text: 'AC App',
-                isChecked: false,
-              },
-            ]}
-          />
+          <InputGroup>
+            <Label>Integration or AC Enabled</Label>
+            <ToggleRadio
+              {...register('isDirectApi')}
+              hasGreyBg
+              options={[
+                {
+                  id: 'option-integration-all',
+                  value: '',
+                  text: 'All',
+                  isChecked: true,
+                },
+                {
+                  id: 'option-integration-true',
+                  value: 'true',
+                  text: 'Integration',
+                  isChecked: false,
+                },
+                {
+                  id: 'option-integration-false',
+                  value: 'false',
+                  text: 'AC App',
+                  isChecked: false,
+                },
+              ]}
+            />
+          </InputGroup>
         </InputWrap>
         <InputWrap>
-          <Label>Publicly Listed</Label>
-          <ToggleRadio
-            {...register('isListed')}
-            hasGreyBg
-            options={[
-              {
-                id: 'option-listed-all',
-                value: '',
-                text: 'All',
-                isChecked: true,
-              },
-              {
-                id: 'option-listed-true',
-                value: 'true',
-                text: 'Listed',
-                isChecked: false,
-              },
-              {
-                id: 'option-listed-false',
-                value: 'false',
-                text: 'Development',
-                isChecked: false,
-              },
-            ]}
-          />
+          <InputGroup>
+            <Label>Publicly Listed</Label>
+            <ToggleRadio
+              {...register('isListed')}
+              hasGreyBg
+              options={[
+                {
+                  id: 'option-listed-all',
+                  value: '',
+                  text: 'All',
+                  isChecked: true,
+                },
+                {
+                  id: 'option-listed-true',
+                  value: 'true',
+                  text: 'Listed',
+                  isChecked: false,
+                },
+                {
+                  id: 'option-listed-false',
+                  value: 'false',
+                  text: 'Development',
+                  isChecked: false,
+                },
+              ]}
+            />
+          </InputGroup>
         </InputWrap>
         <InputWrap>
-          <Label>Is Charged Consumption</Label>
-          <ToggleRadio
-            {...register('isChargedConsumption')}
-            hasGreyBg
-            options={[
-              {
-                id: 'option-consumption-all',
-                value: '',
-                text: 'All',
-                isChecked: true,
-              },
-              {
-                id: 'option-consumption-true',
-                value: 'true',
-                text: 'Charged',
-                isChecked: false,
-              },
-              {
-                id: 'option-consumption-false',
-                value: 'false',
-                text: 'Free',
-                isChecked: false,
-              },
-            ]}
-          />
+          <InputGroup>
+            <Label>Is Charged Consumption</Label>
+            <ToggleRadio
+              {...register('isChargedConsumption')}
+              hasGreyBg
+              options={[
+                {
+                  id: 'option-consumption-all',
+                  value: '',
+                  text: 'All',
+                  isChecked: true,
+                },
+                {
+                  id: 'option-consumption-true',
+                  value: 'true',
+                  text: 'Charged',
+                  isChecked: false,
+                },
+                {
+                  id: 'option-consumption-false',
+                  value: 'false',
+                  text: 'Free',
+                  isChecked: false,
+                },
+              ]}
+            />
+          </InputGroup>
         </InputWrap>
         {appsBrowseCategoriesCollection && (
           <>
-            <Label>Categories</Label>
             <InputWrapFull>
-              <MultiSelectInput
-                id="category"
-                {...register('category')}
-                options={
-                  appsBrowseCategoriesCollection.data?.map(({ name, id }) => ({
-                    name,
-                    value: id,
-                  })) as MultiSelectOption[]
-                }
-                defaultValues={[]}
-              />
+              <InputGroup>
+                <Label>Categories</Label>
+                <MultiSelectInput
+                  id="category"
+                  {...register('category')}
+                  options={
+                    appsBrowseCategoriesCollection.data?.map(({ name, id }) => ({
+                      name,
+                      value: id,
+                    })) as MultiSelectOption[]
+                  }
+                  defaultValues={[]}
+                />
+              </InputGroup>
             </InputWrapFull>
           </>
         )}

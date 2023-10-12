@@ -74,7 +74,7 @@ export const ElMultiSelectLabel = styled.label`
   height: 28px;
   background: var(--color-white);
   border-radius: 1rem;
-  border: 1px solid var(--color-grey-100);
+  border: 1px solid var(--color-grey-150);
   padding: 0.2rem 1.5rem;
   position: relative;
   font-size: var(--font-size-small);
@@ -108,7 +108,7 @@ export const ElMultiSelectSelected = styled.div`
   flex-wrap: wrap;
   padding: 0.25rem 0.5rem;
   background-color: var(--color-white);
-  border: 1px solid var(--color-grey-100);
+  border: 1px solid var(--color-grey-150);
   border-radius: 2px 2px 0 0;
   min-height: 3rem;
   padding: 0.25rem 0.5rem;
@@ -126,7 +126,7 @@ export const ElMultiSelectUnSelected = styled.div`
   flex-wrap: wrap;
   padding: 0.25rem 0.5rem;
   background-color: var(--color-white);
-  border: 1px solid var(--color-grey-100);
+  border: 1px solid var(--color-grey-150);
   border-top: none;
   border-radius: 0 0 4px 4px;
   padding: 0.25rem 0.5rem;

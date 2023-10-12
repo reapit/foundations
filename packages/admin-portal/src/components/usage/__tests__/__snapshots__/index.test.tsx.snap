@@ -31,7 +31,14 @@ exports[`UsagePage should match a snapshot 1`] = `
               </mock-styled.p>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.label>
+              <mock-styled.label
+                classname="mock-css.
+  display: flex;
+ mock-css.
+  margin-bottom: 0.5rem;
+"
+                htmlfor="developer-search-box"
+              >
                 Company
               </mock-styled.label>
               <mock-styled.div>
@@ -72,10 +79,10 @@ exports[`UsagePage should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.label>
-                App
-              </mock-styled.label>
               <mock-styled.div>
+                <mock-styled.label>
+                  App
+                </mock-styled.label>
                 <mock-styled.select
                   disabled="true"
                   name="appId"
@@ -89,10 +96,10 @@ exports[`UsagePage should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.label>
-                Customer
-              </mock-styled.label>
               <mock-styled.div>
+                <mock-styled.label>
+                  Customer
+                </mock-styled.label>
                 <mock-styled.select
                   disabled="true"
                   name="customerId"
@@ -192,7 +199,14 @@ exports[`UsagePage should match a snapshot 1`] = `
             </mock-styled.p>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
+            <mock-styled.label
+              classname="mock-css.
+  display: flex;
+ mock-css.
+  margin-bottom: 0.5rem;
+"
+              htmlfor="developer-search-box"
+            >
               Company
             </mock-styled.label>
             <mock-styled.div>
@@ -233,10 +247,10 @@ exports[`UsagePage should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
-              App
-            </mock-styled.label>
             <mock-styled.div>
+              <mock-styled.label>
+                App
+              </mock-styled.label>
               <mock-styled.select
                 disabled="true"
                 name="appId"
@@ -250,10 +264,10 @@ exports[`UsagePage should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
-              Customer
-            </mock-styled.label>
             <mock-styled.div>
+              <mock-styled.label>
+                Customer
+              </mock-styled.label>
               <mock-styled.select
                 disabled="true"
                 name="customerId"

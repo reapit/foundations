@@ -81,13 +81,13 @@ export const CustomerRegister: FC = () => {
             Welcome
           </Subtitle>
           <BodyText hasCenteredText hasSectionMargin>
-            to the Reapit Foundations Developer Portal
+            to the Reapit Foundations DeveloperPortal
           </BodyText>
         </FlexContainer>
         {hasDeveloperOrg && (
           <>
             <BodyText hasGreyText hasCenteredText>
-              The organisation ‘{orgName}’ has already been setup within the Developer Portal. To access this
+              The organisation ‘{orgName}’ has already been setup within the DeveloperPortal. To access this
               organisation, you will need to be invited by the Admin who set the account up.
             </BodyText>
             <BodyText hasGreyText hasCenteredText hasSectionMargin>
@@ -123,8 +123,8 @@ export const CustomerRegister: FC = () => {
               This portal is used for building apps and integrations on top of our Platform APIs.
             </BodyText>
             <BodyText hasGreyText hasCenteredText>
-              Whilst using the Developer Portal to build against our Sandbox environment is free, API consumption
-              charges apply when your app or integration is published (either privately or publicly) in the AppMarket.
+              Whilst using the DeveloperPortal to build against our Sandbox environment is free, API consumption charges
+              apply when your app or integration is published (either privately or publicly) in the AppMarket.
             </BodyText>
             <BodyText hasGreyText hasCenteredText hasSectionMargin>
               To view our Terms and Conditions, please click ‘Proceed’ below.

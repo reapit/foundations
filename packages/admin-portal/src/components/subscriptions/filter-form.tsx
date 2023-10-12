@@ -21,8 +21,8 @@ export const FilterForm: FC<FilterFormProps> = ({ setSubscriptionsFilters }) => 
           <InputGroup {...register('userEmail')} type="email" label="User Email" />
         </InputWrap>
         <InputWrap>
-          <Label>Subscription Type</Label>
           <InputGroup>
+            <Label>Subscription Type</Label>
             <Select {...register('subscriptionType')}>
               <option value="">Please Select</option>
               <option value="applicationListing">Application Listing</option>
@@ -32,8 +32,8 @@ export const FilterForm: FC<FilterFormProps> = ({ setSubscriptionsFilters }) => 
           </InputGroup>
         </InputWrap>
         <InputWrap>
-          <Label>Status</Label>
           <InputGroup>
+            <Label>Status</Label>
             <Select {...register('status')}>
               <option value="">Please Select</option>
               <option value="active">Active</option>

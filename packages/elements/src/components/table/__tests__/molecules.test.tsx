@@ -10,6 +10,7 @@ import {
   TableExpandableRow,
   TableCtaTriggerCell,
   resolveNarrowOrderClass,
+  TableCellSplit,
 } from '../molecules'
 import * as styles from '../__styles__'
 
@@ -30,6 +31,13 @@ describe('TableHeader Component', () => {
 describe('TableRow Component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<TableRow />)
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('TableCellSplit Component', () => {
+  it('should match a snapshot', () => {
+    const wrapper = render(<TableCellSplit data="Some Data" subData="Some Longer Sub Data" />)
     expect(wrapper).toMatchSnapshot()
   })
 })

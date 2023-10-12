@@ -16,6 +16,7 @@ export const searchMinWidth = css`
 
 export const ControlsContainer = styled.div`
   background-color: #fff;
+  margin-bottom: 0.5rem;
 `
 
 export const inputFullWidth = css`

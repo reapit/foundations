@@ -260,6 +260,27 @@ export const ElTableCell = styled.div`
   }
 `
 
+export const ElTableCellSplitWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const ElTableCellSplitData = styled.div`
+  font-size: var(--font-size-small);
+  color: var(--color-black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+
+export const ElTableCellSplitSubData = styled.div`
+  font-size: var(--font-size-smallest);
+  color: var(--color-grey-500);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+
 export const ElTableExpandableRowTriggerCell = styled.div`
   display: flex;
   align-items: center;

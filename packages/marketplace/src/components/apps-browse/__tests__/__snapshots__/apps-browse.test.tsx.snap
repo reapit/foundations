@@ -38,7 +38,7 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -64,7 +64,7 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -121,7 +121,9 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -287,7 +289,7 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -988,7 +990,7 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -1014,7 +1016,7 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -1071,7 +1073,9 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -1237,7 +1241,7 @@ exports[`AppsBrowse should match a snapshot for  1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -1995,7 +1999,7 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -2021,7 +2025,7 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -2078,7 +2082,9 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -2244,7 +2250,7 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -2919,7 +2925,7 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -2945,7 +2951,7 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -3002,7 +3008,9 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -3168,7 +3176,7 @@ exports[`AppsBrowse should match a snapshot for mobile desktop 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -3900,7 +3908,7 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -3926,7 +3934,7 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -3983,7 +3991,9 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -4149,7 +4159,7 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -4850,7 +4860,7 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -4876,7 +4886,7 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -4933,7 +4943,9 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -5099,7 +5111,7 @@ exports[`AppsBrowse should match a snapshot for mobile mobile 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -5857,7 +5869,7 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -5883,7 +5895,7 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -5940,7 +5952,9 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -6106,7 +6120,7 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -6755,7 +6769,7 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -6781,7 +6795,7 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -6838,7 +6852,9 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -7004,7 +7020,7 @@ exports[`AppsBrowse should match a snapshot for mobile superWidescreen 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -7710,7 +7726,7 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -7736,7 +7752,7 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -7793,7 +7809,9 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -7959,7 +7977,7 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -8660,7 +8678,7 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -8686,7 +8704,7 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -8743,7 +8761,9 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -8909,7 +8929,7 @@ exports[`AppsBrowse should match a snapshot for mobile tablet 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -9667,7 +9687,7 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -9693,7 +9713,7 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -9750,7 +9770,9 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -9916,7 +9938,7 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -10565,7 +10587,7 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -10591,7 +10613,7 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -10648,7 +10670,9 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -10814,7 +10838,7 @@ exports[`AppsBrowse should match a snapshot for mobile widescreen 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -11527,7 +11551,7 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -11553,7 +11577,7 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -11610,7 +11634,9 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -11776,7 +11802,7 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -11843,7 +11869,7 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -11869,7 +11895,7 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -11926,7 +11952,9 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -12092,7 +12120,7 @@ exports[`AppsBrowse should match a snapshot with filters 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {

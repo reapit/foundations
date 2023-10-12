@@ -64,20 +64,22 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
       <FormLayout hasMargin>
         {filteredScopes && (
           <InputWrapFull>
-            <Label>{scopes.label}</Label>
-            <MultiSelectInput
-              id="app-edit-scopes-select"
-              {...scopes}
-              {...register('scopes')}
-              options={
-                filteredScopes.map(({ name, description }) => ({
-                  name: description,
-                  value: name,
-                })) as MultiSelectOption[]
-              }
-              defaultValues={appEditForm.scopes.split(',').filter(Boolean)}
-            />
-            {errors.scopes?.message && <InputError message={errors.scopes?.message} />}
+            <InputGroup>
+              <Label>{scopes.label}</Label>
+              <MultiSelectInput
+                id="app-edit-scopes-select"
+                {...scopes}
+                {...register('scopes')}
+                options={
+                  filteredScopes.map(({ name, description }) => ({
+                    name: description,
+                    value: name,
+                  })) as MultiSelectOption[]
+                }
+                defaultValues={appEditForm.scopes.split(',').filter(Boolean)}
+              />
+              {errors.scopes?.message && <InputError message={errors.scopes?.message} />}
+            </InputGroup>
           </InputWrapFull>
         )}
       </FormLayout>
@@ -91,18 +93,20 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
       <FormLayout hasMargin>
         {productsList?.data && (
           <InputWrapFull>
-            <Label>{products.label}</Label>
-            <MultiSelectInput
-              id="app-edit-products-select"
-              {...products}
-              {...register('products')}
-              options={productsList?.data?.map((product) => ({
-                value: product.id ?? '',
-                name: product.name ?? '',
-              }))}
-              defaultValues={appEditForm.products.split(',').filter(Boolean)}
-            />
-            {errors.products?.message && <InputError message={errors.products?.message} />}
+            <InputGroup>
+              <Label>{products.label}</Label>
+              <MultiSelectInput
+                id="app-edit-products-select"
+                {...products}
+                {...register('products')}
+                options={productsList?.data?.map((product) => ({
+                  value: product.id ?? '',
+                  name: product.name ?? '',
+                }))}
+                defaultValues={appEditForm.products.split(',').filter(Boolean)}
+              />
+              {errors.products?.message && <InputError message={errors.products?.message} />}
+            </InputGroup>
           </InputWrapFull>
         )}
       </FormLayout>

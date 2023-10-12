@@ -135,8 +135,8 @@ export const Installations: FC = () => {
             />
           </InputWrapFull>
           <InputWrap>
-            <Label>Company</Label>
             <SearchableDropdown
+              label="Company"
               id="developer-search-box"
               {...register('companyName')}
               getResults={(company: string) =>
@@ -148,8 +148,8 @@ export const Installations: FC = () => {
             />
           </InputWrap>
           <InputWrap>
-            <Label>Client</Label>
             <SearchableDropdown
+              label="Client"
               id="client-search-box"
               {...register('clientId')}
               getResults={(name: string) => fetchCustomersList({ name }).then((customers) => customers?.data ?? [])}
@@ -165,31 +165,33 @@ export const Installations: FC = () => {
             <InputGroup {...register('installedDateTo')} label="Installed Date To" type="date" />
           </InputWrap>
           <InputWrap>
-            <Label>Is Charged Consumption</Label>
-            <ToggleRadio
-              {...register('isChargedConsumption')}
-              hasGreyBg
-              options={[
-                {
-                  id: 'option-consumption-all',
-                  value: '',
-                  text: 'All',
-                  isChecked: true,
-                },
-                {
-                  id: 'option-consumption-true',
-                  value: 'true',
-                  text: 'Charged',
-                  isChecked: false,
-                },
-                {
-                  id: 'option-consumption-false',
-                  value: 'false',
-                  text: 'Free',
-                  isChecked: false,
-                },
-              ]}
-            />
+            <InputGroup>
+              <Label>Is Charged Consumption</Label>
+              <ToggleRadio
+                {...register('isChargedConsumption')}
+                hasGreyBg
+                options={[
+                  {
+                    id: 'option-consumption-all',
+                    value: '',
+                    text: 'All',
+                    isChecked: true,
+                  },
+                  {
+                    id: 'option-consumption-true',
+                    value: 'true',
+                    text: 'Charged',
+                    isChecked: false,
+                  },
+                  {
+                    id: 'option-consumption-false',
+                    value: 'false',
+                    text: 'Free',
+                    isChecked: false,
+                  },
+                ]}
+              />
+            </InputGroup>
           </InputWrap>
         </FormLayout>
       </form>

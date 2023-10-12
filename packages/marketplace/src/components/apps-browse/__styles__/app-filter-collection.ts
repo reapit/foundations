@@ -5,7 +5,7 @@ import { forDesktopAndAbove, forMobileAndAbove, forWidescreenAndAbove } from '..
 export const AppFilterCol = styled.div`
   cursor: pointer;
   padding: 0.75rem;
-  background-color: #eaf5fc;
+  background-color: var(--intent-primary-lightest);
   border-radius: 0.5rem;
   height: 160px;
 

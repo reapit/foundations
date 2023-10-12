@@ -75,7 +75,7 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -203,7 +203,7 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -388,7 +388,7 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -489,7 +489,7 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
