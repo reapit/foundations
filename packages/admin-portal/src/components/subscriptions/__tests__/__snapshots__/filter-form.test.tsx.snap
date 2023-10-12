@@ -40,10 +40,10 @@ exports[`FilterForm should render component 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
-              Subscription Type
-            </mock-styled.label>
             <mock-styled.div>
+              <mock-styled.label>
+                Subscription Type
+              </mock-styled.label>
               <mock-styled.select
                 name="subscriptionType"
               >
@@ -71,10 +71,10 @@ exports[`FilterForm should render component 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
-              Status
-            </mock-styled.label>
             <mock-styled.div>
+              <mock-styled.label>
+                Status
+              </mock-styled.label>
               <mock-styled.select
                 name="status"
               >
@@ -136,10 +136,10 @@ exports[`FilterForm should render component 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.label>
-            Subscription Type
-          </mock-styled.label>
           <mock-styled.div>
+            <mock-styled.label>
+              Subscription Type
+            </mock-styled.label>
             <mock-styled.select
               name="subscriptionType"
             >
@@ -167,10 +167,10 @@ exports[`FilterForm should render component 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.label>
-            Status
-          </mock-styled.label>
           <mock-styled.div>
+            <mock-styled.label>
+              Status
+            </mock-styled.label>
             <mock-styled.select
               name="status"
             >

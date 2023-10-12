@@ -39,7 +39,7 @@ export const ElSearchableDropdownResultsContainer = styled.div`
 export const ElSearchableDropdownSearchInputAddOn = styled(InputAddOn)`
   position: absolute;
   margin-top: 8px;
-  padding-left: 4px;
+  padding-left: 8px;
 `
 
 export const ElSearchableDropdownCloseButton = styled(Icon)`
@@ -50,7 +50,7 @@ export const ElSearchableDropdownCloseButton = styled(Icon)`
 `
 
 export const ElSearchableDropdownSearchInput = styled(Input)`
-  padding-left: 24px;
+  padding-left: 32px;
 `
 
 export const ElSearchableDropdownSearchLabel = styled(Label)`

@@ -46,8 +46,8 @@ export const HitsByResourceChart: FC<HitsByResourceChartProps> = ({ trafficEvent
               if (!chartArea) return
 
               const gradient = ctx.createLinearGradient(chartArea.left, 0, chartArea.right, 0)
-              gradient.addColorStop(1, '#0080ff')
-              gradient.addColorStop(0, '#66b2ff')
+              gradient.addColorStop(1, '#4e56ea')
+              gradient.addColorStop(0, '#7e9bfa')
 
               return gradient
             },
@@ -66,16 +66,16 @@ export const HitsByResourceChart: FC<HitsByResourceChartProps> = ({ trafficEvent
 
             ticks: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },
           x: {
             ticks: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },
@@ -86,8 +86,8 @@ export const HitsByResourceChart: FC<HitsByResourceChartProps> = ({ trafficEvent
             align: 'end',
             labels: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },

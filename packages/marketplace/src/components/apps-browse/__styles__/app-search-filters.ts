@@ -26,7 +26,7 @@ export const appsSearchInputIcon = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -62,7 +62,7 @@ export const appsSearchMobileIcon = css`
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -82,7 +82,9 @@ export const appsFiltersMobileBrowseBy = css`
 
 export const appsFiltersCategories = css`
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
 `
 
 export const AppsSearchInput = styled.input`
@@ -95,7 +97,7 @@ export const AppsSearchInput = styled.input`
   border: none;
   margin: 0;
   color: black;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-left: none;
 
   &:focus {

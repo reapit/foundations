@@ -123,7 +123,7 @@ export const Register: FC = () => {
           <Subtitle hasNoMargin hasCenteredText>
             Register
           </Subtitle>
-          <BodyText hasCenteredText>for Reapit Foundations Developer Portal</BodyText>
+          <BodyText hasCenteredText>for Reapit Foundations DeveloperPortal</BodyText>
         </FlexContainer>
         {developerState === 'SUCCESS' ? (
           <>
@@ -149,7 +149,7 @@ export const Register: FC = () => {
               })}
             >
               <BodyText hasGreyText hasCenteredText hasSectionMargin>
-                By registering for the Foundations platform, you will get access to the Reapit developer portal and
+                By registering for the Foundations platform, you will get access to the Reapit DeveloperPortal and
                 sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward
                 to seeing what you build!
               </BodyText>

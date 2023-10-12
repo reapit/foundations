@@ -1,5 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
+import { ElModalBody } from '@reapit/elements'
 
 export const ImageTextPair = styled.div`
   padding: 0.75rem;
@@ -46,15 +47,13 @@ export const VideoContainer = styled.div`
 `
 
 export const videoModal = css`
-  .modal-content.modal-medium {
-    width: 90vw;
-    height: 90vh;
-    max-width: 2000px;
-  }
+  width: 80vw;
+  height: 70vh;
+  max-width: 2000px;
 
-  .modal-card {
+  ${ElModalBody} {
     width: 100%;
-    height: 100%;
+    height: 85%;
   }
 
   iframe {

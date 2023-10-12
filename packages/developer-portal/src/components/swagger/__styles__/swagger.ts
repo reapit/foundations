@@ -2,7 +2,6 @@
 // Can't add tests to this file because of the way Jest transpiles Swagger UI throws an error
 /* purgecss start ignore */
 import { css } from '@linaria/core'
-import { bluePrimaryMedium, greyDark, greyLight } from '../../../core/__styles__/colors'
 
 /*
   Overrides file to make Swagger UI look more like the rest of the site.
@@ -14,21 +13,21 @@ export const swagger = css`
   *::-webkit-scrollbar {
     display: block;
     width: 12px;
-    background-color: #f5f5f5;
+    background-color: #f2f4f6;
   }
 
   *::-webkit-scrollbar-track {
     border-radius: 10px;
-    background-color: #f5f5f5;
+    background-color: #f2f4f6;
   }
 
   *::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #555;
+    background-color: #f2f4f6;
   }
 
   *::-webkit-scrollbar-thumb:hover {
-    background-color: #828587;
+    background-color: #f2f4f6;
   }
 
   height: 100vh;
@@ -42,7 +41,7 @@ export const swagger = css`
     a,
     .info,
     .markdown {
-      font-family: 'PT Sans', Helvetica, sans-serif;
+      font-family: 'Inter', Helvetica, sans-serif;
       font-size: 1rem;
     }
 
@@ -54,20 +53,20 @@ export const swagger = css`
     h6,
     .title,
     .model-title {
-      font-family: 'PT Sans', Helvetica, sans-serif;
+      font-family: 'Inter', Helvetica, sans-serif;
     }
 
     .info a {
-      color: ${bluePrimaryMedium};
+      color: #4e56ea;
     }
 
     .info table {
-      font-family: 'PT Sans', Helvetica, sans-serif;
+      font-family: 'Inter', Helvetica, sans-serif;
       font-size: 1rem;
     }
 
     a {
-      color: ${bluePrimaryMedium};
+      color: #4e56ea;
     }
 
     .loading,
@@ -83,7 +82,7 @@ export const swagger = css`
 
     h2,
     .info h2 {
-      font-family: 'PT Sans', Helvetica, sans-serif;
+      font-family: 'Inter', Helvetica, sans-serif;
       font-size: 2rem;
       font-weight: bold;
     }
@@ -96,7 +95,8 @@ export const swagger = css`
     .prop-format {
       font-family: 'Source Code Pro', monospace;
       font-size: 1rem;
-      color: ${greyDark};
+      color: unset;
+      background: unset;
     }
 
     .auth-wrapper {
@@ -121,7 +121,7 @@ export const swagger = css`
       border-radius: none;
 
       .model-container {
-        background: ${greyLight};
+        background: #f2f4f6;
         margin: 1rem 0;
       }
     }
@@ -133,7 +133,7 @@ export const swagger = css`
       }
 
       .prop-type {
-        color: ${greyDark};
+        color: #607890;
       }
     }
 
@@ -152,15 +152,15 @@ export const swagger = css`
 
       small {
         font-size: 1rem;
-        font-family: 'PT Sans', Helvetica, sans-serif;
+        font-family: 'Inter', Helvetica, sans-serif;
       }
     }
 
     p,
     .markdown,
     .opblock-summary-description {
-      font-family: 'PT Sans', Helvetica, sans-serif;
-      color: ${greyDark};
+      font-family: 'Inter', Helvetica, sans-serif;
+      color: #607890;
     }
   }
 `

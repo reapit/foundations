@@ -130,6 +130,11 @@ exports[`ProfileForm should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div>
+              <mock-styled.label>
+                Use 
+                MOCK_ORG_NAME
+                 Customer or Sandbox data
+              </mock-styled.label>
               <mock-styled.input
                 id="useCustomerData"
                 name="useCustomerData"
@@ -145,11 +150,6 @@ exports[`ProfileForm should match snapshot 1`] = `
                 <mock-styled.span>
                   Sandbox
                 </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.label>
-                Use 
-                MOCK_ORG_NAME
-                 Customer or Sandbox data
               </mock-styled.label>
             </mock-styled.div>
           </mock-styled.div>
@@ -371,6 +371,11 @@ exports[`ProfileForm should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
+            <mock-styled.label>
+              Use 
+              MOCK_ORG_NAME
+               Customer or Sandbox data
+            </mock-styled.label>
             <mock-styled.input
               id="useCustomerData"
               name="useCustomerData"
@@ -386,11 +391,6 @@ exports[`ProfileForm should match snapshot 1`] = `
               <mock-styled.span>
                 Sandbox
               </mock-styled.span>
-            </mock-styled.label>
-            <mock-styled.label>
-              Use 
-              MOCK_ORG_NAME
-               Customer or Sandbox data
             </mock-styled.label>
           </mock-styled.div>
         </mock-styled.div>

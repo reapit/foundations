@@ -179,6 +179,7 @@ exports[`SettingsProfilePage should match snapshot 1`] = `
           >
             <mock-styled.button
               classname="mock-css."
+              disabled="false"
               type="submit"
             >
               <mock-styled.div />
@@ -383,6 +384,7 @@ exports[`SettingsProfilePage should match snapshot 1`] = `
         >
           <mock-styled.button
             classname="mock-css."
+            disabled="false"
             type="submit"
           >
             <mock-styled.div />
@@ -649,6 +651,7 @@ exports[`SettingsProfilePage should match snapshot for mobile view 1`] = `
           >
             <mock-styled.button
               classname="mock-css."
+              disabled="false"
               type="submit"
             >
               <mock-styled.div />
@@ -853,6 +856,7 @@ exports[`SettingsProfilePage should match snapshot for mobile view 1`] = `
         >
           <mock-styled.button
             classname="mock-css."
+            disabled="false"
             type="submit"
           >
             <mock-styled.div />

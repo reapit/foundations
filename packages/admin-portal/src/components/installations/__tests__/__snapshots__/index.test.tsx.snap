@@ -70,7 +70,14 @@ exports[`Installations should render component when loading 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.label>
+              <mock-styled.label
+                classname="mock-css.
+  display: flex;
+ mock-css.
+  margin-bottom: 0.5rem;
+"
+                htmlfor="developer-search-box"
+              >
                 Company
               </mock-styled.label>
               <mock-styled.div>
@@ -96,7 +103,14 @@ exports[`Installations should render component when loading 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.label>
+              <mock-styled.label
+                classname="mock-css.
+  display: flex;
+ mock-css.
+  margin-bottom: 0.5rem;
+"
+                htmlfor="client-search-box"
+              >
                 Client
               </mock-styled.label>
               <mock-styled.div>
@@ -152,54 +166,56 @@ exports[`Installations should render component when loading 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.label>
-                Is Charged Consumption
-              </mock-styled.label>
-              <mock-styled.div
-                classname="mock-css."
-              >
-                <mock-styled.input
-                  id="option-consumption-all"
-                  name="isChargedConsumption"
-                  type="radio"
-                  value=""
-                />
-                <mock-styled.label
-                  classname="mock-css."
-                  htmlfor="option-consumption-all"
-                >
-                  <mock-styled.span>
-                    All
-                  </mock-styled.span>
+              <mock-styled.div>
+                <mock-styled.label>
+                  Is Charged Consumption
                 </mock-styled.label>
-                <mock-styled.input
-                  id="option-consumption-true"
-                  name="isChargedConsumption"
-                  type="radio"
-                  value="true"
-                />
-                <mock-styled.label
+                <mock-styled.div
                   classname="mock-css."
-                  htmlfor="option-consumption-true"
                 >
-                  <mock-styled.span>
-                    Charged
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
-                  id="option-consumption-false"
-                  name="isChargedConsumption"
-                  type="radio"
-                  value="false"
-                />
-                <mock-styled.label
-                  classname="mock-css."
-                  htmlfor="option-consumption-false"
-                >
-                  <mock-styled.span>
-                    Free
-                  </mock-styled.span>
-                </mock-styled.label>
+                  <mock-styled.input
+                    id="option-consumption-all"
+                    name="isChargedConsumption"
+                    type="radio"
+                    value=""
+                  />
+                  <mock-styled.label
+                    classname="mock-css."
+                    htmlfor="option-consumption-all"
+                  >
+                    <mock-styled.span>
+                      All
+                    </mock-styled.span>
+                  </mock-styled.label>
+                  <mock-styled.input
+                    id="option-consumption-true"
+                    name="isChargedConsumption"
+                    type="radio"
+                    value="true"
+                  />
+                  <mock-styled.label
+                    classname="mock-css."
+                    htmlfor="option-consumption-true"
+                  >
+                    <mock-styled.span>
+                      Charged
+                    </mock-styled.span>
+                  </mock-styled.label>
+                  <mock-styled.input
+                    id="option-consumption-false"
+                    name="isChargedConsumption"
+                    type="radio"
+                    value="false"
+                  />
+                  <mock-styled.label
+                    classname="mock-css."
+                    htmlfor="option-consumption-false"
+                  >
+                    <mock-styled.span>
+                      Free
+                    </mock-styled.span>
+                  </mock-styled.label>
+                </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -299,7 +315,14 @@ exports[`Installations should render component when loading 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
+            <mock-styled.label
+              classname="mock-css.
+  display: flex;
+ mock-css.
+  margin-bottom: 0.5rem;
+"
+              htmlfor="developer-search-box"
+            >
               Company
             </mock-styled.label>
             <mock-styled.div>
@@ -325,7 +348,14 @@ exports[`Installations should render component when loading 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
+            <mock-styled.label
+              classname="mock-css.
+  display: flex;
+ mock-css.
+  margin-bottom: 0.5rem;
+"
+              htmlfor="client-search-box"
+            >
               Client
             </mock-styled.label>
             <mock-styled.div>
@@ -381,54 +411,56 @@ exports[`Installations should render component when loading 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
-              Is Charged Consumption
-            </mock-styled.label>
-            <mock-styled.div
-              classname="mock-css."
-            >
-              <mock-styled.input
-                id="option-consumption-all"
-                name="isChargedConsumption"
-                type="radio"
-                value=""
-              />
-              <mock-styled.label
-                classname="mock-css."
-                htmlfor="option-consumption-all"
-              >
-                <mock-styled.span>
-                  All
-                </mock-styled.span>
+            <mock-styled.div>
+              <mock-styled.label>
+                Is Charged Consumption
               </mock-styled.label>
-              <mock-styled.input
-                id="option-consumption-true"
-                name="isChargedConsumption"
-                type="radio"
-                value="true"
-              />
-              <mock-styled.label
+              <mock-styled.div
                 classname="mock-css."
-                htmlfor="option-consumption-true"
               >
-                <mock-styled.span>
-                  Charged
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
-                id="option-consumption-false"
-                name="isChargedConsumption"
-                type="radio"
-                value="false"
-              />
-              <mock-styled.label
-                classname="mock-css."
-                htmlfor="option-consumption-false"
-              >
-                <mock-styled.span>
-                  Free
-                </mock-styled.span>
-              </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-all"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value=""
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-all"
+                >
+                  <mock-styled.span>
+                    All
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-true"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value="true"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-true"
+                >
+                  <mock-styled.span>
+                    Charged
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-false"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value="false"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-false"
+                >
+                  <mock-styled.span>
+                    Free
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -585,7 +617,14 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.label>
+              <mock-styled.label
+                classname="mock-css.
+  display: flex;
+ mock-css.
+  margin-bottom: 0.5rem;
+"
+                htmlfor="developer-search-box"
+              >
                 Company
               </mock-styled.label>
               <mock-styled.div>
@@ -611,7 +650,14 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.label>
+              <mock-styled.label
+                classname="mock-css.
+  display: flex;
+ mock-css.
+  margin-bottom: 0.5rem;
+"
+                htmlfor="client-search-box"
+              >
                 Client
               </mock-styled.label>
               <mock-styled.div>
@@ -667,54 +713,56 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.label>
-                Is Charged Consumption
-              </mock-styled.label>
-              <mock-styled.div
-                classname="mock-css."
-              >
-                <mock-styled.input
-                  id="option-consumption-all"
-                  name="isChargedConsumption"
-                  type="radio"
-                  value=""
-                />
-                <mock-styled.label
-                  classname="mock-css."
-                  htmlfor="option-consumption-all"
-                >
-                  <mock-styled.span>
-                    All
-                  </mock-styled.span>
+              <mock-styled.div>
+                <mock-styled.label>
+                  Is Charged Consumption
                 </mock-styled.label>
-                <mock-styled.input
-                  id="option-consumption-true"
-                  name="isChargedConsumption"
-                  type="radio"
-                  value="true"
-                />
-                <mock-styled.label
+                <mock-styled.div
                   classname="mock-css."
-                  htmlfor="option-consumption-true"
                 >
-                  <mock-styled.span>
-                    Charged
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
-                  id="option-consumption-false"
-                  name="isChargedConsumption"
-                  type="radio"
-                  value="false"
-                />
-                <mock-styled.label
-                  classname="mock-css."
-                  htmlfor="option-consumption-false"
-                >
-                  <mock-styled.span>
-                    Free
-                  </mock-styled.span>
-                </mock-styled.label>
+                  <mock-styled.input
+                    id="option-consumption-all"
+                    name="isChargedConsumption"
+                    type="radio"
+                    value=""
+                  />
+                  <mock-styled.label
+                    classname="mock-css."
+                    htmlfor="option-consumption-all"
+                  >
+                    <mock-styled.span>
+                      All
+                    </mock-styled.span>
+                  </mock-styled.label>
+                  <mock-styled.input
+                    id="option-consumption-true"
+                    name="isChargedConsumption"
+                    type="radio"
+                    value="true"
+                  />
+                  <mock-styled.label
+                    classname="mock-css."
+                    htmlfor="option-consumption-true"
+                  >
+                    <mock-styled.span>
+                      Charged
+                    </mock-styled.span>
+                  </mock-styled.label>
+                  <mock-styled.input
+                    id="option-consumption-false"
+                    name="isChargedConsumption"
+                    type="radio"
+                    value="false"
+                  />
+                  <mock-styled.label
+                    classname="mock-css."
+                    htmlfor="option-consumption-false"
+                  >
+                    <mock-styled.span>
+                      Free
+                    </mock-styled.span>
+                  </mock-styled.label>
+                </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -994,7 +1042,14 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
+            <mock-styled.label
+              classname="mock-css.
+  display: flex;
+ mock-css.
+  margin-bottom: 0.5rem;
+"
+              htmlfor="developer-search-box"
+            >
               Company
             </mock-styled.label>
             <mock-styled.div>
@@ -1020,7 +1075,14 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
+            <mock-styled.label
+              classname="mock-css.
+  display: flex;
+ mock-css.
+  margin-bottom: 0.5rem;
+"
+              htmlfor="client-search-box"
+            >
               Client
             </mock-styled.label>
             <mock-styled.div>
@@ -1076,54 +1138,56 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
-              Is Charged Consumption
-            </mock-styled.label>
-            <mock-styled.div
-              classname="mock-css."
-            >
-              <mock-styled.input
-                id="option-consumption-all"
-                name="isChargedConsumption"
-                type="radio"
-                value=""
-              />
-              <mock-styled.label
-                classname="mock-css."
-                htmlfor="option-consumption-all"
-              >
-                <mock-styled.span>
-                  All
-                </mock-styled.span>
+            <mock-styled.div>
+              <mock-styled.label>
+                Is Charged Consumption
               </mock-styled.label>
-              <mock-styled.input
-                id="option-consumption-true"
-                name="isChargedConsumption"
-                type="radio"
-                value="true"
-              />
-              <mock-styled.label
+              <mock-styled.div
                 classname="mock-css."
-                htmlfor="option-consumption-true"
               >
-                <mock-styled.span>
-                  Charged
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
-                id="option-consumption-false"
-                name="isChargedConsumption"
-                type="radio"
-                value="false"
-              />
-              <mock-styled.label
-                classname="mock-css."
-                htmlfor="option-consumption-false"
-              >
-                <mock-styled.span>
-                  Free
-                </mock-styled.span>
-              </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-all"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value=""
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-all"
+                >
+                  <mock-styled.span>
+                    All
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-true"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value="true"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-true"
+                >
+                  <mock-styled.span>
+                    Charged
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-consumption-false"
+                  name="isChargedConsumption"
+                  type="radio"
+                  value="false"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-consumption-false"
+                >
+                  <mock-styled.span>
+                    Free
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>

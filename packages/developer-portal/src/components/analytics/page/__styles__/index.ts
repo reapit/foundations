@@ -5,6 +5,7 @@ export const visiblyHidden = css`
   visibility: hidden;
   height: 0;
   padding: 0;
+  margin: 0 !important;
 `
 
 export const ControlsContainer = styled.div`
