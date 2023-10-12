@@ -12,6 +12,10 @@ import {
 import { Icon, IconNames } from '../icon'
 import { handleSetNativeInput } from '../multi-select'
 import { generateRandomId } from '../../storybook/random-id'
+import { Label } from '../label'
+import { elMb3 } from '../../styles/spacing'
+import { elFlex } from '../../styles/flexbox'
+import { cx } from '@linaria/core'
 
 export interface SearchableDropdownProps<T> extends React.InputHTMLAttributes<HTMLInputElement> {
   getResults: (query: string) => Promise<T[]>
@@ -19,6 +23,7 @@ export interface SearchableDropdownProps<T> extends React.InputHTMLAttributes<HT
   getResultLabel: (result: T) => string
   icon?: IconNames
   defaultVal?: T
+  label?: string
 }
 
 export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -30,6 +35,7 @@ export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAtt
   onResultClick: (result: { label: string; result: T }) => void
   onClear: () => void
   icon?: IconNames
+  label?: string
 }
 
 export const SearchableDropdownControlledInner = <T extends unknown>(
@@ -44,34 +50,44 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
     value,
     selectedValue,
     id,
+    label,
     ...inputProps
   }: ControlledSearchableDropdownProps<T>,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
   return (
-    <ElSearchableDropdownContainer>
-      <input id={id} style={{ display: 'none' }} readOnly value={selectedValue} ref={ref} />
-      <ElSearchableDropdownSearchInputAddOn>
-        <Icon icon={icon} />
-      </ElSearchableDropdownSearchInputAddOn>
-      <ElSearchableDropdownSearchInput data-testid="search-input" value={value} {...inputProps} />
-      {isResultsListVisible && (
-        <ElSearchableDropdownResultsContainer>
-          {resultsList.map((result, index) => (
-            <ElSearchableDropdownResult
-              data-testid={`dropdown-result-${index}`}
-              key={generateRandomId()}
-              onClick={() => onResultClick(result)}
-            >
-              {result.label}
-            </ElSearchableDropdownResult>
-          ))}
-          {!loading && !resultsList.length && <ElSearchableDropdownResult>No results found</ElSearchableDropdownResult>}
-        </ElSearchableDropdownResultsContainer>
+    <>
+      {label && (
+        <Label className={cx(elFlex, elMb3)} htmlFor={id}>
+          {label}
+        </Label>
       )}
-      {loading && <ElSearchableDropdownSearchLoader />}
-      {isClearVisible && <ElSearchableDropdownCloseButton icon="closeSystem" onClick={onClear} />}
-    </ElSearchableDropdownContainer>
+      <ElSearchableDropdownContainer>
+        <input id={id} style={{ display: 'none' }} readOnly value={selectedValue} ref={ref} />
+        <ElSearchableDropdownSearchInputAddOn>
+          <Icon icon={icon} />
+        </ElSearchableDropdownSearchInputAddOn>
+        <ElSearchableDropdownSearchInput data-testid="search-input" value={value} {...inputProps} />
+        {isResultsListVisible && (
+          <ElSearchableDropdownResultsContainer>
+            {resultsList.map((result, index) => (
+              <ElSearchableDropdownResult
+                data-testid={`dropdown-result-${index}`}
+                key={generateRandomId()}
+                onClick={() => onResultClick(result)}
+              >
+                {result.label}
+              </ElSearchableDropdownResult>
+            ))}
+            {!loading && !resultsList.length && (
+              <ElSearchableDropdownResult>No results found</ElSearchableDropdownResult>
+            )}
+          </ElSearchableDropdownResultsContainer>
+        )}
+        {loading && <ElSearchableDropdownSearchLoader />}
+        {isClearVisible && <ElSearchableDropdownCloseButton icon="closeSystem" onClick={onClear} />}
+      </ElSearchableDropdownContainer>
+    </>
   )
 }
 

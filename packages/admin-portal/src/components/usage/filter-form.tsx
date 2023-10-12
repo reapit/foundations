@@ -35,8 +35,8 @@ export const FilterForm: FC<FilterFormProps> = ({ setUsageFilters, apps, install
           <BodyText hasGreyText>Apply a filter to get started. Developer and month are required by default.</BodyText>
         </InputWrapFull>
         <InputWrap>
-          <Label>Company</Label>
           <SearchableDropdown
+            label="Company"
             id="developer-search-box"
             {...register('developerId')}
             getResults={(company: string) =>
@@ -56,8 +56,8 @@ export const FilterForm: FC<FilterFormProps> = ({ setUsageFilters, apps, install
           />
         </InputWrap>
         <InputWrap>
-          <Label>App</Label>
           <InputGroup>
+            <Label>App</Label>
             <Select {...register('appId')} disabled={!developerId || !month || !apps}>
               <option value="">Please Select</option>
               {apps?.data?.map(({ id, name }) => (
@@ -69,8 +69,8 @@ export const FilterForm: FC<FilterFormProps> = ({ setUsageFilters, apps, install
           </InputGroup>
         </InputWrap>
         <InputWrap>
-          <Label>Customer</Label>
           <InputGroup>
+            <Label>Customer</Label>
             <Select {...register('customerId')} disabled={!developerId || !month || !appId || !installations}>
               <option value="">Please Select</option>
               {installations?.data?.map(({ customerName, id, client }) => (

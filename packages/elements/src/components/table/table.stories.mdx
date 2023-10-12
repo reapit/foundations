@@ -12,10 +12,11 @@ import {
   TableRowContainer,
   TableCtaTriggerCell,
   TableSortHeader,
+  TableCellSplit,
 } from './molecules'
 import { Icon } from '../icon'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
-import { elSpan6, elOffset7, elSpan2 } from '../grid'
+import { elSpan6, elOffset7, elSpan2, elSpan3 } from '../grid'
 import { Subtitle } from '../typography'
 import { InputGroup } from '../input-group'
 import { Button, ButtonGroup } from '../button'
@@ -52,28 +53,48 @@ applied to cells when it's in narrow mode, e.g. showing the header within the ce
 
 For Non React users and React users with basic requirements, you can just use `Table`, `TableHeadersRow`, `TableHeader`, `TableRow` and `TableCell` components as presentational components to render your content. See the rendered Markup for non-React users as always.
 
+In addtion, you can split the space available vertically with the `TableCellSplit` component. We also support images and form controls like checkboxes being inserted into cells.
+
 For React users, the table has a number of freatures that you may find useful to present your data, like an expandable call to action container. These do fall under the banner of "Advanced usage", so in most cases, just use the basic table component classes and render children to get the desired functionality for your application.
 
 <Canvas>
   <Story name="Basic Usage">
     <Table>
       <TableHeadersRow>
+        <TableHeader>Checkbox Header</TableHeader>
         <TableHeader>First Header</TableHeader>
+        <TableHeader>Image Header</TableHeader>
         <TableHeader>Second Header</TableHeader>
         <TableHeader>Third Header</TableHeader>
       </TableHeadersRow>
       <TableRowContainer>
         <TableRow>
+          <TableCell narrowLabel="Selected">
+            <Input type="checkbox" />
+          </TableCell>
           <TableCell>First Column</TableCell>
+          <TableCell narrowLabel="Image">
+            <Avatar type="image" src="https://picsum.photos/200/300" />
+          </TableCell>
           <TableCell>Second Column</TableCell>
-          <TableCell>Third Column</TableCell>
+          <TableCell>
+            <TableCellSplit data="Third Data" subData="Some Longer Sub Data" />
+          </TableCell>
         </TableRow>
       </TableRowContainer>
       <TableRowContainer>
         <TableRow>
+          <TableCell narrowLabel="Selected">
+            <Input type="checkbox" />
+          </TableCell>
           <TableCell>First Column</TableCell>
+          <TableCell narrowLabel="Image">
+            <Avatar type="image" src="https://picsum.photos/200/300" />
+          </TableCell>
           <TableCell>Second Column</TableCell>
-          <TableCell>Third Column</TableCell>
+          <TableCell>
+            <TableCellSplit data="Third Data" subData="Some Longer Sub Data" />
+          </TableCell>
         </TableRow>
       </TableRowContainer>
     </Table>
@@ -81,6 +102,56 @@ For React users, the table has a number of freatures that you may find useful to
 </Canvas>
 
 <RenderHtmlMarkup component="Table" story="Basic Usage" />
+
+## Column widths
+
+The `Table` is a CSS Grid to support proper resposiveness. By default the number of columms is set to the number of Cells in the first row and all columns are the same width. If you want to override this, set the `data-num-columns-excl-action-col="8"` property on the `Table` element to a desired number of columns, then add an appropriate `elSpan2` `elSpan3` etc class to the relevant `TableCell` elements as per below.
+
+<Canvas>
+  <Story name="Column widths">
+    <Table data-num-columns-excl-action-col="8">
+      <TableHeadersRow>
+        <TableHeader>Checkbox Header</TableHeader>
+        <TableHeader>First Header</TableHeader>
+        <TableHeader>Image Header</TableHeader>
+        <TableHeader className={elSpan2}>Second Header</TableHeader>
+        <TableHeader className={elSpan3}>Third Header</TableHeader>
+      </TableHeadersRow>
+      <TableRowContainer>
+        <TableRow>
+          <TableCell narrowLabel="Selected">
+            <Input type="checkbox" />
+          </TableCell>
+          <TableCell>First Column</TableCell>
+          <TableCell narrowLabel="Image">
+            <Avatar type="image" src="https://picsum.photos/200/300" />
+          </TableCell>
+          <TableCell className={elSpan2}>Second Column with more data</TableCell>
+          <TableCell className={elSpan3}>
+            <TableCellSplit data="Third Data" subData="Some much much much Longer Sub Data" />
+          </TableCell>
+        </TableRow>
+      </TableRowContainer>
+      <TableRowContainer>
+        <TableRow>
+          <TableCell narrowLabel="Selected">
+            <Input type="checkbox" />
+          </TableCell>
+          <TableCell>First Column</TableCell>
+          <TableCell narrowLabel="Image">
+            <Avatar type="image" src="https://picsum.photos/200/300" />
+          </TableCell>
+          <TableCell className={elSpan2}>Second Column with more data</TableCell>
+          <TableCell className={elSpan3}>
+            <TableCellSplit data="Third Data" subData="Some much much much Longer Sub Data" />
+          </TableCell>
+        </TableRow>
+      </TableRowContainer>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Table" story="Column widths" />
 
 `Table` only renders children, unless the `rows` prop is supplied as a React shorthand.
 
@@ -113,6 +184,7 @@ In the example below, you can see examples of all the different flavours of `Tab
         <TableHeader>Property</TableHeader>
         <TableHeader>Customer</TableHeader>
         <TableHeader>Description</TableHeader>
+        <TableHeader>Request Date</TableHeader>
         <TableHeader>Amount</TableHeader>
         <TableHeader>Payment Status</TableHeader>
       </TableHeadersRow>
@@ -124,19 +196,14 @@ In the example below, you can see examples of all the different flavours of `Tab
           <TableCell narrowLabel="Image">
             <Avatar type="image" src="https://picsum.photos/200/300" />
           </TableCell>
-          <TableCell darkText icon="homeSystem" narrowIsFullWidth>
+          <TableCell darkText narrowIsFullWidth>
             1 King Road, London, UK, S1 1AA
           </TableCell>
           <TableCell narrowLabel="Name Customer" icon="usernameSystem">
             Mr Johnny Corrigan
           </TableCell>
           <TableCell narrowLabel="Type">
-            <FlexContainer isFlexColumn>
-              <TextSM className={elTextEllipsis}>Some description</TextSM>
-              <TextXS className={elTextEllipsis} hasGreyText>
-                Some more description
-              </TextXS>
-            </FlexContainer>
+            <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />
           </TableCell>
           <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
           <TableCell darkText narrowLabel="Amount">
@@ -163,9 +230,9 @@ This is done by adding the `data-force-narrow-table='true'` attribute to the mai
   <Story name="Expanding Table Cell Space">
     <Table data-force-narrow-table="true">
       <TableHeadersRow>
+        <TableHeader>Is Active</TableHeader>
         <TableHeader>Property</TableHeader>
         <TableHeader>Customer</TableHeader>
-        <TableHeader>Is Active</TableHeader>
         <TableHeader>Description</TableHeader>
         <TableHeader>Request Date</TableHeader>
         <TableHeader>Amount</TableHeader>
@@ -173,22 +240,15 @@ This is done by adding the `data-force-narrow-table='true'` attribute to the mai
       </TableHeadersRow>
       <TableRowContainer>
         <TableRow>
-          <TableCell darkText icon="homeSystem" narrowIsFullWidth>
-            Mt Ash Jacket Brassey Road
-          </TableCell>
-          <TableCell narrowLabel="Name Customer" icon="usernameSystem">
-            Mr Johnny Corrigan
-          </TableCell>
           <TableCell narrowLabel="Active">
             <Input type="checkbox" />
           </TableCell>
+          <TableCell darkText>Mt Ash Jacket Brassey Road</TableCell>
+          <TableCell narrowLabel="Name Customer" icon="usernameSystem">
+            Mr Johnny Corrigan
+          </TableCell>
           <TableCell narrowLabel="Type">
-            <FlexContainer isFlexColumn>
-              <TextSM className={elTextEllipsis}>Some description</TextSM>
-              <TextXS className={elTextEllipsis} hasGreyText>
-                Some more description
-              </TextXS>
-            </FlexContainer>
+            <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />
           </TableCell>
           <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
           <TableCell darkText narrowLabel="Amount">
@@ -228,9 +288,9 @@ For this version the `data-has-expandable-action` attribute should additionally 
   <Story name="Expandable Content">
     <Table data-num-columns-excl-action-col="7" data-has-expandable-action>
       <TableHeadersRow>
+        <TableHeader>Is Active</TableHeader>
         <TableHeader>Property</TableHeader>
         <TableHeader>Customer</TableHeader>
-        <TableHeader>Is Active</TableHeader>
         <TableHeader>Description</TableHeader>
         <TableHeader>Request Date</TableHeader>
         <TableHeader>Amount</TableHeader>
@@ -241,22 +301,17 @@ For this version the `data-has-expandable-action` attribute should additionally 
       </TableHeadersRow>
       <TableRowContainer className={elIsActive}>
         <TableRow>
-          <TableCell darkText icon="homeSystem" narrowIsFullWidth>
+          <TableCell narrowLabel="Active">
+            <Input type="checkbox" />
+          </TableCell>
+          <TableCell darkText narrowIsFullWidth>
             Mt Ash Jacket Brassey Road
           </TableCell>
           <TableCell narrowLabel="Name Customer" icon="usernameSystem">
             Mr Johnny Corrigan
           </TableCell>
-          <TableCell narrowLabel="Active">
-            <Input type="checkbox" />
-          </TableCell>
           <TableCell narrowLabel="Type">
-            <FlexContainer isFlexColumn>
-              <TextSM className={elTextEllipsis}>Some description</TextSM>
-              <TextXS className={elTextEllipsis} hasGreyText>
-                Some more description
-              </TextXS>
-            </FlexContainer>
+            <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />
           </TableCell>
           <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
           <TableCell darkText narrowLabel="Amount">
@@ -271,7 +326,7 @@ For this version the `data-has-expandable-action` attribute should additionally 
           <Subtitle>Form Example</Subtitle>
           <FormLayout>
             <InputWrap>
-              <InputGroup icon="homeSystem" label="Please enter an address" type="text" />
+              <InputGroup label="Please enter an address" type="text" />
             </InputWrap>
             <InputWrap>
               <InputGroup label="Please enter your email" type="text" />
@@ -299,9 +354,9 @@ For this version the `data-has-call-to-action` attribute should additionally be 
   <Story name="Call To Action Content">
     <Table data-num-columns-excl-action-col="7" data-has-call-to-action>
       <TableHeadersRow>
+        <TableHeader>Is Active</TableHeader>
         <TableHeader>Property</TableHeader>
         <TableHeader>Customer</TableHeader>
-        <TableHeader>Is Active</TableHeader>
         <TableHeader>Description</TableHeader>
         <TableHeader>Request Date</TableHeader>
         <TableHeader>Amount</TableHeader>
@@ -310,14 +365,14 @@ For this version the `data-has-call-to-action` attribute should additionally be 
       </TableHeadersRow>
       <TableRowContainer>
         <TableRow>
-          <TableCell darkText icon="homeSystem" narrowIsFullWidth>
+          <TableCell narrowLabel="Active">
+            <Input type="checkbox" />
+          </TableCell>
+          <TableCell darkText narrowIsFullWidth>
             Mt Ash Jacket Brassey Road
           </TableCell>
           <TableCell narrowLabel="Name Customer" icon="usernameSystem">
             Mr Johnny Corrigan
-          </TableCell>
-          <TableCell narrowLabel="Active">
-            <Input type="checkbox" />
           </TableCell>
           <TableCell narrowLabel="Type">Tenant Payment Request</TableCell>
           <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
@@ -387,6 +442,14 @@ export interface RowActionProps {
         {
           cells: [
             {
+              label: 'Is Active',
+              value: <Input type="checkbox" />,
+            },
+            {
+              label: 'Property Image',
+              value: <Avatar type="image" src="https://picsum.photos/200/300" />,
+            },
+            {
               label: 'Property',
               value: 'Mt Ash Jacket, Brassey Road',
               icon: 'homeSystem',
@@ -400,24 +463,8 @@ export interface RowActionProps {
               narrowTable: { showLabel: true },
             },
             {
-              label: 'Property Image',
-              value: <Avatar type="image" src="https://picsum.photos/200/300" />,
-            },
-            {
               label: 'Description',
-              value: (
-                <FlexContainer isFlexColumn>
-                  <TextSM className={elTextEllipsis}>Some description</TextSM>
-                  <TextXS className={elTextEllipsis} hasGreyText>
-                    Some more description
-                  </TextXS>
-                </FlexContainer>
-              ),
-            },
-            {
-              label: 'Request Date',
-              value: '19 Apr 2021',
-              narrowTable: { showLabel: true },
+              value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
             },
             {
               label: 'Amount',
@@ -435,6 +482,14 @@ export interface RowActionProps {
         {
           cells: [
             {
+              label: 'Is Active',
+              value: <Input type="checkbox" />,
+            },
+            {
+              label: 'Property Image',
+              value: <Avatar type="image" src="https://picsum.photos/200/300" />,
+            },
+            {
               label: 'Property',
               value: 'Property Name, Road Name',
               icon: 'homeSystem',
@@ -448,24 +503,8 @@ export interface RowActionProps {
               narrowTable: { showLabel: true },
             },
             {
-              label: 'Property Image',
-              value: <Avatar type="image" src="https://picsum.photos/200/300" />,
-            },
-            {
               label: 'Description',
-              value: (
-                <FlexContainer isFlexColumn>
-                  <TextSM className={elTextEllipsis}>Some description</TextSM>
-                  <TextXS className={elTextEllipsis} hasGreyText>
-                    Some more description
-                  </TextXS>
-                </FlexContainer>
-              ),
-            },
-            {
-              label: 'Request Date',
-              value: '23rd Apr 2021',
-              narrowTable: { showLabel: true },
+              value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
             },
             {
               label: 'Amount',
@@ -519,6 +558,10 @@ We also specify that the first row is expanded by passing an `indexExpandedRow` 
             {
               cells: [
                 {
+                  label: 'Is Active',
+                  value: <Input type="checkbox" />,
+                },
+                {
                   label: 'Property',
                   value: 'Mt Ash Jacket, Brassey Road',
                   className: elSpan2,
@@ -533,19 +576,8 @@ We also specify that the first row is expanded by passing an `indexExpandedRow` 
                   narrowTable: { showLabel: true },
                 },
                 {
-                  label: 'Is Active',
-                  value: <Input type="checkbox" />,
-                },
-                {
                   label: 'Description',
-                  value: (
-                    <FlexContainer isFlexColumn>
-                      <TextSM className={elTextEllipsis}>Some description</TextSM>
-                      <TextXS className={elTextEllipsis} hasGreyText>
-                        Some more description
-                      </TextXS>
-                    </FlexContainer>
-                  ),
+                  value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
                 },
                 {
                   label: 'Request Date',
@@ -568,6 +600,10 @@ We also specify that the first row is expanded by passing an `indexExpandedRow` 
             {
               cells: [
                 {
+                  label: 'Is Active',
+                  value: <Input type="checkbox" />,
+                },
+                {
                   label: 'Property',
                   value: 'Property Name, Road Name',
                   className: elSpan2,
@@ -582,19 +618,8 @@ We also specify that the first row is expanded by passing an `indexExpandedRow` 
                   narrowTable: { showLabel: true },
                 },
                 {
-                  label: 'Is Active',
-                  value: <Input type="checkbox" />,
-                },
-                {
                   label: 'Description',
-                  value: (
-                    <FlexContainer isFlexColumn>
-                      <TextSM className={elTextEllipsis}>Some description</TextSM>
-                      <TextXS className={elTextEllipsis} hasGreyText>
-                        Some more description
-                      </TextXS>
-                    </FlexContainer>
-                  ),
+                  value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
                 },
                 {
                   label: 'Request Date',
@@ -673,6 +698,10 @@ We've also added a `TableSortHeader` element which has a arrow indicator for you
           rows={data.map((info) => ({
             cells: [
               {
+                label: 'Name',
+                value: info.client.name,
+              },
+              {
                 label: 'Property',
                 labelChild: <TableSortHeader direction={propertySort}>Property</TableSortHeader>,
                 onLabelClick: () => {
@@ -691,19 +720,8 @@ We've also added a `TableSortHeader` element which has a arrow indicator for you
                 narrowTable: { showLabel: true },
               },
               {
-                label: 'Is Active',
-                value: info.client.name,
-              },
-              {
                 label: 'Description',
-                value: (
-                  <FlexContainer isFlexColumn>
-                    <TextSM className={elTextEllipsis}>Some description</TextSM>
-                    <TextXS className={elTextEllipsis} hasGreyText>
-                      Some more description
-                    </TextXS>
-                  </FlexContainer>
-                ),
+                value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
               },
               {
                 label: 'Request Date',

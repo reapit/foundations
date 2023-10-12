@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react'
+import React, { FC, Fragment, HTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
 import {
   ElPageHeaderContainer,
@@ -75,10 +75,10 @@ export const PageHeader: FC<PageHeaderProps> = ({
             {pageInfo && (
               <FlexContainer>
                 {pageInfo.map(({ ...rest }, index) => (
-                  <>
-                    <TextBase key={index} {...rest} />
+                  <Fragment key={index}>
+                    <TextBase {...rest} />
                     {index !== pageInfo.length - 1 && <ElPageHeaderSeparator />}
-                  </>
+                  </Fragment>
                 ))}
               </FlexContainer>
             )}
@@ -87,7 +87,7 @@ export const PageHeader: FC<PageHeaderProps> = ({
         {buttons && (
           <ButtonGroup>
             {buttons.map(({ children, ...rest }, index) => (
-              <Button key={index} {...rest}>
+              <Button buttonSize="small" key={index} {...rest}>
                 {children}
               </Button>
             ))}

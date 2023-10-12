@@ -162,12 +162,18 @@ export const elGlobals = css`
 
     body {
       height: 100%;
-      background: #4e56ea;
+      background: #fff;
     }
 
     #root {
       height: 100%;
-      background: #fff;
+
+      pre,
+      code {
+        background: #f2f4f6; // grey 50
+        padding: 1rem;
+        overflow: scroll;
+      }
     }
 
     a {
@@ -178,13 +184,6 @@ export const elGlobals = css`
 
     strong {
       font-weight: bold;
-    }
-
-    pre,
-    code {
-      background: #f2f4f6; // grey 50
-      padding: 1rem;
-      overflow: scroll;
     }
 
     :root {

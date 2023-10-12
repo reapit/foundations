@@ -31,14 +31,14 @@ exports[`Register should match a snapshot 1`] = `
             <mock-styled.p
               classname="mock-css."
             >
-              for Reapit Foundations Developer Portal
+              for Reapit Foundations DeveloperPortal
             </mock-styled.p>
           </mock-styled.div>
           <form>
             <mock-styled.p
               classname="mock-css. mock-css. mock-css."
             >
-              By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
+              By registering for the Foundations platform, you will get access to the Reapit DeveloperPortal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
             </mock-styled.p>
             <mock-styled.div
               classname="mock-css."
@@ -169,14 +169,14 @@ exports[`Register should match a snapshot 1`] = `
           <mock-styled.p
             classname="mock-css."
           >
-            for Reapit Foundations Developer Portal
+            for Reapit Foundations DeveloperPortal
           </mock-styled.p>
         </mock-styled.div>
         <form>
           <mock-styled.p
             classname="mock-css. mock-css. mock-css."
           >
-            By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
+            By registering for the Foundations platform, you will get access to the Reapit DeveloperPortal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
           </mock-styled.p>
           <mock-styled.div
             classname="mock-css."

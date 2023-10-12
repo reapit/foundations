@@ -33,7 +33,7 @@ const WelcomeTitle = styled.h1`
 
 const WelcomeFooter = styled.div`
   display: flex;
-  background-color: var(--color-grey-100);
+  background-color: var(--color-grey-50);
   flex-wrap: wrap;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;

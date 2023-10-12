@@ -48,22 +48,22 @@ export const XmasLogo: React.FC = () => {
 
 export const getDefaultNavIndex = (pathname: string) => {
   if (pathname.includes('/apps')) return 1
-  if (pathname.includes('/analytics/')) return 2
-  if (pathname.includes('/webhooks')) return 3
-  if (pathname.includes('/settings')) return 8
+  if (pathname.includes('/analytics/')) return 8
+  if (pathname.includes('/webhooks')) return 13
+  if (pathname.includes('/settings')) return 22
 
   switch (pathname) {
     case Routes.SWAGGER:
     case Routes.GRAPHQL:
     case Routes.DESKTOP:
-      return 3
+      return 13
     case Routes.ELEMENTS:
-      return 4
+      return 18
     case Routes.IAAS:
-      return 5
+      return 19
     case Routes.API_DOCS:
     case Routes.ANALYTICS_SCHEMA_DOCS:
-      return 6
+      return 20
     default:
       return 0
   }

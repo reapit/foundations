@@ -13,6 +13,58 @@ exports[`ToggleConsumption should match a snapshot with installations 1`] = `
 "
         >
           <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
+                API Consumption Charges
+              </mock-styled.label>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.input
+                  id="option-free-false"
+                  name="fixedApiConsumptionCost"
+                  type="radio"
+                  value="NOT_FREE"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-free-false"
+                >
+                  <mock-styled.span>
+                    Pays for API consumption
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-free-true"
+                  name="fixedApiConsumptionCost"
+                  type="radio"
+                  value="FREE"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-free-true"
+                >
+                  <mock-styled.span>
+                    API consumption free
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <form>
+      <mock-styled.div
+        classname="mock-css.
+  margin-top: 0.75rem;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
             <mock-styled.label>
               API Consumption Charges
             </mock-styled.label>
@@ -48,54 +100,6 @@ exports[`ToggleConsumption should match a snapshot with installations 1`] = `
                 </mock-styled.span>
               </mock-styled.label>
             </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </form>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-    <form>
-      <mock-styled.div
-        classname="mock-css.
-  margin-top: 0.75rem;
-"
-      >
-        <mock-styled.div>
-          <mock-styled.label>
-            API Consumption Charges
-          </mock-styled.label>
-          <mock-styled.div
-            classname="mock-css."
-          >
-            <mock-styled.input
-              id="option-free-false"
-              name="fixedApiConsumptionCost"
-              type="radio"
-              value="NOT_FREE"
-            />
-            <mock-styled.label
-              classname="mock-css."
-              htmlfor="option-free-false"
-            >
-              <mock-styled.span>
-                Pays for API consumption
-              </mock-styled.span>
-            </mock-styled.label>
-            <mock-styled.input
-              id="option-free-true"
-              name="fixedApiConsumptionCost"
-              type="radio"
-              value="FREE"
-            />
-            <mock-styled.label
-              classname="mock-css."
-              htmlfor="option-free-true"
-            >
-              <mock-styled.span>
-                API consumption free
-              </mock-styled.span>
-            </mock-styled.label>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
@@ -168,6 +172,58 @@ exports[`ToggleConsumption should match a snapshot with no installations 1`] = `
 "
         >
           <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
+                API Consumption Charges
+              </mock-styled.label>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.input
+                  id="option-free-false"
+                  name="fixedApiConsumptionCost"
+                  type="radio"
+                  value="NOT_FREE"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-free-false"
+                >
+                  <mock-styled.span>
+                    Pays for API consumption
+                  </mock-styled.span>
+                </mock-styled.label>
+                <mock-styled.input
+                  id="option-free-true"
+                  name="fixedApiConsumptionCost"
+                  type="radio"
+                  value="FREE"
+                />
+                <mock-styled.label
+                  classname="mock-css."
+                  htmlfor="option-free-true"
+                >
+                  <mock-styled.span>
+                    API consumption free
+                  </mock-styled.span>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <form>
+      <mock-styled.div
+        classname="mock-css.
+  margin-top: 0.75rem;
+"
+      >
+        <mock-styled.div>
+          <mock-styled.div>
             <mock-styled.label>
               API Consumption Charges
             </mock-styled.label>
@@ -203,54 +259,6 @@ exports[`ToggleConsumption should match a snapshot with no installations 1`] = `
                 </mock-styled.span>
               </mock-styled.label>
             </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </form>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div />
-    <form>
-      <mock-styled.div
-        classname="mock-css.
-  margin-top: 0.75rem;
-"
-      >
-        <mock-styled.div>
-          <mock-styled.label>
-            API Consumption Charges
-          </mock-styled.label>
-          <mock-styled.div
-            classname="mock-css."
-          >
-            <mock-styled.input
-              id="option-free-false"
-              name="fixedApiConsumptionCost"
-              type="radio"
-              value="NOT_FREE"
-            />
-            <mock-styled.label
-              classname="mock-css."
-              htmlfor="option-free-false"
-            >
-              <mock-styled.span>
-                Pays for API consumption
-              </mock-styled.span>
-            </mock-styled.label>
-            <mock-styled.input
-              id="option-free-true"
-              name="fixedApiConsumptionCost"
-              type="radio"
-              value="FREE"
-            />
-            <mock-styled.label
-              classname="mock-css."
-              htmlfor="option-free-true"
-            >
-              <mock-styled.span>
-                API consumption free
-              </mock-styled.span>
-            </mock-styled.label>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>

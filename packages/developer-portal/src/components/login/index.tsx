@@ -19,7 +19,7 @@ export const Login: FC = () => {
         <Icon className={elMb7} height="40px" width="200px" icon="reapitLogoInfographic" />
         <FlexContainer isFlexColumn>
           <Title hasCenteredText>Welcome</Title>
-          <Subtitle hasCenteredText>Developer Portal</Subtitle>
+          <Subtitle hasCenteredText>DeveloperPortal</Subtitle>
         </FlexContainer>
         <ButtonGroup alignment="center">
           <Button onClick={onLoginButtonClick} intent="primary" size={3}>

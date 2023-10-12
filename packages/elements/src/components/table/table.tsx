@@ -24,7 +24,7 @@ export interface CellProps {
   label: string
   labelChild?: ReactNode
   onLabelClick?: (event: React.MouseEvent) => void
-  value: ReactNode
+  value?: ReactNode
   children?: ReactNode
   icon?: IconNames
   className?: string

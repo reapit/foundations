@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react'
+import React, { FC, HTMLAttributes, ReactNode } from 'react'
 import { cx } from '@linaria/core'
 import {
   ElTableHeadersRow,
@@ -27,6 +27,9 @@ import {
   ElTableCtaIconContainer,
   ElTableCtaCell,
   ElTableSortHeader,
+  ElTableCellSplitWrap,
+  ElTableCellSplitData,
+  ElTableCellSplitSubData,
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
@@ -41,6 +44,11 @@ export interface TableCellProps extends HTMLAttributes<HTMLDivElement> {
   narrowIsFullWidth?: boolean
   className?: string
   narrowOrder?: NarrowOrderType
+}
+
+export interface TableCellSplitProps extends HTMLAttributes<HTMLDivElement> {
+  data?: ReactNode
+  subData?: ReactNode
 }
 
 export interface TableExpandableRowTriggerCellProps extends HTMLAttributes<HTMLDivElement> {
@@ -104,6 +112,15 @@ export const TableHeader: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...r
 
 export const TableRow: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
   return <ElTableRow {...rest}>{children}</ElTableRow>
+}
+
+export const TableCellSplit: FC<TableCellSplitProps> = ({ data, subData, ...rest }) => {
+  return (
+    <ElTableCellSplitWrap {...rest}>
+      <ElTableCellSplitData>{data}</ElTableCellSplitData>
+      <ElTableCellSplitSubData>{subData}</ElTableCellSplitSubData>
+    </ElTableCellSplitWrap>
+  )
 }
 
 export const TableCell: FC<TableCellProps> = ({

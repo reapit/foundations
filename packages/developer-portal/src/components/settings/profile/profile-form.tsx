@@ -57,7 +57,7 @@ export const ProfileForm: FC = () => {
     action: getActions[GetActionNames.getSandboxes],
   })
 
-  const [, memberUpdating, updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
+  const [memberUpdating, , updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.updateMember],
     method: 'PUT',
@@ -81,7 +81,7 @@ export const ProfileForm: FC = () => {
       jobTitle: currentMember?.jobTitle ?? '',
       gitHubUsername: currentMember?.gitHubUsername ?? '',
       useCustomerData: currentMember?.useCustomerData ?? false,
-      sandboxId: currentMember?.sandboxId ?? 'GBR',
+      sandboxId: currentMember?.sandboxId || 'GBR',
     },
   })
 
@@ -160,11 +160,11 @@ export const ProfileForm: FC = () => {
         {isClient && (
           <InputWrap>
             <InputGroup>
+              <Label>Use {orgName} Customer or Sandbox data</Label>
               <Toggle id="useCustomerData" hasGreyBg {...register('useCustomerData')}>
                 <ElToggleItem>Customer</ElToggleItem>
                 <ElToggleItem>Sandbox</ElToggleItem>
               </Toggle>
-              <Label>Use {orgName} Customer or Sandbox data</Label>
               {errors.useCustomerData?.message && <InputError message={errors.useCustomerData?.message} />}
             </InputGroup>
           </InputWrap>

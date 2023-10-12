@@ -31,7 +31,7 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg 1`] = `
             <mock-styled.p
               classname="mock-css. mock-css."
             >
-              to the Reapit Foundations Developer Portal
+              to the Reapit Foundations DeveloperPortal
             </mock-styled.p>
           </mock-styled.div>
           <mock-styled.p
@@ -39,7 +39,7 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg 1`] = `
           >
             The organisation ‘
             Some Org
-            ’ has already been setup within the Developer Portal. To access this organisation, you will need to be invited by the Admin who set the account up.
+            ’ has already been setup within the DeveloperPortal. To access this organisation, you will need to be invited by the Admin who set the account up.
           </mock-styled.p>
           <mock-styled.p
             classname="mock-css. mock-css. mock-css."
@@ -100,7 +100,7 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg 1`] = `
           <mock-styled.p
             classname="mock-css. mock-css."
           >
-            to the Reapit Foundations Developer Portal
+            to the Reapit Foundations DeveloperPortal
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.p
@@ -108,7 +108,7 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg 1`] = `
         >
           The organisation ‘
           Some Org
-          ’ has already been setup within the Developer Portal. To access this organisation, you will need to be invited by the Admin who set the account up.
+          ’ has already been setup within the DeveloperPortal. To access this organisation, you will need to be invited by the Admin who set the account up.
         </mock-styled.p>
         <mock-styled.p
           classname="mock-css. mock-css. mock-css."
@@ -226,7 +226,7 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
             <mock-styled.p
               classname="mock-css. mock-css."
             >
-              to the Reapit Foundations Developer Portal
+              to the Reapit Foundations DeveloperPortal
             </mock-styled.p>
           </mock-styled.div>
           <mock-styled.p
@@ -237,7 +237,7 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
           <mock-styled.p
             classname="mock-css. mock-css."
           >
-            Whilst using the Developer Portal to build against our Sandbox environment is free, API consumption charges apply when your app or integration is published (either privately or publicly) in the AppMarket.
+            Whilst using the DeveloperPortal to build against our Sandbox environment is free, API consumption charges apply when your app or integration is published (either privately or publicly) in the AppMarket.
           </mock-styled.p>
           <mock-styled.p
             classname="mock-css. mock-css. mock-css."
@@ -296,7 +296,7 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
           <mock-styled.p
             classname="mock-css. mock-css."
           >
-            to the Reapit Foundations Developer Portal
+            to the Reapit Foundations DeveloperPortal
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.p
@@ -307,7 +307,7 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
         <mock-styled.p
           classname="mock-css. mock-css."
         >
-          Whilst using the Developer Portal to build against our Sandbox environment is free, API consumption charges apply when your app or integration is published (either privately or publicly) in the AppMarket.
+          Whilst using the DeveloperPortal to build against our Sandbox environment is free, API consumption charges apply when your app or integration is published (either privately or publicly) in the AppMarket.
         </mock-styled.p>
         <mock-styled.p
           classname="mock-css. mock-css. mock-css."
@@ -423,7 +423,7 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
             <mock-styled.p
               classname="mock-css. mock-css."
             >
-              to the Reapit Foundations Developer Portal
+              to the Reapit Foundations DeveloperPortal
             </mock-styled.p>
           </mock-styled.div>
           <mock-styled.p
@@ -498,7 +498,7 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
           <mock-styled.p
             classname="mock-css. mock-css."
           >
-            to the Reapit Foundations Developer Portal
+            to the Reapit Foundations DeveloperPortal
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.p
