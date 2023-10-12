@@ -595,6 +595,14 @@ export interface AppSummaryModel {
    * Gets the fixed api consumption cost for the app
    */
   fixedApiConsumptionCost?: number // double
+  /**
+   * A flag to determine if installation is required for access to this app (defaults to true for security)
+   */
+  isInstallationRequired?: boolean
+  /**
+   * A flag to determine if the app is internal (For reapit staff only)
+   */
+  isInternalApp?: boolean
 }
 /**
  * Model to handle paged data and information
@@ -2090,6 +2098,14 @@ export interface UpdateAppModel {
    * Sets the fixed api consumption cost for the app
    */
   fixedApiConsumptionCost?: number // double
+  /**
+   * A flag to determine if installation is required for access to this app (defaults to true for security)
+   */
+  isInstallationRequired?: boolean
+  /**
+   * A flag to determine if the app is internal (For reapit staff only)
+   */
+  isInternalApp?: boolean
 }
 /**
  * The model responsible for updating a customer
