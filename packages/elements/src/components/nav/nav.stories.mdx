@@ -39,12 +39,6 @@ If you use a `SecondaryNav` component, you will need to add these options as `Na
   <Story name="Basic Example">
     <Nav>
       <NavItem>
-        <Icon
-          className={cx(elMr2)}
-          icon="appLauncherMenu"
-          fontSize="1.5rem"
-          onClick={() => (window.location.href = 'https://marketplace.reapit.cloud')}
-        />
         <Icon height="24px" width="100px" icon="reapitLogoInfographic" />
         <Icon
           className={cx(elMlAuto, elMr2, elNavItemHideDesktop)}
@@ -59,51 +53,11 @@ If you use a `SecondaryNav` component, you will need to add these options as `Na
       </NavItem>
       <NavItem href="https://developers.reapit.cloud/analytics">Analytics</NavItem>
       <NavItem href="https://marketplace.reapit.cloud">Marketplace</NavItem>
-      <NavItem isSecondary href="https://developers.reapit.cloud/login">
-        <Icon iconSize="medium" icon="profileMenu" />
-      </NavItem>
     </Nav>
   </Story>
 </Canvas>
 
 <RenderHtmlMarkup component="Nav" story={['Basic Example']} />
-
-## With Avatar
-
-See `Avatar` component for more information - this example shows how to pass an Avatar as the secondary nav item.
-
-<Canvas>
-  <Story name="With Avatar">
-    <Nav>
-      <NavItem>
-        <Icon
-          className={cx(elMr2)}
-          icon="appLauncherMenu"
-          fontSize="1.5rem"
-          onClick={() => (window.location.href = 'https://marketplace.reapit.cloud')}
-        />
-        <Icon height="24px" width="100px" icon="reapitLogoInfographic" />
-        <Icon
-          className={cx(elMlAuto, elMr2, elNavItemHideDesktop)}
-          icon="moreSolidSystem"
-          fontSize="1.2rem"
-          intent="default"
-          onClick={() => console.log('Toggle Menu')}
-        />
-      </NavItem>
-      <NavItem className={elNavItemActive} href="https://marketplace.reapit.cloud/apps">
-        Apps
-      </NavItem>
-      <NavItem href="https://developers.reapit.cloud/analytics">Analytics</NavItem>
-      <NavItem href="https://marketplace.reapit.cloud">Marketplace</NavItem>
-      <NavItem className={elNavItemSecondary} href="https://developers.reapit.cloud/login">
-        <Avatar className={elAvatarSmall} src="https://picsum.photos/200" />
-      </NavItem>
-    </Nav>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Nav" story={['With Avatar']} />
 
 ## Basic Example Mobile Menu Open
 
@@ -115,12 +69,6 @@ As per above if you use a `SecondaryNav` component, you will need to add these o
   <Story name="Basic Example Mobile Menu Open">
     <Nav>
       <NavItem>
-        <Icon
-          className={cx(elMr2)}
-          icon="appLauncherMenu"
-          fontSize="1.5rem"
-          onClick={() => (window.location.href = 'https://marketplace.reapit.cloud')}
-        />
         <Icon height="24px" width="100px" icon="reapitLogoInfographic" />
         <Icon
           className={cx(elMlAuto, elMr2, elNavItemHideDesktop)}
@@ -142,16 +90,13 @@ As per above if you use a `SecondaryNav` component, you will need to add these o
       <NavItem className={elNavItemExpanded} href="https://marketplace.reapit.cloud">
         Marketplace
       </NavItem>
-      <NavItem className={elNavItemSecondary} href="https://developers.reapit.cloud/login">
-        <Icon iconSize="medium" icon="profileMenu" />
-      </NavItem>
     </Nav>
   </Story>
 </Canvas>
 
 <RenderHtmlMarkup component="Nav" story={['Basic Example Mobile Menu Open']} />
 
-## React Shorthand NavResponsive
+## React Usage
 
 <ArgsTable component={NavResponsive} />
 
@@ -160,15 +105,10 @@ The `useNavState` hook will track the currrent state of the Nav and return both,
 ```ts
 export interface NavResponsiveOption {
   itemIndex: number
-  isSecondary?: boolean
   callback?: () => void
   text?: string
   href?: string
   subItems?: NavResponsiveOption[]
-  /* Deprecated unless the isSecondary boolean is set - to be removed in v5 */
-  icon?: ReactNode
-  /* Deprecated unless the isSecondary boolean is set - to be removed in v5 */
-  iconId?: IconNames
 }
 ```
 
@@ -180,13 +120,54 @@ We also introduce a second hook `useMediaQuery` which supplies an `isMobile` val
 
 For the simple use case, the sub items are not required however, if you use a `SecondaryNav` component, you will need to add these as the `SecondaryNav` is hidden in mobile. The toggling of sub nav items in mobile is handled for you.
 
+Finally, you can add avatar and app switcher options to the Nav by passing them as props to the `NavResponsive` component. See below for the accompanying interfaces.
+
+```ts
+export interface NavResponsiveAvatarOption {
+  text?: string
+  callback?: () => void
+}
+
+export interface NavResponsiveAppSwitcherOption {
+  text?: string
+  callback?: () => void
+  iconUrl?: ReactNode
+}
+```
+
 <Canvas>
-  <Story name="React Shorthand NavResponsive">
+  <Story name="React Usage">
     <NavStateProvider>
       <MediaStateProvider>
         <NavResponsive
           defaultNavIndex={1}
-          defaultNavSubIndex={1}
+          appSwitcherOptions={[
+            {
+              text: 'AppMarket',
+              callback: () => console.log('Navigating'),
+              iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+            },
+            {
+              text: 'DevPortal',
+              callback: () => console.log('Navigating'),
+              iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+            },
+          ]}
+          avatarText="JD"
+          avatarOptions={[
+            {
+              text: 'Settings',
+              callback: () => console.log('Navigating'),
+            },
+            {
+              text: 'Profile',
+              callback: () => console.log('Navigating'),
+            },
+            {
+              text: 'Log Out',
+              callback: () => console.log('Navigating'),
+            },
+          ]}
           options={[
             {
               itemIndex: 0,
@@ -245,71 +226,4 @@ For the simple use case, the sub items are not required however, if you use a `S
   </Story>
 </Canvas>
 
-## React Shorthand With Avatar
-
-To achieve the avatar effect, simply pass in an `icon` prop instead of the `iconId`
-
-<Canvas>
-  <Story name="React Shorthand With Avatar">
-    <NavStateProvider>
-      <MediaStateProvider>
-        <NavResponsive
-          defaultNavIndex={1}
-          defaultNavSubIndex={1}
-          options={[
-            {
-              itemIndex: 0,
-              callback: () => console.log('Navigating'),
-            },
-            {
-              itemIndex: 1,
-              callback: () => console.log('Navigating'),
-              text: 'Apps',
-              subItems: [
-                {
-                  itemIndex: 0,
-                  callback: () => console.log('Navigating'),
-                  text: 'App List',
-                },
-                {
-                  itemIndex: 1,
-                  callback: () => console.log('Navigating'),
-                  text: 'Create App',
-                },
-              ],
-            },
-            {
-              itemIndex: 2,
-              callback: () => console.log('Navigating'),
-              text: 'Analytics',
-              subItems: [
-                {
-                  itemIndex: 2,
-                  callback: () => console.log('Navigating'),
-                  text: 'Hits Per Day',
-                },
-                {
-                  itemIndex: 3,
-                  callback: () => console.log('Navigating'),
-                  text: 'Weekly Hits',
-                },
-              ],
-            },
-            {
-              itemIndex: 3,
-              href: 'https://marketplace.reapit.cloud',
-              text: 'Marketplace',
-            },
-            {
-              itemIndex: 4,
-              callback: () => console.log('Logging out'),
-              icon: <Avatar className={elAvatarSmall} src="https://picsum.photos/200" />,
-              isSecondary: true,
-              text: 'Logout',
-            },
-          ]}
-        />
-      </MediaStateProvider>
-    </NavStateProvider>
-  </Story>
-</Canvas>
+<RenderHtmlMarkup component="Nav" story={['React Usage']} />

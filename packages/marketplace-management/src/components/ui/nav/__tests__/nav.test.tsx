@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Nav, callbackAppClick, navigateRoute, getDefaultNavIndex } from '../nav'
+import { Nav, navigateRoute, getDefaultNavIndex } from '../nav'
 import Routes from '../../../../constants/routes'
 import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
 import { render } from '../../../../tests/react-testing'
@@ -32,13 +32,6 @@ describe('Nav', () => {
       curried()
 
       expect(navigate).toHaveBeenCalledWith(Routes.USERS)
-    })
-  })
-
-  describe('callbackAppClick', () => {
-    it('should run correcly', () => {
-      const fn = callbackAppClick()
-      expect(fn).toEqual('https://marketplace.reapit.cloud/installed')
     })
   })
 

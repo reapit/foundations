@@ -6,6 +6,7 @@ import { ColHalf, Col, Grid } from '../grid'
 import { TextSM, TextXS } from '../typography'
 import { FlexContainer } from '../layout'
 import { Intent } from '../../helpers/intent'
+import { elTextEllipsis } from '../../styles/typography'
 
 export interface KeyValueItem {
   key: string
@@ -13,12 +14,17 @@ export interface KeyValueItem {
   iconName?: IconNames
   icon?: ReactNode
   intent?: Intent
+  colSize?: 'half' | 'full'
+  textEllipsis?: boolean
+}
+
+export interface KeyValueContentProps {
+  item: KeyValueItem
 }
 
 export interface KeyValueListProps extends HTMLAttributes<HTMLDivElement> {
   items: KeyValueItem[]
-  hasLargeGrid?: boolean
-  hasSmallGrid?: boolean
+  hasGrid?: boolean
 }
 
 export const KeyValueIconWrap: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
@@ -33,68 +39,52 @@ export const KeyValueListWrap: FC<HTMLAttributes<HTMLDivElement>> = ({ children,
   </ElKeyValueListWrap>
 )
 
-export const KeyValueList: FC<KeyValueListProps> = ({ className, items, hasLargeGrid, hasSmallGrid, ...rest }) => {
-  return hasSmallGrid ? (
+export const KeyValueContent: FC<KeyValueContentProps> = ({
+  item: { intent, iconName, icon, value, key, textEllipsis },
+}) => (
+  <>
+    <KeyValueIconWrap>
+      {icon ? (
+        icon
+      ) : iconName ? (
+        <Icon fontSize="20px" intent={intent ?? 'primary'} icon={iconName} />
+      ) : (
+        <Icon fontSize="20px" icon="placeholderSmall" />
+      )}
+    </KeyValueIconWrap>
+    <FlexContainer isFlexColumn>
+      <TextXS className={cx(textEllipsis && elTextEllipsis)} hasGreyText>
+        {key}
+      </TextXS>
+      <TextSM className={cx(textEllipsis && elTextEllipsis)}>{value}</TextSM>
+    </FlexContainer>
+  </>
+)
+
+export const KeyValueList: FC<KeyValueListProps> = ({ className, items, hasGrid, ...rest }) => {
+  return hasGrid ? (
     <Grid className={cx(className)} {...rest}>
-      {items.map(({ key, value, iconName, intent, icon }) => (
-        <ColHalf key={key}>
-          <FlexContainer>
-            <KeyValueIconWrap>
-              {icon ? (
-                icon
-              ) : iconName ? (
-                <Icon fontSize="20px" intent={intent ?? 'primary'} icon={iconName} />
-              ) : (
-                <Icon fontSize="20px" icon="placeholderSmall" />
-              )}
-            </KeyValueIconWrap>
-            <FlexContainer isFlexColumn>
-              <TextXS hasGreyText>{key}</TextXS>
-              <TextSM>{value}</TextSM>
+      {items.map((item) => {
+        return item.colSize === 'half' ? (
+          <ColHalf key={item.key}>
+            <FlexContainer>
+              <KeyValueContent item={item} />
             </FlexContainer>
-          </FlexContainer>
-        </ColHalf>
-      ))}
-    </Grid>
-  ) : hasLargeGrid ? (
-    <Grid className={cx(className)} {...rest}>
-      {items.map(({ key, value, iconName, intent, icon }) => (
-        <Col key={key}>
-          <FlexContainer>
-            <KeyValueIconWrap>
-              {icon ? (
-                icon
-              ) : iconName ? (
-                <Icon fontSize="20px" intent={intent ?? 'primary'} icon={iconName} />
-              ) : (
-                <Icon fontSize="20px" icon="placeholderSmall" />
-              )}
-            </KeyValueIconWrap>
-            <FlexContainer isFlexColumn>
-              <TextXS hasGreyText>{key}</TextXS>
-              <TextSM>{value}</TextSM>
+          </ColHalf>
+        ) : (
+          <Col key={item.key}>
+            <FlexContainer>
+              <KeyValueContent item={item} />
             </FlexContainer>
-          </FlexContainer>
-        </Col>
-      ))}
+          </Col>
+        )
+      })}
     </Grid>
   ) : (
     <>
-      {items.map(({ key, value, iconName, intent, icon }) => (
-        <KeyValueListWrap key={key}>
-          <KeyValueIconWrap>
-            {icon ? (
-              icon
-            ) : iconName ? (
-              <Icon fontSize="20px" intent={intent ?? 'primary'} icon={iconName} />
-            ) : (
-              <Icon fontSize="20px" icon="placeholderSmall" />
-            )}
-          </KeyValueIconWrap>
-          <FlexContainer isFlexColumn>
-            <TextXS hasGreyText>{key}</TextXS>
-            <TextSM>{value}</TextSM>
-          </FlexContainer>
+      {items.map((item) => (
+        <KeyValueListWrap key={item.key}>
+          <KeyValueContent item={item} />
         </KeyValueListWrap>
       ))}
     </>

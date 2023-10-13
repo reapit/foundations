@@ -1,11 +1,12 @@
 import React, { FC } from 'react'
 import { useNavigate, useLocation } from 'react-router'
 import Routes from '../../constants/routes'
-import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
+import { Icon, NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { memo } from 'react'
-import { navigateRoute } from '../../utils/navigation'
+import { navigateRoute, openNewPage } from '../../utils/navigation'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { getAvatarInitials } from '@reapit/utils-react'
 
 export const getDefaultNavIndex = (pathname: string) => {
   switch (pathname) {
@@ -37,7 +38,7 @@ export const getDefaultNavIndex = (pathname: string) => {
 
 export const Menu: FC = () => {
   const location = useLocation()
-  const { connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectLogoutRedirect, connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const navigate = useNavigate()
   const { pathname } = location
 
@@ -96,16 +97,33 @@ export const Menu: FC = () => {
       callback: navigateRoute(navigate, Routes.IAAS),
       text: 'IAAS',
     },
-    {
-      itemIndex: 11,
-      callback: connectLogoutRedirect,
-      isSecondary: true,
-      iconId: 'logoutMenu',
-      text: 'Logout',
-    },
   ]
 
-  return <NavResponsive defaultNavIndex={getDefaultNavIndex(pathname)} options={navOptions as NavResponsiveOption[]} />
+  return (
+    <NavResponsive
+      defaultNavIndex={getDefaultNavIndex(pathname)}
+      options={navOptions as NavResponsiveOption[]}
+      appSwitcherOptions={[
+        {
+          text: 'AppMarket',
+          callback: openNewPage(process.env.appMarketUri),
+          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+        },
+        {
+          text: 'DevPortal',
+          callback: openNewPage(process.env.developerPortalUri),
+          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+        },
+      ]}
+      avatarText={getAvatarInitials(connectSession)}
+      avatarOptions={[
+        {
+          callback: connectLogoutRedirect,
+          text: 'Logout',
+        },
+      ]}
+    />
+  )
 }
 
 export default memo(Menu)

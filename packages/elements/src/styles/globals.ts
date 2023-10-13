@@ -167,13 +167,6 @@ export const elGlobals = css`
 
     #root {
       height: 100%;
-
-      pre,
-      code {
-        background: #f2f4f6; // grey 50
-        padding: 1rem;
-        overflow: scroll;
-      }
     }
 
     a {

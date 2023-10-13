@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import { useNavigate, useLocation } from 'react-router'
 import Routes from '../constants/routes'
-import { Icon, NavResponsive, NavResponsiveOption } from '@reapit/elements'
+import { Icon, NavResponsive, NavResponsiveAvatarOption, NavResponsiveOption } from '@reapit/elements'
 import { memo } from 'react'
-import { navigateRoute } from '../utils/navigation'
+import { navigateRoute, openNewPage } from '../utils/navigation'
 // Comment out after Christmas
 import dayjs from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
@@ -16,6 +16,8 @@ import { selectIsCustomer, selectLoginIdentity } from '../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
 import { validate as isUuid } from 'uuid'
+import { getAvatarInitials } from '@reapit/utils-react'
+import { useGlobalState } from './use-global-state'
 
 const XmasImage = styled.img`
   height: 2.5rem;
@@ -72,13 +74,15 @@ export const getDefaultNavIndex = (pathname: string) => {
 export const Menu: FC = () => {
   const location = useLocation()
   const navigate = useNavigate()
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const loginIdentity = selectLoginIdentity(connectSession)
   const { pathname } = location
   const appIdFromPath = pathname.includes('apps') ? pathname.split('/')[2] : ''
   const hasPipelines = loginIdentity?.developerId && process.env.pipelineWhitelist.includes(loginIdentity.developerId)
   const isCustomer = selectIsCustomer(connectSession)
   const appId = isUuid(appIdFromPath) ? appIdFromPath : null
+  const { globalDataState } = useGlobalState()
+  const { currentMember } = globalDataState
 
   if (pathname === Routes.INVITE) return null
 
@@ -90,7 +94,6 @@ export const Menu: FC = () => {
     {
       itemIndex: 1,
       callback: navigateRoute(navigate, Routes.APPS),
-      iconId: 'appsMenu',
       text: 'Apps',
       subItems: [
         {
@@ -129,7 +132,6 @@ export const Menu: FC = () => {
     {
       itemIndex: 8,
       callback: navigateRoute(navigate, Routes.ANALYTICS_API_CALLS),
-      iconId: 'analyticsMenu',
       text: 'Analytics',
       subItems: [
         {
@@ -157,7 +159,6 @@ export const Menu: FC = () => {
     {
       itemIndex: 13,
       callback: navigateRoute(navigate, Routes.SWAGGER),
-      iconId: 'apiMenu',
       text: 'API',
       subItems: [
         {
@@ -185,20 +186,17 @@ export const Menu: FC = () => {
     {
       itemIndex: 18,
       callback: navigateRoute(navigate, Routes.ELEMENTS),
-      iconId: 'uiMenu',
       text: 'UI',
     },
     loginIdentity?.developerId &&
       process.env.pipelineWhitelist.includes(loginIdentity?.developerId) && {
         itemIndex: 19,
         callback: navigateRoute(navigate, Routes.IAAS),
-        iconId: 'dataMenu',
         text: 'IaaS',
       },
     {
       itemIndex: 20,
       callback: navigateRoute(navigate, Routes.API_DOCS),
-      iconId: 'docsMenu',
       text: 'Docs',
       subItems: [
         {
@@ -213,43 +211,50 @@ export const Menu: FC = () => {
         },
       ],
     },
-    {
-      itemIndex: 23,
-      callback: navigateRoute(navigate, Routes.SETTINGS_PROFILE),
-      iconId: 'profileMenu',
-      isSecondary: true,
-      text: 'Settings',
-      subItems: [
-        {
-          itemIndex: 25,
-          callback: navigateRoute(navigate, Routes.SETTINGS_PROFILE),
-          text: 'Profile',
-        },
-        {
-          itemIndex: 26,
-          callback: navigateRoute(navigate, Routes.SETTINGS_PASSWORD),
-          text: 'Password',
-        },
-        {
-          itemIndex: 27,
-          callback: navigateRoute(navigate, Routes.SETTINGS_MEMBERS),
-          text: 'Members',
-        },
-        {
-          itemIndex: 28,
-          callback: navigateRoute(navigate, Routes.SETTINGS_COMPANY),
-          text: 'Company',
-        },
-        {
-          itemIndex: 29,
-          callback: navigateRoute(navigate, Routes.SETTINGS_SUBSCRIPTIONS),
-          text: 'Subscriptions',
-        },
-      ],
-    },
   ].filter(Boolean) as NavResponsiveOption[]
 
-  return <NavResponsive defaultNavIndex={getDefaultNavIndex(pathname)} options={navOptions} />
+  return (
+    <NavResponsive
+      defaultNavIndex={getDefaultNavIndex(pathname)}
+      options={navOptions}
+      appSwitcherOptions={[
+        {
+          text: 'AppMarket',
+          callback: openNewPage(process.env.marketplaceUrl),
+          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+        },
+      ]}
+      avatarText={getAvatarInitials(connectSession)}
+      avatarOptions={
+        [
+          {
+            callback: navigateRoute(navigate, Routes.SETTINGS_PROFILE),
+            text: 'Profile',
+          },
+          {
+            callback: navigateRoute(navigate, Routes.SETTINGS_PASSWORD),
+            text: 'Password',
+          },
+          currentMember?.role === 'admin' && {
+            callback: navigateRoute(navigate, Routes.SETTINGS_MEMBERS),
+            text: 'Members',
+          },
+          currentMember?.role === 'admin' && {
+            callback: navigateRoute(navigate, Routes.SETTINGS_COMPANY),
+            text: 'Company',
+          },
+          currentMember?.role === 'admin' && {
+            callback: navigateRoute(navigate, Routes.SETTINGS_SUBSCRIPTIONS),
+            text: 'Subscriptions',
+          },
+          {
+            callback: connectLogoutRedirect,
+            text: 'Logout',
+          },
+        ].filter(Boolean) as NavResponsiveAvatarOption[]
+      }
+    />
+  )
 }
 
 export default memo(Menu)
