@@ -7,6 +7,8 @@ jest.mock('uuid', () => ({
   validate: jest.fn(() => true),
 }))
 
+jest.mock('../use-global-state')
+
 describe('Menu', () => {
   afterEach(() => {
     jest.clearAllMocks()
@@ -92,30 +94,6 @@ describe('getDefaultNavIndex', () => {
     {
       route: Routes.IAAS,
       index: 19,
-    },
-    {
-      route: Routes.SETTINGS,
-      index: 22,
-    },
-    {
-      route: Routes.SETTINGS_COMPANY,
-      index: 22,
-    },
-    {
-      route: Routes.SETTINGS_SUBSCRIPTIONS,
-      index: 22,
-    },
-    {
-      route: Routes.SETTINGS_PASSWORD,
-      index: 22,
-    },
-    {
-      route: Routes.SETTINGS_MEMBERS,
-      index: 22,
-    },
-    {
-      route: Routes.SETTINGS_PROFILE,
-      index: 22,
     },
     {
       route: '/',

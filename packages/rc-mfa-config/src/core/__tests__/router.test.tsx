@@ -6,7 +6,9 @@ jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: () => ({
     connectSession: {
-      loginIdentity: {},
+      loginIdentity: {
+        name: 'name',
+      },
       groups: [],
     },
     connectInternalRedirect: '',

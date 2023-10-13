@@ -12,6 +12,8 @@ The component supports any `ReactNode` for content or icon props so you can use 
 
 The basic usage variant will display the pairs in a list and can be used in a `Drawer` or narrow container.
 
+Adding the `textElipsis` prop will add a text overflow ellipsis to the value, trimming the text to a single line.
+
 <ArgsTable of={KeyValueList} />
 
 ```ts
@@ -21,6 +23,8 @@ export interface KeyValueItem {
   iconName?: IconNames
   icon?: ReactNode
   intent?: Intent
+  colSize?: 'half' | 'full'
+  textEllipsis?: boolean
 }
 ```
 
@@ -43,9 +47,30 @@ export interface KeyValueItem {
           intent: 'primary',
         },
         {
+          key: 'Parking Spaces',
+          value: '2',
+          iconName: 'carSystem',
+          intent: 'primary',
+        },
+        {
+          key: 'Date Signed Up',
+          value: '20th September 2023',
+          iconName: 'calendarSystem',
+          intent: 'primary',
+        },
+        {
           key: 'Address',
-          value: '1234 Main St, Foo, Bar, 12345',
+          value:
+            'I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.',
           iconName: 'homeSystem',
+          intent: 'primary',
+          textEllipsis: true,
+        },
+        {
+          key: 'Description',
+          value:
+            'This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.',
+          iconName: 'bulletListSystem',
           intent: 'primary',
         },
       ]}
@@ -55,32 +80,59 @@ export interface KeyValueItem {
 
 <RenderHtmlMarkup component="KeyValueList" story="Basic Usage" />
 
-## Usage Large Grid
+## Usage Grid
 
-The grid variant where you are displaying in a full page view or main container.
+The grid variant where you are displaying in a full page view or main container - to achieve this, pass the `hasGrid` prop. For each item, you can specify a `colSize` prop of either 'half' or 'full', depending on the width of your content.
 
 <Canvas>
   <Story name="Usage Large Grid">
     <KeyValueList
-      hasLargeGrid
+      hasGrid
       items={[
         {
           key: 'Name',
           value: 'John Doe',
           iconName: 'usernameSystem',
           intent: 'primary',
+          colSize: 'half',
         },
         {
           key: 'Email',
           value: 'email@example.com',
           iconName: 'emailSystem',
           intent: 'primary',
+          colSize: 'half',
+        },
+        {
+          key: 'Parking Spaces',
+          value: '2',
+          iconName: 'carSystem',
+          intent: 'primary',
+          colSize: 'half',
+        },
+        {
+          key: 'Date Signed Up',
+          value: '20th September 2023',
+          iconName: 'calendarSystem',
+          intent: 'primary',
+          colSize: 'half',
         },
         {
           key: 'Address',
-          value: '1234 Main St, Foo, Bar, 12345',
+          value:
+            'I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.',
           iconName: 'homeSystem',
           intent: 'primary',
+          colSize: 'full',
+          textEllipsis: true,
+        },
+        {
+          key: 'Description',
+          value:
+            'This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.',
+          iconName: 'bulletListSystem',
+          intent: 'primary',
+          colSize: 'full',
         },
       ]}
     />
@@ -88,37 +140,3 @@ The grid variant where you are displaying in a full page view or main container.
 </Canvas>
 
 <RenderHtmlMarkup component="KeyValueList" story="Usage Large Grid" />
-
-## Usage Small Grid
-
-The grid variant where you are displaying more compact data with less content.
-
-<Canvas>
-  <Story name="Usage Small Grid">
-    <KeyValueList
-      hasSmallGrid
-      items={[
-        {
-          key: 'Name',
-          value: 'John Doe',
-          iconName: 'usernameSystem',
-          intent: 'primary',
-        },
-        {
-          key: 'Email',
-          value: 'email@example.com',
-          iconName: 'emailSystem',
-          intent: 'primary',
-        },
-        {
-          key: 'Address',
-          value: '1234 Main St, Foo, Bar, 12345',
-          iconName: 'homeSystem',
-          intent: 'primary',
-        },
-      ]}
-    />
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="KeyValueList" story="Usage Small Grid" />

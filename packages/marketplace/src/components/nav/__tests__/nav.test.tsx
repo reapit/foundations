@@ -34,14 +34,6 @@ describe('getDefaultNavIndex', () => {
       index: 4,
     },
     {
-      route: RoutePaths.SETTINGS_INSTALLED,
-      index: 5,
-    },
-    {
-      route: RoutePaths.SETTINGS_PROFILE,
-      index: 5,
-    },
-    {
       route: '/random-route',
       index: 0,
     },

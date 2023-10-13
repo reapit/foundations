@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav, callbackAppClick, getDefaultNavIndex, openNewPage } from '../nav'
+import { Nav, getDefaultNavIndex, openNewPage } from '../nav'
 import { RoutePaths } from '../../constants/routes'
 import { render } from '../../tests/react-testing'
 
@@ -29,13 +29,6 @@ describe('Nav', () => {
       curried()
 
       expect(openSpy).toHaveBeenCalledWith('https://example.com', '_blank')
-    })
-  })
-
-  describe('callbackAppClick', () => {
-    it('should run correcly', () => {
-      const fn = callbackAppClick()
-      expect(fn).toEqual('https://marketplace.reapit.cloud/installed')
     })
   })
 

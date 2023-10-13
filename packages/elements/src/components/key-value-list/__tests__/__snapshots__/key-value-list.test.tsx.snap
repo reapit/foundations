@@ -92,12 +92,116 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           <mock-styled.mock-styled.div
             classname="mock-css."
           >
-            Address
+            Parking Spaces
           </mock-styled.mock-styled.div>
           <mock-styled.mock-styled.div
             classname=""
           >
-            1234 Main St, Foo, Bar, 12345
+            2
+          </mock-styled.mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.span
+            classname="mock-css."
+            style="font-size: 20px;"
+          >
+            <svg
+              style="font-size: 20px;"
+            />
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
+        >
+          <mock-styled.mock-styled.div
+            classname="mock-css."
+          >
+            Date Signed Up
+          </mock-styled.mock-styled.div>
+          <mock-styled.mock-styled.div
+            classname=""
+          >
+            20th September 2023
+          </mock-styled.mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.span
+            classname="mock-css."
+            style="font-size: 20px;"
+          >
+            <svg
+              style="font-size: 20px;"
+            />
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
+        >
+          <mock-styled.mock-styled.div
+            classname="mock-css.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css."
+          >
+            Address
+          </mock-styled.mock-styled.div>
+          <mock-styled.mock-styled.div
+            classname="mock-css.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+"
+          >
+            I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
+          </mock-styled.mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.span
+            classname="mock-css."
+            style="font-size: 20px;"
+          >
+            <svg
+              style="font-size: 20px;"
+            />
+          </mock-styled.span>
+        </mock-styled.div>
+        <mock-styled.div
+          classname="mock-css.
+  flex-direction: column;
+"
+        >
+          <mock-styled.mock-styled.div
+            classname="mock-css."
+          >
+            Description
+          </mock-styled.mock-styled.div>
+          <mock-styled.mock-styled.div
+            classname=""
+          >
+            This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
           </mock-styled.mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
@@ -191,12 +295,116 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         <mock-styled.mock-styled.div
           classname="mock-css."
         >
-          Address
+          Parking Spaces
         </mock-styled.mock-styled.div>
         <mock-styled.mock-styled.div
           classname=""
         >
-          1234 Main St, Foo, Bar, 12345
+          2
+        </mock-styled.mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.span
+          classname="mock-css."
+          style="font-size: 20px;"
+        >
+          <svg
+            style="font-size: 20px;"
+          />
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+"
+      >
+        <mock-styled.mock-styled.div
+          classname="mock-css."
+        >
+          Date Signed Up
+        </mock-styled.mock-styled.div>
+        <mock-styled.mock-styled.div
+          classname=""
+        >
+          20th September 2023
+        </mock-styled.mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.span
+          classname="mock-css."
+          style="font-size: 20px;"
+        >
+          <svg
+            style="font-size: 20px;"
+          />
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+"
+      >
+        <mock-styled.mock-styled.div
+          classname="mock-css.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css."
+        >
+          Address
+        </mock-styled.mock-styled.div>
+        <mock-styled.mock-styled.div
+          classname="mock-css.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+"
+        >
+          I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
+        </mock-styled.mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.span
+          classname="mock-css."
+          style="font-size: 20px;"
+        >
+          <svg
+            style="font-size: 20px;"
+          />
+        </mock-styled.span>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css.
+  flex-direction: column;
+"
+      >
+        <mock-styled.mock-styled.div
+          classname="mock-css."
+        >
+          Description
+        </mock-styled.mock-styled.div>
+        <mock-styled.mock-styled.div
+          classname=""
+        >
+          This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
         </mock-styled.mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>
@@ -255,7 +463,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
 }
 `;
 
-exports[`KeyValueList component should match a snapshot for a large grid 1`] = `
+exports[`KeyValueList component should match a snapshot for a grid 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -361,12 +569,128 @@ exports[`KeyValueList component should match a snapshot for a large grid 1`] = `
               <mock-styled.mock-styled.div
                 classname="mock-css."
               >
-                Address
+                Parking Spaces
               </mock-styled.mock-styled.div>
               <mock-styled.mock-styled.div
                 classname=""
               >
-                1234 Main St, Foo, Bar, 12345
+                2
+              </mock-styled.mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+                style="font-size: 20px;"
+              >
+                <svg
+                  style="font-size: 20px;"
+                />
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-direction: column;
+"
+            >
+              <mock-styled.mock-styled.div
+                classname="mock-css."
+              >
+                Date Signed Up
+              </mock-styled.mock-styled.div>
+              <mock-styled.mock-styled.div
+                classname=""
+              >
+                20th September 2023
+              </mock-styled.mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+                style="font-size: 20px;"
+              >
+                <svg
+                  style="font-size: 20px;"
+                />
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-direction: column;
+"
+            >
+              <mock-styled.mock-styled.div
+                classname="mock-css.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css."
+              >
+                Address
+              </mock-styled.mock-styled.div>
+              <mock-styled.mock-styled.div
+                classname="mock-css.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+"
+              >
+                I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
+              </mock-styled.mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.span
+                classname="mock-css."
+                style="font-size: 20px;"
+              >
+                <svg
+                  style="font-size: 20px;"
+                />
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  flex-direction: column;
+"
+            >
+              <mock-styled.mock-styled.div
+                classname="mock-css."
+              >
+                Description
+              </mock-styled.mock-styled.div>
+              <mock-styled.mock-styled.div
+                classname=""
+              >
+                This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
               </mock-styled.mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -476,227 +800,12 @@ exports[`KeyValueList component should match a snapshot for a large grid 1`] = `
             <mock-styled.mock-styled.div
               classname="mock-css."
             >
-              Address
+              Parking Spaces
             </mock-styled.mock-styled.div>
             <mock-styled.mock-styled.div
               classname=""
             >
-              1234 Main St, Foo, Bar, 12345
-            </mock-styled.mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`KeyValueList component should match a snapshot for a small grid 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.span
-                classname="mock-css."
-                style="font-size: 20px;"
-              >
-                <svg
-                  style="font-size: 20px;"
-                />
-              </mock-styled.span>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  flex-direction: column;
-"
-            >
-              <mock-styled.mock-styled.div
-                classname="mock-css."
-              >
-                Name
-              </mock-styled.mock-styled.div>
-              <mock-styled.mock-styled.div
-                classname=""
-              >
-                John Doe
-              </mock-styled.mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.span
-                classname="mock-css."
-                style="font-size: 20px;"
-              >
-                <svg
-                  style="font-size: 20px;"
-                />
-              </mock-styled.span>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  flex-direction: column;
-"
-            >
-              <mock-styled.mock-styled.div
-                classname="mock-css."
-              >
-                Email
-              </mock-styled.mock-styled.div>
-              <mock-styled.mock-styled.div
-                classname=""
-              >
-                email@example.com
-              </mock-styled.mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.span
-                classname="mock-css."
-                style="font-size: 20px;"
-              >
-                <svg
-                  style="font-size: 20px;"
-                />
-              </mock-styled.span>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  flex-direction: column;
-"
-            >
-              <mock-styled.mock-styled.div
-                classname="mock-css."
-              >
-                Address
-              </mock-styled.mock-styled.div>
-              <mock-styled.mock-styled.div
-                classname=""
-              >
-                1234 Main St, Foo, Bar, 12345
-              </mock-styled.mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-              style="font-size: 20px;"
-            >
-              <svg
-                style="font-size: 20px;"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
-  flex-direction: column;
-"
-          >
-            <mock-styled.mock-styled.div
-              classname="mock-css."
-            >
-              Name
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname=""
-            >
-              John Doe
+              2
             </mock-styled.mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -727,12 +836,12 @@ exports[`KeyValueList component should match a snapshot for a small grid 1`] = `
             <mock-styled.mock-styled.div
               classname="mock-css."
             >
-              Email
+              Date Signed Up
             </mock-styled.mock-styled.div>
             <mock-styled.mock-styled.div
               classname=""
             >
-              email@example.com
+              20th September 2023
             </mock-styled.mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -761,14 +870,58 @@ exports[`KeyValueList component should match a snapshot for a small grid 1`] = `
 "
           >
             <mock-styled.mock-styled.div
-              classname="mock-css."
+              classname="mock-css.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css."
             >
               Address
             </mock-styled.mock-styled.div>
             <mock-styled.mock-styled.div
+              classname="mock-css.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+"
+            >
+              I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
+            </mock-styled.mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+              style="font-size: 20px;"
+            >
+              <svg
+                style="font-size: 20px;"
+              />
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
+          >
+            <mock-styled.mock-styled.div
+              classname="mock-css."
+            >
+              Description
+            </mock-styled.mock-styled.div>
+            <mock-styled.mock-styled.div
               classname=""
             >
-              1234 Main St, Foo, Bar, 12345
+              This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
             </mock-styled.mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
