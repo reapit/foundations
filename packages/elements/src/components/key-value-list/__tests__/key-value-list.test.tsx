@@ -20,9 +20,30 @@ describe('KeyValueList component', () => {
             intent: 'primary',
           },
           {
+            key: 'Parking Spaces',
+            value: '2',
+            iconName: 'carSystem',
+            intent: 'primary',
+          },
+          {
+            key: 'Date Signed Up',
+            value: '20th September 2023',
+            iconName: 'calendarSystem',
+            intent: 'primary',
+          },
+          {
             key: 'Address',
-            value: '1234 Main St, Foo, Bar, 12345',
+            value:
+              'I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.',
             iconName: 'homeSystem',
+            intent: 'primary',
+            textEllipsis: true,
+          },
+          {
+            key: 'Description',
+            value:
+              'This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.',
+            iconName: 'bulletListSystem',
             intent: 'primary',
           },
         ]}
@@ -31,57 +52,55 @@ describe('KeyValueList component', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should match a snapshot for a large grid', () => {
+  it('should match a snapshot for a grid', () => {
     const wrapper = render(
       <KeyValueList
-        hasLargeGrid
+        hasGrid
         items={[
           {
             key: 'Name',
             value: 'John Doe',
             iconName: 'usernameSystem',
             intent: 'primary',
+            colSize: 'half',
           },
           {
             key: 'Email',
             value: 'email@example.com',
             iconName: 'emailSystem',
             intent: 'primary',
+            colSize: 'half',
+          },
+          {
+            key: 'Parking Spaces',
+            value: '2',
+            iconName: 'carSystem',
+            intent: 'primary',
+            colSize: 'half',
+          },
+          {
+            key: 'Date Signed Up',
+            value: '20th September 2023',
+            iconName: 'calendarSystem',
+            intent: 'primary',
+            colSize: 'half',
           },
           {
             key: 'Address',
-            value: '1234 Main St, Foo, Bar, 12345',
+            value:
+              'I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.',
             iconName: 'homeSystem',
             intent: 'primary',
-          },
-        ]}
-      />,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('should match a snapshot for a small grid', () => {
-    const wrapper = render(
-      <KeyValueList
-        hasSmallGrid
-        items={[
-          {
-            key: 'Name',
-            value: 'John Doe',
-            iconName: 'usernameSystem',
-            intent: 'primary',
+            colSize: 'full',
+            textEllipsis: true,
           },
           {
-            key: 'Email',
-            value: 'email@example.com',
-            iconName: 'emailSystem',
+            key: 'Description',
+            value:
+              'This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.',
+            iconName: 'bulletListSystem',
             intent: 'primary',
-          },
-          {
-            key: 'Address',
-            value: '1234 Main St, Foo, Bar, 12345',
-            iconName: 'homeSystem',
-            intent: 'primary',
+            colSize: 'full',
           },
         ]}
       />,

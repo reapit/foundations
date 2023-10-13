@@ -1,6 +1,24 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { ElAvatar } from '../../avatar'
+import { ElIcon } from '../../icon'
+import { elIsActive } from '../../../styles/states'
+
+export const ElNavBg = styled.div`
+  display: none;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: var(--color-grey-500);
+  opacity: 0.2;
+
+  &.${elIsActive} {
+    display: block;
+    position: fixed;
+  }
+`
 
 export const ElNavContainer = styled.nav`
   display: flex;
@@ -15,14 +33,14 @@ export const ElNavContainer = styled.nav`
   z-index: 3;
   height: auto;
   flex: 0 0 auto;
-  overflow: hidden;
+  overflow: visible;
   flex-wrap: wrap;
 
   @media screen and (min-width: 768px) {
     height: 3.5rem;
     flex: 0 0 3.5rem;
     flex-wrap: nowrap;
-    overflow-x: auto;
+    justify-content: space-between;
     border-bottom: 1px solid var(--color-grey-100);
   }
 `
@@ -36,15 +54,7 @@ export const ElNavSubContainer = styled.div`
   }
 `
 
-export const elNavItemSecondary = css`
-  @media screen and (min-width: 768px) {
-    margin-left: auto;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-`
+export const elNavItemSecondary = css``
 
 export const ElNavItem = styled.a`
   font-family: var(--font-sans-serif);
@@ -65,6 +75,7 @@ export const ElNavItem = styled.a`
 
   svg {
     height: 2rem;
+    width: 2rem;
   }
 
   &:hover {
@@ -82,7 +93,7 @@ export const ElNavItem = styled.a`
     background-color: var(--color-white);
     margin-right: auto;
     width: 100%;
-    padding: 0rem 0.75rem;
+    padding: 0rem 1.25rem;
     border-bottom: 1px solid var(--color-grey-100);
   }
 
@@ -112,10 +123,6 @@ export const ElNavItem = styled.a`
     &:hover:not(:first-child) {
       background-color: var(--color-grey-100);
       border-left: none;
-
-      &.${elNavItemSecondary} {
-        background-color: var(--color-white);
-      }
     }
 
     &:first-child {
@@ -123,10 +130,8 @@ export const ElNavItem = styled.a`
       border-bottom: none;
     }
 
-    svg,
-    ${ElAvatar} {
-      height: 2rem;
-      width: 2rem;
+    &:last-of-type {
+      margin-right: auto;
     }
   }
 `
@@ -147,10 +152,6 @@ export const elNavItemActive = css`
       background-color: var(--color-grey-100);
       border-left: none;
       height: 2rem;
-
-      &.${elNavItemSecondary} {
-        background-color: var(--color-white);
-      }
     }
   }
 `
@@ -232,3 +233,105 @@ export const elNavItemHideDesktop = css`
 
 // Deprecated, we use the same interface for desktop and web - left class in to avoid breaking changes
 export const elNavIsDesktop = css``
+
+export const elNavIsHidden = css`
+  display: none;
+`
+
+export const ElNavMenu = styled.div`
+  position: absolute;
+  top: 44px;
+  right: 0;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 220px;
+  box-shadow: 0px 4px 16px 0px rgba(34, 43, 51, 0.16);
+  border-radius: 4px;
+  padding: 0.5rem 0;
+`
+
+export const ElNavMenuOption = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.875rem 1rem;
+  font-weight: var(--font-weight-default);
+  width: 100%;
+  height: 36px;
+
+  &:hover {
+    color: var(--intent-primary);
+  }
+
+  svg,
+  img,
+  ${ElIcon} {
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+    margin-right: 0.5rem;
+  }
+`
+
+export const ElNavMenuOptionDivider = styled.div`
+  height: 0;
+  width: 100%;
+  border-bottom: 1px solid var(--color-grey-100);
+  margin: 0.5rem 0;
+`
+
+export const ElNavResponsiveAvatarWrap = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-smallest);
+  font-weight: var(--font-weight-bold);
+  color: var(--intent-primary);
+  margin-right: 0.25rem;
+  cursor: pointer;
+
+  ${ElAvatar} {
+    height: 2rem;
+    width: 2rem;
+    background-color: var(--intent-primary-lightest);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-right: 1.25rem;
+  }
+
+  &.${elNavIsHidden} {
+    display: none;
+  }
+`
+
+export const elAppSwitcherOpen = css``
+
+export const ElNavResponsiveAppSwitcherWrap = styled.div`
+  position: relative;
+  display: flex;
+  font-size: var(--font-size-smallest);
+  cursor: pointer;
+
+  ${ElIcon} {
+    height: 2.25rem;
+    width: 2.25rem;
+
+    &.${elAppSwitcherOpen} {
+      rect {
+        fill: var(--intent-primary-lightest);
+      }
+    }
+  }
+
+  ${ElNavMenu} {
+    left: 0;
+    top: 46px;
+  }
+
+  @media screen and (min-width: 768px) {
+  }
+`

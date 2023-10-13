@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
+import { Icon, NavResponsive, NavResponsiveAvatarOption, NavResponsiveOption } from '@reapit/elements'
 import { RoutePaths } from '../../constants/routes'
-import { navigateRoute, navigateExternal } from '../../utils/navigation'
+import { navigateExternal, navigateRoute } from '../../utils/navigation'
 // Commenting out after Christmas
 // import dayjs from 'dayjs'
 // import isBetween from 'dayjs/plugin/isBetween'
@@ -13,6 +13,8 @@ import { navigateRoute, navigateExternal } from '../../utils/navigation'
 // import WeekFourXmas from '../../assets/images/xmas-logos/Week4.png'
 // import { styled } from '@linaria/react'
 import { useNavigate } from 'react-router'
+import { getAvatarInitials } from '@reapit/utils-react'
+import { selectIsAdmin } from '../../utils/auth'
 
 export const getDefaultNavIndex = (pathname: string) => {
   if (pathname.includes('apps')) return 1
@@ -24,9 +26,6 @@ export const getDefaultNavIndex = (pathname: string) => {
       return 2
     case RoutePaths.SUPPORT:
       return 4
-    case RoutePaths.SETTINGS_PROFILE:
-    case RoutePaths.SETTINGS_INSTALLED:
-      return 5
     default:
       return 0
   }
@@ -62,8 +61,10 @@ export const getDefaultNavIndex = (pathname: string) => {
 // }
 
 export const Nav: FC = () => {
-  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectIsDesktop, connectSession, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const navigate = useNavigate()
+  const isAdmin = selectIsAdmin(connectSession)
+
   const navOptions: NavResponsiveOption[] = [
     {
       itemIndex: 0,
@@ -84,36 +85,44 @@ export const Nav: FC = () => {
       text: 'Support',
       callback: navigateRoute(navigate, RoutePaths.SUPPORT),
     },
-    {
-      itemIndex: 5,
-      iconId: 'profileMenu',
-      isSecondary: true,
-      callback: navigateRoute(navigate, RoutePaths.SETTINGS_PROFILE),
-      subItems: [
-        {
-          itemIndex: 1,
-          callback: navigateRoute(navigate, RoutePaths.SETTINGS_PROFILE),
-          text: 'Profile',
-        },
-        {
-          itemIndex: 2,
-          callback: navigateRoute(navigate, RoutePaths.SETTINGS_INSTALLED),
-          text: 'Installed',
-        },
-      ],
-    },
   ]
 
-  if (!connectIsDesktop) {
-    navOptions.splice(3, 0, {
-      itemIndex: 3,
-      callback: navigateExternal(process.env.developerPortalUrl),
-      iconId: 'developersMenu',
-      text: 'Developers',
-    })
-  }
-
-  return <NavResponsive options={navOptions} defaultNavIndex={getDefaultNavIndex(window.location.pathname)} />
+  return (
+    <NavResponsive
+      options={navOptions}
+      defaultNavIndex={getDefaultNavIndex(window.location.pathname)}
+      appSwitcherOptions={
+        !connectIsDesktop
+          ? [
+              {
+                text: 'DevPortal',
+                callback: navigateExternal(process.env.developerPortalUrl),
+                iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+              },
+            ]
+          : undefined
+      }
+      avatarText={getAvatarInitials(connectSession)}
+      avatarOptions={
+        !connectIsDesktop
+          ? ([
+              {
+                callback: navigateRoute(navigate, RoutePaths.SETTINGS_PROFILE),
+                text: 'Profile',
+              },
+              isAdmin && {
+                callback: navigateRoute(navigate, RoutePaths.SETTINGS_INSTALLED),
+                text: 'Installed',
+              },
+              {
+                callback: connectLogoutRedirect,
+                text: 'Logout',
+              },
+            ].filter(Boolean) as NavResponsiveAvatarOption[])
+          : undefined
+      }
+    />
+  )
 }
 
 export default Nav

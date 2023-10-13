@@ -1,18 +1,16 @@
 import React, { FC } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
+import { Icon, NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import Routes from '../../../constants/routes'
 import { NavigateFunction, useNavigate } from 'react-router'
+import { getAvatarInitials } from '@reapit/utils-react'
 
-export const MARKETPLACE_DEV_URL = 'https://marketplace.dev.paas.reapit.cloud/installed'
-export const MARKETPLACE_PROD_URL = 'https://marketplace.reapit.cloud/installed'
-
-export const callbackAppClick = () =>
-  (window.location.href =
-    window.location.href.includes('dev') || window.location.href.includes('localhost')
-      ? MARKETPLACE_DEV_URL
-      : MARKETPLACE_PROD_URL)
+export const openNewPage = (uri: string) => (event?: MouseEvent) => {
+  event?.preventDefault()
+  event?.stopPropagation()
+  window.open(uri, '_blank', 'noopener noreferrer')
+}
 
 export const getDefaultNavIndex = (pathname: string) => {
   if (pathname.includes(Routes.MARKETPLACE)) return 3
@@ -34,7 +32,7 @@ export const navigateRoute = (navigate: NavigateFunction, route: string) => (): 
 
 export const Nav: FC = () => {
   const navigate = useNavigate()
-  const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectLogoutRedirect, connectIsDesktop, connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const navOptions: NavResponsiveOption[] = [
     {
       itemIndex: 0,
@@ -83,17 +81,35 @@ export const Nav: FC = () => {
     },
   ]
 
-  if (!connectIsDesktop) {
-    navOptions.push({
-      itemIndex: 5,
-      callback: connectLogoutRedirect,
-      isSecondary: true,
-      iconId: 'logoutMenu',
-      text: 'Logout',
-    })
-  }
-
-  return <NavResponsive options={navOptions} defaultNavIndex={getDefaultNavIndex(window.location.pathname)} />
+  return (
+    <NavResponsive
+      options={navOptions}
+      defaultNavIndex={getDefaultNavIndex(window.location.pathname)}
+      appSwitcherOptions={[
+        {
+          text: 'AppMarket',
+          callback: openNewPage('https://marketplace.reapit.cloud'),
+          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+        },
+        {
+          text: 'DevPortal',
+          callback: openNewPage('https://developers.reapit.cloud'),
+          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+        },
+      ]}
+      avatarText={getAvatarInitials(connectSession)}
+      avatarOptions={
+        !connectIsDesktop
+          ? [
+              {
+                callback: connectLogoutRedirect,
+                text: 'Logout',
+              },
+            ]
+          : undefined
+      }
+    />
+  )
 }
 
 export default Nav
