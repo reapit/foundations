@@ -1,7 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { ElAvatar } from '../../avatar'
-import { ElIcon } from '../../icon'
 import { elIsActive } from '../../../styles/states'
 
 export const ElNavBg = styled.div`
@@ -268,8 +267,7 @@ export const ElNavMenuOption = styled.div`
   }
 
   svg,
-  img,
-  ${ElIcon} {
+  img {
     height: 1.5rem !important;
     width: 1.5rem !important;
     margin-right: 0.5rem;
@@ -316,22 +314,19 @@ export const ElNavResponsiveAppSwitcherWrap = styled.div`
   font-size: var(--font-size-smallest);
   cursor: pointer;
 
-  ${ElIcon} {
+  svg {
     height: 2.25rem;
     width: 2.25rem;
+  }
 
-    &.${elAppSwitcherOpen} {
-      rect {
-        fill: var(--intent-primary-lightest);
-      }
+  .${elAppSwitcherOpen} {
+    rect {
+      fill: var(--intent-primary-lightest);
     }
   }
 
   ${ElNavMenu} {
     left: 0;
     top: 46px;
-  }
-
-  @media screen and (min-width: 768px) {
   }
 `
