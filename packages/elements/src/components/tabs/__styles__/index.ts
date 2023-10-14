@@ -64,7 +64,6 @@ export const ElTabsWrap = styled.div`
   display: flex;
   flex-direction: column;
   background: var(--color-white);
-  /* border-radius: 1rem; */
   overflow: hidden;
   width: fit-content;
   align-items: flex-start;
