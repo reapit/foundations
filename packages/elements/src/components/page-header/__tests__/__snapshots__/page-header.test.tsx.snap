@@ -9,6 +9,284 @@ exports[`PageHeader component should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 1rem;
+"
+          >
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.div>
+                Home
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.375rem;
+"
+                style="font-size: 12px;"
+              >
+                <svg
+                  style="font-size: 12px;"
+                />
+              </mock-styled.span>
+              <mock-styled.div>
+                Level 1
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.375rem;
+"
+                style="font-size: 12px;"
+              >
+                <svg
+                  style="font-size: 12px;"
+                />
+              </mock-styled.span>
+              <mock-styled.div>
+                Level 2
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  align-items: center;
+"
+            >
+              <mock-styled.span
+                classname="mock-css.
+  margin-right: 0.375rem;
+"
+                style="font-size: 12px;"
+              >
+                <svg
+                  style="font-size: 12px;"
+                />
+              </mock-styled.span>
+              <mock-styled.div>
+                Level 3
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div
+              classname=""
+            >
+              <mock-styled.mock-styled.div
+                classname=""
+              >
+                <img
+                  alt="https://picsum.photos/200/300"
+                  src="https://picsum.photos/200/300"
+                />
+              </mock-styled.mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  flex-direction: column;
+"
+              >
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.mock-styled.div
+                    classname="mock-css.
+  margin-right: 0.5rem;
+ mock-css."
+                  >
+                    Page Title
+                  </mock-styled.mock-styled.div>
+                  <mock-styled.div
+                    classname=""
+                  >
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname="mock-css."
+                      >
+                        Tag 1
+                      </mock-styled.span>
+                      <mock-styled.span
+                        classname="mock-css."
+                      >
+                        Tag 2
+                      </mock-styled.span>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.mock-styled.div
+                  classname="mock-css."
+                >
+                  Page Sub Title
+                </mock-styled.mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.div
+                    classname=""
+                  >
+                    Page Info 1
+                  </mock-styled.div>
+                  <mock-styled.span />
+                  <mock-styled.div
+                    classname=""
+                  >
+                    Page Info 2
+                  </mock-styled.div>
+                  <mock-styled.span />
+                  <mock-styled.div
+                    classname=""
+                  >
+                    Page Info 3
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname=""
+              >
+                <mock-styled.button
+                  classname="mock-css. mock-css."
+                >
+                  <mock-styled.div />
+                  Button 1
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="mock-css. mock-css."
+                >
+                  <mock-styled.div />
+                  Button 2
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+"
+          >
+            <mock-styled.div>
+              <mock-styled.input
+                id="tab-1-fw"
+                name="my-cool-tabs-full-width"
+                type="radio"
+                value="tab-1-fw"
+              />
+              <mock-styled.label
+                htmlfor="tab-1-fw"
+              >
+                <span
+                  class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
+"
+                >
+                  Tab Content 1
+                </span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="tab-2-fw"
+                name="my-cool-tabs-full-width"
+                type="radio"
+                value="tab-2-fw"
+              />
+              <mock-styled.label
+                htmlfor="tab-2-fw"
+              >
+                <span
+                  class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
+"
+                >
+                  Tab Content 2
+                </span>
+              </mock-styled.label>
+              <mock-styled.input
+                id="tab-3-fw"
+                name="my-cool-tabs-full-width"
+                type="radio"
+                value="tab-3-fw"
+              />
+              <mock-styled.label
+                htmlfor="tab-3-fw"
+              >
+                <span
+                  class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
+"
+                >
+                  Tab Content 3
+                </span>
+              </mock-styled.label>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  width: 100%;
+  justify-content: space-evenly;
+ mock-css."
+            />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div
+      classname=""
+    >
+      <mock-styled.div
+        classname=""
+      >
+        <mock-styled.div
           classname="mock-css.
   margin-bottom: 1rem;
 "
@@ -173,176 +451,104 @@ exports[`PageHeader component should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1rem;
-"
-      >
         <mock-styled.div
           classname="mock-css.
-  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
 "
         >
           <mock-styled.div>
-            Home
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+            <mock-styled.input
+              id="tab-1-fw"
+              name="my-cool-tabs-full-width"
+              type="radio"
+              value="tab-1-fw"
+            />
+            <mock-styled.label
+              htmlfor="tab-1-fw"
+            >
+              <span
+                class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
-        >
-          <mock-styled.span
-            classname="mock-css.
-  margin-right: 0.375rem;
-"
-            style="font-size: 12px;"
-          >
-            <svg
-              style="font-size: 12px;"
+              >
+                Tab Content 1
+              </span>
+            </mock-styled.label>
+            <mock-styled.input
+              id="tab-2-fw"
+              name="my-cool-tabs-full-width"
+              type="radio"
+              value="tab-2-fw"
             />
-          </mock-styled.span>
-          <mock-styled.div>
-            Level 1
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+            <mock-styled.label
+              htmlfor="tab-2-fw"
+            >
+              <span
+                class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
-        >
-          <mock-styled.span
-            classname="mock-css.
-  margin-right: 0.375rem;
-"
-            style="font-size: 12px;"
-          >
-            <svg
-              style="font-size: 12px;"
+              >
+                Tab Content 2
+              </span>
+            </mock-styled.label>
+            <mock-styled.input
+              id="tab-3-fw"
+              name="my-cool-tabs-full-width"
+              type="radio"
+              value="tab-3-fw"
             />
-          </mock-styled.span>
-          <mock-styled.div>
-            Level 2
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+            <mock-styled.label
+              htmlfor="tab-3-fw"
+            >
+              <span
+                class="mock-css.
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  border-bottom: 2px solid var(--color-white);
+  white-space: nowrap;
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey-500);
 "
-        >
-          <mock-styled.span
-            classname="mock-css.
-  margin-right: 0.375rem;
-"
-            style="font-size: 12px;"
-          >
-            <svg
-              style="font-size: 12px;"
-            />
-          </mock-styled.span>
-          <mock-styled.div>
-            Level 3
+              >
+                Tab Content 3
+              </span>
+            </mock-styled.label>
           </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.mock-styled.div
-            classname=""
-          >
-            <img
-              alt="https://picsum.photos/200/300"
-              src="https://picsum.photos/200/300"
-            />
-          </mock-styled.mock-styled.div>
           <mock-styled.div
             classname="mock-css.
-  flex-direction: column;
-"
-          >
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.mock-styled.div
-                classname="mock-css.
-  margin-right: 0.5rem;
+  width: 100%;
+  justify-content: space-evenly;
  mock-css."
-              >
-                Page Title
-              </mock-styled.mock-styled.div>
-              <mock-styled.div
-                classname=""
-              >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="mock-css."
-                  >
-                    Tag 1
-                  </mock-styled.span>
-                  <mock-styled.span
-                    classname="mock-css."
-                  >
-                    Tag 2
-                  </mock-styled.span>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname="mock-css."
-            >
-              Page Sub Title
-            </mock-styled.mock-styled.div>
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.div
-                classname=""
-              >
-                Page Info 1
-              </mock-styled.div>
-              <mock-styled.span />
-              <mock-styled.div
-                classname=""
-              >
-                Page Info 2
-              </mock-styled.div>
-              <mock-styled.span />
-              <mock-styled.div
-                classname=""
-              >
-                Page Info 3
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.button
-              classname="mock-css. mock-css."
-            >
-              <mock-styled.div />
-              Button 1
-            </mock-styled.button>
-            <mock-styled.button
-              classname="mock-css. mock-css."
-            >
-              <mock-styled.div />
-              Button 2
-            </mock-styled.button>
-          </mock-styled.div>
+          />
         </mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>

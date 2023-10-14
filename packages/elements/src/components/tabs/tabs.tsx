@@ -2,6 +2,7 @@ import React, { FC, Fragment, HTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
 import {
   elTabsFullWidth,
+  elTabsHasNoBorder,
   ElTabs,
   elTabsItem,
   ElTabsLabel,
@@ -21,9 +22,10 @@ export interface TabsProps extends HTMLAttributes<HTMLInputElement> {
   options: TabsOption[]
   name: string
   isFullWidth?: boolean
+  hasNoBorder?: boolean
 }
 
-export const Tabs: FC<TabsProps> = ({ className, isFullWidth, name, options, ...rest }) => {
+export const Tabs: FC<TabsProps> = ({ className, isFullWidth, hasNoBorder, name, options, ...rest }) => {
   return (
     <ElTabsWrap className={cx(className, isFullWidth && elTabsFullWidth)}>
       <ElTabsOptionsWrap>
@@ -36,7 +38,7 @@ export const Tabs: FC<TabsProps> = ({ className, isFullWidth, name, options, ...
           </Fragment>
         ))}
       </ElTabsOptionsWrap>
-      <ElTabsFooter className={cx(isFullWidth && elTabsFullWidth)} />
+      <ElTabsFooter className={cx(isFullWidth && elTabsFullWidth, hasNoBorder && elTabsHasNoBorder)} />
     </ElTabsWrap>
   )
 }

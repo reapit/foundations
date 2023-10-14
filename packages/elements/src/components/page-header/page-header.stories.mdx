@@ -8,6 +8,8 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 Really a collecation of previously defined components, but exported as a React shorthand for a best practice pattern to display at the top of each page. Should always sit within a `PageContainer` see layout for more details.
 
+If you want the page header to have a max width and center on the page in desktop, add the `hasMaxWidth` prop to the `PageHeader` component.
+
 All props are optional, with the exception of `pageTitle` - see the individual component docs for more information on the available options however, we advise sticking largely to the template below.
 
 <ArgsTable of={PageHeader} />
@@ -81,6 +83,31 @@ All props are optional, with the exception of `pageTitle` - see the individual c
           intent: 'default',
         },
       ]}
+      tabs={{
+        name: 'my-cool-tabs-full-width',
+        isFullWidth: true,
+        hasNoBorder: true,
+        options: [
+          {
+            id: 'tab-1-fw',
+            value: 'tab-1-fw',
+            text: 'Tab Content 1',
+            isChecked: true,
+          },
+          {
+            id: 'tab-2-fw',
+            value: 'tab-2-fw',
+            text: 'Tab Content 2',
+            isChecked: false,
+          },
+          {
+            id: 'tab-3-fw',
+            value: 'tab-3-fw',
+            text: 'Tab Content 3',
+            isChecked: false,
+          },
+        ],
+      }}
     />
   </Story>
 </Canvas>

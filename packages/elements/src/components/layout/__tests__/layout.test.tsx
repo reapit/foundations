@@ -1,13 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import {
-  MainContainer,
-  PageContainer,
-  SecondaryNavContainer,
-  Molecule,
-  FlexContainer,
-  PageContainerMaxWidth,
-} from '../index'
+import { MainContainer, PageContainer, SecondaryNavContainer, Molecule, FlexContainer } from '../index'
 
 describe('MainContainer', () => {
   it('should match a snapshot and render children', () => {
@@ -26,17 +19,6 @@ describe('PageContainer', () => {
       <PageContainer hasGreyBackground>
         <p>I am child</p>
       </PageContainer>,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-})
-
-describe('PageContainerMaxWidth', () => {
-  it('should match a snapshot and render children', () => {
-    const wrapper = render(
-      <PageContainerMaxWidth hasGreyBackground>
-        <p>I am child</p>
-      </PageContainerMaxWidth>,
     )
     expect(wrapper).toMatchSnapshot()
   })

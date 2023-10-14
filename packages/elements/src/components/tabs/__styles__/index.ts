@@ -21,6 +21,8 @@ export const elTabsFullWidth = css`
   justify-content: space-evenly;
 `
 
+export const elTabsHasNoBorder = css``
+
 export const ElTabs = styled.input`
   height: 0;
   width: 0;
@@ -62,9 +64,8 @@ export const ElTabsWrap = styled.div`
   display: flex;
   flex-direction: column;
   background: var(--color-white);
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   overflow: hidden;
-  padding: 0.25rem 0;
   width: fit-content;
   align-items: flex-start;
   height: auto;
@@ -92,5 +93,9 @@ export const ElTabsFooter = styled.div`
 
   &.${elTabsFullWidth} {
     width: 100%;
+  }
+
+  &.${elTabsHasNoBorder} {
+    display: none;
   }
 `

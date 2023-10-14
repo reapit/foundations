@@ -6,8 +6,8 @@ import {
   ElSecondaryNavContainer,
   ElMolecule,
   ElFlexContainer,
-  ElPageContainerMaxWidth,
   elHasGreyBackground,
+  elHasMaxWidth,
 } from './__styles__'
 import {
   elFlexRow,
@@ -37,6 +37,7 @@ import { useDeprecateComponent } from '../../storybook/deprecate-var'
 
 export interface ContainerProps extends HTMLAttributes<HTMLElement> {
   hasGreyBackground?: boolean
+  hasMaxWidth?: boolean
 }
 
 export interface ContainerFlexProps extends ContainerProps {
@@ -65,26 +66,35 @@ export interface ContainerFlexProps extends ContainerProps {
   hasGreyBackground?: boolean
 }
 
-export const MainContainer: FC<ContainerProps> = ({ children, className, hasGreyBackground, ...rest }) => (
-  <ElMainContainer className={cx(hasGreyBackground && elHasGreyBackground, className)} {...rest}>
+export const MainContainer: FC<ContainerProps> = ({ children, className, hasGreyBackground, hasMaxWidth, ...rest }) => (
+  <ElMainContainer
+    className={cx(hasGreyBackground && elHasGreyBackground, hasMaxWidth && elHasMaxWidth, className)}
+    {...rest}
+  >
     {children}
   </ElMainContainer>
 )
 
-export const PageContainer: FC<ContainerProps> = ({ children, className, hasGreyBackground, ...rest }) => (
-  <ElPageContainer className={cx(hasGreyBackground && elHasGreyBackground, className)} {...rest}>
+export const PageContainer: FC<ContainerProps> = ({ children, className, hasGreyBackground, hasMaxWidth, ...rest }) => (
+  <ElPageContainer
+    className={cx(hasGreyBackground && elHasGreyBackground, hasMaxWidth && elHasMaxWidth, className)}
+    {...rest}
+  >
     {children}
   </ElPageContainer>
 )
 
-export const PageContainerMaxWidth: FC<ContainerProps> = ({ children, className, hasGreyBackground, ...rest }) => (
-  <ElPageContainerMaxWidth className={cx(hasGreyBackground && elHasGreyBackground, className)} {...rest}>
-    {children}
-  </ElPageContainerMaxWidth>
-)
-
-export const SecondaryNavContainer: FC<ContainerProps> = ({ children, className, hasGreyBackground, ...rest }) => (
-  <ElSecondaryNavContainer className={cx(hasGreyBackground && elHasGreyBackground, className)} {...rest}>
+export const SecondaryNavContainer: FC<ContainerProps> = ({
+  children,
+  className,
+  hasGreyBackground,
+  hasMaxWidth,
+  ...rest
+}) => (
+  <ElSecondaryNavContainer
+    className={cx(hasGreyBackground && elHasGreyBackground, hasMaxWidth && elHasMaxWidth, className)}
+    {...rest}
+  >
     {children}
   </ElSecondaryNavContainer>
 )
@@ -119,6 +129,7 @@ export const FlexContainer: FC<ContainerFlexProps> = ({
   isFlexAlignStart,
   isFlexAlignEnd,
   hasGreyBackground,
+  hasMaxWidth,
   className,
   ...rest
 }) => {
@@ -146,6 +157,7 @@ export const FlexContainer: FC<ContainerFlexProps> = ({
     isFlexAlignStart && elFlexAlignStart,
     isFlexAlignEnd && elFlexAlignEnd,
     hasGreyBackground && elHasGreyBackground,
+    hasMaxWidth && elHasMaxWidth,
     className,
   )
 

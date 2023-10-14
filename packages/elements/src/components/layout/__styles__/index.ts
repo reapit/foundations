@@ -4,11 +4,12 @@ import { elHFull } from '../../../styles/sizing'
 import { css } from '@linaria/core'
 
 export const elHasGreyBackground = css``
+export const elHasMaxWidth = css``
 
 export const ElMainContainer = styled.main`
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow-y: visible;
   overflow-x: hidden;
@@ -16,6 +17,11 @@ export const ElMainContainer = styled.main`
 
   &.${elHasGreyBackground} {
     background: var(--color-grey-50);
+  }
+
+  &.${elHasMaxWidth} {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 `
 
@@ -29,7 +35,7 @@ export const ElPageContainer = styled.section`
   background-color: var(--color-white);
 
   ${isTablet} {
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1.5rem;
   }
 
   &.${elHFull} {
@@ -39,11 +45,11 @@ export const ElPageContainer = styled.section`
   &.${elHasGreyBackground} {
     background: var(--color-grey-50);
   }
-`
 
-export const ElPageContainerMaxWidth = styled(ElPageContainer)`
-  max-width: 1200px;
-  margin: 0 auto;
+  &.${elHasMaxWidth} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 `
 
 export const ElSecondaryNavContainer = styled.aside`
@@ -80,5 +86,10 @@ export const ElFlexContainer = styled.div`
 
   &.${elHasGreyBackground} {
     background: var(--color-grey-50);
+  }
+
+  &.${elHasMaxWidth} {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 `
