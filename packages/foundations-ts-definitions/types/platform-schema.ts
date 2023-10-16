@@ -8288,6 +8288,14 @@ export interface CreateTenancyDepositModel {
    */
   heldBy?: string
   /**
+   * The number of weeks or months rent collected as the deposit on the tenancy
+   */
+  period?: number // int32
+  /**
+   * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+   */
+  type?: string
+  /**
    * The amount of deposit held
    */
   sum?: number // double
@@ -8468,6 +8476,14 @@ export interface CreateTenancyModel {
      * The deposit holder (depositProtectionScheme/stakeholder/landlordsAgent/landlord/notApplicable)
      */
     heldBy?: string
+    /**
+     * The number of weeks or months rent collected as the deposit on the tenancy
+     */
+    period?: number // int32
+    /**
+     * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+     */
+    type?: string
     /**
      * The amount of deposit held
      */
@@ -17549,6 +17565,14 @@ export interface TenancyDepositModel {
    */
   heldBy?: string
   /**
+   * The number of weeks or months rent collected as the deposit on the tenancy
+   */
+  period?: number // int32
+  /**
+   * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+   */
+  type?: string
+  /**
    * The amount of deposit held
    */
   sum?: number // double
@@ -17956,6 +17980,14 @@ export interface TenancyModel {
      */
     heldBy?: string
     /**
+     * The number of weeks or months rent collected as the deposit on the tenancy
+     */
+    period?: number // int32
+    /**
+     * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+     */
+    type?: string
+    /**
      * The amount of deposit held
      */
     sum?: number // double
@@ -18304,6 +18336,14 @@ export interface TenancyModelPagedResult {
        * The deposit holder (depositProtectionScheme/stakeholder/landlordsAgent/landlord/notApplicable)
        */
       heldBy?: string
+      /**
+       * The number of weeks or months rent collected as the deposit on the tenancy
+       */
+      period?: number // int32
+      /**
+       * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+       */
+      type?: string
       /**
        * The amount of deposit held
        */
@@ -23243,6 +23283,14 @@ export interface UpdateTenancyDepositModel {
    */
   heldBy?: string
   /**
+   * The number of weeks or months rent collected as the deposit on the tenancy
+   */
+  period?: number // int32
+  /**
+   * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+   */
+  type?: string
+  /**
    * The amount of deposit held
    */
   sum?: number // double
@@ -23404,6 +23452,14 @@ export interface UpdateTenancyModel {
      * The deposit holder (depositProtectionScheme/stakeholder/landlordsAgent/landlord/notApplicable)
      */
     heldBy?: string
+    /**
+     * The number of weeks or months rent collected as the deposit on the tenancy
+     */
+    period?: number // int32
+    /**
+     * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+     */
+    type?: string
     /**
      * The amount of deposit held
      */
