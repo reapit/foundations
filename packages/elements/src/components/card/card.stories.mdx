@@ -25,6 +25,7 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { cx } from '@linaria/core'
 import { Card } from './card-components'
 import { MediaStateProvider } from '../../hooks/use-media-query'
+import { Avatar } from '../avatar'
 
 <Meta title="Card" component={Card} />
 
@@ -46,9 +47,7 @@ React users, may wish to use the shorthand component to reduce markup.
   <Story name="Card With Avatar">
     <CardWrap>
       <CardMainWrap>
-        <CardAvatarWrap>
-          <Icon icon="placeholderSmall" iconSize="small" />
-        </CardAvatarWrap>
+        <Avatar src="https://picsum.photos/200" />
         <CardHeadingWrap className={elCardSubHeadingWrapAvatar}>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
@@ -67,9 +66,7 @@ React users, may wish to use the shorthand component to reduce markup.
   <Story name="Card With Image">
     <CardWrap>
       <CardMainWrap>
-        <CardImageWrap>
-          <Icon icon="placeholderSmall" iconSize="small" />
-        </CardImageWrap>
+        <Avatar type="image" src="https://picsum.photos/200/300" />
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
@@ -114,9 +111,7 @@ Adding the `elCardFocussed` class to the `CardWrap` will draw the user's attenti
   <Story name="Card Focussed">
     <CardWrap className={elCardFocussed}>
       <CardMainWrap>
-        <CardImageWrap>
-          <Icon icon="placeholderSmall" iconSize="small" />
-        </CardImageWrap>
+        <Avatar type="image" src="https://picsum.photos/200/300" />
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
@@ -174,9 +169,7 @@ Adding the `elCardFocussed` class to the `CardWrap` will draw the user's attenti
   <Story name="Card Complete Example">
     <CardWrap>
       <CardMainWrap>
-        <CardImageWrap>
-          <Icon icon="placeholderSmall" iconSize="small" />
-        </CardImageWrap>
+        <Avatar type="image" src="https://picsum.photos/200/300" />
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
@@ -237,7 +230,7 @@ All of the props are optional - you can have Avatar, Image, List and Complete ve
         mainCardSubHeading="Main Subheading"
         mainCardSubHeadingAdditional="Main Subheading Additional"
         mainCardBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        mainCardAvatarUrl={<Icon icon="placeholderSmall" iconSize="small" />}
+        mainCardAvatarUrl="https://picsum.photos/200/200"
       />
     </MediaStateProvider>
   </Story>
@@ -287,7 +280,7 @@ All of the props are optional - you can have Avatar, Image, List and Complete ve
         mainCardSubHeading="Main Subheading"
         mainCardSubHeadingAdditional="Main Subheading Additional"
         mainCardBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        mainCardImgUrl={<Icon icon="placeholderSmall" iconSize="small" />}
+        mainCardImgUrl="https://picsum.photos/200/300"
         listCardHeading="List Card Heading"
         listCardSubHeading="List Card Sub Heading"
         listCardItems={[

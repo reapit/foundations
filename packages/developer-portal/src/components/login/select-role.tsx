@@ -78,7 +78,7 @@ export const SelectRolePage: FC = () => {
           <FlexContainer isFlexJustifyCenter isFlexColumn>
             <BodyText>New Customer</BodyText>
             <BodyText hasGreyText>
-              To find out more about Developer Portal, AgencyCloud and the AppMarket, just enter your email address and
+              To find out more about DeveloperPortal, AgencyCloud and the AppMarket, just enter your email address and
               we will be in touch:
             </BodyText>
           </FlexContainer>

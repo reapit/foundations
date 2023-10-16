@@ -125,7 +125,7 @@ exports[`FlexContainer should match a snapshot and render children with all prop
   align-items: flex-start;
  mock-css.
   align-items: flex-end;
-"
+ mock-css."
       >
         <p>
           I am child
@@ -177,7 +177,7 @@ exports[`FlexContainer should match a snapshot and render children with all prop
   align-items: flex-start;
  mock-css.
   align-items: flex-end;
-"
+ mock-css."
     >
       <p>
         I am child
@@ -243,7 +243,9 @@ exports[`MainContainer should match a snapshot and render children 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.main>
+      <mock-styled.main
+        classname="mock-css."
+      >
         <p>
           I am child
         </p>
@@ -251,7 +253,9 @@ exports[`MainContainer should match a snapshot and render children 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.main>
+    <mock-styled.main
+      classname="mock-css."
+    >
       <p>
         I am child
       </p>
@@ -389,7 +393,9 @@ exports[`PageContainer should match a snapshot and render children 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.section>
+      <mock-styled.section
+        classname="mock-css."
+      >
         <p>
           I am child
         </p>
@@ -397,7 +403,9 @@ exports[`PageContainer should match a snapshot and render children 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.section>
+    <mock-styled.section
+      classname="mock-css."
+    >
       <p>
         I am child
       </p>
@@ -462,7 +470,9 @@ exports[`SecondaryNavContainer should match a snapshot and render children 1`] =
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <p>
           I am child
         </p>
@@ -470,7 +480,9 @@ exports[`SecondaryNavContainer should match a snapshot and render children 1`] =
     </div>
   </body>,
   "container": <div>
-    <mock-styled.aside>
+    <mock-styled.aside
+      classname=""
+    >
       <p>
         I am child
       </p>

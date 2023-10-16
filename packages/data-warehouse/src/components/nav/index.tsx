@@ -1,9 +1,10 @@
 import React, { FC, MouseEvent } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
+import { Icon, NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import Routes from '../../constants/routes'
 import { NavigateFunction, useLocation, useNavigate } from 'react-router'
+import { getAvatarInitials } from '@reapit/utils-react'
 
 export const callbackAppClick = () => (window.location.href = process.env.marketplaceUrl)
 
@@ -31,7 +32,7 @@ export const openNewPage = (uri: string) => (event?: MouseEvent) => {
 }
 
 export const Nav: FC = () => {
-  const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectLogoutRedirect, connectIsDesktop, connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -51,17 +52,35 @@ export const Nav: FC = () => {
     },
   ]
 
-  if (!connectIsDesktop) {
-    navOptions.push({
-      itemIndex: 4,
-      callback: connectLogoutRedirect,
-      isSecondary: true,
-      iconId: 'logoutMenu',
-      text: 'Logout',
-    })
-  }
-
-  return <NavResponsive options={navOptions} defaultNavIndex={getDefaultNavIndex(location.pathname)} />
+  return (
+    <NavResponsive
+      options={navOptions}
+      defaultNavIndex={getDefaultNavIndex(location.pathname)}
+      appSwitcherOptions={[
+        {
+          text: 'AppMarket',
+          callback: openNewPage('https://marketplace.reapit.cloud'),
+          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+        },
+        {
+          text: 'DevPortal',
+          callback: openNewPage('https://developers.reapit.cloud'),
+          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+        },
+      ]}
+      avatarText={getAvatarInitials(connectSession)}
+      avatarOptions={
+        !connectIsDesktop
+          ? [
+              {
+                callback: connectLogoutRedirect,
+                text: 'Logout',
+              },
+            ]
+          : undefined
+      }
+    />
+  )
 }
 
 export default Nav

@@ -7,6 +7,7 @@ import {
   ElInputWrapFull,
   elFormLayoutHasMargin,
   ElInputWrapSmall,
+  ElFormSectionDivider,
 } from './__styles__'
 
 export type FormLayoutProps = HTMLAttributes<HTMLDivElement> & {
@@ -19,6 +20,10 @@ export const FormLayout: FC<FormLayoutProps> = ({ children, hasMargin, className
       {children}
     </ElFormLayout>
   )
+}
+
+export const FormSectionDivider: FC<FormLayoutProps> = ({ children, ...rest }) => {
+  return <ElFormSectionDivider {...rest}>{children}</ElFormSectionDivider>
 }
 
 export const InputWrap: React.ForwardRefExoticComponent<

@@ -20,11 +20,11 @@ export interface ChartDataModel {
 }
 
 export const GRADIENTS = [
+  { start: '#79d98c', end: '#20c040' },
+  { start: '#66b2ff', end: '#0080ff' },
+  { start: '#7e9bfa', end: '#4e56ea' },
   { start: '#ffc666', end: '#ffa000' },
   { start: '#ff9f66', end: '#ff6000' },
-  { start: '#66b2ff', end: '#0080ff' },
-  { start: '#b28cff', end: '#8040ff' },
-  { start: '#64d2c8', end: '#009b96' },
 ]
 
 export const handleSortChartData = (billing: BillingOverviewForPeriodV2Model | null) => () => {
@@ -101,8 +101,8 @@ export const ServicesChart: FC = () => {
             stacked: true,
             ticks: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },
@@ -110,8 +110,8 @@ export const ServicesChart: FC = () => {
             stacked: true,
             ticks: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },
@@ -122,8 +122,8 @@ export const ServicesChart: FC = () => {
             position: 'right',
             labels: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },

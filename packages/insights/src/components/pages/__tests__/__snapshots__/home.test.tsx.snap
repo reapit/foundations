@@ -11,7 +11,9 @@ exports[`Home should match a snapshot 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.h1
             classname=""
           >
@@ -67,7 +69,9 @@ exports[`Home should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.aside>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.div
             classname="mock-css.
   justify-content: space-between;
@@ -124,7 +128,9 @@ exports[`Home should match a snapshot 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >
@@ -180,7 +186,9 @@ exports[`Home should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.aside>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css.
   justify-content: space-between;

@@ -31,7 +31,7 @@ exports[`Login should match a snapshot 1`] = `
             <mock-styled.h2
               classname="mock-css."
             >
-              Developer Portal
+              DeveloperPortal
             </mock-styled.h2>
           </mock-styled.div>
           <mock-styled.div>
@@ -83,7 +83,7 @@ exports[`Login should match a snapshot 1`] = `
           <mock-styled.h2
             classname="mock-css."
           >
-            Developer Portal
+            DeveloperPortal
           </mock-styled.h2>
         </mock-styled.div>
         <mock-styled.div>

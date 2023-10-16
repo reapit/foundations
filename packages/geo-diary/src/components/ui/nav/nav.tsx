@@ -1,18 +1,17 @@
 import React from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
-import { MARKETPLACE_DEV_URL, MARKETPLACE_PROD_URL } from '../../../core/constants'
-import { isDemo } from '@reapit/utils-react'
+import { Icon, NavResponsive, NavResponsiveOption } from '@reapit/elements'
+import { getAvatarInitials, isDemo } from '@reapit/utils-react'
 
-export const callbackAppClick = () =>
-  (window.location.href =
-    window.location.href.includes('dev') || window.location.href.includes('localhost')
-      ? MARKETPLACE_DEV_URL
-      : MARKETPLACE_PROD_URL)
+export const openNewPage = (uri: string) => (event?: MouseEvent) => {
+  event?.preventDefault()
+  event?.stopPropagation()
+  window.open(uri, '_blank', 'noopener noreferrer')
+}
 
 export const Nav: React.FC = () => {
-  const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectLogoutRedirect, connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const demoEnv = isDemo()
   const navOptions: NavResponsiveOption[] = [
     {
@@ -20,17 +19,34 @@ export const Nav: React.FC = () => {
     },
   ]
 
-  if (!connectIsDesktop && !demoEnv) {
-    navOptions.push({
-      itemIndex: 2,
-      callback: connectLogoutRedirect,
-      isSecondary: true,
-      iconId: 'logoutMenu',
-      text: 'Logout',
-    })
-  }
-
-  return <NavResponsive options={navOptions} />
+  return (
+    <NavResponsive
+      options={navOptions}
+      appSwitcherOptions={[
+        {
+          text: 'AppMarket',
+          callback: openNewPage('https://marketplace.reapit.cloud'),
+          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+        },
+        {
+          text: 'DevPortal',
+          callback: openNewPage('https://developers.reapit.cloud'),
+          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+        },
+      ]}
+      avatarText={getAvatarInitials(connectSession)}
+      avatarOptions={
+        !connectIsDesktop && !demoEnv
+          ? [
+              {
+                callback: connectLogoutRedirect,
+                text: 'Logout',
+              },
+            ]
+          : undefined
+      }
+    />
+  )
 }
 
 export default Nav

@@ -9,7 +9,9 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -56,7 +58,9 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             Delete Config
           </mock-styled.button>
         </mock-styled.aside>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.h1
             classname=""
           >
@@ -282,7 +286,9 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
     <mock-styled.div
       classname=""
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -329,7 +335,9 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           Delete Config
         </mock-styled.button>
       </mock-styled.aside>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >
@@ -612,7 +620,9 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -659,7 +669,9 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             Delete Config
           </mock-styled.button>
         </mock-styled.aside>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.h1
             classname=""
           >
@@ -885,7 +897,9 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
     <mock-styled.div
       classname=""
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -932,7 +946,9 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           Delete Config
         </mock-styled.button>
       </mock-styled.aside>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >
@@ -1215,7 +1231,9 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1262,7 +1280,9 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             Delete Config
           </mock-styled.button>
         </mock-styled.aside>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.h1
             classname=""
           >
@@ -1488,7 +1508,9 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
     <mock-styled.div
       classname=""
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1535,7 +1557,9 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           Delete Config
         </mock-styled.button>
       </mock-styled.aside>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >

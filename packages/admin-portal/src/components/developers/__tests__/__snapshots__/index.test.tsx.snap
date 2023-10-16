@@ -6,7 +6,9 @@ exports[`DevsManagement should render component when loading 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >
@@ -94,44 +96,46 @@ exports[`DevsManagement should render component when loading 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.label>
-                Status
-              </mock-styled.label>
               <mock-styled.div>
-                <mock-styled.select
-                  name="status"
-                >
-                  <option
-                    value=""
+                <mock-styled.label>
+                  Status
+                </mock-styled.label>
+                <mock-styled.div>
+                  <mock-styled.select
+                    name="status"
                   >
-                    Please Select
-                  </option>
-                  <option
-                    value="incomplete"
-                  >
-                    Incomplete
-                  </option>
-                  <option
-                    value="pending"
-                  >
-                    Pending
-                  </option>
-                  <option
-                    value="confirmed"
-                  >
-                    Confirmed
-                  </option>
-                  <option
-                    value="underReview"
-                  >
-                    Under Review
-                  </option>
-                  <option
-                    value="removed"
-                  >
-                    Removed
-                  </option>
-                </mock-styled.select>
+                    <option
+                      value=""
+                    >
+                      Please Select
+                    </option>
+                    <option
+                      value="incomplete"
+                    >
+                      Incomplete
+                    </option>
+                    <option
+                      value="pending"
+                    >
+                      Pending
+                    </option>
+                    <option
+                      value="confirmed"
+                    >
+                      Confirmed
+                    </option>
+                    <option
+                      value="underReview"
+                    >
+                      Under Review
+                    </option>
+                    <option
+                      value="removed"
+                    >
+                      Removed
+                    </option>
+                  </mock-styled.select>
+                </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -148,7 +152,9 @@ exports[`DevsManagement should render component when loading 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.h1
         classname=""
       >
@@ -236,44 +242,46 @@ exports[`DevsManagement should render component when loading 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
-              Status
-            </mock-styled.label>
             <mock-styled.div>
-              <mock-styled.select
-                name="status"
-              >
-                <option
-                  value=""
+              <mock-styled.label>
+                Status
+              </mock-styled.label>
+              <mock-styled.div>
+                <mock-styled.select
+                  name="status"
                 >
-                  Please Select
-                </option>
-                <option
-                  value="incomplete"
-                >
-                  Incomplete
-                </option>
-                <option
-                  value="pending"
-                >
-                  Pending
-                </option>
-                <option
-                  value="confirmed"
-                >
-                  Confirmed
-                </option>
-                <option
-                  value="underReview"
-                >
-                  Under Review
-                </option>
-                <option
-                  value="removed"
-                >
-                  Removed
-                </option>
-              </mock-styled.select>
+                  <option
+                    value=""
+                  >
+                    Please Select
+                  </option>
+                  <option
+                    value="incomplete"
+                  >
+                    Incomplete
+                  </option>
+                  <option
+                    value="pending"
+                  >
+                    Pending
+                  </option>
+                  <option
+                    value="confirmed"
+                  >
+                    Confirmed
+                  </option>
+                  <option
+                    value="underReview"
+                  >
+                    Under Review
+                  </option>
+                  <option
+                    value="removed"
+                  >
+                    Removed
+                  </option>
+                </mock-styled.select>
+              </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -347,7 +355,9 @@ exports[`DevsManagement should render component with data 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >
@@ -435,44 +445,46 @@ exports[`DevsManagement should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.label>
-                Status
-              </mock-styled.label>
               <mock-styled.div>
-                <mock-styled.select
-                  name="status"
-                >
-                  <option
-                    value=""
+                <mock-styled.label>
+                  Status
+                </mock-styled.label>
+                <mock-styled.div>
+                  <mock-styled.select
+                    name="status"
                   >
-                    Please Select
-                  </option>
-                  <option
-                    value="incomplete"
-                  >
-                    Incomplete
-                  </option>
-                  <option
-                    value="pending"
-                  >
-                    Pending
-                  </option>
-                  <option
-                    value="confirmed"
-                  >
-                    Confirmed
-                  </option>
-                  <option
-                    value="underReview"
-                  >
-                    Under Review
-                  </option>
-                  <option
-                    value="removed"
-                  >
-                    Removed
-                  </option>
-                </mock-styled.select>
+                    <option
+                      value=""
+                    >
+                      Please Select
+                    </option>
+                    <option
+                      value="incomplete"
+                    >
+                      Incomplete
+                    </option>
+                    <option
+                      value="pending"
+                    >
+                      Pending
+                    </option>
+                    <option
+                      value="confirmed"
+                    >
+                      Confirmed
+                    </option>
+                    <option
+                      value="underReview"
+                    >
+                      Under Review
+                    </option>
+                    <option
+                      value="removed"
+                    >
+                      Removed
+                    </option>
+                  </mock-styled.select>
+                </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -719,7 +731,9 @@ exports[`DevsManagement should render component with data 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.h1
         classname=""
       >
@@ -807,44 +821,46 @@ exports[`DevsManagement should render component with data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.label>
-              Status
-            </mock-styled.label>
             <mock-styled.div>
-              <mock-styled.select
-                name="status"
-              >
-                <option
-                  value=""
+              <mock-styled.label>
+                Status
+              </mock-styled.label>
+              <mock-styled.div>
+                <mock-styled.select
+                  name="status"
                 >
-                  Please Select
-                </option>
-                <option
-                  value="incomplete"
-                >
-                  Incomplete
-                </option>
-                <option
-                  value="pending"
-                >
-                  Pending
-                </option>
-                <option
-                  value="confirmed"
-                >
-                  Confirmed
-                </option>
-                <option
-                  value="underReview"
-                >
-                  Under Review
-                </option>
-                <option
-                  value="removed"
-                >
-                  Removed
-                </option>
-              </mock-styled.select>
+                  <option
+                    value=""
+                  >
+                    Please Select
+                  </option>
+                  <option
+                    value="incomplete"
+                  >
+                    Incomplete
+                  </option>
+                  <option
+                    value="pending"
+                  >
+                    Pending
+                  </option>
+                  <option
+                    value="confirmed"
+                  >
+                    Confirmed
+                  </option>
+                  <option
+                    value="underReview"
+                  >
+                    Under Review
+                  </option>
+                  <option
+                    value="removed"
+                  >
+                    Removed
+                  </option>
+                </mock-styled.select>
+              </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>

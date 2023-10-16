@@ -144,7 +144,9 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -437,7 +439,9 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -787,7 +791,9 @@ exports[`MarketplaceAppPage should match a snapshot when loading 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -849,7 +855,9 @@ exports[`MarketplaceAppPage should match a snapshot when loading 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -968,7 +976,9 @@ exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -1108,7 +1118,9 @@ exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;

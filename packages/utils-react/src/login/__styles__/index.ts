@@ -49,7 +49,7 @@ export const LoginContentWrapper = styled.div`
   align-items: center;
   margin: auto;
   background-color: var(--color-white);
-  padding: 1.25rem;
+  padding: 2rem;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
 

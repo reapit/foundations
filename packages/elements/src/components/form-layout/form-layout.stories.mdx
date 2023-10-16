@@ -1,9 +1,9 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { InputGroup } from '../input-group'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
-import { FormLayout, InputWrap, InputWrapMed, InputWrapFull, InputWrapSmall } from './form-layout'
+import { FormLayout, InputWrap, InputWrapMed, InputWrapFull, InputWrapSmall, FormSectionDivider } from './form-layout'
 import { Toggle, ToggleRadio, ElToggleItem } from '../toggle'
-import { Subtitle, SmallText } from '../typography'
+import { Subtitle, BodyText, SmallText } from '../typography'
 import { TextArea } from '../textarea'
 import { MultiSelectInput } from '../multi-select'
 import { Button, ButtonGroup } from '../button'
@@ -41,7 +41,10 @@ In the example below, you can see a wide range of our input types and input wrap
 <Canvas>
   <Story name="Basic Form">
     <form>
-      <Subtitle>Basic Form</Subtitle>
+      <BodyText hasBoldText>Basic Form</BodyText>
+      <SmallText hasGreyText hasSectionMargin>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </SmallText>
       <FormLayout hasMargin>
         <InputWrap>
           <InputGroup icon="homeSystem" label="Address" type="text" />
@@ -119,11 +122,9 @@ In the example below, the basic form has been explanded, with two levels and a b
 <Canvas>
   <Story name="Complex Form">
     <form>
-      <Subtitle>Main Form</Subtitle>
+      <BodyText hasBoldText>Main Form</BodyText>
       <SmallText hasGreyText hasSectionMargin>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
-        enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
-        ornare enim sed magna tincidunt volutpat.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </SmallText>
       <FormLayout hasMargin>
         <InputWrap>
@@ -185,11 +186,10 @@ In the example below, the basic form has been explanded, with two levels and a b
           </InputGroup>
         </InputWrapFull>
       </FormLayout>
-      <Subtitle>Sub Form</Subtitle>
+      <FormSectionDivider />
+      <BodyText hasBoldText>Sub Form</BodyText>
       <SmallText hasGreyText hasSectionMargin>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non pulvinar tellus, quis pulvinar dui. Nunc
-        enim libero, ullamcorper ac ex id, tincidunt dapibus lectus. Vestibulum at porta quam, ac condimentum dui. Duis
-        ornare enim sed magna tincidunt volutpat.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </SmallText>
       <FormLayout hasMargin>
         <InputWrapMed>

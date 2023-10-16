@@ -6,7 +6,9 @@ exports[`IaaS should match snapshot when loading 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >
@@ -55,7 +57,9 @@ exports[`IaaS should match snapshot when loading 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.h1
         classname=""
       >
@@ -161,7 +165,9 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >
@@ -311,7 +317,9 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.h1
         classname=""
       >

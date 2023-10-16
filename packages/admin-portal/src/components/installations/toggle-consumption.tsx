@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react'
-import { elMt5, FormLayout, InputWrap, Label, ToggleRadio } from '@reapit/elements'
+import { elMt5, FormLayout, InputGroup, InputWrap, Label, ToggleRadio } from '@reapit/elements'
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -60,25 +60,27 @@ export const ToggleConsumption: FC<ToggleConsumptionProps> = ({
     <form>
       <FormLayout className={elMt5}>
         <InputWrap>
-          <Label>API Consumption Charges</Label>
-          <ToggleRadio
-            {...register('fixedApiConsumptionCost')}
-            hasGreyBg
-            options={[
-              {
-                id: 'option-free-false',
-                value: 'NOT_FREE',
-                text: 'Pays for API consumption',
-                isChecked: currentConsumptionPaid,
-              },
-              {
-                id: 'option-free-true',
-                value: 'FREE',
-                text: 'API consumption free',
-                isChecked: !currentConsumptionPaid,
-              },
-            ]}
-          />
+          <InputGroup>
+            <Label>API Consumption Charges</Label>
+            <ToggleRadio
+              {...register('fixedApiConsumptionCost')}
+              hasGreyBg
+              options={[
+                {
+                  id: 'option-free-false',
+                  value: 'NOT_FREE',
+                  text: 'Pays for API consumption',
+                  isChecked: currentConsumptionPaid,
+                },
+                {
+                  id: 'option-free-true',
+                  value: 'FREE',
+                  text: 'API consumption free',
+                  isChecked: !currentConsumptionPaid,
+                },
+              ]}
+            />
+          </InputGroup>
         </InputWrap>
       </FormLayout>
     </form>

@@ -56,20 +56,20 @@ export const InstallationsPerDayChart: FC<InstallationsPerDayChartProps> = ({ in
               if (!chartArea) return
 
               const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top)
-              gradient.addColorStop(1, 'rgba(122, 44, 129, 0.5)')
+              gradient.addColorStop(1, '#7e9bfa')
               gradient.addColorStop(0, '#fff')
 
               return gradient
             },
-            borderColor: '#7A2C81',
+            borderColor: '#4e56ea',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: '#7A2C81',
-            pointBackgroundColor: '#7A2C81',
+            pointBorderColor: '#4e56ea',
+            pointBackgroundColor: '#4e56ea',
             pointHoverRadius: 4,
-            pointHoverBackgroundColor: '#7A2C81',
-            pointHoverBorderColor: '#7A2C81',
+            pointHoverBackgroundColor: '#4e56ea',
+            pointHoverBorderColor: '#4e56ea',
             pointHoverBorderWidth: 4,
 
             data: sortedInstallations.data,
@@ -83,16 +83,16 @@ export const InstallationsPerDayChart: FC<InstallationsPerDayChartProps> = ({ in
             beginAtZero: true,
             ticks: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },
           x: {
             ticks: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },
@@ -103,8 +103,8 @@ export const InstallationsPerDayChart: FC<InstallationsPerDayChartProps> = ({ in
             align: 'end',
             labels: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },

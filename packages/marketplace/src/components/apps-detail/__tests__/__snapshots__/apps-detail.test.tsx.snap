@@ -16,7 +16,9 @@ exports[`AppsDetail should match a snapshot for viewport desktop 1`] = `
     />
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname=""
         >
@@ -29,7 +31,9 @@ exports[`AppsDetail should match a snapshot for viewport desktop 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.div
         classname=""
       >
@@ -109,7 +113,9 @@ exports[`AppsDetail should match a snapshot for viewport mobile 1`] = `
     />
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname=""
         >
@@ -122,7 +128,9 @@ exports[`AppsDetail should match a snapshot for viewport mobile 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.div
         classname=""
       >
@@ -202,7 +210,9 @@ exports[`AppsDetail should match a snapshot for viewport superWidescreen 1`] = `
     />
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname=""
         >
@@ -215,7 +225,9 @@ exports[`AppsDetail should match a snapshot for viewport superWidescreen 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.div
         classname=""
       >
@@ -295,7 +307,9 @@ exports[`AppsDetail should match a snapshot for viewport tablet 1`] = `
     />
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname=""
         >
@@ -308,7 +322,9 @@ exports[`AppsDetail should match a snapshot for viewport tablet 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.div
         classname=""
       >
@@ -388,7 +404,9 @@ exports[`AppsDetail should match a snapshot for viewport widescreen 1`] = `
     />
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname=""
         >
@@ -401,7 +419,9 @@ exports[`AppsDetail should match a snapshot for viewport widescreen 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.div
         classname=""
       >
@@ -481,7 +501,9 @@ exports[`AppsDetail should match a snapshot when loading 1`] = `
     />
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname=""
         >
@@ -494,7 +516,9 @@ exports[`AppsDetail should match a snapshot when loading 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.div
         classname=""
       >
@@ -576,7 +600,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
     />
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css."
         >
@@ -1039,7 +1065,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.div
         classname="mock-css."
       >
@@ -1568,7 +1596,9 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
     </div>
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div
           classname="mock-css."
         >
@@ -2023,7 +2053,9 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.div
         classname="mock-css."
       >

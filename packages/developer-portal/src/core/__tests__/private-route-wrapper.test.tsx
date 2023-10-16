@@ -18,6 +18,7 @@ jest.mock('@reapit/connect-session', () => ({
     connectSession: {
       loginIdentity: {
         developerId: 'MOCK_DEVELOPER_ID',
+        name: 'MOCK_NAME',
       },
     },
     connectInternalRedirect: '',
@@ -45,6 +46,7 @@ describe('handleRedirectToAuthenticationPage', () => {
     const mockConnectSession = {
       loginIdentity: {
         developerId: '',
+        name: 'MOCK_NAME',
       },
     } as ReapitConnectSession
     const navigate = jest.fn()
@@ -58,6 +60,7 @@ describe('handleRedirectToAuthenticationPage', () => {
       loginIdentity: {
         developerId: '',
         agencyCloudId: 'RES',
+        name: 'MOCK_NAME',
         groups: [COGNITO_GROUP_USERS],
       },
     } as ReapitConnectSession

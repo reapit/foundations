@@ -7,6 +7,8 @@ jest.mock('uuid', () => ({
   validate: jest.fn(() => true),
 }))
 
+jest.mock('../use-global-state')
+
 describe('Menu', () => {
   afterEach(() => {
     jest.clearAllMocks()
@@ -35,87 +37,63 @@ describe('getDefaultNavIndex', () => {
     },
     {
       route: Routes.ANALYTICS_COSTS,
-      index: 2,
+      index: 8,
     },
     {
       route: Routes.ANALYTICS_API_CALLS,
-      index: 2,
+      index: 8,
     },
     {
       route: Routes.ANALYTICS_INSTALLATIONS,
-      index: 2,
+      index: 8,
     },
     {
       route: Routes.ANALYTICS_COST_CALCULATOR,
-      index: 2,
+      index: 8,
     },
     {
       route: Routes.SWAGGER,
-      index: 3,
+      index: 13,
     },
     {
       route: Routes.GRAPHQL,
-      index: 3,
+      index: 13,
     },
     {
       route: Routes.WEBHOOKS_ABOUT,
-      index: 3,
+      index: 13,
     },
     {
       route: Routes.WEBHOOKS_NEW,
-      index: 3,
+      index: 13,
     },
     {
       route: Routes.WEBHOOKS_MANAGE,
-      index: 3,
+      index: 13,
     },
     {
       route: Routes.WEBHOOKS_LOGS,
-      index: 3,
+      index: 13,
     },
     {
       route: Routes.DESKTOP,
-      index: 3,
+      index: 13,
     },
     {
       route: Routes.ELEMENTS,
-      index: 4,
+      index: 18,
     },
     {
       route: Routes.API_DOCS,
-      index: 6,
+      index: 20,
     },
     {
       route: Routes.ANALYTICS_SCHEMA_DOCS,
-      index: 6,
+      index: 20,
     },
     {
       route: Routes.IAAS,
-      index: 5,
-    },
-    {
-      route: Routes.SETTINGS,
-      index: 8,
-    },
-    {
-      route: Routes.SETTINGS_COMPANY,
-      index: 8,
-    },
-    {
-      route: Routes.SETTINGS_SUBSCRIPTIONS,
-      index: 8,
-    },
-    {
-      route: Routes.SETTINGS_PASSWORD,
-      index: 8,
-    },
-    {
-      route: Routes.SETTINGS_MEMBERS,
-      index: 8,
-    },
-    {
-      route: Routes.SETTINGS_PROFILE,
-      index: 8,
+      index: 19,
     },
     {
       route: '/',

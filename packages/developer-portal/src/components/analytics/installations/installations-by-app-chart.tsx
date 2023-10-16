@@ -55,12 +55,12 @@ export const InstallationsByAppChart: FC<InstallationsByAppChartProps> = ({ inst
               if (!chartArea) return
 
               const gradient = ctx.createLinearGradient(chartArea.left, 0, chartArea.right, 0)
-              gradient.addColorStop(1, 'rgba(236, 99, 27, 1)')
-              gradient.addColorStop(0, 'rgba(236, 99, 27, 0.5)')
+              gradient.addColorStop(1, '#7e9bfa')
+              gradient.addColorStop(0, '#4e56ea')
 
               return gradient
             },
-            borderColor: '#7A2C81',
+            borderColor: '#4e56ea',
             data: sortedInstallations.data,
           },
         ],
@@ -75,16 +75,16 @@ export const InstallationsByAppChart: FC<InstallationsByAppChartProps> = ({ inst
 
             ticks: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },
           x: {
             ticks: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },
@@ -95,8 +95,8 @@ export const InstallationsByAppChart: FC<InstallationsByAppChartProps> = ({ inst
             align: 'end',
             labels: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },

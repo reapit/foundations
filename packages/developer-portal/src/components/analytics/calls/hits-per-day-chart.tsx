@@ -45,20 +45,20 @@ export const HitsPerDayChart: FC<HitsPerDayChartProps> = ({ trafficEvents }) => 
               if (!chartArea) return
 
               const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top)
-              gradient.addColorStop(1, '#0080ff')
-              gradient.addColorStop(0, '#66b2ff')
+              gradient.addColorStop(1, '#4e56ea')
+              gradient.addColorStop(0, '#7e9bfa')
 
               return gradient
             },
-            borderColor: '#0080ff',
+            borderColor: '#4e56ea',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: '#0080ff',
-            pointBackgroundColor: '#0080ff',
+            pointBorderColor: '#4e56ea',
+            pointBackgroundColor: '#4e56ea',
             pointHoverRadius: 4,
-            pointHoverBackgroundColor: '#0080ff',
-            pointHoverBorderColor: '#0080ff',
+            pointHoverBackgroundColor: '#4e56ea',
+            pointHoverBorderColor: '#4e56ea',
             pointHoverBorderWidth: 4,
 
             data: sortedTrafficEvents?.data,
@@ -72,16 +72,16 @@ export const HitsPerDayChart: FC<HitsPerDayChartProps> = ({ trafficEvents }) => 
             beginAtZero: true,
             ticks: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },
           x: {
             ticks: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },
@@ -92,8 +92,8 @@ export const HitsPerDayChart: FC<HitsPerDayChartProps> = ({ trafficEvents }) => 
             align: 'end',
             labels: {
               font: {
-                family: 'PT Sans',
-                size: 16,
+                family: 'Inter',
+                size: 15,
               },
             },
           },

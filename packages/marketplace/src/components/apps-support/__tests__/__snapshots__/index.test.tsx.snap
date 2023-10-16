@@ -11,7 +11,9 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -73,7 +75,7 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -137,7 +139,9 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -199,7 +203,7 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -320,7 +324,9 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -382,7 +388,7 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -419,7 +425,9 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -481,7 +489,7 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {

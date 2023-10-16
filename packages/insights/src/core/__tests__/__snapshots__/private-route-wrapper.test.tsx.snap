@@ -6,23 +6,18 @@ exports[`PrivateRouter should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.main>
+      <mock-styled.main
+        classname=""
+      >
+        <mock-styled.div
+          classname=""
+        />
         <mock-styled.nav
           classname=""
         >
           <mock-styled.a
             classname=""
           >
-            <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.375rem;
-"
-              style="font-size: 1.5rem;"
-            >
-              <svg
-                style="font-size: 1.5rem;"
-              />
-            </mock-styled.span>
             <mock-styled.span
               classname=""
               style="height: 24px; width: 100px;"
@@ -35,7 +30,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
               classname="mock-css.
   margin-left: auto;
  mock-css.
-  margin-right: 0.375rem;
+  margin-right: 0.625rem;
  mock-css.
   @media screen and (min-width: 768px) {
     height: 0;
@@ -62,24 +57,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
             Apps
           </mock-styled.a>
           <mock-styled.a
-            classname="mock-css.
-  @media screen and (min-width: 768px) {
-    margin-left: auto;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-"
+            classname=""
           >
-            <mock-styled.span
-              classname=""
-              style="font-size: 32px;"
-            >
-              <svg
-                style="font-size: 32px;"
-              />
-            </mock-styled.span>
+            Logout
           </mock-styled.a>
         </mock-styled.nav>
       </mock-styled.main>
@@ -87,23 +67,18 @@ exports[`PrivateRouter should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.main>
+    <mock-styled.main
+      classname=""
+    >
+      <mock-styled.div
+        classname=""
+      />
       <mock-styled.nav
         classname=""
       >
         <mock-styled.a
           classname=""
         >
-          <mock-styled.span
-            classname="mock-css.
-  margin-right: 0.375rem;
-"
-            style="font-size: 1.5rem;"
-          >
-            <svg
-              style="font-size: 1.5rem;"
-            />
-          </mock-styled.span>
           <mock-styled.span
             classname=""
             style="height: 24px; width: 100px;"
@@ -116,7 +91,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
             classname="mock-css.
   margin-left: auto;
  mock-css.
-  margin-right: 0.375rem;
+  margin-right: 0.625rem;
  mock-css.
   @media screen and (min-width: 768px) {
     height: 0;
@@ -143,24 +118,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           Apps
         </mock-styled.a>
         <mock-styled.a
-          classname="mock-css.
-  @media screen and (min-width: 768px) {
-    margin-left: auto;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-"
+          classname=""
         >
-          <mock-styled.span
-            classname=""
-            style="font-size: 32px;"
-          >
-            <svg
-              style="font-size: 32px;"
-            />
-          </mock-styled.span>
+          Logout
         </mock-styled.a>
       </mock-styled.nav>
     </mock-styled.main>

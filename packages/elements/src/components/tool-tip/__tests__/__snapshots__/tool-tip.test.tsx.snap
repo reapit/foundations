@@ -8,7 +8,9 @@ exports[`ToolTip should match a snapshot and render children 1`] = `
       <mock-styled.div>
         Hover here
         <mock-styled.div
-          classname=""
+          classname="mock-css.
+  display: block;
+"
         >
           hello there
         </mock-styled.div>
@@ -19,7 +21,9 @@ exports[`ToolTip should match a snapshot and render children 1`] = `
     <mock-styled.div>
       Hover here
       <mock-styled.div
-        classname=""
+        classname="mock-css.
+  display: block;
+"
       >
         hello there
       </mock-styled.div>

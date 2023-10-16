@@ -6,7 +6,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.div>
           <mock-styled.mock-styled.h1
             classname=""
@@ -36,7 +38,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -62,7 +64,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -119,7 +121,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -285,7 +289,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {
@@ -928,7 +932,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section>
+    <mock-styled.section
+      classname=""
+    >
       <mock-styled.div>
         <mock-styled.mock-styled.h1
           classname=""
@@ -958,7 +964,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -984,7 +990,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   justify-content: center;
   cursor: pointer;
   border-radius: 0.125rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
 
   &:last-child {
     margin-right: 0;
@@ -1041,7 +1047,9 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   animation-name: fade-in;
  mock-css.
   width: 100%;
+  border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
  mock-css.
   display: none;
 
@@ -1207,7 +1215,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-150);
   border-right: none;
 
   &:has(+ input:focus) {

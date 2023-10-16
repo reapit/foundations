@@ -9,7 +9,9 @@ exports[`IaaS should match snapshot 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.75rem;
@@ -31,7 +33,9 @@ exports[`IaaS should match snapshot 1`] = `
             View Docs
           </mock-styled.button>
         </mock-styled.aside>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <div />
         </mock-styled.section>
       </mock-styled.div>
@@ -42,7 +46,9 @@ exports[`IaaS should match snapshot 1`] = `
     <mock-styled.div
       classname=""
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.75rem;
@@ -64,7 +70,9 @@ exports[`IaaS should match snapshot 1`] = `
           View Docs
         </mock-styled.button>
       </mock-styled.aside>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <div />
       </mock-styled.section>
     </mock-styled.div>

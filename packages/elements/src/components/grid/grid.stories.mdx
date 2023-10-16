@@ -1,6 +1,6 @@
 import { Story, Canvas, ArgsTable, Meta } from '@storybook/addon-docs'
 import { GridDemoBlock } from '../../storybook/demo-block'
-import { Grid, Col, ColSplit } from './grid'
+import { Grid, Col, ColHalf, ColQuarter, ColSplit, ColSplitThird, ColSplitTwoThirds, GridThirds } from './grid'
 import { GridResponsive, ColResponsive } from './grid-responsive'
 import { MediaStateProvider } from '../../hooks/use-media-query'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
@@ -56,6 +56,49 @@ Row and column gaps are standardised in line with our style guide.
 
 <RenderHtmlMarkup component="Grid" story={['Basic Usage']} />
 
+## Basic Usage Quarter and Halves
+
+Using the basic grid you can also use smaller columns for more granular control over your layout with `ColHalfy` and `ColQuarter` components.
+
+<Canvas>
+  <Story name="Basic Usage Quarter and Halves">
+    <Grid>
+      <ColHalf>
+        <GridDemoBlock />
+      </ColHalf>
+      <ColHalf>
+        <GridDemoBlock />
+      </ColHalf>
+      <ColHalf>
+        <GridDemoBlock />
+      </ColHalf>
+      <ColHalf>
+        <GridDemoBlock />
+      </ColHalf>
+      <ColQuarter>
+        <GridDemoBlock />
+      </ColQuarter>
+      <ColQuarter>
+        <GridDemoBlock />
+      </ColQuarter>
+      <ColQuarter>
+        <GridDemoBlock />
+      </ColQuarter>
+      <ColQuarter>
+        <GridDemoBlock />
+      </ColQuarter>
+      <ColQuarter>
+        <GridDemoBlock />
+      </ColQuarter>
+      <ColQuarter>
+        <GridDemoBlock />
+      </ColQuarter>
+    </Grid>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Grid" story={['Basic Usage Quarter and Halves']} />
+
 ## Basic Usage - Split Screen Grid
 
 For more simple layouts, you will likely need a split screen, two column layout. This can be achieved by substituting `Col` component with a `ColSplit` grid item.
@@ -76,6 +119,27 @@ Below 1024px the grid will have a single item per column, above, the screen will
 </Canvas>
 
 <RenderHtmlMarkup component="Grid" story={['Basic Usage - Split Screen Grid']} />
+
+## Basic Usage - Split Screen Grid Thirds
+
+For a sidebar and main colum view, you can use a `GridThirds` grid, with `ColSplitThird` and `ColSplitTwoThirds` grid items - this is best combined with a `hasMaxWidth` Container - see layouts for more on this.
+
+In mobile and tablet, these columns stack then break at destop view and above.
+
+<Canvas>
+  <Story name="Basic Usage - Split Screen Grid Thirds">
+    <GridThirds>
+      <ColSplitThird>
+        <GridDemoBlock />
+      </ColSplitThird>
+      <ColSplitTwoThirds>
+        <GridDemoBlock />
+      </ColSplitTwoThirds>
+    </GridThirds>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Grid" story={['Basic Usage - Split Screen Grid Thirds']} />
 
 ## Custom Usage
 

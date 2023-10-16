@@ -114,7 +114,7 @@ export const ElInputGroup = styled.div`
     order: 2;
     ~ ${ElLabel} {
       order: 1;
-      padding: 0.125rem 0;
+      padding: 0 0.5rem 0.5rem 0;
     }
   }
 

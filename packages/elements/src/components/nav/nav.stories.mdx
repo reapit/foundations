@@ -1,13 +1,21 @@
 import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs'
 import { cx } from '@linaria/core'
 import { Nav, NavItem } from './index'
-import { elNavItemActive, elNavItemHideDesktop, elNavItemExpanded, elNavItemIcon, elNavIsDesktop } from './__styles__'
+import {
+  elNavItemActive,
+  elNavItemHideDesktop,
+  elNavItemExpanded,
+  elNavItemIcon,
+  elNavIsDesktop,
+  elNavItemSecondary,
+} from './__styles__'
 import { NavStateProvider, useNavState } from '../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../hooks/use-media-query'
 import { Icon } from '../icon'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { elMl4, elMlAuto, elMr2 } from '../../styles/spacing'
 import { NavResponsive } from './nav-responsive'
+import { Avatar, elAvatarSmall } from '../avatar'
 
 <Meta title="Nav" component={NavResponsive} />
 
@@ -31,19 +39,13 @@ If you use a `SecondaryNav` component, you will need to add these options as `Na
   <Story name="Basic Example">
     <Nav>
       <NavItem>
-        <Icon
-          className={cx(elMr2)}
-          icon="appLauncherMenu"
-          fontSize="1.5rem"
-          onClick={() => (window.location.href = 'https://marketplace.reapit.cloud/installed')}
-        />
         <Icon height="24px" width="100px" icon="reapitLogoInfographic" />
         <Icon
           className={cx(elMlAuto, elMr2, elNavItemHideDesktop)}
           icon="moreSolidSystem"
           fontSize="1.2rem"
           intent="default"
-          onClick={() => consoe.log('Toggle Menu')}
+          onClick={() => console.log('Toggle Menu')}
         />
       </NavItem>
       <NavItem className={elNavItemActive} href="https://marketplace.reapit.cloud/apps">
@@ -51,9 +53,6 @@ If you use a `SecondaryNav` component, you will need to add these options as `Na
       </NavItem>
       <NavItem href="https://developers.reapit.cloud/analytics">Analytics</NavItem>
       <NavItem href="https://marketplace.reapit.cloud">Marketplace</NavItem>
-      <NavItem isSecondary href="https://developers.reapit.cloud/login">
-        <Icon iconSize="medium" icon="profileMenu" />
-      </NavItem>
     </Nav>
   </Story>
 </Canvas>
@@ -70,19 +69,13 @@ As per above if you use a `SecondaryNav` component, you will need to add these o
   <Story name="Basic Example Mobile Menu Open">
     <Nav>
       <NavItem>
-        <Icon
-          className={cx(elMr2)}
-          icon="appLauncherMenu"
-          fontSize="1.5rem"
-          onClick={() => (window.location.href = 'https://marketplace.reapit.cloud/installed')}
-        />
         <Icon height="24px" width="100px" icon="reapitLogoInfographic" />
         <Icon
           className={cx(elMlAuto, elMr2, elNavItemHideDesktop)}
           icon="moreSolidSystem"
           fontSize="1.2rem"
           intent="default"
-          onClick={() => consoe.log('Toggle Menu')}
+          onClick={() => console.log('Toggle Menu')}
         />
       </NavItem>
       <NavItem className={cx(elNavItemActive, elNavItemExpanded)} href="https://marketplace.reapit.cloud/apps">
@@ -97,16 +90,13 @@ As per above if you use a `SecondaryNav` component, you will need to add these o
       <NavItem className={elNavItemExpanded} href="https://marketplace.reapit.cloud">
         Marketplace
       </NavItem>
-      <NavItem isSecondary href="https://developers.reapit.cloud/login">
-        <Icon iconSize="medium" icon="profileMenu" />
-      </NavItem>
     </Nav>
   </Story>
 </Canvas>
 
 <RenderHtmlMarkup component="Nav" story={['Basic Example Mobile Menu Open']} />
 
-## React Shorthand NavResponsive
+## React Usage
 
 <ArgsTable component={NavResponsive} />
 
@@ -115,15 +105,10 @@ The `useNavState` hook will track the currrent state of the Nav and return both,
 ```ts
 export interface NavResponsiveOption {
   itemIndex: number
-  isSecondary?: boolean
   callback?: () => void
   text?: string
   href?: string
   subItems?: NavResponsiveOption[]
-  /* Deprecated unless the isSecondary boolean is set - to be removed in v5 */
-  icon?: ReactNode
-  /* Deprecated unless the isSecondary boolean is set - to be removed in v5 */
-  iconId?: IconNames
 }
 ```
 
@@ -135,13 +120,54 @@ We also introduce a second hook `useMediaQuery` which supplies an `isMobile` val
 
 For the simple use case, the sub items are not required however, if you use a `SecondaryNav` component, you will need to add these as the `SecondaryNav` is hidden in mobile. The toggling of sub nav items in mobile is handled for you.
 
+Finally, you can add avatar and app switcher options to the Nav by passing them as props to the `NavResponsive` component. See below for the accompanying interfaces.
+
+```ts
+export interface NavResponsiveAvatarOption {
+  text?: string
+  callback?: () => void
+}
+
+export interface NavResponsiveAppSwitcherOption {
+  text?: string
+  callback?: () => void
+  iconUrl?: ReactNode
+}
+```
+
 <Canvas>
-  <Story name="React Shorthand NavResponsive">
+  <Story name="React Usage">
     <NavStateProvider>
       <MediaStateProvider>
         <NavResponsive
           defaultNavIndex={1}
-          defaultNavSubIndex={1}
+          appSwitcherOptions={[
+            {
+              text: 'AppMarket',
+              callback: () => console.log('Navigating'),
+              iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+            },
+            {
+              text: 'DevPortal',
+              callback: () => console.log('Navigating'),
+              iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+            },
+          ]}
+          avatarText="JD"
+          avatarOptions={[
+            {
+              text: 'Settings',
+              callback: () => console.log('Navigating'),
+            },
+            {
+              text: 'Profile',
+              callback: () => console.log('Navigating'),
+            },
+            {
+              text: 'Log Out',
+              callback: () => console.log('Navigating'),
+            },
+          ]}
           options={[
             {
               itemIndex: 0,
@@ -199,3 +225,5 @@ For the simple use case, the sub items are not required however, if you use a `S
     </NavStateProvider>
   </Story>
 </Canvas>
+
+<RenderHtmlMarkup component="Nav" story={['React Usage']} />

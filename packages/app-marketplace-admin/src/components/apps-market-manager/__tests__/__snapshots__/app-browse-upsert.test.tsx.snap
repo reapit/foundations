@@ -11,7 +11,9 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
   flex: 1 1 auto;
 "
       >
-        <mock-styled.aside>
+        <mock-styled.aside
+          classname=""
+        >
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 0.5rem;
@@ -43,7 +45,9 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             View Docs
           </mock-styled.button>
         </mock-styled.aside>
-        <mock-styled.section>
+        <mock-styled.section
+          classname=""
+        >
           <mock-styled.h1
             classname=""
           >
@@ -193,7 +197,9 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
   flex: 1 1 auto;
 "
     >
-      <mock-styled.aside>
+      <mock-styled.aside
+        classname=""
+      >
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 0.5rem;
@@ -225,7 +231,9 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           View Docs
         </mock-styled.button>
       </mock-styled.aside>
-      <mock-styled.section>
+      <mock-styled.section
+        classname=""
+      >
         <mock-styled.h1
           classname=""
         >

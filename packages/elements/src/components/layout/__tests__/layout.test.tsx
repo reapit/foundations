@@ -5,7 +5,7 @@ import { MainContainer, PageContainer, SecondaryNavContainer, Molecule, FlexCont
 describe('MainContainer', () => {
   it('should match a snapshot and render children', () => {
     const wrapper = render(
-      <MainContainer>
+      <MainContainer hasGreyBackground>
         <p>I am child</p>
       </MainContainer>,
     )
@@ -16,7 +16,7 @@ describe('MainContainer', () => {
 describe('PageContainer', () => {
   it('should match a snapshot and render children', () => {
     const wrapper = render(
-      <PageContainer>
+      <PageContainer hasGreyBackground>
         <p>I am child</p>
       </PageContainer>,
     )
@@ -80,6 +80,7 @@ describe('FlexContainer', () => {
         isFlexAlignCenter
         isFlexAlignStart
         isFlexAlignEnd
+        hasGreyBackground
       >
         <p>I am child</p>
       </FlexContainer>,
