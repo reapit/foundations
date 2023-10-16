@@ -70,6 +70,31 @@ describe('PageHeader component', () => {
             intent: 'default',
           },
         ]}
+        tabs={{
+          name: 'my-cool-tabs-full-width',
+          isFullWidth: true,
+          hasNoBorder: true,
+          options: [
+            {
+              id: 'tab-1-fw',
+              value: 'tab-1-fw',
+              text: 'Tab Content 1',
+              isChecked: true,
+            },
+            {
+              id: 'tab-2-fw',
+              value: 'tab-2-fw',
+              text: 'Tab Content 2',
+              isChecked: false,
+            },
+            {
+              id: 'tab-3-fw',
+              value: 'tab-3-fw',
+              text: 'Tab Content 3',
+              isChecked: false,
+            },
+          ],
+        }}
       />,
     )
     expect(wrapper).toMatchSnapshot()

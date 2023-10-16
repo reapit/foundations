@@ -5,6 +5,8 @@ import {
   ElPageHeaderSeparator,
   ElPageHeaderTitleContainer,
   ElPageHeaderWrap,
+  ElPageHeaderWrapInner,
+  elPageHeaderMaxWidth,
 } from './__styles__'
 import { Text2XL, TextL, TextBase, TypographyProps } from '../typography'
 import { FlexContainer } from '../layout'
@@ -13,6 +15,7 @@ import { Tag, TagGroup, TagProps } from '../tag'
 import { Button, ButtonGroup, ButtonProps } from '../button'
 import { BreadCrumb, BreadCrumbProps } from '../breadcrumb'
 import { elMb6, elMr3 } from '../../styles/spacing'
+import { Tabs, TabsProps } from '../tabs'
 
 export interface PageHeaderProps extends HTMLAttributes<HTMLDivElement> {
   avatar?: AvatarProps
@@ -22,12 +25,20 @@ export interface PageHeaderProps extends HTMLAttributes<HTMLDivElement> {
   breadcrumb?: BreadCrumbProps
   tags?: TagProps[]
   buttons?: ButtonProps[]
+  tabs?: TabsProps
+  hasMaxWidth?: boolean
 }
 
 export const PageHeaderWrap: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
   <ElPageHeaderWrap className={cx(className)} {...rest}>
     {children}
   </ElPageHeaderWrap>
+)
+
+export const PageHeaderWrapInner: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
+  <ElPageHeaderWrapInner className={cx(className)} {...rest}>
+    {children}
+  </ElPageHeaderWrapInner>
 )
 
 export const PageHeaderContainer: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
@@ -50,50 +61,55 @@ export const PageHeader: FC<PageHeaderProps> = ({
   breadcrumb,
   tags,
   buttons,
+  tabs,
+  hasMaxWidth,
   ...rest
 }) => {
   return (
     <PageHeaderWrap {...rest}>
-      {breadcrumb && <BreadCrumb className={elMb6} {...breadcrumb} />}
-      <PageHeaderContainer>
+      <PageHeaderWrapInner className={cx(hasMaxWidth && elPageHeaderMaxWidth)}>
+        {breadcrumb && <BreadCrumb className={elMb6} {...breadcrumb} />}
         <PageHeaderContainer>
-          {avatar && <Avatar {...avatar} />}
-          <FlexContainer isFlexColumn>
-            <PageHeaderTitleContainer>
-              {pageTitle && <Text2XL className={elMr3} {...pageTitle} />}
-              {tags && (
-                <TagGroup>
-                  {tags.map(({ children, ...rest }, index) => (
-                    <Tag key={index} {...rest}>
-                      {children}
-                    </Tag>
+          <PageHeaderContainer>
+            {avatar && <Avatar {...avatar} />}
+            <FlexContainer isFlexColumn>
+              <PageHeaderTitleContainer>
+                {pageTitle && <Text2XL className={elMr3} {...pageTitle} />}
+                {tags && (
+                  <TagGroup>
+                    {tags.map(({ children, ...rest }, index) => (
+                      <Tag key={index} {...rest}>
+                        {children}
+                      </Tag>
+                    ))}
+                  </TagGroup>
+                )}
+              </PageHeaderTitleContainer>
+              {pageSubtitle && <TextL {...pageSubtitle} />}
+              {pageInfo && (
+                <FlexContainer>
+                  {pageInfo.map(({ ...rest }, index) => (
+                    <Fragment key={index}>
+                      <TextBase {...rest} />
+                      {index !== pageInfo.length - 1 && <ElPageHeaderSeparator />}
+                    </Fragment>
                   ))}
-                </TagGroup>
+                </FlexContainer>
               )}
-            </PageHeaderTitleContainer>
-            {pageSubtitle && <TextL {...pageSubtitle} />}
-            {pageInfo && (
-              <FlexContainer>
-                {pageInfo.map(({ ...rest }, index) => (
-                  <Fragment key={index}>
-                    <TextBase {...rest} />
-                    {index !== pageInfo.length - 1 && <ElPageHeaderSeparator />}
-                  </Fragment>
-                ))}
-              </FlexContainer>
-            )}
-          </FlexContainer>
+            </FlexContainer>
+          </PageHeaderContainer>
+          {buttons && (
+            <ButtonGroup>
+              {buttons.map(({ children, ...rest }, index) => (
+                <Button buttonSize="small" key={index} {...rest}>
+                  {children}
+                </Button>
+              ))}
+            </ButtonGroup>
+          )}
         </PageHeaderContainer>
-        {buttons && (
-          <ButtonGroup>
-            {buttons.map(({ children, ...rest }, index) => (
-              <Button buttonSize="small" key={index} {...rest}>
-                {children}
-              </Button>
-            ))}
-          </ButtonGroup>
-        )}
-      </PageHeaderContainer>
+        {tabs && <Tabs {...tabs} />}
+      </PageHeaderWrapInner>
     </PageHeaderWrap>
   )
 }
