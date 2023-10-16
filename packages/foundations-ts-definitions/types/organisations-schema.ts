@@ -308,6 +308,10 @@ export interface CreateProductModel {
    * that require an additional scope to be set on the OAuth client
    */
   requiresUserAdmin?: boolean
+  /**
+   * A flag to determine if the app is for internal use only
+   */
+  isInternalApp?: boolean
 }
 /**
  * Request body used to create a new user authenticator
@@ -1060,6 +1064,14 @@ export interface ProductModel {
    * The gateway usage keys identifier
    */
   usageKeyId?: string
+  /**
+   * The auth flow of the product (authorisationCode/clientCredentials)
+   */
+  authFlow?: string
+  /**
+   * A flag to determine if the products app is for internal use only
+   */
+  isInternalApp?: boolean
   /**
    * The date and time when the product was created
    * example:
