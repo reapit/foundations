@@ -45,7 +45,7 @@ const schema: SchemaOf<{
     .required('Required - key cannot be blank'),
   value: string()
     .required('Required - env needs a value')
-    .matches(/^\w+$/, 'Can only container letters and underscores'),
+    .matches(/^[a-zA-Z0-9\-_]+$/, 'Can only container letters and underscores'),
   existingKeys: array(),
 })
 
