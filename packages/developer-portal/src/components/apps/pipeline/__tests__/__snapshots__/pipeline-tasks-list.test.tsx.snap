@@ -317,7 +317,7 @@ exports[`TaskList should match snapshot with tasks 1`] = `
           disabled="true"
         >
           <mock-styled.div />
-          Download Logs
+          Logs Unavailable
         </mock-styled.button>
       </div>
     </div>
@@ -502,7 +502,7 @@ exports[`TaskList should match snapshot with tasks 1`] = `
         disabled="true"
       >
         <mock-styled.div />
-        Download Logs
+        Logs Unavailable
       </mock-styled.button>
     </div>
   </div>,
