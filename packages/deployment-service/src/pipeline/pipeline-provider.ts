@@ -54,8 +54,8 @@ export class PipelineProvider {
     })
   }
 
-  async findByRepo(repository: string): Promise<PipelineEntity | null> {
-    return this.repository.findOne({ where: { repository } })
+  async findByRepo(repositoryUrl: string): Promise<PipelineEntity | null> {
+    return this.repository.findOne({ where: { repository: { repositoryUrl } } })
   }
 
   async findByRepos(repositories: string[]): Promise<PipelineEntity[]> {
@@ -84,7 +84,19 @@ export class PipelineProvider {
   async findByRepositoryId(repositoryId: number): Promise<PipelineEntity | null> {
     return this.repository.findOne({
       where: {
-        repositoryId,
+        repository: {
+          repositoryId,
+        },
+      },
+    })
+  }
+
+  async findPipelinesByRepositoryUrl(repositoryUrl: string): Promise<PipelineEntity[]> {
+    return this.repository.find({
+      where: {
+        repository: {
+          repositoryUrl,
+        },
       },
     })
   }
@@ -92,7 +104,9 @@ export class PipelineProvider {
   async findPipelinesByRepositoryId(repositoryId: number): Promise<PipelineEntity[]> {
     return this.repository.find({
       where: {
-        repositoryId,
+        repository: {
+          repositoryId,
+        },
       },
     })
   }

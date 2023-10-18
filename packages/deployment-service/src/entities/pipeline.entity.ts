@@ -11,6 +11,7 @@ import { AbstractEntity } from './abstract-entity'
 import { PipelineRunnerEntity } from './pipeline-runner.entity'
 import { BitbucketClientEntity } from './bitbucket-client.entity'
 import { Exclude, Type } from 'class-transformer'
+import { GithubRepositoryEntity } from '../github/github.repository.entity'
 
 @Entity('pipelines')
 export class PipelineEntity extends AbstractEntity implements PipelineModelInterface {
@@ -32,8 +33,8 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   })
   packageManager?: PackageManagerEnum
 
-  @Column({ nullable: true, default: null })
-  repository?: string
+  @OneToMany(() => GithubRepositoryEntity, (repository) => repository.pipelines)
+  repository?: GithubRepositoryEntity
 
   @OneToMany(() => PipelineRunnerEntity, (pipelineRunner) => pipelineRunner.pipeline)
   runners?: PipelineRunnerEntity[]
@@ -78,12 +79,6 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   @Column()
   appId?: string
 
-  @Column({ nullable: true, type: 'varchar', length: 20 })
-  installationId?: number
-
-  @Column({ nullable: true, type: 'varchar', length: 20 })
-  repositoryId?: number
-
   @Column({ default: 'master' })
   branch?: string
 
@@ -92,11 +87,11 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   }
 
   get hasRepositoryConfigured(): boolean {
-    return this.repository !== undefined && this.repository !== ''
+    return this.repository !== undefined && this.repository.repositoryUrl !== ''
   }
 
   get hasRepositoryInstalled(): boolean {
-    return this.repositoryId !== undefined
+    return this.repository !== undefined && this.repository.repositoryId !== undefined
   }
   get hasRoute53(): boolean {
     return this.aRecordId !== undefined && this.aRecordId !== ''
