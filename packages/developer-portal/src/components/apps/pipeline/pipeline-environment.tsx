@@ -101,13 +101,13 @@ export const PipelineEnvironment = () => {
     }
   }, [fetchedKeys])
 
-  const submitParameter = handleSubmit(async (values) => {
-    const result = await func(values)
+  const submitParameter = handleSubmit(async ({ key, value, existingKeys }) => {
+    const result = await func({ key, value, existingKeys })
     if (result) {
       resetField('key')
       resetField('value')
       closeModal()
-      setKeys([...keys, values.key])
+      setKeys([...keys, key])
     }
   })
 
