@@ -45,6 +45,13 @@ export type PipelineBuildStatus =
       PipelineProvisionBuildStatuses)
   | CodeBuild.StatusType
 
+
+export interface GithubRepositoryInterface {
+  repositoryUrl?: string
+  installationId?: number
+  repositoryId?: number
+}
+
 export interface PipelineModelInterface {
   id?: string
   name?: string
@@ -56,9 +63,7 @@ export interface PipelineModelInterface {
   buildCommand?: string
   testCommand?: string
   packageManager?: PackageManagerEnum
-  repository?: string
-  installationId?: number
-  repositoryId?: number
+  repository?: GithubRepositoryInterface
   branch?: string
   outDir?: string
   buildStatus?: PipelineBuildStatus | string
