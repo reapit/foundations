@@ -60,7 +60,7 @@ const findAndReplace = <T extends any>(
   })
 }
 
-const updatedItemIndex = async <T extends { index?: number; id?: string }>({
+export const updatedItemIndex = async <T extends { index?: number; id?: string }>({
   currentItem,
   allItems,
   setItems,
@@ -88,7 +88,10 @@ const updatedItemIndex = async <T extends { index?: number; id?: string }>({
   }
 
   const currentIndex = currentItem.index || defaultIndex
-  const nextIndex = nextItem.index || defaultIndex + (direction === 'up' ? -1 : +1)
+  const nextIndex =
+    nextItem.index && nextItem.index === currentIndex
+      ? nextItem.index + (direction === 'up' ? -1 : +1)
+      : nextItem.index || defaultIndex + (direction === 'up' ? -1 : +1)
 
   const results = await updateIndexing(
     findAndReplace(
