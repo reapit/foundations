@@ -1,10 +1,14 @@
 import { Repository, UpdateResult } from 'typeorm'
 import { GithubRepositoryEntity } from './github.repository.entity'
 import { Injectable } from '@nestjs/common'
+import { InjectRepository } from '@nestjs/typeorm'
 
 @Injectable()
 export class GithubRepositoryProvider {
-  constructor(private readonly repository: Repository<GithubRepositoryEntity>) {}
+  constructor(
+    @InjectRepository(GithubRepositoryEntity)
+    private readonly repository: Repository<GithubRepositoryEntity>,
+  ) {}
 
   async findRepositoriesByUrl(repositoryUrl: string): Promise<GithubRepositoryEntity[]> {
     return this.repository.find({
