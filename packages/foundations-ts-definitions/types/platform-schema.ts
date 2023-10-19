@@ -11139,6 +11139,7 @@ export interface Landlords {
   embed?: ('appointments' | 'documents' | 'office' | 'properties' | 'solicitor' | 'source')[]
   id?: string[]
   email?: string[]
+  officeId?: string[]
   extrasField?: string[]
   active?: boolean
   address?: string
@@ -11328,6 +11329,19 @@ export interface NegotiatorModel {
    */
   active?: boolean
   /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    /**
+     * The type of contact detail
+     */
+    type?: string
+    /**
+     * The contact detail
+     */
+    value?: string
+  }[]
+  /**
    * App specific metadata that has been set against the negotiator
    */
   metadata?: {
@@ -11396,6 +11410,19 @@ export interface NegotiatorModelPagedResult {
      * A flag determining whether or not the negotiator is active
      */
     active?: boolean
+    /**
+     * A collection of additional contact details
+     */
+    additionalContactDetails?: {
+      /**
+       * The type of contact detail
+       */
+      type?: string
+      /**
+       * The contact detail
+       */
+      value?: string
+    }[]
     /**
      * App specific metadata that has been set against the negotiator
      */
@@ -16930,6 +16957,10 @@ export interface TenancyArrearsModel {
    * A flag determining whether or not tenancy arrears should be chased
    */
   chaseArrears?: boolean
+  /**
+   * Indicates whether or not a payment plan is set up for a tenancy in arrears (no/yes/negotiating)
+   */
+  paymentPlan?: string
 }
 /**
  * Representation of a tenancy break clauses break from details
@@ -18150,6 +18181,10 @@ export interface TenancyModel {
      * A flag determining whether or not tenancy arrears should be chased
      */
     chaseArrears?: boolean
+    /**
+     * Indicates whether or not a payment plan is set up for a tenancy in arrears (no/yes/negotiating)
+     */
+    paymentPlan?: string
   }
   /**
    * The ETag for the current version of the tenancy. Used for managing update concurrency
@@ -18507,6 +18542,10 @@ export interface TenancyModelPagedResult {
        * A flag determining whether or not tenancy arrears should be chased
        */
       chaseArrears?: boolean
+      /**
+       * Indicates whether or not a payment plan is set up for a tenancy in arrears (no/yes/negotiating)
+       */
+      paymentPlan?: string
     }
     /**
      * The ETag for the current version of the tenancy. Used for managing update concurrency

@@ -57,7 +57,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const currentMemberEmail = connectSession?.loginIdentity.email
 
-  const [, memberUpdating, updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
+  const [memberUpdating, , updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.updateMember],
     method: 'PUT',
@@ -67,7 +67,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
     },
   })
 
-  const [, memberDeleting, deleteMember, deleteMemberSuccess] = useReapitUpdate<undefined, boolean>({
+  const [memberDeleting, , deleteMember, deleteMemberSuccess] = useReapitUpdate<undefined, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.updateMember],
     method: 'DELETE',
@@ -77,7 +77,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
     },
   })
 
-  const [, memberReinviting, reinviteMember, reinviteMemberSuccess] = useReapitUpdate<InviteMemberModel, boolean>({
+  const [memberReinviting, , reinviteMember, reinviteMemberSuccess] = useReapitUpdate<InviteMemberModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.inviteMember],
     method: 'POST',
@@ -94,6 +94,8 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
 
   const isLoading = memberDeleting || memberUpdating || memberReinviting
   const isDisabled = isLoading || member.email === currentMemberEmail
+
+  console.log('loding', isLoading, memberDeleting, memberUpdating, memberReinviting)
 
   return (
     <ButtonGroup alignment="center">
