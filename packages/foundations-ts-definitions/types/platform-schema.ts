@@ -2298,6 +2298,10 @@ export interface CertificateModel {
    */
   companyId?: string
   /**
+   * The unique identifier of the certificates status
+   */
+  statusId?: string
+  /**
    * Any general notes regarding the certificate
    */
   notes?: string
@@ -2364,6 +2368,10 @@ export interface CertificateModelPagedResult {
      * The unique identifier of the company
      */
     companyId?: string
+    /**
+     * The unique identifier of the certificates status
+     */
+    statusId?: string
     /**
      * Any general notes regarding the certificate
      */
