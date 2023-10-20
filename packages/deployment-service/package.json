@@ -43,7 +43,7 @@
     "start:sns": "NODE_ENV=local nodemon src/sns.ts",
     "test": "cross-env jest --watch --colors",
     "build": "tsup",
-    "lint": "eslint --cache --ext=ts,tsx,js src cdk/lib",
+    "lint": "eslint --cache --ext=ts,tsx,js src cdk/lib migrations",
     "check": "tsc --noEmit --skipLibCheck",
     "deploy": "rpt-cdk deploy cdk/cdk.ts",
     "release": "echo '...skipping...'",
@@ -53,10 +53,10 @@
     "release:destroy": "rpt-cdk destroy cdk/cdk.ts",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch",
-    "migration:generate": "typeorm-ts-node-common-js -d orm-datasource.tstypeorm migration:generate",
+    "migration:generate": "typeorm-ts-node-commonjs -d orm-datasource.ts migration:generate",
     "migration:run": " typeorm-ts-node-commonjs -d orm-datasource.ts migration:run",
-    "migration:create": "typeorm-ts-node-common-js -d orm-datasource.tstypeorm migration:create",
-    "migration:revert": "typeorm-ts-node-common-js -d orm-datasource.tstypeorm migration:revert"
+    "migration:create": "typeorm-ts-node-commonjs -d orm-datasource.ts migration:create",
+    "migration:revert": "typeorm-ts-node-commonjs -d orm-datasource.ts migration:revert"
   },
   "devDependencies": {
     "@nestjs/testing": "^9.4.2",
