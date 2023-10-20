@@ -1,16 +1,26 @@
 import { Repository, UpdateResult } from 'typeorm'
-import { GithubRepositoryEntity } from './github.repository.entity'
+import { RepositoryEntity } from '../entities/repository.entity'
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 
 @Injectable()
 export class GithubRepositoryProvider {
   constructor(
-    @InjectRepository(GithubRepositoryEntity)
-    private readonly repository: Repository<GithubRepositoryEntity>,
+    @InjectRepository(RepositoryEntity)
+    private readonly repository: Repository<RepositoryEntity>,
   ) {}
 
-  async findRepositoriesByUrl(repositoryUrl: string): Promise<GithubRepositoryEntity[]> {
+  async findOrCreate(repository: Partial<RepositoryEntity>): Promise<RepositoryEntity> {
+    const existing = await this.repository.findOne({
+      where: { repositoryUrl: repository.repositoryUrl, organisationId: repository.id },
+    })
+
+    if (existing) return existing
+
+    return this.repository.save(this.repository.create(repository))
+  }
+
+  async findRepositoriesByUrl(repositoryUrl: string): Promise<RepositoryEntity[]> {
     return this.repository.find({
       where: { repositoryUrl },
       relations: ['pipeline'],

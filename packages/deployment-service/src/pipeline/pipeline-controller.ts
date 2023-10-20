@@ -19,6 +19,7 @@ import { Pagination } from 'nestjs-typeorm-paginate'
 import { EventDispatcher, PusherProvider } from '../events'
 import { IdTokenGuard, Creds, isReadonlyAdmin, OwnershipProvider } from '@reapit/utils-nest'
 import type { CredsType } from '@reapit/utils-nest'
+import { GithubRepositoryProvider } from 'src/github/github.repository.provider'
 
 @UseGuards(IdTokenGuard)
 @Controller('pipeline')
@@ -28,6 +29,7 @@ export class PipelineController {
     private readonly ownershipProvider: OwnershipProvider,
     private readonly pusherProvider: PusherProvider,
     private readonly eventDispatcher: EventDispatcher,
+    private readonly githubRepositoryProvider: GithubRepositoryProvider,
   ) {}
 
   @Get('/:id')
@@ -63,6 +65,8 @@ export class PipelineController {
   async create(@Body() dto: PipelineDto, @Creds() creds: CredsType): Promise<PipelineEntity> {
     const previousPipeline = await this.pipelineProvider.findById(dto.appId as string)
 
+    const repository = (dto.repository?.repositoryUrl) ? await this.githubRepositoryProvider.findOrCreate(dto.repository) : undefined
+
     const pipeline = await this.pipelineProvider.create({
       ...previousPipeline,
       ...dto,
@@ -72,6 +76,7 @@ export class PipelineController {
       buildStatus: previousPipeline ? 'READY_FOR_DEPLOYMENT' : undefined,
       // Temp plug, singular appId/clientId for pipeline - later requires multiple pipelines
       id: dto.appId,
+      repository,
     })
 
     if (!pipeline) {
@@ -116,7 +121,15 @@ export class PipelineController {
       setupInfra = true
     }
 
-    const updatedPipeline = await this.pipelineProvider.update(pipeline, dto)
+    const repository = (dto.repository?.repositoryUrl) ? await this.githubRepositoryProvider.findOrCreate({
+      ...dto.repository,
+      // organisationId: creds.orgId,
+    }) : undefined  
+
+    const updatedPipeline = await this.pipelineProvider.update(pipeline, {
+      ...dto,
+      repository,
+    })
 
     await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
       message: 'updating pipeline',

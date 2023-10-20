@@ -11,7 +11,7 @@ import { AbstractEntity } from './abstract-entity'
 import { PipelineRunnerEntity } from './pipeline-runner.entity'
 import { BitbucketClientEntity } from './bitbucket-client.entity'
 import { Exclude, Type } from 'class-transformer'
-import { GithubRepositoryEntity } from '../github/github.repository.entity'
+import { RepositoryEntity } from './repository.entity'
 
 @Entity('pipelines')
 export class PipelineEntity extends AbstractEntity implements PipelineModelInterface {
@@ -33,8 +33,10 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   })
   packageManager?: PackageManagerEnum
 
-  @OneToMany(() => GithubRepositoryEntity, (repository) => repository.pipelines)
-  repository?: GithubRepositoryEntity
+  @ManyToOne(() => RepositoryEntity, (repository) => repository.pipelines, {
+    cascade: true,
+  })
+  repository?: RepositoryEntity
 
   @OneToMany(() => PipelineRunnerEntity, (pipelineRunner) => pipelineRunner.pipeline)
   runners?: PipelineRunnerEntity[]

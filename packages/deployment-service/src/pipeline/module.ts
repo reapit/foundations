@@ -15,6 +15,7 @@ import { PipelineSetupWorkflow } from './pipeline-setup-workflow'
 import { ParameterProvider } from './parameter-provider'
 import { ParameterController } from './parameter-controller'
 import { AwsModule } from '../aws'
+import { GithubModule } from 'src/github'
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { AwsModule } from '../aws'
     S3Module,
     forwardRef(() => PipelineRunnerModule),
     AwsModule,
+    GithubModule,
   ],
   providers: [
     PipelineProvider,

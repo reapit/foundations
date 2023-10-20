@@ -7,7 +7,7 @@ import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { TaskEntity } from '../entities/task.entity'
 import { BitbucketClientEntity } from '../entities/bitbucket-client.entity'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
-import { GithubRepositoryEntity } from '../github/github.repository.entity'
+import { GithubRepositoryEntity } from '../entities/repository.entity'
 
 const defaultDatabaseConfig: Partial<MysqlConnectionOptions> & { type: 'mysql' } = {
   logging: true,
