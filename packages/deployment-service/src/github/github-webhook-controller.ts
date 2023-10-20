@@ -14,7 +14,7 @@ import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deploymen
 import { EventDispatcher, PusherProvider } from '../events'
 import { Request } from 'express'
 import { PipelineEntity } from '../entities/pipeline.entity'
-import { GithubRepositoryProvider } from './github.repository.provider'
+import { RepositoryProvider } from '../pipeline/repository.provider'
 
 type GithubCommitEvent = {
   ref: string
@@ -36,7 +36,7 @@ export class GithubWebhookController {
     private readonly pipelineRunnerProvider: PipelineRunnerProvider,
     private readonly eventDispatcher: EventDispatcher,
     private readonly pusherProvider: PusherProvider,
-    private readonly githubRepositoryProvider: GithubRepositoryProvider,
+    private readonly githubRepositoryProvider: RepositoryProvider,
   ) {}
 
   isCommitEvent = (value: any): value is GithubCommitEvent => value.ref && value.commits

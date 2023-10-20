@@ -4,7 +4,7 @@ import { Column, Entity, OneToMany, Unique } from 'typeorm'
 import { GithubRepositoryInterface } from '@reapit/foundations-ts-definitions'
 
 @Entity('repositories')
-@Unique('repositoryUrl-organisationId', ['organiationId', 'repositoryUrl'])
+// @Unique('repositoryUrl-organisationId', ['organiationId', 'repositoryUrl']) // TODO likely to be developerId instead
 export class RepositoryEntity extends AbstractEntity implements GithubRepositoryInterface {
   @OneToMany(() => PipelineEntity, (pipeline) => pipeline.repository)
   pipelines?: PipelineEntity[]
@@ -18,8 +18,8 @@ export class RepositoryEntity extends AbstractEntity implements GithubRepository
   @Column({ nullable: true, type: 'varchar', length: 20 })
   repositoryId?: number
 
-  @Column()
-  organisationId: string
+  // @Column()
+  // organisationId: string // TODO likely to be changed to developerId
 
   get isGithub(): boolean {
     return this.repositoryUrl !== undefined && this.repositoryUrl.includes('github')

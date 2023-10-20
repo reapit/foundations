@@ -6,9 +6,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { App } from '@octokit/app'
 import GithubConfig from '../config/github'
 import { GithubWebhookController } from './github-webhook-controller'
-import { TypeOrmModule } from '@nestjs/typeorm'
-import { RepositoryEntity } from '../entities/repository.entity'
-import { GithubRepositoryProvider } from './github.repository.provider'
 
 @Module({
   imports: [
@@ -16,7 +13,6 @@ import { GithubRepositoryProvider } from './github.repository.provider'
     PipelineModule,
     PipelineRunnerModule,
     EventModule,
-    TypeOrmModule.forFeature([RepositoryEntity]),
   ],
   providers: [
     {
@@ -24,9 +20,8 @@ import { GithubRepositoryProvider } from './github.repository.provider'
       useFactory: (config: ConfigService) => new App(config.get('github')),
       inject: [ConfigService],
     },
-    GithubRepositoryProvider,
   ],
   controllers: [GithubWebhookController],
-  exports: [App, GithubRepositoryProvider],
+  exports: [App],
 })
 export class GithubModule {}

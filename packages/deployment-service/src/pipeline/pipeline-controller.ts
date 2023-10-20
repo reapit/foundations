@@ -19,7 +19,7 @@ import { Pagination } from 'nestjs-typeorm-paginate'
 import { EventDispatcher, PusherProvider } from '../events'
 import { IdTokenGuard, Creds, isReadonlyAdmin, OwnershipProvider } from '@reapit/utils-nest'
 import type { CredsType } from '@reapit/utils-nest'
-import { GithubRepositoryProvider } from 'src/github/github.repository.provider'
+import { RepositoryProvider } from './repository.provider'
 
 @UseGuards(IdTokenGuard)
 @Controller('pipeline')
@@ -29,7 +29,7 @@ export class PipelineController {
     private readonly ownershipProvider: OwnershipProvider,
     private readonly pusherProvider: PusherProvider,
     private readonly eventDispatcher: EventDispatcher,
-    private readonly githubRepositoryProvider: GithubRepositoryProvider,
+    private readonly repositoryProvider: RepositoryProvider,
   ) {}
 
   @Get('/:id')
@@ -65,7 +65,7 @@ export class PipelineController {
   async create(@Body() dto: PipelineDto, @Creds() creds: CredsType): Promise<PipelineEntity> {
     const previousPipeline = await this.pipelineProvider.findById(dto.appId as string)
 
-    const repository = (dto.repository?.repositoryUrl) ? await this.githubRepositoryProvider.findOrCreate(dto.repository) : undefined
+    const repository = (dto.repository?.repositoryUrl) ? await this.repositoryProvider.findOrCreate(dto.repository) : undefined
 
     const pipeline = await this.pipelineProvider.create({
       ...previousPipeline,
@@ -121,9 +121,9 @@ export class PipelineController {
       setupInfra = true
     }
 
-    const repository = (dto.repository?.repositoryUrl) ? await this.githubRepositoryProvider.findOrCreate({
+    const repository = (dto.repository?.repositoryUrl) ? await this.repositoryProvider.findOrCreate({
       ...dto.repository,
-      // organisationId: creds.orgId,
+      // organisationId: creds.orgId, // TODO think developerId would be ok instead of orgId
     }) : undefined  
 
     const updatedPipeline = await this.pipelineProvider.update(pipeline, {

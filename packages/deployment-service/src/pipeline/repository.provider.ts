@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 
 @Injectable()
-export class GithubRepositoryProvider {
+export class RepositoryProvider {
   constructor(
     @InjectRepository(RepositoryEntity)
     private readonly repository: Repository<RepositoryEntity>,
@@ -12,7 +12,10 @@ export class GithubRepositoryProvider {
 
   async findOrCreate(repository: Partial<RepositoryEntity>): Promise<RepositoryEntity> {
     const existing = await this.repository.findOne({
-      where: { repositoryUrl: repository.repositoryUrl, organisationId: repository.id },
+      where: {
+        repositoryUrl: repository.repositoryUrl,
+        // organisationId: repository.id, // TODO probably better to use developerId
+      },
     })
 
     if (existing) return existing
