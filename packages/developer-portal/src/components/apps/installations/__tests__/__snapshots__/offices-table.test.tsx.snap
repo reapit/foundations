@@ -42,14 +42,14 @@ exports[`OfficesTable should match a snapshot 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div>
                   BAR
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div>
                   FOO
@@ -99,14 +99,14 @@ exports[`OfficesTable should match a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div>
                 BAR
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div>
                 FOO

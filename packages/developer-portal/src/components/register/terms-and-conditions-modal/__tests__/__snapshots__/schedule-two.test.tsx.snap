@@ -869,7 +869,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -878,7 +878,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -907,7 +907,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -916,7 +916,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -945,7 +945,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -954,7 +954,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -983,7 +983,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -992,7 +992,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -1021,7 +1021,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -1030,7 +1030,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -1059,7 +1059,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -1068,7 +1068,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -1097,7 +1097,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -1106,7 +1106,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -2004,7 +2004,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -2013,7 +2013,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -2042,7 +2042,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -2051,7 +2051,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -2080,7 +2080,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -2089,7 +2089,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -2118,7 +2118,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -2127,7 +2127,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -2156,7 +2156,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -2165,7 +2165,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -2194,7 +2194,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -2203,7 +2203,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -2232,7 +2232,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -2241,7 +2241,7 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"

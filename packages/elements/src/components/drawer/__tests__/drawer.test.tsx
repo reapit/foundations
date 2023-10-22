@@ -14,7 +14,7 @@ describe('Drawer component', () => {
 
   it('should match a snapshot when open', () => {
     const wrapper = render(
-      <Drawer isOpen={true} onDrawerClose={() => {}} title="test">
+      <Drawer isOpen={true} onDrawerClose={() => {}} title="test" canDismiss>
         Content within Drawer
       </Drawer>,
     )

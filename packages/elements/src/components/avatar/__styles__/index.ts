@@ -10,7 +10,6 @@ export const ElAvatar = styled.div`
   align-items: center;
   justify-content: center;
   background-color: var(--color-grey-100);
-  margin-right: 0.5rem;
   border-radius: 50%;
   overflow: hidden;
   width: 2.5rem;

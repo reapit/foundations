@@ -66,7 +66,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Group Name"
@@ -75,7 +75,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Description"
@@ -84,7 +84,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Member Count"
@@ -225,7 +225,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Group Name"
@@ -234,7 +234,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Description"
@@ -243,7 +243,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Member Count"
@@ -384,7 +384,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Group Name"
@@ -393,7 +393,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Description"
@@ -402,7 +402,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Member Count"
@@ -540,13 +540,6 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            value="1"
-          />
-           of 
-          1
-        </mock-styled.div>
         <mock-styled.button
           data-testid="back-button"
           type="button"
@@ -557,6 +550,13 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
+            value="1"
+          />
+           of 
+          1
+        </mock-styled.div>
         <mock-styled.button
           data-testid="forward-button"
           type="button"
@@ -632,7 +632,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Group Name"
@@ -641,7 +641,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Description"
@@ -650,7 +650,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Member Count"
@@ -791,7 +791,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Group Name"
@@ -800,7 +800,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Description"
@@ -809,7 +809,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Member Count"
@@ -950,7 +950,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Group Name"
@@ -959,7 +959,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Description"
@@ -968,7 +968,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Member Count"
@@ -1106,13 +1106,6 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.input
-          value="1"
-        />
-         of 
-        1
-      </mock-styled.div>
       <mock-styled.button
         data-testid="back-button"
         type="button"
@@ -1123,6 +1116,13 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           <svg />
         </mock-styled.span>
       </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.input
+          value="1"
+        />
+         of 
+        1
+      </mock-styled.div>
       <mock-styled.button
         data-testid="forward-button"
         type="button"
@@ -1212,7 +1212,7 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1232,10 +1232,11 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           No users found
@@ -1262,7 +1263,7 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
     >
       <div
         class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1282,10 +1283,11 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
       </div>
       <div
         class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
       >
         No users found
@@ -1368,7 +1370,7 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1388,10 +1390,11 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           No organisation selected. You need to select an organisation to view user groups.
@@ -1417,7 +1420,7 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1437,10 +1440,11 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
       >
         No organisation selected. You need to select an organisation to view user groups.

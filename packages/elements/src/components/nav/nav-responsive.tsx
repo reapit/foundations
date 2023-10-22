@@ -9,6 +9,7 @@ import {
   ElNavMenu,
   ElNavMenuOption,
   ElNavMenuOptionDivider,
+  ElNavResponsiveAppSwitcherIconWrap,
   ElNavResponsiveAppSwitcherWrap,
   ElNavResponsiveAvatarWrap,
   elAppSwitcherOpen,
@@ -132,7 +133,9 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
 
   return (
     <ElNavResponsiveAppSwitcherWrap onClick={handleToggleMenu(setAppSwitcherOpen)}>
-      <Icon className={cx(appSwitcherOpen && elAppSwitcherOpen)} icon="appLauncherMenu" />
+      <ElNavResponsiveAppSwitcherIconWrap className={cx(appSwitcherOpen && elAppSwitcherOpen)}>
+        <Icon icon="appLauncherMenu" />
+      </ElNavResponsiveAppSwitcherIconWrap>
       {appSwitcherOpen && (
         <ElNavMenu>
           <ElNavMenuOption>

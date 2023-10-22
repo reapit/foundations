@@ -90,7 +90,7 @@ exports[`WebhooksLogs should match a snapshot where no appId 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -110,10 +110,11 @@ exports[`WebhooksLogs should match a snapshot where no appId 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           No app or date range selected. Please use the filters option to get started.
@@ -128,7 +129,7 @@ exports[`WebhooksLogs should match a snapshot where no appId 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -148,10 +149,11 @@ exports[`WebhooksLogs should match a snapshot where no appId 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
       >
         No app or date range selected. Please use the filters option to get started.
@@ -223,7 +225,7 @@ exports[`WebhooksLogs should match a snapshot where no data 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -243,10 +245,11 @@ exports[`WebhooksLogs should match a snapshot where no data 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           No logs found for this application. Select another app, date range or trigger a webhook to see the logs appear here.
@@ -261,7 +264,7 @@ exports[`WebhooksLogs should match a snapshot where no data 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -281,10 +284,11 @@ exports[`WebhooksLogs should match a snapshot where no data 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
       >
         No logs found for this application. Select another app, date range or trigger a webhook to see the logs appear here.
@@ -391,7 +395,7 @@ exports[`WebhooksLogs should match a snapshot where there are subscriptions 1`] 
             <mock-styled.div
               classname="mock-css.
   grid-column-end: span 2;
-"
+ mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Timestamp"
@@ -411,7 +415,7 @@ exports[`WebhooksLogs should match a snapshot where there are subscriptions 1`] 
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Topic"
@@ -420,7 +424,7 @@ exports[`WebhooksLogs should match a snapshot where there are subscriptions 1`] 
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Entity ID"
@@ -429,7 +433,7 @@ exports[`WebhooksLogs should match a snapshot where there are subscriptions 1`] 
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Status"
@@ -496,7 +500,7 @@ exports[`WebhooksLogs should match a snapshot where there are subscriptions 1`] 
           <mock-styled.div
             classname="mock-css.
   grid-column-end: span 2;
-"
+ mock-css."
           >
             <mock-styled.div
               data-narrow-label="Timestamp"
@@ -516,7 +520,7 @@ exports[`WebhooksLogs should match a snapshot where there are subscriptions 1`] 
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Topic"
@@ -525,7 +529,7 @@ exports[`WebhooksLogs should match a snapshot where there are subscriptions 1`] 
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Entity ID"
@@ -534,7 +538,7 @@ exports[`WebhooksLogs should match a snapshot where there are subscriptions 1`] 
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Status"

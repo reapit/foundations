@@ -126,21 +126,21 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
 "
                   >
                     <mock-styled.div
-                      classname=""
+                      classname="mock-css."
                     >
                       <mock-styled.div>
                         DW Usage
                       </mock-styled.div>
                     </mock-styled.div>
                     <mock-styled.div
-                      classname=""
+                      classname="mock-css."
                     >
                       <mock-styled.div>
                         157
                       </mock-styled.div>
                     </mock-styled.div>
                     <mock-styled.div
-                      classname=""
+                      classname="mock-css."
                     >
                       <mock-styled.div>
                         £1.96
@@ -277,21 +277,21 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
 "
                 >
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       DW Usage
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       157
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       £1.96

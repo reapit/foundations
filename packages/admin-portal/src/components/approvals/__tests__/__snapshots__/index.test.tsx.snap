@@ -151,7 +151,7 @@ exports[`AdminApprovals should render component with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Created Date"
@@ -210,13 +210,6 @@ exports[`AdminApprovals should render component with data 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              value="1"
-            />
-             of 
-            1
-          </mock-styled.div>
           <mock-styled.button
             data-testid="back-button"
             type="button"
@@ -227,6 +220,13 @@ exports[`AdminApprovals should render component with data 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.button>
+          <mock-styled.div>
+            <mock-styled.input
+              value="1"
+            />
+             of 
+            1
+          </mock-styled.div>
           <mock-styled.button
             data-testid="forward-button"
             type="button"
@@ -291,7 +291,7 @@ exports[`AdminApprovals should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Created Date"
@@ -350,13 +350,6 @@ exports[`AdminApprovals should render component with data 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            value="1"
-          />
-           of 
-          1
-        </mock-styled.div>
         <mock-styled.button
           data-testid="back-button"
           type="button"
@@ -367,6 +360,13 @@ exports[`AdminApprovals should render component with data 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
+            value="1"
+          />
+           of 
+          1
+        </mock-styled.div>
         <mock-styled.button
           data-testid="forward-button"
           type="button"

@@ -102,6 +102,7 @@ export const ElButton = styled.button`
 
   &.${elButtonIconOnly} {
     padding: 0.5rem;
+    width: 2.25rem;
   }
 
   &.${elButtonSizeSmall} {
@@ -110,6 +111,7 @@ export const ElButton = styled.button`
 
     &.${elButtonIconOnly} {
       padding: 0.375rem;
+      width: 2rem;
     }
   }
 
@@ -119,6 +121,7 @@ export const ElButton = styled.button`
 
     &.${elButtonIconOnly} {
       padding: 0.5rem;
+      width: 2.25rem;
     }
   }
 

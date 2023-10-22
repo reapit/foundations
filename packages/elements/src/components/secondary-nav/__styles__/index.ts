@@ -15,8 +15,9 @@ export const ElSecondaryNavItem = styled.div`
   border-left: 3px solid var(--color-white);
 
   &.${elIsActive} {
-    border-left: 3px solid var(--color-purple-700);
+    border-left: 3px solid var(--color-purple-500);
     background-color: var(--color-purple-50);
+    color: var(--color-purple-500);
   }
 
   &:hover {

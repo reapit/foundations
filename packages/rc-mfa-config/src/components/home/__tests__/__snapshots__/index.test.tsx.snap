@@ -256,7 +256,7 @@ exports[`HomePage should render component with data 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -276,10 +276,11 @@ exports[`HomePage should render component with data 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
             >
               You have an active authenticator registered for your account. If you want to re-configure, click the ‘Reset Authenticator’ button below.
@@ -440,7 +441,7 @@ exports[`HomePage should render component with data 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -460,10 +461,11 @@ exports[`HomePage should render component with data 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             You have an active authenticator registered for your account. If you want to re-configure, click the ‘Reset Authenticator’ button below.
@@ -681,7 +683,7 @@ exports[`HomePage should render component with no data 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -701,10 +703,11 @@ exports[`HomePage should render component with no data 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
             >
               No authenticators configured for your user account. Please use the button below to configure one.
@@ -795,7 +798,7 @@ exports[`HomePage should render component with no data 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -815,10 +818,11 @@ exports[`HomePage should render component with no data 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             No authenticators configured for your user account. Please use the button below to configure one.

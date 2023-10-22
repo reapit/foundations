@@ -245,7 +245,7 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Build Status"
@@ -257,7 +257,7 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Repository"
@@ -279,13 +279,6 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              value="1"
-            />
-             of 
-            6
-          </mock-styled.div>
           <mock-styled.button
             data-testid="back-button"
             type="button"
@@ -296,6 +289,13 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.button>
+          <mock-styled.div>
+            <mock-styled.input
+              value="1"
+            />
+             of 
+            6
+          </mock-styled.div>
           <mock-styled.button
             data-testid="forward-button"
             type="button"
@@ -397,7 +397,7 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Build Status"
@@ -409,7 +409,7 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Repository"
@@ -431,13 +431,6 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            value="1"
-          />
-           of 
-          6
-        </mock-styled.div>
         <mock-styled.button
           data-testid="back-button"
           type="button"
@@ -448,6 +441,13 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
+            value="1"
+          />
+           of 
+          6
+        </mock-styled.div>
         <mock-styled.button
           data-testid="forward-button"
           type="button"

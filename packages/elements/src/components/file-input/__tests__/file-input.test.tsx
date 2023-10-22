@@ -1,6 +1,6 @@
 import React, { ChangeEvent, MouseEvent } from 'react'
 import { render } from '@testing-library/react'
-import { FileInput, handleFileChange, handleFileClear, handleFileView } from '..'
+import { FileInput, handleFileChange, handleFileClear, handleFileView, FilePreviewImage } from '..'
 
 describe('FileInput component', () => {
   it('should match a snapshot', () => {
@@ -20,6 +20,11 @@ describe('FileInput component', () => {
         fileName="some-file-name"
       />,
     )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for the FilePreviewImage component', () => {
+    const wrapper = render(<FilePreviewImage src="https://mock-image.com" />)
     expect(wrapper).toMatchSnapshot()
   })
 })

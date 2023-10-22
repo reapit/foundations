@@ -73,9 +73,16 @@ exports[`Drawer component should match a snapshot when open 1`] = `
         classname="mock-css."
       >
         <mock-styled.div>
-          <mock-styled.div>
-            test
-          </mock-styled.div>
+          <div>
+            <mock-styled.div>
+              test
+            </mock-styled.div>
+          </div>
+          <mock-styled.span
+            classname=""
+          >
+            <svg />
+          </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div>
           Content within Drawer
@@ -91,9 +98,16 @@ exports[`Drawer component should match a snapshot when open 1`] = `
       classname="mock-css."
     >
       <mock-styled.div>
-        <mock-styled.div>
-          test
-        </mock-styled.div>
+        <div>
+          <mock-styled.div>
+            test
+          </mock-styled.div>
+        </div>
+        <mock-styled.span
+          classname=""
+        >
+          <svg />
+        </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div>
         Content within Drawer

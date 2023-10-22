@@ -47,6 +47,9 @@ export const ElDrawer = styled.div`
 export const ElDrawerHeader = styled.div`
   padding: 1.5rem 2rem;
   border-bottom: 1px solid var(--color-grey-100);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 `
 
 export const ElDrawerSubtitle = styled.div`

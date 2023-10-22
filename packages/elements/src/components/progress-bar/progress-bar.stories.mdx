@@ -8,16 +8,7 @@ import {
   ProgressBarItem,
   ProgressBarLabel,
 } from './progress-bar'
-import {
-  elProgressBarLabelRight,
-  elProgressBarItemPurple,
-  elProgressBarItemDarkBlue,
-  elProgressBarItemLightBlue,
-  elProgressBarItemLightestBlue,
-  elProgressBarItemMediumBlue,
-  elProgressBarItemYellow,
-  elProgressBarLabelLeft,
-} from './__styles__'
+import { elProgressBarLabelRight, elProgressBarLabelLeft } from './__styles__'
 
 <Meta title="ProgressBar" />
 
@@ -39,11 +30,7 @@ In this example we add the width as an inline style so we can control progress b
   <Story name="Basic Example - ProgressBarPercentage">
     <ProgressBarContainer>
       <ProgressBarInner style={{ width: '50%', transitionDuration: '1s' }}>
-        <ProgressBarItem className={elProgressBarItemPurple} />
-        <ProgressBarItem className={elProgressBarItemDarkBlue} />
-        <ProgressBarItem className={elProgressBarItemMediumBlue} />
-        <ProgressBarItem className={elProgressBarItemLightBlue} />
-        <ProgressBarItem className={elProgressBarItemYellow} />
+        <ProgressBarItem />
       </ProgressBarInner>
       <ProgressBarLabel className={elProgressBarLabelRight}>50%</ProgressBarLabel>
     </ProgressBarContainer>
@@ -58,11 +45,7 @@ The progress bar steps example is very similar in terms of markup with the excep
   <Story name="Basic Example - ProgressBarSteps">
     <ProgressBarContainer>
       <ProgressBarInner style={{ width: '50%', transitionDuration: '1s' }}>
-        <ProgressBarItem className={elProgressBarItemPurple} />
-        <ProgressBarItem className={elProgressBarItemDarkBlue} />
-        <ProgressBarItem className={elProgressBarItemMediumBlue} />
-        <ProgressBarItem className={elProgressBarItemLightBlue} />
-        <ProgressBarItem className={elProgressBarItemYellow} />
+        <ProgressBarItem />
       </ProgressBarInner>
       <ProgressBarLabel className={elProgressBarLabelLeft}>5/10 Completed</ProgressBarLabel>
     </ProgressBarContainer>

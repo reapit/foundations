@@ -103,3 +103,36 @@ Exports the following properties as an array - `[Drawer, openDrawer, closeDrawer
 - `openDrawer`: `() => void` - a method that will open the Drawer.
 - `closeDrawer`: `() => void` - a method that will close the Drawer. The Drawer can also be closed by default from within the Drawer, or by clicking on the background
 - `modalIsOpen`: `boolean` - convenience boolean to check if the drawer is open currently.
+
+## React usage `canDismiss`
+
+Variant in on the above however, the user can dismiss the drawer by clicking on the background or using the icon in the header.
+
+<Canvas>
+  <Story name="React Usage canDismiss">
+    {() => {
+      const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('docs-root')
+      return (
+        <>
+          <Button intent="primary" onClick={openDrawer}>
+            Open Drawer
+          </Button>
+          <ExampleDrawer
+            title="Demo Drawer Title"
+            subtitle="Demo Drawer Subtitle"
+            canDismiss
+            footerItems={
+              <ButtonGroup alignment="right">
+                <Button intent="default" onClick={closeDrawer}>
+                  Close the Drawer
+                </Button>
+              </ButtonGroup>
+            }
+          >
+            <BodyText>Here's some nice content for the inside of the drawer.</BodyText>
+          </ExampleDrawer>
+        </>
+      )
+    }}
+  </Story>
+</Canvas>

@@ -11,7 +11,7 @@ exports[`MarketplaceAppPage should match a snapshot when has an error 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -31,10 +31,11 @@ exports[`MarketplaceAppPage should match a snapshot when has an error 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           Something went wrong fetching the app details. Please refresh this page.
@@ -49,7 +50,7 @@ exports[`MarketplaceAppPage should match a snapshot when has an error 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -69,10 +70,11 @@ exports[`MarketplaceAppPage should match a snapshot when has an error 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
       >
         Something went wrong fetching the app details. Please refresh this page.
@@ -1078,7 +1080,7 @@ exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 
           >
             <div
               class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1098,10 +1100,11 @@ exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 
             </div>
             <div
               class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
             >
               No organisation selected. You need to select an organisation to view the app details.
@@ -1220,7 +1223,7 @@ exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1240,10 +1243,11 @@ exports[`MarketplaceAppPage should match a snapshot where no orgClientId exists 
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             No organisation selected. You need to select an organisation to view the app details.
