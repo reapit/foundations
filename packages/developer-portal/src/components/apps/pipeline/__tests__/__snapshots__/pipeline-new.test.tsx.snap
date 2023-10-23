@@ -148,7 +148,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
               </mock-styled.label>
               <mock-styled.input
                 classname=""
-                name="repository"
+                name="repository.repositoryUrl"
                 placeholder="https://github.com/org/repo"
               />
             </mock-styled.div>
@@ -369,7 +369,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
             </mock-styled.label>
             <mock-styled.input
               classname=""
-              name="repository"
+              name="repository.repositoryUrl"
               placeholder="https://github.com/org/repo"
             />
           </mock-styled.div>
@@ -652,7 +652,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
               </mock-styled.label>
               <mock-styled.input
                 classname=""
-                name="repository"
+                name="repository.repositoryUrl"
                 placeholder="https://github.com/org/repo"
               />
             </mock-styled.div>
@@ -873,7 +873,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
             </mock-styled.label>
             <mock-styled.input
               classname=""
-              name="repository"
+              name="repository.repositoryUrl"
               placeholder="https://github.com/org/repo"
             />
           </mock-styled.div>

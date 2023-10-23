@@ -38,7 +38,9 @@ export const validateConfig = (appPipeline: PipelineModelInterface | null) => {
       .shape({
         name: string().required(),
         branch: string().required(),
-        repository: string().trim().required().matches(httpsUrlRegex),
+        repository: object().shape({
+          repositoryUrl: string().trim().required().matches(httpsUrlRegex),
+        }),
         buildCommand: string().trim().required(),
         packageManager: string().trim().required().test(yarnNpmTest),
         outDir: string().required(),
