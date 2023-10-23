@@ -87,7 +87,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -107,10 +107,11 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
             >
               Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
@@ -364,7 +365,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -384,10 +385,11 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
@@ -698,7 +700,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -718,10 +720,11 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
             >
               Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
@@ -975,7 +978,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -995,10 +998,11 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
@@ -1309,7 +1313,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1329,10 +1333,11 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
             >
               Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
@@ -1586,7 +1591,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1606,10 +1611,11 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.

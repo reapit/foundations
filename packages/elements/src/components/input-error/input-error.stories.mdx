@@ -13,12 +13,15 @@ A simple component used to display an error message under an input component
 ## Example
 
 <Canvas>
-  <Story name="error message">
-    <InputGroup>
-      <Input name="email address" type="email" value="not an email" />
-      <InputError message="Email address provided is not a valid email address" />
-    </InputGroup>
+  <Story name="Error Message">
+    <InputGroup
+      hasError
+      name="email address"
+      type="email"
+      placeholder="Not an email"
+      errorMessage="Email address provided is not a valid email address"
+    ></InputGroup>
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="InputError" story="error message" />
+<RenderHtmlMarkup component="InputError" story="Error Message" />

@@ -150,7 +150,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div
                     data-narrow-label="Description"
@@ -211,7 +211,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div
                     data-narrow-label="Description"
@@ -313,7 +313,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div
                     data-narrow-label="Schema"
@@ -322,7 +322,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div
                     data-narrow-label="Warehouse"
@@ -331,7 +331,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div
                     data-narrow-label="Region"
@@ -539,7 +539,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Description"
@@ -600,7 +600,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Description"
@@ -702,7 +702,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Schema"
@@ -711,7 +711,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Warehouse"
@@ -720,7 +720,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Region"

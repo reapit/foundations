@@ -100,9 +100,6 @@ export const Pagination: FC<PaginationProps> = ({
   const prevPage = currentPage > 1 ? currentPage - 1 : null
   return (
     <PaginationWrap {...rest}>
-      <PaginationText>
-        <PaginationInput onChange={handlePageInput(setInputValue)} value={inputValue} /> of {numberPages}
-      </PaginationText>
       <PaginationButton data-testid="back-button" onClick={handlePageChange(prevPage, callback, setInputValue)}>
         <Icon icon="backSystem" className={cx(prevPage && elPaginationPrimary)} />
       </PaginationButton>
@@ -112,6 +109,9 @@ export const Pagination: FC<PaginationProps> = ({
           <Icon icon="backSystem" className={cx(currentPage !== 1 && elPaginationPrimary)} />
         </PaginationButton>
       )}
+      <PaginationText>
+        <PaginationInput onChange={handlePageInput(setInputValue)} value={inputValue} /> of {numberPages}
+      </PaginationText>
       {hasEndButton && (
         <PaginationButton data-testid="back-button" onClick={handlePageChange(numberPages, callback, setInputValue)}>
           <Icon icon="nextSystem" className={cx(currentPage !== numberPages && elPaginationPrimary)} />

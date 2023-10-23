@@ -396,7 +396,7 @@ exports[`Table Component should match a snapshot with full props and cta content
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.span
                 classname="mock-css."
@@ -410,21 +410,21 @@ exports[`Table Component should match a snapshot with full props and cta content
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div>
                 Alternate Lettings Client Acc
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div>
                 Tenant Payment Request
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Request Date"
@@ -440,7 +440,7 @@ exports[`Table Component should match a snapshot with full props and cta content
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div>
                 Not Requested
@@ -522,7 +522,7 @@ exports[`Table Component should match a snapshot with full props and cta content
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.span
               classname="mock-css."
@@ -536,21 +536,21 @@ exports[`Table Component should match a snapshot with full props and cta content
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               Alternate Lettings Client Acc
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               Tenant Payment Request
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Request Date"
@@ -566,7 +566,7 @@ exports[`Table Component should match a snapshot with full props and cta content
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               Not Requested
@@ -712,7 +712,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.span
                 classname="mock-css."
@@ -726,21 +726,21 @@ exports[`Table Component should match a snapshot with full props and expandable 
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div>
                 Alternate Lettings Client Acc
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div>
                 Tenant Payment Request
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Request Date"
@@ -756,7 +756,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div>
                 Not Requested
@@ -849,7 +849,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.span
               classname="mock-css."
@@ -863,21 +863,21 @@ exports[`Table Component should match a snapshot with full props and expandable 
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               Alternate Lettings Client Acc
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               Tenant Payment Request
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Request Date"
@@ -893,7 +893,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               Not Requested

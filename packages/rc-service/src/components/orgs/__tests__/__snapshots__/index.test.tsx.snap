@@ -102,7 +102,7 @@ exports[`OrgsPage should match a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.span
                 classname="mock-css."
@@ -116,7 +116,7 @@ exports[`OrgsPage should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.span
                 classname="mock-css."
@@ -128,7 +128,7 @@ exports[`OrgsPage should match a snapshot 1`] = `
               />
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.span
                 classname="mock-css."
@@ -142,14 +142,14 @@ exports[`OrgsPage should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Address"
               />
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Active"
@@ -208,13 +208,6 @@ exports[`OrgsPage should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            value="1"
-          />
-           of 
-          24
-        </mock-styled.div>
         <mock-styled.button
           data-testid="back-button"
           type="button"
@@ -225,6 +218,13 @@ exports[`OrgsPage should match a snapshot 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
+            value="1"
+          />
+           of 
+          24
+        </mock-styled.div>
         <mock-styled.button
           data-testid="forward-button"
           type="button"
@@ -341,7 +341,7 @@ exports[`OrgsPage should match a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.span
               classname="mock-css."
@@ -355,7 +355,7 @@ exports[`OrgsPage should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.span
               classname="mock-css."
@@ -367,7 +367,7 @@ exports[`OrgsPage should match a snapshot 1`] = `
             />
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.span
               classname="mock-css."
@@ -381,14 +381,14 @@ exports[`OrgsPage should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Address"
             />
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Active"
@@ -447,13 +447,6 @@ exports[`OrgsPage should match a snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.input
-          value="1"
-        />
-         of 
-        24
-      </mock-styled.div>
       <mock-styled.button
         data-testid="back-button"
         type="button"
@@ -464,6 +457,13 @@ exports[`OrgsPage should match a snapshot 1`] = `
           <svg />
         </mock-styled.span>
       </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.input
+          value="1"
+        />
+         of 
+        24
+      </mock-styled.div>
       <mock-styled.button
         data-testid="forward-button"
         type="button"

@@ -130,14 +130,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
 "
                 >
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       Download Source
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       <mock-styled.span
@@ -147,14 +147,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       -
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       -
@@ -167,14 +167,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
 "
                 >
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       Install
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       <mock-styled.span
@@ -184,14 +184,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       -
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       -
@@ -204,14 +204,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
 "
                 >
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       Build
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       <mock-styled.span
@@ -221,14 +221,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       -
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       -
@@ -241,14 +241,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
 "
                 >
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       Deploy
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       <mock-styled.span
@@ -258,14 +258,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       -
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname=""
+                    classname="mock-css."
                   >
                     <mock-styled.div>
                       -
@@ -291,13 +291,6 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            value="1"
-          />
-           of 
-          1
-        </mock-styled.div>
         <mock-styled.button
           data-testid="back-button"
           type="button"
@@ -308,6 +301,13 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
+            value="1"
+          />
+           of 
+          1
+        </mock-styled.div>
         <mock-styled.button
           data-testid="forward-button"
           type="button"
@@ -447,14 +447,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
 "
               >
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     Download Source
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     <mock-styled.span
@@ -464,14 +464,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     -
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     -
@@ -484,14 +484,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
 "
               >
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     Install
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     <mock-styled.span
@@ -501,14 +501,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     -
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     -
@@ -521,14 +521,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
 "
               >
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     Build
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     <mock-styled.span
@@ -538,14 +538,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     -
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     -
@@ -558,14 +558,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
 "
               >
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     Deploy
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     <mock-styled.span
@@ -575,14 +575,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     -
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname=""
+                  classname="mock-css."
                 >
                   <mock-styled.div>
                     -
@@ -608,13 +608,6 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.input
-          value="1"
-        />
-         of 
-        1
-      </mock-styled.div>
       <mock-styled.button
         data-testid="back-button"
         type="button"
@@ -625,6 +618,13 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
           <svg />
         </mock-styled.span>
       </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.input
+          value="1"
+        />
+         of 
+        1
+      </mock-styled.div>
       <mock-styled.button
         data-testid="forward-button"
         type="button"

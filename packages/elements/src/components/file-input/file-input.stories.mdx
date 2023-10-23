@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
-import { FileInput } from './index'
+import { FileInput, FilePreviewImage } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { useState, useEffect } from 'react'
 import { useModal } from '../../hooks/use-modal'
@@ -30,7 +30,9 @@ Props available for the React version of the component;
 
 ## Advanced Usage
 
-Adds a placeholder, a Modal preview window and a setState callback to store your image
+Adds a placeholder, a Modal preview window and a setState callback to store your image.
+
+> Note: Safari does not support base64 encoded images over ~2mb and will throw if you either attempt to decode the base64 or render it. If you need to support previewing in Safari, we suggest passing the base64 passed to `onChange` to a third party libary to decode before rendering. The `FilePreviewImage` component will show a warning to the user if Safari is detected in the user agent.
 
 <Canvas>
   <Story name="Advanced Usage">
@@ -48,7 +50,7 @@ Adds a placeholder, a Modal preview window and a setState callback to store your
           />
           <Modal title="Image Preview">
             <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
-              {fileUrl && <img src={fileUrl} />}
+              <FilePreviewImage src={fileUrl} />
             </FlexContainer>
             <ButtonGroup alignment="right">
               <Button intent="neutral" onClick={closeModal}>

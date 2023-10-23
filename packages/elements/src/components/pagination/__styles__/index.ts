@@ -23,7 +23,7 @@ export const ElPaginationInput = styled.input`
   border-radius: 0.2rem;
   width: 2rem;
   height: 2rem;
-  border: 1px solid var(--component-input-focus-bg);
+  border: none;
 
   &:focus {
     outline: none;
@@ -33,7 +33,7 @@ export const ElPaginationInput = styled.input`
 export const ElPaginationButton = styled.button`
   width: 2rem;
   height: 2rem;
-  border: 1px solid var(--component-input-focus-bg);
+  border: none;
   background: var(--color-white);
   border-radius: 0.2rem;
   display: flex;

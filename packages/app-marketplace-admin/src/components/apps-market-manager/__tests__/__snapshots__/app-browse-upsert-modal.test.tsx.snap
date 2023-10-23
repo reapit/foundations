@@ -790,7 +790,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                 >
                   <div
                     class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -810,10 +810,11 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   </div>
                   <div
                     class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
                   >
                     If a ‘Live To’ or ‘Live From’ value is set, ‘Is Live’ will be ignored.
@@ -1646,7 +1647,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
               >
                 <div
                   class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -1666,10 +1667,11 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                 </div>
                 <div
                   class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
                 >
                   If a ‘Live To’ or ‘Live From’ value is set, ‘Is Live’ will be ignored.

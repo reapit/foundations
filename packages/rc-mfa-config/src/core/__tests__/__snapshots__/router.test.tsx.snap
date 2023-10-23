@@ -19,11 +19,15 @@ exports[`RoutesComponent should match a snapshot 1`] = `
             classname=""
           >
             <mock-styled.div>
-              <mock-styled.span
+              <mock-styled.div
                 classname=""
               >
-                <svg />
-              </mock-styled.span>
+                <mock-styled.span
+                  classname=""
+                >
+                  <svg />
+                </mock-styled.span>
+              </mock-styled.div>
             </mock-styled.div>
             <mock-styled.span
               classname=""
@@ -93,7 +97,7 @@ exports[`RoutesComponent should match a snapshot 1`] = `
       --nav-menu-icon-secondary-accent: var(--color-purple-300);
       padding: 0.375rem 0.75rem;
       border-radius: 0.25rem;
-      background-color: var(--color-grey-100);
+      background-color: var(--color-grey-50);
       border-left: none;
       height: 2rem;
     }
@@ -147,11 +151,15 @@ exports[`RoutesComponent should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.div>
-            <mock-styled.span
+            <mock-styled.div
               classname=""
             >
-              <svg />
-            </mock-styled.span>
+              <mock-styled.span
+                classname=""
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
           </mock-styled.div>
           <mock-styled.span
             classname=""
@@ -221,7 +229,7 @@ exports[`RoutesComponent should match a snapshot 1`] = `
       --nav-menu-icon-secondary-accent: var(--color-purple-300);
       padding: 0.375rem 0.75rem;
       border-radius: 0.25rem;
-      background-color: var(--color-grey-100);
+      background-color: var(--color-grey-50);
       border-left: none;
       height: 2rem;
     }

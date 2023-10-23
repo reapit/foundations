@@ -16,7 +16,7 @@ export const ElInput = styled.input`
     flex-grow: 1;
     border-radius: 0.125rem;
     border: var(--component-input-border);
-    height: 2rem;
+    height: 2.25rem;
 
     &:focus {
       border: var(--component-input-border-focus);

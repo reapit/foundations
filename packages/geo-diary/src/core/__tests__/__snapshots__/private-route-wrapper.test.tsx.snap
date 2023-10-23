@@ -20,11 +20,15 @@ exports[`PrivateRouter should match a snapshot 1`] = `
             classname=""
           >
             <mock-styled.div>
-              <mock-styled.span
+              <mock-styled.div
                 classname=""
               >
-                <svg />
-              </mock-styled.span>
+                <mock-styled.span
+                  classname=""
+                >
+                  <svg />
+                </mock-styled.span>
+              </mock-styled.div>
             </mock-styled.div>
             <mock-styled.span
               classname=""
@@ -104,7 +108,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -124,10 +128,11 @@ exports[`PrivateRouter should match a snapshot 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
             >
               We could not detect that you are a negotiator for your organisation from your login. Try logging out and then back in again. If this does not work, please contact your Reapit administrator.
@@ -153,11 +158,15 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.div>
-            <mock-styled.span
+            <mock-styled.div
               classname=""
             >
-              <svg />
-            </mock-styled.span>
+              <mock-styled.span
+                classname=""
+              >
+                <svg />
+              </mock-styled.span>
+            </mock-styled.div>
           </mock-styled.div>
           <mock-styled.span
             classname=""
@@ -237,7 +246,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -257,10 +266,11 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             We could not detect that you are a negotiator for your organisation from your login. Try logging out and then back in again. If this does not work, please contact your Reapit administrator.

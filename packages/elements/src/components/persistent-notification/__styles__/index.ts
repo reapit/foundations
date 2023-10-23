@@ -19,7 +19,7 @@ export const elPnIsFixed = css``
 export const elPnIsInline = css``
 
 export const elPnIcon = css`
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -31,10 +31,11 @@ export const elPnIcon = css`
 `
 
 export const elPnContent = css`
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 `
 
 export const ElPersistentNotification = styled.div`
@@ -42,7 +43,7 @@ export const ElPersistentNotification = styled.div`
   position: absolute;
   max-width: 50%;
   right: 0;
-  transform: translateX(calc(100% - 3rem));
+  transform: translateX(calc(100% - 2.25rem));
   transition: 0.5s;
   z-index: 10;
   font-size: var(--font-size-default);
@@ -50,10 +51,6 @@ export const ElPersistentNotification = styled.div`
   &.${elIsActive} {
     right: 0;
     transform: translateX(calc(0%));
-
-    .${elPnContent} {
-      opacity: 1;
-    }
   }
 
   &.${elPnIsFullWidth} {
@@ -65,7 +62,6 @@ export const ElPersistentNotification = styled.div`
   &.${elPnIsFixed} {
     position: fixed;
     top: 1rem;
-    right: 2rem; // should be the width of the elPnIcon element (icon is 1rem and padding is 0.5rem each side)
   }
 
   &.${elPnIsInline} {

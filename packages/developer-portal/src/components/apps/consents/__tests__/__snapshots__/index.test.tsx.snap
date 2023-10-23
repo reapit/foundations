@@ -98,7 +98,7 @@ exports[`AppConsentsPage should match snapshot where there are no consents retur
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -118,10 +118,11 @@ exports[`AppConsentsPage should match snapshot where there are no consents retur
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           No record of any consents for this app - it looks like you need to send an email requesting that your customers agree to your new permission settings. You can do this below or our team will do it as part of the review process.
@@ -156,7 +157,7 @@ exports[`AppConsentsPage should match snapshot where there are no consents retur
     >
       <div
         class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -176,10 +177,11 @@ exports[`AppConsentsPage should match snapshot where there are no consents retur
       </div>
       <div
         class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
       >
         No record of any consents for this app - it looks like you need to send an email requesting that your customers agree to your new permission settings. You can do this below or our team will do it as part of the review process.
@@ -306,7 +308,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
               />
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Email"
@@ -315,7 +317,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Date Sent"
@@ -324,7 +326,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Status"
@@ -333,7 +335,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Date Accepted"
@@ -408,7 +410,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
             />
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Email"
@@ -417,7 +419,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Date Sent"
@@ -426,7 +428,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Status"
@@ -435,7 +437,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Date Accepted"

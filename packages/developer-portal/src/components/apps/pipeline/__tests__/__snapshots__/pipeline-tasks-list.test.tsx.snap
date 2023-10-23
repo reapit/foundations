@@ -11,7 +11,7 @@ exports[`TaskList should match snapshot with no tasks 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -31,10 +31,11 @@ exports[`TaskList should match snapshot with no tasks 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           No progress reported for this deployment
@@ -49,7 +50,7 @@ exports[`TaskList should match snapshot with no tasks 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -69,10 +70,11 @@ exports[`TaskList should match snapshot with no tasks 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
       >
         No progress reported for this deployment
@@ -164,14 +166,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
 "
         >
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               Download Source
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               <mock-styled.span
@@ -181,14 +183,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               -
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               -
@@ -201,14 +203,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
 "
         >
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               Install
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               <mock-styled.span
@@ -218,14 +220,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               -
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               -
@@ -238,14 +240,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
 "
         >
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               Build
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               <mock-styled.span
@@ -255,14 +257,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               -
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               -
@@ -275,14 +277,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
 "
         >
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               Deploy
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               <mock-styled.span
@@ -292,14 +294,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               -
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div>
               -
@@ -349,14 +351,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
 "
       >
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             Download Source
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             <mock-styled.span
@@ -366,14 +368,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             -
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             -
@@ -386,14 +388,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
 "
       >
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             Install
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             <mock-styled.span
@@ -403,14 +405,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             -
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             -
@@ -423,14 +425,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
 "
       >
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             Build
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             <mock-styled.span
@@ -440,14 +442,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             -
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             -
@@ -460,14 +462,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
 "
       >
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             Deploy
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             <mock-styled.span
@@ -477,14 +479,14 @@ exports[`TaskList should match snapshot with tasks 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             -
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname=""
+          classname="mock-css."
         >
           <mock-styled.div>
             -

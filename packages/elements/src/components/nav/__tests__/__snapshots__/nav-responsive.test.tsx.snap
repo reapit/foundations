@@ -61,7 +61,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
       --nav-menu-icon-secondary-accent: var(--color-purple-300);
       padding: 0.375rem 0.75rem;
       border-radius: 0.25rem;
-      background-color: var(--color-grey-100);
+      background-color: var(--color-grey-50);
       border-left: none;
       height: 2rem;
     }
@@ -178,7 +178,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
       --nav-menu-icon-secondary-accent: var(--color-purple-300);
       padding: 0.375rem 0.75rem;
       border-radius: 0.25rem;
-      background-color: var(--color-grey-100);
+      background-color: var(--color-grey-50);
       border-left: none;
       height: 2rem;
     }

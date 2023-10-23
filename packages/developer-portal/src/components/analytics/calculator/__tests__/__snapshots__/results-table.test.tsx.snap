@@ -29,7 +29,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -38,7 +38,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -67,7 +67,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -76,7 +76,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -105,7 +105,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -114,7 +114,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -143,7 +143,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -152,7 +152,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -181,7 +181,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -190,7 +190,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -219,7 +219,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -228,7 +228,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -257,7 +257,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -266,7 +266,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -324,7 +324,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -333,7 +333,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -362,7 +362,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -371,7 +371,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -400,7 +400,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -409,7 +409,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -438,7 +438,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -447,7 +447,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -476,7 +476,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -485,7 +485,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -514,7 +514,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -523,7 +523,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -552,7 +552,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -561,7 +561,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"

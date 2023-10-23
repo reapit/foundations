@@ -8,6 +8,7 @@ import React, {
   MouseEvent,
   useEffect,
   useMemo,
+  FC,
 } from 'react'
 import { generateRandomId } from '../../storybook/random-id'
 import { elMr4 } from '../../styles/spacing'
@@ -18,6 +19,7 @@ import { FlexContainer } from '../layout'
 import { handleSetNativeInput } from '../multi-select'
 import { SmallText } from '../typography'
 import { ElFileInput, ElFileInputHidden, ElFileInputIconContainer, ElFileInputWrap } from './__styles__'
+import { PersistentNotification } from '../persistent-notification'
 
 export interface FileInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   onFileUpload?: (uploadImageModel: CreateImageUploadModel) => Promise<any | ImageUploadModel>
@@ -26,6 +28,10 @@ export interface FileInputProps extends React.InputHTMLAttributes<HTMLInputEleme
   defaultValue?: string
   label?: string
   fileName?: string
+}
+
+export interface FilePreviewImageProps {
+  src?: string
 }
 
 export type FileInputWrapped = React.ForwardRefExoticComponent<
@@ -93,6 +99,26 @@ export const handleFileView = (onFileView: (fileUrl: string) => void, fileUrl: s
   event.stopPropagation()
   event.preventDefault()
   onFileView(fileUrl)
+}
+
+/**  Safari has a 2mb limit on data urls and will not decode the string to determine the file size
+ * using window.atob as this will throw too - this component will display a notification if the user agent is safari
+ * and a base64 string is passed and render otherwise */
+export const FilePreviewImage: FC<FilePreviewImageProps> = ({ src }) => {
+  if (!src) return null
+
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+
+  if (src.includes('data:image') && isSafari) {
+    return (
+      <PersistentNotification intent="warning" isFullWidth isInline isExpanded>
+        Safari does not support previewing files using this component. To view the image, first save the record then
+        preview.
+      </PersistentNotification>
+    )
+  }
+
+  return <img src={src} />
 }
 
 export const FileInput: FileInputWrapped = forwardRef(
