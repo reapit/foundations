@@ -128,6 +128,7 @@ export const ElNavItem = styled.a`
     &:first-child {
       width: auto;
       border-bottom: none;
+      height: auto;
     }
 
     &:last-of-type {
