@@ -6,13 +6,6 @@ exports[`Pagination should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            value="2"
-          />
-           of 
-          4
-        </mock-styled.div>
         <mock-styled.button
           data-testid="back-button"
           type="button"
@@ -28,6 +21,13 @@ exports[`Pagination should match a snapshot 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
+            value="2"
+          />
+           of 
+          4
+        </mock-styled.div>
         <mock-styled.button
           data-testid="forward-button"
           type="button"
@@ -48,13 +48,6 @@ exports[`Pagination should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.input
-          value="2"
-        />
-         of 
-        4
-      </mock-styled.div>
       <mock-styled.button
         data-testid="back-button"
         type="button"
@@ -70,6 +63,13 @@ exports[`Pagination should match a snapshot 1`] = `
           <svg />
         </mock-styled.span>
       </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.input
+          value="2"
+        />
+         of 
+        4
+      </mock-styled.div>
       <mock-styled.button
         data-testid="forward-button"
         type="button"
@@ -147,6 +147,46 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div>
+        <mock-styled.button
+          data-testid="back-button"
+          type="button"
+        >
+          <mock-styled.span
+            classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
+          >
+            <svg />
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.button
+          data-testid="back-button"
+          type="button"
+        >
+          <mock-styled.span
+            classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
+          >
+            <svg />
+          </mock-styled.span>
+          <mock-styled.span
+            classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
+          >
+            <svg />
+          </mock-styled.span>
+        </mock-styled.button>
         <mock-styled.div>
           <mock-styled.input
             value="2"
@@ -154,46 +194,6 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
            of 
           4
         </mock-styled.div>
-        <mock-styled.button
-          data-testid="back-button"
-          type="button"
-        >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-          >
-            <svg />
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.button
-          data-testid="back-button"
-          type="button"
-        >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-          >
-            <svg />
-          </mock-styled.span>
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-          >
-            <svg />
-          </mock-styled.span>
-        </mock-styled.button>
         <mock-styled.button
           data-testid="back-button"
           type="button"
@@ -239,6 +239,46 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div>
+      <mock-styled.button
+        data-testid="back-button"
+        type="button"
+      >
+        <mock-styled.span
+          classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
+        >
+          <svg />
+        </mock-styled.span>
+      </mock-styled.button>
+      <mock-styled.button
+        data-testid="back-button"
+        type="button"
+      >
+        <mock-styled.span
+          classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
+        >
+          <svg />
+        </mock-styled.span>
+        <mock-styled.span
+          classname="mock-css.
+  cursor: pointer;
+  svg {
+    color: var(--intent-primary);
+  }
+"
+        >
+          <svg />
+        </mock-styled.span>
+      </mock-styled.button>
       <mock-styled.div>
         <mock-styled.input
           value="2"
@@ -246,46 +286,6 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
          of 
         4
       </mock-styled.div>
-      <mock-styled.button
-        data-testid="back-button"
-        type="button"
-      >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-        >
-          <svg />
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.button
-        data-testid="back-button"
-        type="button"
-      >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-        >
-          <svg />
-        </mock-styled.span>
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-        >
-          <svg />
-        </mock-styled.span>
-      </mock-styled.button>
       <mock-styled.button
         data-testid="back-button"
         type="button"

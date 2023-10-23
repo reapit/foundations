@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 import { isTablet } from '../../../styles/media'
+import { ElAvatar } from '../../avatar'
 
 export const elCardContextMenuOpen = css`
   display: flex;
@@ -45,10 +46,17 @@ export const ElCardHeadingWrap = styled.div`
 export const ElCardMainWrap = styled.div`
   display: flex;
   flex-wrap: nowrap;
+
+  ${ElAvatar} {
+    margin-right: 1rem;
+
+    ${isTablet} {
+      margin-right: 1.25rem;
+    }
+  }
 `
 
 export const ElCardHeading = styled.h5`
-  height: 1.2rem;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -84,7 +92,7 @@ export const elCardBodyWrapExpanded = css``
 
 export const ElCardBodyWrap = styled.div`
   width: 100%;
-  color: var(--color-grey-500);
+  color: var(--color-black);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -223,7 +231,7 @@ export const ElCardListItemTextWrap = styled.div`
 `
 
 export const ElCardListItemTextPrimary = styled.div`
-  color: var(--color-grey-500);
+  color: var(--color-black);
 `
 
 export const ElCardListItemTextSecondary = styled.div`

@@ -23,6 +23,7 @@ export const ElAccordionItem = styled.div`
 export const ElAccordionTitle = styled.div`
   color: var(--color-black);
   font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
 `
 
 export const ElAccordionTitleContentWrapper = styled.div`

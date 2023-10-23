@@ -31,8 +31,8 @@ jobs:
 
       - name: Fetch config
         run: |
-          yarn changed foreach --parallel --verbose --git-range origin/master run conf --name development
+          yarn workspaces foreach --parallel --verbose --since run conf --name development
 
       - name: Build
         run: |
-          yarn changed foreach --parallel --verbose --git-range origin/master run build
+          yarn workspaces foreach --parallel --verbose --since run build

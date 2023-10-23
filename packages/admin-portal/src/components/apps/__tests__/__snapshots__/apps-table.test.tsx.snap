@@ -82,7 +82,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="AppId"
@@ -91,7 +91,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Summary"
@@ -100,7 +100,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Developer Name"
@@ -109,7 +109,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Listed"
@@ -122,7 +122,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Integration"
@@ -135,7 +135,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Featured"
@@ -148,7 +148,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Created"
@@ -157,7 +157,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Publicly Listed"
@@ -166,7 +166,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Public"
@@ -332,7 +332,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="AppId"
@@ -341,7 +341,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Summary"
@@ -350,7 +350,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Developer Name"
@@ -359,7 +359,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Listed"
@@ -372,7 +372,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Integration"
@@ -385,7 +385,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Featured"
@@ -398,7 +398,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Created"
@@ -407,7 +407,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Publicly Listed"
@@ -416,7 +416,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Public"
@@ -573,7 +573,7 @@ exports[`AppsTable should render component with no apps 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -593,10 +593,11 @@ exports[`AppsTable should render component with no apps 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             No results found for your selected filters
@@ -617,7 +618,7 @@ exports[`AppsTable should render component with no apps 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -637,10 +638,11 @@ exports[`AppsTable should render component with no apps 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           No results found for your selected filters

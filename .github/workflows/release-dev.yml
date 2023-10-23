@@ -42,18 +42,22 @@ jobs:
       - name: Install
         run: yarn
 
+      - name: Set yarn since
+        run: |
+          yarn config set changesetBaseRefs --json '["HEAD~1"]'
+
       - name: Fetch config
         run: |
-          yarn changed foreach --parallel --verbose --git-range HEAD~1 run conf --name development
+          yarn workspaces foreach --parallel --verbose --since run conf --name development
 
       - name: Build
         run: |
-          yarn changed foreach --parallel --verbose --git-range HEAD~1 run build
+          yarn workspaces foreach --parallel --verbose --since run build
 
       - name: Release
         run: |
-          yarn changed foreach --parallel --verbose --git-range HEAD~1 run release
+          yarn workspaces foreach --parallel --verbose --since run release
 
       - name: Deploy
         run: |
-          yarn changed foreach --parallel --verbose --git-range HEAD~1 run deploy
+          yarn workspaces foreach --parallel --verbose --since run deploy

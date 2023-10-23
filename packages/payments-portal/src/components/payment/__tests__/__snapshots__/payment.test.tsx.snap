@@ -3563,7 +3563,7 @@ exports[`PaymentPage should match a snapshot when has no session and no data 1`]
             >
               <div
                 class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3583,10 +3583,11 @@ exports[`PaymentPage should match a snapshot when has no session and no data 1`]
               </div>
               <div
                 class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
               >
                 Page not found
@@ -3611,7 +3612,7 @@ exports[`PaymentPage should match a snapshot when has no session and no data 1`]
           >
             <div
               class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3631,10 +3632,11 @@ exports[`PaymentPage should match a snapshot when has no session and no data 1`]
             </div>
             <div
               class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
             >
               Page not found
@@ -3727,7 +3729,7 @@ exports[`PaymentPage should match a snapshot when loading 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3747,10 +3749,11 @@ exports[`PaymentPage should match a snapshot when loading 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
             >
               This service is currently unavailable to take payments. Please try refreshing the page and if the problem persists, please contact the company that requested this payment.
@@ -3786,7 +3789,7 @@ exports[`PaymentPage should match a snapshot when loading 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3806,10 +3809,11 @@ exports[`PaymentPage should match a snapshot when loading 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             This service is currently unavailable to take payments. Please try refreshing the page and if the problem persists, please contact the company that requested this payment.
@@ -3902,7 +3906,7 @@ exports[`PaymentPage should match a snapshot when no payment is returned 1`] = `
           >
             <div
               class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3922,10 +3926,11 @@ exports[`PaymentPage should match a snapshot when no payment is returned 1`] = `
             </div>
             <div
               class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
             >
               We do not have any information about this payment. Please try refreshing the page and if the problem persists, please contact the company that requested this payment.
@@ -3960,7 +3965,7 @@ exports[`PaymentPage should match a snapshot when no payment is returned 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -3980,10 +3985,11 @@ exports[`PaymentPage should match a snapshot when no payment is returned 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             We do not have any information about this payment. Please try refreshing the page and if the problem persists, please contact the company that requested this payment.
@@ -4075,7 +4081,7 @@ exports[`PaymentPage should match a snapshot when there is a config error 1`] = 
           >
             <div
               class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -4095,10 +4101,11 @@ exports[`PaymentPage should match a snapshot when there is a config error 1`] = 
             </div>
             <div
               class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
             >
               This service is currently unavailable to take payments. Please try refreshing the page and if the problem persists, please contact the company that requested this payment.
@@ -4133,7 +4140,7 @@ exports[`PaymentPage should match a snapshot when there is a config error 1`] = 
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -4153,10 +4160,11 @@ exports[`PaymentPage should match a snapshot when there is a config error 1`] = 
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             This service is currently unavailable to take payments. Please try refreshing the page and if the problem persists, please contact the company that requested this payment.

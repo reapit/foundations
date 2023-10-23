@@ -111,7 +111,7 @@ exports[`TableCell Component should match a snapshot with no props 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname=""
+        classname="mock-css."
       >
         <mock-styled.div />
       </mock-styled.div>
@@ -119,7 +119,7 @@ exports[`TableCell Component should match a snapshot with no props 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname=""
+      classname="mock-css."
     >
       <mock-styled.div />
     </mock-styled.div>

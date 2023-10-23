@@ -194,7 +194,7 @@ exports[`AppConsents should match snapshot where there are no consents returned 
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -214,10 +214,11 @@ exports[`AppConsents should match snapshot where there are no consents returned 
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             No record of any consents for this app - you can send these from the link below.
@@ -256,7 +257,7 @@ exports[`AppConsents should match snapshot where there are no consents returned 
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -276,10 +277,11 @@ exports[`AppConsents should match snapshot where there are no consents returned 
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           No record of any consents for this app - you can send these from the link below.
@@ -409,7 +411,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               />
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Email"
@@ -418,7 +420,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Date Sent"
@@ -427,7 +429,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Status"
@@ -436,7 +438,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Date Accepted"
@@ -513,7 +515,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             />
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Email"
@@ -522,7 +524,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Date Sent"
@@ -531,7 +533,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Status"
@@ -540,7 +542,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Date Accepted"

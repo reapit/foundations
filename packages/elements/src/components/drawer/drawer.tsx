@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, ReactNode, useEffect } from 'react'
+import React, { FC, HTMLAttributes, ReactNode } from 'react'
 import { cx } from '@linaria/core'
 import {
   ElDrawerBg,
@@ -10,6 +10,7 @@ import {
   ElDrawerSubtitle,
 } from './__styles__'
 import { elIsActive } from '../../styles/states'
+import { Icon } from '../icon'
 
 export interface DrawerProps extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
@@ -18,6 +19,7 @@ export interface DrawerProps extends HTMLAttributes<HTMLDivElement> {
   subtitle?: string
   className?: string
   footerItems?: ReactNode
+  canDismiss?: boolean
 }
 
 export interface DrawerBaseProps extends HTMLAttributes<HTMLElement> {}
@@ -72,32 +74,23 @@ export const Drawer: FC<DrawerProps> = ({
   footerItems,
   className,
   children,
+  canDismiss,
   ...rest
 }) => {
-  useEffect(() => {
-    const onKeyUp = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onDrawerClose()
-      }
-    }
-    document.addEventListener('keyup', onKeyUp, false)
-
-    return () => {
-      document.removeEventListener('keyup', onKeyUp, false)
-    }
-  }, [onDrawerClose])
-
   const drawerCombinedClassname = cx(className, elIsActive)
 
   if (!isOpen) return null
 
   return (
     <>
-      <ElDrawerBg className={elIsActive} onClick={onDrawerClose} />
+      <ElDrawerBg className={elIsActive} onClick={canDismiss ? onDrawerClose : undefined} />
       <ElDrawer className={drawerCombinedClassname} {...rest}>
         <ElDrawerHeader>
-          {title && <ElDrawerTitle>{title}</ElDrawerTitle>}
-          {subtitle && <ElDrawerSubtitle>{subtitle}</ElDrawerSubtitle>}
+          <div>
+            {title && <ElDrawerTitle>{title}</ElDrawerTitle>}
+            {subtitle && <ElDrawerSubtitle>{subtitle}</ElDrawerSubtitle>}
+          </div>
+          {canDismiss && <Icon icon="closeSystem" onClick={onDrawerClose} />}
         </ElDrawerHeader>
         <ElDrawerBody>{children}</ElDrawerBody>
         {footerItems && <ElDrawerFooter>{footerItems}</ElDrawerFooter>}

@@ -20,7 +20,7 @@ exports[`AccessDenied should match a snapshot 1`] = `
         >
           <div
             class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -40,10 +40,11 @@ exports[`AccessDenied should match a snapshot 1`] = `
           </div>
           <div
             class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
           >
             It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.
@@ -86,7 +87,7 @@ exports[`AccessDenied should match a snapshot 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -106,10 +107,11 @@ exports[`AccessDenied should match a snapshot 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.

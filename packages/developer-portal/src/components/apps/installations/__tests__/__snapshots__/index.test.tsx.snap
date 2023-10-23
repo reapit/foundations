@@ -74,7 +74,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Reapit Customer Code"
@@ -83,7 +83,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Customer Address"
@@ -92,7 +92,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Date Installed"
@@ -101,7 +101,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Installed By"
@@ -170,7 +170,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Reapit Customer Code"
@@ -179,7 +179,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Customer Address"
@@ -188,7 +188,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Date Installed"
@@ -197,7 +197,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Installed By"
@@ -243,13 +243,6 @@ exports[`AppInstallations should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            value="1"
-          />
-           of 
-          1
-        </mock-styled.div>
         <mock-styled.button
           data-testid="back-button"
           type="button"
@@ -260,6 +253,13 @@ exports[`AppInstallations should match a snapshot 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
+            value="1"
+          />
+           of 
+          1
+        </mock-styled.div>
         <mock-styled.button
           data-testid="forward-button"
           type="button"
@@ -362,7 +362,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Reapit Customer Code"
@@ -371,7 +371,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Customer Address"
@@ -380,7 +380,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Date Installed"
@@ -389,7 +389,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Installed By"
@@ -458,7 +458,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Reapit Customer Code"
@@ -467,7 +467,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Customer Address"
@@ -476,7 +476,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Date Installed"
@@ -485,7 +485,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Installed By"
@@ -531,13 +531,6 @@ exports[`AppInstallations should match a snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.input
-          value="1"
-        />
-         of 
-        1
-      </mock-styled.div>
       <mock-styled.button
         data-testid="back-button"
         type="button"
@@ -548,6 +541,13 @@ exports[`AppInstallations should match a snapshot 1`] = `
           <svg />
         </mock-styled.span>
       </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.input
+          value="1"
+        />
+         of 
+        1
+      </mock-styled.div>
       <mock-styled.button
         data-testid="forward-button"
         type="button"
@@ -776,7 +776,7 @@ exports[`AppInstallations should match a snapshot when no installations 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -796,10 +796,11 @@ exports[`AppInstallations should match a snapshot when no installations 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           No installations for the application.
@@ -838,7 +839,7 @@ exports[`AppInstallations should match a snapshot when no installations 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -858,10 +859,11 @@ exports[`AppInstallations should match a snapshot when no installations 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
       >
         No installations for the application.
@@ -1134,7 +1136,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Reapit Customer Code"
@@ -1143,7 +1145,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Customer Address"
@@ -1152,7 +1154,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Date Installed"
@@ -1161,7 +1163,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Installed By"
@@ -1230,7 +1232,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Reapit Customer Code"
@@ -1239,7 +1241,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Customer Address"
@@ -1248,7 +1250,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Date Installed"
@@ -1257,7 +1259,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Installed By"
@@ -1303,13 +1305,6 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            value="1"
-          />
-           of 
-          1
-        </mock-styled.div>
         <mock-styled.button
           data-testid="back-button"
           type="button"
@@ -1320,6 +1315,13 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
+            value="1"
+          />
+           of 
+          1
+        </mock-styled.div>
         <mock-styled.button
           data-testid="forward-button"
           type="button"
@@ -1422,7 +1424,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Reapit Customer Code"
@@ -1431,7 +1433,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Customer Address"
@@ -1440,7 +1442,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Date Installed"
@@ -1449,7 +1451,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Installed By"
@@ -1518,7 +1520,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Reapit Customer Code"
@@ -1527,7 +1529,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Customer Address"
@@ -1536,7 +1538,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Date Installed"
@@ -1545,7 +1547,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Installed By"
@@ -1591,13 +1593,6 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.input
-          value="1"
-        />
-         of 
-        1
-      </mock-styled.div>
       <mock-styled.button
         data-testid="back-button"
         type="button"
@@ -1608,6 +1603,13 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
           <svg />
         </mock-styled.span>
       </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.input
+          value="1"
+        />
+         of 
+        1
+      </mock-styled.div>
       <mock-styled.button
         data-testid="forward-button"
         type="button"

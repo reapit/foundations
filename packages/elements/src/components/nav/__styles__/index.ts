@@ -58,6 +58,7 @@ export const elNavItemSecondary = css``
 export const ElNavItem = styled.a`
   font-family: var(--font-sans-serif);
   font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
   color: var(--color-grey-400);
   display: flex;
   text-align: center;
@@ -78,8 +79,8 @@ export const ElNavItem = styled.a`
   }
 
   &:hover {
-    color: var(--color-purple-300);
-    background-color: var(--color-purple-50);
+    color: var(--color-grey-500);
+    background-color: var(--color-grey-50);
   }
 
   &:hover:not(:first-child) {
@@ -120,13 +121,14 @@ export const ElNavItem = styled.a`
     }
 
     &:hover:not(:first-child) {
-      background-color: var(--color-grey-100);
+      background-color: var(--color-grey-50);
       border-left: none;
     }
 
     &:first-child {
       width: auto;
       border-bottom: none;
+      height: auto;
     }
 
     &:last-of-type {
@@ -148,7 +150,7 @@ export const elNavItemActive = css`
       --nav-menu-icon-secondary-accent: var(--color-purple-300);
       padding: 0.375rem 0.75rem;
       border-radius: 0.25rem;
-      background-color: var(--color-grey-100);
+      background-color: var(--color-grey-50);
       border-left: none;
       height: 2rem;
     }
@@ -297,6 +299,12 @@ export const ElNavResponsiveAvatarWrap = styled.div`
     background-color: var(--intent-primary-lightest);
   }
 
+  &:hover {
+    ${ElAvatar} {
+      background-color: var(--color-purple-100);
+    }
+  }
+
   @media screen and (min-width: 768px) {
     margin-right: 1.25rem;
   }
@@ -315,18 +323,29 @@ export const ElNavResponsiveAppSwitcherWrap = styled.div`
   cursor: pointer;
 
   svg {
-    height: 2.25rem;
-    width: 2.25rem;
-  }
-
-  .${elAppSwitcherOpen} {
-    rect {
-      fill: var(--intent-primary-lightest);
-    }
+    height: 2rem;
+    width: 2rem;
   }
 
   ${ElNavMenu} {
     left: 0;
     top: 46px;
+  }
+`
+
+export const ElNavResponsiveAppSwitcherIconWrap = styled.div`
+  height: 2.25rem;
+  width: 2.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+
+  &.${elAppSwitcherOpen} {
+    background-color: var(--intent-primary-lightest);
+    rect {
+      fill: var(--intent-primary-lightest);
+    }
   }
 `

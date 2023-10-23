@@ -53,7 +53,7 @@ module.exports = (config, appName) =>
           name: appName,
           short_name: appName,
           description: appName,
-          theme_color: '#262f69',
+          theme_color: '#fff',
           icons: [
             {
               src: 'pwa-192x192.png',
@@ -61,13 +61,13 @@ module.exports = (config, appName) =>
               type: 'image/png',
             },
             {
-              src: 'pwa-512x512.png',
-              sizes: '512x512',
+              src: 'pwa-152x152.png',
+              sizes: '152x152',
               type: 'image/png',
             },
             {
-              src: 'pwa-512x512.png',
-              sizes: '512x512',
+              src: 'pwa-192x192.png',
+              sizes: '192x192',
               type: 'image/png',
               purpose: 'any maskable',
             },

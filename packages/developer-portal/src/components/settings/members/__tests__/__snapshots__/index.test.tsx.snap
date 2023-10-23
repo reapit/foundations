@@ -72,7 +72,7 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Status"
@@ -108,7 +108,7 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Main Contact"
@@ -176,13 +176,6 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            value="1"
-          />
-           of 
-          1
-        </mock-styled.div>
         <mock-styled.button
           data-testid="back-button"
           type="button"
@@ -193,6 +186,13 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
+            value="1"
+          />
+           of 
+          1
+        </mock-styled.div>
         <mock-styled.button
           data-testid="forward-button"
           type="button"
@@ -293,7 +293,7 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Status"
@@ -329,7 +329,7 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Main Contact"
@@ -397,13 +397,6 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.input
-          value="1"
-        />
-         of 
-        1
-      </mock-styled.div>
       <mock-styled.button
         data-testid="back-button"
         type="button"
@@ -414,6 +407,13 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
           <svg />
         </mock-styled.span>
       </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.input
+          value="1"
+        />
+         of 
+        1
+      </mock-styled.div>
       <mock-styled.button
         data-testid="forward-button"
         type="button"
@@ -576,7 +576,7 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Status"
@@ -612,7 +612,7 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Main Contact"
@@ -680,13 +680,6 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            value="1"
-          />
-           of 
-          1
-        </mock-styled.div>
         <mock-styled.button
           data-testid="back-button"
           type="button"
@@ -697,6 +690,13 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
+            value="1"
+          />
+           of 
+          1
+        </mock-styled.div>
         <mock-styled.button
           data-testid="forward-button"
           type="button"
@@ -797,7 +797,7 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Status"
@@ -833,7 +833,7 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname=""
+            classname="mock-css."
           >
             <mock-styled.div
               data-narrow-label="Main Contact"
@@ -901,13 +901,6 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.input
-          value="1"
-        />
-         of 
-        1
-      </mock-styled.div>
       <mock-styled.button
         data-testid="back-button"
         type="button"
@@ -918,6 +911,13 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
           <svg />
         </mock-styled.span>
       </mock-styled.button>
+      <mock-styled.div>
+        <mock-styled.input
+          value="1"
+        />
+         of 
+        1
+      </mock-styled.div>
       <mock-styled.button
         data-testid="forward-button"
         type="button"

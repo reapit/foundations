@@ -6181,7 +6181,7 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -6201,10 +6201,11 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           This payment has been successfully submitted and confirmation of payment has been emailed to the address supplied. If no email was received, you can send again by clicking the button below.
@@ -6307,7 +6308,7 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -6327,10 +6328,11 @@ exports[`PaymentForm should match a snapshot when payment is posted 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
       >
         This payment has been successfully submitted and confirmation of payment has been emailed to the address supplied. If no email was received, you can send again by clicking the button below.
@@ -6490,7 +6492,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
       >
         <div
           class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -6510,10 +6512,11 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         </div>
         <div
           class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
         >
           This payment has failed. Please check the details submitted are correct and try again.
@@ -8050,7 +8053,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
     >
       <div
         class="mock-css.
-  padding: 0 1rem;
+  padding-left: 0.75rem;
   display: flex;
   align-items: center;
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
@@ -8070,10 +8073,11 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
       </div>
       <div
         class="mock-css.
-  padding: 1rem;
-  opacity: 0;
+  padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
 "
       >
         This payment has failed. Please check the details submitted are correct and try again.

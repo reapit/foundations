@@ -158,7 +158,7 @@ exports[`MembersTable should render component with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Member Email"
@@ -167,7 +167,7 @@ exports[`MembersTable should render component with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Job Title"
@@ -176,7 +176,7 @@ exports[`MembersTable should render component with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Role"
@@ -185,14 +185,14 @@ exports[`MembersTable should render component with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Github Username"
                 />
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Member Status"
@@ -201,7 +201,7 @@ exports[`MembersTable should render component with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Agreed Terms Date"
@@ -210,7 +210,7 @@ exports[`MembersTable should render component with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname=""
+                classname="mock-css."
               >
                 <mock-styled.div
                   data-narrow-label="Created Date"
@@ -273,13 +273,6 @@ exports[`MembersTable should render component with data 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              value="1"
-            />
-             of 
-            2
-          </mock-styled.div>
           <mock-styled.button
             data-testid="back-button"
             type="button"
@@ -290,6 +283,13 @@ exports[`MembersTable should render component with data 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.button>
+          <mock-styled.div>
+            <mock-styled.input
+              value="1"
+            />
+             of 
+            2
+          </mock-styled.div>
           <mock-styled.button
             data-testid="forward-button"
             type="button"
@@ -384,7 +384,7 @@ exports[`MembersTable should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Member Email"
@@ -393,7 +393,7 @@ exports[`MembersTable should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Job Title"
@@ -402,7 +402,7 @@ exports[`MembersTable should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Role"
@@ -411,14 +411,14 @@ exports[`MembersTable should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Github Username"
               />
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Member Status"
@@ -427,7 +427,7 @@ exports[`MembersTable should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Agreed Terms Date"
@@ -436,7 +436,7 @@ exports[`MembersTable should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname=""
+              classname="mock-css."
             >
               <mock-styled.div
                 data-narrow-label="Created Date"
@@ -499,13 +499,6 @@ exports[`MembersTable should render component with data 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            value="1"
-          />
-           of 
-          2
-        </mock-styled.div>
         <mock-styled.button
           data-testid="back-button"
           type="button"
@@ -516,6 +509,13 @@ exports[`MembersTable should render component with data 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
+            value="1"
+          />
+           of 
+          2
+        </mock-styled.div>
         <mock-styled.button
           data-testid="forward-button"
           type="button"

@@ -15,6 +15,7 @@ export const intentSecondary = '#4e56ea'
 
 export const elGlobals = css`
   :global() {
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro&display=swap');
     /* Reset CSS */
     html,
     body,
@@ -173,6 +174,11 @@ export const elGlobals = css`
       text-decoration: none;
       cursor: pointer;
       color: #4e56ea; // Purple 500
+    }
+
+    code,
+    pre {
+      font-family: 'Source Code Pro', monospace;
     }
 
     strong {

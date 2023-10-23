@@ -1,40 +1,28 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
-export const elProgressBarItemPurple = css`
-  background-color: var(--color-purple-700);
-`
-export const elProgressBarItemDarkBlue = css`
-  background-color: var(--color-blue-700);
-`
-export const elProgressBarItemMediumBlue = css`
-  background-color: var(--color-blue-500);
-`
-export const elProgressBarItemLightBlue = css`
-  background-color: var(--color-blue-300);
-`
-export const elProgressBarItemLightestBlue = css`
-  background-color: var(--color-blue-100);
-`
-export const elProgressBarItemYellow = css`
-  background-color: var(--color-yellow-500);
-`
-export const elProgressBarItemOrange = css`
-  background-color: var(--color-orange-500);
-`
+// Deprecated - to be removed at v5.0.0
+export const elProgressBarItemPurple = css``
+export const elProgressBarItemDarkBlue = css``
+export const elProgressBarItemMediumBlue = css``
+export const elProgressBarItemLightBlue = css``
+export const elProgressBarItemLightestBlue = css``
+export const elProgressBarItemYellow = css``
+export const elProgressBarItemOrange = css``
 
 export const ElProgressBarContainer = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  padding: 0.25rem 0.5rem;
+  height: 3px;
   background-color: var(--color-grey-100);
 `
 
 export const ElProgressBarLabel = styled.div`
   font-size: var(--font-size-small);
   flex-shrink: 0;
+  margin-top: 0.5rem;
 `
 
 export const ElProgressBarInner = styled.div`
@@ -45,8 +33,9 @@ export const ElProgressBarInner = styled.div`
 `
 
 export const ElProgressBarItem = styled.div`
-  width: 20%;
+  width: 100%;
   height: 3px;
+  background-color: var(--color-purple-500);
 `
 
 export const elProgressBarLabelRight = css`

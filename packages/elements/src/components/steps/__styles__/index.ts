@@ -31,10 +31,6 @@ export const ElStep = styled.div`
   }
 
   &.${elIsActive} {
-    margin-top: 0rem;
-    font-size: 1.5rem;
-    width: 2.5rem;
-    height: 2.5rem;
     color: var(--color-white);
     background-color: var(--intent-primary);
   }
