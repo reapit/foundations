@@ -34,8 +34,8 @@ jobs:
 
       - name: Fetch config
         run: |
-          yarn foreach --parallel --verbose --since origin/master run conf --name development
+          yarn workspaces foreach --parallel --verbose --since origin/master run conf --name development
 
       - name: Test
         run: |
-          yarn foreach --parallel --verbose --interlaced --since origin/master run test --watch=false --ci --forceExit --detectOpenHandles --runInBand --passWithNoTests --shard=${{ matrix.shard }}
+          yarn workspaces foreach --parallel --verbose --interlaced --since origin/master run test --watch=false --ci --forceExit --detectOpenHandles --runInBand --passWithNoTests --shard=${{ matrix.shard }}

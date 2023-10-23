@@ -44,16 +44,16 @@ jobs:
 
       - name: Fetch config
         run: |
-          yarn foreach --parallel --verbose --since HEAD~1 run conf --name development
+          yarn workspaces foreach --parallel --verbose --since HEAD~1 run conf --name development
 
       - name: Build
         run: |
-          yarn foreach --parallel --verbose --since HEAD~1 run build
+          yarn workspaces foreach --parallel --verbose --since HEAD~1 run build
 
       - name: Release
         run: |
-          yarn foreach --parallel --verbose --since HEAD~1 run release
+          yarn workspaces foreach --parallel --verbose --since HEAD~1 run release
 
       - name: Deploy
         run: |
-          yarn foreach --parallel --verbose --since HEAD~1 run deploy
+          yarn workspaces foreach --parallel --verbose --since HEAD~1 run deploy
