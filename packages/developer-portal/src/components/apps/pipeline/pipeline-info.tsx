@@ -30,9 +30,9 @@ export const PipelineInfo: FC = () => {
   const { appPipelineState } = useAppState()
   const { appPipeline } = appPipelineState
   const pipelineUri = `https://${appPipeline?.subDomain}.iaas.paas.reapit.cloud`
-  const isGithub = Boolean(appPipeline?.repository?.includes('github'))
-  const isBitbucket = Boolean(appPipeline?.repository?.includes('bitbucket'))
-  const hasGithubApp = Boolean(appPipeline?.installationId)
+  const isGithub = Boolean(appPipeline?.repository?.repositoryUrl?.includes('github'))
+  const isBitbucket = Boolean(appPipeline?.repository?.repositoryUrl?.includes('bitbucket'))
+  const hasGithubApp = Boolean(appPipeline?.repository?.installationId)
   const hasBitbucketApp = Boolean(appPipeline?.bitbucketClientId)
 
   return (
@@ -58,9 +58,9 @@ export const PipelineInfo: FC = () => {
               <Subtitle hasNoMargin>Repository</Subtitle>
               <BodyText hasNoMargin hasGreyText>
                 <StatusIndicator intent={isGithub ? 'success' : isBitbucket ? 'success' : 'danger'} />{' '}
-                {appPipeline?.repository ? (
-                  <a href={appPipeline.repository} target="_blank" rel="noreferrer">
-                    {appPipeline.repository}
+                {appPipeline?.repository?.repositoryUrl ? (
+                  <a href={appPipeline.repository.repositoryUrl} target="_blank" rel="noreferrer">
+                    {appPipeline.repository.repositoryUrl}
                   </a>
                 ) : (
                   'Not configured'
