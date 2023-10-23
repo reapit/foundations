@@ -105,9 +105,11 @@ describe('CodebuildExecutorWorkflow', () => {
       body: JSON.stringify({
         pipeline: {
           id: pipelineId,
-          repository,
-          installtionId: 'installationId',
-          repositoryId: 'repositoryId',
+          repository: {
+            installtionId: 'installationId',
+            repositoryId: 'repositoryId',
+            repositoryUrl: repository,
+          },
         },
         pipelineRunner: {
           id: pipelineRunnerId,
@@ -123,10 +125,12 @@ describe('CodebuildExecutorWorkflow', () => {
         currentlyDeployed: false,
         pipeline: {
           id: pipelineId,
-          repository,
+          repository: {
+            repositoryUrl: repository,
+            installtionId: 'installationId',
+            repositoryId: 'repositoryId',
+          },
           buildStatus: 'FAILED',
-          installtionId: 'installationId',
-          repositoryId: 'repositoryId',
         },
       }),
     )
@@ -144,9 +148,11 @@ describe('CodebuildExecutorWorkflow', () => {
       body: JSON.stringify({
         pipeline: {
           id: pipelineId,
-          repository,
-          installtionId: 'installationId',
-          repositoryId: 'repositoryId',
+          repository: {
+            installtionId: 'installationId',
+            repositoryId: 'repositoryId',
+            repositoryUrl: repository,
+          },
         },
         pipelineRunner: {
           id: pipelineRunnerId,

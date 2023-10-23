@@ -6,6 +6,7 @@ import { GithubWebhookController } from '../github-webhook-controller'
 import { App } from '@octokit/app'
 import { plainToInstance } from 'class-transformer'
 import { PipelineEntity } from '../../entities/pipeline.entity'
+import { RepositoryProvider } from 'src/pipeline/repository.provider'
 
 const mockEventDispatcher = {
   triggerCodebuildExecutor: jest.fn(),
@@ -39,6 +40,10 @@ const mockGithubProvider = {
   },
 }
 
+const mockRepositoryProvider = {
+  updateRepositories: jest.fn(),
+}
+
 describe('GithubWebhookController', () => {
   let module: TestingModule
 
@@ -64,6 +69,10 @@ describe('GithubWebhookController', () => {
         {
           provide: PusherProvider,
           useValue: mockPusherProvider,
+        },
+        {
+          provide: RepositoryProvider,
+          useValue: mockRepositoryProvider,
         },
       ],
       controllers: [GithubWebhookController],
