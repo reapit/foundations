@@ -66,6 +66,8 @@ export class githubRepository1697724871099 implements MigrationInterface {
       "SELECT id, repository, installationId, repositoryId from pipelines WHERE repository <> ''",
     )
 
+    console.log('Pipeline repository configurations', pipelinesWithGithubRepositories)
+
     await queryRunner.query('ALTER TABLE `pipelines` DROP COLUMN `repository`')
     await queryRunner.query('ALTER TABLE `pipelines` DROP COLUMN `repositoryId`')
     await queryRunner.query('ALTER TABLE `pipelines` ADD `repositoryId` varchar(36) NULL')
