@@ -7912,32 +7912,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@craftjs/core@npm:0.2.0-beta.10":
-  version: 0.2.0-beta.10
-  resolution: "@craftjs/core@npm:0.2.0-beta.10"
+"@craftjs/core@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@craftjs/core@npm:0.2.0"
   dependencies:
-    "@craftjs/utils": ^0.2.0-beta.10
+    "@craftjs/utils": ^0.2.0
     debounce: ^1.2.0
     lodash: ^4.17.20
     tiny-invariant: ^1.0.6
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18
-  checksum: 42bd5295cc4a2471e03615e2da8e7179882cce669cce09de102addf2dd09efc1d758904e0e27b2b14a3b3e20462f265b12336dacdcf85143c3e5a6c54fcf335e
+  checksum: d15a172baa0a2cdc16ab6e0186171720b0b61de2423fa8d3c6d78f4e5195f83b1a295e6ba3f0ac5a82127935ec515ea2f1c84eab61c5fe9fe89b8454281ba527
   languageName: node
   linkType: hard
 
-"@craftjs/utils@npm:^0.2.0-beta.10":
-  version: 0.2.0-beta.10
-  resolution: "@craftjs/utils@npm:0.2.0-beta.10"
+"@craftjs/utils@npm:^0.2.0":
+  version: 0.2.1
+  resolution: "@craftjs/utils@npm:0.2.1"
   dependencies:
     immer: ^9.0.6
-    lodash: ^4.17.20
+    lodash: ^4.17.21
     nanoid: ^3.1.23
     shallowequal: ^1.1.0
     tiny-invariant: ^1.0.6
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18
-  checksum: a410960d5281520f722846781de389fd8babf145474cedb627384162a02627a2f077e3de9a240a7bc7024661fd2c4eb9189910f9ac0c7412421d4a2880c76542
+  checksum: 01f3eb09fa32e8436851d1fce264c09c65d162efd4cb95b2976ae5811cee9ef152ce534d7ccd73406028cbf0b2df249170e968ab98cef92c23a06b994e60eff3
   languageName: node
   linkType: hard
 
@@ -18624,7 +18624,7 @@ __metadata:
   resolution: "app-builder@workspace:packages/app-builder"
   dependencies:
     "@apollo/client": ^3.8.0-alpha.15
-    "@craftjs/core": 0.2.0-beta.10
+    "@craftjs/core": 0.2.0
     "@linaria/core": ^4.2.8
     "@linaria/react": ^4.3.6
     "@linaria/shaker": ^4.2.9
