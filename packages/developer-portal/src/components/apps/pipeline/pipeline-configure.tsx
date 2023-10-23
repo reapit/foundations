@@ -44,16 +44,16 @@ const schema: SchemaOf<PipelineModelSchema> = object().shape({
   branch: string().required('Required - eg "main", "master"').test(specialCharsTest),
   repository: object().shape({
     repositoryUrl: string()
-    .trim()
-    .test({
-      name: 'isValidDescription',
-      message: 'Should be a secure https url if supplied',
-      test: (value) => {
-        if (!value) return true
-        return httpsUrlRegex.test(value)
-      },
-    })
-    .test(specialCharsTest),
+      .trim()
+      .test({
+        name: 'isValidDescription',
+        message: 'Should be a secure https url if supplied',
+        test: (value) => {
+          if (!value) return true
+          return httpsUrlRegex.test(value)
+        },
+      })
+      .test(specialCharsTest),
   }),
   buildCommand: string().trim().required('A build command is required eg "build" or "bundle"').test(specialCharsTest),
   packageManager: string().required('Required - Please select a package manager'),
@@ -198,7 +198,9 @@ export const PipelineConfigure: FC = () => {
             <InputGroup>
               <Label>Github Repository</Label>
               <Input {...register('repository.repositoryUrl')} placeholder="https://github.com/org/repo" />
-              {errors.repository?.repositoryUrl?.message && <InputError message={errors.repository?.repositoryUrl.message} />}
+              {errors.repository?.repositoryUrl?.message && (
+                <InputError message={errors.repository?.repositoryUrl.message} />
+              )}
             </InputGroup>
           </InputWrap>
           <InputWrap>

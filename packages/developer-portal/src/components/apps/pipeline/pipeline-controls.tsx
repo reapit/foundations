@@ -122,7 +122,7 @@ export const PipelineControls: FC = () => {
   const { appDetail, appsDetailRefresh, appRefreshRevisions } = appsDataState
   const developerId = connectSession?.loginIdentity.developerId ?? null
   const isValidPipeline = validateConfig(appPipeline)
-  const hasGithubApp = Boolean(appPipeline?.installationId)
+  const hasGithubApp = Boolean(appPipeline?.repository?.installationId)
   const hasBitbucketApp = Boolean(appPipeline?.bitbucketClientId)
   const hasAppInstalled = hasGithubApp || hasBitbucketApp
 

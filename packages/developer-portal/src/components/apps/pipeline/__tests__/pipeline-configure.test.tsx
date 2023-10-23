@@ -38,7 +38,7 @@ describe('handlePipelineUpdate', () => {
     const values = {
       name: 'MOCK_NAME',
       branch: 'master',
-      repository: { repositoryUrl: 'https://github.com/',},
+      repository: { repositoryUrl: 'https://github.com/' },
       packageManager: PackageManagerEnum.NPM,
       buildCommand: 'build',
       outDir: 'build',
