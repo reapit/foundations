@@ -4,7 +4,7 @@
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 
 if [[ "$BRANCH" != *"chore/ts-definitions-timestamp-"* ]]; then
-  yarn workspaces foreach --since --parallel --verbose --interlaced run commit 
+  yarn workspaces foreach --since --recursive --parallel --verbose --interlaced run commit 
 fi
 
 if [[ `git status --porcelain` ]]; then

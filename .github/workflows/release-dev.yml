@@ -48,16 +48,16 @@ jobs:
 
       - name: Fetch config
         run: |
-          yarn workspaces foreach --parallel --verbose --since run conf --name development
+          yarn workspaces foreach --parallel --verbose --since --recursive run conf --name development
 
       - name: Build
         run: |
-          yarn workspaces foreach --parallel --verbose --since run build
+          yarn workspaces foreach --parallel --verbose --since --recursive run build
 
       - name: Release
         run: |
-          yarn workspaces foreach --parallel --verbose --since run release
+          yarn workspaces foreach --parallel --verbose --since --recursive run release
 
       - name: Deploy
         run: |
-          yarn workspaces foreach --parallel --verbose --since run deploy
+          yarn workspaces foreach --parallel --verbose --since --recursive run deploy
