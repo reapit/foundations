@@ -6,7 +6,7 @@ import { GithubWebhookController } from '../github-webhook-controller'
 import { App } from '@octokit/app'
 import { plainToInstance } from 'class-transformer'
 import { PipelineEntity } from '../../entities/pipeline.entity'
-import { RepositoryProvider } from 'src/pipeline/repository.provider'
+import { RepositoryProvider } from '../../pipeline/repository.provider'
 
 const mockEventDispatcher = {
   triggerCodebuildExecutor: jest.fn(),
@@ -15,6 +15,7 @@ const mockEventDispatcher = {
 const mockPipelineProvider = {
   findByRepo: jest.fn(),
   findPipelinesByRepositoryId: jest.fn(),
+  findPipelinesByRepositoryUrl: jest.fn(),
   updatePipelinesWithRepo: jest.fn(),
 }
 
@@ -119,10 +120,10 @@ describe('GithubWebhookController', () => {
           buildStatus: 'FAILED',
         }),
       ])
-      mockPipelineProvider.updatePipelinesWithRepo.mockImplementationOnce(() => ({
+      mockRepositoryProvider.updateRepositories.mockImplementationOnce(() => ({
         affected: 1,
       }))
-      mockPipelineProvider.findPipelinesByRepositoryId.mockImplementationOnce(() => [
+      mockPipelineProvider.findPipelinesByRepositoryUrl.mockImplementationOnce(() => [
         {
           developerId: 'developerId',
         },
