@@ -50,11 +50,11 @@
     ]
   },
   "scripts": {
-    "build-all": "yarn workspaces foreach --parallel --verbose run build",
-    "test-all": "yarn workspaces foreach --parallel --verbose --interlaced run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand",
-    "conf-all": "yarn workspaces foreach --parallel --verbose run conf",
-    "lint-all": "yarn workspaces foreach --parallel --verbose run lint",
-    "check-all": "yarn workspaces foreach --parallel --verbose run check",
+    "build-all": "yarn workspaces foreach --all --parallel --verbose run build",
+    "test-all": "yarn workspaces foreach --all  --parallel --verbose --interlaced run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand",
+    "conf-all": "yarn workspaces foreach --all  --parallel --verbose run conf",
+    "lint-all": "yarn workspaces foreach --all  --parallel --verbose run lint",
+    "check-all": "yarn workspaces foreach --all  --parallel --verbose run check",
     "upgrade-all": "yarn upgrade-interactive",
     "postinstall": "husky install"
   },

@@ -31,4 +31,4 @@ jobs:
 
       - name: Lint
         run: |
-          yarn changed foreach --parallel --verbose --git-range origin/master run lint
+          yarn foreach --parallel --verbose --since origin/master run lint
