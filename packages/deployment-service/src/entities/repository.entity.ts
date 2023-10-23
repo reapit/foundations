@@ -17,7 +17,7 @@ export class RepositoryEntity extends AbstractEntity implements GithubRepository
   installationId?: number
 
   @Column({ nullable: true, type: 'varchar', length: 20 })
-  @Exclude({})
+  @Exclude()
   repositoryId?: number
 
   // @Column()
