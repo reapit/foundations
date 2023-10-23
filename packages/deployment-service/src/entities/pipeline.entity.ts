@@ -35,6 +35,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
 
   @ManyToOne(() => RepositoryEntity, (repository) => repository.pipelines, {
     cascade: true,
+    eager: true,
   })
   repository?: RepositoryEntity
 

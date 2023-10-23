@@ -4,6 +4,7 @@ import { In, Repository, UpdateResult } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { paginate, Pagination } from 'nestjs-typeorm-paginate'
 import { BitbucketClientEntity } from '../entities/bitbucket-client.entity'
+import { RepositoryEntity } from '../entities/repository.entity'
 
 @Injectable()
 export class PipelineProvider {
@@ -17,15 +18,17 @@ export class PipelineProvider {
   }
 
   async paginate(page: number, developerId?: string, appId?: string): Promise<Pagination<PipelineEntity>> {
-    const qb = this.repository.createQueryBuilder()
+    const qb = this.repository.createQueryBuilder('p')
     if (developerId) {
-      qb.where('developerId = :developerId', { developerId })
+      qb.where('p.developerId = :developerId', { developerId })
     }
 
-    qb.addOrderBy('created', 'DESC')
+    qb.leftJoinAndMapOne('p.repositories', 'repositories', 'rp', 'p.repositoryId = rp.id')
+
+    qb.addOrderBy('p.created', 'DESC')
 
     if (appId) {
-      qb.where('appId = :appId', { appId })
+      qb.where('p.appId = :appId', { appId })
     }
 
     return paginate(qb, { limit: 10, page })
@@ -88,6 +91,9 @@ export class PipelineProvider {
           repositoryId,
         },
       },
+      relations: [
+        'repository',
+      ]
     })
   }
 
@@ -98,6 +104,9 @@ export class PipelineProvider {
           repositoryUrl,
         },
       },
+      relations: [
+        'repository',
+      ]
     })
   }
 
@@ -108,6 +117,9 @@ export class PipelineProvider {
           repositoryId,
         },
       },
+      relations: [
+        'repository',
+      ]
     })
   }
 

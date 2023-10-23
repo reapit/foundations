@@ -2,6 +2,7 @@ import { AbstractEntity } from './abstract-entity'
 import { PipelineEntity } from './pipeline.entity'
 import { Column, Entity, OneToMany, Unique } from 'typeorm'
 import { GithubRepositoryInterface } from '@reapit/foundations-ts-definitions'
+import { Exclude } from 'class-transformer'
 
 @Entity('repositories')
 // @Unique('repositoryUrl-organisationId', ['organiationId', 'repositoryUrl']) // TODO likely to be developerId instead
@@ -13,9 +14,11 @@ export class RepositoryEntity extends AbstractEntity implements GithubRepository
   repositoryUrl?: string
 
   @Column({ nullable: true, type: 'varchar', length: 20 })
+  @Exclude({})
   installationId?: number
 
   @Column({ nullable: true, type: 'varchar', length: 20 })
+  @Exclude({})
   repositoryId?: number
 
   // @Column()
