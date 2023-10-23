@@ -22,7 +22,7 @@ export class PipelineProvider {
       qb.where('p.developerId = :developerId', { developerId })
     }
 
-    qb.leftJoinAndMapOne('p.repositories', 'repositories', 'rp', 'p.repositoryId = rp.id')
+    qb.leftJoinAndMapOne('p.repository', 'repositories', 'rp', 'p.repositoryId = rp.id')
 
     qb.addOrderBy('p.created', 'DESC')
 
