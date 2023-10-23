@@ -45,12 +45,19 @@ export class githubRepository1697724871099 implements MigrationInterface {
   }
 
   protected async resolveToPipeline(githubEntities: RepositoryEntity[], queryRunner: QueryRunner): Promise<void> {
-    await Promise.all(githubEntities.map(({pipelines, repositoryUrl, repositoryId, installationId}) => queryRunner.query(`UPDATE pipelines SET (repository, installationId, repositoryId) VALUES (?, ?, ?) WHERE id IN(?)`, [
-      repositoryUrl,
-      installationId,
-      repositoryId,
-      pipelines?.map(({id}) => id), // does this need to be concat to join(',') ???
-    ])))
+    await Promise.all(
+      githubEntities.map(({ pipelines, repositoryUrl, repositoryId, installationId }) =>
+        queryRunner.query(
+          'UPDATE pipelines SET (repository, installationId, repositoryId) VALUES (?, ?, ?) WHERE id IN(?)',
+          [
+            repositoryUrl,
+            installationId,
+            repositoryId,
+            pipelines?.map(({ id }) => id), // does this need to be concat to join(',') ???
+          ],
+        ),
+      ),
+    )
   }
 
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -87,9 +94,7 @@ export class githubRepository1697724871099 implements MigrationInterface {
     const githubRepository = queryRunner.manager.getRepository<RepositoryEntity>(RepositoryEntity)
 
     const githubEntities = await githubRepository.find({
-      relations: [
-        'pipelines',
-      ],
+      relations: ['pipelines'],
     })
     await queryRunner.query('ALTER TABLE `pipelines` DROP FOREIGN KEY `FK_2ecf68ee544ba0e68d167a0ccbf`')
 

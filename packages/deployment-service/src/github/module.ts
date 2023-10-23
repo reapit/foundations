@@ -8,12 +8,7 @@ import GithubConfig from '../config/github'
 import { GithubWebhookController } from './github-webhook-controller'
 
 @Module({
-  imports: [
-    ConfigModule.forFeature(GithubConfig),
-    PipelineModule,
-    PipelineRunnerModule,
-    EventModule,
-  ],
+  imports: [ConfigModule.forFeature(GithubConfig), PipelineModule, PipelineRunnerModule, EventModule],
   providers: [
     {
       provide: App,

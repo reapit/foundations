@@ -65,7 +65,9 @@ export class PipelineController {
   async create(@Body() dto: PipelineDto, @Creds() creds: CredsType): Promise<PipelineEntity> {
     const previousPipeline = await this.pipelineProvider.findById(dto.appId as string)
 
-    const repository = (dto.repository?.repositoryUrl) ? await this.repositoryProvider.findOrCreate(dto.repository) : undefined
+    const repository = dto.repository?.repositoryUrl
+      ? await this.repositoryProvider.findOrCreate(dto.repository)
+      : undefined
 
     const pipeline = await this.pipelineProvider.create({
       ...previousPipeline,
@@ -121,10 +123,12 @@ export class PipelineController {
       setupInfra = true
     }
 
-    const repository = (dto.repository?.repositoryUrl) ? await this.repositoryProvider.findOrCreate({
-      ...dto.repository,
-      // organisationId: creds.orgId, // TODO think developerId would be ok instead of orgId
-    }) : undefined  
+    const repository = dto.repository?.repositoryUrl
+      ? await this.repositoryProvider.findOrCreate({
+          ...dto.repository,
+          // organisationId: creds.orgId, // TODO think developerId would be ok instead of orgId
+        })
+      : undefined
 
     const updatedPipeline = await this.pipelineProvider.update(pipeline, {
       ...dto,

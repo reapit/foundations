@@ -1,6 +1,6 @@
 import { AbstractEntity } from './abstract-entity'
 import { PipelineEntity } from './pipeline.entity'
-import { Column, Entity, OneToMany, Unique } from 'typeorm'
+import { Column, Entity, OneToMany } from 'typeorm'
 import { GithubRepositoryInterface } from '@reapit/foundations-ts-definitions'
 import { Exclude } from 'class-transformer'
 
