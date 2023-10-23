@@ -27,6 +27,7 @@ exports[`MemberUpdateControls should match snapshot 1`] = `
           </mock-styled.button>
           <mock-styled.button
             classname="mock-css."
+            disabled="false"
           >
             <mock-styled.div />
             Set As Main Contact
@@ -72,6 +73,7 @@ exports[`MemberUpdateControls should match snapshot 1`] = `
         </mock-styled.button>
         <mock-styled.button
           classname="mock-css."
+          disabled="false"
         >
           <mock-styled.div />
           Set As Main Contact

@@ -2298,6 +2298,10 @@ export interface CertificateModel {
    */
   companyId?: string
   /**
+   * The unique identifier of the certificates status
+   */
+  statusId?: string
+  /**
    * Any general notes regarding the certificate
    */
   notes?: string
@@ -2364,6 +2368,10 @@ export interface CertificateModelPagedResult {
      * The unique identifier of the company
      */
     companyId?: string
+    /**
+     * The unique identifier of the certificates status
+     */
+    statusId?: string
     /**
      * Any general notes regarding the certificate
      */
@@ -8288,6 +8296,14 @@ export interface CreateTenancyDepositModel {
    */
   heldBy?: string
   /**
+   * The number of weeks or months rent collected as the deposit on the tenancy
+   */
+  period?: number // int32
+  /**
+   * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+   */
+  type?: string
+  /**
    * The amount of deposit held
    */
   sum?: number // double
@@ -8468,6 +8484,14 @@ export interface CreateTenancyModel {
      * The deposit holder (depositProtectionScheme/stakeholder/landlordsAgent/landlord/notApplicable)
      */
     heldBy?: string
+    /**
+     * The number of weeks or months rent collected as the deposit on the tenancy
+     */
+    period?: number // int32
+    /**
+     * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+     */
+    type?: string
     /**
      * The amount of deposit held
      */
@@ -11123,6 +11147,7 @@ export interface Landlords {
   embed?: ('appointments' | 'documents' | 'office' | 'properties' | 'solicitor' | 'source')[]
   id?: string[]
   email?: string[]
+  officeId?: string[]
   extrasField?: string[]
   active?: boolean
   address?: string
@@ -11312,6 +11337,19 @@ export interface NegotiatorModel {
    */
   active?: boolean
   /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    /**
+     * The type of contact detail
+     */
+    type?: string
+    /**
+     * The contact detail
+     */
+    value?: string
+  }[]
+  /**
    * App specific metadata that has been set against the negotiator
    */
   metadata?: {
@@ -11380,6 +11418,19 @@ export interface NegotiatorModelPagedResult {
      * A flag determining whether or not the negotiator is active
      */
     active?: boolean
+    /**
+     * A collection of additional contact details
+     */
+    additionalContactDetails?: {
+      /**
+       * The type of contact detail
+       */
+      type?: string
+      /**
+       * The contact detail
+       */
+      value?: string
+    }[]
     /**
      * App specific metadata that has been set against the negotiator
      */
@@ -16914,6 +16965,10 @@ export interface TenancyArrearsModel {
    * A flag determining whether or not tenancy arrears should be chased
    */
   chaseArrears?: boolean
+  /**
+   * Indicates whether or not a payment plan is set up for a tenancy in arrears (no/yes/negotiating)
+   */
+  paymentPlan?: string
 }
 /**
  * Representation of a tenancy break clauses break from details
@@ -17549,6 +17604,14 @@ export interface TenancyDepositModel {
    */
   heldBy?: string
   /**
+   * The number of weeks or months rent collected as the deposit on the tenancy
+   */
+  period?: number // int32
+  /**
+   * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+   */
+  type?: string
+  /**
    * The amount of deposit held
    */
   sum?: number // double
@@ -17956,6 +18019,14 @@ export interface TenancyModel {
      */
     heldBy?: string
     /**
+     * The number of weeks or months rent collected as the deposit on the tenancy
+     */
+    period?: number // int32
+    /**
+     * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+     */
+    type?: string
+    /**
      * The amount of deposit held
      */
     sum?: number // double
@@ -18118,6 +18189,10 @@ export interface TenancyModel {
      * A flag determining whether or not tenancy arrears should be chased
      */
     chaseArrears?: boolean
+    /**
+     * Indicates whether or not a payment plan is set up for a tenancy in arrears (no/yes/negotiating)
+     */
+    paymentPlan?: string
   }
   /**
    * The ETag for the current version of the tenancy. Used for managing update concurrency
@@ -18305,6 +18380,14 @@ export interface TenancyModelPagedResult {
        */
       heldBy?: string
       /**
+       * The number of weeks or months rent collected as the deposit on the tenancy
+       */
+      period?: number // int32
+      /**
+       * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+       */
+      type?: string
+      /**
        * The amount of deposit held
        */
       sum?: number // double
@@ -18467,6 +18550,10 @@ export interface TenancyModelPagedResult {
        * A flag determining whether or not tenancy arrears should be chased
        */
       chaseArrears?: boolean
+      /**
+       * Indicates whether or not a payment plan is set up for a tenancy in arrears (no/yes/negotiating)
+       */
+      paymentPlan?: string
     }
     /**
      * The ETag for the current version of the tenancy. Used for managing update concurrency
@@ -23243,6 +23330,14 @@ export interface UpdateTenancyDepositModel {
    */
   heldBy?: string
   /**
+   * The number of weeks or months rent collected as the deposit on the tenancy
+   */
+  period?: number // int32
+  /**
+   * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+   */
+  type?: string
+  /**
    * The amount of deposit held
    */
   sum?: number // double
@@ -23404,6 +23499,14 @@ export interface UpdateTenancyModel {
      * The deposit holder (depositProtectionScheme/stakeholder/landlordsAgent/landlord/notApplicable)
      */
     heldBy?: string
+    /**
+     * The number of weeks or months rent collected as the deposit on the tenancy
+     */
+    period?: number // int32
+    /**
+     * The type of deposit (weeksRent/monthsRent/fixedSum/guarantee)
+     */
+    type?: string
     /**
      * The amount of deposit held
      */
