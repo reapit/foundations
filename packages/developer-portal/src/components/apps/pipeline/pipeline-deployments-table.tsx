@@ -179,7 +179,6 @@ export const PipelineDeploymentTable: FC = () => {
               }),
             )}
           />
-          {console.log(pipelineDeployments)}
           {!pipelineDeployments ||
             (pipelineDeployments.items.length === 0 && (
               <BodyText hasGreyText>This pipeline has not yet been deployed.</BodyText>
