@@ -21,17 +21,26 @@ export interface TabsOption {
 export interface TabsProps extends HTMLAttributes<HTMLInputElement> {
   options: TabsOption[]
   name: string
+  isControlled?: boolean
   isFullWidth?: boolean
   hasNoBorder?: boolean
 }
 
-export const Tabs: FC<TabsProps> = ({ className, isFullWidth, hasNoBorder, name, options, ...rest }) => {
+export const Tabs: FC<TabsProps> = ({ className, isFullWidth, hasNoBorder, isControlled, name, options, ...rest }) => {
   return (
     <ElTabsWrap className={cx(className, isFullWidth && elTabsFullWidth)}>
       <ElTabsOptionsWrap>
         {options.map(({ id, value, text, isChecked }) => (
           <Fragment key={id}>
-            <ElTabs id={id} name={name} value={value} type="radio" {...rest} defaultChecked={isChecked} />
+            <ElTabs
+              id={id}
+              name={name}
+              value={value}
+              type="radio"
+              {...rest}
+              checked={isControlled ? isChecked : undefined}
+              defaultChecked={isControlled ? undefined : isChecked}
+            />
             <ElTabsLabel htmlFor={id}>
               <span className={elTabsItem}>{text}</span>
             </ElTabsLabel>
