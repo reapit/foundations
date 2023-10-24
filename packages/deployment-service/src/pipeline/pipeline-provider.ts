@@ -63,8 +63,11 @@ export class PipelineProvider {
   async findByRepos(repositories: string[]): Promise<PipelineEntity[]> {
     return this.repository.find({
       where: {
-        repository: In(repositories),
+        repository: {
+          repositoryUrl: In(repositories),
+        },
       },
+      relations: ['repository'],
     })
   }
 
@@ -114,16 +117,5 @@ export class PipelineProvider {
       },
       relations: ['repository'],
     })
-  }
-
-  async updatePipelinesWithRepo(repository, data: Partial<PipelineEntity>): Promise<UpdateResult> {
-    return this.repository
-      .createQueryBuilder()
-      .update()
-      .set(data)
-      .where('repository = :repository', {
-        repository,
-      })
-      .execute()
   }
 }
