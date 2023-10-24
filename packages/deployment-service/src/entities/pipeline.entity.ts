@@ -34,7 +34,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   packageManager?: PackageManagerEnum
 
   @ManyToOne(() => RepositoryEntity, (repository) => repository.pipelines, {
-    cascade: true,
+    cascade: ['remove', 'insert'],
     eager: true,
   })
   repository?: RepositoryEntity
