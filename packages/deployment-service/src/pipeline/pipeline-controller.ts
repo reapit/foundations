@@ -66,7 +66,7 @@ export class PipelineController {
     const previousPipeline = await this.pipelineProvider.findById(dto.appId as string)
 
     const repository = dto.repository?.repositoryUrl
-      ? await this.repositoryProvider.findOrCreate(dto.repository)
+      ? await this.repositoryProvider.findOrCreate(dto.repository, creds.developerId as string)
       : undefined
 
     const pipeline = await this.pipelineProvider.create({
@@ -124,10 +124,12 @@ export class PipelineController {
     }
 
     const repository = dto.repository?.repositoryUrl
-      ? await this.repositoryProvider.findOrCreate({
-          ...dto.repository,
-          // organisationId: creds.orgId, // TODO think developerId would be ok instead of orgId
-        })
+      ? await this.repositoryProvider.findOrCreate(
+          {
+            ...dto.repository,
+          },
+          creds.developerId as string,
+        )
       : undefined
 
     const updatedPipeline = await this.pipelineProvider.update(pipeline, {
