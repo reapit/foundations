@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { PipelineEntity } from '../entities/pipeline.entity'
-import { In, Repository, UpdateResult } from 'typeorm'
+import { In, Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { paginate, Pagination } from 'nestjs-typeorm-paginate'
 import { BitbucketClientEntity } from '../entities/bitbucket-client.entity'
@@ -79,7 +79,7 @@ export class PipelineProvider {
     await this.repository
       .createQueryBuilder()
       .update()
-      .set({ bitbucketClient: undefined })
+      .set({ bitbucketClient: null })
       .where('bitbucketClientId = :bitbucketClientId', {
         bitbucketClientId: bitbucketClient.id,
       })

@@ -47,7 +47,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
     toPlainOnly: true,
   })
   @Type(() => BitbucketClientEntity)
-  bitbucketClient?: BitbucketClientEntity
+  bitbucketClient?: BitbucketClientEntity | null
 
   @Column()
   bitbucketClientId?: string

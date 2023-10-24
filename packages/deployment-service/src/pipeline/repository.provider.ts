@@ -20,9 +20,11 @@ export class RepositoryProvider {
 
     if (existing !== null) return existing
 
-    return this.repository.save(this.repository.create({
-      repositoryUrl: repository.repositoryUrl,
-    }))
+    return this.repository.save(
+      this.repository.create({
+        repositoryUrl: repository.repositoryUrl,
+      }),
+    )
   }
 
   async findRepositoriesByUrl(repositoryUrl: string): Promise<RepositoryEntity[]> {

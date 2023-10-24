@@ -123,8 +123,7 @@ export class BitBucketWebhookController {
   protected async handleEventTypes(event: { eventType: string; clientKey: string }) {
     switch (event.eventType) {
       case 'installed':
-        await this.installClient(event.clientKey, event)
-        break
+        return this.installClient(event.clientKey, event)
       case 'uninstalled':
         // TODO disable pipeline
         console.log('disable pipeline')
