@@ -36,6 +36,7 @@ export enum UpdateActionNames {
   acceptInviteMember = 'acceptInviteMember',
   rejectInviteMember = 'rejectInviteMember',
   upsertPipelineEnvironment = 'upsertPipelineEnvironment',
+  deletePipelineEnvironment = 'deletePipelineEnvironment',
   createConsentEmails = 'createConsentEmails',
   resendConsentEmail = 'resendConsentEmail',
   approveConsent = 'approveConsent',
@@ -241,6 +242,12 @@ export const updateActions = {
     path: PathNames.upsertPipelineEnvironment,
     successMessage: 'Added Environment variable',
     errorMessage: 'Failed to add Environment variable',
+  },
+  [UpdateActionNames.deletePipelineEnvironment]: {
+    api: ApiNames.pipeline,
+    path: PathNames.deletePipelineEnvironment,
+    successMessage: 'Parameter was succesfully deleted',
+    errorMessage: 'Failed to delete parameter',
   },
   [UpdateActionNames.createConsentEmails]: {
     api: ApiNames.platform,
