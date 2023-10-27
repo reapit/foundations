@@ -3,7 +3,7 @@
   "dependencies": {
     "@aws-sdk/client-cloudfront": "^3.281.0",
     "@aws-sdk/client-route-53": "^3.281.0",
-    "@nestjs/axios": "^0.1.1",
+    "@nestjs/axios": "^2.0.0",
     "@nestjs/common": "^9.4.2",
     "@nestjs/config": "^2.3.2",
     "@nestjs/core": "^9.4.2",
