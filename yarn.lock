@@ -10062,16 +10062,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/axios@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "@nestjs/axios@npm:0.1.1"
-  dependencies:
-    axios: "npm:1.2.1"
+"@nestjs/axios@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@nestjs/axios@npm:2.0.0"
   peerDependencies:
     "@nestjs/common": ^7.0.0 || ^8.0.0 || ^9.0.0
+    axios: ^1.3.1
     reflect-metadata: ^0.1.12
     rxjs: ^6.0.0 || ^7.0.0
-  checksum: 0ba72ff47c2b387bb538e76e3a00133f449178106021d5a97ded7650bd5d265e35c5a47e671c9e7443ce3e0181a4b69599f17e9f33ff42d769ab7fcdc334154e
+  checksum: 1302a1ecbfe607dc85d3600b9f0b24f8a5aef4007b4dc688c9570e33e608a7ac32b8a5248c33f7fb8eb5435514c24bc8281217a7879b8e9941d6199f0957238f
   languageName: node
   linkType: hard
 
@@ -19527,17 +19526,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:1.2.1":
-  version: 1.2.1
-  resolution: "axios@npm:1.2.1"
-  dependencies:
-    follow-redirects: "npm:^1.15.0"
-    form-data: "npm:^4.0.0"
-    proxy-from-env: "npm:^1.1.0"
-  checksum: 960b996720adccd692a87b698f9f5a9f4276162943bfa211ea499631ea30c827728db3435054a87d87d55b333c189699d8f7b197f97e8053a779277c03d89641
-  languageName: node
-  linkType: hard
-
 "axios@npm:=1.3.4":
   version: 1.3.4
   resolution: "axios@npm:1.3.4"
@@ -23579,7 +23567,7 @@ __metadata:
   dependencies:
     "@aws-sdk/client-cloudfront": "npm:^3.281.0"
     "@aws-sdk/client-route-53": "npm:^3.281.0"
-    "@nestjs/axios": "npm:^0.1.1"
+    "@nestjs/axios": "npm:^2.0.0"
     "@nestjs/common": "npm:^9.4.2"
     "@nestjs/config": "npm:^2.3.2"
     "@nestjs/core": "npm:^9.4.2"
