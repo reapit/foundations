@@ -11554,7 +11554,7 @@ __metadata:
     "@types/base-64": "npm:^1.0.0"
     "@typescript-eslint/eslint-plugin": "npm:^5.59.7"
     "@typescript-eslint/parser": "npm:^5.59.7"
-    axios: "npm:^0.27.2"
+    axios: "npm:^1.6.0"
     babel-jest: "npm:^29.5.0"
     base-64: "npm:^1.0.0"
     concurrently: "npm:^6.5.1"
