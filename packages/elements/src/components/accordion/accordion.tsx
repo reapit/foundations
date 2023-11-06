@@ -72,7 +72,7 @@ export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => 
                   <ElAccordionTitleContent key={innerIndex}>{titleItem}</ElAccordionTitleContent>
                 ))}
               <ElAccordionTitleContent>
-                <Icon icon={openItem === index ? 'upSystem' : 'downSystem'} />
+                <Icon fontSize="1.25rem" intent="default" icon={openItem === index ? 'chevronUp' : 'chevronDown'} />
               </ElAccordionTitleContent>
             </ElAccordionTitleContentWrapper>
           </ElAccordionItem>

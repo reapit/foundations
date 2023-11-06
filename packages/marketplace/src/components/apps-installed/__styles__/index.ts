@@ -116,7 +116,7 @@ export const InstalledSuggestedImage = styled.img`
   height: 100%;
   object-fit: cover;
   border-radius: 0.25rem;
-  border: 1px solid var(--color-grey-medium);
+  border: 1px solid var(--color-grey-light);
 `
 
 export const InstalledSuggestedImageWrapper = styled.div`

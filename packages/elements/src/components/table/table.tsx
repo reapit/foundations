@@ -119,7 +119,7 @@ export const Table: FC<TableProps> = ({
             {firstRow.expandableContent?.headerContent ? (
               <>{firstRow.expandableContent?.headerContent}</>
             ) : (
-              <Icon icon="settingsSolidSystem" intent="default" fontSize="1.2rem" />
+              <Icon icon="settings" intent="default" />
             )}
           </TableHeader>
         )}
@@ -128,7 +128,7 @@ export const Table: FC<TableProps> = ({
             {firstRow.ctaContent?.headerContent ? (
               <>{firstRow.ctaContent?.headerContent}</>
             ) : (
-              <Icon icon="settingsSolidSystem" intent="default" fontSize="1.2rem" />
+              <Icon icon="settings" intent="default" />
             )}
           </TableHeader>
         )}

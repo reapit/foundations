@@ -131,11 +131,12 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
       'CACHE_FOLDER=$(find . -maxdepth 1 -mindepth 1 -type d)',
       'echo $CACHE_FOLDER',
       'mv $CACHE_FOLDER/* ./',
+      'mv $CACHE_FOLDER/.[^.]* ./',
       'rm -rf $CACHE_FOLDER',
     ]
 
     if (pipeline.packageManager && pipeline.packageManager === PackageManagerEnum.YARN_BERRY) {
-      setupCommands.push('yarn set version berry')
+      setupCommands.push('yarn --version')
       setupCommands.push('yarn config set nodeLinker node-modules')
     }
 

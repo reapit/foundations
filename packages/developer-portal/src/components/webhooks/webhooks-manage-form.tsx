@@ -235,7 +235,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
               label="Subscription topics"
               className={searchMinWidth}
               onChange={handleSearchTopics(topics, getValues, setFilteredTopics)}
-              icon="searchSystem"
+              icon="search"
               placeholder="Search topics to get started"
             />
           </FlexContainer>

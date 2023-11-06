@@ -132,7 +132,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
         {mobileControlsState === 'search' && (
           <AppsSearchMobileFilterControls className={cx(mobileControlsState && appsSearchMobileFilterControlsActive)}>
             <FlexContainer className={appsSearchContainer} isFlexAlignCenter>
-              <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
+              <Icon className={appsSearchInputIcon} icon="search" intent="default" />
               <AppsSearchInput
                 type="text"
                 placeholder="Search by App or Developer"
@@ -185,7 +185,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
       )}
       <FlexContainer className={appsSearchDesktopControls}>
         <FlexContainer className={cx(appsSearchContainer, elMr5)} isFlexAlignCenter>
-          <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
+          <Icon className={appsSearchInputIcon} icon="search" intent="default" />
           <AppsSearchInput
             type="text"
             placeholder="Search by App or Developer"

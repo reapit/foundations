@@ -621,9 +621,14 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </div>
           <div
@@ -640,7 +645,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css."
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -700,7 +707,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
               <mock-styled.span
                 classname="mock-css.
   margin-right: 0.75rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -714,7 +723,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
               <mock-styled.span
                 classname="mock-css.
   margin-right: 0.75rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -726,7 +737,11 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
                 Verified by Reapit
               </mock-styled.p>
               <mock-styled.div
-                classname="mock-css.
+                classname=""
+              >
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -741,8 +756,10 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
   animation-delay: 0.1s;
   animation-name: fade-in;
 "
-              >
-                Category
+                  >
+                    Category
+                  </mock-styled.div>
+                </mock-styled.div>
               </mock-styled.div>
               <mock-styled.p
                 classname="mock-css.
@@ -812,7 +829,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
                     <mock-styled.span
                       classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
                       style="font-size: 1.25em;"
                     >
                       <svg
@@ -835,7 +854,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
                     <mock-styled.span
                       classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
                       style="font-size: 1.25em;"
                     >
                       <svg
@@ -1087,9 +1108,14 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -1106,7 +1132,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.span
-          classname="mock-css."
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -1166,7 +1194,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: 0.75rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -1180,7 +1210,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: 0.75rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -1192,7 +1224,11 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
               Verified by Reapit
             </mock-styled.p>
             <mock-styled.div
-              classname="mock-css.
+              classname=""
+            >
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -1207,8 +1243,10 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
   animation-delay: 0.1s;
   animation-name: fade-in;
 "
-            >
-              Category
+                >
+                  Category
+                </mock-styled.div>
+              </mock-styled.div>
             </mock-styled.div>
             <mock-styled.p
               classname="mock-css.
@@ -1278,7 +1316,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
                   <mock-styled.span
                     classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
                     style="font-size: 1.25em;"
                   >
                     <svg
@@ -1301,7 +1341,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
                   <mock-styled.span
                     classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
                     style="font-size: 1.25em;"
                   >
                     <svg
@@ -1619,9 +1661,14 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </div>
           <div
@@ -1638,7 +1685,9 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css."
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -1698,7 +1747,9 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
               <mock-styled.span
                 classname="mock-css.
   margin-right: 0.75rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -1710,7 +1761,11 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
                 Verified by Reapit
               </mock-styled.p>
               <mock-styled.div
-                classname="mock-css.
+                classname=""
+              >
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -1725,8 +1780,10 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
   animation-delay: 0.1s;
   animation-name: fade-in;
 "
-              >
-                Category
+                  >
+                    Category
+                  </mock-styled.div>
+                </mock-styled.div>
               </mock-styled.div>
               <mock-styled.p
                 classname="mock-css.
@@ -1802,7 +1859,9 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
                     <mock-styled.span
                       classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
                       style="font-size: 1.25em;"
                     >
                       <svg
@@ -1825,7 +1884,9 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
                     <mock-styled.span
                       classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
                       style="font-size: 1.25em;"
                     >
                       <svg
@@ -2077,9 +2138,14 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -2096,7 +2162,9 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.span
-          classname="mock-css."
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -2156,7 +2224,9 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: 0.75rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -2168,7 +2238,11 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
               Verified by Reapit
             </mock-styled.p>
             <mock-styled.div
-              classname="mock-css.
+              classname=""
+            >
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -2183,8 +2257,10 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
   animation-delay: 0.1s;
   animation-name: fade-in;
 "
-            >
-              Category
+                >
+                  Category
+                </mock-styled.div>
+              </mock-styled.div>
             </mock-styled.div>
             <mock-styled.p
               classname="mock-css.
@@ -2260,7 +2336,9 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
                   <mock-styled.span
                     classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
                     style="font-size: 1.25em;"
                   >
                     <svg
@@ -2283,7 +2361,9 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
                   <mock-styled.span
                     classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
                     style="font-size: 1.25em;"
                   >
                     <svg

@@ -261,7 +261,7 @@ export const SettingsInstalled: FC = () => {
                   ],
                   ctaContent: {
                     headerContent: 'Uninstall',
-                    icon: terminatesOn ? undefined : 'trashSystem',
+                    icon: terminatesOn ? undefined : 'trash',
                     onClick: terminatesOn
                       ? undefined
                       : handleSetInstallationDetails(setInstallationDetails, openModal, appName, id, appId),

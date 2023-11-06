@@ -157,7 +157,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...name}
             {...register('name')}
             errorMessage={errors?.name?.message}
-            icon={errors?.name?.message ? 'asteriskSystem' : null}
+            icon={errors?.name?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrapFull>
@@ -166,7 +166,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...supportEmail}
             {...register('supportEmail')}
             errorMessage={errors?.supportEmail?.message}
-            icon={errors?.supportEmail?.message ? 'asteriskSystem' : null}
+            icon={errors?.supportEmail?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -175,7 +175,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...telephone}
             {...register('telephone')}
             errorMessage={errors?.telephone?.message}
-            icon={errors?.telephone?.message ? 'asteriskSystem' : null}
+            icon={errors?.telephone?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -184,7 +184,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...homePage}
             {...register('homePage')}
             errorMessage={errors?.homePage?.message}
-            icon={errors?.homePage?.message ? 'asteriskSystem' : null}
+            icon={errors?.homePage?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -193,7 +193,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...launchUri}
             {...register('launchUri')}
             errorMessage={errors?.launchUri?.message}
-            icon={errors?.launchUri?.message ? 'asteriskSystem' : null}
+            icon={errors?.launchUri?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -202,7 +202,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...termsAndConditionsUrl}
             {...register('termsAndConditionsUrl')}
             errorMessage={errors?.termsAndConditionsUrl?.message}
-            icon={errors?.termsAndConditionsUrl?.message ? 'asteriskSystem' : null}
+            icon={errors?.termsAndConditionsUrl?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -211,7 +211,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...privacyPolicyUrl}
             {...register('privacyPolicyUrl')}
             errorMessage={errors?.privacyPolicyUrl?.message}
-            icon={errors?.privacyPolicyUrl?.message ? 'asteriskSystem' : null}
+            icon={errors?.privacyPolicyUrl?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -220,7 +220,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...videoUrl1}
             {...register('videoUrl1')}
             errorMessage={errors?.videoUrl1?.message}
-            icon={errors?.videoUrl1?.message ? 'asteriskSystem' : null}
+            icon={errors?.videoUrl1?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -229,7 +229,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...videoUrl2}
             {...register('videoUrl2')}
             errorMessage={errors?.videoUrl2?.message}
-            icon={errors?.videoUrl2?.message ? 'asteriskSystem' : null}
+            icon={errors?.videoUrl2?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -239,7 +239,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...register('pricingUrl')}
             disabled={isFreeValue}
             errorMessage={errors?.pricingUrl?.message}
-            icon={errors?.pricingUrl?.message ? 'asteriskSystem' : null}
+            icon={errors?.pricingUrl?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -248,7 +248,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...isFree}
             {...register('isFree')}
             errorMessage={errors?.isFree?.message}
-            icon={errors?.isFree?.message ? 'asteriskSystem' : null}
+            icon={errors?.isFree?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -257,7 +257,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...deletionProtection}
             {...register('deletionProtection')}
             errorMessage={errors?.deletionProtection?.message}
-            icon={errors?.deletionProtection?.message ? 'asteriskSystem' : null}
+            icon={errors?.deletionProtection?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -285,7 +285,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...summary}
             {...register('summary')}
             errorMessage={errors?.summary?.message}
-            icon={errors?.summary?.message ? 'asteriskSystem' : null}
+            icon={errors?.summary?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrapFull>

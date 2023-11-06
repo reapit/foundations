@@ -56,12 +56,11 @@ exports[`AppsTable should render component with apps 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css."
-                style="font-size: 1.2rem;"
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
-                <svg
-                  style="font-size: 1.2rem;"
-                />
+                <svg />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -103,7 +102,9 @@ exports[`AppsTable should render component with apps 1`] = `
                   data-narrow-label="Listed"
                 >
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -116,7 +117,9 @@ exports[`AppsTable should render component with apps 1`] = `
                   data-narrow-label="Integration"
                 >
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -129,7 +132,9 @@ exports[`AppsTable should render component with apps 1`] = `
                   data-narrow-label="Featured"
                 >
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -157,7 +162,9 @@ exports[`AppsTable should render component with apps 1`] = `
                 classname=""
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -185,9 +192,14 @@ exports[`AppsTable should render component with apps 1`] = `
                     data-testid="close-icon"
                   >
                     <mock-styled.span
-                      classname=""
+                      classname="mock-css.
+  font-size: 1.5rem;
+"
+                      style="font-size: 1.25rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 1.25rem;"
+                      />
                     </mock-styled.span>
                   </div>
                   <div
@@ -212,7 +224,9 @@ exports[`AppsTable should render component with apps 1`] = `
             type="button"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -229,7 +243,9 @@ exports[`AppsTable should render component with apps 1`] = `
             type="button"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -290,12 +306,11 @@ exports[`AppsTable should render component with apps 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css."
-              style="font-size: 1.2rem;"
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
-              <svg
-                style="font-size: 1.2rem;"
-              />
+              <svg />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -337,7 +352,9 @@ exports[`AppsTable should render component with apps 1`] = `
                 data-narrow-label="Listed"
               >
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -350,7 +367,9 @@ exports[`AppsTable should render component with apps 1`] = `
                 data-narrow-label="Integration"
               >
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -363,7 +382,9 @@ exports[`AppsTable should render component with apps 1`] = `
                 data-narrow-label="Featured"
               >
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -391,7 +412,9 @@ exports[`AppsTable should render component with apps 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -419,9 +442,14 @@ exports[`AppsTable should render component with apps 1`] = `
                   data-testid="close-icon"
                 >
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css.
+  font-size: 1.5rem;
+"
+                    style="font-size: 1.25rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 1.25rem;"
+                    />
                   </mock-styled.span>
                 </div>
                 <div
@@ -446,7 +474,9 @@ exports[`AppsTable should render component with apps 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -463,7 +493,9 @@ exports[`AppsTable should render component with apps 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -633,9 +665,14 @@ exports[`AppsTable should render component with no apps and not loading 1`] = `
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </div>
           <div
@@ -678,9 +715,14 @@ exports[`AppsTable should render component with no apps and not loading 1`] = `
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </div>
         <div

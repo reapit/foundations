@@ -62,8 +62,11 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   />
                   <mock-styled.span
                     classname=""
+                    style="font-size: 1rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 1rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.label
                     htmlfor="test-static-id"
@@ -83,8 +86,8 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     <mock-styled.span
                       classname="mock-css.
   margin-left: 0.375rem;
- mock-css.
-  font-size: 2.5rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
                     >
                       <svg />
@@ -111,8 +114,8 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                       <mock-styled.span
                         classname="mock-css.
   margin-left: 0.375rem;
- mock-css.
-  font-size: 2.5rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
                       >
                         <svg />
@@ -284,421 +287,6 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     >
                       None Selected
                     </option>
-                    <option
-                      value="appCategoryInfographic"
-                    >
-                      app category infographic
-                    </option>
-                    <option
-                      value="agencyCloudInfographic"
-                    >
-                      agency cloud infographic
-                    </option>
-                    <option
-                      value="apiDocsInfographic"
-                    >
-                      api docs infographic
-                    </option>
-                    <option
-                      value="apiInfographic"
-                    >
-                      api infographic
-                    </option>
-                    <option
-                      value="appInfographic"
-                    >
-                      app infographic
-                    </option>
-                    <option
-                      value="appInfographicAlt"
-                    >
-                      app infographic alt
-                    </option>
-                    <option
-                      value="applicantInfographic"
-                    >
-                      applicant infographic
-                    </option>
-                    <option
-                      value="appMarketDarkInfographic"
-                    >
-                      app market dark infographic
-                    </option>
-                    <option
-                      value="appMarketInfographic"
-                    >
-                      app market infographic
-                    </option>
-                    <option
-                      value="appSettingsAuthDarkInfographic"
-                    >
-                      app settings auth dark infographic
-                    </option>
-                    <option
-                      value="appSettingsAuthInfographic"
-                    >
-                      app settings auth infographic
-                    </option>
-                    <option
-                      value="appTypeInfographic"
-                    >
-                      app type infographic
-                    </option>
-                    <option
-                      value="barnInfographic"
-                    >
-                      barn infographic
-                    </option>
-                    <option
-                      value="bungalowInfographic"
-                    >
-                      bungalow infographic
-                    </option>
-                    <option
-                      value="codeInfographic"
-                    >
-                      code infographic
-                    </option>
-                    <option
-                      value="cottageInfographic"
-                    >
-                      cottage infographic
-                    </option>
-                    <option
-                      value="crmInfographic"
-                    >
-                      crm infographic
-                    </option>
-                    <option
-                      value="customerInfographic"
-                    >
-                      customer infographic
-                    </option>
-                    <option
-                      value="designInfographic"
-                    >
-                      design infographic
-                    </option>
-                    <option
-                      value="developerAppsInfographic"
-                    >
-                      developer apps infographic
-                    </option>
-                    <option
-                      value="developmentInfographic"
-                    >
-                      development infographic
-                    </option>
-                    <option
-                      value="devicesInfographic"
-                    >
-                      devices infographic
-                    </option>
-                    <option
-                      value="docsInfographic"
-                    >
-                      docs infographic
-                    </option>
-                    <option
-                      value="doorLockInfographic"
-                    >
-                      door lock infographic
-                    </option>
-                    <option
-                      value="editAppCancelInfographic"
-                    >
-                      edit app cancel infographic
-                    </option>
-                    <option
-                      value="editAppInfographic"
-                    >
-                      edit app infographic
-                    </option>
-                    <option
-                      value="elementsInfographic"
-                    >
-                      elements infographic
-                    </option>
-                    <option
-                      value="farmInfographic"
-                    >
-                      farm infographic
-                    </option>
-                    <option
-                      value="feedAltInfographic"
-                    >
-                      feed alt infographic
-                    </option>
-                    <option
-                      value="feedInfographic"
-                    >
-                      feed infographic
-                    </option>
-                    <option
-                      value="flatInfographic"
-                    >
-                      flat infographic
-                    </option>
-                    <option
-                      value="foundationsCustomerInfographic"
-                    >
-                      foundations customer infographic
-                    </option>
-                    <option
-                      value="globeInfographic"
-                    >
-                      globe infographic
-                    </option>
-                    <option
-                      value="graphQlInfographic"
-                    >
-                      graph ql infographic
-                    </option>
-                    <option
-                      value="houseInfographic"
-                    >
-                      house infographic
-                    </option>
-                    <option
-                      value="htmlInfographic"
-                    >
-                      html infographic
-                    </option>
-                    <option
-                      value="landInfographic"
-                    >
-                      land infographic
-                    </option>
-                    <option
-                      value="landlordInfographic"
-                    >
-                      landlord infographic
-                    </option>
-                    <option
-                      value="leadGenerationInfographic"
-                    >
-                      lead generation infographic
-                    </option>
-                    <option
-                      value="listInfographic"
-                    >
-                      list infographic
-                    </option>
-                    <option
-                      value="lockedInfographic"
-                    >
-                      locked infographic
-                    </option>
-                    <option
-                      value="logoKeyInfographic"
-                    >
-                      logo key infographic
-                    </option>
-                    <option
-                      value="logoSettingsInfographic"
-                    >
-                      logo settings infographic
-                    </option>
-                    <option
-                      value="mailInfographic"
-                    >
-                      mail infographic
-                    </option>
-                    <option
-                      value="maisonetteInfographic"
-                    >
-                      maisonette infographic
-                    </option>
-                    <option
-                      value="manageAppListingInfographic"
-                    >
-                      manage app listing infographic
-                    </option>
-                    <option
-                      value="manageWebhooksInfographic"
-                    >
-                      manage webhooks infographic
-                    </option>
-                    <option
-                      value="marketingInfographic"
-                    >
-                      marketing infographic
-                    </option>
-                    <option
-                      value="marketplaceAppACInfographic"
-                    >
-                      marketplace app acinfographic
-                    </option>
-                    <option
-                      value="myAppsInfographic"
-                    >
-                      my apps infographic
-                    </option>
-                    <option
-                      value="newCustomerInfographic"
-                    >
-                      new customer infographic
-                    </option>
-                    <option
-                      value="phoneInfographic"
-                    >
-                      phone infographic
-                    </option>
-                    <option
-                      value="productivityInfographic"
-                    >
-                      productivity infographic
-                    </option>
-                    <option
-                      value="propertyManagementInfographic"
-                    >
-                      property management infographic
-                    </option>
-                    <option
-                      value="propTechInfographic"
-                    >
-                      prop tech infographic
-                    </option>
-                    <option
-                      value="reapitConnectInfographic"
-                    >
-                      reapit connect infographic
-                    </option>
-                    <option
-                      value="reapitConnectSettingsDevicesDarkInfographic"
-                    >
-                      reapit connect settings devices dark infographic
-                    </option>
-                    <option
-                      value="reapitConnectSettingsDevicesInfographic"
-                    >
-                      reapit connect settings devices infographic
-                    </option>
-                    <option
-                      value="reapitLogoInfographic"
-                    >
-                      reapit logo infographic
-                    </option>
-                    <option
-                      value="reapitLogoSmallInfographic"
-                    >
-                      reapit logo small infographic
-                    </option>
-                    <option
-                      value="reapitUserInfographic"
-                    >
-                      reapit user infographic
-                    </option>
-                    <option
-                      value="refreshInfographic"
-                    >
-                      refresh infographic
-                    </option>
-                    <option
-                      value="reportInfographic"
-                    >
-                      report infographic
-                    </option>
-                    <option
-                      value="reportingInfographic"
-                    >
-                      reporting infographic
-                    </option>
-                    <option
-                      value="salesProgressionInfographic"
-                    >
-                      sales progression infographic
-                    </option>
-                    <option
-                      value="selectInfographic"
-                    >
-                      select infographic
-                    </option>
-                    <option
-                      value="serverInfographic"
-                    >
-                      server infographic
-                    </option>
-                    <option
-                      value="shieldInfographic"
-                    >
-                      shield infographic
-                    </option>
-                    <option
-                      value="userAuthInfographic"
-                    >
-                      user auth infographic
-                    </option>
-                    <option
-                      value="userDeviceInfographic"
-                    >
-                      user device infographic
-                    </option>
-                    <option
-                      value="userHouseInfographic"
-                    >
-                      user house infographic
-                    </option>
-                    <option
-                      value="userInfographic"
-                    >
-                      user infographic
-                    </option>
-                    <option
-                      value="utilityRegistrationInfographic"
-                    >
-                      utility registration infographic
-                    </option>
-                    <option
-                      value="vendorInfographic"
-                    >
-                      vendor infographic
-                    </option>
-                    <option
-                      value="webDeveloperInfographic"
-                    >
-                      web developer infographic
-                    </option>
-                    <option
-                      value="webDeveloperInfographicAlt"
-                    >
-                      web developer infographic alt
-                    </option>
-                    <option
-                      value="webhooksDocsInfographic"
-                    >
-                      webhooks docs infographic
-                    </option>
-                    <option
-                      value="webhooksInfographic"
-                    >
-                      webhooks infographic
-                    </option>
-                    <option
-                      value="webInfographic"
-                    >
-                      web infographic
-                    </option>
-                    <option
-                      value="welcomeInfographic"
-                    >
-                      welcome infographic
-                    </option>
-                    <option
-                      value="authenticatedInfographic"
-                    >
-                      authenticated infographic
-                    </option>
-                    <option
-                      value="platformApiInfographic"
-                    >
-                      platform api infographic
-                    </option>
-                    <option
-                      value="sharedEntitiesInfographic"
-                    >
-                      shared entities infographic
-                    </option>
                   </mock-styled.select>
                 </mock-styled.div>
               </mock-styled.div>
@@ -803,9 +391,14 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     data-testid="close-icon"
                   >
                     <mock-styled.span
-                      classname=""
+                      classname="mock-css.
+  font-size: 1.5rem;
+"
+                      style="font-size: 1.25rem;"
                     >
-                      <svg />
+                      <svg
+                        style="font-size: 1.25rem;"
+                      />
                     </mock-styled.span>
                   </div>
                   <div
@@ -919,8 +512,11 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                 />
                 <mock-styled.span
                   classname=""
+                  style="font-size: 1rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1rem;"
+                  />
                 </mock-styled.span>
                 <mock-styled.label
                   htmlfor="test-static-id"
@@ -940,8 +536,8 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   <mock-styled.span
                     classname="mock-css.
   margin-left: 0.375rem;
- mock-css.
-  font-size: 2.5rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
                   >
                     <svg />
@@ -968,8 +564,8 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     <mock-styled.span
                       classname="mock-css.
   margin-left: 0.375rem;
- mock-css.
-  font-size: 2.5rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
                     >
                       <svg />
@@ -1141,421 +737,6 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   >
                     None Selected
                   </option>
-                  <option
-                    value="appCategoryInfographic"
-                  >
-                    app category infographic
-                  </option>
-                  <option
-                    value="agencyCloudInfographic"
-                  >
-                    agency cloud infographic
-                  </option>
-                  <option
-                    value="apiDocsInfographic"
-                  >
-                    api docs infographic
-                  </option>
-                  <option
-                    value="apiInfographic"
-                  >
-                    api infographic
-                  </option>
-                  <option
-                    value="appInfographic"
-                  >
-                    app infographic
-                  </option>
-                  <option
-                    value="appInfographicAlt"
-                  >
-                    app infographic alt
-                  </option>
-                  <option
-                    value="applicantInfographic"
-                  >
-                    applicant infographic
-                  </option>
-                  <option
-                    value="appMarketDarkInfographic"
-                  >
-                    app market dark infographic
-                  </option>
-                  <option
-                    value="appMarketInfographic"
-                  >
-                    app market infographic
-                  </option>
-                  <option
-                    value="appSettingsAuthDarkInfographic"
-                  >
-                    app settings auth dark infographic
-                  </option>
-                  <option
-                    value="appSettingsAuthInfographic"
-                  >
-                    app settings auth infographic
-                  </option>
-                  <option
-                    value="appTypeInfographic"
-                  >
-                    app type infographic
-                  </option>
-                  <option
-                    value="barnInfographic"
-                  >
-                    barn infographic
-                  </option>
-                  <option
-                    value="bungalowInfographic"
-                  >
-                    bungalow infographic
-                  </option>
-                  <option
-                    value="codeInfographic"
-                  >
-                    code infographic
-                  </option>
-                  <option
-                    value="cottageInfographic"
-                  >
-                    cottage infographic
-                  </option>
-                  <option
-                    value="crmInfographic"
-                  >
-                    crm infographic
-                  </option>
-                  <option
-                    value="customerInfographic"
-                  >
-                    customer infographic
-                  </option>
-                  <option
-                    value="designInfographic"
-                  >
-                    design infographic
-                  </option>
-                  <option
-                    value="developerAppsInfographic"
-                  >
-                    developer apps infographic
-                  </option>
-                  <option
-                    value="developmentInfographic"
-                  >
-                    development infographic
-                  </option>
-                  <option
-                    value="devicesInfographic"
-                  >
-                    devices infographic
-                  </option>
-                  <option
-                    value="docsInfographic"
-                  >
-                    docs infographic
-                  </option>
-                  <option
-                    value="doorLockInfographic"
-                  >
-                    door lock infographic
-                  </option>
-                  <option
-                    value="editAppCancelInfographic"
-                  >
-                    edit app cancel infographic
-                  </option>
-                  <option
-                    value="editAppInfographic"
-                  >
-                    edit app infographic
-                  </option>
-                  <option
-                    value="elementsInfographic"
-                  >
-                    elements infographic
-                  </option>
-                  <option
-                    value="farmInfographic"
-                  >
-                    farm infographic
-                  </option>
-                  <option
-                    value="feedAltInfographic"
-                  >
-                    feed alt infographic
-                  </option>
-                  <option
-                    value="feedInfographic"
-                  >
-                    feed infographic
-                  </option>
-                  <option
-                    value="flatInfographic"
-                  >
-                    flat infographic
-                  </option>
-                  <option
-                    value="foundationsCustomerInfographic"
-                  >
-                    foundations customer infographic
-                  </option>
-                  <option
-                    value="globeInfographic"
-                  >
-                    globe infographic
-                  </option>
-                  <option
-                    value="graphQlInfographic"
-                  >
-                    graph ql infographic
-                  </option>
-                  <option
-                    value="houseInfographic"
-                  >
-                    house infographic
-                  </option>
-                  <option
-                    value="htmlInfographic"
-                  >
-                    html infographic
-                  </option>
-                  <option
-                    value="landInfographic"
-                  >
-                    land infographic
-                  </option>
-                  <option
-                    value="landlordInfographic"
-                  >
-                    landlord infographic
-                  </option>
-                  <option
-                    value="leadGenerationInfographic"
-                  >
-                    lead generation infographic
-                  </option>
-                  <option
-                    value="listInfographic"
-                  >
-                    list infographic
-                  </option>
-                  <option
-                    value="lockedInfographic"
-                  >
-                    locked infographic
-                  </option>
-                  <option
-                    value="logoKeyInfographic"
-                  >
-                    logo key infographic
-                  </option>
-                  <option
-                    value="logoSettingsInfographic"
-                  >
-                    logo settings infographic
-                  </option>
-                  <option
-                    value="mailInfographic"
-                  >
-                    mail infographic
-                  </option>
-                  <option
-                    value="maisonetteInfographic"
-                  >
-                    maisonette infographic
-                  </option>
-                  <option
-                    value="manageAppListingInfographic"
-                  >
-                    manage app listing infographic
-                  </option>
-                  <option
-                    value="manageWebhooksInfographic"
-                  >
-                    manage webhooks infographic
-                  </option>
-                  <option
-                    value="marketingInfographic"
-                  >
-                    marketing infographic
-                  </option>
-                  <option
-                    value="marketplaceAppACInfographic"
-                  >
-                    marketplace app acinfographic
-                  </option>
-                  <option
-                    value="myAppsInfographic"
-                  >
-                    my apps infographic
-                  </option>
-                  <option
-                    value="newCustomerInfographic"
-                  >
-                    new customer infographic
-                  </option>
-                  <option
-                    value="phoneInfographic"
-                  >
-                    phone infographic
-                  </option>
-                  <option
-                    value="productivityInfographic"
-                  >
-                    productivity infographic
-                  </option>
-                  <option
-                    value="propertyManagementInfographic"
-                  >
-                    property management infographic
-                  </option>
-                  <option
-                    value="propTechInfographic"
-                  >
-                    prop tech infographic
-                  </option>
-                  <option
-                    value="reapitConnectInfographic"
-                  >
-                    reapit connect infographic
-                  </option>
-                  <option
-                    value="reapitConnectSettingsDevicesDarkInfographic"
-                  >
-                    reapit connect settings devices dark infographic
-                  </option>
-                  <option
-                    value="reapitConnectSettingsDevicesInfographic"
-                  >
-                    reapit connect settings devices infographic
-                  </option>
-                  <option
-                    value="reapitLogoInfographic"
-                  >
-                    reapit logo infographic
-                  </option>
-                  <option
-                    value="reapitLogoSmallInfographic"
-                  >
-                    reapit logo small infographic
-                  </option>
-                  <option
-                    value="reapitUserInfographic"
-                  >
-                    reapit user infographic
-                  </option>
-                  <option
-                    value="refreshInfographic"
-                  >
-                    refresh infographic
-                  </option>
-                  <option
-                    value="reportInfographic"
-                  >
-                    report infographic
-                  </option>
-                  <option
-                    value="reportingInfographic"
-                  >
-                    reporting infographic
-                  </option>
-                  <option
-                    value="salesProgressionInfographic"
-                  >
-                    sales progression infographic
-                  </option>
-                  <option
-                    value="selectInfographic"
-                  >
-                    select infographic
-                  </option>
-                  <option
-                    value="serverInfographic"
-                  >
-                    server infographic
-                  </option>
-                  <option
-                    value="shieldInfographic"
-                  >
-                    shield infographic
-                  </option>
-                  <option
-                    value="userAuthInfographic"
-                  >
-                    user auth infographic
-                  </option>
-                  <option
-                    value="userDeviceInfographic"
-                  >
-                    user device infographic
-                  </option>
-                  <option
-                    value="userHouseInfographic"
-                  >
-                    user house infographic
-                  </option>
-                  <option
-                    value="userInfographic"
-                  >
-                    user infographic
-                  </option>
-                  <option
-                    value="utilityRegistrationInfographic"
-                  >
-                    utility registration infographic
-                  </option>
-                  <option
-                    value="vendorInfographic"
-                  >
-                    vendor infographic
-                  </option>
-                  <option
-                    value="webDeveloperInfographic"
-                  >
-                    web developer infographic
-                  </option>
-                  <option
-                    value="webDeveloperInfographicAlt"
-                  >
-                    web developer infographic alt
-                  </option>
-                  <option
-                    value="webhooksDocsInfographic"
-                  >
-                    webhooks docs infographic
-                  </option>
-                  <option
-                    value="webhooksInfographic"
-                  >
-                    webhooks infographic
-                  </option>
-                  <option
-                    value="webInfographic"
-                  >
-                    web infographic
-                  </option>
-                  <option
-                    value="welcomeInfographic"
-                  >
-                    welcome infographic
-                  </option>
-                  <option
-                    value="authenticatedInfographic"
-                  >
-                    authenticated infographic
-                  </option>
-                  <option
-                    value="platformApiInfographic"
-                  >
-                    platform api infographic
-                  </option>
-                  <option
-                    value="sharedEntitiesInfographic"
-                  >
-                    shared entities infographic
-                  </option>
                 </mock-styled.select>
               </mock-styled.div>
             </mock-styled.div>
@@ -1660,9 +841,14 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   data-testid="close-icon"
                 >
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css.
+  font-size: 1.5rem;
+"
+                    style="font-size: 1.25rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 1.25rem;"
+                    />
                   </mock-styled.span>
                 </div>
                 <div

@@ -18,7 +18,7 @@ export const AppOptionsContent: FC = () => {
       >
         <Icon className={elMr8} fontSize="2rem" icon="logoSettingsInfographic" />
         <StepOptionItemText>AgencyCloud Functionality</StepOptionItemText>
-        {nextStep === AppNewStepId.agencyCloudStep && <Icon icon="checkSolidSystem" intent="primary" />}
+        {nextStep === AppNewStepId.agencyCloudStep && <Icon icon="check" intent="primary" />}
       </StepOptionItem>
       <StepOptionItem
         className={cx(nextStep === AppNewStepId.externalAppStep && stepOptionItemSelected)}
@@ -26,7 +26,7 @@ export const AppOptionsContent: FC = () => {
       >
         <Icon className={elMr8} fontSize="2rem" icon="userHouseInfographic" />
         <StepOptionItemText>Create an External Web Application</StepOptionItemText>
-        {nextStep === AppNewStepId.externalAppStep && <Icon icon="checkSolidSystem" intent="primary" />}
+        {nextStep === AppNewStepId.externalAppStep && <Icon icon="check" intent="primary" />}
       </StepOptionItem>
       <StepOptionItem
         className={cx(nextStep === AppNewStepId.dataFeedStep && stepOptionItemSelected)}
@@ -34,7 +34,7 @@ export const AppOptionsContent: FC = () => {
       >
         <Icon className={elMr8} fontSize="2rem" icon="feedInfographic" />
         <StepOptionItemText>Data / Portal / Reporting Feed</StepOptionItemText>
-        {nextStep === AppNewStepId.dataFeedStep && <Icon icon="checkSolidSystem" intent="primary" />}
+        {nextStep === AppNewStepId.dataFeedStep && <Icon icon="check" intent="primary" />}
       </StepOptionItem>
       <StepOptionItem
         className={cx(nextStep === AppNewStepId.websiteFeedStep && stepOptionItemSelected)}
@@ -42,7 +42,7 @@ export const AppOptionsContent: FC = () => {
       >
         <Icon className={elMr8} fontSize="2rem" icon="feedAltInfographic" />
         <StepOptionItemText>Website Feed</StepOptionItemText>
-        {nextStep === AppNewStepId.websiteFeedStep && <Icon icon="checkSolidSystem" intent="primary" />}
+        {nextStep === AppNewStepId.websiteFeedStep && <Icon icon="check" intent="primary" />}
       </StepOptionItem>
       <StepOptionItem
         className={cx(nextStep === AppNewStepId.webServicesStep && stepOptionItemSelected)}
@@ -50,7 +50,7 @@ export const AppOptionsContent: FC = () => {
       >
         <Icon className={elMr8} fontSize="2rem" icon="globeInfographic" />
         <StepOptionItemText>WebServices to Platform</StepOptionItemText>
-        {nextStep === AppNewStepId.webServicesStep && <Icon icon="checkSolidSystem" intent="primary" />}
+        {nextStep === AppNewStepId.webServicesStep && <Icon icon="check" intent="primary" />}
       </StepOptionItem>
       <StepOptionItem
         className={cx(nextStep === AppNewStepId.reapitConnectStep && stepOptionItemSelected)}
@@ -58,7 +58,7 @@ export const AppOptionsContent: FC = () => {
       >
         <Icon className={elMr8} fontSize="2rem" icon="doorLockInfographic" />
         <StepOptionItemText>Reapit Connect as ID Provider</StepOptionItemText>
-        {nextStep === AppNewStepId.reapitConnectStep && <Icon icon="checkSolidSystem" intent="primary" />}
+        {nextStep === AppNewStepId.reapitConnectStep && <Icon icon="check" intent="primary" />}
       </StepOptionItem>
       <StepOptionItem
         className={cx(nextStep === AppNewStepId.clientSideStep && stepOptionItemSelected)}
@@ -66,7 +66,7 @@ export const AppOptionsContent: FC = () => {
       >
         <Icon className={elMr8} fontSize="2rem" icon="devicesInfographic" />
         <StepOptionItemText>Client Side App</StepOptionItemText>
-        {nextStep === AppNewStepId.clientSideStep && <Icon icon="checkSolidSystem" intent="primary" />}
+        {nextStep === AppNewStepId.clientSideStep && <Icon icon="check" intent="primary" />}
       </StepOptionItem>
       <StepOptionItem
         className={cx(nextStep === AppNewStepId.serverSideStep && stepOptionItemSelected)}
@@ -74,7 +74,7 @@ export const AppOptionsContent: FC = () => {
       >
         <Icon className={elMr8} fontSize="2rem" icon="serverInfographic" />
         <StepOptionItemText>Server Side Integration</StepOptionItemText>
-        {nextStep === AppNewStepId.serverSideStep && <Icon icon="checkSolidSystem" intent="primary" />}
+        {nextStep === AppNewStepId.serverSideStep && <Icon icon="check" intent="primary" />}
       </StepOptionItem>
     </>
   )

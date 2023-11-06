@@ -66,6 +66,8 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                     classname="mock-css.
   margin-right: 0.625rem;
  mock-css. mock-css.
+  font-size: 1.5rem;
+ mock-css.
   font-size: 2.5rem;
 "
                   >
@@ -1810,6 +1812,8 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                   classname="mock-css.
   margin-right: 0.625rem;
  mock-css. mock-css.
+  font-size: 1.5rem;
+ mock-css.
   font-size: 2.5rem;
 "
                 >
@@ -3576,9 +3580,14 @@ exports[`PaymentPage should match a snapshot when has no session and no data 1`]
                 data-testid="close-icon"
               >
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css.
+  font-size: 1.5rem;
+"
+                  style="font-size: 1.25rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.25rem;"
+                  />
                 </mock-styled.span>
               </div>
               <div
@@ -3625,9 +3634,14 @@ exports[`PaymentPage should match a snapshot when has no session and no data 1`]
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname=""
+                classname="mock-css.
+  font-size: 1.5rem;
+"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
             </div>
             <div
@@ -3742,9 +3756,14 @@ exports[`PaymentPage should match a snapshot when loading 1`] = `
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname=""
+                classname="mock-css.
+  font-size: 1.5rem;
+"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
             </div>
             <div
@@ -3802,9 +3821,14 @@ exports[`PaymentPage should match a snapshot when loading 1`] = `
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </div>
           <div
@@ -3919,9 +3943,14 @@ exports[`PaymentPage should match a snapshot when no payment is returned 1`] = `
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname=""
+                classname="mock-css.
+  font-size: 1.5rem;
+"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
             </div>
             <div
@@ -3978,9 +4007,14 @@ exports[`PaymentPage should match a snapshot when no payment is returned 1`] = `
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </div>
           <div
@@ -4094,9 +4128,14 @@ exports[`PaymentPage should match a snapshot when there is a config error 1`] = 
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname=""
+                classname="mock-css.
+  font-size: 1.5rem;
+"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
             </div>
             <div
@@ -4153,9 +4192,14 @@ exports[`PaymentPage should match a snapshot when there is a config error 1`] = 
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </div>
           <div

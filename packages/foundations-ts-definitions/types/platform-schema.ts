@@ -2087,6 +2087,8 @@ export interface Appointments {
   includeCancelled?: boolean
   includeUnconfirmed?: boolean
   fromArchive?: boolean
+  followUpFrom?: string
+  followUpTo?: string
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string

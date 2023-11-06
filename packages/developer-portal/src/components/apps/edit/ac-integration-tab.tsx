@@ -106,7 +106,7 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
             {...register('launchWindowSizeX')}
             disabled={!desktopIntegrationTypeIdsValue.length}
             errorMessage={errors?.launchWindowSizeX?.message}
-            icon={errors?.launchWindowSizeX?.message ? 'asteriskSystem' : null}
+            icon={errors?.launchWindowSizeX?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -116,7 +116,7 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
             {...register('launchWindowSizeY')}
             disabled={!desktopIntegrationTypeIdsValue.length}
             errorMessage={errors?.launchWindowSizeY?.message}
-            icon={errors?.launchWindowSizeY?.message ? 'asteriskSystem' : null}
+            icon={errors?.launchWindowSizeY?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>

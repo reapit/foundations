@@ -50,9 +50,14 @@ exports[`UsagePage should match a snapshot 1`] = `
                 />
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                    style="font-size: 1rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 1rem;"
+                    />
                   </mock-styled.span>
                 </mock-styled.div>
                 <mock-styled.div
@@ -152,9 +157,14 @@ exports[`UsagePage should match a snapshot 1`] = `
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname=""
+                classname="mock-css.
+  font-size: 1.5rem;
+"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
             </div>
             <div
@@ -219,9 +229,14 @@ exports[`UsagePage should match a snapshot 1`] = `
               />
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                  style="font-size: 1rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
               <mock-styled.div
@@ -321,9 +336,14 @@ exports[`UsagePage should match a snapshot 1`] = `
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </div>
           <div
