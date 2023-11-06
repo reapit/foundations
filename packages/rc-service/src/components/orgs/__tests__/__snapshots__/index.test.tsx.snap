@@ -107,8 +107,11 @@ exports[`OrgsPage should match a snapshot 1`] = `
                 classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Org Name"
@@ -123,8 +126,11 @@ exports[`OrgsPage should match a snapshot 1`] = `
                 classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Client Code"
@@ -137,8 +143,11 @@ exports[`OrgsPage should match a snapshot 1`] = `
                 classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Date Created"
@@ -359,8 +368,11 @@ exports[`OrgsPage should match a snapshot 1`] = `
               classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Org Name"
@@ -375,8 +387,11 @@ exports[`OrgsPage should match a snapshot 1`] = `
               classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Client Code"
@@ -389,8 +404,11 @@ exports[`OrgsPage should match a snapshot 1`] = `
               classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Date Created"

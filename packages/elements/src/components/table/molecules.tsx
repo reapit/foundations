@@ -141,7 +141,7 @@ export const TableCell: FC<TableCellProps> = ({
   )
   return (
     <ElTableCell className={combinedClassname} {...rest}>
-      {icon && <Icon intent="default" icon={icon} />}
+      {icon && <Icon intent="default" icon={icon} fontSize="1.25rem" />}
       <ElTableCellContent data-narrow-label={narrowLabel}>{children}</ElTableCellContent>
     </ElTableCell>
   )

@@ -891,8 +891,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -929,8 +932,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -967,8 +973,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -1005,8 +1014,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -1043,8 +1055,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -1081,8 +1096,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -1119,8 +1137,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -2026,8 +2047,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -2064,8 +2088,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -2102,8 +2129,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -2140,8 +2170,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -2178,8 +2211,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -2216,8 +2252,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -2254,8 +2293,11 @@ exports[`Schedule Two it matches a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"

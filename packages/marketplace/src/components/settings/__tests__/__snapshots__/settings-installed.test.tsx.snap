@@ -85,8 +85,11 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="App Name"
@@ -167,8 +170,11 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="App Name"
@@ -357,8 +363,11 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="App Name"
@@ -439,8 +448,11 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="App Name"
@@ -1362,8 +1374,11 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="App Name"
@@ -1444,8 +1459,11 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="App Name"
@@ -1634,8 +1652,11 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="App Name"
@@ -1716,8 +1737,11 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="App Name"
