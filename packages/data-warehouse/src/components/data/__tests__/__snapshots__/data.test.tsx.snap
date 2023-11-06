@@ -118,12 +118,11 @@ exports[`Data should match a snapshot with data 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname="mock-css."
-                  style="font-size: 1.2rem;"
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
-                  <svg
-                    style="font-size: 1.2rem;"
-                  />
+                  <svg />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -162,7 +161,9 @@ exports[`Data should match a snapshot with data 1`] = `
                   classname=""
                 >
                   <mock-styled.span
-                    classname="mock-css."
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -223,7 +224,9 @@ exports[`Data should match a snapshot with data 1`] = `
                   classname=""
                 >
                   <mock-styled.span
-                    classname="mock-css."
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -281,12 +284,11 @@ exports[`Data should match a snapshot with data 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname="mock-css."
-                  style="font-size: 1.2rem;"
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
-                  <svg
-                    style="font-size: 1.2rem;"
-                  />
+                  <svg />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -343,7 +345,9 @@ exports[`Data should match a snapshot with data 1`] = `
                   classname=""
                 >
                   <mock-styled.span
-                    classname="mock-css."
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -507,12 +511,11 @@ exports[`Data should match a snapshot with data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css."
-                style="font-size: 1.2rem;"
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
-                <svg
-                  style="font-size: 1.2rem;"
-                />
+                <svg />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -551,7 +554,9 @@ exports[`Data should match a snapshot with data 1`] = `
                 classname=""
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -612,7 +617,9 @@ exports[`Data should match a snapshot with data 1`] = `
                 classname=""
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -670,12 +677,11 @@ exports[`Data should match a snapshot with data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css."
-                style="font-size: 1.2rem;"
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
-                <svg
-                  style="font-size: 1.2rem;"
-                />
+                <svg />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -732,7 +738,9 @@ exports[`Data should match a snapshot with data 1`] = `
                 classname=""
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>

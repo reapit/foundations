@@ -25,7 +25,9 @@ exports[`Carousel should match a snapshot with options 1`] = `
 "
         >
           <mock-styled.span
-            classname="mock-css."
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
             style="font-size: 0.75em;"
           >
             <svg
@@ -78,7 +80,9 @@ exports[`Carousel should match a snapshot with options 1`] = `
 "
       >
         <mock-styled.span
-          classname="mock-css."
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           style="font-size: 0.75em;"
         >
           <svg

@@ -22,7 +22,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
           AgencyCloud Functionality
         </mock-styled.div>
         <mock-styled.span
-          classname="mock-css."
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -166,7 +168,9 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
         AgencyCloud Functionality
       </mock-styled.div>
       <mock-styled.span
-        classname="mock-css."
+        classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
       >
         <svg />
       </mock-styled.span>

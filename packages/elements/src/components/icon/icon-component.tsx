@@ -1,17 +1,18 @@
-import React, { FC, HTMLAttributes } from 'react'
+import React, { FC, HTMLAttributes, memo } from 'react'
 import { cx } from '@linaria/core'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 import {
   ElIcon,
+  elIconNew,
   elIconSizeLarge,
   elIconSizeLargest,
   elIconSizeMedium,
   elIconSizeSmall,
   elIconSizeSmallest,
 } from './__styles__'
-import { iconSet } from '../../icons'
-import { deprecatedIconSet } from './deprecated'
-export type IconNames = keyof typeof iconSet
+import { iconSet, iconSetLegacy } from '../../icons'
+import { useDeprecateIcon, useDeprecateVar } from '../../storybook/deprecate-var'
+export type IconNames = keyof typeof iconSet | keyof typeof iconSetLegacy
 
 export type IconSize = 'smallest' | 'small' | 'medium' | 'large' | 'largest'
 
@@ -20,9 +21,10 @@ export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   intent?: Intent
   fontSize?: string
   className?: string
-  iconSize?: IconSize
   height?: string
   width?: string
+  /** Deprecated, will be removed at v5 */
+  iconSize?: IconSize
 }
 
 export const getIconSize = (iconSize?: IconSize): string | null => {
@@ -42,16 +44,17 @@ export const getIconSize = (iconSize?: IconSize): string | null => {
   }
 }
 
-export const Icon: FC<IconProps> = ({ icon, intent, fontSize, iconSize, className, height, width, ...rest }) => {
+export const Icon: FC<IconProps> = memo(({ icon, intent, fontSize, iconSize, className, height, width, ...rest }) => {
+  const newIcon = iconSet[icon]
+  const legacyIcon = iconSetLegacy[icon]
   const intentClassname = intent && getIntentClassName(intent)
   const sizeClassname = getIconSize(iconSize)
-  const combinedClassName = cx(className, intentClassname, sizeClassname)
+  const combinedClassName = cx(className, intentClassname, newIcon && elIconNew, sizeClassname)
 
-  if (deprecatedIconSet.includes(icon)) {
-    console.warn(`The icon "${icon}" is deprecated and will be removed in v5.`)
-  }
+  const Svg = newIcon || legacyIcon
 
-  const Svg = iconSet[icon]
+  useDeprecateIcon(icon)
+  useDeprecateVar({ iconSize }, 'Icon')
 
   if (!Svg) return <ElIcon className={combinedClassName} {...rest} />
 
@@ -60,4 +63,4 @@ export const Icon: FC<IconProps> = ({ icon, intent, fontSize, iconSize, classNam
       <Svg style={{ fontSize, height, width }} />
     </ElIcon>
   )
-}
+})

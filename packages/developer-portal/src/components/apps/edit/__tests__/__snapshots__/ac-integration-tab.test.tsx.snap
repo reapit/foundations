@@ -64,8 +64,8 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
               <mock-styled.span
                 classname="mock-css.
   margin-left: 0.375rem;
- mock-css.
-  font-size: 2.5rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
               >
                 <svg />
@@ -190,8 +190,8 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-left: 0.375rem;
- mock-css.
-  font-size: 2.5rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
             >
               <svg />
@@ -614,8 +614,8 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
               <mock-styled.span
                 classname="mock-css.
   margin-left: 0.375rem;
- mock-css.
-  font-size: 2.5rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
               >
                 <svg />
@@ -723,8 +723,8 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
             <mock-styled.span
               classname="mock-css.
   margin-left: 0.375rem;
- mock-css.
-  font-size: 2.5rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
             >
               <svg />

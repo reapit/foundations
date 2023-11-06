@@ -10,7 +10,9 @@ exports[`InputGroup component should match a snapshot when used in explicit mode
           classname=""
         />
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -26,7 +28,9 @@ exports[`InputGroup component should match a snapshot when used in explicit mode
         classname=""
       />
       <mock-styled.span
-        classname=""
+        classname="mock-css.
+  font-size: 1.5rem;
+"
       >
         <svg />
       </mock-styled.span>
@@ -260,9 +264,14 @@ exports[`InputGroup component should match a snapshot when used in react shortha
           id="myId"
         />
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
+          style="font-size: 1rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1rem;"
+          />
         </mock-styled.span>
       </mock-styled.div>
     </div>
@@ -274,9 +283,14 @@ exports[`InputGroup component should match a snapshot when used in react shortha
         id="myId"
       />
       <mock-styled.span
-        classname=""
+        classname="mock-css.
+  font-size: 1.5rem;
+"
+        style="font-size: 1rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 1rem;"
+        />
       </mock-styled.span>
     </mock-styled.div>
   </div>,
@@ -345,9 +359,14 @@ exports[`InputGroup component should match a snapshot when used in react shortha
           id="myId"
         />
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
+          style="font-size: 1rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1rem;"
+          />
         </mock-styled.span>
         <mock-styled.label
           htmlfor="myId"
@@ -364,9 +383,14 @@ exports[`InputGroup component should match a snapshot when used in react shortha
         id="myId"
       />
       <mock-styled.span
-        classname=""
+        classname="mock-css.
+  font-size: 1.5rem;
+"
+        style="font-size: 1rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 1rem;"
+        />
       </mock-styled.span>
       <mock-styled.label
         htmlfor="myId"

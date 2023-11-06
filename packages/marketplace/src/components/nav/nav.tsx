@@ -97,7 +97,7 @@ export const Nav: FC = () => {
               {
                 text: 'DevPortal',
                 callback: navigateExternal(process.env.developerPortalUrl),
-                iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+                iconUrl: <Icon icon="reapitLogoSmall" />,
               },
             ]
           : undefined

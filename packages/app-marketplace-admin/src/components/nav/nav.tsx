@@ -40,12 +40,12 @@ export const Nav: FC = () => {
         {
           text: 'AppMarket',
           callback: openNewPage(process.env.marketplaceUrl),
-          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+          iconUrl: <Icon icon="reapitLogoSmall" />,
         },
         {
           text: 'DevPortal',
           callback: openNewPage(process.env.developerPortalUrl),
-          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+          iconUrl: <Icon icon="reapitLogoSmall" />,
         },
       ]}
       avatarText={getAvatarInitials(connectSession)}

@@ -117,9 +117,14 @@ exports[`Payment should match a snapshot when the payment does not return 1`] = 
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -170,9 +175,14 @@ exports[`Payment should match a snapshot when the payment does not return 1`] = 
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
+          style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
       </div>
       <div
@@ -267,7 +277,9 @@ exports[`Payment should match a snapshot with data 1`] = `
       >
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css."
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -302,6 +314,8 @@ exports[`Payment should match a snapshot with data 1`] = `
                 classname="mock-css.
   margin-right: 0.625rem;
  mock-css. mock-css.
+  font-size: 1.5rem;
+ mock-css.
   font-size: 2.5rem;
 "
               >
@@ -2003,7 +2017,9 @@ exports[`Payment should match a snapshot with data 1`] = `
     >
       <mock-styled.div>
         <mock-styled.span
-          classname="mock-css."
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -2038,6 +2054,8 @@ exports[`Payment should match a snapshot with data 1`] = `
               classname="mock-css.
   margin-right: 0.625rem;
  mock-css. mock-css.
+  font-size: 1.5rem;
+ mock-css.
   font-size: 2.5rem;
 "
             >
@@ -3809,9 +3827,14 @@ exports[`Payment should match a snapshot with no data 1`] = `
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -3862,9 +3885,14 @@ exports[`Payment should match a snapshot with no data 1`] = `
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
+          style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
       </div>
       <div

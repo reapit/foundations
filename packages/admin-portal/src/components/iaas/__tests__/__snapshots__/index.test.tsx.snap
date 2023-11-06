@@ -30,9 +30,14 @@ exports[`IaaS should match snapshot when loading 1`] = `
                 />
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                    style="font-size: 1rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 1rem;"
+                    />
                   </mock-styled.span>
                 </mock-styled.div>
                 <mock-styled.div
@@ -81,9 +86,14 @@ exports[`IaaS should match snapshot when loading 1`] = `
               />
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                  style="font-size: 1rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
               <mock-styled.div
@@ -189,9 +199,14 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 />
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                    style="font-size: 1rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 1rem;"
+                    />
                   </mock-styled.span>
                 </mock-styled.div>
                 <mock-styled.div
@@ -267,11 +282,8 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 <mock-styled.div>
                   <mock-styled.span
                     classname="mock-css."
-                    style="font-size: 1.2rem;"
                   >
-                    <svg
-                      style="font-size: 1.2rem;"
-                    />
+                    <svg />
                   </mock-styled.span>
                 </mock-styled.div>
               </mock-styled.div>
@@ -284,7 +296,9 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
             type="button"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -306,6 +320,8 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
             >
               <svg />
@@ -341,9 +357,14 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
               />
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                  style="font-size: 1rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1rem;"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
               <mock-styled.div
@@ -419,11 +440,8 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
               <mock-styled.div>
                 <mock-styled.span
                   classname="mock-css."
-                  style="font-size: 1.2rem;"
                 >
-                  <svg
-                    style="font-size: 1.2rem;"
-                  />
+                  <svg />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -436,7 +454,9 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -458,6 +478,8 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
           >
             <svg />

@@ -17,12 +17,12 @@ describe('InputGroup component', () => {
   })
 
   it('should match a snapshot when used in react shorthand mode, with an icon', () => {
-    const wrapper = render(<InputGroup id="myId" icon="emailSystem" />)
+    const wrapper = render(<InputGroup id="myId" icon="email" />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when used in react shorthand mode, with an icon and a label', () => {
-    const wrapper = render(<InputGroup id="myId" icon="emailSystem" label="Enter your username" />)
+    const wrapper = render(<InputGroup id="myId" icon="email" label="Enter your username" />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -30,7 +30,7 @@ describe('InputGroup component', () => {
     const wrapper = render(
       <InputGroup>
         <Input />
-        <Icon icon="emailSystem">Please enter an email</Icon>
+        <Icon icon="email">Please enter an email</Icon>
         <Label>Please enter a username</Label>
       </InputGroup>,
     )

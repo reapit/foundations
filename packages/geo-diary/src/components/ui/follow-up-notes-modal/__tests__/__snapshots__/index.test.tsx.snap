@@ -32,8 +32,11 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
           />
           <mock-styled.span
             classname=""
+            style="font-size: 1rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1rem;"
+            />
           </mock-styled.span>
           <mock-styled.label
             htmlfor="test-static-id"
@@ -106,8 +109,11 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
         />
         <mock-styled.span
           classname=""
+          style="font-size: 1rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1rem;"
+          />
         </mock-styled.span>
         <mock-styled.label
           htmlfor="test-static-id"
