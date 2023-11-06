@@ -112,12 +112,16 @@ export const Button: FC<ButtonProps> = ({
     <ElButton className={combinedClassName} {...rest}>
       <ElButtonLoader />
       {isIconOnly ? (
-        <Icon icon={buttonIcon.icon} />
+        <Icon intent="default" icon={buttonIcon.icon} fontSize="1rem" />
       ) : (
         <>
-          {buttonIcon?.icon && buttonIcon.position === 'left' && <Icon className={elMr1} icon={buttonIcon.icon} />}
+          {buttonIcon?.icon && buttonIcon.position === 'left' && (
+            <Icon className={elMr1} intent="default" fontSize="1rem" icon={buttonIcon.icon} />
+          )}
           {children}
-          {buttonIcon?.icon && buttonIcon.position === 'right' && <Icon className={elMl1} icon={buttonIcon.icon} />}
+          {buttonIcon?.icon && buttonIcon.position === 'right' && (
+            <Icon className={elMl1} intent="default" fontSize="1rem" icon={buttonIcon.icon} />
+          )}
         </>
       )}
     </ElButton>
@@ -140,7 +144,7 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({ children, alignment, ...rest
 export const FloatingButton: FC<FloatingButtonProps> = ({ icon, intent, ...rest }) => {
   return (
     <Button className={styles.elFloatingButton} intent={intent} {...rest}>
-      <Icon icon={icon} iconSize="small" />
+      <Icon icon={icon} />
     </Button>
   )
 }

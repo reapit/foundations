@@ -199,7 +199,7 @@ In the example below, you can see examples of all the different flavours of `Tab
           <TableCell darkText narrowIsFullWidth>
             1 King Road, London, UK, S1 1AA
           </TableCell>
-          <TableCell narrowLabel="Name Customer" icon="usernameSystem">
+          <TableCell narrowLabel="Name Customer" icon="contact">
             Mr Johnny Corrigan
           </TableCell>
           <TableCell narrowLabel="Type">
@@ -244,7 +244,7 @@ This is done by adding the `data-force-narrow-table='true'` attribute to the mai
             <Input type="checkbox" />
           </TableCell>
           <TableCell darkText>Mt Ash Jacket Brassey Road</TableCell>
-          <TableCell narrowLabel="Name Customer" icon="usernameSystem">
+          <TableCell narrowLabel="Name Customer" icon="contact">
             Mr Johnny Corrigan
           </TableCell>
           <TableCell narrowLabel="Type">
@@ -296,7 +296,7 @@ For this version the `data-has-expandable-action` attribute should additionally 
         <TableHeader>Amount</TableHeader>
         <TableHeader>Payment Status</TableHeader>
         <TableHeader>
-          <Icon icon="editSystem" fontSize="1.2rem" />
+          <Icon icon="edit" intent="default" />
         </TableHeader>
       </TableHeadersRow>
       <TableRowContainer className={elIsActive}>
@@ -307,7 +307,7 @@ For this version the `data-has-expandable-action` attribute should additionally 
           <TableCell darkText narrowIsFullWidth>
             Mt Ash Jacket Brassey Road
           </TableCell>
-          <TableCell narrowLabel="Name Customer" icon="usernameSystem">
+          <TableCell narrowLabel="Name Customer" icon="contact">
             Mr Johnny Corrigan
           </TableCell>
           <TableCell narrowLabel="Type">
@@ -371,7 +371,7 @@ For this version the `data-has-call-to-action` attribute should additionally be 
           <TableCell darkText narrowIsFullWidth>
             Mt Ash Jacket Brassey Road
           </TableCell>
-          <TableCell narrowLabel="Name Customer" icon="usernameSystem">
+          <TableCell narrowLabel="Name Customer" icon="contact">
             Mr Johnny Corrigan
           </TableCell>
           <TableCell narrowLabel="Type">Tenant Payment Request</TableCell>
@@ -382,7 +382,7 @@ For this version the `data-has-call-to-action` attribute should additionally be 
           <TableCell narrowLabel="Status">
             <StatusIndicator intent="pending" /> Pending
           </TableCell>
-          <TableCtaTriggerCell icon="downloadSolidSystem" />
+          <TableCtaTriggerCell icon="fileDownload" />
         </TableRow>
       </TableRowContainer>
     </Table>
@@ -452,14 +452,14 @@ export interface RowActionProps {
             {
               label: 'Property',
               value: 'Mt Ash Jacket, Brassey Road',
-              icon: 'homeSystem',
+              icon: 'property',
               cellHasDarkText: true,
               narrowTable: { showLabel: true },
             },
             {
               label: 'Customer',
               value: 'Mr Johnny Corrigan',
-              icon: 'usernameSystem',
+              icon: 'contact',
               narrowTable: { showLabel: true },
             },
             {
@@ -492,14 +492,14 @@ export interface RowActionProps {
             {
               label: 'Property',
               value: 'Property Name, Road Name',
-              icon: 'homeSystem',
+              icon: 'property',
               cellHasDarkText: true,
               narrowTable: { showLabel: true },
             },
             {
               label: 'Customer',
               value: 'Mrs Davina Corrigan',
-              icon: 'usernameSystem',
+              icon: 'contact',
               narrowTable: { showLabel: true },
             },
             {
@@ -565,14 +565,14 @@ We also specify that the first row is expanded by passing an `indexExpandedRow` 
                   label: 'Property',
                   value: 'Mt Ash Jacket, Brassey Road',
                   className: elSpan2,
-                  icon: 'homeSystem',
+                  icon: 'property',
                   cellHasDarkText: true,
                   narrowTable: { showLabel: true },
                 },
                 {
                   label: 'Customer',
                   value: 'Mr Johnny Corrigan',
-                  icon: 'usernameSystem',
+                  icon: 'contact',
                   narrowTable: { showLabel: true },
                 },
                 {
@@ -607,14 +607,14 @@ We also specify that the first row is expanded by passing an `indexExpandedRow` 
                   label: 'Property',
                   value: 'Property Name, Road Name',
                   className: elSpan2,
-                  icon: 'homeSystem',
+                  icon: 'property',
                   cellHasDarkText: true,
                   narrowTable: { showLabel: true },
                 },
                 {
                   label: 'Customer',
                   value: 'Mrs Davina Corrigan',
-                  icon: 'usernameSystem',
+                  icon: 'contact',
                   narrowTable: { showLabel: true },
                 },
                 {
@@ -709,14 +709,14 @@ We've also added a `TableSortHeader` element which has a arrow indicator for you
                 },
                 value: info.property,
                 className: elSpan2,
-                icon: 'homeSystem',
+                icon: 'property',
                 cellHasDarkText: true,
                 narrowTable: { showLabel: true },
               },
               {
                 label: 'Customer',
                 value: info.customer.name,
-                icon: 'usernameSystem',
+                icon: 'contact',
                 narrowTable: { showLabel: true },
               },
               {

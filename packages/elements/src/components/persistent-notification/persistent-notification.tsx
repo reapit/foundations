@@ -24,7 +24,7 @@ export interface PersistentNotificationProps extends HTMLAttributes<HTMLDivEleme
 }
 
 export const PersistentNotification: FC<PersistentNotificationProps> = ({
-  icon = 'infoSolidSystem',
+  icon = 'info',
   intent = 'primary',
   className,
   isExpanded = false,
@@ -52,7 +52,7 @@ export const PersistentNotification: FC<PersistentNotificationProps> = ({
         data-testid="close-icon"
         onClick={() => onExpansionToggle && onExpansionToggle(!isExpanded)}
       >
-        <Icon icon={icon} />
+        <Icon fontSize="1.25rem" icon={icon} />
       </div>
       <div className={elPnContent}>{children}</div>
     </ElPersistentNotification>

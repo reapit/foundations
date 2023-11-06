@@ -103,7 +103,7 @@ export const NavResponsiveAvatar: FC<NavResponsiveAvatarProps> = ({ options, isH
       </Avatar>
       {Boolean(options.length) && (
         <>
-          <Icon icon={avatarOpen ? 'upSystem' : 'downSystem'} height="16px" width="16px" />
+          <Icon intent="default" icon={avatarOpen ? 'chevronUp' : 'chevronDown'} />
           {avatarOpen && (
             <ElNavMenu>
               {options.map(({ callback, text }, index) => (
@@ -134,7 +134,7 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
   return (
     <ElNavResponsiveAppSwitcherWrap onClick={handleToggleMenu(setAppSwitcherOpen)}>
       <ElNavResponsiveAppSwitcherIconWrap className={cx(appSwitcherOpen && elAppSwitcherOpen)}>
-        <Icon icon="appLauncherMenu" />
+        <Icon intent="default" icon="appLauncher" />
       </ElNavResponsiveAppSwitcherIconWrap>
       {appSwitcherOpen && (
         <ElNavMenu>
@@ -196,11 +196,10 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
               return (
                 <NavItem className={cx(navItemIndex === itemIndex && elNavItemActive)} key={itemIndex} href={href}>
                   {appSwitcherOptions && <NavResponsiveAppSwitcher options={appSwitcherOptions} />}
-                  <Icon height="24px" width="100px" icon="reapitLogoInfographic" />
+                  <Icon height="24px" width="100px" icon="reapitLogo" />
                   <Icon
                     className={cx(elMlAuto, elMr4, elNavItemHideDesktop)}
-                    icon="moreSolidSystem"
-                    fontSize="1.2rem"
+                    icon="more"
                     intent={navMenuOpen ? 'primary' : 'default'}
                     onClick={setNavState({
                       navMenuOpen: !navMenuOpen,
@@ -232,9 +231,8 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                   {hasSubItems && isMobile && (
                     <Icon
                       className={elMlAuto}
-                      icon={navMenuOpen && navItemIndex === itemIndex ? 'upSystem' : 'downSystem'}
-                      height="16px"
-                      width="16px"
+                      intent="default"
+                      icon={navMenuOpen && navItemIndex === itemIndex ? 'chevronUp' : 'chevronDown'}
                     />
                   )}
                 </NavItem>

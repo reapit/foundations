@@ -49,7 +49,7 @@ export const InputGroup: InputGroupWrapped = forwardRef(
       return (
         <ElInputGroup className={className}>
           <Input hasError={Boolean(hasError || errorMessage)} id={groupId} {...rest} ref={ref} />
-          {icon && <Icon intent={intent} icon={icon} />}
+          {icon && <Icon fontSize="1rem" intent={intent} icon={icon} />}
           {label && <Label htmlFor={groupId}>{label}</Label>}
           {inputAddOnText && <InputAddOn intent={intent}>{inputAddOnText}</InputAddOn>}
           {errorMessage && <InputError message={errorMessage} />}

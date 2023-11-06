@@ -20,7 +20,7 @@ import { elIsActive } from '../../styles/states'
 
 An accordion component allows collapsable content where space is at a premium, for example mobile views. It is often used in conjunction with the `Drawer` component for small edits and quick views to avoid navigating and losing context in your app.
 
-To open the accordion for vanilla usage, you will need to both toggle the `elIsActive` class on the content div and switch the `downSystem` icon for `upSystem` - see the different states below.
+To open the accordion for vanilla usage, you will need to both toggle the `elIsActive` class on the content div and switch the `down` icon for `upSystem` - see the different states below.
 
 ## Basic Usage
 
@@ -31,13 +31,13 @@ To open the accordion for vanilla usage, you will need to both toggle the `elIsA
         <AccordionTitle>Accordion Item 1</AccordionTitle>
         <AccordionTitleContentWrapper>
           <AccordionTitleContent>
-            <Icon className={elMr1} icon="carSolidSystem" />2
+            <Icon className={elMr1} icon="car" />2
           </AccordionTitleContent>
           <AccordionTitleContent>
-            <Icon className={elMr1} icon="usernameSolidSystem" />5
+            <Icon className={elMr1} icon="bed" />5
           </AccordionTitleContent>
           <AccordionTitleContent>
-            <Icon icon="upSystem" />
+            <Icon icon="chevronUp" />
           </AccordionTitleContent>
         </AccordionTitleContentWrapper>
       </AccordionItem>
@@ -46,13 +46,13 @@ To open the accordion for vanilla usage, you will need to both toggle the `elIsA
         <AccordionTitle>Accordion Item 2</AccordionTitle>
         <AccordionTitleContentWrapper>
           <AccordionTitleContent>
-            <Icon className={elMr1} icon="carSolidSystem" />2
+            <Icon className={elMr1} icon="car" />2
           </AccordionTitleContent>
           <AccordionTitleContent>
-            <Icon className={elMr1} icon="usernameSolidSystem" />5
+            <Icon className={elMr1} icon="bed" />5
           </AccordionTitleContent>
           <AccordionTitleContent>
-            <Icon icon="downSystem" />
+            <Icon icon="chevronDown" />
           </AccordionTitleContent>
         </AccordionTitleContentWrapper>
       </AccordionItem>
@@ -61,13 +61,13 @@ To open the accordion for vanilla usage, you will need to both toggle the `elIsA
         <AccordionTitle>Accordion Item 3</AccordionTitle>
         <AccordionTitleContentWrapper>
           <AccordionTitleContent>
-            <Icon className={elMr1} icon="carSolidSystem" />2
+            <Icon className={elMr1} icon="car" />2
           </AccordionTitleContent>
           <AccordionTitleContent>
-            <Icon className={elMr1} icon="usernameSolidSystem" />5
+            <Icon className={elMr1} icon="bed" />5
           </AccordionTitleContent>
           <AccordionTitleContent>
-            <Icon icon="downSystem" />
+            <Icon icon="chevronDown" />
           </AccordionTitleContent>
         </AccordionTitleContentWrapper>
       </AccordionItem>
@@ -101,10 +101,10 @@ export interface AccordionItemProps {
           content: 'Accordion Content 1',
           titleItems: [
             <>
-              <Icon className={elMr1} icon="carSolidSystem" />2
+              <Icon className={elMr1} icon="car" />2
             </>,
             <>
-              <Icon className={elMr1} icon="usernameSolidSystem" />5
+              <Icon className={elMr1} icon="bed" />5
             </>,
           ],
         },
@@ -113,10 +113,10 @@ export interface AccordionItemProps {
           content: 'Accordion Content 2',
           titleItems: [
             <>
-              <Icon className={elMr1} icon="carSolidSystem" />2
+              <Icon className={elMr1} icon="car" />2
             </>,
             <>
-              <Icon className={elMr1} icon="usernameSolidSystem" />5
+              <Icon className={elMr1} icon="bed" />5
             </>,
           ],
         },
@@ -125,10 +125,10 @@ export interface AccordionItemProps {
           content: 'Accordion Content 3',
           titleItems: [
             <>
-              <Icon className={elMr1} icon="carSolidSystem" />2
+              <Icon className={elMr1} icon="car" />2
             </>,
             <>
-              <Icon className={elMr1} icon="usernameSolidSystem" />5
+              <Icon className={elMr1} icon="bed" />5
             </>,
           ],
         },

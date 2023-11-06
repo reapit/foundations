@@ -19,7 +19,7 @@ export interface IPersistantNotification extends HTMLAttributes<HTMLDivElement> 
 }
 
 export const PersistantNotification: FC<IPersistantNotification> = ({
-  icon = 'infoSolidSystem',
+  icon = 'info',
   intent = 'secondary',
   className,
   isExpanded = false,

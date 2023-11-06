@@ -101,12 +101,12 @@ export const Pagination: FC<PaginationProps> = ({
   return (
     <PaginationWrap {...rest}>
       <PaginationButton data-testid="back-button" onClick={handlePageChange(prevPage, callback, setInputValue)}>
-        <Icon icon="backSystem" className={cx(prevPage && elPaginationPrimary)} />
+        <Icon icon="chevronLeft" className={cx(prevPage && elPaginationPrimary)} />
       </PaginationButton>
       {hasStartButton && (
         <PaginationButton data-testid="back-button" onClick={handlePageChange(1, callback, setInputValue)}>
-          <Icon icon="backSystem" className={cx(currentPage !== 1 && elPaginationPrimary)} />
-          <Icon icon="backSystem" className={cx(currentPage !== 1 && elPaginationPrimary)} />
+          <Icon icon="chevronLeft" className={cx(currentPage !== 1 && elPaginationPrimary)} />
+          <Icon icon="chevronLeft" className={cx(currentPage !== 1 && elPaginationPrimary)} />
         </PaginationButton>
       )}
       <PaginationText>
@@ -114,12 +114,12 @@ export const Pagination: FC<PaginationProps> = ({
       </PaginationText>
       {hasEndButton && (
         <PaginationButton data-testid="back-button" onClick={handlePageChange(numberPages, callback, setInputValue)}>
-          <Icon icon="nextSystem" className={cx(currentPage !== numberPages && elPaginationPrimary)} />
-          <Icon icon="nextSystem" className={cx(currentPage !== numberPages && elPaginationPrimary)} />
+          <Icon icon="chevronRight" className={cx(currentPage !== numberPages && elPaginationPrimary)} />
+          <Icon icon="chevronRight" className={cx(currentPage !== numberPages && elPaginationPrimary)} />
         </PaginationButton>
       )}
       <PaginationButton data-testid="forward-button" onClick={handlePageChange(nextPage, callback, setInputValue)}>
-        <Icon icon="nextSystem" className={cx(nextPage && elPaginationPrimary)} />
+        <Icon icon="chevronRight" className={cx(nextPage && elPaginationPrimary)} />
       </PaginationButton>
     </PaginationWrap>
   )

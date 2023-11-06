@@ -39,11 +39,10 @@ If you use a `SecondaryNav` component, you will need to add these options as `Na
   <Story name="Basic Example">
     <Nav>
       <NavItem>
-        <Icon height="24px" width="100px" icon="reapitLogoInfographic" />
+        <Icon height="24px" width="100px" icon="reapitLogo" />
         <Icon
           className={cx(elMlAuto, elMr2, elNavItemHideDesktop)}
-          icon="moreSolidSystem"
-          fontSize="1.2rem"
+          icon="more"
           intent="default"
           onClick={() => console.log('Toggle Menu')}
         />
@@ -69,11 +68,10 @@ As per above if you use a `SecondaryNav` component, you will need to add these o
   <Story name="Basic Example Mobile Menu Open">
     <Nav>
       <NavItem>
-        <Icon height="24px" width="100px" icon="reapitLogoInfographic" />
+        <Icon height="24px" width="100px" icon="reapitLogo" />
         <Icon
           className={cx(elMlAuto, elMr2, elNavItemHideDesktop)}
-          icon="moreSolidSystem"
-          fontSize="1.2rem"
+          icon="more"
           intent="default"
           onClick={() => console.log('Toggle Menu')}
         />
@@ -145,12 +143,12 @@ export interface NavResponsiveAppSwitcherOption {
             {
               text: 'AppMarket',
               callback: () => console.log('Navigating'),
-              iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+              iconUrl: <Icon icon="reapitLogoSmall" />,
             },
             {
               text: 'DevPortal',
               callback: () => console.log('Navigating'),
-              iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+              iconUrl: <Icon icon="reapitLogoSmall" />,
             },
           ]}
           avatarText="JD"
@@ -215,8 +213,6 @@ export interface NavResponsiveAppSwitcherOption {
             {
               itemIndex: 4,
               callback: () => console.log('Logging out'),
-              iconId: 'profileMenu',
-              isSecondary: true,
               text: 'Logout',
             },
           ]}

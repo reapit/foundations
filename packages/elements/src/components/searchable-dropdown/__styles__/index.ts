@@ -38,12 +38,14 @@ export const ElSearchableDropdownResultsContainer = styled.div`
 
 export const ElSearchableDropdownSearchInputAddOn = styled(InputAddOn)`
   position: absolute;
-  margin-top: 8px;
-  padding-left: 8px;
+  margin-top: 10px;
+  padding-left: 10px;
 `
 
 export const ElSearchableDropdownCloseButton = styled(Icon)`
   position: absolute;
+  font-size: 1rem;
+  color: var(--intent-default);
   right: 0;
   padding: 9px;
   cursor: pointer;
