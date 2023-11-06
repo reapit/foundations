@@ -23,7 +23,9 @@ exports[`PersistantNotification component should match a snapshot 1`] = `
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -61,7 +63,9 @@ exports[`PersistantNotification component should match a snapshot 1`] = `
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -156,7 +160,9 @@ exports[`PersistantNotification component should match a snapshot for an inline 
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -194,7 +200,9 @@ exports[`PersistantNotification component should match a snapshot for an inline 
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -289,7 +297,9 @@ exports[`PersistantNotification component should match a snapshot when expanded 
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -327,7 +337,9 @@ exports[`PersistantNotification component should match a snapshot when expanded 
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -422,7 +434,9 @@ exports[`PersistantNotification component should match a snapshot when given an 
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -460,7 +474,9 @@ exports[`PersistantNotification component should match a snapshot when given an 
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>

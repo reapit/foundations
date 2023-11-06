@@ -134,7 +134,7 @@ export const AppConsentsPage: FC = () => {
                   label: 'Client',
                   value: installations?.data?.find((installation) => installation.id === consent.installationId)
                     ?.customerName,
-                  icon: 'flatInfographic',
+                  icon: 'property',
                   cellHasDarkText: true,
                   narrowTable: {
                     showLabel: true,
@@ -171,7 +171,7 @@ export const AppConsentsPage: FC = () => {
               ],
               ctaContent: {
                 headerContent: 'Resend Email',
-                icon: 'emailSystem',
+                icon: 'email',
                 onClick: handleSetConsentId(setConsentId, consent.id),
               },
             }))}

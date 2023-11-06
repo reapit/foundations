@@ -229,12 +229,11 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
-            style="font-size: 1.25rem;"
           >
-            <svg
-              style="font-size: 1.25rem;"
-            />
+            <svg />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -469,12 +468,11 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
-          style="font-size: 1.25rem;"
         >
-          <svg
-            style="font-size: 1.25rem;"
-          />
+          <svg />
         </mock-styled.span>
         <mock-styled.input
           placeholder="Search by App or Developer"
@@ -586,12 +584,11 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
-              style="font-size: 1.25rem;"
             >
-              <svg
-                style="font-size: 1.25rem;"
-              />
+              <svg />
             </mock-styled.span>
             <mock-styled.input
               placeholder="Search by App or Developer"
@@ -831,12 +828,11 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
-            style="font-size: 1.25rem;"
           >
-            <svg
-              style="font-size: 1.25rem;"
-            />
+            <svg />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -897,12 +893,11 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
-            style="font-size: 1.25rem;"
           >
-            <svg
-              style="font-size: 1.25rem;"
-            />
+            <svg />
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -1142,12 +1137,11 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
+ mock-css. mock-css.
+  font-size: 1.5rem;
 "
-          style="font-size: 1.25rem;"
         >
-          <svg
-            style="font-size: 1.25rem;"
-          />
+          <svg />
         </mock-styled.span>
         <mock-styled.input
           placeholder="Search by App or Developer"

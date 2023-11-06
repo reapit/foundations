@@ -73,11 +73,6 @@ export const ElNavItem = styled.a`
   width: 100%;
   border-left: 3px solid var(--color-white);
 
-  svg {
-    height: 2rem;
-    width: 2rem;
-  }
-
   &:hover {
     color: var(--color-grey-500);
     background-color: var(--color-grey-50);
@@ -225,10 +220,6 @@ export const elNavItemHideDesktop = css`
     visibility: hidden;
     padding: 0 !important;
     margin: 0 !important;
-  }
-
-  svg {
-    height: 1.2rem;
   }
 `
 

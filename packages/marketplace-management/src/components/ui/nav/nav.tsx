@@ -40,7 +40,6 @@ export const Nav: FC = () => {
     {
       itemIndex: 1,
       text: 'Offices',
-      iconId: 'officesMenu',
       callback: navigateRoute(navigate, Routes.OFFICES),
       subItems: [
         {
@@ -58,7 +57,6 @@ export const Nav: FC = () => {
     {
       itemIndex: 2,
       text: 'Users',
-      iconId: 'usersMenu',
       callback: navigateRoute(navigate, Routes.USERS),
       subItems: [
         {
@@ -76,7 +74,6 @@ export const Nav: FC = () => {
     {
       itemIndex: 3,
       text: 'AppMarket',
-      iconId: 'marketplaceMenu',
       callback: navigateRoute(navigate, Routes.MARKETPLACE),
     },
   ]
@@ -89,12 +86,12 @@ export const Nav: FC = () => {
         {
           text: 'AppMarket',
           callback: openNewPage('https://marketplace.reapit.cloud'),
-          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+          iconUrl: <Icon icon="reapitLogoSmall" />,
         },
         {
           text: 'DevPortal',
           callback: openNewPage('https://developers.reapit.cloud'),
-          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+          iconUrl: <Icon icon="reapitLogoSmall" />,
         },
       ]}
       avatarText={getAvatarInitials(connectSession)}

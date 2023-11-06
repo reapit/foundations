@@ -7,7 +7,7 @@ exports[`Swagger should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css. mock-css. mock-css."
+        classname="mock-css. mock-css. mock-css. mock-css."
       >
         <div
           class="mock-css.
@@ -24,9 +24,14 @@ exports[`Swagger should match a snapshot 1`] = `
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -46,7 +51,7 @@ exports[`Swagger should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css. mock-css. mock-css."
+      classname="mock-css. mock-css. mock-css. mock-css."
     >
       <div
         class="mock-css.
@@ -63,9 +68,14 @@ exports[`Swagger should match a snapshot 1`] = `
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
+          style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
       </div>
       <div

@@ -76,7 +76,7 @@ export const UsersPage: FC = () => {
             <InputGroup
               {...register('organisationName')}
               type="search"
-              icon="searchSystem"
+              icon="search"
               placeholder="Search by organisation name"
               label="Org Name"
             />
@@ -85,7 +85,7 @@ export const UsersPage: FC = () => {
             <InputGroup
               {...register('email')}
               type="search"
-              icon="searchSystem"
+              icon="search"
               placeholder="Search by email"
               label="User Email"
             />
@@ -94,7 +94,7 @@ export const UsersPage: FC = () => {
             <InputGroup
               {...register('name')}
               type="search"
-              icon="searchSystem"
+              icon="search"
               placeholder="Search by user name"
               label="User Name"
             />
@@ -193,7 +193,7 @@ export const UsersPage: FC = () => {
                   {
                     label: 'Name',
                     value: name ?? '-',
-                    icon: 'usernameSystem',
+                    icon: 'contact',
                     narrowTable: {
                       showLabel: true,
                     },
@@ -201,7 +201,7 @@ export const UsersPage: FC = () => {
                   {
                     label: 'Email',
                     value: email ?? '-',
-                    icon: 'emailSystem',
+                    icon: 'email',
                     narrowTable: {
                       showLabel: true,
                     },
@@ -209,7 +209,7 @@ export const UsersPage: FC = () => {
                   {
                     label: 'Date Created',
                     value: created ? dayjs(created).format('DD-MM-YYYY') : '-',
-                    icon: 'calendarSystem',
+                    icon: 'calendar',
                     narrowTable: {
                       showLabel: true,
                     },
@@ -244,9 +244,7 @@ export const UsersPage: FC = () => {
                   },
                   {
                     label: 'Active',
-                    value: (
-                      <Icon icon={inactive ? 'closeSystem' : 'checkSystem'} intent={inactive ? 'danger' : 'success'} />
-                    ),
+                    value: <Icon icon={inactive ? 'close' : 'check'} intent={inactive ? 'danger' : 'success'} />,
                     narrowTable: {
                       showLabel: true,
                     },

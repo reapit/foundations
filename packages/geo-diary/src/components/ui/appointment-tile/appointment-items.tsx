@@ -69,7 +69,7 @@ export const AppointmentItems: FC<RenderIconItemsProps> = ({ appointment }) => {
       <LandlordItem appointment={appointment} />
       <CardListItem className={elCardListItemExpanded}>
         <CardListIcon>
-          <Icon icon="editSystem" intent="primary" />
+          <Icon icon="edit" intent="primary" />
         </CardListIcon>
         <CardListItemTextWrap onClick={openFollowUpModal}>
           <CardListItemTextPrimary>Notes</CardListItemTextPrimary>
@@ -79,7 +79,7 @@ export const AppointmentItems: FC<RenderIconItemsProps> = ({ appointment }) => {
       {!appointment.cancelled && (
         <CardListItem className={elCardListItemExpanded}>
           <CardListIcon>
-            <Icon icon="trashSystem" intent="danger" />
+            <Icon icon="trash" intent="danger" />
           </CardListIcon>
           <CardListItemTextWrap onClick={openCancelModal}>
             <CardListItemTextPrimary>Cancel</CardListItemTextPrimary>

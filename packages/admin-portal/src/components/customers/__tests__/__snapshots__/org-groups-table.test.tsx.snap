@@ -154,7 +154,9 @@ exports[`OrgGroupsTable should render component with data 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -171,7 +173,9 @@ exports[`OrgGroupsTable should render component with data 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -269,7 +273,9 @@ exports[`OrgGroupsTable should render component with data 1`] = `
         type="button"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -286,7 +292,9 @@ exports[`OrgGroupsTable should render component with data 1`] = `
         type="button"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -392,9 +400,14 @@ exports[`OrgGroupsTable should render component with empty data 1`] = `
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -433,9 +446,14 @@ exports[`OrgGroupsTable should render component with empty data 1`] = `
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
+          style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
       </div>
       <div

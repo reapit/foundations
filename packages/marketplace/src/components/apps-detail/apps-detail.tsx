@@ -297,7 +297,7 @@ export const AppsDetail: FC = () => {
             </PersistentNotification>
           )}
           <AppDetailBackButton onClick={navigateBack(navigate)}>
-            <Icon icon="backSystem" intent="primary" />
+            <Icon icon="chevronLeft" intent="primary" />
           </AppDetailBackButton>
           <AppsDetailHeader app={app} />
           <ButtonGroup className={elMb11} alignment="left">
@@ -341,7 +341,7 @@ export const AppsDetail: FC = () => {
                 <ButtonGroup>
                   <Button intent="default" onClick={videoModalOpenHowTo}>
                     <FlexContainer isFlexAlignCenter>
-                      <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
+                      <Icon className={cx(elMr4)} icon="video" intent="primary" fontSize="1.25em" />
                       {VideoType.HowTo}
                       {name}
                     </FlexContainer>
@@ -349,7 +349,7 @@ export const AppsDetail: FC = () => {
                   {videos && videos?.length > 1 && (
                     <Button intent="default" onClick={videoModalOpenMarketing}>
                       <FlexContainer isFlexAlignCenter>
-                        <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
+                        <Icon className={cx(elMr4)} icon="video" intent="primary" fontSize="1.25em" />
                         {VideoType.Marketing}
                         {name}
                       </FlexContainer>

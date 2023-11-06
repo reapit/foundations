@@ -249,9 +249,7 @@ export const ElCardListIcon = styled.div`
   justify-content: center;
   height: 2em;
   width: 2em;
-  background: var(--color-grey-100);
   margin-right: 0.5rem;
-  border-radius: 50%;
   flex-shrink: 0;
 `
 

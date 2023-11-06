@@ -90,7 +90,7 @@ export const Drawer: FC<DrawerProps> = ({
             {title && <ElDrawerTitle>{title}</ElDrawerTitle>}
             {subtitle && <ElDrawerSubtitle>{subtitle}</ElDrawerSubtitle>}
           </div>
-          {canDismiss && <Icon icon="closeSystem" onClick={onDrawerClose} />}
+          {canDismiss && <Icon icon="close" intent="default" onClick={onDrawerClose} />}
         </ElDrawerHeader>
         <ElDrawerBody>{children}</ElDrawerBody>
         {footerItems && <ElDrawerFooter>{footerItems}</ElDrawerFooter>}

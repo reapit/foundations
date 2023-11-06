@@ -161,7 +161,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
               {
                 label: 'Name',
                 value: member.name ?? '',
-                icon: 'usernameSystem',
+                icon: 'contact',
                 cellHasDarkText: true,
                 narrowTable: {
                   showLabel: true,
@@ -179,7 +179,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
                     Send Email
                   </a>
                 ),
-                icon: 'emailSystem',
+                icon: 'email',
                 cellHasDarkText: true,
                 narrowTable: {
                   showLabel: true,

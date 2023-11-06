@@ -41,7 +41,7 @@ export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAtt
 export const SearchableDropdownControlledInner = <T extends unknown>(
   {
     isResultsListVisible,
-    icon = 'searchSystem',
+    icon = 'search',
     loading,
     resultsList,
     onResultClick,
@@ -65,7 +65,7 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
       <ElSearchableDropdownContainer>
         <input id={id} style={{ display: 'none' }} readOnly value={selectedValue} ref={ref} />
         <ElSearchableDropdownSearchInputAddOn>
-          <Icon icon={icon} />
+          <Icon icon={icon} fontSize="1rem" intent="default" />
         </ElSearchableDropdownSearchInputAddOn>
         <ElSearchableDropdownSearchInput data-testid="search-input" value={value} {...inputProps} />
         {isResultsListVisible && (
@@ -85,7 +85,7 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
           </ElSearchableDropdownResultsContainer>
         )}
         {loading && <ElSearchableDropdownSearchLoader />}
-        {isClearVisible && <ElSearchableDropdownCloseButton icon="closeSystem" onClick={onClear} />}
+        {isClearVisible && <ElSearchableDropdownCloseButton icon="close" onClick={onClear} />}
       </ElSearchableDropdownContainer>
     </>
   )
@@ -166,7 +166,7 @@ export const SearchableDropdownInner = <T extends unknown>(
       value={value}
       ref={ref}
       isResultsListVisible={resultsVisible}
-      icon={icon || 'searchSystem'}
+      icon={icon || 'search'}
       loading={loading}
       resultsList={resultsList.map((result) => ({
         label: getResultLabel(result),

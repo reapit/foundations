@@ -55,9 +55,14 @@ exports[`Traffic should match a snapshot 1`] = `
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </div>
           <div
@@ -126,9 +131,14 @@ exports[`Traffic should match a snapshot 1`] = `
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </div>
         <div

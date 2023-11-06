@@ -76,7 +76,7 @@ exports[`AppCard should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
             >
               <svg />
             </mock-styled.span>
@@ -93,7 +93,7 @@ exports[`AppCard should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname=""
+              classname="mock-css."
             >
               <svg />
             </mock-styled.span>
@@ -182,7 +182,7 @@ exports[`AppCard should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css."
           >
             <svg />
           </mock-styled.span>
@@ -199,7 +199,7 @@ exports[`AppCard should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css."
           >
             <svg />
           </mock-styled.span>

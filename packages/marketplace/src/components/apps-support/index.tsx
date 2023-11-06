@@ -70,7 +70,7 @@ export const AppsSupportPage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <FlexContainer className={cx(appsSearchContainer, elMb11)} isFlexAlignCenter>
-          <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
+          <Icon className={appsSearchInputIcon} icon="search" intent="default" />
           <AppsSearchInput type="text" placeholder="Search by App or Developer" onChange={debouncedSearch} />
         </FlexContainer>
         {!search && !appsLoading && (

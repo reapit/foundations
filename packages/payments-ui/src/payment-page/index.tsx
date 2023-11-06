@@ -29,7 +29,7 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
     <div className={elFadeIn}>
       {!isPortal && (
         <PaymentsBackButton onClick={navigateRoute(navigate, '/payments')}>
-          <Icon icon="backSolidSystem" intent="primary" />
+          <Icon icon="chevronLeft" intent="primary" />
         </PaymentsBackButton>
       )}
       <FlexContainer>
@@ -40,7 +40,7 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
       <Grid className={elMb11}>
         <Col>
           <FlexContainer>
-            <Icon className={elMr4} icon="poundSystem" intent="default" iconSize="medium" />
+            <Icon className={elMr4} icon="pound" intent="default" iconSize="medium" />
             <div>
               <Subtitle hasNoMargin>Payment Amount</Subtitle>
               <BodyText hasGreyText>{amount ? amount.toFixed(2) : 0}</BodyText>

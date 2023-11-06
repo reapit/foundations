@@ -46,9 +46,14 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
               placeholder="Search"
             />
             <mock-styled.span
-              classname="mock-css."
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1rem;"
+              />
             </mock-styled.span>
             <mock-styled.label
               htmlfor="test-static-id"
@@ -115,9 +120,14 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
             placeholder="Search"
           />
           <mock-styled.span
-            classname="mock-css."
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1rem;"
+            />
           </mock-styled.span>
           <mock-styled.label
             htmlfor="test-static-id"
@@ -241,9 +251,14 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
               placeholder="Search"
             />
             <mock-styled.span
-              classname="mock-css."
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1rem;"
+              />
             </mock-styled.span>
             <mock-styled.label
               htmlfor="test-static-id"
@@ -310,9 +325,14 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
             placeholder="Search"
           />
           <mock-styled.span
-            classname="mock-css."
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1rem;"
+            />
           </mock-styled.span>
           <mock-styled.label
             htmlfor="test-static-id"
