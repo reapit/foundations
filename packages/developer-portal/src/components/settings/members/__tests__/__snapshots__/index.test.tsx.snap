@@ -61,8 +61,11 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Name"
@@ -88,8 +91,11 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Email"
@@ -285,8 +291,11 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Name"
@@ -312,8 +321,11 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Email"
@@ -571,8 +583,11 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Name"
@@ -598,8 +613,11 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Email"
@@ -795,8 +813,11 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Name"
@@ -822,8 +843,11 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Email"

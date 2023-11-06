@@ -75,8 +75,11 @@ exports[`SettingsSubscriptionsPage should match snapshot 1`] = `
                 classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Start Date"
@@ -91,8 +94,11 @@ exports[`SettingsSubscriptionsPage should match snapshot 1`] = `
                 classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Renewal Date"
@@ -116,8 +122,11 @@ exports[`SettingsSubscriptionsPage should match snapshot 1`] = `
                 classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Cost"
@@ -280,8 +289,11 @@ exports[`SettingsSubscriptionsPage should match snapshot 1`] = `
               classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Start Date"
@@ -296,8 +308,11 @@ exports[`SettingsSubscriptionsPage should match snapshot 1`] = `
               classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Renewal Date"
@@ -321,8 +336,11 @@ exports[`SettingsSubscriptionsPage should match snapshot 1`] = `
               classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Cost"
@@ -547,8 +565,11 @@ exports[`SettingsSubscriptionsPage should match snapshot for mobile view 1`] = `
                 classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Start Date"
@@ -563,8 +584,11 @@ exports[`SettingsSubscriptionsPage should match snapshot for mobile view 1`] = `
                 classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Renewal Date"
@@ -588,8 +612,11 @@ exports[`SettingsSubscriptionsPage should match snapshot for mobile view 1`] = `
                 classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Cost"
@@ -752,8 +779,11 @@ exports[`SettingsSubscriptionsPage should match snapshot for mobile view 1`] = `
               classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Start Date"
@@ -768,8 +798,11 @@ exports[`SettingsSubscriptionsPage should match snapshot for mobile view 1`] = `
               classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Renewal Date"
@@ -793,8 +826,11 @@ exports[`SettingsSubscriptionsPage should match snapshot for mobile view 1`] = `
               classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Cost"

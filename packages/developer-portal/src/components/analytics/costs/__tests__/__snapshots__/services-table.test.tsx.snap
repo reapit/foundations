@@ -47,8 +47,11 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
                 classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Service Name"
@@ -81,8 +84,11 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
                 classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Service Cost"
@@ -203,8 +209,11 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
               classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Service Name"
@@ -237,8 +246,11 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
               classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Service Cost"
