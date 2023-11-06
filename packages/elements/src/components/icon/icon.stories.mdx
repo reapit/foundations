@@ -27,9 +27,11 @@ For non-React users, we export all the icons from `@reapit/elements/assets` wher
 
 For a basic icon, just select an icon name from one of the tables below. They are rendered in suggested sizes appropriate for their use - for details on how this works see the "Icon Sizes" story below.
 
+> In v4 we recomment using icons with a `fontSize` prop of 24px or 1.5rem - previously the default was 16px. In version v5 24px will become the new default however in v4, we do not wish to break any existing UI using the legacy icons set so we have added a convenience `elIconNew` class to the new icon set by default. This will be removed in v5 when the default size will be 24px.
+
 <Canvas>
   <Story name="Basic Usage">
-    <Icon icon="addSystem" />
+    <Icon icon="add" />
   </Story>
 </Canvas>
 
@@ -41,30 +43,12 @@ Set the `fontSize` prop to scale the icon up or down on a granular level. Note t
 
 <Canvas>
   <Story name="Icon Font Size">
-    <Icon className={elMb5} fontSize="2rem" icon="addSystem" />
-    <Icon className={elMb5} fontSize="0.75rem" icon="addSystem" />
+    <Icon className={elMb5} fontSize="3rem" icon="add" />
+    <Icon className={elMb5} fontSize="1rem" icon="add" />
   </Story>
 </Canvas>
 
 <RenderHtmlMarkup component="Icon" story={['Icon Font Size']} />
-
-## Icon Set Sizes
-
-You can use one of the pre-defined sizes we ship using the `iconSize` prop. See the props table in the basic usage story for the available sizes.
-
-For non React users, the sizes map directly to css classes - see the rendered markup for these. Note the `el-mb-5` class is purely presentational for this story.
-
-<Canvas>
-  <Story name="Icon Set Sizes">
-    <Icon className={elMb5} iconSize="smallest" icon="checkSolidSystem" />
-    <Icon className={elMb5} iconSize="small" icon="checkSolidSystem" />
-    <Icon className={elMb5} iconSize="medium" icon="checkSolidSystem" />
-    <Icon className={elMb5} iconSize="large" icon="checkSolidSystem" />
-    <Icon className={elMb5} iconSize="largest" icon="checkSolidSystem" />
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Icon" story={['Icon Set Sizes']} />
 
 ## Icon Custom Sizes
 
@@ -78,36 +62,186 @@ By setting a custom height and width prop, you can scale the icon to custom requ
 
 <RenderHtmlMarkup component="Icon" story={['Icon Custom Sizes']} />
 
-## System Icon Intent
+## Icon Intent
 
-Set the `intent` prop to enable Icons to be used in different contexts by assigning colors. Note this only applies to icons in the System Icons table above.
+Set the `intent` prop to enable Icons to be used in different contexts by assigning colors. Note for legacy icons below, this only applies to icons in the System Icons set.
 
 Again, non React users can apply the relevant classes to achieve the same behaviour.
 
 <Canvas>
-  <Story name="System Icon Intent">
-    <Icon className={elMb5} intent="primary" icon="cloudSolidSystem" />
-    <Icon className={elMb5} intent="success" icon="cloudSolidSystem" />
-    <Icon className={elMb5} intent="pending" icon="cloudSolidSystem" />
-    <Icon className={elMb5} intent="warning" icon="cloudSolidSystem" />
-    <Icon className={elMb5} intent="danger" icon="cloudSolidSystem" />
-    <Icon className={elMb5} intent="neutral" icon="cloudSolidSystem" />
+  <Story name="Icon Intent">
+    <Icon className={elMb5} intent="primary" icon="cloud" />
+    <Icon className={elMb5} intent="neutral" icon="cloud" />
+    <Icon className={elMb5} intent="success" icon="cloud" />
+    <Icon className={elMb5} intent="pending" icon="cloud" />
+    <Icon className={elMb5} intent="warning" icon="cloud" />
+    <Icon className={elMb5} intent="danger" icon="cloud" />
+    <Icon className={elMb5} intent="default" icon="cloud" />
   </Story>
 </Canvas>
 
-<RenderHtmlMarkup component="Icon" story={['System Icon Intent']} />
+<RenderHtmlMarkup component="Icon" story={['Icon Intent']} />
 
-## Infographic Icons - Full Colour Large
+## Icon Set
 
-Full Colour icons are used for pages or large areas of content. In atomic design they form organisms or templates.
+The icon set below is a re-vamped and extended version of the original icons in Elements v3. These will be maintained and added to for future iterations of the project so always use these for something new, and attempt to refactor out legacy icons over time ahead og the v5 release.
+
+| Icon Name           | Default Size 24px                   |
+| ------------------- | ----------------------------------- |
+| add                 | <Icon icon="add" />                 |
+| announcement        | <Icon icon="announcement" />        |
+| appLauncher         | <Icon icon="appLauncher" />         |
+| arrowDown           | <Icon icon="arrowDown" />           |
+| arrowLeft           | <Icon icon="arrowLeft" />           |
+| arrowRight          | <Icon icon="arrowRight" />          |
+| arrowUp             | <Icon icon="arrowUp" />             |
+| asterisk            | <Icon icon="asterisk" />            |
+| attachment          | <Icon icon="attachment" />          |
+| automation          | <Icon icon="automation" />          |
+| bath                | <Icon icon="bath" />                |
+| bed                 | <Icon icon="bed" />                 |
+| calendar            | <Icon icon="calendar" />            |
+| camera              | <Icon icon="camera" />              |
+| car                 | <Icon icon="car" />                 |
+| check               | <Icon icon="check" />               |
+| checkOutline        | <Icon icon="checkOutline" />        |
+| chevronDown         | <Icon icon="chevronDown" />         |
+| chevronLeft         | <Icon icon="chevronLeft" />         |
+| chevronRight        | <Icon icon="chevronRight" />        |
+| chevronUp           | <Icon icon="chevronUp" />           |
+| circularAdd         | <Icon icon="circularAdd" />         |
+| circularAddSolid    | <Icon icon="circularAddSolid" />    |
+| circularRemove      | <Icon icon="circularRemove" />      |
+| circularRemoveSolid | <Icon icon="circularRemoveSolid" /> |
+| close               | <Icon icon="close" />               |
+| cloud               | <Icon icon="cloud" />               |
+| compliance          | <Icon icon="compliance" />          |
+| contact             | <Icon icon="contact" />             |
+| contacts            | <Icon icon="contacts" />            |
+| copy                | <Icon icon="copy" />                |
+| dashboard           | <Icon icon="dashboard" />           |
+| dragIndicator       | <Icon icon="dragIndicator" />       |
+| dragIndicatorAlt    | <Icon icon="dragIndicatorAlt" />    |
+| edit                | <Icon icon="edit" />                |
+| elipsis             | <Icon icon="elipsis" />             |
+| email               | <Icon icon="email" />               |
+| emailDisabled       | <Icon icon="emailDisabled" />       |
+| emailFill           | <Icon icon="emailFill" />           |
+| euro                | <Icon icon="euro" />                |
+| exportIcon          | <Icon icon="exportIcon" />          |
+| favourite           | <Icon icon="favourite" />           |
+| feed                | <Icon icon="feed" />                |
+| file                | <Icon icon="file" />                |
+| fileDownload        | <Icon icon="fileDownload" />        |
+| fileUpload          | <Icon icon="fileUpload" />          |
+| filter              | <Icon icon="filter" />              |
+| folder              | <Icon icon="folder" />              |
+| forward             | <Icon icon="forward" />             |
+| fullscreen          | <Icon icon="fullscreen" />          |
+| fullscreenExit      | <Icon icon="fullscreenExit" />      |
+| help                | <Icon icon="help" />                |
+| info                | <Icon icon="info" />                |
+| infoOutline         | <Icon icon="infoOutline" />         |
+| insights            | <Icon icon="insights" />            |
+| inspection          | <Icon icon="inspection" />          |
+| insurance           | <Icon icon="insurance" />           |
+| key                 | <Icon icon="key" />                 |
+| keyboard            | <Icon icon="keyboard" />            |
+| laptop              | <Icon icon="laptop" />              |
+| link                | <Icon icon="link" />                |
+| location            | <Icon icon="location" />            |
+| locationAlt         | <Icon icon="locationAlt" />         |
+| locationDisabled    | <Icon icon="locationDisabled" />    |
+| lock                | <Icon icon="lock" />                |
+| maintenance         | <Icon icon="maintenance" />         |
+| maintenanceAlt      | <Icon icon="maintenanceAlt" />      |
+| marketplace         | <Icon icon="marketplace" />         |
+| menu                | <Icon icon="menu" />                |
+| message             | <Icon icon="message" />             |
+| messageDisabled     | <Icon icon="messageDisabled" />     |
+| messageTyping       | <Icon icon="messageTyping" />       |
+| micOff              | <Icon icon="micOff" />              |
+| micOn               | <Icon icon="micOn" />               |
+| minus               | <Icon icon="minus" />               |
+| mobile              | <Icon icon="mobile" />              |
+| money               | <Icon icon="money" />               |
+| moodHappy           | <Icon icon="moodHappy" />           |
+| moodNeutral         | <Icon icon="moodNeutral" />         |
+| moodUnhappy         | <Icon icon="moodUnhappy" />         |
+| more                | <Icon icon="more" />                |
+| note                | <Icon icon="note" />                |
+| notification        | <Icon icon="notification" />        |
+| payment             | <Icon icon="payment" />             |
+| phone               | <Icon icon="phone" />               |
+| phoneDisabled       | <Icon icon="phoneDisabled" />       |
+| photo               | <Icon icon="photo" />               |
+| pin                 | <Icon icon="pin" />                 |
+| pound               | <Icon icon="pound" />               |
+| powerOn             | <Icon icon="powerOn" />             |
+| property            | <Icon icon="property" />            |
+| propertyChecked     | <Icon icon="propertyChecked" />     |
+| radio               | <Icon icon="radio" />               |
+| refresh             | <Icon icon="refresh" />             |
+| repeat              | <Icon icon="repeat" />              |
+| reply               | <Icon icon="reply" />               |
+| replyAll            | <Icon icon="replyAll" />            |
+| report              | <Icon icon="report" />              |
+| sale                | <Icon icon="sale" />                |
+| search              | <Icon icon="search" />              |
+| settings            | <Icon icon="settings" />            |
+| share               | <Icon icon="share" />               |
+| sortAscend          | <Icon icon="sortAscend" />          |
+| sortDescend         | <Icon icon="sortDescend" />         |
+| star                | <Icon icon="star" />                |
+| statusBad           | <Icon icon="statusBad" />           |
+| statusGood          | <Icon icon="statusGood" />          |
+| statusPaused        | <Icon icon="statusPaused" />        |
+| statusUnknown       | <Icon icon="statusUnknown" />       |
+| tag                 | <Icon icon="tag" />                 |
+| task                | <Icon icon="task" />                |
+| time                | <Icon icon="time" />                |
+| trash               | <Icon icon="trash" />               |
+| user                | <Icon icon="user" />                |
+| video               | <Icon icon="video" />               |
+| view                | <Icon icon="view" />                |
+| viewDisabled        | <Icon icon="viewDisabled" />        |
+| walking             | <Icon icon="walking" />             |
+| warning             | <Icon icon="warning" />             |
+| warningOutline      | <Icon icon="warningOutline" />      |
+| workflow            | <Icon icon="workflow" />            |
+
+## Other Icons
+
+Other icons exported by the project with no specific category like placeholders and logos.
 
 <Canvas>
-  <Story name="Infographic Icons - Full Colour Large">
-    <Icon iconSize="large" icon="agencyCloudInfographic" />
+  <Story name="Other Icons">
+    <Icon height="20px" width="100px" icon="reapitLogo" />
   </Story>
 </Canvas>
 
-| Info Graphic Icon Name                      | Recommended Size - Large Icon                                                |
+| Misc Icon Name   | Displayed Size - Various                                                 |
+| ---------------- | ------------------------------------------------------------------------ |
+| reapitLogo       | <Icon className={elMb5} height="20px" width="100px" icon="reapitLogo" /> |
+| reapitLogoSmall  | <Icon className={elMb5} icon="reapitLogoSmall" />                        |
+| placeholderSmall | <Icon className={elMb5} fontSize="1.5rem" icon="placeholderSmall" />     |
+| placeholderLarge | <Icon className={elMb5} fontSize="5rem" icon="placeholderLarge" />       |
+
+## Legacy Icons
+
+Legacy icons have been retained in the documentation for reference only and to allow you to find suitable alternatives as required. They are displayed at their suggested resolution. Will be removed in v5.
+
+<Canvas>
+  <Story name="Legacy Icons">
+    <Icon className={elMb5} iconSize="large" icon="agencyCloudInfographic" />
+    <Icon className={elMb5} iconSize="medium" icon="appCategoryInfographic" />
+    <Icon className={elMb5} iconSize="small" icon="applicantInfographic" />
+    <Icon className={elMb5} iconSize="small" icon="addSystem" />
+    <Icon className={elMb5} iconSize="small" icon="addSolidSystem" />
+  </Story>
+</Canvas>
+
+| Info Graphic Icon Name                      | Recommended Size                                                             |
 | ------------------------------------------- | ---------------------------------------------------------------------------- |
 | agencyCloudInfographic                      | <Icon iconSize="large" icon="agencyCloudInfographic" />                      |
 | apiDocsInfographic                          | <Icon iconSize="large" icon="apiDocsInfographic" />                          |
@@ -150,236 +284,149 @@ Full Colour icons are used for pages or large areas of content. In atomic design
 | webhooksDocsInfographic                     | <Icon iconSize="large" icon="webhooksDocsInfographic" />                     |
 | webhooksInfographic                         | <Icon iconSize="large" icon="webhooksInfographic" />                         |
 | welcomeInfographic                          | <Icon iconSize="large" icon="welcomeInfographic" />                          |
-
-## Infographic Icons - Dark Medium
-
-These icons express the meaning of a complex action explained in sentences (i.e. multi select - chips). In atomic design they represent molecules or organisms.
-
-<Canvas>
-  <Story name="Infographic Icons - Dark Medium">
-    <Icon iconSize="medium" icon="appCategoryInfographic" />
-  </Story>
-</Canvas>
-
-| System Icon Name        | Recommended Size - Medium Icon                            |
-| ----------------------- | --------------------------------------------------------- |
-| appCategoryInfographic  | <Icon iconSize="medium" icon="appCategoryInfographic" />  |
-| appInfographic          | <Icon iconSize="medium" icon="appInfographic" />          |
-| appInfographicAlt       | <Icon iconSize="medium" icon="appInfographicAlt" />       |
-| appTypeInfographic      | <Icon iconSize="medium" icon="appTypeInfographic" />      |
-| devicesInfographic      | <Icon iconSize="medium" icon="devicesInfographic" />      |
-| doorLockInfographic     | <Icon iconSize="medium" icon="doorLockInfographic" />     |
-| feedAltInfographic      | <Icon iconSize="medium" icon="feedAltInfographic" />      |
-| feedInfographic         | <Icon iconSize="medium" icon="feedInfographic" />         |
-| globeInfographic        | <Icon iconSize="medium" icon="globeInfographic" />        |
-| htmlInfographic         | <Icon iconSize="medium" icon="htmlInfographic" />         |
-| lockedInfographic       | <Icon iconSize="medium" icon="lockedInfographic" />       |
-| logoKeyInfographic      | <Icon iconSize="medium" icon="logoKeyInfographic" />      |
-| logoSettingsInfographic | <Icon iconSize="medium" icon="logoSettingsInfographic" /> |
-| refreshInfographic      | <Icon iconSize="medium" icon="refreshInfographic" />      |
-| reportInfographic       | <Icon iconSize="medium" icon="reportInfographic" />       |
-| reportingInfographic    | <Icon iconSize="medium" icon="reportingInfographic" />    |
-| selectInfographic       | <Icon iconSize="medium" icon="selectInfographic" />       |
-| userHouseInfographic    | <Icon iconSize="medium" icon="userHouseInfographic" />    |
-
-## Infographic Icons - Light Small
-
-These icons are used within cards, forms or tables to support the meaning of a title. They usually explains words, not sentences. In atomic design they represent molecules.
-
-<Canvas>
-  <Story name="Infographic Icons - Light Small">
-    <Icon iconSize="small" icon="applicantInfographic" />
-  </Story>
-</Canvas>
-
-| System Icon Name       | Recommended Size - Small Icon                           |
-| ---------------------- | ------------------------------------------------------- |
-| applicantInfographic   | <Icon iconSize="small" icon="applicantInfographic" />   |
-| barnInfographic        | <Icon iconSize="small" icon="barnInfographic" />        |
-| bungalowInfographic    | <Icon iconSize="small" icon="bungalowInfographic" />    |
-| codeInfographic        | <Icon iconSize="small" icon="codeInfographic" />        |
-| cottageInfographic     | <Icon iconSize="small" icon="cottageInfographic" />     |
-| developmentInfographic | <Icon iconSize="small" icon="developmentInfographic" /> |
-| farmInfographic        | <Icon iconSize="small" icon="farmInfographic" />        |
-| flatInfographic        | <Icon iconSize="small" icon="flatInfographic" />        |
-| houseInfographic       | <Icon iconSize="small" icon="houseInfographic" />       |
-| landInfographic        | <Icon iconSize="small" icon="landInfographic" />        |
-| landlordInfographic    | <Icon iconSize="small" icon="landlordInfographic" />    |
-| listInfographic        | <Icon iconSize="small" icon="listInfographic" />        |
-| mailInfographic        | <Icon iconSize="small" icon="mailInfographic" />        |
-| maisonetteInfographic  | <Icon iconSize="small" icon="maisonetteInfographic" />  |
-| phoneInfographic       | <Icon iconSize="small" icon="phoneInfographic" />       |
-| shieldInfographic      | <Icon iconSize="small" icon="shieldInfographic" />      |
-| vendorInfographic      | <Icon iconSize="small" icon="vendorInfographic" />      |
-| webInfographic         | <Icon iconSize="small" icon="webInfographic" />         |
-
-## System Icons - Thin Small
-
-Thin icons are used for table headers, table cells and input fields.
-
-<Canvas>
-  <Story name="System Icons - Thin Small">
-    <Icon iconSize="small" icon="addSystem" />
-  </Story>
-</Canvas>
-
-| Misc Icon Name       | Displayed Size - Small Icon                           |
-| -------------------- | ----------------------------------------------------- |
-| addSystem            | <Icon iconSize="small" icon="addSystem" />            |
-| arrowDownSystem      | <Icon iconSize="small" icon="arrowDownSystem" />      |
-| arrowLeftSystem      | <Icon iconSize="small" icon="arrowLeftSystem" />      |
-| arrowRightSystem     | <Icon iconSize="small" icon="arrowRightSystem" />     |
-| arrowUpSystem        | <Icon iconSize="small" icon="arrowUpSystem" />        |
-| asteriskSystem       | <Icon iconSize="small" icon="asteriskSystem" />       |
-| authenticationSystem | <Icon iconSize="small" icon="authenticationSystem" /> |
-| backSystem           | <Icon iconSize="small" icon="backSystem" />           |
-| bulletListSystem     | <Icon iconSize="small" icon="bulletListSystem" />     |
-| calendarSystem       | <Icon iconSize="small" icon="calendarSystem" />       |
-| cancelSystem         | <Icon iconSize="small" icon="cancelSystem" />         |
-| carSystem            | <Icon iconSize="small" icon="carSystem" />            |
-| checkSystem          | <Icon iconSize="small" icon="checkSystem" />          |
-| circleSystem         | <Icon iconSize="small" icon="circleSystem" />         |
-| closeSystem          | <Icon iconSize="small" icon="closeSystem" />          |
-| cloudSystem          | <Icon iconSize="small" icon="cloudSystem" />          |
-| companySystem        | <Icon iconSize="small" icon="companySystem" />        |
-| dollarSystem         | <Icon iconSize="small" icon="dollarSystem" />         |
-| downloadSystem       | <Icon iconSize="small" icon="downloadSystem" />       |
-| downSystem           | <Icon iconSize="small" icon="downSystem" />           |
-| editSystem           | <Icon iconSize="small" icon="editSystem" />           |
-| emailSystem          | <Icon iconSize="small" icon="emailSystem" />          |
-| errorSystem          | <Icon iconSize="small" icon="errorSystem" />          |
-| euroSystem           | <Icon iconSize="small" icon="euroSystem" />           |
-| favouriteSystem      | <Icon iconSize="small" icon="favouriteSystem" />      |
-| filterSystem         | <Icon iconSize="small" icon="filterSystem" />         |
-| geoLocationSystem    | <Icon iconSize="small" icon="geoLocationSystem" />    |
-| githubSystem         | <Icon iconSize="small" icon="githubSystem" />         |
-| hamburgerMenuSystem  | <Icon iconSize="small" icon="hamburgerMenuSystem" />  |
-| hideSystem           | <Icon iconSize="small" icon="hideSystem" />           |
-| homeSystem           | <Icon iconSize="small" icon="homeSystem" />           |
-| infoSystem           | <Icon iconSize="small" icon="infoSystem" />           |
-| linkSystem           | <Icon iconSize="small" icon="linkSystem" />           |
-| lockSystem           | <Icon iconSize="small" icon="lockSystem" />           |
-| messageSystem        | <Icon iconSize="small" icon="messageSystem" />        |
-| moreSystem           | <Icon iconSize="small" icon="moreSystem" />           |
-| nextSystem           | <Icon iconSize="small" icon="nextSystem" />           |
-| paymentSystem        | <Icon iconSize="small" icon="paymentSystem" />        |
-| phoneSystem          | <Icon iconSize="small" icon="phoneSystem" />          |
-| pinSystem            | <Icon iconSize="small" icon="pinSystem" />            |
-| poundSystem          | <Icon iconSize="small" icon="poundSystem" />          |
-| questionSystem       | <Icon iconSize="small" icon="questionSystem" />       |
-| refreshSystem        | <Icon iconSize="small" icon="refreshSystem" />        |
-| searchSystem         | <Icon iconSize="small" icon="searchSystem" />         |
-| securityTokenSystem  | <Icon iconSize="small" icon="securityTokenSystem" />  |
-| settingsSystem       | <Icon iconSize="small" icon="settingsSystem" />       |
-| shareSystem          | <Icon iconSize="small" icon="shareSystem" />          |
-| sortSystem           | <Icon iconSize="small" icon="sortSystem" />           |
-| trashSystem          | <Icon iconSize="small" icon="trashSystem" />          |
-| upSystem             | <Icon iconSize="small" icon="upSystem" />             |
-| usernameSystem       | <Icon iconSize="small" icon="usernameSystem" />       |
-| videoSystem          | <Icon iconSize="small" icon="videoSystem" />          |
-| viewSystem           | <Icon iconSize="small" icon="viewSystem" />           |
-| walkingSystem        | <Icon iconSize="small" icon="walkingSystem" />        |
-| warningSystem        | <Icon iconSize="small" icon="warningSystem" />        |
-
-## System Icons - Solid Small
-
-Solid icons are used for buttons.
-
-<Canvas>
-  <Story name="System Icons - Solid Small">
-    <Icon iconSize="small" icon="addSolidSystem" />
-  </Story>
-</Canvas>
-
-| Icon Name                 | Small Icon                                                 |
-| ------------------------- | ---------------------------------------------------------- |
-| addSolidSystem            | <Icon iconSize="small" icon="addSolidSystem" />            |
-| arrowDownSolidSystem      | <Icon iconSize="small" icon="arrowDownSolidSystem" />      |
-| arrowLeftSolidSystem      | <Icon iconSize="small" icon="arrowLeftSolidSystem" />      |
-| arrowRightSolidSystem     | <Icon iconSize="small" icon="arrowRightSolidSystem" />     |
-| arrowUpSolidSystem        | <Icon iconSize="small" icon="arrowUpSolidSystem" />        |
-| asteriskSolidSystem       | <Icon iconSize="small" icon="asteriskSolidSystem" />       |
-| authenticationSolidSystem | <Icon iconSize="small" icon="authenticationSolidSystem" /> |
-| backSolidSystem           | <Icon iconSize="small" icon="backSolidSystem" />           |
-| bulletListSolidSystem     | <Icon iconSize="small" icon="bulletListSolidSystem" />     |
-| calendarSolidSystem       | <Icon iconSize="small" icon="calendarSolidSystem" />       |
-| cancelSolidSystem         | <Icon iconSize="small" icon="cancelSolidSystem" />         |
-| carSolidSystem            | <Icon iconSize="small" icon="carSolidSystem" />            |
-| checkSolidSystem          | <Icon iconSize="small" icon="checkSolidSystem" />          |
-| circleSolidSystem         | <Icon iconSize="small" icon="circleSolidSystem" />         |
-| closeSolidSystem          | <Icon iconSize="small" icon="closeSolidSystem" />          |
-| cloudSolidSystem          | <Icon iconSize="small" icon="cloudSolidSystem" />          |
-| companySolidSystem        | <Icon iconSize="small" icon="companySolidSystem" />        |
-| dollarSolidSystem         | <Icon iconSize="small" icon="dollarSolidSystem" />         |
-| downloadSolidSystem       | <Icon iconSize="small" icon="downloadSolidSystem" />       |
-| downSolidSystem           | <Icon iconSize="small" icon="downSolidSystem" />           |
-| editSolidSystem           | <Icon iconSize="small" icon="editSolidSystem" />           |
-| emailSolidSystem          | <Icon iconSize="small" icon="emailSolidSystem" />          |
-| errorSolidSystem          | <Icon iconSize="small" icon="errorSolidSystem" />          |
-| euroSolidSystem           | <Icon iconSize="small" icon="euroSolidSystem" />           |
-| favouriteSolidSystem      | <Icon iconSize="small" icon="favouriteSolidSystem" />      |
-| filterSolidSystem         | <Icon iconSize="small" icon="filterSolidSystem" />         |
-| geoLocationSolidSystem    | <Icon iconSize="small" icon="geoLocationSolidSystem" />    |
-| githubSolidSystem         | <Icon iconSize="small" icon="githubSolidSystem" />         |
-| hamburgerMenuSolidSystem  | <Icon iconSize="small" icon="hamburgerMenuSolidSystem" />  |
-| hideSolidSystem           | <Icon iconSize="small" icon="hideSolidSystem" />           |
-| homeSolidSystem           | <Icon iconSize="small" icon="homeSolidSystem" />           |
-| infoSolidSystem           | <Icon iconSize="small" icon="infoSolidSystem" />           |
-| linkSolidSystem           | <Icon iconSize="small" icon="linkSolidSystem" />           |
-| lockSolidSystem           | <Icon iconSize="small" icon="lockSolidSystem" />           |
-| messageSolidSystem        | <Icon iconSize="small" icon="messageSolidSystem" />        |
-| moreSolidSystem           | <Icon iconSize="small" icon="moreSolidSystem" />           |
-| nextSolidSystem           | <Icon iconSize="small" icon="nextSolidSystem" />           |
-| paymentSolidSystem        | <Icon iconSize="small" icon="paymentSolidSystem" />        |
-| phoneSolidSystem          | <Icon iconSize="small" icon="phoneSolidSystem" />          |
-| pinSolidSystem            | <Icon iconSize="small" icon="pinSolidSystem" />            |
-| poundSolidSystem          | <Icon iconSize="small" icon="poundSolidSystem" />          |
-| questionSolidSystem       | <Icon iconSize="small" icon="questionSolidSystem" />       |
-| refreshSolidSystem        | <Icon iconSize="small" icon="refreshSolidSystem" />        |
-| searchSolidSystem         | <Icon iconSize="small" icon="searchSolidSystem" />         |
-| securityTokenSolidSystem  | <Icon iconSize="small" icon="securityTokenSolidSystem" />  |
-| settingsSolidSystem       | <Icon iconSize="small" icon="settingsSolidSystem" />       |
-| shareSolidSystem          | <Icon iconSize="small" icon="shareSolidSystem" />          |
-| sortSolidSystem           | <Icon iconSize="small" icon="sortSolidSystem" />           |
-| trashSolidSystem          | <Icon iconSize="small" icon="trashSolidSystem" />          |
-| upSolidSystem             | <Icon iconSize="small" icon="upSolidSystem" />             |
-| usernameSolidSystem       | <Icon iconSize="small" icon="usernameSolidSystem" />       |
-| videoSolidSystem          | <Icon iconSize="small" icon="videoSolidSystem" />          |
-| viewSolidSystem           | <Icon iconSize="small" icon="viewSolidSystem" />           |
-| walkingSolidSystem        | <Icon iconSize="small" icon="walkingSolidSystem" />        |
-| warningSolidSystem        | <Icon iconSize="small" icon="warningSolidSystem" />        |
-
-## Menu Icons
-
-Icons used for global navigation in the `Nav` component.
-
-<Canvas>
-  <Story name="Menu Icons - Medium">
-    <Icon height="32px" width="32px" icon="appLauncherMenu" />
-  </Story>
-</Canvas>
-
-| Icon Name       | Custom Size                                                |
-| --------------- | ---------------------------------------------------------- |
-| appLauncherMenu | <Icon height="32px" width="32px" icon="appLauncherMenu" /> |
-| logoutMenu      | <Icon height="32px" width="32px" icon="logoutMenu" />      |
-| profileMenu     | <Icon height="32px" width="32px" icon="profileMenu" />     |
-| usersMenu       | <Icon height="32px" width="32px" icon="usersMenu" />       |
-| reapitLogoMenu  | <Icon height="20px" width="100px" icon="reapitLogoMenu" /> |
-
-## Misc Icons
-
-Other icons exported by the project with no specific category like placeholders and logos.
-
-<Canvas>
-  <Story name="Misc Icons">
-    <Icon iconSize="medium" icon="reapitLogoSmallInfographic" />
-  </Story>
-</Canvas>
-
-| Misc Icon Name             | Displayed Size - Various                                          |
-| -------------------------- | ----------------------------------------------------------------- |
-| reapitLogoInfographic      | <Icon height="20px" width="100px" icon="reapitLogoInfographic" /> |
-| reapitLogoSmallInfographic | <Icon iconSize="medium" icon="reapitLogoSmallInfographic" />      |
-| placeholderSmall           | <Icon iconSize="medium" icon="placeholderSmall" />                |
-| placeholderLarge           | <Icon iconSize="large" icon="placeholderLarge" />                 |
+| appCategoryInfographic                      | <Icon iconSize="medium" icon="appCategoryInfographic" />                     |
+| appInfographic                              | <Icon iconSize="medium" icon="appInfographic" />                             |
+| appInfographicAlt                           | <Icon iconSize="medium" icon="appInfographicAlt" />                          |
+| appTypeInfographic                          | <Icon iconSize="medium" icon="appTypeInfographic" />                         |
+| devicesInfographic                          | <Icon iconSize="medium" icon="devicesInfographic" />                         |
+| doorLockInfographic                         | <Icon iconSize="medium" icon="doorLockInfographic" />                        |
+| feedAltInfographic                          | <Icon iconSize="medium" icon="feedAltInfographic" />                         |
+| feedInfographic                             | <Icon iconSize="medium" icon="feedInfographic" />                            |
+| globeInfographic                            | <Icon iconSize="medium" icon="globeInfographic" />                           |
+| htmlInfographic                             | <Icon iconSize="medium" icon="htmlInfographic" />                            |
+| lockedInfographic                           | <Icon iconSize="medium" icon="lockedInfographic" />                          |
+| logoKeyInfographic                          | <Icon iconSize="medium" icon="logoKeyInfographic" />                         |
+| logoSettingsInfographic                     | <Icon iconSize="medium" icon="logoSettingsInfographic" />                    |
+| refreshInfographic                          | <Icon iconSize="medium" icon="refreshInfographic" />                         |
+| reportInfographic                           | <Icon iconSize="medium" icon="reportInfographic" />                          |
+| reportingInfographic                        | <Icon iconSize="medium" icon="reportingInfographic" />                       |
+| selectInfographic                           | <Icon iconSize="medium" icon="selectInfographic" />                          |
+| userHouseInfographic                        | <Icon iconSize="medium" icon="userHouseInfographic" />                       |
+| applicantInfographic                        | <Icon iconSize="small" icon="applicantInfographic" />                        |
+| barnInfographic                             | <Icon iconSize="small" icon="barnInfographic" />                             |
+| bungalowInfographic                         | <Icon iconSize="small" icon="bungalowInfographic" />                         |
+| codeInfographic                             | <Icon iconSize="small" icon="codeInfographic" />                             |
+| cottageInfographic                          | <Icon iconSize="small" icon="cottageInfographic" />                          |
+| developmentInfographic                      | <Icon iconSize="small" icon="developmentInfographic" />                      |
+| farmInfographic                             | <Icon iconSize="small" icon="farmInfographic" />                             |
+| flatInfographic                             | <Icon iconSize="small" icon="flatInfographic" />                             |
+| houseInfographic                            | <Icon iconSize="small" icon="houseInfographic" />                            |
+| landInfographic                             | <Icon iconSize="small" icon="landInfographic" />                             |
+| landlordInfographic                         | <Icon iconSize="small" icon="landlordInfographic" />                         |
+| listInfographic                             | <Icon iconSize="small" icon="listInfographic" />                             |
+| mailInfographic                             | <Icon iconSize="small" icon="mailInfographic" />                             |
+| maisonetteInfographic                       | <Icon iconSize="small" icon="maisonetteInfographic" />                       |
+| phoneInfographic                            | <Icon iconSize="small" icon="phoneInfographic" />                            |
+| shieldInfographic                           | <Icon iconSize="small" icon="shieldInfographic" />                           |
+| vendorInfographic                           | <Icon iconSize="small" icon="vendorInfographic" />                           |
+| webInfographic                              | <Icon iconSize="small" icon="webInfographic" />                              |
+| addSystem                                   | <Icon iconSize="small" icon="addSystem" />                                   |
+| arrowDownSystem                             | <Icon iconSize="small" icon="arrowDownSystem" />                             |
+| arrowLeftSystem                             | <Icon iconSize="small" icon="arrowLeftSystem" />                             |
+| arrowRightSystem                            | <Icon iconSize="small" icon="arrowRightSystem" />                            |
+| arrowUpSystem                               | <Icon iconSize="small" icon="arrowUpSystem" />                               |
+| asteriskSystem                              | <Icon iconSize="small" icon="asteriskSystem" />                              |
+| authenticationSystem                        | <Icon iconSize="small" icon="authenticationSystem" />                        |
+| backSystem                                  | <Icon iconSize="small" icon="backSystem" />                                  |
+| bulletListSystem                            | <Icon iconSize="small" icon="bulletListSystem" />                            |
+| calendarSystem                              | <Icon iconSize="small" icon="calendarSystem" />                              |
+| cancelSystem                                | <Icon iconSize="small" icon="cancelSystem" />                                |
+| carSystem                                   | <Icon iconSize="small" icon="carSystem" />                                   |
+| checkSystem                                 | <Icon iconSize="small" icon="checkSystem" />                                 |
+| circleSystem                                | <Icon iconSize="small" icon="circleSystem" />                                |
+| closeSystem                                 | <Icon iconSize="small" icon="closeSystem" />                                 |
+| cloudSystem                                 | <Icon iconSize="small" icon="cloudSystem" />                                 |
+| companySystem                               | <Icon iconSize="small" icon="companySystem" />                               |
+| dollarSystem                                | <Icon iconSize="small" icon="dollarSystem" />                                |
+| downloadSystem                              | <Icon iconSize="small" icon="downloadSystem" />                              |
+| downSystem                                  | <Icon iconSize="small" icon="downSystem" />                                  |
+| editSystem                                  | <Icon iconSize="small" icon="editSystem" />                                  |
+| emailSystem                                 | <Icon iconSize="small" icon="emailSystem" />                                 |
+| errorSystem                                 | <Icon iconSize="small" icon="errorSystem" />                                 |
+| euroSystem                                  | <Icon iconSize="small" icon="euroSystem" />                                  |
+| favouriteSystem                             | <Icon iconSize="small" icon="favouriteSystem" />                             |
+| filterSystem                                | <Icon iconSize="small" icon="filterSystem" />                                |
+| geoLocationSystem                           | <Icon iconSize="small" icon="geoLocationSystem" />                           |
+| githubSystem                                | <Icon iconSize="small" icon="githubSystem" />                                |
+| hamburgerMenuSystem                         | <Icon iconSize="small" icon="hamburgerMenuSystem" />                         |
+| hideSystem                                  | <Icon iconSize="small" icon="hideSystem" />                                  |
+| homeSystem                                  | <Icon iconSize="small" icon="homeSystem" />                                  |
+| infoSystem                                  | <Icon iconSize="small" icon="infoSystem" />                                  |
+| linkSystem                                  | <Icon iconSize="small" icon="linkSystem" />                                  |
+| lockSystem                                  | <Icon iconSize="small" icon="lockSystem" />                                  |
+| messageSystem                               | <Icon iconSize="small" icon="messageSystem" />                               |
+| moreSystem                                  | <Icon iconSize="small" icon="moreSystem" />                                  |
+| nextSystem                                  | <Icon iconSize="small" icon="nextSystem" />                                  |
+| paymentSystem                               | <Icon iconSize="small" icon="paymentSystem" />                               |
+| phoneSystem                                 | <Icon iconSize="small" icon="phoneSystem" />                                 |
+| pinSystem                                   | <Icon iconSize="small" icon="pinSystem" />                                   |
+| poundSystem                                 | <Icon iconSize="small" icon="poundSystem" />                                 |
+| questionSystem                              | <Icon iconSize="small" icon="questionSystem" />                              |
+| refreshSystem                               | <Icon iconSize="small" icon="refreshSystem" />                               |
+| searchSystem                                | <Icon iconSize="small" icon="searchSystem" />                                |
+| securityTokenSystem                         | <Icon iconSize="small" icon="securityTokenSystem" />                         |
+| settingsSystem                              | <Icon iconSize="small" icon="settingsSystem" />                              |
+| shareSystem                                 | <Icon iconSize="small" icon="shareSystem" />                                 |
+| sortSystem                                  | <Icon iconSize="small" icon="sortSystem" />                                  |
+| trashSystem                                 | <Icon iconSize="small" icon="trashSystem" />                                 |
+| upSystem                                    | <Icon iconSize="small" icon="upSystem" />                                    |
+| usernameSystem                              | <Icon iconSize="small" icon="usernameSystem" />                              |
+| videoSystem                                 | <Icon iconSize="small" icon="videoSystem" />                                 |
+| viewSystem                                  | <Icon iconSize="small" icon="viewSystem" />                                  |
+| walkingSystem                               | <Icon iconSize="small" icon="walkingSystem" />                               |
+| warningSystem                               | <Icon iconSize="small" icon="warningSystem" />                               |
+| addSolidSystem                              | <Icon iconSize="small" icon="addSolidSystem" />                              |
+| arrowDownSolidSystem                        | <Icon iconSize="small" icon="arrowDownSolidSystem" />                        |
+| arrowLeftSolidSystem                        | <Icon iconSize="small" icon="arrowLeftSolidSystem" />                        |
+| arrowRightSolidSystem                       | <Icon iconSize="small" icon="arrowRightSolidSystem" />                       |
+| arrowUpSolidSystem                          | <Icon iconSize="small" icon="arrowUpSolidSystem" />                          |
+| asteriskSolidSystem                         | <Icon iconSize="small" icon="asteriskSolidSystem" />                         |
+| authenticationSolidSystem                   | <Icon iconSize="small" icon="authenticationSolidSystem" />                   |
+| backSolidSystem                             | <Icon iconSize="small" icon="backSolidSystem" />                             |
+| bulletListSolidSystem                       | <Icon iconSize="small" icon="bulletListSolidSystem" />                       |
+| calendarSolidSystem                         | <Icon iconSize="small" icon="calendarSolidSystem" />                         |
+| cancelSolidSystem                           | <Icon iconSize="small" icon="cancelSolidSystem" />                           |
+| carSolidSystem                              | <Icon iconSize="small" icon="carSolidSystem" />                              |
+| checkSolidSystem                            | <Icon iconSize="small" icon="checkSolidSystem" />                            |
+| circleSolidSystem                           | <Icon iconSize="small" icon="circleSolidSystem" />                           |
+| closeSolidSystem                            | <Icon iconSize="small" icon="closeSolidSystem" />                            |
+| cloudSolidSystem                            | <Icon iconSize="small" icon="cloudSolidSystem" />                            |
+| companySolidSystem                          | <Icon iconSize="small" icon="companySolidSystem" />                          |
+| dollarSolidSystem                           | <Icon iconSize="small" icon="dollarSolidSystem" />                           |
+| downloadSolidSystem                         | <Icon iconSize="small" icon="downloadSolidSystem" />                         |
+| downSolidSystem                             | <Icon iconSize="small" icon="downSolidSystem" />                             |
+| editSolidSystem                             | <Icon iconSize="small" icon="editSolidSystem" />                             |
+| emailSolidSystem                            | <Icon iconSize="small" icon="emailSolidSystem" />                            |
+| errorSolidSystem                            | <Icon iconSize="small" icon="errorSolidSystem" />                            |
+| euroSolidSystem                             | <Icon iconSize="small" icon="euroSolidSystem" />                             |
+| favouriteSolidSystem                        | <Icon iconSize="small" icon="favouriteSolidSystem" />                        |
+| filterSolidSystem                           | <Icon iconSize="small" icon="filterSolidSystem" />                           |
+| geoLocationSolidSystem                      | <Icon iconSize="small" icon="geoLocationSolidSystem" />                      |
+| githubSolidSystem                           | <Icon iconSize="small" icon="githubSolidSystem" />                           |
+| hamburgerMenuSolidSystem                    | <Icon iconSize="small" icon="hamburgerMenuSolidSystem" />                    |
+| hideSolidSystem                             | <Icon iconSize="small" icon="hideSolidSystem" />                             |
+| homeSolidSystem                             | <Icon iconSize="small" icon="homeSolidSystem" />                             |
+| infoSolidSystem                             | <Icon iconSize="small" icon="infoSolidSystem" />                             |
+| linkSolidSystem                             | <Icon iconSize="small" icon="linkSolidSystem" />                             |
+| lockSolidSystem                             | <Icon iconSize="small" icon="lockSolidSystem" />                             |
+| messageSolidSystem                          | <Icon iconSize="small" icon="messageSolidSystem" />                          |
+| moreSolidSystem                             | <Icon iconSize="small" icon="moreSolidSystem" />                             |
+| nextSolidSystem                             | <Icon iconSize="small" icon="nextSolidSystem" />                             |
+| paymentSolidSystem                          | <Icon iconSize="small" icon="paymentSolidSystem" />                          |
+| phoneSolidSystem                            | <Icon iconSize="small" icon="phoneSolidSystem" />                            |
+| pinSolidSystem                              | <Icon iconSize="small" icon="pinSolidSystem" />                              |
+| poundSolidSystem                            | <Icon iconSize="small" icon="poundSolidSystem" />                            |
+| questionSolidSystem                         | <Icon iconSize="small" icon="questionSolidSystem" />                         |
+| refreshSolidSystem                          | <Icon iconSize="small" icon="refreshSolidSystem" />                          |
+| searchSolidSystem                           | <Icon iconSize="small" icon="searchSolidSystem" />                           |
+| securityTokenSolidSystem                    | <Icon iconSize="small" icon="securityTokenSolidSystem" />                    |
+| settingsSolidSystem                         | <Icon iconSize="small" icon="settingsSolidSystem" />                         |
+| shareSolidSystem                            | <Icon iconSize="small" icon="shareSolidSystem" />                            |
+| sortSolidSystem                             | <Icon iconSize="small" icon="sortSolidSystem" />                             |
+| trashSolidSystem                            | <Icon iconSize="small" icon="trashSolidSystem" />                            |
+| upSolidSystem                               | <Icon iconSize="small" icon="upSolidSystem" />                               |
+| usernameSolidSystem                         | <Icon iconSize="small" icon="usernameSolidSystem" />                         |
+| videoSolidSystem                            | <Icon iconSize="small" icon="videoSolidSystem" />                            |
+| viewSolidSystem                             | <Icon iconSize="small" icon="viewSolidSystem" />                             |
+| walkingSolidSystem                          | <Icon iconSize="small" icon="walkingSolidSystem" />                          |
+| warningSolidSystem                          | <Icon iconSize="small" icon="warningSolidSystem" />                          |
