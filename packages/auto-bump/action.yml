@@ -1,8 +1,0 @@
-name: Auto bump
-description: "Auto Bump bot"
-branding:
-  icon: "gift"
-  color: blue
-runs:
-  using: "node16"
-  main: "action/index.js"
