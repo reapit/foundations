@@ -304,6 +304,10 @@ export interface CreateProductModel {
    */
   signoutUrls?: string[]
   /**
+   * A list of scopes to assign to the app
+   */
+  scopes?: string[]
+  /**
    * Flag indicating whether or not the product has user admin capabilities
    * that require an additional scope to be set on the OAuth client
    */
@@ -1069,6 +1073,10 @@ export interface ProductModel {
    */
   authFlow?: string
   /**
+   * The scopes the product has
+   */
+  scopes?: string[]
+  /**
    * A flag to determine if the products app is for internal use only
    */
   isInternalApp?: boolean
@@ -1270,6 +1278,32 @@ export interface UpdatePlatformConfigurationModel {
    * A list of semi structured fields that can be requested via the Platform APIs
    */
   extrasWhitelist?: string
+}
+/**
+ * Model to update a product
+ */
+export interface UpdateProductModel {
+  /**
+   * The name of this product
+   */
+  name: string
+  /**
+   * A list of callback urls
+   */
+  callbackUrls?: string[]
+  /**
+   * A list of signout urls
+   */
+  signoutUrls?: string[]
+  /**
+   * A list of scopes to assign to the app
+   */
+  scopes?: string[]
+  /**
+   * Flag indicating whether or not the product has user admin capabilities
+   * that require an additional scope to be set on the OAuth client
+   */
+  requiresUserAdmin?: boolean
 }
 /**
  * Model to update an existing user claim
