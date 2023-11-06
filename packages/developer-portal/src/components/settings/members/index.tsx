@@ -125,7 +125,7 @@ export const SettingsMembersPage: FC = () => {
             },
             {
               label: 'Main Contact',
-              value: member.isMainContact ? <Icon icon="checkSolidSystem" intent="success" /> : '-',
+              value: member.isMainContact ? <Icon icon="check" intent="success" /> : '-',
               narrowTable: {
                 showLabel: true,
               },

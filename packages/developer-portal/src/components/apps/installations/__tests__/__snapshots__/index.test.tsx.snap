@@ -46,12 +46,11 @@ exports[`AppInstallations should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css."
-              style="font-size: 1.2rem;"
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
-              <svg
-                style="font-size: 1.2rem;"
-              />
+              <svg />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -119,7 +118,9 @@ exports[`AppInstallations should match a snapshot 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -215,7 +216,9 @@ exports[`AppInstallations should match a snapshot 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -248,7 +251,9 @@ exports[`AppInstallations should match a snapshot 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -265,7 +270,9 @@ exports[`AppInstallations should match a snapshot 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -282,9 +289,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+            classname=""
           >
             <svg />
           </mock-styled.span>
@@ -334,12 +339,11 @@ exports[`AppInstallations should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css."
-            style="font-size: 1.2rem;"
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
-            <svg
-              style="font-size: 1.2rem;"
-            />
+            <svg />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -407,7 +411,9 @@ exports[`AppInstallations should match a snapshot 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -503,7 +509,9 @@ exports[`AppInstallations should match a snapshot 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -536,7 +544,9 @@ exports[`AppInstallations should match a snapshot 1`] = `
         type="button"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -553,7 +563,9 @@ exports[`AppInstallations should match a snapshot 1`] = `
         type="button"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -570,9 +582,7 @@ exports[`AppInstallations should match a snapshot 1`] = `
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+          classname=""
         >
           <svg />
         </mock-styled.span>
@@ -662,9 +672,7 @@ exports[`AppInstallations should match a snapshot when loading 1`] = `
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+            classname=""
           >
             <svg />
           </mock-styled.span>
@@ -697,9 +705,7 @@ exports[`AppInstallations should match a snapshot when loading 1`] = `
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+          classname=""
         >
           <svg />
         </mock-styled.span>
@@ -789,9 +795,14 @@ exports[`AppInstallations should match a snapshot when no installations 1`] = `
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -817,9 +828,7 @@ exports[`AppInstallations should match a snapshot when no installations 1`] = `
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+            classname=""
           >
             <svg />
           </mock-styled.span>
@@ -852,9 +861,14 @@ exports[`AppInstallations should match a snapshot when no installations 1`] = `
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
+          style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
       </div>
       <div
@@ -880,9 +894,7 @@ exports[`AppInstallations should match a snapshot when no installations 1`] = `
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+          classname=""
         >
           <svg />
         </mock-styled.span>
@@ -965,9 +977,7 @@ exports[`AppInstallations should match a snapshot when no response 1`] = `
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+            classname=""
           >
             <svg />
           </mock-styled.span>
@@ -993,9 +1003,7 @@ exports[`AppInstallations should match a snapshot when no response 1`] = `
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+          classname=""
         >
           <svg />
         </mock-styled.span>
@@ -1108,12 +1116,11 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css."
-              style="font-size: 1.2rem;"
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
-              <svg
-                style="font-size: 1.2rem;"
-              />
+              <svg />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -1181,7 +1188,9 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -1277,7 +1286,9 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -1310,7 +1321,9 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -1327,7 +1340,9 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -1344,9 +1359,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+            classname=""
           >
             <svg />
           </mock-styled.span>
@@ -1396,12 +1409,11 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css."
-            style="font-size: 1.2rem;"
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
-            <svg
-              style="font-size: 1.2rem;"
-            />
+            <svg />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -1469,7 +1481,9 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -1565,7 +1579,9 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -1598,7 +1614,9 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
         type="button"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -1615,7 +1633,9 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
         type="button"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -1632,9 +1652,7 @@ exports[`AppInstallations should match snapshot for mobile view 1`] = `
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+          classname=""
         >
           <svg />
         </mock-styled.span>

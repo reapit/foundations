@@ -135,7 +135,7 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
               label="Authenticator Code"
               {...register('code')}
               errorMessage={errors?.code?.message}
-              icon={errors?.code?.message ? 'asteriskSystem' : null}
+              icon={errors?.code?.message ? 'asterisk' : null}
               intent="danger"
             />
           </InputWrapFull>

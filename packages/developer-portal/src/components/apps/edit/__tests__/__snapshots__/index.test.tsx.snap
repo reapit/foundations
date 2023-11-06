@@ -178,9 +178,7 @@ exports[`AppEditPage should match a snapshot 1`] = `
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+            classname=""
           >
             <svg />
           </mock-styled.span>
@@ -362,9 +360,7 @@ exports[`AppEditPage should match a snapshot 1`] = `
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+          classname=""
         >
           <svg />
         </mock-styled.span>
@@ -528,9 +524,14 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -567,9 +568,14 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
+          style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
       </div>
       <div

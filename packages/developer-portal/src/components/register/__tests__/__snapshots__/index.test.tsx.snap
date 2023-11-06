@@ -11,6 +11,8 @@ exports[`Register should match a snapshot 1`] = `
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 1.25rem;
+ mock-css.
+  font-size: 1.5rem;
 "
             style="height: 40px; width: 200px;"
           >
@@ -149,6 +151,8 @@ exports[`Register should match a snapshot 1`] = `
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 1.25rem;
+ mock-css.
+  font-size: 1.5rem;
 "
           style="height: 40px; width: 200px;"
         >

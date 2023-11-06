@@ -269,9 +269,14 @@ exports[`HomePage should render component with data 1`] = `
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname=""
+                classname="mock-css.
+  font-size: 1.5rem;
+"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
             </div>
             <div
@@ -454,9 +459,14 @@ exports[`HomePage should render component with data 1`] = `
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </div>
           <div
@@ -696,9 +706,14 @@ exports[`HomePage should render component with no data 1`] = `
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname=""
+                classname="mock-css.
+  font-size: 1.5rem;
+"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
             </div>
             <div
@@ -811,9 +826,14 @@ exports[`HomePage should render component with no data 1`] = `
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </div>
           <div

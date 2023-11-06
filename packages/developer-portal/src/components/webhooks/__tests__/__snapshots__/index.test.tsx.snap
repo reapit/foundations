@@ -22,9 +22,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+            classname=""
           >
             <svg />
           </mock-styled.span>
@@ -177,9 +175,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+          classname=""
         >
           <svg />
         </mock-styled.span>
@@ -389,9 +385,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+            classname=""
           >
             <svg />
           </mock-styled.span>
@@ -544,9 +538,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+          classname=""
         >
           <svg />
         </mock-styled.span>
@@ -756,9 +748,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+            classname=""
           >
             <svg />
           </mock-styled.span>
@@ -911,9 +901,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+          classname=""
         >
           <svg />
         </mock-styled.span>
@@ -1123,9 +1111,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+            classname=""
           >
             <svg />
           </mock-styled.span>
@@ -1278,9 +1264,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+          classname=""
         >
           <svg />
         </mock-styled.span>

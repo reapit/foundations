@@ -45,7 +45,7 @@ export const XmasLogo: React.FC = () => {
     return <XmasImage src={WeekFourXmas} />
   }
 
-  return <Icon iconSize="medium" icon="reapitLogoMenu" />
+  return <Icon icon="reapitLogo" />
 }
 
 export const getDefaultNavIndex = (pathname: string) => {
@@ -221,7 +221,7 @@ export const Menu: FC = () => {
         {
           text: 'AppMarket',
           callback: openNewPage(process.env.marketplaceUrl),
-          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+          iconUrl: <Icon icon="reapitLogoSmall" />,
         },
       ]}
       avatarText={getAvatarInitials(connectSession)}

@@ -89,9 +89,7 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+            classname=""
           >
             <svg />
           </mock-styled.span>
@@ -184,9 +182,7 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+          classname=""
         >
           <svg />
         </mock-styled.span>
@@ -341,9 +337,7 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+            classname=""
           >
             <svg />
           </mock-styled.span>
@@ -436,9 +430,7 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: var(--font-size-subheading);
-"
+          classname=""
         >
           <svg />
         </mock-styled.span>

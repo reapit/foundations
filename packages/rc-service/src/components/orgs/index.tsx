@@ -74,7 +74,7 @@ export const OrgsPage: FC = () => {
                   {
                     label: 'Org Name',
                     value: name ?? '-',
-                    icon: 'usernameSystem',
+                    icon: 'contact',
                     narrowTable: {
                       showLabel: true,
                     },
@@ -82,7 +82,7 @@ export const OrgsPage: FC = () => {
                   {
                     label: 'Client Code',
                     value: agencyCloudId ?? '-',
-                    icon: 'emailSystem',
+                    icon: 'email',
                     narrowTable: {
                       showLabel: true,
                     },
@@ -90,7 +90,7 @@ export const OrgsPage: FC = () => {
                   {
                     label: 'Date Created',
                     value: created ? dayjs(created).format('DD-MM-YYYY') : '-',
-                    icon: 'calendarSystem',
+                    icon: 'calendar',
                     narrowTable: {
                       showLabel: true,
                     },
@@ -104,9 +104,7 @@ export const OrgsPage: FC = () => {
                   },
                   {
                     label: 'Active',
-                    value: (
-                      <Icon icon={inactive ? 'closeSystem' : 'checkSystem'} intent={inactive ? 'danger' : 'success'} />
-                    ),
+                    value: <Icon icon={inactive ? 'close' : 'check'} intent={inactive ? 'danger' : 'success'} />,
                     narrowTable: {
                       showLabel: true,
                     },
