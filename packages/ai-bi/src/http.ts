@@ -1,6 +1,6 @@
 import OpenAI from "openai"
 import config from '../config.json'
-import { Handler, APIGatewayEvent } from 'aws-lambda'
+import { Handler, APIGatewayEvent, Context } from 'aws-lambda'
 import snowflake from 'snowflake-sdk'
 
 const openai = new OpenAI({
@@ -8,14 +8,31 @@ const openai = new OpenAI({
 })
 
 const connection = snowflake.createConnection({
-  account: 'rtcoror',
+  account: 'AF38701.eu-west-2',
   username: 'ashleigh',
-  password: '',
-  application: "reapitsales",
+  password: config.SNOWFLAKE_PASSWORD,
+  application: 'AI-BI',
 })
 
+let snowflakeConnection: snowflake.Connection | undefined = undefined
+
+const resolveSnowFlakeConnection = async (): Promise<snowflake.Connection> => {
+  if (snowflakeConnection !== undefined) return snowflakeConnection
+
+  snowflakeConnection = await new Promise<any>((resolve, reject) => connection.connect((error, connection) => {
+    if (error) {
+      console.error(error)
+      reject(error)
+    }
+    console.log('connection successful', connection)
+    resolve(connection)
+  }))
+
+  return snowflakeConnection as snowflake.Connection
+}
+
 const propertySchema = `
-TABLE Property_sales_completions
+TABLE REAPIT.ANALYTICS_RES.Property_sales_completions
 name,type,kind,null?,default,primary key,unique key,check,expression,comment,policy name
 ID,VARCHAR(32),COLUMN,Y,,N,N,,,,
 PROPERTY_ID,VARCHAR(32),COLUMN,Y,,N,N,,,,
@@ -41,11 +58,7 @@ const corsHeaders = {
 
 export const handler: Handler = async  (event: APIGatewayEvent) => {
 
-  const snowflakeConnection = await new Promise<any>((resolve, reject) => connection.connect((error, connection) => {
-    console.log('inside snowflake connection promise')
-    if (error) reject(error)
-    resolve(connection)
-  }))
+  
 
   if (event.httpMethod === 'options') {
     return {
@@ -84,34 +97,50 @@ export const handler: Handler = async  (event: APIGatewayEvent) => {
     top_p: 1,
   })
 
-  console.log('result', result)
+  console.log('result', result.choices[0].message.content)
 
-  const snowflakeResult = await snowflakeConnection.execute({
+  const snowflake = await resolveSnowFlakeConnection()
+
+  let responseResults: any[] = []
+
+  const snowflakeResult = await snowflake.execute({
     sqlText: result.choices[0].message.content as string,
-    complete: (err, stmt) => {
+    streamResult: true,
+    complete: (err) => {
       if (err) {
         console.error(err)
         throw err
       }
 
-      const rows: any[] = []
-
-      stmt.streamRows({
-        start: Math.max(0, stmt.getNumRows() - 5),
-        end: stmt.getNumRows() - 1,
-      }).on('data', (row) => rows.push(row))
-
-      console.log('rows', rows)
-
-      return rows
-    }
+      return responseResults
+    },
   })
 
-  console.log('snowflake result', snowflakeResult.getSqlText())
+  let data: any [] = []
+
+  const response = await new Promise((resolve, reject) => snowflakeResult
+    .streamRows()
+    .on('readable', function(row) {
+      // @ts-ignore
+      while ((row = this.read()) != null) {
+        data.push(row)
+      }
+    }).on('end', () => resolve(data))
+    .on('error', (error) => reject(error))
+  )
+
+  console.log('orws', response)
 
   return {
     statusCode: 200,
     headers: {'Content-Type': 'application/json', ...corsHeaders },
-    body: JSON.stringify(result),
+    body: JSON.stringify(response),
   }
 }
+
+handler({
+  body: JSON.stringify({
+    text: "Show me the average sale price for this year",
+  }),
+  httpMethod: 'POST',
+}, {} as Context, () => {})
