@@ -33,7 +33,12 @@ export const Apps: FC = () => {
       setDataSets([
         {
           question: values.search,
-          type: data.length === 1 && Object.keys(data[0]).length === 1 ? 'singular' : Object.keys(data[0]).length == 2 ? 'graph' : 'table',
+          type:
+            data.length === 1 && Object.keys(data[0]).length === 1
+              ? 'singular'
+              : Object.keys(data[0]).length == 2
+              ? 'graph'
+              : 'table',
           data,
         },
         ...dataSets,

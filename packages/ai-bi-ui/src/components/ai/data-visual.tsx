@@ -2,7 +2,7 @@ import { cx } from '@linaria/core'
 import { Card, Table } from '@reapit/elements'
 import React, { FC } from 'react'
 import { elDataVisualCard, ElDataVisualSingularValue } from './data-visual-styles'
-import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
 export type DataVisualPropsType<T extends { [s: string]: any }> = {
   type: 'graph' | 'singular' | 'table'
@@ -30,8 +30,9 @@ const convertKeyToUsefulString = (key: string, value): string => {
 }
 
 const DataGraph: FC<{ data: { [s: string]: any }[] }> = ({ data }) => {
-  return (<div style={{height: '500px'}}>
-    <ResponsiveContainer width="100%" height="100%">
+  return (
+    <div style={{ height: '500px' }}>
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={500}
           height={300}
@@ -51,7 +52,8 @@ const DataGraph: FC<{ data: { [s: string]: any }[] }> = ({ data }) => {
           <Bar dataKey={Object.keys(data[0])[1]} fill="#322bbd" activeBar={<Rectangle fill="pink" stroke="blue" />} />
         </BarChart>
       </ResponsiveContainer>
-  </div>)
+    </div>
+  )
 }
 
 const DataSingular: FC<{ data: { [s: string]: any }[] }> = ({ data }) => {
