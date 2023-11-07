@@ -4,7 +4,7 @@ import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
   connectClientId: process.env.connectClientId,
   connectOAuthUrl: process.env.connectOAuthUrl,
-  connectLoginRedirectPath: '/apps',
+  connectLoginRedirectPath: '/',
   connectUserPoolId: process.env.connectUserPoolId,
   connectApplicationTimeout: 86400000, // 24hrs in ms
 })
