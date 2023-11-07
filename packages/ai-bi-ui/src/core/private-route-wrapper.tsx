@@ -15,7 +15,6 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const currentUri = `${location.pathname}${location.search}`
   const isAusUser = connectSession?.loginIdentity.orgProduct?.toLowerCase() === 'agentbox'
 
-
   if (isAusUser) {
     return <FourOFour />
   }

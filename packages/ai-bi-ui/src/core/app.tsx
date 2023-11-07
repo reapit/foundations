@@ -5,6 +5,7 @@ import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/ele
 import { injectSwitchModeToWindow } from '@reapit/utils-react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import '@reapit/elements/dist/index.css' // can't get this to resolve with vite. Second app where I've had this issue. Must be something I'm missing?
 
 const queryClient = new QueryClient()
 
