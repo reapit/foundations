@@ -8,7 +8,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
       <mock-styled.div />
        
       <mock-styled.div
-        classname="mock-css. mock-css. mock-css."
+        classname="mock-css. mock-css. mock-css. mock-css."
       >
         <div
           class="mock-css.
@@ -25,9 +25,14 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -48,7 +53,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
     <mock-styled.div />
      
     <mock-styled.div
-      classname="mock-css. mock-css. mock-css."
+      classname="mock-css. mock-css. mock-css. mock-css."
     >
       <div
         class="mock-css.
@@ -65,9 +70,14 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
+          style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
       </div>
       <div

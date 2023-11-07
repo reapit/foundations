@@ -25,7 +25,9 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
       >
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css."
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -60,6 +62,8 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
                 classname="mock-css.
   margin-right: 0.625rem;
  mock-css. mock-css.
+  font-size: 1.5rem;
+ mock-css.
   font-size: 2.5rem;
 "
               >
@@ -1761,7 +1765,9 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
     >
       <mock-styled.div>
         <mock-styled.span
-          classname="mock-css."
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -1796,6 +1802,8 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               classname="mock-css.
   margin-right: 0.625rem;
  mock-css. mock-css.
+  font-size: 1.5rem;
+ mock-css.
   font-size: 2.5rem;
 "
             >

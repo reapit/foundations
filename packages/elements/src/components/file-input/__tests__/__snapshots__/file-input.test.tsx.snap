@@ -224,16 +224,26 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1rem;"
+              />
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -270,16 +280,26 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
           <mock-styled.span
             classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1rem;"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>

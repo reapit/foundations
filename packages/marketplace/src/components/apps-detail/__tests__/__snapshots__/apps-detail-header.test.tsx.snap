@@ -61,7 +61,9 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: 0.75rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -73,7 +75,11 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
               Verified by Reapit
             </mock-styled.p>
             <mock-styled.div
-              classname="mock-css.
+              classname=""
+            >
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -88,8 +94,10 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
   animation-delay: 0.1s;
   animation-name: fade-in;
 "
-            >
-              Category
+                >
+                  Category
+                </mock-styled.div>
+              </mock-styled.div>
             </mock-styled.div>
             <mock-styled.p
               classname="mock-css.
@@ -160,7 +168,9 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
           <mock-styled.span
             classname="mock-css.
   margin-right: 0.75rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -172,7 +182,11 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
             Verified by Reapit
           </mock-styled.p>
           <mock-styled.div
-            classname="mock-css.
+            classname=""
+          >
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -187,8 +201,10 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
   animation-delay: 0.1s;
   animation-name: fade-in;
 "
-          >
-            Category
+              >
+                Category
+              </mock-styled.div>
+            </mock-styled.div>
           </mock-styled.div>
           <mock-styled.p
             classname="mock-css.
@@ -298,7 +314,9 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
               <mock-styled.span
                 classname="mock-css.
   margin-right: 0.375rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -350,7 +368,11 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
             classname=""
           >
             <mock-styled.div
-              classname="mock-css.
+              classname=""
+            >
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -365,8 +387,10 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
   animation-delay: 0.1s;
   animation-name: fade-in;
 "
-            >
-              Category
+                >
+                  Category
+                </mock-styled.div>
+              </mock-styled.div>
             </mock-styled.div>
             <mock-styled.p
               classname="mock-css.
@@ -419,7 +443,9 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: 0.375rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -471,7 +497,11 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
           classname=""
         >
           <mock-styled.div
-            classname="mock-css.
+            classname=""
+          >
+            <mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -486,8 +516,10 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
   animation-delay: 0.1s;
   animation-name: fade-in;
 "
-          >
-            Category
+              >
+                Category
+              </mock-styled.div>
+            </mock-styled.div>
           </mock-styled.div>
           <mock-styled.p
             classname="mock-css.

@@ -207,9 +207,14 @@ exports[`AppConsents should match snapshot where there are no consents returned 
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </div>
           <div
@@ -270,9 +275,14 @@ exports[`AppConsents should match snapshot where there are no consents returned 
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -403,8 +413,11 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Client"
@@ -450,11 +463,8 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               <mock-styled.div>
                 <mock-styled.span
                   classname="mock-css."
-                  style="font-size: 1.2rem;"
                 >
-                  <svg
-                    style="font-size: 1.2rem;"
-                  />
+                  <svg />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -507,8 +517,11 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Client"
@@ -554,11 +567,8 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css."
-                style="font-size: 1.2rem;"
               >
-                <svg
-                  style="font-size: 1.2rem;"
-                />
+                <svg />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>

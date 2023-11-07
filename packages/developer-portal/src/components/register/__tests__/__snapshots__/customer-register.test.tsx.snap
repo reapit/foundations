@@ -11,6 +11,8 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg 1`] = `
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 1.25rem;
+ mock-css.
+  font-size: 1.5rem;
 "
             style="height: 40px; width: 200px;"
           >
@@ -80,6 +82,8 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg 1`] = `
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 1.25rem;
+ mock-css.
+  font-size: 1.5rem;
 "
           style="height: 40px; width: 200px;"
         >
@@ -206,6 +210,8 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 1.25rem;
+ mock-css.
+  font-size: 1.5rem;
 "
             style="height: 40px; width: 200px;"
           >
@@ -276,6 +282,8 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 1.25rem;
+ mock-css.
+  font-size: 1.5rem;
 "
           style="height: 40px; width: 200px;"
         >
@@ -403,6 +411,8 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
           <mock-styled.span
             classname="mock-css.
   margin-bottom: 1.25rem;
+ mock-css.
+  font-size: 1.5rem;
 "
             style="height: 40px; width: 200px;"
           >
@@ -478,6 +488,8 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
         <mock-styled.span
           classname="mock-css.
   margin-bottom: 1.25rem;
+ mock-css.
+  font-size: 1.5rem;
 "
           style="height: 40px; width: 200px;"
         >

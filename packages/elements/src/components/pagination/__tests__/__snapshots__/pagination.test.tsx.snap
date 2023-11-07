@@ -16,6 +16,8 @@ exports[`Pagination should match a snapshot 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
           >
             <svg />
@@ -38,6 +40,8 @@ exports[`Pagination should match a snapshot 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
           >
             <svg />
@@ -58,6 +62,8 @@ exports[`Pagination should match a snapshot 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
         >
           <svg />
@@ -80,6 +86,8 @@ exports[`Pagination should match a snapshot 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
         >
           <svg />
@@ -157,6 +165,8 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
           >
             <svg />
@@ -172,6 +182,8 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
           >
             <svg />
@@ -182,6 +194,8 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
           >
             <svg />
@@ -204,6 +218,8 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
           >
             <svg />
@@ -214,6 +230,8 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
           >
             <svg />
@@ -229,6 +247,8 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
           >
             <svg />
@@ -249,6 +269,8 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
         >
           <svg />
@@ -264,6 +286,8 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
         >
           <svg />
@@ -274,6 +298,8 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
         >
           <svg />
@@ -296,6 +322,8 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
         >
           <svg />
@@ -306,6 +334,8 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
         >
           <svg />
@@ -321,6 +351,8 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
         >
           <svg />

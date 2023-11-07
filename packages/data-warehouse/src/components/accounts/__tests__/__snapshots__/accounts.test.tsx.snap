@@ -114,12 +114,11 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname="mock-css."
-                  style="font-size: 1.2rem;"
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
-                  <svg
-                    style="font-size: 1.2rem;"
-                  />
+                  <svg />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -131,9 +130,14 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                   classname="mock-css."
                 >
                   <mock-styled.span
-                    classname="mock-css."
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                    style="font-size: 1.25rem;"
                   >
-                    <svg />
+                    <svg
+                      style="font-size: 1.25rem;"
+                    />
                   </mock-styled.span>
                   <mock-styled.div
                     data-narrow-label="User Name"
@@ -154,7 +158,9 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                   classname=""
                 >
                   <mock-styled.span
-                    classname="mock-css."
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -302,12 +308,11 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css."
-                style="font-size: 1.2rem;"
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
-                <svg
-                  style="font-size: 1.2rem;"
-                />
+                <svg />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -319,9 +324,14 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                 classname="mock-css."
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                  style="font-size: 1.25rem;"
                 >
-                  <svg />
+                  <svg
+                    style="font-size: 1.25rem;"
+                  />
                 </mock-styled.span>
                 <mock-styled.div
                   data-narrow-label="User Name"
@@ -342,7 +352,9 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                 classname=""
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -548,9 +560,14 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname=""
+                classname="mock-css.
+  font-size: 1.5rem;
+"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
             </div>
             <div
@@ -680,9 +697,14 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
           </div>
           <div

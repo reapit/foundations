@@ -181,30 +181,21 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
               },
               {
                 label: 'Listed',
-                value: (
-                  <Icon icon={isListed ? 'checkSystem' : 'closeSystem'} intent={isListed ? 'success' : 'danger'} />
-                ),
+                value: <Icon icon={isListed ? 'check' : 'close'} intent={isListed ? 'success' : 'danger'} />,
                 narrowTable: {
                   showLabel: true,
                 },
               },
               {
                 label: 'Integration',
-                value: (
-                  <Icon
-                    icon={isDirectApi ? 'checkSystem' : 'closeSystem'}
-                    intent={isDirectApi ? 'success' : 'danger'}
-                  />
-                ),
+                value: <Icon icon={isDirectApi ? 'check' : 'close'} intent={isDirectApi ? 'success' : 'danger'} />,
                 narrowTable: {
                   showLabel: true,
                 },
               },
               {
                 label: 'Featured',
-                value: (
-                  <Icon icon={isFeatured ? 'checkSystem' : 'closeSystem'} intent={isFeatured ? 'success' : 'danger'} />
-                ),
+                value: <Icon icon={isFeatured ? 'check' : 'close'} intent={isFeatured ? 'success' : 'danger'} />,
                 narrowTable: {
                   showLabel: true,
                 },
@@ -227,9 +218,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                 label: 'Public',
                 value: (
                   <Icon
-                    icon={
-                      Array.isArray(limitToClientIds) && limitToClientIds.length > 0 ? 'closeSystem' : 'checkSystem'
-                    }
+                    icon={Array.isArray(limitToClientIds) && limitToClientIds.length > 0 ? 'close' : 'check'}
                     intent={Array.isArray(limitToClientIds) && limitToClientIds.length > 0 ? 'danger' : 'success'}
                   />
                 ),

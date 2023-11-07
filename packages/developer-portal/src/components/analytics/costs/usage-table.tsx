@@ -27,7 +27,7 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
           {
             label: 'Entity Name',
             value: name ?? '',
-            icon: 'cloudSolidSystem',
+            icon: 'cloud',
             cellHasDarkText: true,
             narrowTable: {
               showLabel: true,
@@ -52,7 +52,7 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
           {
             label: 'Total Cost',
             value: cost ? `£${cost.toFixed(2).padStart(2, '0')}` : '£0',
-            icon: 'paymentSystem',
+            icon: 'pound',
             cellHasDarkText: true,
             narrowTable: {
               showLabel: true,

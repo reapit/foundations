@@ -88,12 +88,11 @@ exports[`OrgsPage should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css."
-              style="font-size: 1.2rem;"
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
-              <svg
-                style="font-size: 1.2rem;"
-              />
+              <svg />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -105,9 +104,14 @@ exports[`OrgsPage should match a snapshot 1`] = `
               classname="mock-css."
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Org Name"
@@ -119,9 +123,14 @@ exports[`OrgsPage should match a snapshot 1`] = `
               classname="mock-css."
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Client Code"
@@ -131,9 +140,14 @@ exports[`OrgsPage should match a snapshot 1`] = `
               classname="mock-css."
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  style="font-size: 1.25rem;"
+                />
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Date Created"
@@ -155,7 +169,9 @@ exports[`OrgsPage should match a snapshot 1`] = `
                 data-narrow-label="Active"
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -165,7 +181,9 @@ exports[`OrgsPage should match a snapshot 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -213,7 +231,9 @@ exports[`OrgsPage should match a snapshot 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -235,6 +255,8 @@ exports[`OrgsPage should match a snapshot 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
           >
             <svg />
@@ -327,12 +349,11 @@ exports[`OrgsPage should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css."
-            style="font-size: 1.2rem;"
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
-            <svg
-              style="font-size: 1.2rem;"
-            />
+            <svg />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -344,9 +365,14 @@ exports[`OrgsPage should match a snapshot 1`] = `
             classname="mock-css."
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Org Name"
@@ -358,9 +384,14 @@ exports[`OrgsPage should match a snapshot 1`] = `
             classname="mock-css."
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Client Code"
@@ -370,9 +401,14 @@ exports[`OrgsPage should match a snapshot 1`] = `
             classname="mock-css."
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1.25rem;"
+              />
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Date Created"
@@ -394,7 +430,9 @@ exports[`OrgsPage should match a snapshot 1`] = `
               data-narrow-label="Active"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -404,7 +442,9 @@ exports[`OrgsPage should match a snapshot 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -452,7 +492,9 @@ exports[`OrgsPage should match a snapshot 1`] = `
         type="button"
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -474,6 +516,8 @@ exports[`OrgsPage should match a snapshot 1`] = `
   svg {
     color: var(--intent-primary);
   }
+ mock-css.
+  font-size: 1.5rem;
 "
         >
           <svg />

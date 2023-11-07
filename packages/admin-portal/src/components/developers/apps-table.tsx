@@ -67,21 +67,21 @@ export const AppsTable: FC<AppsTableProps> = ({ devIdApps }) => {
             },
             {
               label: 'Listed',
-              value: <Icon icon={isListed ? 'checkSystem' : 'closeSystem'} />,
+              value: <Icon icon={isListed ? 'check' : 'close'} />,
               narrowTable: {
                 showLabel: true,
               },
             },
             {
               label: 'Integration',
-              value: <Icon icon={isDirectApi ? 'checkSystem' : 'closeSystem'} />,
+              value: <Icon icon={isDirectApi ? 'check' : 'close'} />,
               narrowTable: {
                 showLabel: true,
               },
             },
             {
               label: 'Featured',
-              value: <Icon icon={isFeatured ? 'checkSystem' : 'closeSystem'} />,
+              value: <Icon icon={isFeatured ? 'check' : 'close'} />,
               narrowTable: {
                 showLabel: true,
               },

@@ -16,7 +16,9 @@ exports[`Nav should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
             style="height: 24px; width: 100px;"
           >
             <svg
@@ -36,16 +38,11 @@ exports[`Nav should match a snapshot 1`] = `
     padding: 0 !important;
     margin: 0 !important;
   }
-
-  svg {
-    height: 1.2rem;
-  }
- mock-css."
-            style="font-size: 1.2rem;"
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
-            <svg
-              style="font-size: 1.2rem;"
-            />
+            <svg />
           </mock-styled.span>
         </mock-styled.a>
         <mock-styled.a
@@ -73,7 +70,9 @@ exports[`Nav should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
           style="height: 24px; width: 100px;"
         >
           <svg
@@ -93,16 +92,11 @@ exports[`Nav should match a snapshot 1`] = `
     padding: 0 !important;
     margin: 0 !important;
   }
-
-  svg {
-    height: 1.2rem;
-  }
- mock-css."
-          style="font-size: 1.2rem;"
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
-          <svg
-            style="font-size: 1.2rem;"
-          />
+          <svg />
         </mock-styled.span>
       </mock-styled.a>
       <mock-styled.a

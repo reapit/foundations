@@ -256,12 +256,7 @@ export const AdminPage: FC = () => {
                     },
                     {
                       label: 'Active',
-                      value: (
-                        <Icon
-                          icon={inactive ? 'closeSystem' : 'checkSystem'}
-                          intent={inactive ? 'danger' : 'success'}
-                        />
-                      ),
+                      value: <Icon icon={inactive ? 'close' : 'check'} intent={inactive ? 'danger' : 'success'} />,
                       narrowTable: {
                         showLabel: true,
                       },

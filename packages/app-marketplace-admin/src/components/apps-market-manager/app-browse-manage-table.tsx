@@ -324,7 +324,7 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
                       })
                     }}
                   >
-                    <Icon icon="arrowUpSystem" />
+                    <Icon icon="chevronUp" />
                   </Button>
                   <Button
                     className={iconButton}
@@ -340,7 +340,7 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
                       })
                     }}
                   >
-                    <Icon icon="arrowDownSystem" />
+                    <Icon icon="chevronDown" />
                   </Button>
                 </FlexContainer>
               ),
