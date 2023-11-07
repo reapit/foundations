@@ -6,10 +6,9 @@ import reapitLogo from '../../assets/images/reapit-logo.svg'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { KeyAnimation } from '@reapit/utils-react'
 import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
-import { navigateRoute } from '../../utils/navigation'
 
 export const onLoginButtonClick = () => () => {
-  reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.APPS}`)
+  reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.HOME}`)
 }
 
 export const Login: FC = () => {
@@ -41,9 +40,6 @@ export const Login: FC = () => {
         >
           <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
             Login With Reapit
-          </Button>
-          <Button onClick={navigateRoute(navigate, Routes.SELECT_ROLE)} intent="secondary" size={3}>
-            Register
           </Button>
         </ButtonGroup>
         <BodyText hasGreyText>{process.env.APP_VERSION}</BodyText>
