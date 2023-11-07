@@ -7,7 +7,6 @@ import { Loader, PageContainer, PersistentNotification } from '@reapit/elements'
 import ErrorBoundary from './error-boundary'
 
 const Login = lazy(() => catchChunkError(() => import('../components/login')))
-const Register = lazy(() => catchChunkError(() => import('../components/register')))
 const Apps = lazy(() => catchChunkError(() => import('../components/ai')))
 
 export const FourOFour: FC = () => (
@@ -23,7 +22,6 @@ export const RoutesComponent = () => {
     <Routes>
       {/* <Route path={RoutePaths.OK} element={<OkayPage />} /> */}
       <Route path={RoutePaths.LOGIN} element={<Login />} />
-      <Route path={RoutePaths.REGISTER} element={<Register />} />
       <Route path={RoutePaths.FOUR_O_FOUR} element={<FourOFour />} />
       <Route
         path={`${RoutePaths.HOME}`}
