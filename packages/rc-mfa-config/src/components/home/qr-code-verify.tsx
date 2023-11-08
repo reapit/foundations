@@ -20,6 +20,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { object, string } from 'yup'
 import { cx } from '@linaria/core'
 import { CreateAuthenticatorReturnType } from '.'
+import { actionOverride } from '@/utils/action-override'
 
 interface QrCodeVerifyProps {
   refreshAuthenticators: () => void
@@ -98,7 +99,7 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
 
   const [qrCodeVerifyLoading, , verifyQrCode, hasVerified] = useReapitUpdate<VerifyQrCodeType, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions[UpdateActionNames.verifyUserAuthenticator],
+    action: actionOverride(updateActions[UpdateActionNames.verifyUserAuthenticator]),
     method: 'POST',
     uriParams: {
       userId,

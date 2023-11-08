@@ -34,6 +34,7 @@ import { AuthenticatorModel } from '@reapit/foundations-ts-definitions'
 import { QrCodeVerify } from './qr-code-verify'
 import { ActiveAuthenticator } from '../active-authenticator'
 import { cx } from '@linaria/core'
+import { actionOverride } from '@/utils/action-override'
 
 export interface CreateAuthenticatorReturnType {
   secret: string
@@ -75,7 +76,7 @@ export const HomePage: FC = () => {
 
   const [authenticators, authenticatorsLoading, , refreshAuthenticators] = useReapitGet<AuthenticatorModel[]>({
     reapitConnectBrowserSession,
-    action: getActions[GetActionNames.getUserAuthenticators],
+    action: actionOverride(getActions[GetActionNames.getUserAuthenticators]),
     uriParams: { userId },
     fetchWhenTrue: [userId],
   })
