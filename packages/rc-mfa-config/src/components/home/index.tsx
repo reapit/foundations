@@ -87,7 +87,7 @@ export const HomePage: FC = () => {
   >({
     reapitConnectBrowserSession,
     action: {
-      ...updateActions[UpdateActionNames.createUserAuthenticator],
+      ...actionOverride(updateActions[UpdateActionNames.createUserAuthenticator]),
       successMessage: undefined, // no need for success toast
     },
     method: 'POST',
