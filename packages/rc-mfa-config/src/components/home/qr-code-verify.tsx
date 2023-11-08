@@ -20,7 +20,6 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { object, string } from 'yup'
 import { cx } from '@linaria/core'
 import { CreateAuthenticatorReturnType } from '.'
-import { nativeSessionWrapper } from '../../core/connect-session-native'
 
 interface QrCodeVerifyProps {
   refreshAuthenticators: () => void
@@ -79,7 +78,7 @@ export const handleRefresh =
   }
 
 export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrCode, setQrCode }) => {
-  const { connectSession } = useReapitConnect(nativeSessionWrapper(reapitConnectBrowserSession))
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal, modalIsOpen } = useModal()
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const email = connectSession?.loginIdentity.email
