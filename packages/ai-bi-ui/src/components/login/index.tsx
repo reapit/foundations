@@ -1,18 +1,15 @@
 import React, { FC, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { BodyText, Button, ButtonGroup, Subtitle, Title, FlexContainer, elMb12 } from '@reapit/elements'
-import Routes from '../../constants/routes'
 import reapitLogo from '../../assets/images/reapit-logo.svg'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { KeyAnimation } from '@reapit/utils-react'
 import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
 
 export const onLoginButtonClick = () => () => {
-  reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.HOME}`)
+  reapitConnectBrowserSession.connectLoginRedirect()
 }
 
 export const Login: FC = () => {
-  const navigate = useNavigate()
   const [keyStep, setKeyStep] = useState<1 | 2 | 3>(1)
 
   return (

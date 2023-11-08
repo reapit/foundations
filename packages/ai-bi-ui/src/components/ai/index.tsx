@@ -7,10 +7,13 @@ import {
   InputGroup,
   InputWrap,
   PageContainer,
+  PersistentNotification,
   Title,
+  elMt8,
 } from '@reapit/elements'
 import { useForm } from 'react-hook-form'
 import { DataVisual, DataVisualPropsType } from './data-visual'
+import { cx } from '@linaria/core'
 
 export const Apps: FC = () => {
   const [dataSets, setDataSets] = useState<DataVisualPropsType<any>[]>([] as DataVisualPropsType<any>[])
@@ -49,9 +52,22 @@ export const Apps: FC = () => {
     <PageContainer>
       <FlexContainer isFlexAlignCenter isFlexJustifyCenter isFlexColumn>
         <Title>Ai BI</Title>
+        <PersistentNotification isExpanded isFullWidth isInline>
+          Beta POC. This is a work in progress application intended for internal use only.
+        </PersistentNotification>
         <BodyText hasGreyText>Enter your BI query below to see results from our database.</BodyText>
+        <BodyText hasGreyText>
+          *Currently the AI only has context over the property sales table. This was to make the development of the POC
+          a bit simpler. Try the below examples or similar to see results
+        </BodyText>
+        <ul>
+          <li>Show me the average property prices for this year</li>
+          <li>Show me the percentage of sales by month for this year</li>
+          <li>Average property price for each year</li>
+        </ul>
+        <BodyText hasGreyText>Please note the responses may take a while.</BodyText>
       </FlexContainer>
-      <form onSubmit={handleSubmit(requestResults)}>
+      <form className={cx(elMt8)} onSubmit={handleSubmit(requestResults)}>
         <FormLayout>
           <InputWrap></InputWrap>
           <InputWrap>
