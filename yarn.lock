@@ -27846,7 +27846,7 @@ __metadata:
     apollo-server: "npm:^3.11.1"
     apollo-server-core: "npm:^3.11.1"
     apollo-server-lambda: "npm:^3.11.1"
-    axios: "npm:^0.27.2"
+    axios: "npm:^1.6.0"
     axios-mock-adapter: "npm:^1.21.4"
     axios-retry: "npm:^3.4.0"
     bufferutil: "npm:^4.0.7"
