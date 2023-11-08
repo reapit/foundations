@@ -34,7 +34,7 @@ import { AuthenticatorModel } from '@reapit/foundations-ts-definitions'
 import { QrCodeVerify } from './qr-code-verify'
 import { ActiveAuthenticator } from '../active-authenticator'
 import { cx } from '@linaria/core'
-import { nativeSessionWrapper } from '../../core/connect-session-native'
+import { actionOverride } from '@/utils/action-override'
 
 export interface CreateAuthenticatorReturnType {
   secret: string
@@ -69,15 +69,14 @@ export const handleRefresh =
   }
 
 export const HomePage: FC = () => {
-  const nativeBrowserSession = nativeSessionWrapper(reapitConnectBrowserSession)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [qrCode, setQrCode] = useState<CreateAuthenticatorReturnType>()
   const email = connectSession?.loginIdentity.email
   const userId = email ? window.btoa(email.toLowerCase()).replace(/=/g, '') : null
 
   const [authenticators, authenticatorsLoading, , refreshAuthenticators] = useReapitGet<AuthenticatorModel[]>({
-    reapitConnectBrowserSession: nativeBrowserSession,
-    action: getActions[GetActionNames.getUserAuthenticators],
+    reapitConnectBrowserSession,
+    action: actionOverride(getActions[GetActionNames.getUserAuthenticators]),
     uriParams: { userId },
     fetchWhenTrue: [userId],
   })
@@ -86,9 +85,9 @@ export const HomePage: FC = () => {
     CreateAuthenticatorType,
     CreateAuthenticatorReturnType
   >({
-    reapitConnectBrowserSession: nativeBrowserSession,
+    reapitConnectBrowserSession,
     action: {
-      ...updateActions[UpdateActionNames.createUserAuthenticator],
+      ...actionOverride(updateActions[UpdateActionNames.createUserAuthenticator]),
       successMessage: undefined, // no need for success toast
     },
     method: 'POST',
