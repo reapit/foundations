@@ -2,7 +2,6 @@ import React, { FC, useEffect } from 'react'
 import { Button } from '@reapit/elements'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { actionOverride } from '@/utils/action-override'
 
 interface DeleteAuthenticatorProps {
   authenticatorId?: string
@@ -27,7 +26,7 @@ export const DeleteAuthenticator: FC<DeleteAuthenticatorProps> = ({
 }) => {
   const [deleteAuthenticatorLoading, , deleteAuthenticator, hasDeleted] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: actionOverride(updateActions[UpdateActionNames.deleteUserAuthenticator]),
+    action: updateActions[UpdateActionNames.deleteUserAuthenticator],
     method: 'DELETE',
     uriParams: {
       userId,
