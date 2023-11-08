@@ -2,22 +2,25 @@ import OpenAI from "openai"
 import config from '../config.json'
 import { Handler, APIGatewayEvent, Context } from 'aws-lambda'
 import snowflake from 'snowflake-sdk'
+// import schema from './schema.js'
 
 const openai = new OpenAI({
   apiKey: config.apiKey,
 })
 
-const connection = snowflake.createConnection({
-  account: 'AF38701.eu-west-2',
-  username: 'ashleigh',
-  password: config.SNOWFLAKE_PASSWORD,
-  application: 'AI-BI',
-})
 
 let snowflakeConnection: snowflake.Connection | undefined = undefined
 
 const resolveSnowFlakeConnection = async (): Promise<snowflake.Connection> => {
   if (snowflakeConnection !== undefined) return snowflakeConnection
+
+  const connection = snowflake.createConnection({
+    account: 'AF38701.eu-west-2',
+    username: 'ashleigh',
+    password: config.SNOWFLAKE_PASSWORD,
+    application: 'AI-BI',
+    clientSessionKeepAlive: true,
+  })
 
   snowflakeConnection = await new Promise<any>((resolve, reject) => connection.connect((error, connection) => {
     if (error) {
@@ -57,8 +60,6 @@ const corsHeaders = {
 }
 
 export const handler: Handler = async  (event: APIGatewayEvent) => {
-
-  
 
   if (event.httpMethod === 'options') {
     return {
@@ -130,6 +131,12 @@ export const handler: Handler = async  (event: APIGatewayEvent) => {
   )
 
   console.log('orws', response)
+
+  // await new Promise<void>((resolve, reject) => snowflakeConnection?.destroy((error) => {
+  //   if (error) reject(error)
+  //   snowflakeConnection = undefined
+  //   resolve()
+  // }))
 
   return {
     statusCode: 200,
