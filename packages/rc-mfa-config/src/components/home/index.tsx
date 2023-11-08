@@ -76,7 +76,7 @@ export const HomePage: FC = () => {
 
   const [authenticators, authenticatorsLoading, , refreshAuthenticators] = useReapitGet<AuthenticatorModel[]>({
     reapitConnectBrowserSession,
-    action: actionOverride(getActions[GetActionNames.getUserAuthenticators]),
+    action: getActions[GetActionNames.getUserAuthenticators],
     uriParams: { userId },
     fetchWhenTrue: [userId],
   })
