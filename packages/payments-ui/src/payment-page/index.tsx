@@ -1,7 +1,23 @@
-import React, { Dispatch, FC, SetStateAction } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { PaymentForm } from './payment-form'
 import { PaymentProvider } from '../payment-provider'
-import { BodyText, Col, elFadeIn, elMb11, elMr4, FlexContainer, Grid, Icon, Subtitle, Title } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  Col,
+  elFadeIn,
+  elMb11,
+  elMb7,
+  elMr4,
+  FlexContainer,
+  Grid,
+  Icon,
+  PersistentNotification,
+  Subtitle,
+  Title,
+  useModal,
+} from '@reapit/elements'
 import { combineAddress } from '@reapit/utils-common'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { PaymentsBackButton } from './__styles__'
@@ -21,9 +37,17 @@ export const handleOpenModal =
 
 export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvider }) => {
   const navigate = useNavigate()
+  const { Modal, openModal } = useModal()
   const { payment, property, isPortal, config } = paymentProvider
   const { customer, amount, description, id } = payment ?? {}
   const { companyName } = config
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      openModal()
+    }, 600000) // 10 minutes
+    return () => clearInterval(timer)
+  }, [])
 
   return (
     <div className={elFadeIn}>
@@ -98,6 +122,17 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
         </Col>
       </Grid>
       <PaymentForm paymentProvider={paymentProvider} />
+      <Modal title="Payment Session Timeout" onModalClose={() => window.location.reload()}>
+        <PersistentNotification isInline isFullWidth isExpanded intent="danger" className={elMb7}>
+          You have exceeded the 10 minutes we allow to complete a transaction. For security reasons, please refresh the
+          page to re-start your session.
+        </PersistentNotification>
+        <ButtonGroup alignment="right">
+          <Button intent="primary" onClick={() => window.location.reload()}>
+            Refresh
+          </Button>
+        </ButtonGroup>
+      </Modal>
     </div>
   )
 }

@@ -192,14 +192,12 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
 
   return (
     <>
-      {threeDSecureMessage === 'failure' && (
+      {(threeDSecureMessage === 'failure' || paymentStatus === 'rejected') && (
         <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isInline isExpanded isFullWidth>
-          Your bank has rejected the 3D Secure transaction. Please check your credentials and try again.
-        </PersistentNotification>
-      )}
-      {paymentStatus === 'rejected' && (
-        <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isInline isExpanded isFullWidth>
-          This payment has failed. Please check the details submitted are correct and try again.
+          Transaction Failed. If you have sufficient funds, and you have checked your card details are correct, this
+          could be because you have used an incorrect card type (we accept Visa and Mastercard debit only) or your
+          session has expired. Please check your card details again and if the problem persists, refresh the page and
+          try again.
         </PersistentNotification>
       )}
       {paymentStatus === 'posted' && (
@@ -211,7 +209,6 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
           {payment && <ResendConfirmButton paymentFormValues={getValues()} paymentProvider={paymentProvider} />}
         </>
       )}
-
       <Modal
         title="3D Secure Check Required"
         onModalClose={() => null /**I don't want a user to dismiss the modal accidentally during the 3d secure flow */}
