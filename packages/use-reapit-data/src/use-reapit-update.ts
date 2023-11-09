@@ -38,6 +38,7 @@ export interface ReapitUpdate {
   returnType?: UpdateReturnTypeEnum
   headers?: StringMap
   uriParams?: Object
+  withCredentials?: boolean
 }
 
 export interface Options {
@@ -57,6 +58,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
   returnType = UpdateReturnTypeEnum.NONE,
   headers = {},
   uriParams,
+  withCredentials,
   reapitConnectBrowserSession,
 }: ReapitUpdate): ReapitUpdateState<ParamsType, DataType> => {
   const { error: errorSnack, success: successSnack } = useSnack()
@@ -84,6 +86,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
         method,
         headers: updateHeaders,
         data,
+        withCredentials,
       })
 
       if (returnType === UpdateReturnTypeEnum.RESPONSE) return res.data
