@@ -34,7 +34,7 @@ import { AuthenticatorModel } from '@reapit/foundations-ts-definitions'
 import { QrCodeVerify } from './qr-code-verify'
 import { ActiveAuthenticator } from '../active-authenticator'
 import { cx } from '@linaria/core'
-import { actionOverride } from '@/utils/action-override'
+import { actionOverride, useRCAPI } from '@/utils/action-override'
 
 export interface CreateAuthenticatorReturnType {
   secret: string
@@ -90,6 +90,7 @@ export const HomePage: FC = () => {
       ...actionOverride(updateActions[UpdateActionNames.createUserAuthenticator]),
       successMessage: undefined, // no need for success toast
     },
+    withCredentials: useRCAPI,
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
     uriParams: {
