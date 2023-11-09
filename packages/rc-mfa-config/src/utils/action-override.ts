@@ -1,7 +1,7 @@
 import Cookie from 'js-cookie'
 import { getRCConfig } from '../core/connect-session'
 
-const useRCAPI = Cookie.get('mfa_native_token_required') === 'true'
+export const useRCAPI = Cookie.get('mfa_native_token_required') === 'true'
 const rcAPIBaseUrl = getRCConfig().connectOAuthUrl + '/rpt'
 
 export const actionOverride = <T extends { api: string }>(action: T) => {
