@@ -70,16 +70,17 @@ jobs:
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run build
 
-      - name: Package Version Bump
-        uses: ./packages/auto-bump
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Temporarily disabling - remove comments before release
+      # - name: Package Version Bump
+      #   uses: ./packages/auto-bump
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 'chore: bump ${{ steps.tagName.outputs.package }} version'
-          branch: master
+      # - name: Commit
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     commit_message: 'chore: bump ${{ steps.tagName.outputs.package }} version'
+      #     branch: master
 
       - name: Release
         run: |
