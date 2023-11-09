@@ -1,4 +1,4 @@
-import { IsEnum, IsNotEmpty, IsNumber, IsObject, IsString } from 'class-validator'
+import { IsEnum, IsNotEmpty, IsNumber, IsObject, IsOptional, IsString } from 'class-validator'
 import {
   BillingAddress,
   CreateTransactionModel,
@@ -85,10 +85,10 @@ export class OpayoPublicHeaders {
 
 export class Opayo3DSecureDto {
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   cres: string
 
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   threeDSSessionData: string
 }
