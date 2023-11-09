@@ -66,7 +66,7 @@ export const handleSetInitialOptions =
     if (defaultList.length) {
       const initialOptions = defaultList.map((item) => ({ value: item[valueKey], name: item[nameKey] }))
 
-      setOptions(initialOptions)
+      if (initialOptions.length) setOptions(initialOptions)
     }
   }
 
@@ -87,7 +87,7 @@ export const handleSetNewOptions =
       JSON.parse(jsonOption),
     )
 
-    setOptions(uniqueOptions)
+    if (uniqueOptions.length) setOptions(uniqueOptions)
   }
 
 export const SearchableMultiSelect: FC<SearchableMultiSelectProps> = forwardRef(
