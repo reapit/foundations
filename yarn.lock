@@ -11895,7 +11895,7 @@ __metadata:
     "@types/diff": "npm:^4.0.2"
     "@types/ejs": "npm:^2.7.0"
     "@types/enzyme": "npm:^3.10.12"
-    "@types/express": "npm:4.17.18"
+    "@types/express": "npm:4.17.20"
     "@types/express-session": "npm:^1.17.6"
     "@types/figlet": "npm:^1.5.5"
     "@types/googlemaps": "npm:^3.43.3"
@@ -15953,15 +15953,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express@npm:4.17.18":
-  version: 4.17.18
-  resolution: "@types/express@npm:4.17.18"
+"@types/express@npm:4.17.20":
+  version: 4.17.20
+  resolution: "@types/express@npm:4.17.20"
   dependencies:
     "@types/body-parser": "npm:*"
     "@types/express-serve-static-core": "npm:^4.17.33"
     "@types/qs": "npm:*"
     "@types/serve-static": "npm:*"
-  checksum: b344988a35d3cae7b29e984f010ac9124de5e61fe2104c0fc541db6ba8fc4433c69d505537429d157400572c258b47afca4bd668b58de101ae879c868b81bcb1
+  checksum: 7dba63831c61102397cb8dfc2a8b71bb85d93760958c43292cbd7962ba44e8978c998e47226b152d103c0a7492e2bfb2174c1f20805ddad796c7854973c8ebf9
   languageName: node
   linkType: hard
 
@@ -27846,7 +27846,7 @@ __metadata:
     apollo-server: "npm:^3.11.1"
     apollo-server-core: "npm:^3.11.1"
     apollo-server-lambda: "npm:^3.11.1"
-    axios: "npm:^0.27.2"
+    axios: "npm:^1.6.0"
     axios-mock-adapter: "npm:^1.21.4"
     axios-retry: "npm:^3.4.0"
     bufferutil: "npm:^4.0.7"

@@ -6445,6 +6445,14 @@ export interface CreateNotificationModel {
      * The id associated to the recipient
      */
     destinationId?: string
+    /**
+     * The id associated to the user that answered the call
+     */
+    answeredById?: string
+    /**
+     * Flag indicating whether or not the call was/should be delivered to a hunt group
+     */
+    huntGroup?: boolean
   }
 }
 /**
@@ -6478,6 +6486,14 @@ export interface CreateNotificationTelephonyPayloadModel {
    * The id associated to the recipient
    */
   destinationId?: string
+  /**
+   * The id associated to the user that answered the call
+   */
+  answeredById?: string
+  /**
+   * Flag indicating whether or not the call was/should be delivered to a hunt group
+   */
+  huntGroup?: boolean
 }
 /**
  * Request body used to create a new offer
