@@ -292,9 +292,9 @@ export interface CreateProductModel {
    */
   name: string
   /**
-   * The grant type associated to the product (authorizationCode/clientCredentials)
+   * The grant type associated to the product (authorisationCode/clientCredentials)
    */
-  grant?: string
+  grant: string
   /**
    * A list of callback urls
    */
