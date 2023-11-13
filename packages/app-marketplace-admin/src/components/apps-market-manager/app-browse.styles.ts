@@ -23,7 +23,6 @@ export const ElTagContainer = styled.div`
 `
 
 export const ElTag = styled.span`
-  color: var(--color-grey-500);
   border-radius: 1rem;
   margin: 0 0.5rem 0.5rem 0;
   padding: 0.5rem 1rem;
