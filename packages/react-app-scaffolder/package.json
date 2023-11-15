@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "yeoman-generator": "^5.8.0",
-    "yo": "^4.3.1",
+    "yo": "^5.0.0",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
