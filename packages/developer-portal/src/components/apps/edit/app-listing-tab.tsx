@@ -15,6 +15,7 @@ import {
   ImageUploadModel,
   CreateImageUploadModel,
   elMb11,
+  FilePreviewImage,
   MultiSelectInput,
 } from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
@@ -406,7 +407,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
         </InputWrap>
         <Modal title="Image Preview">
           <FlexContainer className={elMb11} isFlexAlignCenter isFlexJustifyCenter>
-            {previewImage && <img src={previewImage} />}
+            <FilePreviewImage src={previewImage} />
           </FlexContainer>
           <ButtonGroup alignment="right">
             <Button intent="default" onClick={handleClosePreviewImage(setPreviewImage, closeModal)}>

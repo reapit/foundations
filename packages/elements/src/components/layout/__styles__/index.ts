@@ -10,7 +10,7 @@ export const ElMainContainer = styled.main`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow-y: visible;
   overflow-x: hidden;
   background: var(--color-white);
@@ -29,7 +29,7 @@ export const ElPageContainer = styled.section`
   display: block;
   padding: 0.5rem 1.25rem;
   width: 100%;
-  height: calc(100vh - 56px);
+  height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: var(--color-white);

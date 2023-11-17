@@ -168,7 +168,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                       type="button"
                     >
                       <mock-styled.div />
-                      Upload
+                      Change
                     </mock-styled.button>
                     <mock-styled.input
                       data-testid="el-file-input"
@@ -178,11 +178,32 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                       id="test-static-id"
                       name="logoUri"
                     />
-                    <mock-styled.p
-                      classname="mock-css. mock-css."
-                    >
-                      Upload File
-                    </mock-styled.p>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                        style="font-size: 1rem;"
+                      >
+                        <svg
+                          style="font-size: 1rem;"
+                        />
+                      </mock-styled.span>
+                      <mock-styled.span
+                        classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                        style="font-size: 1rem;"
+                      >
+                        <svg
+                          style="font-size: 1rem;"
+                        />
+                      </mock-styled.span>
+                    </mock-styled.div>
                   </mock-styled.div>
                 </mock-styled.div>
               </mock-styled.div>
@@ -451,7 +472,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                     type="button"
                   >
                     <mock-styled.div />
-                    Upload
+                    Change
                   </mock-styled.button>
                   <mock-styled.input
                     data-testid="el-file-input"
@@ -461,11 +482,32 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                     id="test-static-id"
                     name="logoUri"
                   />
-                  <mock-styled.p
-                    classname="mock-css. mock-css."
-                  >
-                    Upload File
-                  </mock-styled.p>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                      style="font-size: 1rem;"
+                    >
+                      <svg
+                        style="font-size: 1rem;"
+                      />
+                    </mock-styled.span>
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                      style="font-size: 1rem;"
+                    >
+                      <svg
+                        style="font-size: 1rem;"
+                      />
+                    </mock-styled.span>
+                  </mock-styled.div>
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
@@ -791,7 +833,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                       type="button"
                     >
                       <mock-styled.div />
-                      Upload
+                      Change
                     </mock-styled.button>
                     <mock-styled.input
                       data-testid="el-file-input"
@@ -801,11 +843,32 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                       id="test-static-id"
                       name="logoUri"
                     />
-                    <mock-styled.p
-                      classname="mock-css. mock-css."
-                    >
-                      Upload File
-                    </mock-styled.p>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                        style="font-size: 1rem;"
+                      >
+                        <svg
+                          style="font-size: 1rem;"
+                        />
+                      </mock-styled.span>
+                      <mock-styled.span
+                        classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                        style="font-size: 1rem;"
+                      >
+                        <svg
+                          style="font-size: 1rem;"
+                        />
+                      </mock-styled.span>
+                    </mock-styled.div>
                   </mock-styled.div>
                 </mock-styled.div>
               </mock-styled.div>
@@ -1074,7 +1137,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                     type="button"
                   >
                     <mock-styled.div />
-                    Upload
+                    Change
                   </mock-styled.button>
                   <mock-styled.input
                     data-testid="el-file-input"
@@ -1084,11 +1147,32 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                     id="test-static-id"
                     name="logoUri"
                   />
-                  <mock-styled.p
-                    classname="mock-css. mock-css."
-                  >
-                    Upload File
-                  </mock-styled.p>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                      style="font-size: 1rem;"
+                    >
+                      <svg
+                        style="font-size: 1rem;"
+                      />
+                    </mock-styled.span>
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                      style="font-size: 1rem;"
+                    >
+                      <svg
+                        style="font-size: 1rem;"
+                      />
+                    </mock-styled.span>
+                  </mock-styled.div>
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
@@ -1414,7 +1498,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                       type="button"
                     >
                       <mock-styled.div />
-                      Upload
+                      Change
                     </mock-styled.button>
                     <mock-styled.input
                       data-testid="el-file-input"
@@ -1424,11 +1508,32 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                       id="test-static-id"
                       name="logoUri"
                     />
-                    <mock-styled.p
-                      classname="mock-css. mock-css."
-                    >
-                      Upload File
-                    </mock-styled.p>
+                    <mock-styled.div>
+                      <mock-styled.span
+                        classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                        style="font-size: 1rem;"
+                      >
+                        <svg
+                          style="font-size: 1rem;"
+                        />
+                      </mock-styled.span>
+                      <mock-styled.span
+                        classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                        style="font-size: 1rem;"
+                      >
+                        <svg
+                          style="font-size: 1rem;"
+                        />
+                      </mock-styled.span>
+                    </mock-styled.div>
                   </mock-styled.div>
                 </mock-styled.div>
               </mock-styled.div>
@@ -1697,7 +1802,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                     type="button"
                   >
                     <mock-styled.div />
-                    Upload
+                    Change
                   </mock-styled.button>
                   <mock-styled.input
                     data-testid="el-file-input"
@@ -1707,11 +1812,32 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                     id="test-static-id"
                     name="logoUri"
                   />
-                  <mock-styled.p
-                    classname="mock-css. mock-css."
-                  >
-                    Upload File
-                  </mock-styled.p>
+                  <mock-styled.div>
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                      style="font-size: 1rem;"
+                    >
+                      <svg
+                        style="font-size: 1rem;"
+                      />
+                    </mock-styled.span>
+                    <mock-styled.span
+                      classname="mock-css.
+  margin-right: 0.625rem;
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+                      style="font-size: 1rem;"
+                    >
+                      <svg
+                        style="font-size: 1rem;"
+                      />
+                    </mock-styled.span>
+                  </mock-styled.div>
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
