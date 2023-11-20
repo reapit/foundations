@@ -65,7 +65,7 @@ export const ElInput = styled.input`
 
   &[type='radio'] {
     appearance: none;
-    border: 1px solid var(--color-grey-light);
+    border: 1px solid var(--color-grey-medium);
     background-color: var(--color-white);
     border-radius: 100%;
     width: 1.5rem;

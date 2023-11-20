@@ -1629,16 +1629,97 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           <mock-styled.h2
             classname=""
           >
-            Card Details - UK Debit Cards Only
+            Card Details
           </mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css. mock-css. mock-css. mock-css."
+          >
+            <div
+              class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+              data-testid="close-icon"
+            >
+              <mock-styled.span
+                classname=""
+              >
+                <svg />
+              </mock-styled.span>
+            </div>
+            <div
+              class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
+            >
+              Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
+            </div>
+          </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
           >
             <mock-styled.div>
+              <div
+                class="mock-css.
+  margin-bottom: 0.375rem;
+"
+              >
+                <mock-styled.label>
+                  Card Type
+                </mock-styled.label>
+              </div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.375rem;
+"
+              >
+                <mock-styled.input
+                  id="test-static-id"
+                  name="cardType"
+                  type="radio"
+                  value="visa"
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Visa Debit
+                </mock-styled.label>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.375rem;
+"
+              >
+                <mock-styled.input
+                  id="test-static-id"
+                  name="cardType"
+                  type="radio"
+                  value="mastercard"
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Mastercard Debit
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
                   autocomplete="cardNumber"
-                  disabled="false"
+                  disabled="true"
                   id="cardNumber"
                   inputmode="numeric"
                   maxlength="19"
@@ -1672,7 +1753,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
-                  disabled="false"
+                  disabled="true"
                   id="test-static-id"
                   name="cardholderName"
                   placeholder="Name as appears on the card"
@@ -1689,7 +1770,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               <mock-styled.div>
                 <mock-styled.input
                   autocomplete="expiryDate"
-                  disabled="false"
+                  disabled="true"
                   id="expiryDate"
                   inputmode="numeric"
                   maxlength="7"
@@ -1708,7 +1789,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
-                  disabled="false"
+                  disabled="true"
                   id="test-static-id"
                   maxlength="3"
                   name="securityCode"
@@ -1729,7 +1810,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             >
               <mock-styled.button
                 classname="mock-css."
-                disabled="false"
+                disabled="true"
                 type="submit"
               >
                 Make Payment
@@ -3366,16 +3447,97 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
         <mock-styled.h2
           classname=""
         >
-          Card Details - UK Debit Cards Only
+          Card Details
         </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css. mock-css. mock-css. mock-css."
+        >
+          <div
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+            data-testid="close-icon"
+          >
+            <mock-styled.span
+              classname=""
+            >
+              <svg />
+            </mock-styled.span>
+          </div>
+          <div
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
+          >
+            Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
+          </div>
+        </mock-styled.div>
         <mock-styled.div
           classname="mock-css."
         >
           <mock-styled.div>
+            <div
+              class="mock-css.
+  margin-bottom: 0.375rem;
+"
+            >
+              <mock-styled.label>
+                Card Type
+              </mock-styled.label>
+            </div>
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 0.375rem;
+"
+            >
+              <mock-styled.input
+                id="test-static-id"
+                name="cardType"
+                type="radio"
+                value="visa"
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Visa Debit
+              </mock-styled.label>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 0.375rem;
+"
+            >
+              <mock-styled.input
+                id="test-static-id"
+                name="cardType"
+                type="radio"
+                value="mastercard"
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Mastercard Debit
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
                 autocomplete="cardNumber"
-                disabled="false"
+                disabled="true"
                 id="cardNumber"
                 inputmode="numeric"
                 maxlength="19"
@@ -3409,7 +3571,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
-                disabled="false"
+                disabled="true"
                 id="test-static-id"
                 name="cardholderName"
                 placeholder="Name as appears on the card"
@@ -3426,7 +3588,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             <mock-styled.div>
               <mock-styled.input
                 autocomplete="expiryDate"
-                disabled="false"
+                disabled="true"
                 id="expiryDate"
                 inputmode="numeric"
                 maxlength="7"
@@ -3445,7 +3607,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
-                disabled="false"
+                disabled="true"
                 id="test-static-id"
                 maxlength="3"
                 name="securityCode"
@@ -3466,7 +3628,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           >
             <mock-styled.button
               classname="mock-css."
-              disabled="false"
+              disabled="true"
               type="submit"
             >
               Make Payment
@@ -5160,16 +5322,97 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
           <mock-styled.h2
             classname=""
           >
-            Card Details - UK Debit Cards Only
+            Card Details
           </mock-styled.h2>
+          <mock-styled.div
+            classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css. mock-css. mock-css. mock-css."
+          >
+            <div
+              class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+              data-testid="close-icon"
+            >
+              <mock-styled.span
+                classname=""
+              >
+                <svg />
+              </mock-styled.span>
+            </div>
+            <div
+              class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
+            >
+              Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
+            </div>
+          </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
           >
             <mock-styled.div>
+              <div
+                class="mock-css.
+  margin-bottom: 0.375rem;
+"
+              >
+                <mock-styled.label>
+                  Card Type
+                </mock-styled.label>
+              </div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.375rem;
+"
+              >
+                <mock-styled.input
+                  id="test-static-id"
+                  name="cardType"
+                  type="radio"
+                  value="visa"
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Visa Debit
+                </mock-styled.label>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css.
+  margin-bottom: 0.375rem;
+"
+              >
+                <mock-styled.input
+                  id="test-static-id"
+                  name="cardType"
+                  type="radio"
+                  value="mastercard"
+                />
+                <mock-styled.label
+                  htmlfor="test-static-id"
+                >
+                  Mastercard Debit
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
                   autocomplete="cardNumber"
-                  disabled="false"
+                  disabled="true"
                   id="cardNumber"
                   inputmode="numeric"
                   maxlength="19"
@@ -5203,7 +5446,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
-                  disabled="false"
+                  disabled="true"
                   id="test-static-id"
                   name="cardholderName"
                   placeholder="Name as appears on the card"
@@ -5220,7 +5463,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
               <mock-styled.div>
                 <mock-styled.input
                   autocomplete="expiryDate"
-                  disabled="false"
+                  disabled="true"
                   id="expiryDate"
                   inputmode="numeric"
                   maxlength="7"
@@ -5239,7 +5482,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.input
-                  disabled="false"
+                  disabled="true"
                   id="test-static-id"
                   maxlength="3"
                   name="securityCode"
@@ -5260,7 +5503,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             >
               <mock-styled.button
                 classname="mock-css."
-                disabled="false"
+                disabled="true"
                 type="submit"
               >
                 Make Payment
@@ -6897,16 +7140,97 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
         <mock-styled.h2
           classname=""
         >
-          Card Details - UK Debit Cards Only
+          Card Details
         </mock-styled.h2>
+        <mock-styled.div
+          classname="mock-css.
+  margin-bottom: 0.75rem;
+ mock-css. mock-css. mock-css. mock-css."
+        >
+          <div
+            class="mock-css.
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+            data-testid="close-icon"
+          >
+            <mock-styled.span
+              classname=""
+            >
+              <svg />
+            </mock-styled.span>
+          </div>
+          <div
+            class="mock-css.
+  padding: 0.75rem 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+  width: 100%;
+"
+          >
+            Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
+          </div>
+        </mock-styled.div>
         <mock-styled.div
           classname="mock-css."
         >
           <mock-styled.div>
+            <div
+              class="mock-css.
+  margin-bottom: 0.375rem;
+"
+            >
+              <mock-styled.label>
+                Card Type
+              </mock-styled.label>
+            </div>
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 0.375rem;
+"
+            >
+              <mock-styled.input
+                id="test-static-id"
+                name="cardType"
+                type="radio"
+                value="visa"
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Visa Debit
+              </mock-styled.label>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css.
+  margin-bottom: 0.375rem;
+"
+            >
+              <mock-styled.input
+                id="test-static-id"
+                name="cardType"
+                type="radio"
+                value="mastercard"
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Mastercard Debit
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
                 autocomplete="cardNumber"
-                disabled="false"
+                disabled="true"
                 id="cardNumber"
                 inputmode="numeric"
                 maxlength="19"
@@ -6940,7 +7264,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
-                disabled="false"
+                disabled="true"
                 id="test-static-id"
                 name="cardholderName"
                 placeholder="Name as appears on the card"
@@ -6957,7 +7281,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             <mock-styled.div>
               <mock-styled.input
                 autocomplete="expiryDate"
-                disabled="false"
+                disabled="true"
                 id="expiryDate"
                 inputmode="numeric"
                 maxlength="7"
@@ -6976,7 +7300,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.input
-                disabled="false"
+                disabled="true"
                 id="test-static-id"
                 maxlength="3"
                 name="securityCode"
@@ -6997,7 +7321,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
           >
             <mock-styled.button
               classname="mock-css."
-              disabled="false"
+              disabled="true"
               type="submit"
             >
               Make Payment
