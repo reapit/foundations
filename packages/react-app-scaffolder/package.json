@@ -34,7 +34,7 @@
   "dependencies": {
     "yeoman-generator": "^5.8.0",
     "yo": "^4.3.1",
-    "yosay": "^2.0.2"
+    "yosay": "^3.0.0"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
