@@ -1,50 +1,49 @@
-<mjml
-  lang="en"
->
+<mjml>
   <mj-head>
-    <mj-font name="arial"
-      href="https://fonts.googleapis.com/css?family=arial" />
+    <mj-font name="Inter" href="https://fonts.googleapis.com/css2?family=Inter" />
 
     <mj-attributes>
-      <mj-class name="body-text" font-size="14px" color="#646464" font-family="arial" align="center" font-weight="400" />
-      <mj-class name="title" font-size="20px" font-size="20px" color="#000" align="center" font-weight="900" />
-      <mj-all font-family="arial"/>
-      <mj-button background-color="#4E56EA" href="#" text-transform="uppercase" />
+      <mj-class name="strapline-text" font-size="32px" align="center" font-weight="600" font-family="Inter,Arial" line-height="40px" />
+      <mj-class name="body-text" font-size="18px" align="center" font-weight="400" font-family="Inter,Arial" line-height="24px" />
+      <mj-class name="footer-text" font-size="12px" align="center" font-weight="400" font-family="Inter,Arial" line-height="16px" />
+      <mj-class name="light-footer-text" font-size="12px" align="center" font-weight="400" font-family="Inter,Arial" line-height="16px" color="#607890" />
+      <mj-class name="credentials-panel" border="1px solid #D8DEE4" border-radius="8px" padding="10px" width="50%" />
+      <mj-class name="login-button" background-color="#4E56EA" />
     </mj-attributes>
   </mj-head>
-  <mj-body background-color="white">
-    <mj-section>
-      <mj-column vertical-align="middle">
-        <mj-image width="200px" src="https://reapit-email-media.s3.eu-west-2.amazonaws.com/logo-reapit-2023.png" alt="Reapit Logo" />
-      </mj-column>
-      <mj-column vertical-align="middle">
-        <mj-image src="https://reapit-email-media.s3.eu-west-2.amazonaws.com/reapit-connect-2023.png" alt="Reapit Connect Logo"/>
+  <mj-body background-color="#F2F4F6">
+    <mj-section background-color="#fff">
+      <mj-column>
+        <mj-image width="250px" src="https://reapit-email-media.s3.eu-west-2.amazonaws.com/reapit_logo_connect_2023.jpg"></mj-image>
+        <mj-text mj-class="strapline-text">One login for your Reapit platform.</mj-text>
+        <mj-text mj-class="body-text">Welcome to Reapit Connect, {name}.</mj-text>
+        <mj-text mj-class="body-text">You now have the power to access all Reapit products and services with a single login.</mj-text>
+        <mj-text mj-class="body-text">In order to get started, we’ll need you to sign in with your username and the temporary password provided here. You’ll be asked to reset the password for security purposes.</mj-text>
       </mj-column>
     </mj-section>
-    <mj-section>
-      <mj-column>
-        <mj-text mj-class="title">
-          Welcome to Reapit Connect
+    <mj-section background-color="#FFF">
+      <mj-column mj-class="credentials-panel">
+        <mj-text align="center" font-family="Inter,Arial">
+          <b>Username:</b> {username}
         </mj-text>
 
-        <mj-text mj-class="body-text">Hi {name},</mj-text>
-        <mj-text mj-class="body-text">Welcome to Reapit Connect.</mj-text>
-        <mj-text mj-class="body-text">Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd.</mj-text>
-        <mj-text mj-class="body-text">Please see below your userName and temporary password. When you click the login link, you will be re-directed to a screen where you will be asked to change your password.</mj-text>
-        <mj-text mj-class="body-text"><strong>User Name: {username}</strong></mj-text>
-        <mj-text mj-class="body-text"><strong>Temporary Password: {####}</strong></mj-text>
-        <mj-button href={url}>login</mj-button>
-        <mj-text mj-class="body-text">When you have successfully changed your temporary password, you will then be presented with a list of products and services available to you.</mj-text>
-        <mj-text mj-class="body-text">Please do not reply to this email as this mailbox is not monitored. If you are having an issue or if you have a question about Reapit Connect, please reach out to your help or service desk for support.</mj-text>
-        <mj-text mj-class="body-text">Best Regards,</mj-text>
-        <mj-text mj-class="body-text">Reapit Team</mj-text>
+        <mj-text align="center" font-family="Inter,Arial">
+          <b>Password:</b> {####}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#FFF">
+      <mj-column>
+        <mj-button mj-class="login-button" href={url}>Login to Reapit Connect</mj-button>
+    </mj-section>
+    <mj-section background-color="#FFF">
+      <mj-column>
+        <mj-text mj-class="footer-text">Please note that this is an automatically generated email, replies will not be answered. If you have any questions or concerns, kindly contact support.</mj-text>
       </mj-column>
     </mj-section>
     <mj-section>
       <mj-column>
-        <mj-spacer>
-        </mj-spacer>
-        <mj-text mj-class="body-text">www.reapit.com</mj-text>
+        <mj-text mj-class="light-footer-text">Copyright &copy; Reapit Ltd. All rights reserved.</mj-text>
       </mj-column>
     </mj-section>
   </mj-body>
