@@ -11895,7 +11895,7 @@ __metadata:
     "@types/diff": "npm:^4.0.2"
     "@types/ejs": "npm:^2.7.0"
     "@types/enzyme": "npm:^3.10.12"
-    "@types/express": "npm:4.17.20"
+    "@types/express": "npm:4.17.21"
     "@types/express-session": "npm:^1.17.6"
     "@types/figlet": "npm:^1.5.5"
     "@types/googlemaps": "npm:^3.43.3"
@@ -15953,15 +15953,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express@npm:4.17.20":
-  version: 4.17.20
-  resolution: "@types/express@npm:4.17.20"
+"@types/express@npm:4.17.21":
+  version: 4.17.21
+  resolution: "@types/express@npm:4.17.21"
   dependencies:
     "@types/body-parser": "npm:*"
     "@types/express-serve-static-core": "npm:^4.17.33"
     "@types/qs": "npm:*"
     "@types/serve-static": "npm:*"
-  checksum: 7dba63831c61102397cb8dfc2a8b71bb85d93760958c43292cbd7962ba44e8978c998e47226b152d103c0a7492e2bfb2174c1f20805ddad796c7854973c8ebf9
+  checksum: 7a6d26cf6f43d3151caf4fec66ea11c9d23166e4f3102edfe45a94170654a54ea08cf3103d26b3928d7ebcc24162c90488e33986b7e3a5f8941225edd5eb18c7
   languageName: node
   linkType: hard
 
