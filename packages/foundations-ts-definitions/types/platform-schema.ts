@@ -1552,6 +1552,7 @@ export interface Applicants {
   nextCallTo?: string
   hasNextCall?: boolean
   metadata?: string[]
+  locationOptions?: string
 }
 /**
  * An appointment attendee
@@ -6411,7 +6412,7 @@ export interface CreateNotificationModel {
    */
   subType?: string
   /**
-   * The products the notification is associated too
+   * The products the notification is associated to, and will be delivered to
    */
   products?: string[]
   /**
@@ -6419,81 +6420,25 @@ export interface CreateNotificationModel {
    */
   targets?: {
     /**
-     * The identifier of the negotiators associated to the notification
+     * The identifier of the negotiators whom should receive the notification
      */
     negotiatorId?: string[]
   }
   /**
-   * Payload for creating a notification
+   * The payload to deliver to the specified target(s). Note that the payload must match the expected format
+   * based on the type/subType combination and will be validated accordingly. Please refer to [the documentation](https://foundations-documentation.reapit.cloud/api/notifications)
+   * for more information
    */
-  payload?: {
-    /**
-     * The unique identifier of the payload
-     */
-    id?: string
-    /**
-     * The date and time the notification was sent
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    created?: string // date-time
-    /**
-     * The id associated to the caller
-     */
-    callerId?: string
-    /**
-     * The id associated to the recipient
-     */
-    destinationId?: string
-    /**
-     * The id associated to the user that answered the call
-     */
-    answeredById?: string
-    /**
-     * Flag indicating whether or not the call was/should be delivered to a hunt group
-     */
-    huntGroup?: boolean
-  }
+  payload?: any
 }
 /**
  * Payload for defining notification targets
  */
 export interface CreateNotificationTargetModel {
   /**
-   * The identifier of the negotiators associated to the notification
+   * The identifier of the negotiators whom should receive the notification
    */
   negotiatorId?: string[]
-}
-/**
- * Payload for creating a notification
- */
-export interface CreateNotificationTelephonyPayloadModel {
-  /**
-   * The unique identifier of the payload
-   */
-  id?: string
-  /**
-   * The date and time the notification was sent
-   * example:
-   * 2019-08-14T12:30:02.0000000Z
-   */
-  created?: string // date-time
-  /**
-   * The id associated to the caller
-   */
-  callerId?: string
-  /**
-   * The id associated to the recipient
-   */
-  destinationId?: string
-  /**
-   * The id associated to the user that answered the call
-   */
-  answeredById?: string
-  /**
-   * Flag indicating whether or not the call was/should be delivered to a hunt group
-   */
-  huntGroup?: boolean
 }
 /**
  * Request body used to create a new offer
@@ -11569,121 +11514,6 @@ export interface NominalAccountModelPagedResult {
       href?: string
     }
   }
-}
-/**
- * Representation of the notification
- */
-export interface NotificationModel {
-  /**
-   * The customer and negoatiator id of the user notification relates too
-   */
-  readonly customerNegotiator?: string
-  /**
-   * The unique identifier of the notification
-   */
-  readonly id?: string
-  /**
-   * The identifier of the negotiator the notification relates too
-   */
-  negotiatorId?: string
-  /**
-   * The notification type
-   */
-  type?: string
-  /**
-   * The subscription type
-   */
-  subType?: string
-  /**
-   * The products the notification is associated too
-   */
-  products?: string[]
-  /**
-   * The data within the notification
-   */
-  payload?: string
-  /**
-   * The date time the notification was created
-   * example:
-   * 2019-08-14T12:30:02.0000000Z
-   */
-  created?: string // date-time
-  /**
-   * The customer id associated to the notification
-   */
-  readonly customerId?: string
-  /**
-   * The unique identifier of the notification in the third party system
-   */
-  readonly externalEventId?: string
-  /**
-   * The caller id associated to the notification
-   */
-  readonly callerId?: string
-  /**
-   * The destination id associated to the notification
-   */
-  readonly destinationId?: string
-}
-export interface NotificationModelLitePagedResult {
-  /**
-   * List of paged data
-   */
-  readonly _embedded?: {
-    /**
-     * The customer and negoatiator id of the user notification relates too
-     */
-    readonly customerNegotiator?: string
-    /**
-     * The unique identifier of the notification
-     */
-    readonly id?: string
-    /**
-     * The identifier of the negotiator the notification relates too
-     */
-    negotiatorId?: string
-    /**
-     * The notification type
-     */
-    type?: string
-    /**
-     * The subscription type
-     */
-    subType?: string
-    /**
-     * The products the notification is associated too
-     */
-    products?: string[]
-    /**
-     * The data within the notification
-     */
-    payload?: string
-    /**
-     * The date time the notification was created
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    created?: string // date-time
-    /**
-     * The customer id associated to the notification
-     */
-    readonly customerId?: string
-    /**
-     * The unique identifier of the notification in the third party system
-     */
-    readonly externalEventId?: string
-    /**
-     * The caller id associated to the notification
-     */
-    readonly callerId?: string
-    /**
-     * The destination id associated to the notification
-     */
-    readonly destinationId?: string
-  }[]
-}
-export interface Notifications {
-  negotiatorId?: string
 }
 /**
  * Representation of the physical address of a building or premise
@@ -17680,11 +17510,13 @@ export interface TenancyExtensionAlterationModel {
    */
   modified?: string // date-time
   /**
+   * The start date of the extension or alteration
    * example:
    * 2019-08-14
    */
   startDate?: string // date
   /**
+   * The end date of the extension (alterations do not have an end date)
    * example:
    * 2019-08-14
    */
@@ -17700,7 +17532,7 @@ export interface TenancyExtensionAlterationModel {
   /**
    * The extension or alteration rent amount
    */
-  rent?: number // int32
+  rent?: number // double
   /**
    * The rent frequency (weekly/monthly/4weeks/annually)
    */
@@ -17758,11 +17590,13 @@ export interface TenancyExtensionAlterationModelPagedResult {
      */
     modified?: string // date-time
     /**
+     * The start date of the extension or alteration
      * example:
      * 2019-08-14
      */
     startDate?: string // date
     /**
+     * The end date of the extension (alterations do not have an end date)
      * example:
      * 2019-08-14
      */
@@ -17778,7 +17612,7 @@ export interface TenancyExtensionAlterationModelPagedResult {
     /**
      * The extension or alteration rent amount
      */
-    rent?: number // int32
+    rent?: number // double
     /**
      * The rent frequency (weekly/monthly/4weeks/annually)
      */
@@ -17883,11 +17717,13 @@ export interface TenancyModel {
    */
   modified?: string // date-time
   /**
+   * The start date of the tenancy
    * example:
    * 2019-08-14
    */
   startDate?: string // date
   /**
+   * The end date of the tenancy
    * example:
    * 2019-08-14
    */
@@ -17904,7 +17740,7 @@ export interface TenancyModel {
    * The amount of rent required, returned in relation to the collection frequency
    * Note that this is the original rent set on the tenancy. For tenancies that have been extended with a rent change you MUST use the extensions endpoint
    */
-  rent?: number // int32
+  rent?: number // double
   /**
    * The rent collection frequency (weekly/monthly/annually)
    */
@@ -18244,11 +18080,13 @@ export interface TenancyModelPagedResult {
      */
     modified?: string // date-time
     /**
+     * The start date of the tenancy
      * example:
      * 2019-08-14
      */
     startDate?: string // date
     /**
+     * The end date of the tenancy
      * example:
      * 2019-08-14
      */
@@ -18265,7 +18103,7 @@ export interface TenancyModelPagedResult {
      * The amount of rent required, returned in relation to the collection frequency
      * Note that this is the original rent set on the tenancy. For tenancies that have been extended with a rent change you MUST use the extensions endpoint
      */
-    rent?: number // int32
+    rent?: number // double
     /**
      * The rent collection frequency (weekly/monthly/annually)
      */
