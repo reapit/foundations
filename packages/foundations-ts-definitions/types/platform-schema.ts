@@ -12752,6 +12752,19 @@ export interface Properties {
   metadata?: string[]
   extrasField?: string[]
 }
+export interface PropertiesCertificates {
+  pageNumber?: number
+  pageSize?: number
+  expiryDateFrom?: string
+  expiryDateTo?: string
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
+  categories?: string[]
+  typeIds?: string[]
+  embed?: 'property'[]
+}
 /**
  * Representation of the physical address of a building or premise
  */
