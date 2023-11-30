@@ -308,8 +308,8 @@ export const Helper: FC = () => {
             </BodyText>
           ) : deletionProtection ? (
             <BodyText>
-              &lsquo;{name}&rsquo; has been set to&lsquo;delete protected&rsquo; to avoid accidental data loss. If you
-              really want to delete the app, visit <Link to={`${Routes.APPS}/${id}/edit/app-listing`}>this page </Link>,
+              &lsquo;{name}&rsquo; has deletion protection enabled to avoid accidental data loss. If you
+              really want to delete the app, visit <Link to={`${Routes.APPS}/${id}/edit/app-listing`}>this page</Link>,
               uncheck the delete protection checkbox and save the revision.
             </BodyText>
           ) : (
