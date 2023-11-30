@@ -23,6 +23,7 @@ export const Nav: FC = () => {
   const navigate = useNavigate()
   const { connectLogoutRedirect, connectIsDesktop, connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const isAdmin = getIsAdmin(connectSession)
+  const isUkProduct = connectSession?.loginIdentity.orgProduct === 'agencyCloud'
 
   const navOptions: NavResponsiveOption[] = [
     {
@@ -47,18 +48,22 @@ export const Nav: FC = () => {
     <NavResponsive
       options={navOptions}
       defaultNavIndex={getDefaultNavIndex(window.location.pathname)}
-      appSwitcherOptions={[
-        {
-          text: 'AppMarket',
-          callback: openNewPage('https://marketplace.reapit.cloud'),
-          iconUrl: <Icon icon="reapitLogoSmall" />,
-        },
-        {
-          text: 'DevPortal',
-          callback: openNewPage('https://developers.reapit.cloud'),
-          iconUrl: <Icon icon="reapitLogoSmall" />,
-        },
-      ]}
+      appSwitcherOptions={
+        isUkProduct
+          ? [
+              {
+                text: 'AppMarket',
+                callback: openNewPage('https://marketplace.reapit.cloud'),
+                iconUrl: <Icon icon="reapitLogoSmall" />,
+              },
+              {
+                text: 'DevPortal',
+                callback: openNewPage('https://developers.reapit.cloud'),
+                iconUrl: <Icon icon="reapitLogoSmall" />,
+              },
+            ]
+          : undefined
+      }
       avatarText={getAvatarInitials(connectSession)}
       avatarOptions={
         !connectIsDesktop

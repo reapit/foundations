@@ -15,19 +15,6 @@ exports[`Nav should match a snapshot 1`] = `
         <mock-styled.a
           classname=""
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
-              >
-                <svg />
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
           <mock-styled.span
             classname="mock-css.
   font-size: 1.5rem;
@@ -129,19 +116,6 @@ exports[`Nav should match a snapshot 1`] = `
       <mock-styled.a
         classname=""
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
-            >
-              <svg />
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
         <mock-styled.span
           classname="mock-css.
   font-size: 1.5rem;
