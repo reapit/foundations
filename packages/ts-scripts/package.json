@@ -90,7 +90,7 @@
     "prettier-plugin-packagejson": "^2.4.3",
     "react-refresh": "^0.14.0",
     "regenerator-runtime": "^0.13.11",
-    "rimraf": "^3.0.2",
+    "rimraf": "^4.0.0",
     "shelljs": "^0.8.5",
     "stream-browserify": "^3.0.0",
     "ts-jest": "^29.1.0",
