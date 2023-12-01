@@ -4516,6 +4516,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/plugin-proposal-private-property-in-object@npm:^7.21.11":
+  version: 7.21.11
+  resolution: "@babel/plugin-proposal-private-property-in-object@npm:7.21.11"
+  dependencies:
+    "@babel/helper-annotate-as-pure": "npm:^7.18.6"
+    "@babel/helper-create-class-features-plugin": "npm:^7.21.0"
+    "@babel/helper-plugin-utils": "npm:^7.20.2"
+    "@babel/plugin-syntax-private-property-in-object": "npm:^7.14.5"
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: f803b5e1de0cb7c53f0d7f70bfbf57f2b3a20d95c19f8f2710719c4938149b490ee14d2d0c2f8316080823f0943c6cb8668fa8c139420e7bc7f80a66bfd50fff
+  languageName: node
+  linkType: hard
+
 "@babel/plugin-proposal-unicode-property-regex@npm:^7.16.5, @babel/plugin-proposal-unicode-property-regex@npm:^7.4.4":
   version: 7.16.5
   resolution: "@babel/plugin-proposal-unicode-property-regex@npm:7.16.5"
@@ -11688,6 +11702,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/elements@workspace:packages/elements"
   dependencies:
+    "@babel/plugin-proposal-private-property-in-object": "npm:^7.21.11"
     "@linaria/babel-preset": "npm:^4.5.4"
     "@linaria/core": "npm:^4.5.4"
     "@linaria/react": "npm:^4.5.4"
@@ -11845,7 +11860,7 @@ __metadata:
     serverless-plugin-log-retention: "npm:^2.0.0"
     snyk: "npm:^1.1259.0"
     tsup: "npm:^6.7.0"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -38157,7 +38172,7 @@ __metadata:
     ts-loader: "npm:^9.5.1"
     ts-node: "npm:^10.9.1"
     tsup: "npm:^6.7.0"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     uuid: "npm:^8.3.2"
   languageName: unknown
   linkType: soft
@@ -46087,6 +46102,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:^5.3.2":
+  version: 5.3.2
+  resolution: "typescript@npm:5.3.2"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 415e5fb6611f5713e460bad48039f00bcfdbde53a2f911727862d5aa9c5d5edd250059a419df382d8f031709e15a169c41eb62b6a401da5eec7ac0f4e359d6ac
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^4.9.5#optional!builtin<compat/typescript>":
   version: 4.9.5
   resolution: "typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"
@@ -46094,6 +46119,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 5659316360b5cc2d6f5931b346401fa534107b68b60179cf14970e27978f0936c1d5c46f4b5b8175f8cba0430f522b3ce355b4b724c0ea36ce6c0347fab25afd
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^5.3.2#optional!builtin<compat/typescript>":
+  version: 5.3.2
+  resolution: "typescript@patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=29ae49"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 43c3346528a1b410b9ee7f218d709ce8d1336eb8e47b0f8bb43954f98ed43fd11e35de398c9a5f4a085b6889c89782362789b00db7aac862bd09d083058a01a2
   languageName: node
   linkType: hard
 

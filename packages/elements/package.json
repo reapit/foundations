@@ -47,6 +47,7 @@
     "@linaria/react": "^4.5.4"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@linaria/babel-preset": "^4.5.4",
     "@linaria/rollup": "^4.5.4",
     "@linaria/shaker": "^4.5.3",
