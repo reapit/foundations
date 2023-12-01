@@ -123,7 +123,11 @@ export const AdminPage: FC = () => {
         <Button
           className={elMb5}
           intent="neutral"
-          onClick={openNewPage('https://reapit-mfa-documentation.reapit.cloud/')}
+          onClick={openNewPage(
+            window.location?.hostname?.includes('.au.')
+              ? 'https://help.agentboxcrm.com.au/reapit-connect'
+              : 'https://reapit-1.gitbook.io/reapit-connect-mfa/',
+          )}
         >
           Docs
         </Button>
