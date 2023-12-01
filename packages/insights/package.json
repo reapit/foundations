@@ -23,8 +23,8 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "@linaria/core": "^4.5.4",
-    "@linaria/react": "^4.5.4",
+    "@linaria/core": "^5.0.2",
+    "@linaria/react": "^5.0.3",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
     "@sentry/browser": "^7.84.0",
@@ -37,7 +37,7 @@
     "snyk": "^1.1259.0"
   },
   "devDependencies": {
-    "@linaria/shaker": "^4.5.3",
+    "@linaria/shaker": "^5.0.3",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
@@ -54,7 +54,7 @@
     "node-polyfill-webpack-plugin": "^1.1.4",
     "rimraf": "^3.0.2",
     "ts-jest": "^29.1.1",
-    "typescript": "^4.9.5",
+    "typescript": "^5.3.2",
     "vite": "^4.5.0"
   }
 }

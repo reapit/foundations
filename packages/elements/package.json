@@ -43,15 +43,15 @@
     "not IE 11"
   ],
   "dependencies": {
-    "@linaria/core": "^4.5.4",
-    "@linaria/react": "^4.5.4"
+    "@linaria/core": "^5.0.2",
+    "@linaria/react": "^5.0.3"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@linaria/babel-preset": "^4.5.4",
-    "@linaria/rollup": "^4.5.4",
-    "@linaria/shaker": "^4.5.3",
-    "@linaria/webpack-loader": "^4.5.4",
+    "@linaria/babel-preset": "^5.0.4",
+    "@linaria/rollup": "^5.0.4",
+    "@linaria/shaker": "^5.0.3",
+    "@linaria/webpack-loader": "^5.0.4",
     "@mdx-js/react": "^1.6.22",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/storybook-addon-html": "^5.0.1",
@@ -71,7 +71,7 @@
     "@storybook/addons": "^6.5.16",
     "@storybook/builder-webpack5": "^6.5.16",
     "@storybook/cli": "^6.5.16",
-    "@storybook/csf": "^0.0.1",
+    "@storybook/csf": "^0.1.2",
     "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/react": "^6.5.16",
     "@storybook/react-docgen-typescript-plugin": "1.0.1",

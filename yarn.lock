@@ -2400,7 +2400,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.22.9, @babel/core@npm:^7.23.5":
+"@babel/core@npm:^7.22.15, @babel/core@npm:^7.23.5":
   version: 7.23.5
   resolution: "@babel/core@npm:7.23.5"
   dependencies:
@@ -2513,7 +2513,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/generator@npm:^7.22.9, @babel/generator@npm:^7.23.5":
+"@babel/generator@npm:^7.22.15, @babel/generator@npm:^7.23.5":
   version: 7.23.5
   resolution: "@babel/generator@npm:7.23.5"
   dependencies:
@@ -3150,7 +3150,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-module-imports@npm:^7.22.15, @babel/helper-module-imports@npm:^7.22.5":
+"@babel/helper-module-imports@npm:^7.22.15":
   version: 7.22.15
   resolution: "@babel/helper-module-imports@npm:7.22.15"
   dependencies:
@@ -5735,7 +5735,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-modules-commonjs@npm:^7.22.5, @babel/plugin-transform-modules-commonjs@npm:^7.23.3":
+"@babel/plugin-transform-modules-commonjs@npm:^7.22.15, @babel/plugin-transform-modules-commonjs@npm:^7.23.3":
   version: 7.23.3
   resolution: "@babel/plugin-transform-modules-commonjs@npm:7.23.3"
   dependencies:
@@ -6350,7 +6350,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-runtime@npm:^7.22.9, @babel/plugin-transform-runtime@npm:^7.23.4":
+"@babel/plugin-transform-runtime@npm:^7.22.15, @babel/plugin-transform-runtime@npm:^7.23.4":
   version: 7.23.4
   resolution: "@babel/plugin-transform-runtime@npm:7.23.4"
   dependencies:
@@ -6948,7 +6948,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-env@npm:^7.22.9, @babel/preset-env@npm:^7.23.5":
+"@babel/preset-env@npm:^7.22.15, @babel/preset-env@npm:^7.23.5":
   version: 7.23.5
   resolution: "@babel/preset-env@npm:7.23.5"
   dependencies:
@@ -7354,7 +7354,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/template@npm:^7.22.15, @babel/template@npm:^7.22.5":
+"@babel/template@npm:^7.22.15":
   version: 7.22.15
   resolution: "@babel/template@npm:7.22.15"
   dependencies:
@@ -7509,7 +7509,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.22.8, @babel/traverse@npm:^7.23.5":
+"@babel/traverse@npm:^7.22.15, @babel/traverse@npm:^7.23.5":
   version: 7.23.5
   resolution: "@babel/traverse@npm:7.23.5"
   dependencies:
@@ -9833,181 +9833,181 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@linaria/babel-preset@npm:^4.5.4":
-  version: 4.5.4
-  resolution: "@linaria/babel-preset@npm:4.5.4"
+"@linaria/babel-preset@npm:^5.0.4":
+  version: 5.0.4
+  resolution: "@linaria/babel-preset@npm:5.0.4"
   dependencies:
-    "@babel/core": "npm:^7.22.9"
-    "@babel/generator": "npm:^7.22.9"
-    "@babel/helper-module-imports": "npm:^7.22.5"
-    "@babel/template": "npm:^7.22.5"
-    "@babel/traverse": "npm:^7.22.8"
-    "@babel/types": "npm:^7.22.5"
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/logger": "npm:^4.5.0"
-    "@linaria/shaker": "npm:^4.5.3"
-    "@linaria/tags": "npm:^4.5.4"
-    "@linaria/utils": "npm:^4.5.3"
+    "@babel/core": "npm:^7.22.15"
+    "@babel/generator": "npm:^7.22.15"
+    "@babel/helper-module-imports": "npm:^7.22.15"
+    "@babel/template": "npm:^7.22.15"
+    "@babel/traverse": "npm:^7.22.15"
+    "@babel/types": "npm:^7.22.15"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/logger": "npm:^5.0.0"
+    "@linaria/shaker": "npm:^5.0.3"
+    "@linaria/tags": "npm:^5.0.2"
+    "@linaria/utils": "npm:^5.0.2"
     cosmiconfig: "npm:^8.0.0"
+    happy-dom: "npm:10.8.0"
     source-map: "npm:^0.7.3"
     stylis: "npm:^3.5.4"
-  checksum: 22979e258c75a7f17c8a65be72fe47885b056edad9c2eb38adcd6c9c7b4eab8479780d73e2c16305b3a32d52322f7b6fb03d0dad5be5c4d0917dd2888c340cdb
+    ts-invariant: "npm:^0.10.3"
+  checksum: 0963575e5630c522bcfe5c016a0db118bdf5596be739bb7355180c673c97dfb41b09d24855487666fc0194d35c07239c8f33f206cc6010f0cbe7e63e46315f7c
   languageName: node
   linkType: hard
 
-"@linaria/core@npm:^4.5.4":
-  version: 4.5.4
-  resolution: "@linaria/core@npm:4.5.4"
+"@linaria/core@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@linaria/core@npm:5.0.2"
   dependencies:
-    "@linaria/logger": "npm:^4.5.0"
-    "@linaria/tags": "npm:^4.5.4"
-    "@linaria/utils": "npm:^4.5.3"
-  checksum: 3eff66a8d7ce272fbf3cd680a916d133e5194b8d65410c0512b768948fd81306b6d435b09834793428b005d43f65b20ad5d1569a0a77b81d7dbf11679cd69c55
+    "@linaria/logger": "npm:^5.0.0"
+    "@linaria/tags": "npm:^5.0.2"
+    "@linaria/utils": "npm:^5.0.2"
+  checksum: 6fa398b3e26ad1408f81d7e15951c5657c16c8bc58f8d820187f05818f8ca4dca14677a47705b4c66f3da7477b160cd64735e4de6e030c0e91e88b406d44bfb7
   languageName: node
   linkType: hard
 
-"@linaria/logger@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "@linaria/logger@npm:4.5.0"
+"@linaria/logger@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@linaria/logger@npm:5.0.0"
   dependencies:
-    debug: "npm:^4.1.1"
+    debug: "npm:^4.3.4"
     picocolors: "npm:^1.0.0"
-  checksum: 8a01717e4935244c44d0952442811a8c4fa57aade9b99ab811d30ecbef5261859839af9f0c78645b6549d40c97eef79754cd12a8436f54e4c2139635c60cab91
+  checksum: 92b345e0f1aeb7bcaf819268753d9c72ac266b1d9ed60163719ee8d873c7b7db2259a47e34cc7c45630b2264d6e2e8568a41c2c3972e020e11aee7d7538ab68a
   languageName: node
   linkType: hard
 
-"@linaria/react@npm:^4.5.4":
-  version: 4.5.4
-  resolution: "@linaria/react@npm:4.5.4"
+"@linaria/react@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "@linaria/react@npm:5.0.3"
   dependencies:
     "@emotion/is-prop-valid": "npm:^1.2.0"
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/tags": "npm:^4.5.4"
-    "@linaria/utils": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/tags": "npm:^5.0.2"
+    "@linaria/utils": "npm:^5.0.2"
     minimatch: "npm:^9.0.3"
     react-html-attributes: "npm:^1.4.6"
     ts-invariant: "npm:^0.10.3"
   peerDependencies:
     react: ">=16"
-  checksum: d41fc7743b3cbae460e75c6f320d519bc0626d4dfead115bb8cf5dc2ddf3d098f3e42f3db972498d3113f5ee30ec8c688bc613f594c35f37b2ef7b064a0a4cde
+  checksum: 9adf2107e52bafe4af4257d3dd3921354518861ce66361d6c7015e596008b9e4e37507a3371d3b9d5793599770dcf0ef8f557d6c472084acef7e5c8ff1e9a913
   languageName: node
   linkType: hard
 
-"@linaria/rollup@npm:^4.5.4":
-  version: 4.5.4
-  resolution: "@linaria/rollup@npm:4.5.4"
+"@linaria/rollup@npm:^5.0.4":
+  version: 5.0.4
+  resolution: "@linaria/rollup@npm:5.0.4"
   dependencies:
-    "@linaria/babel-preset": "npm:^4.5.4"
-    "@linaria/logger": "npm:^4.5.0"
-    "@linaria/utils": "npm:^4.5.3"
-    "@linaria/vite": "npm:^4.5.4"
-    "@rollup/pluginutils": "npm:^4.1.0"
+    "@linaria/babel-preset": "npm:^5.0.4"
+    "@linaria/logger": "npm:^5.0.0"
+    "@linaria/utils": "npm:^5.0.2"
+    "@linaria/vite": "npm:^5.0.4"
+    "@rollup/pluginutils": "npm:^5.0.4"
   peerDependencies:
     rollup: 1.20.0||^2.0.0||^3.0.0
-  checksum: 308e3530c9f807342e8033dc70498f5465ed3485d72ab4290d70cb1c72a6e57ca9facec834eb66e231fa41cd7483a7b103af8e52dbddc2f31107f2663b3f55e9
+  checksum: 904292f8a073dd21d41754ed80ad1703fbcf071dce691720ed9e1bbd6e7ce1c3ca261f6ae762996dd7d8ca5c86d09b6ebd8398dbfff20b2ef91696944a5c7367
   languageName: node
   linkType: hard
 
-"@linaria/shaker@npm:^4.5.3":
-  version: 4.5.3
-  resolution: "@linaria/shaker@npm:4.5.3"
+"@linaria/shaker@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "@linaria/shaker@npm:5.0.3"
   dependencies:
-    "@babel/core": "npm:^7.22.9"
-    "@babel/generator": "npm:^7.22.9"
-    "@babel/plugin-transform-modules-commonjs": "npm:^7.22.5"
-    "@babel/plugin-transform-runtime": "npm:^7.22.9"
+    "@babel/core": "npm:^7.22.15"
+    "@babel/generator": "npm:^7.22.15"
+    "@babel/plugin-transform-modules-commonjs": "npm:^7.22.15"
+    "@babel/plugin-transform-runtime": "npm:^7.22.15"
     "@babel/plugin-transform-template-literals": "npm:^7.22.5"
-    "@babel/preset-env": "npm:^7.22.9"
-    "@linaria/logger": "npm:^4.5.0"
-    "@linaria/utils": "npm:^4.5.3"
+    "@babel/preset-env": "npm:^7.22.15"
+    "@linaria/logger": "npm:^5.0.0"
+    "@linaria/utils": "npm:^5.0.2"
     babel-plugin-transform-react-remove-prop-types: "npm:^0.4.24"
     ts-invariant: "npm:^0.10.3"
-  checksum: 4bdf9d9dda89b5a4911b5f9f6cc4a05f5e425255a2cd9d921135b87b61464d6a381c10a1d600acc9f89e259b22aaaae3cd79f2977b855b116e11566a58e36a27
+  checksum: 08323c7d7d3359a05f12caa55b1e8e25091e35d1ce3e703bf3a8b1a75887684e50dd195580f93cb84015341b0397775305d4391a076b5522a945ce2d491b3d18
   languageName: node
   linkType: hard
 
-"@linaria/tags@npm:^4.5.4":
-  version: 4.5.4
-  resolution: "@linaria/tags@npm:4.5.4"
+"@linaria/tags@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@linaria/tags@npm:5.0.2"
   dependencies:
-    "@babel/generator": "npm:^7.22.9"
-    "@linaria/logger": "npm:^4.5.0"
-    "@linaria/utils": "npm:^4.5.3"
-  checksum: e637d304587e97749fb1376ca081022fcbfb848605fe57296c4eb3966d24234017ccd254cb82fa4713aefe90cec38e39bfe4b9ac4e7056f4ef71d150f1a0ad7f
+    "@babel/generator": "npm:^7.22.15"
+    "@linaria/logger": "npm:^5.0.0"
+    "@linaria/utils": "npm:^5.0.2"
+  checksum: 47ba04ab590c32166758c865f6c10ffcdbd127eefc76be9f87c491d9f4f15bb46ec18a9b1bd62c237e7de1a020716ae3d6afd7ab2d6367d4920971563459ed69
   languageName: node
   linkType: hard
 
-"@linaria/utils@npm:^4.5.3":
-  version: 4.5.3
-  resolution: "@linaria/utils@npm:4.5.3"
+"@linaria/utils@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@linaria/utils@npm:5.0.2"
   dependencies:
-    "@babel/core": "npm:^7.22.9"
-    "@babel/generator": "npm:^7.22.9"
-    "@babel/plugin-proposal-export-namespace-from": "npm:^7.18.9"
-    "@babel/plugin-syntax-dynamic-import": "npm:^7.8.3"
-    "@babel/plugin-transform-modules-commonjs": "npm:^7.22.5"
-    "@babel/template": "npm:^7.22.5"
-    "@babel/traverse": "npm:^7.22.8"
-    "@babel/types": "npm:^7.22.5"
-    "@linaria/logger": "npm:^4.5.0"
+    "@babel/core": "npm:^7.22.15"
+    "@babel/generator": "npm:^7.22.15"
+    "@babel/plugin-transform-modules-commonjs": "npm:^7.22.15"
+    "@babel/template": "npm:^7.22.15"
+    "@babel/traverse": "npm:^7.22.15"
+    "@babel/types": "npm:^7.22.15"
+    "@linaria/logger": "npm:^5.0.0"
     babel-merge: "npm:^3.0.0"
     find-up: "npm:^5.0.0"
     minimatch: "npm:^9.0.3"
-  checksum: 8b1ec27ebf8078b82631de1c5debcb950267c5b098d81c66d7c1626654f822d3776dafe766214d667d1090ff7bdc8f20477912147951658f02a5121dbd29e52e
+  checksum: 372f6cda36c2d1168a37f842a6555efc82a861f6ca19ac49b8fa41a8cd6c89b3163f7f4476fb082857a34d353118a83073f2cf87b0982d173d97a3b4c5adbad1
   languageName: node
   linkType: hard
 
-"@linaria/vite@npm:^4.5.4":
-  version: 4.5.4
-  resolution: "@linaria/vite@npm:4.5.4"
+"@linaria/vite@npm:^5.0.4":
+  version: 5.0.4
+  resolution: "@linaria/vite@npm:5.0.4"
   dependencies:
-    "@linaria/babel-preset": "npm:^4.5.4"
-    "@linaria/logger": "npm:^4.5.0"
-    "@linaria/utils": "npm:^4.5.3"
-    "@rollup/pluginutils": "npm:^4.1.0"
+    "@linaria/babel-preset": "npm:^5.0.4"
+    "@linaria/logger": "npm:^5.0.0"
+    "@linaria/utils": "npm:^5.0.2"
+    "@rollup/pluginutils": "npm:^5.0.4"
   peerDependencies:
-    vite: ">=3.1.0"
-  checksum: 8961e276369cc546a330bf7f5ba64b142fc26b9f02b1d2b6d6f2c63226ee4b257e9d4cb61e5ac8e70cf3bc85b8fabda4a821eecb387a18aabd9c7d80ec0f33e8
+    vite: ">=3.2.7"
+  checksum: c2ec6b7750ba1b2cb6a8fbfc9e97a0b0f2665b3357e9c91e57c95d69c554e2c46ffe8131d7579d947f4499047af265c07732d111b16265f20492ca7359d2929a
   languageName: node
   linkType: hard
 
-"@linaria/webpack-loader@npm:^4.5.4":
-  version: 4.5.4
-  resolution: "@linaria/webpack-loader@npm:4.5.4"
+"@linaria/webpack-loader@npm:^5.0.4":
+  version: 5.0.4
+  resolution: "@linaria/webpack-loader@npm:5.0.4"
   dependencies:
-    "@linaria/webpack4-loader": "npm:^4.5.4"
-    "@linaria/webpack5-loader": "npm:^4.5.4"
-  checksum: 6856f38ff5d85b680dbd3cc2c799bf049fc5bed65a6e28d8b7b315459453a44e7f76e1a779bb991ec48ee5f658192c54289b44d48c247363fe0538d6f18ab146
+    "@linaria/webpack4-loader": "npm:^5.0.4"
+    "@linaria/webpack5-loader": "npm:^5.0.4"
+  checksum: d4ddaceaefa122f7d430f4f6f0a50a72063c4e79b17ac7b83e7d1003fcdb774989c224448082829a5a3a0a4c0d12eede334bef990661d37a00d281f59c7b213f
   languageName: node
   linkType: hard
 
-"@linaria/webpack4-loader@npm:^4.5.4":
-  version: 4.5.4
-  resolution: "@linaria/webpack4-loader@npm:4.5.4"
+"@linaria/webpack4-loader@npm:^5.0.4":
+  version: 5.0.4
+  resolution: "@linaria/webpack4-loader@npm:5.0.4"
   dependencies:
-    "@linaria/babel-preset": "npm:^4.5.4"
-    "@linaria/logger": "npm:^4.5.0"
+    "@linaria/babel-preset": "npm:^5.0.4"
+    "@linaria/logger": "npm:^5.0.0"
     enhanced-resolve: "npm:^4.1.0"
-    loader-utils: "npm:^1.2.3"
+    loader-utils: "npm:^1.4.2"
     mkdirp: "npm:^0.5.1"
   peerDependencies:
     webpack: ">=4.0.0 <5.0.0"
-  checksum: 7e680d5c0b16495e6707f6de76a6dc83064379cb33b13355c98796769f24ac3f38b91a96d136cd29805abd7798fbc36116a649e4e7e24f931e35926d40afc3a9
+  checksum: d6d4a55709ec128281b29142286ae4c5b2542d0deea1ecd0c900516efa3a19ec513335157f79661698bbcec659f9efe071d9eb662e7f94e0962f96db210cf2cb
   languageName: node
   linkType: hard
 
-"@linaria/webpack5-loader@npm:^4.5.4":
-  version: 4.5.4
-  resolution: "@linaria/webpack5-loader@npm:4.5.4"
+"@linaria/webpack5-loader@npm:^5.0.4":
+  version: 5.0.4
+  resolution: "@linaria/webpack5-loader@npm:5.0.4"
   dependencies:
-    "@linaria/babel-preset": "npm:^4.5.4"
-    "@linaria/logger": "npm:^4.5.0"
-    "@linaria/utils": "npm:^4.5.3"
+    "@linaria/babel-preset": "npm:^5.0.4"
+    "@linaria/logger": "npm:^5.0.0"
+    "@linaria/utils": "npm:^5.0.2"
     enhanced-resolve: "npm:^5.3.1"
     mkdirp: "npm:^0.5.1"
   peerDependencies:
     webpack: ^5.0.0
-  checksum: 814c4b46a3d24cc8a850311d12a9cd5e561243d691ac4613237c19f2bb4e3b4c35f6b15a4b9b4e9674cc65e3e216341c78875e41dac7de09694c2eaabb11a75a
+  checksum: b0f45b548e1731ea77823f17cd21e2d1fbe840114de12138436986d47d4311556ee763e5be5d496a63c64e5ef794ea2217f51cb41d91f36f1b12bb77445b5337
   languageName: node
   linkType: hard
 
@@ -11506,7 +11506,7 @@ __metadata:
     reflect-metadata: "npm:^0.1.13"
     ts-jest: "npm:^29.1.1"
     tsup: "npm:^6.7.0"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -11561,7 +11561,7 @@ __metadata:
     ts-jest: "npm:^29.1.1"
     ts-node-dev: "npm:^2.0.0"
     type-graphql: "npm:^1.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     uuid: "npm:^8.3.2"
   languageName: unknown
   linkType: soft
@@ -11610,7 +11610,7 @@ __metadata:
     ts-jest: "npm:^29.1.1"
     ts-node: "npm:^10.9.1"
     tsyringe: "npm:^4.8.0"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
   bin:
     reapit: ./dist/cli/src/index.js
   languageName: unknown
@@ -11667,7 +11667,7 @@ __metadata:
     rollup: "npm:^3.29.4"
     snyk: "npm:^1.1259.0"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     uuid: "npm:^9.0.1"
   languageName: unknown
   linkType: soft
@@ -11703,12 +11703,12 @@ __metadata:
   resolution: "@reapit/elements@workspace:packages/elements"
   dependencies:
     "@babel/plugin-proposal-private-property-in-object": "npm:^7.21.11"
-    "@linaria/babel-preset": "npm:^4.5.4"
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/rollup": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
-    "@linaria/webpack-loader": "npm:^4.5.4"
+    "@linaria/babel-preset": "npm:^5.0.4"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/rollup": "npm:^5.0.4"
+    "@linaria/shaker": "npm:^5.0.3"
+    "@linaria/webpack-loader": "npm:^5.0.4"
     "@mdx-js/react": "npm:^1.6.22"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/storybook-addon-html": "npm:^5.0.1"
@@ -11728,7 +11728,7 @@ __metadata:
     "@storybook/addons": "npm:^6.5.16"
     "@storybook/builder-webpack5": "npm:^6.5.16"
     "@storybook/cli": "npm:^6.5.16"
-    "@storybook/csf": "npm:^0.0.1"
+    "@storybook/csf": "npm:^0.1.2"
     "@storybook/manager-webpack5": "npm:^6.5.16"
     "@storybook/react": "npm:^6.5.16"
     "@storybook/react-docgen-typescript-plugin": "npm:1.0.1"
@@ -11801,9 +11801,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/payments-ui@workspace:packages/payments-ui"
   dependencies:
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -11835,7 +11835,7 @@ __metadata:
     snyk: "npm:^1.1259.0"
     swr: "npm:^1.3.0"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     uuid: "npm:^8.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
@@ -11890,7 +11890,7 @@ __metadata:
     fast-glob: "npm:^3.3.2"
     fs-extra: "npm:^10.1.0"
     ts-node: "npm:^10.9.1"
-    typescript: "npm:4.9.5"
+    typescript: "npm:5.3.2"
     yaml: "npm:^1.10.2"
   bin:
     ts-bundler: ./bin/index.js
@@ -11914,9 +11914,9 @@ __metadata:
     "@babel/runtime": "npm:^7.23.5"
     "@babel/types": "npm:^7.23.5"
     "@graphql-tools/jest-transform": "npm:^1.2.3"
-    "@linaria/babel-preset": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
-    "@linaria/webpack-loader": "npm:^4.5.4"
+    "@linaria/babel-preset": "npm:^5.0.4"
+    "@linaria/shaker": "npm:^5.0.3"
+    "@linaria/webpack-loader": "npm:^5.0.4"
     "@octokit/rest": "npm:^16.43.2"
     "@sentry/vite-plugin": "npm:^0.7.2"
     "@swc/core": "npm:^1.3.100"
@@ -11926,8 +11926,8 @@ __metadata:
     "@vitejs/plugin-react-swc": "npm:^3.5.0"
     ajv: "npm:^8.12.0"
     autoprefixer: "npm:^10.4.16"
-    aws-cdk: "npm:^2.111.0"
-    aws-cdk-lib: "npm:^2.111.0"
+    aws-cdk: "npm:^2.112.0"
+    aws-cdk-lib: "npm:^2.112.0"
     aws-sdk: "npm:^2.1509.0"
     babel-jest: "npm:^29.7.0"
     babel-plugin-module-resolver: "npm:^5.0.0"
@@ -11959,13 +11959,13 @@ __metadata:
     prettier: "npm:^2.8.8"
     prettier-plugin-packagejson: "npm:^2.4.6"
     react-refresh: "npm:^0.14.0"
-    regenerator-runtime: "npm:^0.13.11"
+    regenerator-runtime: "npm:^0.14.0"
     rimraf: "npm:^4.4.1"
     shelljs: "npm:^0.8.5"
     stream-browserify: "npm:^3.0.0"
     ts-jest: "npm:^29.1.1"
     ts-node: "npm:^10.9.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     vite: "npm:^4.5.0"
     vite-plugin-checker: "npm:^0.6.2"
     vite-plugin-graphql-loader: "npm:^2.0.0"
@@ -12047,7 +12047,7 @@ __metadata:
     jest-coverage-badges: "npm:^1.1.2"
     serialize-error: "npm:^7.0.1"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
   peerDependencies:
     react: ^18.2.0
   languageName: unknown
@@ -12057,7 +12057,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/utils-common@workspace:packages/utils-common"
   dependencies:
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
@@ -12076,7 +12076,7 @@ __metadata:
     jest-coverage-badges: "npm:^1.1.2"
     serialize-error: "npm:^7.0.1"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -12097,7 +12097,7 @@ __metadata:
     rxjs: "npm:^7.8.1"
     ts-jest: "npm:^29.1.1"
     tsup: "npm:^6.7.0"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
   peerDependencies:
     "@nestjs/common": "*"
     "@nestjs/core": "*"
@@ -12110,9 +12110,9 @@ __metadata:
   resolution: "@reapit/utils-node@workspace:packages/utils-node"
   dependencies:
     "@homeservenow/serverless-aws-handler": "npm:^0.2.4"
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
@@ -12132,7 +12132,7 @@ __metadata:
     jest-coverage-badges: "npm:^1.1.2"
     serialize-error: "npm:^7.0.1"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     uuid: "npm:^8.3.2"
   bin:
     reapit-fetch-public-keys: ./src/fetch-public-keys/index.js
@@ -12143,9 +12143,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/utils-react@workspace:packages/utils-react"
   dependencies:
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
@@ -12168,7 +12168,7 @@ __metadata:
     react-image-crop: "npm:8.6.12"
     serialize-error: "npm:^7.0.1"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     uuid: "npm:^8.3.2"
   languageName: unknown
   linkType: soft
@@ -12378,16 +12378,6 @@ __metadata:
   peerDependencies:
     rollup: ^1.20.0||^2.0.0
   checksum: 3b69f02893eea42455fb97b81f612ac6bfadf94ac73bebd481ea13e90a693eef52c163210a095b12e574a25603af5e55f86a020889019167f331aa8dd3ff30e0
-  languageName: node
-  linkType: hard
-
-"@rollup/pluginutils@npm:^4.1.0":
-  version: 4.1.1
-  resolution: "@rollup/pluginutils@npm:4.1.1"
-  dependencies:
-    estree-walker: "npm:^2.0.1"
-    picomatch: "npm:^2.2.2"
-  checksum: 07e17417e28cd13e2f70ff27aa25ab7074736af521212a93acfe7ee70fea44e82b72ac37f9aab29ff1f658290afeb4086f14dfd4444ec72f093b411dc596b3ab
   languageName: node
   linkType: hard
 
@@ -14584,12 +14574,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/csf@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "@storybook/csf@npm:0.0.1"
+"@storybook/csf@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "@storybook/csf@npm:0.1.2"
   dependencies:
-    lodash: "npm:^4.17.15"
-  checksum: f6bb019bccd8abc14e45a85258158b7bd8cc525887ac8dc9151ed8c4908be3b5f5523da8a7a9b96ff11b13b6c1744e1a0e070560d63d836b950f595f9a5719d4
+    type-fest: "npm:^2.19.0"
+  checksum: 11168df65e7b6bd0e5d31e7e805c8ba80397fc190cb33424e043b72bbd85d8f826dba082503992d7f606b72484337ab9d091eca947550613e241fbef57780d4c
   languageName: node
   linkType: hard
 
@@ -18005,14 +17995,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/ncc@npm:^0.36.1":
-  version: 0.36.1
-  resolution: "@vercel/ncc@npm:0.36.1"
+"@vercel/ncc@npm:^0.38.1":
+  version: 0.38.1
+  resolution: "@vercel/ncc@npm:0.38.1"
   dependencies:
     node-gyp: "npm:latest"
   bin:
     ncc: dist/ncc/cli.js
-  checksum: 8282cbe94096af36a66cf6175b8bae0afb0310d832284a1bd7bd6d4b4ff111820341a2d3aa909dbf897b06cce4af3fb473f9195e2524eea236dd4de2a86d6ca2
+  checksum: 2ed9dff34ba2e7c2ba7113ed075effd023549d5041d355a367f5bf749b20916f68d2adad6737f7a2d03f0d92237f948ce8dfbc9429bdf3febc18d4fa5159d9b4
   languageName: node
   linkType: hard
 
@@ -18812,9 +18802,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin-portal@workspace:packages/admin-portal"
   dependencies:
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -18843,7 +18833,7 @@ __metadata:
     react-router-dom: "npm:^6.20.0"
     snyk: "npm:^1.1259.0"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
   languageName: unknown
@@ -19222,7 +19212,7 @@ __metadata:
     rxjs: "npm:^7.8.1"
     ts-node: "npm:^10.9.1"
     tsup: "npm:^6.7.0"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -19387,9 +19377,9 @@ __metadata:
   dependencies:
     "@apollo/client": "npm:^3.8.8"
     "@craftjs/core": "npm:0.2.3"
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -19429,7 +19419,7 @@ __metadata:
     styled-components: "npm:^5.3.11"
     throttle-debounce: "npm:^3.0.1"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     uuid: "npm:^8.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
@@ -19441,9 +19431,9 @@ __metadata:
   resolution: "app-marketplace-admin@workspace:packages/app-marketplace-admin"
   dependencies:
     "@hookform/resolvers": "npm:^2.9.11"
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -19474,7 +19464,7 @@ __metadata:
     shleemy: "npm:^1.2.2"
     snyk: "npm:^1.1259.0"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     uuid: "npm:^8.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
@@ -19511,7 +19501,7 @@ __metadata:
     rxjs: "npm:^7.8.1"
     ts-jest: "npm:^29.1.1"
     ts-node: "npm:^10.9.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -20084,7 +20074,7 @@ __metadata:
     "@types/node": "npm:^16.18.66"
     "@typescript-eslint/eslint-plugin": "npm:^5.62.0"
     "@typescript-eslint/parser": "npm:^5.62.0"
-    "@vercel/ncc": "npm:^0.36.1"
+    "@vercel/ncc": "npm:^0.38.1"
     eslint: "npm:8.54.0"
     eslint-plugin-prettier: "npm:^4.2.1"
     serverless-deployment-bucket: "npm:^1.6.0"
@@ -20149,9 +20139,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-cdk-lib@npm:^2.111.0":
-  version: 2.111.0
-  resolution: "aws-cdk-lib@npm:2.111.0"
+"aws-cdk-lib@npm:^2.112.0":
+  version: 2.112.0
+  resolution: "aws-cdk-lib@npm:2.112.0"
   dependencies:
     "@aws-cdk/asset-awscli-v1": "npm:^2.2.201"
     "@aws-cdk/asset-kubectl-v20": "npm:^2.1.2"
@@ -20159,7 +20149,7 @@ __metadata:
     "@balena/dockerignore": "npm:^1.0.2"
     case: "npm:1.6.3"
     fs-extra: "npm:^11.1.1"
-    ignore: "npm:^5.2.4"
+    ignore: "npm:^5.3.0"
     jsonschema: "npm:^1.4.1"
     minimatch: "npm:^3.1.2"
     punycode: "npm:^2.3.1"
@@ -20168,13 +20158,13 @@ __metadata:
     yaml: "npm:1.10.2"
   peerDependencies:
     constructs: ^10.0.0
-  checksum: e0263da9e9463efb653d018a9a11c24c794454d6c494b46244c37e42cb71f6e3d30344760122dbd1b9d418edf893f2374235456c89238de15c527d8173dea1d4
+  checksum: f248cb7f208f8a0c509872c493e0220d4ddded1ca8aa7afc385d50c835632f19a87e493aa89414d21d8a8cf653b854fd0ab3cb872e3485d49ed9080e47780d88
   languageName: node
   linkType: hard
 
-"aws-cdk@npm:^2.111.0":
-  version: 2.111.0
-  resolution: "aws-cdk@npm:2.111.0"
+"aws-cdk@npm:^2.112.0":
+  version: 2.112.0
+  resolution: "aws-cdk@npm:2.112.0"
   dependencies:
     fsevents: "npm:2.3.2"
   dependenciesMeta:
@@ -20182,7 +20172,7 @@ __metadata:
       optional: true
   bin:
     cdk: bin/cdk
-  checksum: 99f5544b75e86c5b245fb04016cb100d4c53406041f607f7922b66420de9237b66b264a1af005344f468ce9aa865b35d1c972febab8e5f29129b777c42dc2bf8
+  checksum: ffd2de8d5d12f7af3cad649bd67e2e42b68b43fa55815f3862713e1b52a2cb10a1ef95a2c5ad837c7ae123475e37d137b1d632e07b333ed1da06cd3c17f801c3
   languageName: node
   linkType: hard
 
@@ -23982,9 +23972,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "data-warehouse@workspace:packages/data-warehouse"
   dependencies:
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -24009,7 +23999,7 @@ __metadata:
     react-router-dom: "npm:^6.20.0"
     snyk: "npm:^1.1259.0"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
   languageName: unknown
@@ -24558,7 +24548,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^5.62.0"
     adm-zip: "npm:^0.5.10"
     atlassian-jwt: "npm:^2.0.2"
-    aws-cdk: "npm:^2.111.0"
+    aws-cdk: "npm:^2.112.0"
     aws-serverless-express: "npm:^3.4.0"
     class-transformer: "npm:^0.5.1"
     class-validator: "npm:^0.14.0"
@@ -24585,7 +24575,7 @@ __metadata:
     ts-node: "npm:^10.9.1"
     tsup: "npm:^6.7.0"
     typeorm: "npm:^0.3.17"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     yaml: "npm:^2.3.4"
   languageName: unknown
   linkType: soft
@@ -24722,9 +24712,9 @@ __metadata:
     "@apollo/explorer": "npm:^1.2.0"
     "@harelpls/use-pusher": "npm:^7.2.1"
     "@hookform/resolvers": "npm:^2.9.11"
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -24764,7 +24754,7 @@ __metadata:
     snyk: "npm:^1.1259.0"
     swagger-ui-react: "npm:^4.19.1"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     use-deep-compare-effect: "npm:^1.8.1"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
@@ -25475,6 +25465,13 @@ __metadata:
   version: 4.4.0
   resolution: "entities@npm:4.4.0"
   checksum: b627cb900e901cc7817037b83bf993a1cbf6a64850540f7526af7bcf9c7d09ebc671198e6182cfae4680f733799e2852e6a1c46aa62ff36eb99680057a038df5
+  languageName: node
+  linkType: hard
+
+"entities@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "entities@npm:4.5.0"
+  checksum: ede2a35c9bce1aeccd055a1b445d41c75a14a2bb1cd22e242f20cf04d236cdcd7f9c859eb83f76885327bfae0c25bf03303665ee1ce3d47c5927b98b0e3e3d48
   languageName: node
   linkType: hard
 
@@ -28298,9 +28295,9 @@ __metadata:
   dependencies:
     "@apollo/client": "npm:^3.8.8"
     "@apollo/react-testing": "npm:^4.0.0"
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -28331,7 +28328,7 @@ __metadata:
     react-router-dom: "npm:^6.20.0"
     react-swipeable: "npm:^6.2.2"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
   languageName: unknown
@@ -29061,7 +29058,7 @@ __metadata:
     "@types/graphql": "npm:^14.5.0"
     "@typescript-eslint/eslint-plugin": "npm:^5.62.0"
     "@typescript-eslint/parser": "npm:^5.62.0"
-    aws-cdk-lib: "npm:^2.111.0"
+    aws-cdk-lib: "npm:^2.112.0"
     aws-lambda: "npm:^1.0.7"
     aws-serverless-express: "npm:^3.4.0"
     axios: "npm:^1.6.2"
@@ -29087,7 +29084,7 @@ __metadata:
     ts-node: "npm:^10.9.1"
     ts-node-dev: "npm:^2.0.0"
     tsconfig-paths: "npm:^3.14.2"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -29139,7 +29136,7 @@ __metadata:
     ts-node-dev: "npm:^2.0.0"
     tsconfig-paths: "npm:^3.14.2"
     tslib: "npm:2.6.2"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     uuid: "npm:^3.4.0"
     vue: "npm:^2.7.15"
     winston: "npm:^3.11.0"
@@ -29231,6 +29228,20 @@ __metadata:
   bin:
     handlebars: bin/handlebars
   checksum: 617b1e689b7577734abc74564bdb8cdaddf8fd48ce72afdb489f426e9c60a7d6ee2a2707c023720c4059070128243c948bded8f2716e4543378033e3971b85ea
+  languageName: node
+  linkType: hard
+
+"happy-dom@npm:10.8.0":
+  version: 10.8.0
+  resolution: "happy-dom@npm:10.8.0"
+  dependencies:
+    css.escape: "npm:^1.5.1"
+    entities: "npm:^4.5.0"
+    iconv-lite: "npm:^0.6.3"
+    webidl-conversions: "npm:^7.0.0"
+    whatwg-encoding: "npm:^2.0.0"
+    whatwg-mimetype: "npm:^3.0.0"
+  checksum: 05fbbe23909f819d10ef215f886c2096d288a15e20811b7c1de36433314ed338e93631a92d614566bd7861ee62f347fa9ea6a6c07549fa3b833b41afcca08da4
   languageName: node
   linkType: hard
 
@@ -30072,7 +30083,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconv-lite@npm:0.6.3":
+"iconv-lite@npm:0.6.3, iconv-lite@npm:^0.6.3":
   version: 0.6.3
   resolution: "iconv-lite@npm:0.6.3"
   dependencies:
@@ -30189,10 +30200,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.2.4":
-  version: 5.2.4
-  resolution: "ignore@npm:5.2.4"
-  checksum: 4f7caf5d2005da21a382d4bd1d2aa741a3bed51de185c8562dd7f899a81a620ac4fd0619b06f7029a38ae79e4e4c134399db3bd0192c703c3ef54bb82df3086c
+"ignore@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "ignore@npm:5.3.0"
+  checksum: 51594355cea4c6ad6b28b3b85eb81afa7b988a1871feefd7062baf136c95aa06760ee934fa9590e43d967bd377ce84a4cf6135fbeb6063e063f1182a0e9a3bcd
   languageName: node
   linkType: hard
 
@@ -30446,9 +30457,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "insights@workspace:packages/insights"
   dependencies:
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -30475,7 +30486,7 @@ __metadata:
     rimraf: "npm:^3.0.2"
     snyk: "npm:^1.1259.0"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     vite: "npm:^4.5.0"
   languageName: unknown
   linkType: soft
@@ -33375,6 +33386,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"loader-utils@npm:^1.4.2":
+  version: 1.4.2
+  resolution: "loader-utils@npm:1.4.2"
+  dependencies:
+    big.js: "npm:^5.2.2"
+    emojis-list: "npm:^3.0.0"
+    json5: "npm:^1.0.1"
+  checksum: 2ae94cc88ad9cf2991e322b9ddf547cff80cf6fc0f9c77546b258c5ed9f77b0827f64c2625cb0baa06432f1f441bb4744c9ab1e1412ee6f8e97d31f8e9c730d6
+  languageName: node
+  linkType: hard
+
 "loader-utils@npm:^2.0.0":
   version: 2.0.0
   resolution: "loader-utils@npm:2.0.0"
@@ -34162,9 +34184,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "marketplace-management@workspace:packages/marketplace-management"
   dependencies:
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -34190,7 +34212,7 @@ __metadata:
     react-router-dom: "npm:^6.20.0"
     swr: "npm:^1.3.0"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
   languageName: unknown
@@ -34201,9 +34223,9 @@ __metadata:
   resolution: "marketplace@workspace:packages/marketplace"
   dependencies:
     "@hookform/resolvers": "npm:^2.9.11"
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -34231,7 +34253,7 @@ __metadata:
     scroll-into-view-if-needed: "npm:^2.2.31"
     snyk: "npm:^1.1259.0"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
   languageName: unknown
@@ -38041,9 +38063,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "payments-client@workspace:packages/payments-client"
   dependencies:
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -38075,7 +38097,7 @@ __metadata:
     swr: "npm:^1.3.0"
     ts-jest: "npm:^29.1.1"
     ts-node: "npm:^10.9.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     uuid: "npm:^8.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
@@ -38086,9 +38108,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "payments-portal@workspace:packages/payments-portal"
   dependencies:
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -38116,7 +38138,7 @@ __metadata:
     snyk: "npm:^1.1259.0"
     swr: "npm:^1.3.0"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     uuid: "npm:^8.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
@@ -39742,9 +39764,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "rc-mfa-config@workspace:packages/rc-mfa-config"
   dependencies:
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -39773,7 +39795,7 @@ __metadata:
     react-router: "npm:^6.20.0"
     react-router-dom: "npm:^6.20.0"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
   languageName: unknown
@@ -39845,9 +39867,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "rc-service@workspace:packages/rc-service"
   dependencies:
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -39874,7 +39896,7 @@ __metadata:
     react-router: "npm:^6.20.0"
     react-router-dom: "npm:^6.20.0"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
   languageName: unknown
@@ -40721,9 +40743,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "reapit-connect@workspace:packages/reapit-connect"
   dependencies:
-    "@linaria/core": "npm:^4.5.4"
-    "@linaria/react": "npm:^4.5.4"
-    "@linaria/shaker": "npm:^4.5.3"
+    "@linaria/core": "npm:^5.0.2"
+    "@linaria/react": "npm:^5.0.3"
+    "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
@@ -40751,7 +40773,7 @@ __metadata:
     react-router: "npm:^6.20.0"
     react-router-dom: "npm:^6.20.0"
     ts-jest: "npm:^29.1.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
     vite: "npm:^4.5.0"
     yup: "npm:^0.32.11"
   languageName: unknown
@@ -42112,7 +42134,7 @@ __metadata:
     eslint-plugin-prettier: "npm:^4.2.1"
     snyk: "npm:^1.1259.0"
     ts-node: "npm:^10.9.1"
-    typescript: "npm:^4.9.5"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -45869,7 +45891,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^2.13.0":
+"type-fest@npm:^2.13.0, type-fest@npm:^2.19.0":
   version: 2.19.0
   resolution: "type-fest@npm:2.19.0"
   checksum: 7bf9e8fdf34f92c8bb364c0af14ca875fac7e0183f2985498b77be129dc1b3b1ad0a6b3281580f19e48c6105c037fb966ad9934520c69c6434d17fd0af4eed78
@@ -46092,7 +46114,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.9.5, typescript@npm:^4.9.5":
+"typescript@npm:4.9.5":
   version: 4.9.5
   resolution: "typescript@npm:4.9.5"
   bin:
@@ -46102,7 +46124,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.3.2":
+"typescript@npm:5.3.2, typescript@npm:^5.3.2":
   version: 5.3.2
   resolution: "typescript@npm:5.3.2"
   bin:
@@ -46112,7 +46134,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^4.9.5#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>":
   version: 4.9.5
   resolution: "typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"
   bin:
@@ -46122,7 +46144,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.3.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.3.2#optional!builtin<compat/typescript>":
   version: 5.3.2
   resolution: "typescript@patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=29ae49"
   bin:
