@@ -1498,7 +1498,6 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
               <mock-styled.input
                 autocomplete="cardNumber"
                 classname=""
-                disabled="true"
                 id="cardNumber"
                 inputmode="numeric"
                 maxlength="19"
@@ -1551,7 +1550,6 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
               <mock-styled.input
                 autocomplete="expiryDate"
                 classname=""
-                disabled="true"
                 id="expiryDate"
                 inputmode="numeric"
                 maxlength="7"
@@ -3097,7 +3095,6 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
             <mock-styled.input
               autocomplete="cardNumber"
               classname=""
-              disabled="true"
               id="cardNumber"
               inputmode="numeric"
               maxlength="19"
@@ -3150,7 +3147,6 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
             <mock-styled.input
               autocomplete="expiryDate"
               classname=""
-              disabled="true"
               id="expiryDate"
               inputmode="numeric"
               maxlength="7"
@@ -4753,7 +4749,6 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
               <mock-styled.input
                 autocomplete="cardNumber"
                 classname=""
-                disabled="true"
                 id="cardNumber"
                 inputmode="numeric"
                 maxlength="19"
@@ -4806,7 +4801,6 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
               <mock-styled.input
                 autocomplete="expiryDate"
                 classname=""
-                disabled="true"
                 id="expiryDate"
                 inputmode="numeric"
                 maxlength="7"
@@ -6352,7 +6346,6 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
             <mock-styled.input
               autocomplete="cardNumber"
               classname=""
-              disabled="true"
               id="cardNumber"
               inputmode="numeric"
               maxlength="19"
@@ -6405,7 +6398,6 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
             <mock-styled.input
               autocomplete="expiryDate"
               classname=""
-              disabled="true"
               id="expiryDate"
               inputmode="numeric"
               maxlength="7"
@@ -8129,7 +8121,6 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
               <mock-styled.input
                 autocomplete="cardNumber"
                 classname=""
-                disabled="true"
                 id="cardNumber"
                 inputmode="numeric"
                 maxlength="19"
@@ -8182,7 +8173,6 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
               <mock-styled.input
                 autocomplete="expiryDate"
                 classname=""
-                disabled="true"
                 id="expiryDate"
                 inputmode="numeric"
                 maxlength="7"
@@ -9784,7 +9774,6 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
             <mock-styled.input
               autocomplete="cardNumber"
               classname=""
-              disabled="true"
               id="cardNumber"
               inputmode="numeric"
               maxlength="19"
@@ -9837,7 +9826,6 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
             <mock-styled.input
               autocomplete="expiryDate"
               classname=""
-              disabled="true"
               id="expiryDate"
               inputmode="numeric"
               maxlength="7"

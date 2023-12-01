@@ -32,13 +32,13 @@
     "commit": "echo '...skipping...'"
   },
   "dependencies": {
-    "yeoman-generator": "^5.8.0",
+    "yeoman-generator": "^5.10.0",
     "yo": "^4.3.1",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
     "concurrently": "^6.5.1",
-    "eslint": "8.41.0"
+    "eslint": "8.54.0"
   }
 }
