@@ -31,7 +31,7 @@
     "express-session": "^1.17.2",
     "memorystore": "^1.6.6",
     "morgan": "^1.10.0",
-    "serialize-error": "^9.1.0",
+    "serialize-error": "^11.0.3",
     "serverless-http": "^2.7.0",
     "uuid": "^8.3.2"
   },
