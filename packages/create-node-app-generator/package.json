@@ -5,7 +5,7 @@
     "@nestjs/common": "^9.4.3",
     "@nestjs/core": "^9.4.3",
     "@nestjs/platform-express": "^9.4.3",
-    "yeoman-generator": "^5.10.0",
+    "yeoman-generator": "^6.0.0",
     "yo": "^4.3.1",
     "yosay": "^2.0.2"
   },
