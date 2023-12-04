@@ -3,7 +3,7 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { elIntentPrimary, elIntentDanger, elIntentDefault } from '../../../styles/intent'
 import { elIsLoading } from '../../../styles/states'
-import { ElIcon } from '../../icon/__styles__'
+import { ElIcon } from './../../icon'
 
 const buttonXPadding = 1
 const buttonXPaddingMobile = 0.875
