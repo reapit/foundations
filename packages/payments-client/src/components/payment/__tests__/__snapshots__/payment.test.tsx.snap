@@ -1979,7 +1979,6 @@ exports[`Payment should match a snapshot with data 1`] = `
                 <mock-styled.input
                   autocomplete="cardNumber"
                   classname=""
-                  disabled="true"
                   id="cardNumber"
                   inputmode="numeric"
                   maxlength="19"
@@ -2032,7 +2031,6 @@ exports[`Payment should match a snapshot with data 1`] = `
                 <mock-styled.input
                   autocomplete="expiryDate"
                   classname=""
-                  disabled="true"
                   id="expiryDate"
                   inputmode="numeric"
                   maxlength="7"
@@ -3808,7 +3806,6 @@ exports[`Payment should match a snapshot with data 1`] = `
               <mock-styled.input
                 autocomplete="cardNumber"
                 classname=""
-                disabled="true"
                 id="cardNumber"
                 inputmode="numeric"
                 maxlength="19"
@@ -3861,7 +3858,6 @@ exports[`Payment should match a snapshot with data 1`] = `
               <mock-styled.input
                 autocomplete="expiryDate"
                 classname=""
-                disabled="true"
                 id="expiryDate"
                 inputmode="numeric"
                 maxlength="7"
