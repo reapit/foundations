@@ -33,7 +33,7 @@
     "morgan": "^1.10.0",
     "serialize-error": "^11.0.3",
     "serverless-http": "^2.7.0",
-    "uuid": "^8.3.2"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",

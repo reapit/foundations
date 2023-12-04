@@ -1727,7 +1727,6 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
                 <mock-styled.input
                   autocomplete="cardNumber"
                   classname=""
-                  disabled="true"
                   id="cardNumber"
                   inputmode="numeric"
                   maxlength="19"
@@ -1780,7 +1779,6 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
                 <mock-styled.input
                   autocomplete="expiryDate"
                   classname=""
-                  disabled="true"
                   id="expiryDate"
                   inputmode="numeric"
                   maxlength="7"
@@ -3556,7 +3554,6 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               <mock-styled.input
                 autocomplete="cardNumber"
                 classname=""
-                disabled="true"
                 id="cardNumber"
                 inputmode="numeric"
                 maxlength="19"
@@ -3609,7 +3606,6 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               <mock-styled.input
                 autocomplete="expiryDate"
                 classname=""
-                disabled="true"
                 id="expiryDate"
                 inputmode="numeric"
                 maxlength="7"
@@ -5442,7 +5438,6 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
                 <mock-styled.input
                   autocomplete="cardNumber"
                   classname=""
-                  disabled="true"
                   id="cardNumber"
                   inputmode="numeric"
                   maxlength="19"
@@ -5495,7 +5490,6 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
                 <mock-styled.input
                   autocomplete="expiryDate"
                   classname=""
-                  disabled="true"
                   id="expiryDate"
                   inputmode="numeric"
                   maxlength="7"
@@ -7271,7 +7265,6 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
               <mock-styled.input
                 autocomplete="cardNumber"
                 classname=""
-                disabled="true"
                 id="cardNumber"
                 inputmode="numeric"
                 maxlength="19"
@@ -7324,7 +7317,6 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
               <mock-styled.input
                 autocomplete="expiryDate"
                 classname=""
-                disabled="true"
                 id="expiryDate"
                 inputmode="numeric"
                 maxlength="7"

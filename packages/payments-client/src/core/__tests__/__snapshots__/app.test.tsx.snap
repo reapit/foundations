@@ -6,9 +6,11 @@ exports[`App should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <mock-styled.div />
   </div>,
   "debug": [Function],
