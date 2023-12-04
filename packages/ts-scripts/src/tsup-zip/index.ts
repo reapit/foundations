@@ -56,11 +56,15 @@ const bundle = (packageFolder: string) => {
       })
     }
     fs.mkdirSync(`${process.cwd()}/bundle`)
-    includes.forEach(file => {
+    includes.forEach((file) => {
       const parts = file.split('/')
       const fullFileName = parts.pop()
       const [fileName] = fullFileName.split('.')
-      execSync(`cd ${tmpDir} && zip -q -r ${path.resolve('bundle', fileName)} ./packages/${packageFolder}/${parts.join('/')} ./node_modules`)
+      execSync(
+        `cd ${tmpDir} && zip -q -r ${path.resolve('bundle', fileName)} ./packages/${packageFolder}/${parts.join(
+          '/',
+        )} ./node_modules`,
+      )
     })
   } else {
     execSync(`cd ${tmpDir} && zip -q -r ${path.resolve('bundle.zip')} .`)
