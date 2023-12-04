@@ -6,12 +6,14 @@ exports[`App should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
+      <mock-styled.div />
       <div>
         I am a router
       </div>
     </div>
   </body>,
   "container": <div>
+    <mock-styled.div />
     <mock-styled.div />
     <div>
       I am a router

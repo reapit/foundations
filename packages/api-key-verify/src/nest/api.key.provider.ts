@@ -2,7 +2,7 @@ import { Inject, UnauthorizedException } from '@nestjs/common'
 import { AuthProviderInterface, CredAuthTokenProvider } from '@reapit/utils-nest'
 import { ApiKeyModel, resolveApiKey } from '..'
 import { API_KEY_INVOKE_CONFIG_PROVIDE } from './api.key.invoke.config'
-import type {ApiKeyVerifyModuleOptionsInterface} from './api.key.invoke.config'
+import type { ApiKeyVerifyModuleOptionsInterface } from './api.key.invoke.config'
 
 @CredAuthTokenProvider(2)
 export class ApiKeyProvider implements AuthProviderInterface<ApiKeyModel> {
