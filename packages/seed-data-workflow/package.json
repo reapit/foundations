@@ -15,18 +15,18 @@
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
-    "@typescript-eslint/eslint-plugin": "^5.59.7",
-    "@typescript-eslint/parser": "^5.59.7",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
     "eslint-plugin-prettier": "^4.2.1"
   },
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
     "axios": "^0.27.2",
-    "dayjs": "^1.11.7",
-    "eslint": "^8.41.0",
-    "snyk": "^1.1163.0",
+    "dayjs": "^1.11.10",
+    "eslint": "^8.54.0",
+    "snyk": "^1.1259.0",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
+    "typescript": "^5.3.2"
   },
   "scripts": {
     "start": "yarn conf --name production && ts-node ./src/index.ts",

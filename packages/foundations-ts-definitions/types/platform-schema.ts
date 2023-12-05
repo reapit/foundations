@@ -12755,6 +12755,7 @@ export interface Properties {
 export interface PropertiesCertificates {
   pageNumber?: number
   pageSize?: number
+  sortBy?: string
   expiryDateFrom?: string
   expiryDateTo?: string
   createdFrom?: string
@@ -12763,6 +12764,7 @@ export interface PropertiesCertificates {
   modifiedTo?: string
   categories?: string[]
   typeIds?: string[]
+  propertyIds?: string[]
   embed?: 'property'[]
 }
 /**
