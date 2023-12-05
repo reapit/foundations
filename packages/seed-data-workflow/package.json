@@ -20,7 +20,7 @@
     "eslint-plugin-prettier": "^4.2.1"
   },
   "dependencies": {
-    "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/connect-session": "1.0.0",
     "axios": "^0.27.2",
     "dayjs": "^1.11.10",
     "eslint": "^8.54.0",
