@@ -2313,6 +2313,10 @@ export interface CertificateModel {
    */
   referenceNumber?: string
   /**
+   * The party responsible for the certificate, as defined in property configuration (agent/landlord/notRequired/notSet)
+   */
+  responsibleParty?: string
+  /**
    * The ETag for the current version of the certificate. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -2383,6 +2387,10 @@ export interface CertificateModelPagedResult {
      * The certificate's reference number
      */
     referenceNumber?: string
+    /**
+     * The party responsible for the certificate, as defined in property configuration (agent/landlord/notRequired/notSet)
+     */
+    responsibleParty?: string
     /**
      * The ETag for the current version of the certificate. Used for managing update concurrency
      */
@@ -20273,6 +20281,39 @@ export interface UpdateCertificateModel {
    * The certificate's reference number
    */
   referenceNumber?: string
+}
+/**
+ * Object containing a collection of certificate type to responsible party mappings
+ * example:
+ * [object Object]
+ */
+export interface UpdateCertificateResponsibilitiesModel {
+  /**
+   * A collection of certificate type to responsible party mappings
+   */
+  responsibleParties?: {
+    /**
+     * The type Id to update responsibility for
+     */
+    typeId?: string
+    /**
+     * The party responsible for the specified certificate type (landlord/agent/notRequired/notSet)
+     */
+    responsibleParty?: string
+  }[]
+}
+/**
+ * Record describing the responsible party for a given type of certificate within a property entry
+ */
+export interface UpdateCertificateResponsiblePartyModel {
+  /**
+   * The type Id to update responsibility for
+   */
+  typeId?: string
+  /**
+   * The party responsible for the specified certificate type (landlord/agent/notRequired/notSet)
+   */
+  responsibleParty?: string
 }
 /**
  * Request body to set the address of an existing company
