@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@reapit/utils-node": "workspace:packages/utils-node",
-    "@sentry/node": "^6.16.1",
+    "@sentry/node": "^7.80.0",
     "aws-sdk": "^2.949.0",
     "axios": "^1.6.0",
     "body-parser": "^1.19.1",
