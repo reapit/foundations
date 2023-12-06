@@ -6,17 +6,11 @@ exports[`SettingsProfile should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+      <mock-styled.h1
+        classname=""
       >
-        <mock-styled.h1
-          classname=""
-        >
-          Profile
-        </mock-styled.h1>
-      </mock-styled.div>
+        Profile
+      </mock-styled.h1>
       <mock-styled.h2
         classname="mock-css."
       >
@@ -207,17 +201,11 @@ exports[`SettingsProfile should match snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
+    <mock-styled.h1
+      classname=""
     >
-      <mock-styled.h1
-        classname=""
-      >
-        Profile
-      </mock-styled.h1>
-    </mock-styled.div>
+      Profile
+    </mock-styled.h1>
     <mock-styled.h2
       classname="mock-css."
     >
@@ -465,29 +453,11 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+      <mock-styled.h1
+        classname=""
       >
-        <mock-styled.h1
-          classname=""
-        >
-          Profile
-        </mock-styled.h1>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css."
-          >
-            <mock-styled.button
-              classname="mock-css."
-            >
-              <mock-styled.div />
-              Logout
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+        Profile
+      </mock-styled.h1>
       <mock-styled.h2
         classname="mock-css."
       >
@@ -678,29 +648,11 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
+    <mock-styled.h1
+      classname=""
     >
-      <mock-styled.h1
-        classname=""
-      >
-        Profile
-      </mock-styled.h1>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="mock-css."
-        >
-          <mock-styled.button
-            classname="mock-css."
-          >
-            <mock-styled.div />
-            Logout
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+      Profile
+    </mock-styled.h1>
     <mock-styled.h2
       classname="mock-css."
     >

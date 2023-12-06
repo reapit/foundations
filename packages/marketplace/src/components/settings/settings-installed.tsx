@@ -199,7 +199,7 @@ export const SettingsInstalled: FC = () => {
                     {
                       label: 'App Name',
                       value: appName ?? '',
-                      icon: 'appInfographic',
+                      icon: 'mobile',
                       cellHasDarkText: true,
                       narrowTable: {
                         showLabel: true,

@@ -104,22 +104,20 @@ export const Nav: FC = () => {
       }
       avatarText={getAvatarInitials(connectSession)}
       avatarOptions={
-        !connectIsDesktop
-          ? ([
-              {
-                callback: navigateRoute(navigate, RoutePaths.SETTINGS_PROFILE),
-                text: 'Profile',
-              },
-              isAdmin && {
-                callback: navigateRoute(navigate, RoutePaths.SETTINGS_INSTALLED),
-                text: 'Installed',
-              },
-              {
-                callback: connectLogoutRedirect,
-                text: 'Logout',
-              },
-            ].filter(Boolean) as NavResponsiveAvatarOption[])
-          : undefined
+        [
+          {
+            callback: navigateRoute(navigate, RoutePaths.SETTINGS_PROFILE),
+            text: 'Profile',
+          },
+          isAdmin && {
+            callback: navigateRoute(navigate, RoutePaths.SETTINGS_INSTALLED),
+            text: 'Installed',
+          },
+          !connectIsDesktop && {
+            callback: connectLogoutRedirect,
+            text: 'Logout',
+          },
+        ].filter(Boolean) as NavResponsiveAvatarOption[]
       }
     />
   )
