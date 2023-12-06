@@ -2408,6 +2408,19 @@ export interface CertificateModelPagedResult {
   }
 }
 /**
+ * Record describing the responsible party for a given type of certificate within a property entry
+ */
+export interface CertificateResponsiblePartyModel {
+  /**
+   * Identifier for the type of certificate for which the party is responsible
+   */
+  typeId?: string
+  /**
+   * The party responsible for the specified certificate type (landlord/agent/notRequired/notSet)
+   */
+  responsibleParty?: string
+}
+/**
  * Representation of a certificate type
  */
 export interface CertificateTypeModel {
@@ -20293,7 +20306,7 @@ export interface UpdateCertificateResponsibilitiesModel {
    */
   responsibleParties?: {
     /**
-     * The type Id to update responsibility for
+     * Identifier for the type of certificate for which the party is responsible
      */
     typeId?: string
     /**
@@ -20307,7 +20320,7 @@ export interface UpdateCertificateResponsibilitiesModel {
  */
 export interface UpdateCertificateResponsiblePartyModel {
   /**
-   * The type Id to update responsibility for
+   * Identifier for the type of certificate for which the party is responsible
    */
   typeId?: string
   /**
