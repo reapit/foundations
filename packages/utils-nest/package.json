@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
+    "@reapit/foundations-ts-definitions": "0.0.0",
     "jwt-decode": "^3.1.2"
   },
   "peerDependencies": {
