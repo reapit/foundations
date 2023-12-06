@@ -1,8 +1,6 @@
 import React from 'react'
-import { trackEvent } from '../../../core/analytics'
-import { TrackingEvent } from '../../../core/analytics-events'
 import { render } from '../../../tests/react-testing'
-import { handleLogout, SettingsPage } from '../index'
+import { SettingsPage } from '../index'
 
 process.env.clientHiddenAppIds = {}
 process.env.orgAdminRestrictedAppIds = []
@@ -25,18 +23,5 @@ jest.mock('@reapit/connect-session', () => ({
 describe('SettingsPage', () => {
   it('should match a snapshot', () => {
     expect(render(<SettingsPage />)).toMatchSnapshot()
-  })
-})
-
-describe('handleLogout', () => {
-  it('should handle member update', () => {
-    const connectLogoutRedirect = jest.fn()
-
-    const curried = handleLogout(connectLogoutRedirect)
-
-    curried()
-
-    expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickLogoutButton, true)
-    expect(connectLogoutRedirect).toHaveBeenCalledTimes(1)
   })
 })

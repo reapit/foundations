@@ -1,11 +1,10 @@
-import React, { FC, useCallback } from 'react'
+import React, { FC } from 'react'
 import { useNavigate, useLocation, Routes } from 'react-router'
 import { Route } from 'react-router-dom'
 import { RoutePaths } from '../../constants/routes'
 import SettingsInstalled from './settings-installed'
 import SettingsProfile from './settings-profile'
 import {
-  Button,
   elHFull,
   elMb5,
   FlexContainer,
@@ -20,22 +19,13 @@ import { navigateRoute } from '../../utils/navigation'
 import { selectIsAdmin } from '../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { trackEvent } from '../../core/analytics'
-import { TrackingEvent } from '../../core/analytics-events'
-
-export const handleLogout = (connectLogoutRedirect: () => void) => () => {
-  trackEvent(TrackingEvent.ClickLogoutButton, true)
-  connectLogoutRedirect()
-}
 
 export const SettingsPage: FC = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const { connectSession, connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const { pathname } = location
   const isAdmin = selectIsAdmin(connectSession)
-
-  const logoutUser = useCallback(handleLogout(connectLogoutRedirect), [connectLogoutRedirect])
 
   return (
     <FlexContainer isFlexAuto>
@@ -67,9 +57,6 @@ export const SettingsPage: FC = () => {
             users in your organisation.
           </SmallText>
         )}
-        <Button onClick={logoutUser} intent="primary" chevronRight>
-          Logout
-        </Button>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <Routes>

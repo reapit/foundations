@@ -47,12 +47,6 @@ exports[`SettingsPage should match a snapshot 1`] = `
           >
             In addition as an admin, you can view details of your app installations and uninstall any live apps for all users in your organisation.
           </mock-styled.p>
-          <mock-styled.button
-            classname="mock-css."
-          >
-            <mock-styled.div />
-            Logout
-          </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section
           classname="mock-css.
@@ -105,12 +99,6 @@ exports[`SettingsPage should match a snapshot 1`] = `
         >
           In addition as an admin, you can view details of your app installations and uninstall any live apps for all users in your organisation.
         </mock-styled.p>
-        <mock-styled.button
-          classname="mock-css."
-        >
-          <mock-styled.div />
-          Logout
-        </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section
         classname="mock-css.
