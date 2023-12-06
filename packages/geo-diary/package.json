@@ -27,7 +27,7 @@
     "@linaria/core": "^5.0.2",
     "@linaria/react": "^5.0.3",
     "@reapit/connect-session": "workspace:packages/connect-session",
-    "@reapit/elements": "workspace:packages/elements",
+    "@reapit/elements": "0.0.1",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@sentry/browser": "^7.84.0",
