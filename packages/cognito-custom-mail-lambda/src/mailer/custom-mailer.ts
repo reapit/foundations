@@ -65,7 +65,7 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
 const tryGetFirstName = (input?: string) => {
   const trimmed = input.trim()
 
-  if (!trimmed.length || trimmed.length < 2) {
+  if (trimmed.length < 2) {
     return input
   }
 
