@@ -44,6 +44,34 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
   return confirmRegistrationUrl
 }
 
+const tryGetFirstName = (input: string) => {
+  if (input.trim().length === 0) {
+    return input;
+  }
+  
+  let name = input;
+
+  try {
+    const nameParts: string[] = input.split(" ");
+    if (nameParts.length < 3) {
+        name = nameParts[0];
+    } else {
+        const titles: string[] = ["Mr", "Mrs", "Dr", "Doctor", "Master", "Miss", "Ms", "Sir", "Mdm", "Madam", "Dame", "Lord", "Lady", "Esq", "Prof", "Professor"];
+        name = titles.includes(nameParts[0]) ? nameParts[1] : nameParts[0];
+    }
+  } catch {
+    return name;
+  }
+
+  // Make sure the name is longer than one character to 
+  // deal with only initials being used. 2 characters is acceptable (foreign names etc)
+  if (name.length > 1) {
+      return name;
+  }
+  // Fall back to full name if we can't make a smart decision
+  return input;
+}
+
 const useOldTemplates = false
 
 export const customMailer: CognitoUserPoolTriggerHandler = async (event, _context, callback) => {
@@ -52,7 +80,7 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
       event.response.emailSubject = 'Reapit Connect - Forgotten Password'
       const obj = {
         verificationCode: event.request.codeParameter as string,
-        userName: event.request.userAttributes.name,
+        userName: tryGetFirstName(event.request.userAttributes.name),
         url: resetPasswordUrl,
       }
       event.response.emailMessage = useOldTemplates
@@ -65,7 +93,7 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
       event.response.emailSubject = 'Welcome to Reapit Connect'
       const obj = {
         url: await getConfirmRegistrationUrl(event.request.userAttributes.email),
-        userName: event.request.userAttributes.name,
+        userName: tryGetFirstName(event.request.userAttributes.name),
       }
       event.response.emailMessage = useOldTemplates
         ? oldTemplates.confirmRegistrationTemplate(obj)
@@ -76,8 +104,8 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
     case 'CustomMessage_AdminCreateUser': {
       event.response.emailSubject = 'Welcome to Reapit Connect'
       const obj = {
-        name: event.request.userAttributes.name,
-        userName: event.request.userAttributes.name,
+        name: tryGetFirstName(event.request.userAttributes.name),
+        userName: tryGetFirstName(event.request.userAttributes.name),
         url: await getConfirmRegistrationUrl(event.request.userAttributes.email),
         verificationCode: event.request.codeParameter as string,
       }

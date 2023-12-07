@@ -11,6 +11,7 @@
     </mj-attributes>
   </mj-head>
   <mj-body background-color="#F2F4F6">
+    <mj-section></mj-section>
     <mj-section background-color="#fff">
       <mj-column>
         <mj-image width="250px" src="https://reapit-email-media.s3.eu-west-2.amazonaws.com/reapit_logo_connect_2023.jpg"></mj-image>
