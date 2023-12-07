@@ -4,29 +4,12 @@ import confirmRegistrationTemplate from './templates/confirm-registration.html'
 import adminUserInviteTemplate from './templates/admin-user-invite.html'
 import { UserModel } from '@reapit/foundations-ts-definitions'
 import * as oldTemplates from './templates/old-templates'
+import { tryGetFirstName } from './utils'
 
 const confirmRegistrationUrl = `${process.env.MARKET_PLACE_URL}/login`
 const resetPasswordUrl = `${process.env.MARKET_PLACE_URL}/reset-password`
 const internalOrgServiceUrl = process.env.INTERNAL_ORG_SERVICE_URL
 const agentboxUrl = process.env.AGENTBOX_URL
-const titles: string[] = [
-  'Mr',
-  'Mrs',
-  'Dr',
-  'Doctor',
-  'Master',
-  'Miss',
-  'Ms',
-  'Sir',
-  'Mdm',
-  'Madam',
-  'Dame',
-  'Lord',
-  'Lady',
-  'Esq',
-  'Prof',
-  'Professor',
-]
 
 const replaceAll = (str: string, find: string, replace: string): string => {
   return str.replace(new RegExp(find, 'g'), replace)
@@ -60,22 +43,6 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
     return agentboxUrl
   }
   return confirmRegistrationUrl
-}
-
-const tryGetFirstName = (input?: string) => {
-  const trimmed = input.trim()
-
-  if (trimmed.length < 2) {
-    return input
-  }
-
-  const nameParts: string[] = trimmed.split(' ')
-
-  if (nameParts.length < 3) {
-    return nameParts[0]
-  }
-
-  return titles.includes(nameParts[0]) ? nameParts[1] : nameParts[0]
 }
 
 const useOldTemplates = false
