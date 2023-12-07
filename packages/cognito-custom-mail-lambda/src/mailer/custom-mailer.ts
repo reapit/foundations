@@ -46,30 +46,30 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
 
 const tryGetFirstName = (input: string) => {
   if (input.trim().length === 0) {
-    return input;
+    return input
   }
   
-  let name = input;
+  let name = input
 
   try {
-    const nameParts: string[] = input.split(" ");
+    const nameParts: string[] = input.split(' ')
     if (nameParts.length < 3) {
-        name = nameParts[0];
+      name = nameParts[0]
     } else {
-        const titles: string[] = ["Mr", "Mrs", "Dr", "Doctor", "Master", "Miss", "Ms", "Sir", "Mdm", "Madam", "Dame", "Lord", "Lady", "Esq", "Prof", "Professor"];
-        name = titles.includes(nameParts[0]) ? nameParts[1] : nameParts[0];
+      const titles: string[] = ['Mr', 'Mrs', 'Dr', 'Doctor', 'Master', 'Miss', 'Ms', 'Sir', 'Mdm', 'Madam', 'Dame', 'Lord', 'Lady', 'Esq', 'Prof', 'Professor']
+      name = titles.includes(nameParts[0]) ? nameParts[1] : nameParts[0]
     }
   } catch {
-    return name;
+    return name
   }
 
   // Make sure the name is longer than one character to 
   // deal with only initials being used. 2 characters is acceptable (foreign names etc)
   if (name.length > 1) {
-      return name;
+    return name
   }
   // Fall back to full name if we can't make a smart decision
-  return input;
+  return input
 }
 
 const useOldTemplates = false
