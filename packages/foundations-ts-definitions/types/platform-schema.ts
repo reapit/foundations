@@ -12843,6 +12843,44 @@ export interface PropertyAddressModel {
   }
 }
 /**
+ * Representation of certificate responsibilities configured for a property
+ */
+export interface PropertyCertificateResponsibilitiesModel {
+  /**
+   * The id of the property to which the configured certificate responsibilities apply
+   */
+  id?: string
+  /**
+   * The date and time on which the property was created
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time on which the property was last modified
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+  /**
+   * The configured certificate responsibilities
+   */
+  responsibleParties?: {
+    /**
+     * Identifier for the type of certificate for which the party is responsible
+     */
+    typeId?: string
+    /**
+     * The party responsible for the specified certificate type (landlord/agent/notRequired/notSet)
+     */
+    responsibleParty?: string
+  }[]
+  /**
+   * The ETag for the current version of the property. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+/**
  * Representation of a check
  */
 export interface PropertyCheckModel {
