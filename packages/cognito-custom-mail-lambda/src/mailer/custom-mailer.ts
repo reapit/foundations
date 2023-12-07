@@ -56,7 +56,24 @@ const tryGetFirstName = (input: string) => {
     if (nameParts.length < 3) {
       name = nameParts[0]
     } else {
-      const titles: string[] = ['Mr', 'Mrs', 'Dr', 'Doctor', 'Master', 'Miss', 'Ms', 'Sir', 'Mdm', 'Madam', 'Dame', 'Lord', 'Lady', 'Esq', 'Prof', 'Professor']
+      const titles: string[] = [
+        'Mr',
+        'Mrs',
+        'Dr',
+        'Doctor',
+        'Master',
+        'Miss',
+        'Ms',
+        'Sir',
+        'Mdm',
+        'Madam',
+        'Dame',
+        'Lord',
+        'Lady',
+        'Esq',
+        'Prof',
+        'Professor',
+      ]
       name = titles.includes(nameParts[0]) ? nameParts[1] : nameParts[0]
     }
   } catch {
