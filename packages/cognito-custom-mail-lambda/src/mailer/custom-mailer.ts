@@ -48,7 +48,7 @@ const tryGetFirstName = (input: string) => {
   if (input.trim().length === 0) {
     return input
   }
-  
+
   let name = input
 
   try {
