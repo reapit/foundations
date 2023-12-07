@@ -9,6 +9,24 @@ const confirmRegistrationUrl = `${process.env.MARKET_PLACE_URL}/login`
 const resetPasswordUrl = `${process.env.MARKET_PLACE_URL}/reset-password`
 const internalOrgServiceUrl = process.env.INTERNAL_ORG_SERVICE_URL
 const agentboxUrl = process.env.AGENTBOX_URL
+const titles: string[] = [
+  'Mr',
+  'Mrs',
+  'Dr',
+  'Doctor',
+  'Master',
+  'Miss',
+  'Ms',
+  'Sir',
+  'Mdm',
+  'Madam',
+  'Dame',
+  'Lord',
+  'Lady',
+  'Esq',
+  'Prof',
+  'Professor',
+]
 
 const replaceAll = (str: string, find: string, replace: string): string => {
   return str.replace(new RegExp(find, 'g'), replace)
@@ -44,49 +62,20 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
   return confirmRegistrationUrl
 }
 
-const tryGetFirstName = (input: string) => {
-  if (input.trim().length === 0) {
+const tryGetFirstName = (input?: string) => {
+  const trimmed = input.trim()
+
+  if (!trimmed.length || trimmed.length < 2) {
     return input
   }
 
-  let name = input
+  const nameParts: string[] = trimmed.split(' ')
 
-  try {
-    const nameParts: string[] = input.split(' ')
-    if (nameParts.length < 3) {
-      name = nameParts[0]
-    } else {
-      const titles: string[] = [
-        'Mr',
-        'Mrs',
-        'Dr',
-        'Doctor',
-        'Master',
-        'Miss',
-        'Ms',
-        'Sir',
-        'Mdm',
-        'Madam',
-        'Dame',
-        'Lord',
-        'Lady',
-        'Esq',
-        'Prof',
-        'Professor',
-      ]
-      name = titles.includes(nameParts[0]) ? nameParts[1] : nameParts[0]
-    }
-  } catch {
-    return name
+  if (nameParts.length < 3) {
+    return nameParts[0]
   }
 
-  // Make sure the name is longer than one character to 
-  // deal with only initials being used. 2 characters is acceptable (foreign names etc)
-  if (name.length > 1) {
-    return name
-  }
-  // Fall back to full name if we can't make a smart decision
-  return input
+  return titles.includes(nameParts[0]) ? nameParts[1] : nameParts[0]
 }
 
 const useOldTemplates = false
