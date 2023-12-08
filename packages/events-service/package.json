@@ -32,7 +32,7 @@
     "express-validator": "^6.14.0",
     "jwt-decode": "^3.1.2",
     "morgan": "^1.10.0",
-    "serialize-error": "^7.0.1",
+    "serialize-error": "^11.0.3",
     "serverless-dynamodb-local": "^0.2.40",
     "serverless-http": "^2.7.0",
     "twilio": "^4.19.0",
