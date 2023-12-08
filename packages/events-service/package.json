@@ -36,7 +36,7 @@
     "serverless-dynamodb-local": "^0.2.40",
     "serverless-http": "^2.7.0",
     "twilio": "^4.19.0",
-    "uuid": "^3.4.0"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
