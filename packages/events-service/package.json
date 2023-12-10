@@ -34,7 +34,7 @@
     "morgan": "^1.10.0",
     "serialize-error": "^7.0.1",
     "serverless-dynamodb-local": "^0.2.40",
-    "serverless-http": "^2.7.0",
+    "serverless-http": "^3.2.0",
     "twilio": "^4.19.0",
     "uuid": "^3.4.0"
   },
