@@ -8,7 +8,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
       <mock-styled.div />
        
       <mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css."
+        classname="mock-css. mock-css. mock-css."
       >
         <div
           class="mock-css.
@@ -53,7 +53,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
     <mock-styled.div />
      
     <mock-styled.div
-      classname="mock-css. mock-css. mock-css. mock-css."
+      classname="mock-css. mock-css. mock-css."
     >
       <div
         class="mock-css.

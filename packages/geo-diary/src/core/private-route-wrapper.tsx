@@ -42,11 +42,11 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   return (
     <MainContainer>
       <Nav />
-      <Suspense fallback={<Loader fullPage />}>
-        <ErrorBoundary>
+      <ErrorBoundary>
+        <Suspense fallback={<Loader fullPage />}>
           <ApolloProvider client={client}>{children}</ApolloProvider>
-        </ErrorBoundary>
-      </Suspense>
+        </Suspense>
+      </ErrorBoundary>
     </MainContainer>
   )
 }

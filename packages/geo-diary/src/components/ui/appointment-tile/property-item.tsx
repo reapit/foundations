@@ -29,7 +29,7 @@ export const PropertyItem: FC<PropertyItemProps> = ({ appointment }) => {
   return (
     <CardListItem className={elCardListItemExpanded}>
       <CardListIcon>
-        <Icon icon="houseInfographic" />
+        <Icon icon="property" intent="primary" />
       </CardListIcon>
       <CardListItemTextWrap
         onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.PROPERTY, property.id ?? null)}
