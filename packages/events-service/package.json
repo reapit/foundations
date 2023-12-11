@@ -23,7 +23,7 @@
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-node": "workspace:packages/utils-node",
-    "@sentry/node": "^6.16.1",
+    "@sentry/node": "^7.80.1",
     "aws-lambda": "^1.0.6",
     "aws-sdk": "^2.949.0",
     "body-parser": "^1.19.1",
