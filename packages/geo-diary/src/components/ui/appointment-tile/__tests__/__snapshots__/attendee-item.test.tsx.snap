@@ -19,7 +19,9 @@ exports[`AttendeeItem should match snapshot with contacts 1`] = `
       >
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -45,7 +47,9 @@ exports[`AttendeeItem should match snapshot with contacts 1`] = `
       >
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -76,7 +80,9 @@ exports[`AttendeeItem should match snapshot with contacts 1`] = `
     >
       <mock-styled.div>
         <mock-styled.span
-          classname=""
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -102,7 +108,9 @@ exports[`AttendeeItem should match snapshot with contacts 1`] = `
     >
       <mock-styled.div>
         <mock-styled.span
-          classname=""
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>

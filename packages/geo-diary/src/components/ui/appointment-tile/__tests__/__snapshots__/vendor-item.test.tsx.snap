@@ -33,7 +33,9 @@ exports[`VendorItem should match snapshot with vendors in state 1`] = `
       >
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -78,7 +80,9 @@ exports[`VendorItem should match snapshot with vendors in state 1`] = `
     >
       <mock-styled.div>
         <mock-styled.span
-          classname=""
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>

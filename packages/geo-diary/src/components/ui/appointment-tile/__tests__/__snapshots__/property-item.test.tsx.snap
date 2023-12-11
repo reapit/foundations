@@ -19,7 +19,9 @@ exports[`PropertyItem should match snapshot with a property 1`] = `
       >
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -50,7 +52,9 @@ exports[`PropertyItem should match snapshot with a property 1`] = `
     >
       <mock-styled.div>
         <mock-styled.span
-          classname=""
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>

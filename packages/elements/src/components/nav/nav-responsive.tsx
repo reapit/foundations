@@ -124,7 +124,7 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
   const [appSwitcherOpen, setAppSwitcherOpen] = useState<boolean>(false)
 
   const marketplaceCallback = () => {
-    if (window.location.href.includes('dev') || window.location.href.includes('localhost')) {
+    if (window.location.href.includes('.dev.') || window.location.href.includes('localhost')) {
       window.location.href = 'https://marketplace.dev.paas.reapit.cloud/installed'
     } else {
       window.location.href = 'https://marketplace.reapit.cloud/installed'
