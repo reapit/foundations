@@ -116,10 +116,12 @@ export const SettingsInstalled: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal } = useModal()
   const clientId = connectSession?.loginIdentity.clientId
+  const developerId = connectSession?.loginIdentity.developerId
   const email = connectSession?.loginIdentity.email ?? ''
   const isAdmin = selectIsAdmin(connectSession)
   const { appName } = installationsFilters
   const appNameQuery = appName ? { appName } : {}
+  const developerIdQuery = developerId ? { developerId } : {}
 
   const [installations, installationsLoading, , refetchInstallations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
@@ -129,6 +131,7 @@ export const SettingsInstalled: FC = () => {
       pageSize: 12,
       clientId,
       ...appNameQuery,
+      ...developerIdQuery,
     },
     fetchWhenTrue: [clientId],
   })

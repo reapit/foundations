@@ -54,9 +54,15 @@ export interface NavResponsiveAppSwitcherOption {
   iconUrl?: ReactNode
 }
 
+export interface BrandOptions {
+  callback?: () => void
+  logoUrl?: string
+}
+
 export interface NavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
   options: NavResponsiveOption[]
   appSwitcherOptions?: NavResponsiveAppSwitcherOption[]
+  brandOptions?: BrandOptions
   avatarOptions?: NavResponsiveAvatarOption[]
   avatarText?: string
   defaultNavIndex?: number
@@ -166,6 +172,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
   defaultNavSubIndex,
   appSwitcherOptions,
   avatarOptions,
+  brandOptions,
   avatarText = '',
   ...rest
 }) => {
@@ -196,7 +203,11 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
               return (
                 <NavItem className={cx(navItemIndex === itemIndex && elNavItemActive)} key={itemIndex} href={href}>
                   {appSwitcherOptions && <NavResponsiveAppSwitcher options={appSwitcherOptions} />}
-                  <Icon height="24px" width="100px" icon="reapitLogo" />
+                  {brandOptions?.logoUrl ? (
+                    <img src={brandOptions.logoUrl} height="24px" onClick={brandOptions?.callback} />
+                  ) : (
+                    <Icon onClick={brandOptions?.callback} height="24px" width="100px" icon="reapitLogo" />
+                  )}
                   <Icon
                     className={cx(elMlAuto, elMr4, elNavItemHideDesktop)}
                     icon="more"

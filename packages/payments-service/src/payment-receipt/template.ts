@@ -46,9 +46,9 @@ export const paymentReceiptTemplate = ({
             <p style="margin-bottom: 32px">${companyName}'s records have been updated accordingly.</p>
             <p style="margin-bottom: 32px">Best regards,</p>
             <p style="margin-bottom: 32px">Reapit Payments Team on behalf of ${companyName}</p>
-            <div style="height: 40px; width: 135px; overflow: hidden">
+            <div style="height: 25px; width: 119px; overflow: hidden">
               <img
-                style="height: 40px; width: 135px"
+                style="height: 25px; width: 119px"
                 src="https://reapit-email-media.s3.eu-west-2.amazonaws.com/logo-reapit-2023.png"
                 alt="Reapit Payments Logo"
               />
