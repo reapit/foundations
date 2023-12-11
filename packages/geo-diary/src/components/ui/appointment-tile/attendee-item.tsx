@@ -31,7 +31,7 @@ export const AttendeeItem: FC<AttendeeItemProps> = ({ appointment }) => {
         return (
           <CardListItem key={id} className={elCardListItemExpanded}>
             <CardListIcon>
-              <Icon icon="applicantInfographic" />
+              <Icon icon="contacts" intent="primary" />
             </CardListIcon>
             <CardListItemTextWrap
               onClick={handleOpenContactDrawer(setAppState, appointment, ContactDrawerType.ATTENDEE, id ?? null)}

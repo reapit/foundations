@@ -1,5 +1,5 @@
 import React, { ChangeEvent, Dispatch, MouseEvent, FC, SetStateAction, useCallback, useEffect } from 'react'
-import { Input } from '@reapit/elements'
+import { Icon, Input } from '@reapit/elements'
 import {
   DepartureIcon,
   DestinationLocationSection,
@@ -15,7 +15,7 @@ import {
   MyLocationSectionResults,
   MyLocationWrap,
 } from './__styles__/styles'
-import { BiCurrentLocation, BiX } from 'react-icons/bi'
+import { BiX } from 'react-icons/bi'
 import { AppState, useAppState } from '../../../core/app-state'
 import { AppStateParams, GeocoderResult } from '../map/types'
 import { getGeoCoords } from '../../../utils/map-utils'
@@ -125,7 +125,7 @@ export const MyLocation: FC = () => {
           {hasIcon && (
             <MyLocationIconContainer onClick={handleGeoLocateMe(setAppState)}>
               {locationQueryResults.length ? <BiX onClick={handleCloseResults(setAppState)} /> : null}
-              {hasGeoLocation && <BiCurrentLocation />}
+              {hasGeoLocation && <Icon icon="locationAlt" />}
             </MyLocationIconContainer>
           )}
           {locationQueryResults.length ? (
