@@ -121,7 +121,7 @@ export const SettingsInstalled: FC = () => {
   const isDevOrAdmin = selectIsAdmin(connectSession) || selectIsDeveloper(connectSession)
   const { appName } = installationsFilters
   const appNameQuery = appName ? { appName } : {}
-  const developerIdQuery = selectIsDeveloper(connectSession) && developerId ? { developerId } : {}
+  const developerIdQuery = clientId === 'SBOX' && developerId ? { developerId } : {}
 
   const [installations, installationsLoading, , refetchInstallations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
