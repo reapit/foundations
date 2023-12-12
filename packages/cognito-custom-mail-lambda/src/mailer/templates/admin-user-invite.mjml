@@ -8,7 +8,7 @@
       <mj-class name="footer-text" font-size="12px" align="center" font-weight="400" font-family="Inter,Arial" line-height="16px" color="#607890" />
       <mj-class name="light-footer-text" font-size="12px" align="center" font-weight="400" font-family="Inter,Arial" line-height="16px" color="#607890" />
       <mj-class name="credentials-panel" width="400px" padding="10px" width="50%" />
-      <mj-class name="login-button" background-color="#4E56EA" font-weight="500" />
+      <mj-class name="login-button" background-color="#4E56EA" font-weight="500" font-family="Inter,Arial"/>
     </mj-attributes>
     
     <mj-style>
