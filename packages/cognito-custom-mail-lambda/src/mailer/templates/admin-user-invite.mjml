@@ -5,17 +5,24 @@
     <mj-attributes>
       <mj-class name="strapline-text" font-size="32px" align="center" font-weight="600" font-family="Inter,Arial" line-height="40px" />
       <mj-class name="body-text" font-size="18px" align="center" font-weight="400" font-family="Inter,Arial" line-height="24px" />
-      <mj-class name="footer-text" font-size="12px" align="center" font-weight="400" font-family="Inter,Arial" line-height="16px" />
+      <mj-class name="footer-text" font-size="12px" align="center" font-weight="400" font-family="Inter,Arial" line-height="16px" color="#607890" />
       <mj-class name="light-footer-text" font-size="12px" align="center" font-weight="400" font-family="Inter,Arial" line-height="16px" color="#607890" />
-      <mj-class name="credentials-panel" border="1px solid #D8DEE4" border-radius="8px" padding="10px" width="50%" />
-      <mj-class name="login-button" background-color="#4E56EA" />
+      <mj-class name="credentials-panel" width="400px" padding="10px" width="50%" />
+      <mj-class name="login-button" background-color="#4E56EA" font-weight="500" font-family="Inter,Arial"/>
     </mj-attributes>
+    
+    <mj-style>
+      .credentials-rounded {
+        border-radius: 8px;
+      	border: 1px solid #D8DEE4;
+      }
+    </mj-style>
   </mj-head>
   <mj-body background-color="#F2F4F6">
     <mj-section></mj-section>
     <mj-section background-color="#fff">
       <mj-column>
-        <mj-image width="250px" src="https://reapit-email-media.s3.eu-west-2.amazonaws.com/reapit_logo_connect_2023.jpg"></mj-image>
+        <mj-image width="232px" src="https://reapit-email-media.s3.eu-west-2.amazonaws.com/reapit-connect-2023-rgb.png"></mj-image>
         <mj-text mj-class="strapline-text">One login for your Reapit platform.</mj-text>
         <mj-text mj-class="body-text">Welcome to Reapit Connect, {name}.</mj-text>
         <mj-text mj-class="body-text">You now have the power to access all Reapit products and services with a single login.</mj-text>
@@ -23,7 +30,7 @@
       </mj-column>
     </mj-section>
     <mj-section background-color="#FFF">
-      <mj-column mj-class="credentials-panel">
+      <mj-column mj-class="credentials-panel" css-class="credentials-rounded">
         <mj-text align="center" font-family="Inter,Arial">
           <b>Username:</b> {username}
         </mj-text>
