@@ -1,6 +1,6 @@
 {
   "name": "cognito-custom-mail-lambda",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Lambda Mailer Function",
   "files": [
     "dist"
