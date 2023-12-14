@@ -38,7 +38,7 @@
     "typescript": "^5.3.2"
   },
   "dependencies": {
-    "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/connect-session": "1.0.0",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "jwt-decode": "^3.1.2"
   },
