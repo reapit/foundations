@@ -9697,6 +9697,19 @@ export interface EnquiryRentingModel {
   rentFrequency?: string
 }
 /**
+ * Read model representing a Guarantor
+ */
+export interface GuarantorModel {
+  /**
+   * The identifier for the guarantor contact record
+   */
+  id?: string
+  /**
+   * Value indicating whether a guarantor is a person or a company
+   */
+  type?: string
+}
+/**
  * Any specific details relating to the marketing of a property in Guernsey
  */
 export interface GuernseyModel {
@@ -17458,6 +17471,19 @@ export interface TenancyContactRelationshipModel {
    * A flag denoting whether or not this relationship is archived
    */
   fromArchive?: boolean
+  /**
+   * Collection of guarantors recorded for this relationship
+   */
+  guarantors?: {
+    /**
+     * The identifier for the guarantor contact record
+     */
+    id?: string
+    /**
+     * Value indicating whether a guarantor is a person or a company
+     */
+    type?: string
+  }[]
 }
 export interface TenancyContactRelationshipModelPagedResult {
   _embedded?: {
@@ -17505,6 +17531,19 @@ export interface TenancyContactRelationshipModelPagedResult {
      * A flag denoting whether or not this relationship is archived
      */
     fromArchive?: boolean
+    /**
+     * Collection of guarantors recorded for this relationship
+     */
+    guarantors?: {
+      /**
+       * The identifier for the guarantor contact record
+       */
+      id?: string
+      /**
+       * Value indicating whether a guarantor is a person or a company
+       */
+      type?: string
+    }[]
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
