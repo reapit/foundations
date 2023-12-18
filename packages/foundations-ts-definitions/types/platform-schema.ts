@@ -9697,6 +9697,27 @@ export interface EnquiryRentingModel {
   rentFrequency?: string
 }
 /**
+ * Read model representing a Guarantor
+ */
+export interface GuarantorModel {
+  /**
+   * The identifier for the guarantor record
+   */
+  id?: string
+  /**
+   * The identifier for the contact record associated with the guarantor
+   */
+  guarantorAssociatedId?: string
+  /**
+   * Value indicating whether a the referenced guarantor is a person or a company
+   */
+  type?: string
+  /**
+   * The status of the reference requested from the guarantor (notSet/requested/received)
+   */
+  referenceStatus?: string
+}
+/**
  * Any specific details relating to the marketing of a property in Guernsey
  */
 export interface GuernseyModel {
@@ -15901,6 +15922,31 @@ export interface RecurrenceModel {
   until?: string // date-time
 }
 /**
+ * Read model representing a tenant/applicant reference
+ */
+export interface ReferenceModel {
+  /**
+   * The identifier for the reference record
+   */
+  id?: string
+  /**
+   * The identifier for the contact/company record associated with the reference
+   */
+  referenceAssociatedId?: string
+  /**
+   * Value indicating whether a referenced contact is a person or a company
+   */
+  type?: string
+  /**
+   * The status of the reference (notSet/requested/received)
+   */
+  referenceStatus?: string
+  /**
+   * The type of reference (notSet/accountant/characterReference/employer/previousLandlord)
+   */
+  referenceType?: string
+}
+/**
  * Representation of a contact
  */
 export interface ReferralContactModel {
@@ -17458,6 +17504,52 @@ export interface TenancyContactRelationshipModel {
    * A flag denoting whether or not this relationship is archived
    */
   fromArchive?: boolean
+  /**
+   * Collection of guarantors recorded for this relationship
+   */
+  guarantors?: {
+    /**
+     * The identifier for the guarantor record
+     */
+    id?: string
+    /**
+     * The identifier for the contact record associated with the guarantor
+     */
+    guarantorAssociatedId?: string
+    /**
+     * Value indicating whether a the referenced guarantor is a person or a company
+     */
+    type?: string
+    /**
+     * The status of the reference requested from the guarantor (notSet/requested/received)
+     */
+    referenceStatus?: string
+  }[]
+  /**
+   * Collection of references recorded for this relationship
+   */
+  references?: {
+    /**
+     * The identifier for the reference record
+     */
+    id?: string
+    /**
+     * The identifier for the contact/company record associated with the reference
+     */
+    referenceAssociatedId?: string
+    /**
+     * Value indicating whether a referenced contact is a person or a company
+     */
+    type?: string
+    /**
+     * The status of the reference (notSet/requested/received)
+     */
+    referenceStatus?: string
+    /**
+     * The type of reference (notSet/accountant/characterReference/employer/previousLandlord)
+     */
+    referenceType?: string
+  }[]
 }
 export interface TenancyContactRelationshipModelPagedResult {
   _embedded?: {
@@ -17505,6 +17597,52 @@ export interface TenancyContactRelationshipModelPagedResult {
      * A flag denoting whether or not this relationship is archived
      */
     fromArchive?: boolean
+    /**
+     * Collection of guarantors recorded for this relationship
+     */
+    guarantors?: {
+      /**
+       * The identifier for the guarantor record
+       */
+      id?: string
+      /**
+       * The identifier for the contact record associated with the guarantor
+       */
+      guarantorAssociatedId?: string
+      /**
+       * Value indicating whether a the referenced guarantor is a person or a company
+       */
+      type?: string
+      /**
+       * The status of the reference requested from the guarantor (notSet/requested/received)
+       */
+      referenceStatus?: string
+    }[]
+    /**
+     * Collection of references recorded for this relationship
+     */
+    references?: {
+      /**
+       * The identifier for the reference record
+       */
+      id?: string
+      /**
+       * The identifier for the contact/company record associated with the reference
+       */
+      referenceAssociatedId?: string
+      /**
+       * Value indicating whether a referenced contact is a person or a company
+       */
+      type?: string
+      /**
+       * The status of the reference (notSet/requested/received)
+       */
+      referenceStatus?: string
+      /**
+       * The type of reference (notSet/accountant/characterReference/employer/previousLandlord)
+       */
+      referenceType?: string
+    }[]
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
