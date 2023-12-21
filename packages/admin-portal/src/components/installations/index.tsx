@@ -29,6 +29,7 @@ import { fetchCustomersList } from '../../services/customers'
 import { usePermissionsState } from '../../core/use-permissions-state'
 import { ToggleConsumption } from './toggle-consumption'
 import debounce from 'just-debounce-it'
+import { UninstallModal } from './uninstall-modal'
 
 export interface InstallationFilters {
   installedDateFrom?: string
@@ -87,6 +88,7 @@ export const Installations: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [pageSize, setPageSize] = useState<number>(12)
   const [installIdConsumption, setInstallIdConsumption] = useState<string | null>(null)
+  const [selectedAppId, setSelectedAppId] = useState<string | false>(false)
 
   const {
     register,
@@ -255,6 +257,14 @@ export const Installations: FC = () => {
                     },
                   },
                   {
+                    label: 'Uninstall',
+                    children: (
+                      <Button onClick={() => setSelectedAppId(id as string)} intent="danger">
+                        Uninstall
+                      </Button>
+                    ),
+                  },
+                  {
                     label: 'Installed By',
                     value: installedBy,
                     narrowTable: {
@@ -308,6 +318,7 @@ export const Installations: FC = () => {
           />
         </>
       )}
+      <UninstallModal appId={selectedAppId} onClose={() => setSelectedAppId(false)} />
     </PageContainer>
   )
 }
