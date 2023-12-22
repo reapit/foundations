@@ -88,7 +88,12 @@ export const Installations: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [pageSize, setPageSize] = useState<number>(12)
   const [installIdConsumption, setInstallIdConsumption] = useState<string | null>(null)
-  const [selectedAppId, setSelectedAppId] = useState<string | false>(false)
+  const [selectedInstallation, setSelectedInstallation] = useState<
+    { appId: string; installationId: string } | { appId: undefined; installationId: undefined }
+  >({
+    appId: undefined,
+    installationId: undefined,
+  })
 
   const {
     register,
@@ -215,6 +220,7 @@ export const Installations: FC = () => {
                 terminatesOn,
                 appName,
                 id,
+                appId,
               }) => ({
                 cells: [
                   {
@@ -259,7 +265,15 @@ export const Installations: FC = () => {
                   {
                     label: 'Uninstall',
                     children: (
-                      <Button onClick={() => setSelectedAppId(id as string)} intent="danger">
+                      <Button
+                        onClick={() =>
+                          setSelectedInstallation({
+                            installationId: id as string,
+                            appId: appId as string,
+                          })
+                        }
+                        intent="danger"
+                      >
                         Uninstall
                       </Button>
                     ),
@@ -318,7 +332,17 @@ export const Installations: FC = () => {
           />
         </>
       )}
-      <UninstallModal appId={selectedAppId} onClose={() => setSelectedAppId(false)} />
+      <UninstallModal
+        appId={selectedInstallation.appId}
+        installationId={selectedInstallation.installationId}
+        onClose={() =>
+          setSelectedInstallation({
+            appId: undefined,
+            installationId: undefined,
+          })
+        }
+        installationRefresh={installationsRefresh}
+      />
     </PageContainer>
   )
 }

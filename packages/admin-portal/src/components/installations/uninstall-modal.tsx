@@ -24,7 +24,12 @@ const uninstallAppSchema: SchemaOf<Pick<TerminateInstallationModel, 'terminatedR
     }),
 })
 
-export const UninstallModal: FC<{ appId: string | false; onClose: () => void }> = ({ appId, onClose }) => {
+export const UninstallModal: FC<{
+  installationId: string | undefined
+  appId: string | undefined
+  onClose: () => void
+  installationRefresh: () => void
+}> = ({ installationId, appId, onClose, installationRefresh }) => {
   const [uninstalling, setUninstalling] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
@@ -32,18 +37,26 @@ export const UninstallModal: FC<{ appId: string | false; onClose: () => void }> 
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.terminateInstallation],
     uriParams: {
-      installationId: appId,
+      installationId,
     },
   })
 
   const uninstallAction = async ({ terminatedReason }: { terminatedReason: string }) => {
     setUninstalling(true)
-    await uninstallApp({
+    const result = await uninstallApp({
+      appId: appId as string,
       terminatedBy: connectSession?.loginIdentity.email,
       terminatedReason,
       terminatesOn: new Date().toISOString(),
     })
     setUninstalling(false)
+
+    console.log('result', result)
+
+    if (result) {
+      installationRefresh()
+      onClose()
+    }
   }
 
   const {
@@ -60,7 +73,7 @@ export const UninstallModal: FC<{ appId: string | false; onClose: () => void }> 
 
   return (
     <Modal
-      isOpen={appId !== false}
+      isOpen={appId !== undefined && installationId !== undefined}
       onModalClose={() => {
         if (!uninstalling) {
           reset()
