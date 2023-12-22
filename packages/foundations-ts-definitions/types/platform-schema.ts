@@ -2653,6 +2653,15 @@ export interface CompanyModel {
     country?: string
   }
   /**
+   * Representation of the payments and terms configuration for a company
+   */
+  payments?: {
+    /**
+     * The identifier of the nominal code selected in the payments and terms configuration
+     */
+    nominalAccountId?: string
+  }
+  /**
    * A collection of additional contact details
    */
   additionalContactDetails?: {
@@ -2847,6 +2856,15 @@ export interface CompanyModelPagedResult {
       country?: string
     }
     /**
+     * Representation of the payments and terms configuration for a company
+     */
+    payments?: {
+      /**
+       * The identifier of the nominal code selected in the payments and terms configuration
+       */
+      nominalAccountId?: string
+    }
+    /**
      * A collection of additional contact details
      */
     additionalContactDetails?: {
@@ -2933,6 +2951,15 @@ export interface CompanyModelPagedResult {
       href?: string
     }
   }
+}
+/**
+ * Representation of the payments and terms configuration for a company
+ */
+export interface CompanyPaymentsModel {
+  /**
+   * The identifier of the nominal code selected in the payments and terms configuration
+   */
+  nominalAccountId?: string
 }
 /**
  * Representation of the roles that an individual companies possesses
@@ -24050,6 +24077,15 @@ export interface UpdateTenancyNoticeRequiredModel {
    * The number of months the notice is required before the break clause
    */
   beforeBreakMonths?: number // int32
+}
+/**
+ * Model for the update of an existing Guarantor
+ */
+export interface UpdateTenancyRelationshipGuarantorModel {
+  /**
+   * The status of the reference requested from the guarantor (notSet/requested/received)
+   */
+  referenceStatus?: string
 }
 /**
  * Request body used to update a tenancy renewal check
