@@ -28,7 +28,7 @@
     "@sentry/node": "^7.84.0",
     "aws-lambda": "^1.0.7",
     "aws-serverless-express": "^3.4.0",
-    "axios": "^1.6.2",
+    "axios": "^1.6.3",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-graphql": "^0.12.0",
