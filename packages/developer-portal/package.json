@@ -25,7 +25,7 @@
     "@hookform/resolvers": "^2.9.11",
     "@linaria/core": "^5.0.2",
     "@linaria/react": "^5.0.3",
-    "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/connect-session": "1.0.0",
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data",
     "@reapit/utils-common": "workspace:packages/utils-common",
