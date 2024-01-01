@@ -29,7 +29,7 @@
     "@homeservenow/serverless-aws-handler": "^0.2.4",
     "@linaria/core": "^5.0.2",
     "@linaria/react": "^5.0.3",
-    "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/connect-session": "1.0.0",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@sentry/node": "^7.84.0",
