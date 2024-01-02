@@ -22,7 +22,7 @@
   "dependencies": {
     "@linaria/core": "^5.0.2",
     "@linaria/react": "^5.0.3",
-    "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/connect-session": "1.0.0",
     "@reapit/elements": "workspace:packages/elements",
     "@sentry/browser": "^7.84.0",
     "dayjs": "^1.11.10",
