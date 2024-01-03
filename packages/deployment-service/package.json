@@ -33,7 +33,7 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.8.1",
-    "typeorm": "^0.3.17",
+    "typeorm": "^0.3.18",
     "yaml": "^2.3.4"
   },
   "main": "./src/index.ts",
