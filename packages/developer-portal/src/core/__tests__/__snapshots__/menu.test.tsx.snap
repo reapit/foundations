@@ -33,6 +33,9 @@ exports[`Menu should match a snapshot 1`] = `
   }
 "
         >
+          <mock-styled.div
+            classname=""
+          />
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -75,6 +78,9 @@ exports[`Menu should match a snapshot 1`] = `
           >
             <svg />
           </mock-styled.span>
+          <mock-styled.div
+            classname=""
+          />
           <mock-styled.div
             classname="mock-css.
   display: none;
@@ -206,6 +212,9 @@ exports[`Menu should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+        />
+        <mock-styled.div
+          classname=""
         >
           <mock-styled.div
             classname="mock-css.
@@ -252,6 +261,9 @@ exports[`Menu should match a snapshot 1`] = `
   }
 "
       >
+        <mock-styled.div
+          classname=""
+        />
         <mock-styled.div>
           <mock-styled.div
             classname=""
@@ -294,6 +306,9 @@ exports[`Menu should match a snapshot 1`] = `
         >
           <svg />
         </mock-styled.span>
+        <mock-styled.div
+          classname=""
+        />
         <mock-styled.div
           classname="mock-css.
   display: none;
@@ -423,6 +438,9 @@ exports[`Menu should match a snapshot 1`] = `
           </span>
         </mock-styled.a>
       </mock-styled.div>
+      <mock-styled.div
+        classname=""
+      />
       <mock-styled.div
         classname=""
       >

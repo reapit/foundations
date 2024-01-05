@@ -231,7 +231,9 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
             >
               <mock-styled.div />
               <mock-styled.span
-                classname=""
+                classname="mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -468,7 +470,9 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
           >
             <mock-styled.div />
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -865,7 +869,9 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
             >
               <mock-styled.div />
               <mock-styled.span
-                classname=""
+                classname="mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -1102,7 +1108,9 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
           >
             <mock-styled.div />
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
@@ -1313,7 +1321,9 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
             >
               <mock-styled.div />
               <mock-styled.span
-                classname=""
+                classname="mock-css.
+  font-size: 1.5rem;
+"
               >
                 <svg />
               </mock-styled.span>
@@ -1467,7 +1477,9 @@ exports[`AppsPage should match a snapshot when no apps are created 1`] = `
           >
             <mock-styled.div />
             <mock-styled.span
-              classname=""
+              classname="mock-css.
+  font-size: 1.5rem;
+"
             >
               <svg />
             </mock-styled.span>
