@@ -2653,6 +2653,15 @@ export interface CompanyModel {
     country?: string
   }
   /**
+   * Representation of the payments and terms configuration for a company
+   */
+  payments?: {
+    /**
+     * The identifier of the nominal code selected in the payments and terms configuration
+     */
+    nominalAccountId?: string
+  }
+  /**
    * A collection of additional contact details
    */
   additionalContactDetails?: {
@@ -2847,6 +2856,15 @@ export interface CompanyModelPagedResult {
       country?: string
     }
     /**
+     * Representation of the payments and terms configuration for a company
+     */
+    payments?: {
+      /**
+       * The identifier of the nominal code selected in the payments and terms configuration
+       */
+      nominalAccountId?: string
+    }
+    /**
      * A collection of additional contact details
      */
     additionalContactDetails?: {
@@ -2933,6 +2951,15 @@ export interface CompanyModelPagedResult {
       href?: string
     }
   }
+}
+/**
+ * Representation of the payments and terms configuration for a company
+ */
+export interface CompanyPaymentsModel {
+  /**
+   * The identifier of the nominal code selected in the payments and terms configuration
+   */
+  nominalAccountId?: string
 }
 /**
  * Representation of the roles that an individual companies possesses
@@ -9697,325 +9724,6 @@ export interface EnquiryRentingModel {
   rentFrequency?: string
 }
 /**
- * Detailed read model representing a guarantor
- */
-export interface GuarantorDetailsModel {
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
-  }
-  /**
-   * The identifier for the guarantor record
-   */
-  id?: string
-  /**
-   * Unique identifier for the tenancy this guarantor relates to. Excluded from response body.
-   */
-  tenancyId?: string
-  /**
-   * Unique identifier for the tenancy-contact relationship this guarantor relates to. Excluded from response body.
-   */
-  relationshipId?: string
-  /**
-   * The date and time on which the guarantor record was created
-   * example:
-   * 2019-08-14T12:30:02Z
-   */
-  created?: string // date-time
-  /**
-   * The date and time on which the guarantor record was last modified
-   * example:
-   * 2019-08-14T12:30:02Z
-   */
-  modified?: string // date-time
-  /**
-   * The status of the reference requested from the guarantor (notSet/requested/received)
-   */
-  referenceStatus?: string
-  /**
-   * A summarised view of the details of a contact or company associated to a tenancy
-   */
-  associatedEntry?: {
-    /**
-     * The unique identifier of the contact or company
-     */
-    id?: string
-    /**
-     * The complete name of the contact or company
-     */
-    name?: string
-    /**
-     * The title of the contact (Available when 'type' is 'contact')
-     */
-    title?: string
-    /**
-     * The forename of the contact (Available when 'type' is 'contact')
-     */
-    forename?: string
-    /**
-     * The surname of the contact (Available when 'type' is 'contact')
-     */
-    surname?: string
-    /**
-     * The date of birth of the contact (Available when 'type' is 'contact')
-     * example:
-     * 2019-08-14
-     */
-    dateOfBirth?: string // date
-    /**
-     * The type of the contact (company/contact)
-     */
-    type?: string
-    /**
-     * The home phone number of the contact or company
-     */
-    homePhone?: string
-    /**
-     * The work phone number of the contact or company
-     */
-    workPhone?: string
-    /**
-     * The mobile phone number of the contact or company
-     */
-    mobilePhone?: string
-    /**
-     * The email address of the contact or company
-     */
-    email?: string
-    /**
-     * An optional payment reference to be used for transactions related to this tenancy associated with this tenant
-     */
-    paymentReference?: string
-    /**
-     * A flag denoting whether or not this roie on the system is now archived
-     */
-    fromArchive?: boolean
-    /**
-     * Representation of the physical address of a building or premise
-     */
-    primaryAddress?: {
-      /**
-       * The building name
-       */
-      buildingName?: string
-      /**
-       * The building number
-       */
-      buildingNumber?: string
-      /**
-       * The first line of the address
-       */
-      line1?: string
-      /**
-       * The second line of the address
-       */
-      line2?: string
-      /**
-       * The third line of the address
-       */
-      line3?: string
-      /**
-       * The fourth line of the address
-       */
-      line4?: string
-      /**
-       * The postcode
-       */
-      postcode?: string
-      /**
-       * The ISO-3166 country code that the address resides within
-       */
-      countryId?: string
-    }
-    /**
-     * A collection of additional contact details
-     */
-    additionalContactDetails?: {
-      /**
-       * The type of contact detail
-       */
-      type?: string
-      /**
-       * The contact detail
-       */
-      value?: string
-    }[]
-  }
-  /**
-   * The ETag for the current version of the guarantor record.
-   * Used for managing update concurrency
-   */
-  readonly _eTag?: string
-}
-export interface GuarantorDetailsModelPagedResult {
-  _embedded?: {
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-    /**
-     * The identifier for the guarantor record
-     */
-    id?: string
-    /**
-     * Unique identifier for the tenancy this guarantor relates to. Excluded from response body.
-     */
-    tenancyId?: string
-    /**
-     * Unique identifier for the tenancy-contact relationship this guarantor relates to. Excluded from response body.
-     */
-    relationshipId?: string
-    /**
-     * The date and time on which the guarantor record was created
-     * example:
-     * 2019-08-14T12:30:02Z
-     */
-    created?: string // date-time
-    /**
-     * The date and time on which the guarantor record was last modified
-     * example:
-     * 2019-08-14T12:30:02Z
-     */
-    modified?: string // date-time
-    /**
-     * The status of the reference requested from the guarantor (notSet/requested/received)
-     */
-    referenceStatus?: string
-    /**
-     * A summarised view of the details of a contact or company associated to a tenancy
-     */
-    associatedEntry?: {
-      /**
-       * The unique identifier of the contact or company
-       */
-      id?: string
-      /**
-       * The complete name of the contact or company
-       */
-      name?: string
-      /**
-       * The title of the contact (Available when 'type' is 'contact')
-       */
-      title?: string
-      /**
-       * The forename of the contact (Available when 'type' is 'contact')
-       */
-      forename?: string
-      /**
-       * The surname of the contact (Available when 'type' is 'contact')
-       */
-      surname?: string
-      /**
-       * The date of birth of the contact (Available when 'type' is 'contact')
-       * example:
-       * 2019-08-14
-       */
-      dateOfBirth?: string // date
-      /**
-       * The type of the contact (company/contact)
-       */
-      type?: string
-      /**
-       * The home phone number of the contact or company
-       */
-      homePhone?: string
-      /**
-       * The work phone number of the contact or company
-       */
-      workPhone?: string
-      /**
-       * The mobile phone number of the contact or company
-       */
-      mobilePhone?: string
-      /**
-       * The email address of the contact or company
-       */
-      email?: string
-      /**
-       * An optional payment reference to be used for transactions related to this tenancy associated with this tenant
-       */
-      paymentReference?: string
-      /**
-       * A flag denoting whether or not this roie on the system is now archived
-       */
-      fromArchive?: boolean
-      /**
-       * Representation of the physical address of a building or premise
-       */
-      primaryAddress?: {
-        /**
-         * The building name
-         */
-        buildingName?: string
-        /**
-         * The building number
-         */
-        buildingNumber?: string
-        /**
-         * The first line of the address
-         */
-        line1?: string
-        /**
-         * The second line of the address
-         */
-        line2?: string
-        /**
-         * The third line of the address
-         */
-        line3?: string
-        /**
-         * The fourth line of the address
-         */
-        line4?: string
-        /**
-         * The postcode
-         */
-        postcode?: string
-        /**
-         * The ISO-3166 country code that the address resides within
-         */
-        countryId?: string
-      }
-      /**
-       * A collection of additional contact details
-       */
-      additionalContactDetails?: {
-        /**
-         * The type of contact detail
-         */
-        type?: string
-        /**
-         * The contact detail
-         */
-        value?: string
-      }[]
-    }
-    /**
-     * The ETag for the current version of the guarantor record.
-     * Used for managing update concurrency
-     */
-    readonly _eTag?: string
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalPageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-/**
  * Read model representing a Guarantor
  */
 export interface GuarantorModel {
@@ -10023,18 +9731,6 @@ export interface GuarantorModel {
    * The identifier for the guarantor record
    */
   id?: string
-  /**
-   * The date and time when the guarantor record was created
-   * example:
-   * 2019-08-14T12:30:02Z
-   */
-  created?: string // date-time
-  /**
-   * The date and time when the guarantor record was last modified
-   * example:
-   * 2019-08-14T12:30:02Z
-   */
-  modified?: string // date-time
   /**
    * The identifier for the contact record associated with the guarantor
    */
@@ -10047,11 +9743,6 @@ export interface GuarantorModel {
    * The status of the reference requested from the guarantor (notSet/requested/received)
    */
   referenceStatus?: string
-  /**
-   * The ETag for the current version of the guarantor record.
-   * Used for managing update concurrency
-   */
-  readonly _eTag?: string
 }
 /**
  * Any specific details relating to the marketing of a property in Guernsey
@@ -16281,10 +15972,6 @@ export interface ReferenceModel {
    * The type of reference (notSet/accountant/characterReference/employer/previousLandlord)
    */
   referenceType?: string
-  /**
-   * Flag indicating whether the contact/company represented by ReferenceAssociatedId is live or archived
-   */
-  isAssociatedEntryArchived?: boolean
 }
 /**
  * Representation of a contact
@@ -17853,18 +17540,6 @@ export interface TenancyContactRelationshipModel {
      */
     id?: string
     /**
-     * The date and time when the guarantor record was created
-     * example:
-     * 2019-08-14T12:30:02Z
-     */
-    created?: string // date-time
-    /**
-     * The date and time when the guarantor record was last modified
-     * example:
-     * 2019-08-14T12:30:02Z
-     */
-    modified?: string // date-time
-    /**
      * The identifier for the contact record associated with the guarantor
      */
     guarantorAssociatedId?: string
@@ -17876,11 +17551,6 @@ export interface TenancyContactRelationshipModel {
      * The status of the reference requested from the guarantor (notSet/requested/received)
      */
     referenceStatus?: string
-    /**
-     * The ETag for the current version of the guarantor record.
-     * Used for managing update concurrency
-     */
-    readonly _eTag?: string
   }[]
   /**
    * Collection of references recorded for this relationship
@@ -17906,10 +17576,6 @@ export interface TenancyContactRelationshipModel {
      * The type of reference (notSet/accountant/characterReference/employer/previousLandlord)
      */
     referenceType?: string
-    /**
-     * Flag indicating whether the contact/company represented by ReferenceAssociatedId is live or archived
-     */
-    isAssociatedEntryArchived?: boolean
   }[]
 }
 export interface TenancyContactRelationshipModelPagedResult {
@@ -17967,18 +17633,6 @@ export interface TenancyContactRelationshipModelPagedResult {
        */
       id?: string
       /**
-       * The date and time when the guarantor record was created
-       * example:
-       * 2019-08-14T12:30:02Z
-       */
-      created?: string // date-time
-      /**
-       * The date and time when the guarantor record was last modified
-       * example:
-       * 2019-08-14T12:30:02Z
-       */
-      modified?: string // date-time
-      /**
        * The identifier for the contact record associated with the guarantor
        */
       guarantorAssociatedId?: string
@@ -17990,11 +17644,6 @@ export interface TenancyContactRelationshipModelPagedResult {
        * The status of the reference requested from the guarantor (notSet/requested/received)
        */
       referenceStatus?: string
-      /**
-       * The ETag for the current version of the guarantor record.
-       * Used for managing update concurrency
-       */
-      readonly _eTag?: string
     }[]
     /**
      * Collection of references recorded for this relationship
@@ -18020,10 +17669,6 @@ export interface TenancyContactRelationshipModelPagedResult {
        * The type of reference (notSet/accountant/characterReference/employer/previousLandlord)
        */
       referenceType?: string
-      /**
-       * Flag indicating whether the contact/company represented by ReferenceAssociatedId is live or archived
-       */
-      isAssociatedEntryArchived?: boolean
     }[]
   }[]
   pageNumber?: number // int32
@@ -18408,6 +18053,10 @@ export interface TenancyModel {
    */
   applicantId?: string
   /**
+   * The unique identifier of the negotiator assigned as the manager of the tenancy
+   */
+  managerId?: string
+  /**
    * An optional payment reference to be used for transactions related to this tenancy associated with all tenants in the property
    */
   groupPaymentReference?: string
@@ -18770,6 +18419,10 @@ export interface TenancyModelPagedResult {
      * The unique identifier of the applicant who has applied to be a tenant. Whilst the tenancy is an in arranging state, information about the individual such as name and contact details can be obtained from GET /applicants/{id}. Use the link in the _links collection for a relative URI
      */
     applicantId?: string
+    /**
+     * The unique identifier of the negotiator assigned as the manager of the tenancy
+     */
+    managerId?: string
     /**
      * An optional payment reference to be used for transactions related to this tenancy associated with all tenants in the property
      */
