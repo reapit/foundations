@@ -6,6 +6,7 @@ import { Icon, IconNames } from '../icon'
 import { Nav, NavItem, NavSubNav, NavSubNavItem } from './nav'
 import {
   ElNavBg,
+  ElNavControlsBg,
   ElNavMenu,
   ElNavMenuOption,
   ElNavMenuOptionDivider,
@@ -99,30 +100,42 @@ export const handleToggleMenu = (setState: Dispatch<SetStateAction<boolean>>, ca
   }
 }
 
+export const clickNavEventHandler = (setActive: Dispatch<SetStateAction<boolean>>) => (
+  event: MouseEvent<HTMLAnchorElement | HTMLDivElement>,
+) => {
+  event?.preventDefault()
+  event?.stopPropagation()
+
+  setActive((active) => !active)
+}
+
 export const NavResponsiveAvatar: FC<NavResponsiveAvatarProps> = ({ options, isHidden, text }) => {
   const [avatarOpen, setAvatarOpen] = useState<boolean>(false)
 
   return (
-    <ElNavResponsiveAvatarWrap onClick={handleToggleMenu(setAvatarOpen)} className={cx(isHidden && elNavIsHidden)}>
-      <Avatar className={cx(elMr2)} type="profile">
-        {text}
-      </Avatar>
-      {Boolean(options.length) && (
-        <>
-          <Icon intent="default" icon={avatarOpen ? 'chevronUp' : 'chevronDown'} />
-          {avatarOpen && (
-            <ElNavMenu>
-              {options.map(({ callback, text }, index) => (
-                <Fragment key={index}>
-                  {Boolean(index) && index === options.length - 1 && <ElNavMenuOptionDivider />}
-                  <ElNavMenuOption onClick={handleToggleMenu(setAvatarOpen, callback)}>{text}</ElNavMenuOption>
-                </Fragment>
-              ))}
-            </ElNavMenu>
-          )}
-        </>
-      )}
-    </ElNavResponsiveAvatarWrap>
+    <>
+      <ElNavControlsBg className={cx(avatarOpen && elIsActive)} onClick={clickNavEventHandler(setAvatarOpen)} />
+      <ElNavResponsiveAvatarWrap onClick={handleToggleMenu(setAvatarOpen)} className={cx(isHidden && elNavIsHidden)}>
+        <Avatar className={cx(elMr2)} type="profile">
+          {text}
+        </Avatar>
+        {Boolean(options.length) && (
+          <>
+            <Icon intent="default" icon={avatarOpen ? 'chevronUp' : 'chevronDown'} />
+            {avatarOpen && (
+              <ElNavMenu>
+                {options.map(({ callback, text }, index) => (
+                  <Fragment key={index}>
+                    {Boolean(index) && index === options.length - 1 && <ElNavMenuOptionDivider />}
+                    <ElNavMenuOption onClick={handleToggleMenu(setAvatarOpen, callback)}>{text}</ElNavMenuOption>
+                  </Fragment>
+                ))}
+              </ElNavMenu>
+            )}
+          </>
+        )}
+      </ElNavResponsiveAvatarWrap>
+    </>
   )
 }
 
@@ -138,30 +151,36 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
   }
 
   return (
-    <ElNavResponsiveAppSwitcherWrap onClick={handleToggleMenu(setAppSwitcherOpen)}>
-      <ElNavResponsiveAppSwitcherIconWrap className={cx(appSwitcherOpen && elAppSwitcherOpen)}>
-        <Icon intent="default" icon="appLauncher" />
-      </ElNavResponsiveAppSwitcherIconWrap>
-      {appSwitcherOpen && (
-        <ElNavMenu>
-          <ElNavMenuOption>
-            <Text2XS hasUpperCasedText hasDisabledText hasBoldText>
-              Your Apps
-            </Text2XS>
-          </ElNavMenuOption>
-          {options.map(({ callback, text, iconUrl }, index) => (
-            <ElNavMenuOption onClick={handleToggleMenu(setAppSwitcherOpen, callback)} key={index}>
-              {iconUrl && typeof iconUrl === 'string' ? <img src={iconUrl} /> : iconUrl}
-              {text}
+    <>
+      <ElNavControlsBg
+        className={cx(appSwitcherOpen && elIsActive)}
+        onClick={clickNavEventHandler(setAppSwitcherOpen)}
+      />
+      <ElNavResponsiveAppSwitcherWrap onClick={handleToggleMenu(setAppSwitcherOpen)}>
+        <ElNavResponsiveAppSwitcherIconWrap className={cx(appSwitcherOpen && elAppSwitcherOpen)}>
+          <Icon intent="default" icon="appLauncher" />
+        </ElNavResponsiveAppSwitcherIconWrap>
+        {appSwitcherOpen && (
+          <ElNavMenu>
+            <ElNavMenuOption>
+              <Text2XS hasUpperCasedText hasDisabledText hasBoldText>
+                Your Apps
+              </Text2XS>
             </ElNavMenuOption>
-          ))}
-          <ElNavMenuOptionDivider />
-          <ElNavMenuOption onClick={handleToggleMenu(setAppSwitcherOpen, marketplaceCallback)}>
-            My Installed Apps
-          </ElNavMenuOption>
-        </ElNavMenu>
-      )}
-    </ElNavResponsiveAppSwitcherWrap>
+            {options.map(({ callback, text, iconUrl }, index) => (
+              <ElNavMenuOption onClick={handleToggleMenu(setAppSwitcherOpen, callback)} key={index}>
+                {iconUrl && typeof iconUrl === 'string' ? <img src={iconUrl} /> : iconUrl}
+                {text}
+              </ElNavMenuOption>
+            ))}
+            <ElNavMenuOptionDivider />
+            <ElNavMenuOption onClick={handleToggleMenu(setAppSwitcherOpen, marketplaceCallback)}>
+              My Installed Apps
+            </ElNavMenuOption>
+          </ElNavMenu>
+        )}
+      </ElNavResponsiveAppSwitcherWrap>
+    </>
   )
 }
 
