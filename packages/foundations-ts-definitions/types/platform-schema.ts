@@ -2653,6 +2653,15 @@ export interface CompanyModel {
     country?: string
   }
   /**
+   * Representation of the payments and terms configuration for a company
+   */
+  payments?: {
+    /**
+     * The identifier of the nominal code selected in the payments and terms configuration
+     */
+    nominalAccountId?: string
+  }
+  /**
    * A collection of additional contact details
    */
   additionalContactDetails?: {
@@ -2847,6 +2856,15 @@ export interface CompanyModelPagedResult {
       country?: string
     }
     /**
+     * Representation of the payments and terms configuration for a company
+     */
+    payments?: {
+      /**
+       * The identifier of the nominal code selected in the payments and terms configuration
+       */
+      nominalAccountId?: string
+    }
+    /**
      * A collection of additional contact details
      */
     additionalContactDetails?: {
@@ -2933,6 +2951,15 @@ export interface CompanyModelPagedResult {
       href?: string
     }
   }
+}
+/**
+ * Representation of the payments and terms configuration for a company
+ */
+export interface CompanyPaymentsModel {
+  /**
+   * The identifier of the nominal code selected in the payments and terms configuration
+   */
+  nominalAccountId?: string
 }
 /**
  * Representation of the roles that an individual companies possesses
@@ -10024,18 +10051,6 @@ export interface GuarantorModel {
    */
   id?: string
   /**
-   * The date and time when the guarantor record was created
-   * example:
-   * 2019-08-14T12:30:02Z
-   */
-  created?: string // date-time
-  /**
-   * The date and time when the guarantor record was last modified
-   * example:
-   * 2019-08-14T12:30:02Z
-   */
-  modified?: string // date-time
-  /**
    * The identifier for the contact record associated with the guarantor
    */
   guarantorAssociatedId?: string
@@ -10047,11 +10062,6 @@ export interface GuarantorModel {
    * The status of the reference requested from the guarantor (notSet/requested/received)
    */
   referenceStatus?: string
-  /**
-   * The ETag for the current version of the guarantor record.
-   * Used for managing update concurrency
-   */
-  readonly _eTag?: string
 }
 /**
  * Any specific details relating to the marketing of a property in Guernsey
@@ -17853,18 +17863,6 @@ export interface TenancyContactRelationshipModel {
      */
     id?: string
     /**
-     * The date and time when the guarantor record was created
-     * example:
-     * 2019-08-14T12:30:02Z
-     */
-    created?: string // date-time
-    /**
-     * The date and time when the guarantor record was last modified
-     * example:
-     * 2019-08-14T12:30:02Z
-     */
-    modified?: string // date-time
-    /**
      * The identifier for the contact record associated with the guarantor
      */
     guarantorAssociatedId?: string
@@ -17876,11 +17874,6 @@ export interface TenancyContactRelationshipModel {
      * The status of the reference requested from the guarantor (notSet/requested/received)
      */
     referenceStatus?: string
-    /**
-     * The ETag for the current version of the guarantor record.
-     * Used for managing update concurrency
-     */
-    readonly _eTag?: string
   }[]
   /**
    * Collection of references recorded for this relationship
@@ -17967,18 +17960,6 @@ export interface TenancyContactRelationshipModelPagedResult {
        */
       id?: string
       /**
-       * The date and time when the guarantor record was created
-       * example:
-       * 2019-08-14T12:30:02Z
-       */
-      created?: string // date-time
-      /**
-       * The date and time when the guarantor record was last modified
-       * example:
-       * 2019-08-14T12:30:02Z
-       */
-      modified?: string // date-time
-      /**
        * The identifier for the contact record associated with the guarantor
        */
       guarantorAssociatedId?: string
@@ -17990,11 +17971,6 @@ export interface TenancyContactRelationshipModelPagedResult {
        * The status of the reference requested from the guarantor (notSet/requested/received)
        */
       referenceStatus?: string
-      /**
-       * The ETag for the current version of the guarantor record.
-       * Used for managing update concurrency
-       */
-      readonly _eTag?: string
     }[]
     /**
      * Collection of references recorded for this relationship
