@@ -287,7 +287,6 @@ export const Installations: FC = () => {
                 expandableContent: {
                   content: (
                     <>
-                      {console.log('unin', uninstalledBy)}
                       <ButtonGroup alignment="center">
                         <Button
                           intent="primary"
