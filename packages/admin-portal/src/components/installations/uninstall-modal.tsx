@@ -51,8 +51,6 @@ export const UninstallModal: FC<{
     })
     setUninstalling(false)
 
-    console.log('result', result)
-
     if (result) {
       installationRefresh()
       onClose()

@@ -263,22 +263,6 @@ export const Installations: FC = () => {
                     },
                   },
                   {
-                    label: 'Uninstall',
-                    children: (
-                      <Button
-                        onClick={() =>
-                          setSelectedInstallation({
-                            installationId: id as string,
-                            appId: appId as string,
-                          })
-                        }
-                        intent="danger"
-                      >
-                        Uninstall
-                      </Button>
-                    ),
-                  },
-                  {
                     label: 'Installed By',
                     value: installedBy,
                     narrowTable: {
@@ -303,6 +287,7 @@ export const Installations: FC = () => {
                 expandableContent: {
                   content: (
                     <>
+                      {console.log('unin', uninstalledBy)}
                       <ButtonGroup alignment="center">
                         <Button
                           intent="primary"
@@ -310,6 +295,18 @@ export const Installations: FC = () => {
                           onClick={handleInstallIdConsumption(setInstallIdConsumption, id)}
                         >
                           Togggle API Consumption
+                        </Button>
+                        <Button
+                          onClick={() =>
+                            setSelectedInstallation({
+                              installationId: id as string,
+                              appId: appId as string,
+                            })
+                          }
+                          disabled={uninstalledBy !== null && uninstalledBy !== ''}
+                          intent="danger"
+                        >
+                          Uninstall
                         </Button>
                       </ButtonGroup>
                       {installIdConsumption && installIdConsumption === id && (
