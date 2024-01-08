@@ -13174,7 +13174,7 @@ export interface PropertyImageModel {
    */
   propertyId?: string
   /**
-   * The url where the image can be downloaded from
+   * The url where the image can be downloaded from. Please note that physical assets for archived images may no longer be available
    */
   url?: string
   /**
@@ -13189,6 +13189,10 @@ export interface PropertyImageModel {
    * The display order index of the image which can be used to correctly order the whole collection
    */
   order?: number // int32
+  /**
+   * A flag determining whether or not the image is archived. Please note that physical assets for archived images may no longer be available
+   */
+  fromArchive?: boolean
   /**
    * The ETag for the current version of the image. Used for managing update concurrency
    */
@@ -13225,7 +13229,7 @@ export interface PropertyImageModelPagedResult {
      */
     propertyId?: string
     /**
-     * The url where the image can be downloaded from
+     * The url where the image can be downloaded from. Please note that physical assets for archived images may no longer be available
      */
     url?: string
     /**
@@ -13240,6 +13244,10 @@ export interface PropertyImageModelPagedResult {
      * The display order index of the image which can be used to correctly order the whole collection
      */
     order?: number // int32
+    /**
+     * A flag determining whether or not the image is archived. Please note that physical assets for archived images may no longer be available
+     */
+    fromArchive?: boolean
     /**
      * The ETag for the current version of the image. Used for managing update concurrency
      */
@@ -13268,6 +13276,7 @@ export interface PropertyImages {
   createdTo?: string
   modifiedFrom?: string
   modifiedTo?: string
+  fromArchive?: boolean
   metadata?: string[]
 }
 /**
