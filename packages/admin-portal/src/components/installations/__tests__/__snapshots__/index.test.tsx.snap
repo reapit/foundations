@@ -831,7 +831,7 @@ exports[`Installations should render component with data 1`] = `
 "
           data-has-call-to-action="false"
           data-has-expandable-action="true"
-          data-num-columns-excl-action-col="9"
+          data-num-columns-excl-action-col="8"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -848,9 +848,6 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               Date Installed
-            </mock-styled.div>
-            <mock-styled.div>
-              Uninstall
             </mock-styled.div>
             <mock-styled.div>
               Installed By
@@ -939,18 +936,6 @@ exports[`Installations should render component with data 1`] = `
               <mock-styled.div
                 classname="mock-css."
               >
-                <mock-styled.div>
-                  <mock-styled.button
-                    classname="mock-css."
-                  >
-                    <mock-styled.div />
-                    Uninstall
-                  </mock-styled.button>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="mock-css."
-              >
                 <mock-styled.div
                   data-narrow-label="Installed By"
                 >
@@ -998,6 +983,13 @@ exports[`Installations should render component with data 1`] = `
                     >
                       <mock-styled.div />
                       Togggle API Consumption
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="false"
+                    >
+                      <mock-styled.div />
+                      Uninstall
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
@@ -1295,7 +1287,7 @@ exports[`Installations should render component with data 1`] = `
 "
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-action-col="9"
+        data-num-columns-excl-action-col="8"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -1312,9 +1304,6 @@ exports[`Installations should render component with data 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             Date Installed
-          </mock-styled.div>
-          <mock-styled.div>
-            Uninstall
           </mock-styled.div>
           <mock-styled.div>
             Installed By
@@ -1403,18 +1392,6 @@ exports[`Installations should render component with data 1`] = `
             <mock-styled.div
               classname="mock-css."
             >
-              <mock-styled.div>
-                <mock-styled.button
-                  classname="mock-css."
-                >
-                  <mock-styled.div />
-                  Uninstall
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css."
-            >
               <mock-styled.div
                 data-narrow-label="Installed By"
               >
@@ -1462,6 +1439,13 @@ exports[`Installations should render component with data 1`] = `
                   >
                     <mock-styled.div />
                     Togggle API Consumption
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="false"
+                  >
+                    <mock-styled.div />
+                    Uninstall
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
