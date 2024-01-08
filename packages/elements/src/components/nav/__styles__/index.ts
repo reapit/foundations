@@ -19,6 +19,19 @@ export const ElNavBg = styled.div`
   }
 `
 
+export const ElNavControlsBg = styled.div`
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  &.${elIsActive} {
+    display: block;
+    position: fixed;
+  }
+`
+
 export const ElNavContainer = styled.nav`
   display: flex;
   flex-direction: row;

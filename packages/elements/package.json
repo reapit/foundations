@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {

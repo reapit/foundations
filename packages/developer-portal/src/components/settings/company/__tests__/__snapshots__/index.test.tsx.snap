@@ -22,7 +22,9 @@ exports[`SettingsCompanyPage should match snapshot 1`] = `
         >
           <mock-styled.div />
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -48,7 +50,9 @@ exports[`SettingsCompanyPage should match snapshot 1`] = `
       >
         <mock-styled.div />
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -136,7 +140,9 @@ exports[`SettingsCompanyPage should match snapshot for mobile view 1`] = `
         >
           <mock-styled.div />
           <mock-styled.span
-            classname=""
+            classname="mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -162,7 +168,9 @@ exports[`SettingsCompanyPage should match snapshot for mobile view 1`] = `
       >
         <mock-styled.div />
         <mock-styled.span
-          classname=""
+          classname="mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
