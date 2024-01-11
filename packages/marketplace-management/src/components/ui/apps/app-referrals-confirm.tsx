@@ -55,15 +55,18 @@ export const ReferralsConfirmationSelection: FC<ReferralsConfirmationSelectionPr
     fetchWhenTrue: [metadata],
   })
 
-  const hasReferrals = Boolean(app.scopes?.find((scope) => scope.name?.includes('referrals')))
+  const hasReferralsRead = Boolean(app.scopes?.find((scope) => scope.name?.includes('referrals.read')))
+  const hasReferralsWrite = Boolean(app.scopes?.find((scope) => scope.name?.includes('referrals.write')))
 
-  if (!hasReferrals) return null
+  if (!hasReferralsRead && !hasReferralsWrite) return null
+  const permText = hasReferralsRead && hasReferralsWrite ? 'read and write' : hasReferralsRead ? 'read' : 'write'
 
   return (
     <>
       <BodyText hasGreyText>
-        This app has requested to read &lsquo;Referral&rsquo; data. Before installation please select the referral types
-        that this app will have access to. This defaults to &lsquo;All Referral Types&rsquo;, unless selected below.
+        This app has requested to {permText} &lsquo;Referral&rsquo; data. Before installation please select the referral
+        types that this app will have access to. This defaults to &lsquo;All Referral Types&rsquo;, unless selected
+        below.
       </BodyText>
       <InputWrapFull>
         <InputGroup
