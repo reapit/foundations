@@ -126,13 +126,13 @@ exports[`FileInput component should match a snapshot for the FilePreviewImage co
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <img
+      <mock-styled.img
         src="https://mock-image.com"
       />
     </div>
   </body>,
   "container": <div>
-    <img
+    <mock-styled.img
       src="https://mock-image.com"
     />
   </div>,

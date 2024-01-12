@@ -249,7 +249,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               >
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -275,7 +277,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               >
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -301,7 +305,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               >
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -401,7 +407,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               >
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -427,7 +435,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               >
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -527,7 +537,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               >
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -553,7 +565,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               >
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -653,7 +667,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               >
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -679,7 +695,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               >
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -779,7 +797,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               >
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -879,7 +899,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               >
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -905,7 +927,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
               >
                 <mock-styled.div>
                   <mock-styled.span
-                    classname=""
+                    classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                   >
                     <svg />
                   </mock-styled.span>
@@ -1321,7 +1345,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             >
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -1347,7 +1373,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             >
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -1373,7 +1401,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             >
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -1473,7 +1503,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             >
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -1499,7 +1531,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             >
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -1599,7 +1633,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             >
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -1625,7 +1661,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             >
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -1725,7 +1763,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             >
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -1751,7 +1791,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             >
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -1851,7 +1893,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             >
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -1951,7 +1995,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             >
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>
@@ -1977,7 +2023,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             >
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
                 >
                   <svg />
                 </mock-styled.span>

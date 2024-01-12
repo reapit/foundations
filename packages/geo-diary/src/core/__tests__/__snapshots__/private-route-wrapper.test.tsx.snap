@@ -19,6 +19,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           <mock-styled.a
             classname=""
           >
+            <mock-styled.div
+              classname=""
+            />
             <mock-styled.div>
               <mock-styled.div
                 classname=""
@@ -62,6 +65,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
               <svg />
             </mock-styled.span>
             <mock-styled.div
+              classname=""
+            />
+            <mock-styled.div
               classname="mock-css.
   display: none;
 "
@@ -80,6 +86,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.a>
+          <mock-styled.div
+            classname=""
+          />
           <mock-styled.div
             classname=""
           >
@@ -159,6 +168,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
         <mock-styled.a
           classname=""
         >
+          <mock-styled.div
+            classname=""
+          />
           <mock-styled.div>
             <mock-styled.div
               classname=""
@@ -202,6 +214,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
             <svg />
           </mock-styled.span>
           <mock-styled.div
+            classname=""
+          />
+          <mock-styled.div
             classname="mock-css.
   display: none;
 "
@@ -220,6 +235,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.a>
+        <mock-styled.div
+          classname=""
+        />
         <mock-styled.div
           classname=""
         >

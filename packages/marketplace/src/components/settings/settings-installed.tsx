@@ -25,7 +25,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { object, SchemaOf, string } from 'yup'
 import { specialCharsTest } from '../../utils/yup'
-import { selectIsAdmin } from '../../utils/auth'
+import { selectIsAdmin, selectIsDeveloper } from '../../utils/auth'
 import { trackEventHandler, trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 import { FilterForm } from './filter-form'
@@ -116,10 +116,12 @@ export const SettingsInstalled: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal } = useModal()
   const clientId = connectSession?.loginIdentity.clientId
+  const developerId = connectSession?.loginIdentity.developerId
   const email = connectSession?.loginIdentity.email ?? ''
-  const isAdmin = selectIsAdmin(connectSession)
+  const isDevOrAdmin = selectIsAdmin(connectSession) || selectIsDeveloper(connectSession)
   const { appName } = installationsFilters
   const appNameQuery = appName ? { appName } : {}
+  const developerIdQuery = clientId === 'SBOX' && developerId ? { developerId } : {}
 
   const [installations, installationsLoading, , refetchInstallations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
@@ -129,6 +131,7 @@ export const SettingsInstalled: FC = () => {
       pageSize: 12,
       clientId,
       ...appNameQuery,
+      ...developerIdQuery,
     },
     fetchWhenTrue: [clientId],
   })
@@ -167,7 +170,7 @@ export const SettingsInstalled: FC = () => {
     connectSession,
   ])
 
-  if (!isAdmin) {
+  if (!isDevOrAdmin) {
     return (
       <PersistentNotification intent="danger" isExpanded isFullWidth isInline>
         You do not have permission to view this page.
@@ -199,7 +202,7 @@ export const SettingsInstalled: FC = () => {
                     {
                       label: 'App Name',
                       value: appName ?? '',
-                      icon: 'appInfographic',
+                      icon: 'mobile',
                       cellHasDarkText: true,
                       narrowTable: {
                         showLabel: true,

@@ -984,6 +984,13 @@ exports[`Installations should render component with data 1`] = `
                       <mock-styled.div />
                       Togggle API Consumption
                     </mock-styled.button>
+                    <mock-styled.button
+                      classname="mock-css."
+                      disabled="false"
+                    >
+                      <mock-styled.div />
+                      Uninstall
+                    </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
               </mock-styled.div>
@@ -1432,6 +1439,13 @@ exports[`Installations should render component with data 1`] = `
                   >
                     <mock-styled.div />
                     Togggle API Consumption
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="mock-css."
+                    disabled="false"
+                  >
+                    <mock-styled.div />
+                    Uninstall
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>

@@ -223,3 +223,104 @@ export interface NavResponsiveAppSwitcherOption {
 </Canvas>
 
 <RenderHtmlMarkup component="Nav" story={['React Usage']} />
+
+## React Usage With Custom Brand
+
+<ArgsTable component={NavResponsive} />
+
+We also support for the React Version, adding a custom brand and / or a callback on the logo for example, if you wish the logo to navigate back to the homepage.
+
+<Canvas>
+  <Story name="React Usage With Custom Brand">
+    <NavStateProvider>
+      <MediaStateProvider>
+        <NavResponsive
+          defaultNavIndex={1}
+          brandOptions={{
+            logoUrl: 'https://uk.payprop.com/res/assets/img/pp_logo.svg',
+            callback: () => console.log('Clicking'),
+          }}
+          appSwitcherOptions={[
+            {
+              text: 'AppMarket',
+              callback: () => console.log('Navigating'),
+              iconUrl: <Icon icon="reapitLogoSmall" />,
+            },
+            {
+              text: 'DevPortal',
+              callback: () => console.log('Navigating'),
+              iconUrl: <Icon icon="reapitLogoSmall" />,
+            },
+          ]}
+          avatarText="JD"
+          avatarOptions={[
+            {
+              text: 'Settings',
+              callback: () => console.log('Navigating'),
+            },
+            {
+              text: 'Profile',
+              callback: () => console.log('Navigating'),
+            },
+            {
+              text: 'Log Out',
+              callback: () => console.log('Navigating'),
+            },
+          ]}
+          options={[
+            {
+              itemIndex: 0,
+              callback: () => console.log('Navigating'),
+            },
+            {
+              itemIndex: 1,
+              callback: () => console.log('Navigating'),
+              text: 'Apps',
+              subItems: [
+                {
+                  itemIndex: 0,
+                  callback: () => console.log('Navigating'),
+                  text: 'App List',
+                },
+                {
+                  itemIndex: 1,
+                  callback: () => console.log('Navigating'),
+                  text: 'Create App',
+                },
+              ],
+            },
+            {
+              itemIndex: 2,
+              callback: () => console.log('Navigating'),
+              text: 'Analytics',
+              subItems: [
+                {
+                  itemIndex: 2,
+                  callback: () => console.log('Navigating'),
+                  text: 'Hits Per Day',
+                },
+                {
+                  itemIndex: 3,
+                  callback: () => console.log('Navigating'),
+                  text: 'Weekly Hits',
+                },
+              ],
+            },
+            {
+              itemIndex: 3,
+              href: 'https://marketplace.reapit.cloud',
+              text: 'Marketplace',
+            },
+            {
+              itemIndex: 4,
+              callback: () => console.log('Logging out'),
+              text: 'Logout',
+            },
+          ]}
+        />
+      </MediaStateProvider>
+    </NavStateProvider>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Nav" story={['React Usage With Custom Brand']} />

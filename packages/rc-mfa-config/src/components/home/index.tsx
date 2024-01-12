@@ -117,7 +117,7 @@ export const HomePage: FC = () => {
           intent="neutral"
           onClick={openNewPage(
             window.location?.hostname?.includes('.au.')
-              ? 'https://reapit-mfa-documentation.au.dev.rc.reapit.cloud'
+              ? 'https://help.agentboxcrm.com.au/reapit-connect'
               : 'https://reapit-1.gitbook.io/reapit-connect-mfa/',
           )}
         >

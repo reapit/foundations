@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { MouseEvent } from 'react'
 import { render } from '@testing-library/react'
-import { handleToggleLogo, NavResponsive } from '../nav-responsive'
+import { clickNavEventHandler, handleToggleLogo, NavResponsive } from '../nav-responsive'
 import { NavStateProvider } from '../../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../../hooks/use-media-query'
 
@@ -83,5 +83,23 @@ describe('handleToggleLogo', () => {
     curried()
 
     expect(setLogoState).toHaveBeenCalledWith('reapitLogoMenu')
+  })
+})
+
+describe('clickNavEventHandler', () => {
+  it('should handle a click event', () => {
+    const setActive = jest.fn()
+    const event = ({
+      preventDefault: jest.fn(),
+      stopPropagation: jest.fn(),
+    } as unknown) as MouseEvent<HTMLAnchorElement | HTMLDivElement>
+
+    const curried = clickNavEventHandler(setActive)
+
+    curried(event)
+
+    expect(setActive).toHaveBeenCalledTimes(1)
+    expect(event.preventDefault).toHaveBeenCalledTimes(1)
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
   })
 })

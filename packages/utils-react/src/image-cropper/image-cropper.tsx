@@ -126,6 +126,12 @@ export const ImageCropperFileInput: ImageCropperWithInputPropsWrapped = forwardR
 
     useEffect(handleSetNativeInput(inputId, [fileUrl]), [fileUrl])
 
+    useEffect(() => {
+      if (defaultValue) {
+        setFileName(defaultValue)
+      }
+    }, [defaultValue])
+
     const isImageCropped = Boolean(completedCrop?.width && completedCrop.height)
 
     return (

@@ -12,5 +12,4 @@ const bootstrap = async () => {
   await createStack()
 }
 
-bootstrap()
-  .catch(error => console.error(error))
+bootstrap().catch((error) => console.error(error))

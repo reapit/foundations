@@ -33,7 +33,9 @@ exports[`LandlordItem should match snapshot with landlords in state 1`] = `
       >
         <mock-styled.div>
           <mock-styled.span
-            classname=""
+            classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
           >
             <svg />
           </mock-styled.span>
@@ -78,7 +80,9 @@ exports[`LandlordItem should match snapshot with landlords in state 1`] = `
     >
       <mock-styled.div>
         <mock-styled.span
-          classname=""
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
