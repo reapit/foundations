@@ -982,7 +982,7 @@ exports[`Installations should render component with data 1`] = `
                       classname="mock-css."
                     >
                       <mock-styled.div />
-                      Togggle API Consumption
+                      Toggle API Consumption
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
@@ -1438,7 +1438,7 @@ exports[`Installations should render component with data 1`] = `
                     classname="mock-css."
                   >
                     <mock-styled.div />
-                    Togggle API Consumption
+                    Toggle API Consumption
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."

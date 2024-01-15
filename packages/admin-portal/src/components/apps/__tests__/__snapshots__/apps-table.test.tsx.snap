@@ -237,14 +237,14 @@ exports[`AppsTable should render component with apps 1`] = `
                       disabled="true"
                     >
                       <mock-styled.div />
-                      Togggle Featured
+                      Toggle Featured
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                       disabled="true"
                     >
                       <mock-styled.div />
-                      Togggle API Consumption
+                      Toggle API Consumption
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
@@ -496,14 +496,14 @@ exports[`AppsTable should render component with apps 1`] = `
                     disabled="true"
                   >
                     <mock-styled.div />
-                    Togggle Featured
+                    Toggle Featured
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."
                     disabled="true"
                   >
                     <mock-styled.div />
-                    Togggle API Consumption
+                    Toggle API Consumption
                   </mock-styled.button>
                   <mock-styled.button
                     classname="mock-css."

@@ -293,7 +293,7 @@ export const Installations: FC = () => {
                           disabled={hasReadAccess}
                           onClick={handleInstallIdConsumption(setInstallIdConsumption, id)}
                         >
-                          Togggle API Consumption
+                          Toggle API Consumption
                         </Button>
                         <Button
                           onClick={() =>

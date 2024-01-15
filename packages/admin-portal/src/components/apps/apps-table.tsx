@@ -254,14 +254,14 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                       disabled={hasReadAccess}
                       onClick={handleAppIdFeatured(setAppIdFeatured, setAppIdSubs, setAppIdConsumption, id)}
                     >
-                      Togggle Featured
+                      Toggle Featured
                     </Button>
                     <Button
                       intent="primary"
                       disabled={hasReadAccess}
                       onClick={handleAppIdConsumption(setAppIdConsumption, setAppIdSubs, setAppIdFeatured, id)}
                     >
-                      Togggle API Consumption
+                      Toggle API Consumption
                     </Button>
                     <Button
                       type="button"

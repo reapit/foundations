@@ -586,13 +586,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                         classname="mock-css."
                       >
                         <mock-styled.div />
-                        Togggle Featured
+                        Toggle Featured
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
                       >
                         <mock-styled.div />
-                        Togggle API Consumption
+                        Toggle API Consumption
                       </mock-styled.button>
                       <mock-styled.button
                         classname="mock-css."
@@ -1226,13 +1226,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                       classname="mock-css."
                     >
                       <mock-styled.div />
-                      Togggle Featured
+                      Toggle Featured
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."
                     >
                       <mock-styled.div />
-                      Togggle API Consumption
+                      Toggle API Consumption
                     </mock-styled.button>
                     <mock-styled.button
                       classname="mock-css."

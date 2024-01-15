@@ -37,7 +37,6 @@ import {
   InputWrapFull,
   Loader,
   PersistentNotification,
-  Subtitle,
   useModal,
 } from '@reapit/elements'
 import { LoginIdentity, useReapitConnect } from '@reapit/connect-session'
@@ -175,6 +174,17 @@ export const renderCategoriesDiff = (app: AppDetailModel, revision: AppRevisionM
     <div className={elMb5}>
       <BodyText hasGreyText>Categories</BodyText>
       <DiffViewer currentString={currentString} changedString={changedString} type="words" />
+    </div>
+  )
+}
+
+export const renderCreatedBy = (revision: AppRevisionModel) => {
+  const createdBy = revision.createdBy
+
+  return (
+    <div className={elMb5}>
+      <BodyText hasGreyText>Created By</BodyText>
+      <DiffViewer currentString={createdBy || ''} changedString={createdBy || ''} type="words" />
     </div>
   )
 }
@@ -353,7 +363,8 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
 
   return (
     <div className={elMt5}>
-      <Subtitle>{app.name} Revision Diff</Subtitle>
+      {renderCreatedBy(revision)}
+
       {Object.keys(diffStringList).map((key) => {
         return (
           <div className={elMb5} key={key}>
