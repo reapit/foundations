@@ -57,12 +57,20 @@ export const AdminApprovals: FC = () => {
           <Table
             className={elMb11}
             rows={approvals?.data?.map((approval) => {
-              const { description, created, appId, appRevisionId } = approval
+              const { description, created, appId, appRevisionId, createdBy } = approval
               return {
                 cells: [
                   {
                     label: 'Description',
                     value: description,
+                    cellHasDarkText: true,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Created By',
+                    value: createdBy,
                     cellHasDarkText: true,
                     narrowTable: {
                       showLabel: true,

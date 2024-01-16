@@ -646,6 +646,10 @@ export interface ApprovalModel {
    */
   appRevisionId?: string // uuid
   /**
+   * Gets the email of the user who created the revision
+   */
+  createdBy?: string
+  /**
    * Gets the date the revision was created
    */
   readonly created?: string // date-time
