@@ -7717,7 +7717,7 @@ export interface CreatePropertyModel {
    */
   negotiatorId: string
   /**
-   * A collection of unique identifiers of offices attached to the property
+   * A collection of unique identifiers of offices attached to the property. The first item in the collection is considered the primary office
    */
   officeIds: string[]
   /**
@@ -14633,7 +14633,7 @@ export interface PropertyModel {
    */
   roomDetailsApproved?: boolean
   /**
-   * A collection of unique identifiers of offices attached to the property
+   * A collection of unique identifiers of offices attached to the property. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
@@ -15609,7 +15609,7 @@ export interface PropertyModelPagedResult {
      */
     roomDetailsApproved?: boolean
     /**
-     * A collection of unique identifiers of offices attached to the property
+     * A collection of unique identifiers of offices attached to the property. The first item in the collection is considered the primary office
      */
     officeIds?: string[]
     /**
@@ -22969,7 +22969,7 @@ export interface UpdatePropertyModel {
    */
   negotiatorId?: string
   /**
-   * A collection of unique identifiers of offices attached to the property
+   * A collection of unique identifiers of offices attached to the property. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
