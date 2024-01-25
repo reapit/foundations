@@ -117,11 +117,14 @@ exports[`AdminApprovals should render component with data 1`] = `
 "
           data-has-call-to-action="false"
           data-has-expandable-action="true"
-          data-num-columns-excl-action-col="2"
+          data-num-columns-excl-action-col="3"
         >
           <mock-styled.div>
             <mock-styled.div>
               Description
+            </mock-styled.div>
+            <mock-styled.div>
+              Created By
             </mock-styled.div>
             <mock-styled.div>
               Created Date
@@ -148,6 +151,13 @@ exports[`AdminApprovals should render component with data 1`] = `
                 >
                   App 'Reapit Insights' has been modified
                 </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="mock-css."
+              >
+                <mock-styled.div
+                  data-narrow-label="Created By"
+                />
               </mock-styled.div>
               <mock-styled.div
                 classname="mock-css."
@@ -262,11 +272,14 @@ exports[`AdminApprovals should render component with data 1`] = `
 "
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-action-col="2"
+        data-num-columns-excl-action-col="3"
       >
         <mock-styled.div>
           <mock-styled.div>
             Description
+          </mock-styled.div>
+          <mock-styled.div>
+            Created By
           </mock-styled.div>
           <mock-styled.div>
             Created Date
@@ -293,6 +306,13 @@ exports[`AdminApprovals should render component with data 1`] = `
               >
                 App 'Reapit Insights' has been modified
               </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="mock-css."
+            >
+              <mock-styled.div
+                data-narrow-label="Created By"
+              />
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."

@@ -649,6 +649,10 @@ export interface ApprovalModel {
    * Gets the date the revision was created
    */
   readonly created?: string // date-time
+  /**
+   * Gets the email of the user who created the revision
+   */
+  readonly createdBy?: string
 }
 /**
  * Model to handle paged data and information
