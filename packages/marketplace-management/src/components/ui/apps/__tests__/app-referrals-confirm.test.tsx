@@ -25,6 +25,16 @@ describe('ReferralsConfirmationSelection', () => {
       render(<ReferralsConfirmationSelection setMetadata={jest.fn()} metadata={[]} app={mockAppDetail} />),
     ).toMatchSnapshot()
   })
+
+  it('should render component with read and write with both scopes on app', () => {
+    mockUseReapitGet.mockReturnValue([mockReferralTypes, false])
+    const appWithReadAndWrite = mockAppDetail
+    appWithReadAndWrite.scopes?.push({ name: 'agencyCloud/referrals.write', description: 'ref' })
+
+    expect(
+      render(<ReferralsConfirmationSelection setMetadata={jest.fn()} metadata={[]} app={appWithReadAndWrite} />),
+    ).toMatchSnapshot()
+  })
 })
 
 describe('handleOnCheckboxChange', () => {
