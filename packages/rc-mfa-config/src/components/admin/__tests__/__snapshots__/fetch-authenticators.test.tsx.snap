@@ -21,6 +21,12 @@ exports[`FetchAuthenticators should render component with data 1`] = `
             <mock-styled.div />
             Fetch Current Authenticators
           </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            Reset Password
+          </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
@@ -123,6 +129,12 @@ exports[`FetchAuthenticators should render component with data 1`] = `
         >
           <mock-styled.div />
           Fetch Current Authenticators
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+        >
+          <mock-styled.div />
+          Reset Password
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
@@ -284,7 +296,53 @@ exports[`FetchAuthenticators should render component with no data 1`] = `
             <mock-styled.div />
             Fetch Current Authenticators
           </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            Reset Password
+          </mock-styled.button>
         </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="mock-css. mock-css. mock-css. mock-css."
+      >
+        <div
+          class="mock-css.
+  padding-left: 0.75rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+          data-testid="close-icon"
+        >
+          <mock-styled.span
+            classname="mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1.25rem;"
+          >
+            <svg
+              style="font-size: 1.25rem;"
+            />
+          </mock-styled.span>
+        </div>
+        <div
+          class="mock-css.
+  padding: 0.75rem;
+  transition: 0.5s;
+  width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
+"
+        >
+          No authenticators configured for this user.
+        </div>
       </mock-styled.div>
     </div>
   </body>,
@@ -305,7 +363,53 @@ exports[`FetchAuthenticators should render component with no data 1`] = `
           <mock-styled.div />
           Fetch Current Authenticators
         </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+        >
+          <mock-styled.div />
+          Reset Password
+        </mock-styled.button>
       </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="mock-css. mock-css. mock-css. mock-css."
+    >
+      <div
+        class="mock-css.
+  padding-left: 0.75rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  cursor: pointer;
+
+  , {
+    color: var(--color-white);
+  }
+"
+        data-testid="close-icon"
+      >
+        <mock-styled.span
+          classname="mock-css.
+  font-size: 1.5rem;
+"
+          style="font-size: 1.25rem;"
+        >
+          <svg
+            style="font-size: 1.25rem;"
+          />
+        </mock-styled.span>
+      </div>
+      <div
+        class="mock-css.
+  padding: 0.75rem;
+  transition: 0.5s;
+  width: 100%;
+  color: var(--color-black);
+  font-size: var(--font-size-default);
+"
+      >
+        No authenticators configured for this user.
+      </div>
     </mock-styled.div>
   </div>,
   "debug": [Function],
@@ -383,6 +487,12 @@ exports[`FetchAuthenticators should render component with props and loading 1`] 
             <mock-styled.div />
             Fetch Current Authenticators
           </mock-styled.button>
+          <mock-styled.button
+            classname="mock-css."
+          >
+            <mock-styled.div />
+            Reset Password
+          </mock-styled.button>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
@@ -410,6 +520,12 @@ exports[`FetchAuthenticators should render component with props and loading 1`] 
         >
           <mock-styled.div />
           Fetch Current Authenticators
+        </mock-styled.button>
+        <mock-styled.button
+          classname="mock-css."
+        >
+          <mock-styled.div />
+          Reset Password
         </mock-styled.button>
       </mock-styled.div>
     </mock-styled.div>
