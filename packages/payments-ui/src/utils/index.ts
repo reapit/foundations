@@ -15,11 +15,11 @@ export const checkShouldUpdateScript = (env: string) => {
 
 export const handleLoadOpayoScript =
   (config: ClientConfigModel | null, setConfigLoading: Dispatch<SetStateAction<boolean>>) => () => {
-    const env = config?.isLive ? 'live' : 'test'
+    const env = config?.isLive ? 'live' : 'sandbox'
     const shouldUpdateScript = checkShouldUpdateScript(env)
     if (config?.isConfigured && shouldUpdateScript) {
       const script = document.createElement('script')
-      script.src = `https://pi-${env}.sagepay.com/api/v1/js/sagepay.js`
+      script.src = `https://${env}.opayo.eu.elavon.com/api/v1/js/sagepay.js`
       const head = document.querySelector('head')
 
       if (head) {

@@ -4,7 +4,6 @@ export type Config = {
   connectClientId: string
   connectUserPoolId: string
   connectOAuthUrl: string
-  opayoApiUrl: string
   platformApiUrl: string
   paymentsApiUrl: string
   marketplaceUrl: string

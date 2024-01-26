@@ -1,6 +1,6 @@
 import React from 'react'
 import { useReapitGet } from '@reapit/use-reapit-data'
-import { handleShouldFetch, FetchAuthenticators } from '../fetch-authenticators'
+import { handleShouldFetch, FetchAuthenticators, handleResetPassword } from '../fetch-authenticators'
 import { render } from '../../../tests/react-testing'
 import { mockAuthenticatorModel } from '../../../tests/__stubs__/authenticator'
 
@@ -32,10 +32,23 @@ describe('FetchAuthenticators', () => {
 describe('handleShouldFetch', () => {
   it('handle fetching flag', () => {
     const setShouldFetch = jest.fn()
-    const curried = handleShouldFetch(setShouldFetch)
+    const curried = handleShouldFetch(setShouldFetch, { authenticators: true })
 
     curried()
 
-    expect(setShouldFetch).toHaveBeenCalledWith(true)
+    expect(setShouldFetch).toHaveBeenCalledWith({ authenticators: true })
+  })
+})
+
+describe('handleResetPassword', () => {
+  it('handle resetting password', async () => {
+    const deleteUserPassword = jest.fn(() => Promise.resolve(true))
+    const setShouldFetch = jest.fn()
+    const curried = handleResetPassword(deleteUserPassword, setShouldFetch)
+
+    await curried()
+
+    expect(deleteUserPassword).toHaveBeenCalledTimes(1)
+    expect(setShouldFetch).toHaveBeenCalledWith({})
   })
 })

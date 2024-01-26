@@ -13,8 +13,8 @@ export const OPAYO_URLS = {
 }
 
 export const OPAYO_API_URLS = {
-  TEST: 'https://pi-test.sagepay.com/api/v1',
-  LIVE: 'https://pi-live.sagepay.com/api/v1',
+  TEST: 'https://sandbox.opayo.eu.elavon.com/api/v1',
+  LIVE: 'https://live.opayo.eu.elavon.com/api/v1',
 }
 
 @Injectable()
