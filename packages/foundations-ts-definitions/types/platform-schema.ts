@@ -7979,6 +7979,37 @@ export interface CreatePropertyTenureModel {
   expiry?: string // date
 }
 /**
+ * Create Referral Model
+ * example:
+ * [object Object]
+ */
+export interface CreateReferralModel {
+  /**
+   * The unique identifier of the referral type
+   */
+  referralTypeId?: string
+  /**
+   * The unique identifier of the Negotiator
+   */
+  negotiatorId?: string
+  /**
+   * The unique identifier of the Property
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the Applicant
+   */
+  applicantId?: string
+  /**
+   * The unique identifier of the Contact
+   */
+  contactId?: string
+  /**
+   * The amount paid to the agent for the referral
+   */
+  amount?: number // double
+}
+/**
  * Payload to create a JSON schema for metadata validation
  * example:
  * [object Object]
