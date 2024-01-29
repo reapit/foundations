@@ -51,15 +51,18 @@
     "snyk": "^1.1259.0",
     "swagger-ui-react": "^4.19.1",
     "use-deep-compare-effect": "^1.8.1",
+    "uuid": "^9.0.1",
     "yup": "^0.32.11"
   },
   "devDependencies": {
     "@linaria/shaker": "^5.0.3",
+    "@linaria/vite": "^5.0.4",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@testing-library/react": "^14.1.2",
+    "@types/uuid": "^9",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "concurrently": "^6.5.1",
