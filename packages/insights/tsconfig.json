@@ -5,9 +5,7 @@
     "module": "commonjs",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/connect-session": ["../connect-session/src"],
-      "@reapit/elements": ["../elements/src"],
-      "@reapit/elements/*": ["../elements/src/*"]
+      "@reapit/connect-session": ["../connect-session/src"]
     }
   },
   "include": ["src", "src/platform-api/.ts"],
