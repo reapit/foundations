@@ -7987,23 +7987,23 @@ export interface CreateReferralModel {
   /**
    * The unique identifier of the referral type
    */
-  referralTypeId?: string
+  referralTypeId: string
   /**
-   * The unique identifier of the Negotiator
+   * The unique identifier of the negotiator creating the referral
    */
   negotiatorId?: string
   /**
-   * The unique identifier of the Property
+   * The unique identifier of the property
    */
   propertyId?: string
   /**
-   * The unique identifier of the Applicant
+   * The unique identifier of the applicant
    */
   applicantId?: string
   /**
-   * The unique identifier of the Contact
+   * The unique identifier of the contact that has been referred
    */
-  contactId?: string
+  contactId: string
   /**
    * The amount paid to the agent for the referral
    */
