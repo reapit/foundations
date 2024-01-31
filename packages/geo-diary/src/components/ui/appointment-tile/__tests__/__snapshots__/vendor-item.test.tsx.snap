@@ -8,36 +8,30 @@ exports[`VendorItem should match snapshot with vendors in state 1`] = `
       <mock-styled.div />
        
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  height: 2.5rem;
-  margin-bottom: 0.5rem;
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-"
+        classname="el-fade-in el-card-list-item-expanded"
       >
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-primary el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 3a1 1 0 1 1 0 2H4v17H2V3a1 1 0 0 1 2 0h18Z"
+                fill="currentColor"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M8 7h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm0 10h12V9H8v8Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div>
@@ -55,36 +49,30 @@ exports[`VendorItem should match snapshot with vendors in state 1`] = `
     <mock-styled.div />
      
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  height: 2.5rem;
-  margin-bottom: 0.5rem;
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-"
+      classname="el-fade-in el-card-list-item-expanded"
     >
       <mock-styled.div>
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-intent-primary el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M22 3a1 1 0 1 1 0 2H4v17H2V3a1 1 0 0 1 2 0h18Z"
+              fill="currentColor"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M8 7h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm0 10h12V9H8v8Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div>

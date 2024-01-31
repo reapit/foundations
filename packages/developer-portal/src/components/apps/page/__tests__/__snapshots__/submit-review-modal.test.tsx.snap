@@ -18,9 +18,7 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
           However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
         </mock-styled.p>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1rem;
-"
+          classname="el-mb6"
         >
           <mock-styled.input
             classname=""
@@ -47,16 +45,16 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
         </mock-styled.p>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-right"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               Close
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="false"
               type="submit"
             >
@@ -82,9 +80,7 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
         However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1rem;
-"
+        classname="el-mb6"
       >
         <mock-styled.input
           classname=""
@@ -111,16 +107,16 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
       </mock-styled.p>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Close
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
             type="submit"
           >
@@ -203,9 +199,7 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
           However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
         </mock-styled.p>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1rem;
-"
+          classname="el-mb6"
         >
           <mock-styled.input
             classname=""
@@ -232,16 +226,16 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
         </mock-styled.p>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-right"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               Close
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="false"
               type="submit"
             >
@@ -267,9 +261,7 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
         However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1rem;
-"
+        classname="el-mb6"
       >
         <mock-styled.input
           classname=""
@@ -296,16 +288,16 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
       </mock-styled.p>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Close
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
             type="submit"
           >
@@ -383,10 +375,10 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
       </mock-styled.p>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Close
@@ -404,10 +396,10 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
     </mock-styled.p>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-right"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Close
@@ -503,10 +495,10 @@ exports[`SubmitReviewModal should match a snapshot where not a customer 1`] = `
       </mock-styled.p>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Close
@@ -545,10 +537,10 @@ exports[`SubmitReviewModal should match a snapshot where not a customer 1`] = `
     </mock-styled.p>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-right"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Close

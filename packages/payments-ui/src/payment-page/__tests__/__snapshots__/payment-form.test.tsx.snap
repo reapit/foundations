@@ -7,21 +7,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
     <div>
       <mock-styled.div />
       <form
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        class="el-fade-in"
       >
         <mock-styled.h2
           classname=""
@@ -29,7 +15,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           Billing Details
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -1402,64 +1388,50 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           Card Details
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
+          classname="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname="mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
           </div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <div
-              class="mock-css.
-  margin-bottom: 0.375rem;
-"
+              class="el-mb2"
             >
               <mock-styled.label>
                 Card Type
               </mock-styled.label>
             </div>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+              classname="el-mb2"
             >
               <mock-styled.input
                 classname=""
@@ -1475,9 +1447,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
               </mock-styled.label>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+              classname="el-mb2"
             >
               <mock-styled.input
                 classname=""
@@ -1589,7 +1559,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="true"
               type="submit"
             >
@@ -1604,21 +1574,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
   "container": <div>
     <mock-styled.div />
     <form
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      class="el-fade-in"
     >
       <mock-styled.h2
         classname=""
@@ -1626,7 +1582,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
         Billing Details
       </mock-styled.h2>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -2999,64 +2955,50 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
         Card Details
       </mock-styled.h2>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
+        classname="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
             style="font-size: 1.25rem;"
           >
             <svg
+              fill="none"
+              height="1em"
               style="font-size: 1.25rem;"
-            />
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </div>
         <div
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
         </div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <div
-            class="mock-css.
-  margin-bottom: 0.375rem;
-"
+            class="el-mb2"
           >
             <mock-styled.label>
               Card Type
             </mock-styled.label>
           </div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+            classname="el-mb2"
           >
             <mock-styled.input
               classname=""
@@ -3072,9 +3014,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
             </mock-styled.label>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+            classname="el-mb2"
           >
             <mock-styled.input
               classname=""
@@ -3186,7 +3126,7 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="true"
             type="submit"
           >
@@ -3258,21 +3198,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
     <div>
       <mock-styled.div />
       <form
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        class="el-fade-in"
       >
         <mock-styled.h2
           classname=""
@@ -3280,7 +3206,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           Billing Details
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -4653,64 +4579,50 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           Card Details
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
+          classname="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname="mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
           </div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <div
-              class="mock-css.
-  margin-bottom: 0.375rem;
-"
+              class="el-mb2"
             >
               <mock-styled.label>
                 Card Type
               </mock-styled.label>
             </div>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+              classname="el-mb2"
             >
               <mock-styled.input
                 classname=""
@@ -4726,9 +4638,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
               </mock-styled.label>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+              classname="el-mb2"
             >
               <mock-styled.input
                 classname=""
@@ -4840,7 +4750,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="true"
               type="submit"
             >
@@ -4855,21 +4765,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
   "container": <div>
     <mock-styled.div />
     <form
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      class="el-fade-in"
     >
       <mock-styled.h2
         classname=""
@@ -4877,7 +4773,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
         Billing Details
       </mock-styled.h2>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -6250,64 +6146,50 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
         Card Details
       </mock-styled.h2>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
+        classname="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
             style="font-size: 1.25rem;"
           >
             <svg
+              fill="none"
+              height="1em"
               style="font-size: 1.25rem;"
-            />
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </div>
         <div
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
         </div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <div
-            class="mock-css.
-  margin-bottom: 0.375rem;
-"
+            class="el-mb2"
           >
             <mock-styled.label>
               Card Type
             </mock-styled.label>
           </div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+            classname="el-mb2"
           >
             <mock-styled.input
               classname=""
@@ -6323,9 +6205,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
             </mock-styled.label>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+            classname="el-mb2"
           >
             <mock-styled.input
               classname=""
@@ -6437,7 +6317,7 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="true"
             type="submit"
           >
@@ -6574,21 +6454,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
     <div>
       <mock-styled.div />
       <form
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        class="el-fade-in"
       >
         <mock-styled.h2
           classname=""
@@ -6596,7 +6462,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           Billing Details
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -7969,120 +7835,82 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           Card Details
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
+          classname="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname="mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
           </div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css. mock-css. mock-css. mock-css."
+          classname="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname="mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             Transaction Failed. If you have sufficient funds, and you have checked your card details are correct, this could be because you have used an incorrect card type (we accept Visa and Mastercard debit only) or your session has expired. Please check your card details again and if the problem persists, refresh the page and try again.
           </div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <div
-              class="mock-css.
-  margin-bottom: 0.375rem;
-"
+              class="el-mb2"
             >
               <mock-styled.label>
                 Card Type
               </mock-styled.label>
             </div>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+              classname="el-mb2"
             >
               <mock-styled.input
                 classname=""
@@ -8098,9 +7926,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
               </mock-styled.label>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+              classname="el-mb2"
             >
               <mock-styled.input
                 classname=""
@@ -8212,7 +8038,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="true"
               type="submit"
             >
@@ -8227,21 +8053,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
   "container": <div>
     <mock-styled.div />
     <form
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      class="el-fade-in"
     >
       <mock-styled.h2
         classname=""
@@ -8249,7 +8061,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         Billing Details
       </mock-styled.h2>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -9622,120 +9434,82 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
         Card Details
       </mock-styled.h2>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
+        classname="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
             style="font-size: 1.25rem;"
           >
             <svg
+              fill="none"
+              height="1em"
               style="font-size: 1.25rem;"
-            />
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </div>
         <div
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
         </div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css. mock-css. mock-css. mock-css."
+        classname="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
             style="font-size: 1.25rem;"
           >
             <svg
+              fill="none"
+              height="1em"
               style="font-size: 1.25rem;"
-            />
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </div>
         <div
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           Transaction Failed. If you have sufficient funds, and you have checked your card details are correct, this could be because you have used an incorrect card type (we accept Visa and Mastercard debit only) or your session has expired. Please check your card details again and if the problem persists, refresh the page and try again.
         </div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <div
-            class="mock-css.
-  margin-bottom: 0.375rem;
-"
+            class="el-mb2"
           >
             <mock-styled.label>
               Card Type
             </mock-styled.label>
           </div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+            classname="el-mb2"
           >
             <mock-styled.input
               classname=""
@@ -9751,9 +9525,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
             </mock-styled.label>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+            classname="el-mb2"
           >
             <mock-styled.input
               classname=""
@@ -9865,7 +9637,7 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="true"
             type="submit"
           >

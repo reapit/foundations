@@ -6,7 +6,7 @@ import PrivateRouteWrapper from './private-route-wrapper'
 import { Login, catchChunkError } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from './connect-session'
 
-export const history: History<any> = createBrowserHistory()
+export const history: History = createBrowserHistory()
 
 const AppsBrowsePage = lazy(() => catchChunkError(() => import('../components/apps-browse')))
 const AppsDetailPage = lazy(() => catchChunkError(() => import('../components/apps-detail')))

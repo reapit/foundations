@@ -9,25 +9,11 @@ exports[`Toolbox should match a snapshot 1`] = `
     <div
       class="mock-css.
   transition: all 0.3s;
- mock-css.
-  width: 100%;
- mock-css.
-  display: flex;
- mock-css.
-  flex-direction: row;
- mock-css.
-  flex-wrap: wrap;
- mock-css.
-  align-items: flex-start;
- mock-css.
-  justify-content: flex-start;
-"
+ el-w12 el-flex el-flex-row el-flex-wrap el-flex-align-start el-flex-justify-start"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin: 0.5rem;
- mock-css.
+          classname="el-m3 mock-css.
   display: block;
  mock-css.
   cursor: move;
@@ -114,9 +100,7 @@ exports[`Toolbox should match a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin: 0.5rem;
- mock-css.
+          classname="el-m3 mock-css.
   display: block;
  mock-css.
   cursor: move;

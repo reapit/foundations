@@ -7,27 +7,13 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
     <div>
       <mock-styled.div>
         <mock-styled.h2
-          classname="mock-css. mock-css."
+          classname="el-has-bold-text el-has-no-margin"
         >
           Webhooks
         </mock-styled.h2>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-fade-in"
       >
         <mock-styled.p
           classname=""
@@ -35,7 +21,7 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
           Webhook Docs
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
         </mock-styled.p>
@@ -44,21 +30,7 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
         </mock-styled.a>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-fade-in"
       >
         <mock-styled.p
           classname=""
@@ -66,7 +38,7 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
           Webhook Docs
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
         </mock-styled.p>
@@ -79,27 +51,13 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
   "container": <div>
     <mock-styled.div>
       <mock-styled.h2
-        classname="mock-css. mock-css."
+        classname="el-has-bold-text el-has-no-margin"
       >
         Webhooks
       </mock-styled.h2>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-fade-in"
     >
       <mock-styled.p
         classname=""
@@ -107,7 +65,7 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
         Webhook Docs
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
       </mock-styled.p>
@@ -116,21 +74,7 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
       </mock-styled.a>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-fade-in"
     >
       <mock-styled.p
         classname=""
@@ -138,7 +82,7 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
         Webhook Docs
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
       </mock-styled.p>
@@ -208,27 +152,13 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
     <div>
       <mock-styled.div>
         <mock-styled.h2
-          classname="mock-css. mock-css."
+          classname="el-has-bold-text el-has-no-margin"
         >
           Webhooks
         </mock-styled.h2>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-fade-in"
       >
         <svg
           fill="none"
@@ -304,7 +234,7 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
           Webhook Video
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
         </mock-styled.p>
@@ -313,21 +243,7 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
         </mock-styled.a>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-fade-in"
       >
         <svg
           fill="none"
@@ -403,7 +319,7 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
           Webhook Video
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
         </mock-styled.p>
@@ -416,27 +332,13 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
   "container": <div>
     <mock-styled.div>
       <mock-styled.h2
-        classname="mock-css. mock-css."
+        classname="el-has-bold-text el-has-no-margin"
       >
         Webhooks
       </mock-styled.h2>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-fade-in"
     >
       <svg
         fill="none"
@@ -512,7 +414,7 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
         Webhook Video
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
       </mock-styled.p>
@@ -521,21 +423,7 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
       </mock-styled.a>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-fade-in"
     >
       <svg
         fill="none"
@@ -611,7 +499,7 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
         Webhook Video
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
       </mock-styled.p>

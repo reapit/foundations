@@ -7,32 +7,83 @@ exports[`Helper should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+        class="el-fade-in el-mb7"
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb3 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+              fill="#607890"
+            />
+            <path
+              d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              fill="#506478"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              fill="#8EDDFF"
+            />
+            <path
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              fill="#798da1"
+            />
+            <path
+              d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+              fill="#506478"
+            />
+            <path
+              d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+              fill="#607890"
+            />
+            <path
+              d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+              fill="#798da1"
+            />
+            <path
+              d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+              fill="#fff"
+            />
+            <path
+              d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+              fill="#d8dee4"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -40,7 +91,7 @@ exports[`Helper should match a snapshot 1`] = `
           Apps Documentation
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
         </mock-styled.p>
@@ -49,7 +100,7 @@ exports[`Helper should match a snapshot 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               View Docs
@@ -62,32 +113,83 @@ exports[`Helper should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+      class="el-fade-in el-mb7"
     >
       <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+        classname="el-mb3 el-icon-size-large"
       >
-        <svg />
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 80 80"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+            fill="#607890"
+          />
+          <path
+            d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+            fill="#506478"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+            fill="#8EDDFF"
+          />
+          <path
+            d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+            fill="#798da1"
+          />
+          <path
+            d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+            fill="#506478"
+          />
+          <path
+            d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+            fill="#607890"
+          />
+          <path
+            d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+            fill="#798da1"
+          />
+          <path
+            d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+            fill="#fff"
+          />
+          <path
+            d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+            fill="#d8dee4"
+          />
+        </svg>
       </mock-styled.span>
       <mock-styled.p
         classname=""
@@ -95,7 +197,7 @@ exports[`Helper should match a snapshot 1`] = `
         Apps Documentation
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
       </mock-styled.p>
@@ -104,7 +206,7 @@ exports[`Helper should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
@@ -174,32 +276,83 @@ exports[`Helper should match a snapshot for the appsDetail page 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+        class="el-fade-in el-mb7"
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb3 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+              fill="#607890"
+            />
+            <path
+              d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              fill="#506478"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              fill="#8EDDFF"
+            />
+            <path
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              fill="#798da1"
+            />
+            <path
+              d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+              fill="#506478"
+            />
+            <path
+              d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+              fill="#607890"
+            />
+            <path
+              d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+              fill="#798da1"
+            />
+            <path
+              d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+              fill="#fff"
+            />
+            <path
+              d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+              fill="#d8dee4"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -207,7 +360,7 @@ exports[`Helper should match a snapshot for the appsDetail page 1`] = `
           Apps Documentation
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
         </mock-styled.p>
@@ -216,7 +369,7 @@ exports[`Helper should match a snapshot for the appsDetail page 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               View Docs
@@ -229,32 +382,83 @@ exports[`Helper should match a snapshot for the appsDetail page 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+      class="el-fade-in el-mb7"
     >
       <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+        classname="el-mb3 el-icon-size-large"
       >
-        <svg />
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 80 80"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+            fill="#607890"
+          />
+          <path
+            d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+            fill="#506478"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+            fill="#8EDDFF"
+          />
+          <path
+            d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+            fill="#798da1"
+          />
+          <path
+            d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+            fill="#506478"
+          />
+          <path
+            d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+            fill="#607890"
+          />
+          <path
+            d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+            fill="#798da1"
+          />
+          <path
+            d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+            fill="#fff"
+          />
+          <path
+            d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+            fill="#d8dee4"
+          />
+        </svg>
       </mock-styled.span>
       <mock-styled.p
         classname=""
@@ -262,7 +466,7 @@ exports[`Helper should match a snapshot for the appsDetail page 1`] = `
         Apps Documentation
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
       </mock-styled.p>
@@ -271,7 +475,7 @@ exports[`Helper should match a snapshot for the appsDetail page 1`] = `
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
@@ -341,32 +545,83 @@ exports[`Helper should match a snapshot for the appsEdit page 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+        class="el-fade-in el-mb7"
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb3 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+              fill="#607890"
+            />
+            <path
+              d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              fill="#506478"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              fill="#8EDDFF"
+            />
+            <path
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              fill="#798da1"
+            />
+            <path
+              d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+              fill="#506478"
+            />
+            <path
+              d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+              fill="#607890"
+            />
+            <path
+              d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+              fill="#798da1"
+            />
+            <path
+              d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+              fill="#fff"
+            />
+            <path
+              d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+              fill="#d8dee4"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -374,7 +629,7 @@ exports[`Helper should match a snapshot for the appsEdit page 1`] = `
           Apps Documentation
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
         </mock-styled.p>
@@ -383,7 +638,7 @@ exports[`Helper should match a snapshot for the appsEdit page 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               View Docs
@@ -396,32 +651,83 @@ exports[`Helper should match a snapshot for the appsEdit page 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+      class="el-fade-in el-mb7"
     >
       <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+        classname="el-mb3 el-icon-size-large"
       >
-        <svg />
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 80 80"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+            fill="#607890"
+          />
+          <path
+            d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+            fill="#506478"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+            fill="#8EDDFF"
+          />
+          <path
+            d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+            fill="#798da1"
+          />
+          <path
+            d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+            fill="#506478"
+          />
+          <path
+            d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+            fill="#607890"
+          />
+          <path
+            d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+            fill="#798da1"
+          />
+          <path
+            d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+            fill="#fff"
+          />
+          <path
+            d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+            fill="#d8dee4"
+          />
+        </svg>
       </mock-styled.span>
       <mock-styled.p
         classname=""
@@ -429,7 +735,7 @@ exports[`Helper should match a snapshot for the appsEdit page 1`] = `
         Apps Documentation
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
       </mock-styled.p>
@@ -438,7 +744,7 @@ exports[`Helper should match a snapshot for the appsEdit page 1`] = `
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
@@ -508,32 +814,83 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+        class="el-fade-in el-mb7"
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb3 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+              fill="#607890"
+            />
+            <path
+              d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              fill="#506478"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              fill="#8EDDFF"
+            />
+            <path
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              fill="#798da1"
+            />
+            <path
+              d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+              fill="#506478"
+            />
+            <path
+              d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+              fill="#607890"
+            />
+            <path
+              d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+              fill="#798da1"
+            />
+            <path
+              d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+              fill="#fff"
+            />
+            <path
+              d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+              fill="#d8dee4"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -541,7 +898,7 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
           Apps Documentation
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
         </mock-styled.p>
@@ -550,7 +907,7 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               View Docs
@@ -563,32 +920,83 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+      class="el-fade-in el-mb7"
     >
       <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+        classname="el-mb3 el-icon-size-large"
       >
-        <svg />
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 80 80"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+            fill="#607890"
+          />
+          <path
+            d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+            fill="#506478"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+            fill="#8EDDFF"
+          />
+          <path
+            d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+            fill="#798da1"
+          />
+          <path
+            d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+            fill="#506478"
+          />
+          <path
+            d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+            fill="#607890"
+          />
+          <path
+            d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+            fill="#798da1"
+          />
+          <path
+            d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+            fill="#fff"
+          />
+          <path
+            d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+            fill="#d8dee4"
+          />
+        </svg>
       </mock-styled.span>
       <mock-styled.p
         classname=""
@@ -596,7 +1004,7 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
         Apps Documentation
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
       </mock-styled.p>
@@ -605,7 +1013,7 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
@@ -675,32 +1083,83 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+        class="el-fade-in el-mb7"
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb3 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+              fill="#607890"
+            />
+            <path
+              d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              fill="#506478"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              fill="#8EDDFF"
+            />
+            <path
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              fill="#798da1"
+            />
+            <path
+              d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+              fill="#506478"
+            />
+            <path
+              d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+              fill="#607890"
+            />
+            <path
+              d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+              fill="#798da1"
+            />
+            <path
+              d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+              fill="#fff"
+            />
+            <path
+              d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+              fill="#d8dee4"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -708,7 +1167,7 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
           Apps Documentation
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
         </mock-styled.p>
@@ -717,7 +1176,7 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               View Docs
@@ -730,32 +1189,83 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+      class="el-fade-in el-mb7"
     >
       <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+        classname="el-mb3 el-icon-size-large"
       >
-        <svg />
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 80 80"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+            fill="#607890"
+          />
+          <path
+            d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+            fill="#506478"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+            fill="#8EDDFF"
+          />
+          <path
+            d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+            fill="#798da1"
+          />
+          <path
+            d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+            fill="#506478"
+          />
+          <path
+            d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+            fill="#607890"
+          />
+          <path
+            d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+            fill="#798da1"
+          />
+          <path
+            d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+            fill="#fff"
+          />
+          <path
+            d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+            fill="#d8dee4"
+          />
+        </svg>
       </mock-styled.span>
       <mock-styled.p
         classname=""
@@ -763,7 +1273,7 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
         Apps Documentation
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
       </mock-styled.p>
@@ -772,7 +1282,7 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
@@ -842,32 +1352,83 @@ exports[`Helper should match a snapshot for the appsEdit page where is completed
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+        class="el-fade-in el-mb7"
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb3 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+              fill="#607890"
+            />
+            <path
+              d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              fill="#506478"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              fill="#8EDDFF"
+            />
+            <path
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              fill="#798da1"
+            />
+            <path
+              d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+              fill="#506478"
+            />
+            <path
+              d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+              fill="#607890"
+            />
+            <path
+              d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+              fill="#798da1"
+            />
+            <path
+              d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+              fill="#fff"
+            />
+            <path
+              d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+              fill="#d8dee4"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -875,7 +1436,7 @@ exports[`Helper should match a snapshot for the appsEdit page where is completed
           Apps Documentation
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
         </mock-styled.p>
@@ -884,7 +1445,7 @@ exports[`Helper should match a snapshot for the appsEdit page where is completed
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               View Docs
@@ -897,32 +1458,83 @@ exports[`Helper should match a snapshot for the appsEdit page where is completed
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+      class="el-fade-in el-mb7"
     >
       <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+        classname="el-mb3 el-icon-size-large"
       >
-        <svg />
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 80 80"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+            fill="#607890"
+          />
+          <path
+            d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+            fill="#506478"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+            fill="#8EDDFF"
+          />
+          <path
+            d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+            fill="#798da1"
+          />
+          <path
+            d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+            fill="#506478"
+          />
+          <path
+            d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+            fill="#607890"
+          />
+          <path
+            d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+            fill="#798da1"
+          />
+          <path
+            d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+            fill="#fff"
+          />
+          <path
+            d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+            fill="#d8dee4"
+          />
+        </svg>
       </mock-styled.span>
       <mock-styled.p
         classname=""
@@ -930,7 +1542,7 @@ exports[`Helper should match a snapshot for the appsEdit page where is completed
         Apps Documentation
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
       </mock-styled.p>
@@ -939,7 +1551,7 @@ exports[`Helper should match a snapshot for the appsEdit page where is completed
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
@@ -1009,32 +1621,83 @@ exports[`Helper should match a snapshot for the appsEdit page where isListed 1`]
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+        class="el-fade-in el-mb7"
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb3 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+              fill="#607890"
+            />
+            <path
+              d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              fill="#506478"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              fill="#8EDDFF"
+            />
+            <path
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              fill="#798da1"
+            />
+            <path
+              d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+              fill="#506478"
+            />
+            <path
+              d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+              fill="#607890"
+            />
+            <path
+              d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+              fill="#798da1"
+            />
+            <path
+              d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+              fill="#fff"
+            />
+            <path
+              d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+              fill="#d8dee4"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -1042,7 +1705,7 @@ exports[`Helper should match a snapshot for the appsEdit page where isListed 1`]
           Apps Documentation
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
         </mock-styled.p>
@@ -1051,7 +1714,7 @@ exports[`Helper should match a snapshot for the appsEdit page where isListed 1`]
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               View Docs
@@ -1064,32 +1727,83 @@ exports[`Helper should match a snapshot for the appsEdit page where isListed 1`]
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+      class="el-fade-in el-mb7"
     >
       <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+        classname="el-mb3 el-icon-size-large"
       >
-        <svg />
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 80 80"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+            fill="#607890"
+          />
+          <path
+            d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+            fill="#506478"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+            fill="#8EDDFF"
+          />
+          <path
+            d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+            fill="#798da1"
+          />
+          <path
+            d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+            fill="#506478"
+          />
+          <path
+            d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+            fill="#607890"
+          />
+          <path
+            d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+            fill="#798da1"
+          />
+          <path
+            d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+            fill="#fff"
+          />
+          <path
+            d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+            fill="#d8dee4"
+          />
+        </svg>
       </mock-styled.span>
       <mock-styled.p
         classname=""
@@ -1097,7 +1811,7 @@ exports[`Helper should match a snapshot for the appsEdit page where isListed 1`]
         Apps Documentation
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
       </mock-styled.p>
@@ -1106,7 +1820,7 @@ exports[`Helper should match a snapshot for the appsEdit page where isListed 1`]
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
@@ -1176,32 +1890,83 @@ exports[`Helper should match a snapshot for the appsEdit page where the app is l
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+        class="el-fade-in el-mb7"
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb3 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+              fill="#607890"
+            />
+            <path
+              d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              fill="#506478"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              fill="#8EDDFF"
+            />
+            <path
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              fill="#798da1"
+            />
+            <path
+              d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+              fill="#506478"
+            />
+            <path
+              d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+              fill="#607890"
+            />
+            <path
+              d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+              fill="#798da1"
+            />
+            <path
+              d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+              fill="#fff"
+            />
+            <path
+              d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+              fill="#d8dee4"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -1209,7 +1974,7 @@ exports[`Helper should match a snapshot for the appsEdit page where the app is l
           Apps Documentation
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
         </mock-styled.p>
@@ -1218,7 +1983,7 @@ exports[`Helper should match a snapshot for the appsEdit page where the app is l
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               View Docs
@@ -1231,32 +1996,83 @@ exports[`Helper should match a snapshot for the appsEdit page where the app is l
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+      class="el-fade-in el-mb7"
     >
       <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+        classname="el-mb3 el-icon-size-large"
       >
-        <svg />
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 80 80"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+            fill="#607890"
+          />
+          <path
+            d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+            fill="#506478"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+            fill="#8EDDFF"
+          />
+          <path
+            d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+            fill="#798da1"
+          />
+          <path
+            d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+            fill="#506478"
+          />
+          <path
+            d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+            fill="#607890"
+          />
+          <path
+            d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+            fill="#798da1"
+          />
+          <path
+            d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+            fill="#fff"
+          />
+          <path
+            d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+            fill="#d8dee4"
+          />
+        </svg>
       </mock-styled.span>
       <mock-styled.p
         classname=""
@@ -1264,7 +2080,7 @@ exports[`Helper should match a snapshot for the appsEdit page where the app is l
         Apps Documentation
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
       </mock-styled.p>
@@ -1273,7 +2089,7 @@ exports[`Helper should match a snapshot for the appsEdit page where the app is l
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
@@ -1343,32 +2159,83 @@ exports[`Helper should match a snapshot for the consents page 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+        class="el-fade-in el-mb7"
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb3 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+              fill="#607890"
+            />
+            <path
+              d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              fill="#506478"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              fill="#8EDDFF"
+            />
+            <path
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              fill="#798da1"
+            />
+            <path
+              d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+              fill="#506478"
+            />
+            <path
+              d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+              fill="#607890"
+            />
+            <path
+              d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+              fill="#798da1"
+            />
+            <path
+              d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+              fill="#fff"
+            />
+            <path
+              d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+              fill="#d8dee4"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -1376,7 +2243,7 @@ exports[`Helper should match a snapshot for the consents page 1`] = `
           Apps Documentation
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
         </mock-styled.p>
@@ -1385,7 +2252,7 @@ exports[`Helper should match a snapshot for the consents page 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               View Docs
@@ -1398,32 +2265,83 @@ exports[`Helper should match a snapshot for the consents page 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+      class="el-fade-in el-mb7"
     >
       <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+        classname="el-mb3 el-icon-size-large"
       >
-        <svg />
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 80 80"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+            fill="#607890"
+          />
+          <path
+            d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+            fill="#506478"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+            fill="#8EDDFF"
+          />
+          <path
+            d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+            fill="#798da1"
+          />
+          <path
+            d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+            fill="#506478"
+          />
+          <path
+            d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+            fill="#607890"
+          />
+          <path
+            d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+            fill="#798da1"
+          />
+          <path
+            d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+            fill="#fff"
+          />
+          <path
+            d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+            fill="#d8dee4"
+          />
+        </svg>
       </mock-styled.span>
       <mock-styled.p
         classname=""
@@ -1431,7 +2349,7 @@ exports[`Helper should match a snapshot for the consents page 1`] = `
         Apps Documentation
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
       </mock-styled.p>
@@ -1440,7 +2358,7 @@ exports[`Helper should match a snapshot for the consents page 1`] = `
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
@@ -1510,32 +2428,83 @@ exports[`Helper should match a snapshot for the pipelines page 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+        class="el-fade-in el-mb7"
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb3 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+              fill="#607890"
+            />
+            <path
+              d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              fill="#506478"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              fill="#8EDDFF"
+            />
+            <path
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              fill="#798da1"
+            />
+            <path
+              d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+              fill="#506478"
+            />
+            <path
+              d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+              fill="#607890"
+            />
+            <path
+              d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+              fill="#798da1"
+            />
+            <path
+              d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+              fill="#fff"
+            />
+            <path
+              d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+              fill="#d8dee4"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -1543,7 +2512,7 @@ exports[`Helper should match a snapshot for the pipelines page 1`] = `
           Apps Documentation
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
         </mock-styled.p>
@@ -1552,7 +2521,7 @@ exports[`Helper should match a snapshot for the pipelines page 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               View Docs
@@ -1565,32 +2534,83 @@ exports[`Helper should match a snapshot for the pipelines page 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
-  margin-bottom: 1.25rem;
-"
+      class="el-fade-in el-mb7"
     >
       <mock-styled.span
-        classname="mock-css.
-  margin-bottom: 0.5rem;
- mock-css.
-  font-size: 5rem;
-"
+        classname="el-mb3 el-icon-size-large"
       >
-        <svg />
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 80 80"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+            fill="#607890"
+          />
+          <path
+            d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+            fill="#506478"
+          />
+          <path
+            d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+            fill="#8EDDFF"
+          />
+          <path
+            d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+            fill="#9faebc"
+          />
+          <path
+            d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+            fill="#798da1"
+          />
+          <path
+            d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+            fill="#506478"
+          />
+          <path
+            d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+            fill="#607890"
+          />
+          <path
+            d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+            fill="#d8dee4"
+          />
+          <path
+            d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+            fill="#798da1"
+          />
+          <path
+            d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+            fill="#7e9bfa"
+          />
+          <path
+            d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+            fill="#fff"
+          />
+          <path
+            d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+            fill="#d8dee4"
+          />
+        </svg>
       </mock-styled.span>
       <mock-styled.p
         classname=""
@@ -1598,7 +2618,7 @@ exports[`Helper should match a snapshot for the pipelines page 1`] = `
         Apps Documentation
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
       </mock-styled.p>
@@ -1607,7 +2627,7 @@ exports[`Helper should match a snapshot for the pipelines page 1`] = `
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs

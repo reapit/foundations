@@ -7,28 +7,26 @@ exports[`WebhooksEditControls should match a snapshot with controls content 1`] 
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  justify-content: center;
-"
+        classname="el-flex-justify-center"
       >
         <mock-styled.div>
           <mock-styled.div
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
             >
               <mock-styled.div />
               Edit
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
             >
               <mock-styled.div />
               Ping
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               Copy Public Key
@@ -41,28 +39,26 @@ exports[`WebhooksEditControls should match a snapshot with controls content 1`] 
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  justify-content: center;
-"
+      classname="el-flex-justify-center"
     >
       <mock-styled.div>
         <mock-styled.div
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
           >
             <mock-styled.div />
             Edit
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
           >
             <mock-styled.div />
             Ping
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Copy Public Key
@@ -132,30 +128,22 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
     <div>
       <mock-styled.div />
       <form
-        class="mock-css.
-  padding: 1.5rem;
-"
+        class="el-p8"
       >
         <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
- mock-css.
-  align-items: center;
- mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-flex-justify-between el-flex-align-center el-mb11"
         >
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-bold-text"
           >
             Edit Webhook
           </mock-styled.h2>
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-button-group-align-right"
             >
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-neutral"
                 disabled="false"
                 type="button"
               >
@@ -163,7 +151,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                 Delete
               </mock-styled.button>
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
                 disabled="false"
                 type="button"
               >
@@ -171,7 +159,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                 Cancel
               </mock-styled.button>
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
                 disabled="false"
                 type="submit"
               >
@@ -201,15 +189,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css.
-  flex-wrap: wrap;
- mock-css.
-  justify-content: space-between;
- mock-css.
-  align-items: center;
- mock-css.
-  margin-bottom: 0.75rem;
-"
+              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div
                 classname="mock-css.
@@ -222,14 +202,22 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                   placeholder="Search topics to get started"
                 />
                 <mock-styled.span
-                  classname="mock-css.
-  font-size: 1.5rem;
-"
+                  classname="el-icon-new"
                   style="font-size: 1rem;"
                 >
                   <svg
+                    fill="none"
+                    height="1em"
                     style="font-size: 1rem;"
-                  />
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
                 <mock-styled.label
                   htmlfor="test-static-id"
@@ -250,11 +238,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.label
-              classname="mock-css.
-  margin-left: 0.5rem;
- mock-css.
-  margin-bottom: 0.75rem;
-"
+              classname="el-ml3 el-mb5"
             >
               Subscription customers
             </mock-styled.label>
@@ -274,7 +258,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   All Customers
@@ -284,7 +268,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   Sandbox Estates
@@ -294,7 +278,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   Reapit Sales
@@ -304,7 +288,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   Foo Bar
@@ -314,15 +298,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css.
-  flex-wrap: wrap;
- mock-css.
-  justify-content: space-between;
- mock-css.
-  align-items: center;
- mock-css.
-  margin-bottom: 0.75rem;
-"
+              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -362,7 +338,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
               type="checkbox"
             />
             <mock-styled.label
-              classname="mock-css."
+              classname="el-has-grey-bg"
               htmlfor="status-edit-toggle-MOCK_ID"
             >
               <mock-styled.span>
@@ -400,30 +376,22 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
   "container": <div>
     <mock-styled.div />
     <form
-      class="mock-css.
-  padding: 1.5rem;
-"
+      class="el-p8"
     >
       <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
- mock-css.
-  align-items: center;
- mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-flex-justify-between el-flex-align-center el-mb11"
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-bold-text"
         >
           Edit Webhook
         </mock-styled.h2>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-right"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
               disabled="false"
               type="button"
             >
@@ -431,7 +399,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
               Delete
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="false"
               type="button"
             >
@@ -439,7 +407,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
               Cancel
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="false"
               type="submit"
             >
@@ -469,15 +437,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  flex-wrap: wrap;
- mock-css.
-  justify-content: space-between;
- mock-css.
-  align-items: center;
- mock-css.
-  margin-bottom: 0.75rem;
-"
+            classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
             <mock-styled.div
               classname="mock-css.
@@ -490,14 +450,22 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                 placeholder="Search topics to get started"
               />
               <mock-styled.span
-                classname="mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-icon-new"
                 style="font-size: 1rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1rem;"
-                />
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.label
                 htmlfor="test-static-id"
@@ -518,11 +486,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.label
-            classname="mock-css.
-  margin-left: 0.5rem;
- mock-css.
-  margin-bottom: 0.75rem;
-"
+            classname="el-ml3 el-mb5"
           >
             Subscription customers
           </mock-styled.label>
@@ -542,7 +506,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 All Customers
@@ -552,7 +516,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 Sandbox Estates
@@ -562,7 +526,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 Reapit Sales
@@ -572,7 +536,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 Foo Bar
@@ -582,15 +546,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  flex-wrap: wrap;
- mock-css.
-  justify-content: space-between;
- mock-css.
-  align-items: center;
- mock-css.
-  margin-bottom: 0.75rem;
-"
+            classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
             <mock-styled.div>
               <mock-styled.input
@@ -630,7 +586,7 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
             type="checkbox"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-bg"
             htmlfor="status-edit-toggle-MOCK_ID"
           >
             <mock-styled.span>
@@ -725,14 +681,10 @@ exports[`WebhooksEditControls should match a snapshot with ping content 1`] = `
     <div>
       <mock-styled.div />
       <form
-        class="mock-css.
-  padding: 1.5rem;
-"
+        class="el-p8"
       >
         <mock-styled.h2
-          classname="mock-css.
-  margin-left: 0.5rem;
-"
+          classname="el-ml3"
         >
           Test Webhook Subscription
         </mock-styled.h2>
@@ -743,9 +695,7 @@ exports[`WebhooksEditControls should match a snapshot with ping content 1`] = `
             classname=""
           >
             <mock-styled.label
-              classname="mock-css.
-  margin-left: 0.5rem;
-"
+              classname="el-ml3"
             >
               Subscription topics
             </mock-styled.label>
@@ -777,15 +727,13 @@ exports[`WebhooksEditControls should match a snapshot with ping content 1`] = `
               </a>
             </mock-styled.p>
             <mock-styled.div
-              classname="mock-css.
-  margin-left: auto;
-"
+              classname="el-ml-auto"
             >
               <mock-styled.div
-                classname="mock-css."
+                classname="el-button-group-align-right"
               >
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                   disabled="false"
                   type="button"
                 >
@@ -793,7 +741,7 @@ exports[`WebhooksEditControls should match a snapshot with ping content 1`] = `
                   Cancel
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                   disabled="false"
                   type="submit"
                 >
@@ -810,14 +758,10 @@ exports[`WebhooksEditControls should match a snapshot with ping content 1`] = `
   "container": <div>
     <mock-styled.div />
     <form
-      class="mock-css.
-  padding: 1.5rem;
-"
+      class="el-p8"
     >
       <mock-styled.h2
-        classname="mock-css.
-  margin-left: 0.5rem;
-"
+        classname="el-ml3"
       >
         Test Webhook Subscription
       </mock-styled.h2>
@@ -828,9 +772,7 @@ exports[`WebhooksEditControls should match a snapshot with ping content 1`] = `
           classname=""
         >
           <mock-styled.label
-            classname="mock-css.
-  margin-left: 0.5rem;
-"
+            classname="el-ml3"
           >
             Subscription topics
           </mock-styled.label>
@@ -862,15 +804,13 @@ exports[`WebhooksEditControls should match a snapshot with ping content 1`] = `
             </a>
           </mock-styled.p>
           <mock-styled.div
-            classname="mock-css.
-  margin-left: auto;
-"
+            classname="el-ml-auto"
           >
             <mock-styled.div
-              classname="mock-css."
+              classname="el-button-group-align-right"
             >
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
                 disabled="false"
                 type="button"
               >
@@ -878,7 +818,7 @@ exports[`WebhooksEditControls should match a snapshot with ping content 1`] = `
                 Cancel
               </mock-styled.button>
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
                 disabled="false"
                 type="submit"
               >

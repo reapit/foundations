@@ -7,17 +7,13 @@ exports[`DocsPage should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
         >
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2rem;
-"
+            classname="el-mb9"
           >
             <mock-styled.div
               classname=""
@@ -31,13 +27,56 @@ exports[`DocsPage should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.span
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+            classname="el-mb5 el-icon-size-large"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 80 80"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M67 35.428 40 26l-27 9.428L40 45l27-9.572Z"
+                fill="#9faebc"
+              />
+              <path
+                d="M67 35.428 40 26v19l27-9.572Z"
+                fill="#607890"
+              />
+              <path
+                d="M40.942 17.934c.141-.892.229-1.87.251-2.967-.008-4.704-2.26-6.369-2.693-7.149.638-3.564-.106-5.185-.452-5.74-1.276-.453-4.44 1.169-6.167 2.31-2.818-.824-8.773-.744-11.006.214-4.12-2.95-6.3-2.5-6.3-2.5s-1.409 2.526-.372 6.222c-1.356 1.727-2.367 2.949-2.367 6.189 0 .776.049 1.509.13 2.214 1.168 6.139 6.032 8.787 10.81 9.244-.719.546-1.582 1.58-1.701 2.778-.904.584-2.721.777-4.134.333-1.98-.626-2.738-4.547-5.704-3.987-.641.12-.514.543.042.904.903.586 1.754 1.314 2.41 2.873.504 1.196 1.563 3.333 4.912 3.333 1.33 0 2.261-.157 2.261-.157s.026 3.049.026 4.238c0 1.369-1.847 1.753-1.847 2.41 0 .26.611.286 1.102.286.971 0 2.991-.809 2.991-2.232 0-1.13.018-4.928.018-5.594 0-1.453.78-1.916.78-1.916s.095 7.759-.188 8.8c-.332 1.223-.933 1.049-.933 1.593 0 .813 2.43.199 3.235-1.58.623-1.389.344-8.997.344-8.997l.65-.015s.007 3.485-.015 5.077c-.024 1.65-.194 3.734.785 4.718.643.647 2.613 1.782 2.613.745 0-.602-1.38-1.099-1.38-2.728v-7.505c.838 0 1.012 2.467 1.012 2.467l.302 4.583s-.2 1.673 1.806 2.37c.709.249 2.225.316 2.296-.1.071-.418-1.825-1.035-1.843-2.33-.01-.788.035-1.25.035-4.679 0-3.427-.46-4.695-2.065-5.706 4.653-.477 9.485-2.555 10.356-8.019Z"
+                fill="#9faebc"
+              />
+              <path
+                d="M53.2 26.95C52.55 20.252 46.877 15 40 15c-6.877 0-12.548 5.252-13.2 11.95-4.404.625-7.8 4.414-7.8 8.98C19 40.93 23.076 45 28.086 45h23.828C56.924 45 61 40.931 61 35.93c0-4.566-3.396-8.355-7.8-8.98Z"
+                fill="#7e9bfa"
+              />
+              <path
+                d="M32.694 33.776a.363.363 0 0 0 .335.228h3.973v12.243h6.525V34.004h3.987c.146 0 .278-.09.335-.228a.376.376 0 0 0-.078-.403l-7.232-7.4a.36.36 0 0 0-.513 0l-7.253 7.4a.375.375 0 0 0-.079.403Z"
+                fill="#fff"
+              />
+              <path
+                d="M44.53 46.247h-6.518c.015 1.8 1.471 3.26 3.26 3.26 1.788 0 3.244-1.46 3.259-3.26Z"
+                fill="#fff"
+              />
+              <path
+                d="M40 44.566 13 35v34.401L40 78V44.566Z"
+                fill="#607890"
+              />
+              <path
+                d="M67 69.401V35l-27 9.566V78l27-8.599Z"
+                fill="#506478"
+              />
+              <path
+                d="M13.258 35 4 46.03 31.246 56 40 44.475 13.258 35Z"
+                fill="#d8dee4"
+              />
+              <path
+                d="M66.74 35 76 46.03 48.757 56 40 44.475 66.74 35Z"
+                fill="#798da1"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.p
             classname=""
@@ -45,28 +84,24 @@ exports[`DocsPage should match a snapshot 1`] = `
             Welcome
           </mock-styled.p>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages accross these pages.
           </mock-styled.p>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             You can also visit us on Github where you can raise and track issues, look at code examples and view our milestones.
           </mock-styled.p>
           <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+            classname="el-mb5 el-intent-neutral"
           >
             <mock-styled.div />
             Go to Github
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         >
           <mock-styled.h1
             classname=""
@@ -87,17 +122,13 @@ exports[`DocsPage should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
       >
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2rem;
-"
+          classname="el-mb9"
         >
           <mock-styled.div
             classname=""
@@ -111,13 +142,56 @@ exports[`DocsPage should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb5 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M67 35.428 40 26l-27 9.428L40 45l27-9.572Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M67 35.428 40 26v19l27-9.572Z"
+              fill="#607890"
+            />
+            <path
+              d="M40.942 17.934c.141-.892.229-1.87.251-2.967-.008-4.704-2.26-6.369-2.693-7.149.638-3.564-.106-5.185-.452-5.74-1.276-.453-4.44 1.169-6.167 2.31-2.818-.824-8.773-.744-11.006.214-4.12-2.95-6.3-2.5-6.3-2.5s-1.409 2.526-.372 6.222c-1.356 1.727-2.367 2.949-2.367 6.189 0 .776.049 1.509.13 2.214 1.168 6.139 6.032 8.787 10.81 9.244-.719.546-1.582 1.58-1.701 2.778-.904.584-2.721.777-4.134.333-1.98-.626-2.738-4.547-5.704-3.987-.641.12-.514.543.042.904.903.586 1.754 1.314 2.41 2.873.504 1.196 1.563 3.333 4.912 3.333 1.33 0 2.261-.157 2.261-.157s.026 3.049.026 4.238c0 1.369-1.847 1.753-1.847 2.41 0 .26.611.286 1.102.286.971 0 2.991-.809 2.991-2.232 0-1.13.018-4.928.018-5.594 0-1.453.78-1.916.78-1.916s.095 7.759-.188 8.8c-.332 1.223-.933 1.049-.933 1.593 0 .813 2.43.199 3.235-1.58.623-1.389.344-8.997.344-8.997l.65-.015s.007 3.485-.015 5.077c-.024 1.65-.194 3.734.785 4.718.643.647 2.613 1.782 2.613.745 0-.602-1.38-1.099-1.38-2.728v-7.505c.838 0 1.012 2.467 1.012 2.467l.302 4.583s-.2 1.673 1.806 2.37c.709.249 2.225.316 2.296-.1.071-.418-1.825-1.035-1.843-2.33-.01-.788.035-1.25.035-4.679 0-3.427-.46-4.695-2.065-5.706 4.653-.477 9.485-2.555 10.356-8.019Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M53.2 26.95C52.55 20.252 46.877 15 40 15c-6.877 0-12.548 5.252-13.2 11.95-4.404.625-7.8 4.414-7.8 8.98C19 40.93 23.076 45 28.086 45h23.828C56.924 45 61 40.931 61 35.93c0-4.566-3.396-8.355-7.8-8.98Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M32.694 33.776a.363.363 0 0 0 .335.228h3.973v12.243h6.525V34.004h3.987c.146 0 .278-.09.335-.228a.376.376 0 0 0-.078-.403l-7.232-7.4a.36.36 0 0 0-.513 0l-7.253 7.4a.375.375 0 0 0-.079.403Z"
+              fill="#fff"
+            />
+            <path
+              d="M44.53 46.247h-6.518c.015 1.8 1.471 3.26 3.26 3.26 1.788 0 3.244-1.46 3.259-3.26Z"
+              fill="#fff"
+            />
+            <path
+              d="M40 44.566 13 35v34.401L40 78V44.566Z"
+              fill="#607890"
+            />
+            <path
+              d="M67 69.401V35l-27 9.566V78l27-8.599Z"
+              fill="#506478"
+            />
+            <path
+              d="M13.258 35 4 46.03 31.246 56 40 44.475 13.258 35Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 35 76 46.03 48.757 56 40 44.475 66.74 35Z"
+              fill="#798da1"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -125,28 +199,24 @@ exports[`DocsPage should match a snapshot 1`] = `
           Welcome
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages accross these pages.
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You can also visit us on Github where you can raise and track issues, look at code examples and view our milestones.
         </mock-styled.p>
         <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+          classname="el-mb5 el-intent-neutral"
         >
           <mock-styled.div />
           Go to Github
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       >
         <mock-styled.h1
           classname=""

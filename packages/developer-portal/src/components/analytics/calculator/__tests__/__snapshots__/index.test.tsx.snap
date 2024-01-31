@@ -12,7 +12,7 @@ exports[`AnalyticsCalculator should match snapshot 1`] = `
         Calculator
       </mock-styled.h1>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
          
@@ -26,7 +26,7 @@ exports[`AnalyticsCalculator should match snapshot 1`] = `
       </mock-styled.p>
       <form>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -96,22 +96,20 @@ exports[`AnalyticsCalculator should match snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
         >
           <mock-styled.div
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
               type="button"
             >
               <mock-styled.div />
               Clear
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="submit"
             >
               <mock-styled.div />
@@ -130,7 +128,7 @@ exports[`AnalyticsCalculator should match snapshot 1`] = `
       Calculator
     </mock-styled.h1>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
        
@@ -144,7 +142,7 @@ exports[`AnalyticsCalculator should match snapshot 1`] = `
     </mock-styled.p>
     <form>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -214,22 +212,20 @@ exports[`AnalyticsCalculator should match snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
             type="button"
           >
             <mock-styled.div />
             Clear
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="submit"
           >
             <mock-styled.div />

@@ -92,53 +92,43 @@ exports[`AppConsentsPage should match snapshot where there are no consents retur
          Consents
       </mock-styled.h1>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
- mock-css. mock-css. mock-css. mock-css."
+        classname="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
             style="font-size: 1.25rem;"
           >
             <svg
+              fill="none"
+              height="1em"
               style="font-size: 1.25rem;"
-            />
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </div>
         <div
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           No record of any consents for this app - it looks like you need to send an email requesting that your customers agree to your new permission settings. You can do this below or our team will do it as part of the review process.
         </div>
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-left"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
           >
             <mock-styled.div />
             Send Requests
@@ -156,53 +146,43 @@ exports[`AppConsentsPage should match snapshot where there are no consents retur
        Consents
     </mock-styled.h1>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
- mock-css. mock-css. mock-css. mock-css."
+      classname="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
     >
       <div
-        class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+        class="el-pn-icon"
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
           style="font-size: 1.25rem;"
         >
           <svg
+            fill="none"
+            height="1em"
             style="font-size: 1.25rem;"
-          />
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </div>
       <div
-        class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+        class="el-pn-content"
       >
         No record of any consents for this app - it looks like you need to send an email requesting that your customers agree to your new permission settings. You can do this below or our team will do it as part of the review process.
       </div>
     </mock-styled.div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-left"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
         >
           <mock-styled.div />
           Send Requests
@@ -306,24 +286,32 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-intent-default el-icon-new"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m22.923 9.165-10.5-7a1 1 0 0 0-1.1 0l-10.45 7a1 1 0 0 0 1.1 1.66l.9-.63v11.3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-11.3l.95.63a.94.94 0 0 0 .55.17 1 1 0 0 0 .55-1.83Zm-4.05 11.33h-14V8.865l7-4.67 7 4.67v11.63Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Client"
               />
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Email"
@@ -332,7 +320,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Date Sent"
@@ -341,7 +329,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Status"
@@ -350,7 +338,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Date Accepted"
@@ -361,11 +349,20 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                  classname="el-intent-default el-icon-new"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-1.41 2L12 12.59 5.41 6h13.18ZM4 18V7.41L10.59 14a2 2 0 0 0 2.82 0L20 7.41V18H4Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -412,24 +409,32 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m22.923 9.165-10.5-7a1 1 0 0 0-1.1 0l-10.45 7a1 1 0 0 0 1.1 1.66l.9-.63v11.3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-11.3l.95.63a.94.94 0 0 0 .55.17 1 1 0 0 0 .55-1.83Zm-4.05 11.33h-14V8.865l7-4.67 7 4.67v11.63Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Client"
             />
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Email"
@@ -438,7 +443,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Date Sent"
@@ -447,7 +452,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Status"
@@ -456,7 +461,7 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Date Accepted"
@@ -467,11 +472,20 @@ exports[`AppConsentsPage should match snapshot with consents 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-intent-default el-icon-new"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-1.41 2L12 12.59 5.41 6h13.18ZM4 18V7.41L10.59 14a2 2 0 0 0 2.82 0L20 7.41V18H4Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>

@@ -29,7 +29,7 @@ exports[`MapPanel should match snapshot without an appointment in state 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-bold-text"
           >
             ETA
           </mock-styled.h2>
@@ -39,7 +39,7 @@ exports[`MapPanel should match snapshot without an appointment in state 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-bold-text"
           >
             Distance
           </mock-styled.h2>
@@ -49,7 +49,7 @@ exports[`MapPanel should match snapshot without an appointment in state 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="button"
           >
             <mock-styled.div />
@@ -84,7 +84,7 @@ exports[`MapPanel should match snapshot without an appointment in state 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-bold-text"
         >
           ETA
         </mock-styled.h2>
@@ -94,7 +94,7 @@ exports[`MapPanel should match snapshot without an appointment in state 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-bold-text"
         >
           Distance
         </mock-styled.h2>
@@ -104,7 +104,7 @@ exports[`MapPanel should match snapshot without an appointment in state 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           type="button"
         >
           <mock-styled.div />

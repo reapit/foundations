@@ -7,13 +7,13 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app is  dire
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         will-test-dev-co-voracious-person
          integration has been successfully enabled.
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         For details on how to use the integration and, if there are any additional setup requirements, a member of
          
@@ -21,7 +21,7 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app is  dire
          will be in touch to help you through the process.
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         If you wish to contact them directly, you can do this via telephone at 
         07777777777
@@ -38,10 +38,10 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app is  dire
       </mock-styled.p>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Back To App
@@ -53,13 +53,13 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app is  dire
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       will-test-dev-co-voracious-person
        integration has been successfully enabled.
     </mock-styled.p>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       For details on how to use the integration and, if there are any additional setup requirements, a member of
        
@@ -67,7 +67,7 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app is  dire
        will be in touch to help you through the process.
     </mock-styled.p>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       If you wish to contact them directly, you can do this via telephone at 
       07777777777
@@ -84,10 +84,10 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app is  dire
     </mock-styled.p>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-center"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Back To App
@@ -180,10 +180,10 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app not dire
       </mock-styled.p>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Back To App
@@ -194,7 +194,7 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app not dire
             target="_blank"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="button"
             >
               <mock-styled.div />
@@ -232,10 +232,10 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app not dire
     </mock-styled.p>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-center"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Back To App
@@ -246,7 +246,7 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app not dire
           target="_blank"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="button"
           >
             <mock-styled.div />
@@ -341,10 +341,10 @@ exports[`AppInstallSuccesModalContent should match a snapshot where in desktop m
       </mock-styled.p>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Back To App
@@ -355,7 +355,7 @@ exports[`AppInstallSuccesModalContent should match a snapshot where in desktop m
             target="_blank"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="button"
             >
               <mock-styled.div />
@@ -393,10 +393,10 @@ exports[`AppInstallSuccesModalContent should match a snapshot where in desktop m
     </mock-styled.p>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-center"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Back To App
@@ -407,7 +407,7 @@ exports[`AppInstallSuccesModalContent should match a snapshot where in desktop m
           target="_blank"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="button"
           >
             <mock-styled.div />

@@ -7,18 +7,14 @@ exports[`AccountsTable should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       />
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
     />
   </div>,
   "debug": [Function],

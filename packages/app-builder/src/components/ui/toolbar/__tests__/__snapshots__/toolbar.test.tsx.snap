@@ -3,12 +3,7 @@
 exports[`Toolbar should match a snapshot 1`] = `
 <DocumentFragment>
   <mock-styled.div
-    classname="mock-css.
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
- mock-css.
-  height: 100%;
-"
+    classname="el-py1 el-hfull"
   />
 </DocumentFragment>
 `;

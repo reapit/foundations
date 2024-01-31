@@ -7,9 +7,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="false"
       >
@@ -29,7 +27,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -38,7 +36,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -47,15 +45,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -70,7 +80,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -79,7 +89,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -88,15 +98,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -111,7 +133,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -120,7 +142,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -129,15 +151,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -152,7 +186,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -161,7 +195,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -170,15 +204,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -193,7 +239,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -202,7 +248,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -211,15 +257,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -234,7 +292,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -243,7 +301,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -252,15 +310,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -275,7 +345,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Number of API Calls"
@@ -284,7 +354,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Cost Per API Call"
@@ -293,15 +363,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Cost"
@@ -313,7 +395,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Estimated total monthly cost: 
         £669.00
@@ -323,9 +405,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
       data-has-call-to-action="false"
       data-has-expandable-action="false"
     >
@@ -345,7 +425,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -354,7 +434,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -363,15 +443,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -386,7 +478,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -395,7 +487,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -404,15 +496,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -427,7 +531,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -436,7 +540,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -445,15 +549,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -468,7 +584,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -477,7 +593,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -486,15 +602,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -509,7 +637,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -518,7 +646,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -527,15 +655,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -550,7 +690,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -559,7 +699,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -568,15 +708,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -591,7 +743,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Number of API Calls"
@@ -600,7 +752,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Cost Per API Call"
@@ -609,15 +761,27 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Cost"
@@ -629,7 +793,7 @@ exports[`AnalyticsCalculatorTable should match snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       Estimated total monthly cost: 
       £669.00

@@ -13,25 +13,7 @@ exports[`Menu should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.a
-          classname="mock-css.
-  &:not(:first-child) {
-    background-color: var(--color-purple-50);
-    border-left: 3px solid var(--color-purple-500);
-    color: var(--color-purple-500);
-  }
-
-  @media screen and (min-width: 768px) {
-    &:not(:first-child) {
-      --nav-menu-icon-primary-accent: var(--color-purple-500);
-      --nav-menu-icon-secondary-accent: var(--color-purple-300);
-      padding: 0.375rem 0.75rem;
-      border-radius: 0.25rem;
-      background-color: var(--color-grey-50);
-      border-left: none;
-      height: 2rem;
-    }
-  }
-"
+          classname="el-nav-item-active"
         >
           <mock-styled.div
             classname=""
@@ -41,62 +23,149 @@ exports[`Menu should match a snapshot 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-intent-default el-icon-new"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 36 36"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#fff"
+                    height="36"
+                    rx="4"
+                    width="36"
+                  />
+                  <circle
+                    cx="10"
+                    cy="10"
+                    fill="currentColor"
+                    r="2"
+                  />
+                  <circle
+                    cx="18"
+                    cy="10"
+                    fill="currentColor"
+                    r="2"
+                  />
+                  <circle
+                    cx="26"
+                    cy="10"
+                    fill="currentColor"
+                    r="2"
+                  />
+                  <circle
+                    cx="10"
+                    cy="18"
+                    fill="currentColor"
+                    r="2"
+                  />
+                  <circle
+                    cx="18"
+                    cy="18"
+                    fill="currentColor"
+                    r="2"
+                  />
+                  <circle
+                    cx="26"
+                    cy="18"
+                    fill="currentColor"
+                    r="2"
+                  />
+                  <circle
+                    cx="10"
+                    cy="26"
+                    fill="currentColor"
+                    r="2"
+                  />
+                  <circle
+                    cx="18"
+                    cy="26"
+                    fill="currentColor"
+                    r="2"
+                  />
+                  <circle
+                    cx="26"
+                    cy="26"
+                    fill="currentColor"
+                    r="2"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
             style="height: 24px; width: 100px;"
           >
             <svg
+              fill="none"
+              height="1em"
               style="height: 24px; width: 100px;"
-            />
+              viewBox="0 0 382 80"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M140.403 12.934h18.204c7.784 0 11.257 5.39 11.257 10.659 0 5.27-3.473 10.658-11.257 10.658h-18.204V12.934Zm12.575 29.7 17.365 19.88h11.377l-18.563-20.957 1.677-.36c12.455-2.515 14.371-12.335 14.371-17.844 0-12.934-10.658-18.802-20.598-18.922h-27.426v58.084h9.342v-20.12h12.335l.12.24ZM193.696 38.443l.36-1.317c1.557-5.63 6.347-8.982 12.814-8.982 6.946 0 11.257 3.353 11.976 9.101l.12 1.198h-25.27Zm28.503-11.617c-3.473-3.832-8.862-5.868-15.569-5.868-12.814 0-21.437 8.503-21.437 21.078 0 13.293 8.503 21.557 22.276 21.557 6.467 0 12.814-2.276 16.766-5.869l-5.269-5.15c-2.994 2.396-7.904 3.593-11.258 3.593-7.545 0-12.814-3.832-13.652-9.94l-.12-1.197h33.293c.36-7.785-1.317-14.132-5.03-18.204ZM343.756 22.036h-8.383v40.479h8.383v-40.48ZM363.756 59.64c2.396 2.276 5.988 3.474 10.18 3.354 2.754-.12 4.91-.48 7.425-1.437l-2.275-6.946c-1.437.598-3.114.958-4.431.958-4.072 0-6.468-2.635-6.468-7.066V29.22h11.737v-6.946h-11.617V10.42l-8.383.838v11.018h-7.904v6.946h7.904v19.282c0 4.91 1.317 8.623 3.832 11.138ZM254.295 55.688c-7.305 0-13.173-5.988-13.173-13.173 0-7.186 5.988-13.174 13.173-13.174 7.186 0 13.174 5.988 13.174 13.174 0 7.185-5.868 13.173-13.174 13.173Zm21.677 6.707v-40.24h-8.144v3.593l-.958-.718c-3.712-2.635-8.024-4.072-12.575-4.072-11.856 0-21.437 9.58-21.437 21.437 0 11.856 9.581 21.437 21.437 21.437 4.551 0 8.863-1.437 12.575-4.072l.958-.718v3.353h8.144ZM306.511 28.982c7.305 0 13.173 5.988 13.173 13.174 0 7.185-5.988 13.173-13.173 13.173-7.186 0-13.174-5.988-13.174-13.173 0-7.186 5.868-13.174 13.174-13.174Zm0 34.61c11.856 0 21.437-9.58 21.437-21.436 0-11.857-9.581-21.438-21.437-21.438-4.551 0-8.862 1.438-12.575 4.072l-.958.719v-3.354h-8.144v57.366h8.144V58.802l.958.719c3.713 2.635 8.024 4.072 12.575 4.072ZM339.565 4.191c-2.515 0-5.15 1.557-5.15 5.15 0 3.593 2.635 5.15 5.15 5.15 2.515 0 5.149-1.557 5.149-5.15 0-3.593-2.634-5.15-5.149-5.15Z"
+                fill="#222B33"
+              />
+              <path
+                d="M96.447 0 58.123.12l19.042 12.455V40l19.282-12.934V0Z"
+                fill="#98C1C2"
+              />
+              <path
+                d="m77.166 40-38.203.12 18.922 12.455V80l19.281-12.934V40Z"
+                fill="#D1263D"
+              />
+              <path
+                d="m38.962 13.054-38.323.12 19.042 12.575v27.305L38.962 40.12V13.054Z"
+                fill="#FD9E1D"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.span
-            classname="mock-css.
-  margin-left: auto;
- mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  @media screen and (min-width: 768px) {
-    height: 0;
-    width: 0;
-    visibility: hidden;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
- mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.div
             classname=""
           />
           <mock-styled.div
-            classname="mock-css.
-  display: none;
-"
+            classname="el-nav-is-hidden"
           >
             <mock-styled.div
-              classname="mock-css.
-  margin-right: 0.375rem;
-"
+              classname="el-mr2"
             />
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 16.504a.999.999 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a.999.999 0 0 1-.71.29Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.a>
@@ -157,16 +226,23 @@ exports[`Menu should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.div
-            classname="mock-css.
-  margin-right: 0.375rem;
-"
+            classname="el-mr2"
           />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-default el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 16.504a.999.999 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a.999.999 0 0 1-.71.29Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.nav>
@@ -181,25 +257,7 @@ exports[`Menu should match a snapshot 1`] = `
       classname=""
     >
       <mock-styled.a
-        classname="mock-css.
-  &:not(:first-child) {
-    background-color: var(--color-purple-50);
-    border-left: 3px solid var(--color-purple-500);
-    color: var(--color-purple-500);
-  }
-
-  @media screen and (min-width: 768px) {
-    &:not(:first-child) {
-      --nav-menu-icon-primary-accent: var(--color-purple-500);
-      --nav-menu-icon-secondary-accent: var(--color-purple-300);
-      padding: 0.375rem 0.75rem;
-      border-radius: 0.25rem;
-      background-color: var(--color-grey-50);
-      border-left: none;
-      height: 2rem;
-    }
-  }
-"
+        classname="el-nav-item-active"
       >
         <mock-styled.div
           classname=""
@@ -209,62 +267,149 @@ exports[`Menu should match a snapshot 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 36 36"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  fill="#fff"
+                  height="36"
+                  rx="4"
+                  width="36"
+                />
+                <circle
+                  cx="10"
+                  cy="10"
+                  fill="currentColor"
+                  r="2"
+                />
+                <circle
+                  cx="18"
+                  cy="10"
+                  fill="currentColor"
+                  r="2"
+                />
+                <circle
+                  cx="26"
+                  cy="10"
+                  fill="currentColor"
+                  r="2"
+                />
+                <circle
+                  cx="10"
+                  cy="18"
+                  fill="currentColor"
+                  r="2"
+                />
+                <circle
+                  cx="18"
+                  cy="18"
+                  fill="currentColor"
+                  r="2"
+                />
+                <circle
+                  cx="26"
+                  cy="18"
+                  fill="currentColor"
+                  r="2"
+                />
+                <circle
+                  cx="10"
+                  cy="26"
+                  fill="currentColor"
+                  r="2"
+                />
+                <circle
+                  cx="18"
+                  cy="26"
+                  fill="currentColor"
+                  r="2"
+                />
+                <circle
+                  cx="26"
+                  cy="26"
+                  fill="currentColor"
+                  r="2"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
           style="height: 24px; width: 100px;"
         >
           <svg
+            fill="none"
+            height="1em"
             style="height: 24px; width: 100px;"
-          />
+            viewBox="0 0 382 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M140.403 12.934h18.204c7.784 0 11.257 5.39 11.257 10.659 0 5.27-3.473 10.658-11.257 10.658h-18.204V12.934Zm12.575 29.7 17.365 19.88h11.377l-18.563-20.957 1.677-.36c12.455-2.515 14.371-12.335 14.371-17.844 0-12.934-10.658-18.802-20.598-18.922h-27.426v58.084h9.342v-20.12h12.335l.12.24ZM193.696 38.443l.36-1.317c1.557-5.63 6.347-8.982 12.814-8.982 6.946 0 11.257 3.353 11.976 9.101l.12 1.198h-25.27Zm28.503-11.617c-3.473-3.832-8.862-5.868-15.569-5.868-12.814 0-21.437 8.503-21.437 21.078 0 13.293 8.503 21.557 22.276 21.557 6.467 0 12.814-2.276 16.766-5.869l-5.269-5.15c-2.994 2.396-7.904 3.593-11.258 3.593-7.545 0-12.814-3.832-13.652-9.94l-.12-1.197h33.293c.36-7.785-1.317-14.132-5.03-18.204ZM343.756 22.036h-8.383v40.479h8.383v-40.48ZM363.756 59.64c2.396 2.276 5.988 3.474 10.18 3.354 2.754-.12 4.91-.48 7.425-1.437l-2.275-6.946c-1.437.598-3.114.958-4.431.958-4.072 0-6.468-2.635-6.468-7.066V29.22h11.737v-6.946h-11.617V10.42l-8.383.838v11.018h-7.904v6.946h7.904v19.282c0 4.91 1.317 8.623 3.832 11.138ZM254.295 55.688c-7.305 0-13.173-5.988-13.173-13.173 0-7.186 5.988-13.174 13.173-13.174 7.186 0 13.174 5.988 13.174 13.174 0 7.185-5.868 13.173-13.174 13.173Zm21.677 6.707v-40.24h-8.144v3.593l-.958-.718c-3.712-2.635-8.024-4.072-12.575-4.072-11.856 0-21.437 9.58-21.437 21.437 0 11.856 9.581 21.437 21.437 21.437 4.551 0 8.863-1.437 12.575-4.072l.958-.718v3.353h8.144ZM306.511 28.982c7.305 0 13.173 5.988 13.173 13.174 0 7.185-5.988 13.173-13.173 13.173-7.186 0-13.174-5.988-13.174-13.173 0-7.186 5.868-13.174 13.174-13.174Zm0 34.61c11.856 0 21.437-9.58 21.437-21.436 0-11.857-9.581-21.438-21.437-21.438-4.551 0-8.862 1.438-12.575 4.072l-.958.719v-3.354h-8.144v57.366h8.144V58.802l.958.719c3.713 2.635 8.024 4.072 12.575 4.072ZM339.565 4.191c-2.515 0-5.15 1.557-5.15 5.15 0 3.593 2.635 5.15 5.15 5.15 2.515 0 5.149-1.557 5.149-5.15 0-3.593-2.634-5.15-5.149-5.15Z"
+              fill="#222B33"
+            />
+            <path
+              d="M96.447 0 58.123.12l19.042 12.455V40l19.282-12.934V0Z"
+              fill="#98C1C2"
+            />
+            <path
+              d="m77.166 40-38.203.12 18.922 12.455V80l19.281-12.934V40Z"
+              fill="#D1263D"
+            />
+            <path
+              d="m38.962 13.054-38.323.12 19.042 12.575v27.305L38.962 40.12V13.054Z"
+              fill="#FD9E1D"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.span
-          classname="mock-css.
-  margin-left: auto;
- mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  @media screen and (min-width: 768px) {
-    height: 0;
-    width: 0;
-    visibility: hidden;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
- mock-css. mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.div
           classname=""
         />
         <mock-styled.div
-          classname="mock-css.
-  display: none;
-"
+          classname="el-nav-is-hidden"
         >
           <mock-styled.div
-            classname="mock-css.
-  margin-right: 0.375rem;
-"
+            classname="el-mr2"
           />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-default el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 16.504a.999.999 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a.999.999 0 0 1-.71.29Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.a>
@@ -325,16 +470,23 @@ exports[`Menu should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.div
-          classname="mock-css.
-  margin-right: 0.375rem;
-"
+          classname="el-mr2"
         />
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-intent-default el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 16.504a.999.999 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a.999.999 0 0 1-.71.29Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.div>
     </mock-styled.nav>

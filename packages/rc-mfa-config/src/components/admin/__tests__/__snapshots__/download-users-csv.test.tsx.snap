@@ -7,9 +7,7 @@ exports[`DownloadUsersCSV should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.button
-        classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+        classname="el-mb5 el-intent-primary"
         disabled="false"
       >
         <mock-styled.div />
@@ -20,9 +18,7 @@ exports[`DownloadUsersCSV should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.button
-      classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+      classname="el-mb5 el-intent-primary"
       disabled="false"
     >
       <mock-styled.div />

@@ -7,43 +7,33 @@ exports[`WebhooksAbout should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
- mock-css. mock-css. mock-css. mock-css."
+        classname="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
             style="font-size: 1.25rem;"
           >
             <svg
+              fill="none"
+              height="1em"
               style="font-size: 1.25rem;"
-            />
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </div>
         <div
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           Please note that apps and integrations developed using Webhooks for topics other than application install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
         </div>
@@ -55,9 +45,7 @@ exports[`WebhooksAbout should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <svg
               class=""
@@ -205,12 +193,12 @@ exports[`WebhooksAbout should match a snapshot 1`] = `
             Manage Webhooks Subscriptions
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Our webhooks system allows your application to directly subscribe to events happening in our customers data. Rather than needing to make API calls to poll for new information, a webhook subscription can be created to allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
           </mock-styled.p>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
           >
             <mock-styled.div />
             Add new webhook
@@ -220,9 +208,7 @@ exports[`WebhooksAbout should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <svg
               class=""
@@ -504,7 +490,7 @@ exports[`WebhooksAbout should match a snapshot 1`] = `
             Webhooks Documentation
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             This system is designed to work flexibly with your application. If you wish, you can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a different webhook subscription per topic or per customer. For more information about Webhooks, please see our
              
@@ -517,7 +503,7 @@ exports[`WebhooksAbout should match a snapshot 1`] = `
             </a>
           </mock-styled.p>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
@@ -529,43 +515,33 @@ exports[`WebhooksAbout should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
- mock-css. mock-css. mock-css. mock-css."
+      classname="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
     >
       <div
-        class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+        class="el-pn-icon"
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
           style="font-size: 1.25rem;"
         >
           <svg
+            fill="none"
+            height="1em"
             style="font-size: 1.25rem;"
-          />
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </div>
       <div
-        class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+        class="el-pn-content"
       >
         Please note that apps and integrations developed using Webhooks for topics other than application install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
       </div>
@@ -577,9 +553,7 @@ exports[`WebhooksAbout should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <svg
             class=""
@@ -727,12 +701,12 @@ exports[`WebhooksAbout should match a snapshot 1`] = `
           Manage Webhooks Subscriptions
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Our webhooks system allows your application to directly subscribe to events happening in our customers data. Rather than needing to make API calls to poll for new information, a webhook subscription can be created to allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
         </mock-styled.p>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
         >
           <mock-styled.div />
           Add new webhook
@@ -742,9 +716,7 @@ exports[`WebhooksAbout should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <svg
             class=""
@@ -1026,7 +998,7 @@ exports[`WebhooksAbout should match a snapshot 1`] = `
           Webhooks Documentation
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This system is designed to work flexibly with your application. If you wish, you can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a different webhook subscription per topic or per customer. For more information about Webhooks, please see our
            
@@ -1039,7 +1011,7 @@ exports[`WebhooksAbout should match a snapshot 1`] = `
           </a>
         </mock-styled.p>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           View Docs

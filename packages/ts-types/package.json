@@ -60,7 +60,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/react-slick": "^0.23.12",
     "@types/react-transition-group": "^4.4.9",
-    "@types/uuid": "^3.4.13",
+    "@types/uuid": "^9.0.8",
     "@types/yargs": "^16.0.9"
   }
 }

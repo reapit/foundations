@@ -18,23 +18,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
         classname=""
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname="el-tabs-full-width"
       >
         <mock-styled.div>
           <mock-styled.input
@@ -47,20 +53,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
             htmlfor="webhook-tab-about"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               About Webhooks
             </span>
@@ -75,20 +68,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
             htmlfor="webhook-tab-new"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Add Webhook
             </span>
@@ -103,20 +83,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
             htmlfor="webhook-tab-manage"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Manage Webhooks
             </span>
@@ -131,30 +98,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
             htmlfor="webhook-tab-logs"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Transaction Logs
             </span>
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+          classname="el-tabs-full-width"
         />
       </mock-styled.div>
     </div>
@@ -173,23 +124,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
       classname=""
     >
       <mock-styled.button
-        classname="mock-css. mock-css."
+        classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+      classname="el-tabs-full-width"
     >
       <mock-styled.div>
         <mock-styled.input
@@ -202,20 +159,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
           htmlfor="webhook-tab-about"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             About Webhooks
           </span>
@@ -230,20 +174,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
           htmlfor="webhook-tab-new"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Add Webhook
           </span>
@@ -258,20 +189,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
           htmlfor="webhook-tab-manage"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Manage Webhooks
           </span>
@@ -286,30 +204,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
           htmlfor="webhook-tab-logs"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Transaction Logs
           </span>
         </mock-styled.label>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname="el-tabs-full-width"
       />
     </mock-styled.div>
   </div>,
@@ -385,23 +287,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
         classname=""
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname="el-tabs-full-width"
       >
         <mock-styled.div>
           <mock-styled.input
@@ -414,20 +322,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
             htmlfor="webhook-tab-about"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               About Webhooks
             </span>
@@ -442,20 +337,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
             htmlfor="webhook-tab-new"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Add Webhook
             </span>
@@ -470,20 +352,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
             htmlfor="webhook-tab-manage"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Manage Webhooks
             </span>
@@ -498,30 +367,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
             htmlfor="webhook-tab-logs"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Transaction Logs
             </span>
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+          classname="el-tabs-full-width"
         />
       </mock-styled.div>
     </div>
@@ -540,23 +393,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
       classname=""
     >
       <mock-styled.button
-        classname="mock-css. mock-css."
+        classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+      classname="el-tabs-full-width"
     >
       <mock-styled.div>
         <mock-styled.input
@@ -569,20 +428,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
           htmlfor="webhook-tab-about"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             About Webhooks
           </span>
@@ -597,20 +443,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
           htmlfor="webhook-tab-new"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Add Webhook
           </span>
@@ -625,20 +458,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
           htmlfor="webhook-tab-manage"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Manage Webhooks
           </span>
@@ -653,30 +473,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
           htmlfor="webhook-tab-logs"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Transaction Logs
           </span>
         </mock-styled.label>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname="el-tabs-full-width"
       />
     </mock-styled.div>
   </div>,
@@ -752,23 +556,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
         classname=""
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname="el-tabs-full-width"
       >
         <mock-styled.div>
           <mock-styled.input
@@ -781,20 +591,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
             htmlfor="webhook-tab-about"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               About Webhooks
             </span>
@@ -809,20 +606,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
             htmlfor="webhook-tab-new"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Add Webhook
             </span>
@@ -837,20 +621,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
             htmlfor="webhook-tab-manage"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Manage Webhooks
             </span>
@@ -865,30 +636,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
             htmlfor="webhook-tab-logs"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Transaction Logs
             </span>
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+          classname="el-tabs-full-width"
         />
       </mock-styled.div>
     </div>
@@ -907,23 +662,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
       classname=""
     >
       <mock-styled.button
-        classname="mock-css. mock-css."
+        classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+      classname="el-tabs-full-width"
     >
       <mock-styled.div>
         <mock-styled.input
@@ -936,20 +697,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
           htmlfor="webhook-tab-about"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             About Webhooks
           </span>
@@ -964,20 +712,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
           htmlfor="webhook-tab-new"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Add Webhook
           </span>
@@ -992,20 +727,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
           htmlfor="webhook-tab-manage"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Manage Webhooks
           </span>
@@ -1020,30 +742,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
           htmlfor="webhook-tab-logs"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Transaction Logs
           </span>
         </mock-styled.label>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname="el-tabs-full-width"
       />
     </mock-styled.div>
   </div>,
@@ -1119,23 +825,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
         classname=""
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname="el-tabs-full-width"
       >
         <mock-styled.div>
           <mock-styled.input
@@ -1148,20 +860,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
             htmlfor="webhook-tab-about"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               About Webhooks
             </span>
@@ -1176,20 +875,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
             htmlfor="webhook-tab-new"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Add Webhook
             </span>
@@ -1204,20 +890,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
             htmlfor="webhook-tab-manage"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Manage Webhooks
             </span>
@@ -1232,30 +905,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
             htmlfor="webhook-tab-logs"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Transaction Logs
             </span>
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+          classname="el-tabs-full-width"
         />
       </mock-styled.div>
     </div>
@@ -1274,23 +931,29 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
       classname=""
     >
       <mock-styled.button
-        classname="mock-css. mock-css."
+        classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+      classname="el-tabs-full-width"
     >
       <mock-styled.div>
         <mock-styled.input
@@ -1303,20 +966,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
           htmlfor="webhook-tab-about"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             About Webhooks
           </span>
@@ -1331,20 +981,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
           htmlfor="webhook-tab-new"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Add Webhook
           </span>
@@ -1359,20 +996,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
           htmlfor="webhook-tab-manage"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Manage Webhooks
           </span>
@@ -1387,30 +1011,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
           htmlfor="webhook-tab-logs"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Transaction Logs
           </span>
         </mock-styled.label>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname="el-tabs-full-width"
       />
     </mock-styled.div>
   </div>,

@@ -8,22 +8,24 @@ exports[`AttendeeItem should match snapshot with contacts 1`] = `
       <mock-styled.div />
        
       <mock-styled.div
-        classname="mock-css.
-  height: 2.5rem;
-  margin-bottom: 0.5rem;
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-"
+        classname="el-card-list-item-expanded"
       >
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-primary el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 14.5a2.49 2.49 0 0 0 2.35-2.35c.094-.545.144-1.097.15-1.65a2.5 2.5 0 0 0-5 0c.006.553.056 1.105.15 1.65A2.49 2.49 0 0 0 18 14.5ZM8 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5Zm0-2a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25a3.5 3.5 0 1 0-7 0c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 8 13Zm10 3a8.38 8.38 0 0 0-1.61.15A5.63 5.63 0 0 1 18 20h6c0-2.21-2.69-4-6-4Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div>
@@ -36,22 +38,24 @@ exports[`AttendeeItem should match snapshot with contacts 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  height: 2.5rem;
-  margin-bottom: 0.5rem;
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-"
+        classname="el-card-list-item-expanded"
       >
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-primary el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 14.5a2.49 2.49 0 0 0 2.35-2.35c.094-.545.144-1.097.15-1.65a2.5 2.5 0 0 0-5 0c.006.553.056 1.105.15 1.65A2.49 2.49 0 0 0 18 14.5ZM8 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5Zm0-2a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25a3.5 3.5 0 1 0-7 0c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 8 13Zm10 3a8.38 8.38 0 0 0-1.61.15A5.63 5.63 0 0 1 18 20h6c0-2.21-2.69-4-6-4Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div>
@@ -69,22 +73,24 @@ exports[`AttendeeItem should match snapshot with contacts 1`] = `
     <mock-styled.div />
      
     <mock-styled.div
-      classname="mock-css.
-  height: 2.5rem;
-  margin-bottom: 0.5rem;
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-"
+      classname="el-card-list-item-expanded"
     >
       <mock-styled.div>
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-intent-primary el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 14.5a2.49 2.49 0 0 0 2.35-2.35c.094-.545.144-1.097.15-1.65a2.5 2.5 0 0 0-5 0c.006.553.056 1.105.15 1.65A2.49 2.49 0 0 0 18 14.5ZM8 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5Zm0-2a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25a3.5 3.5 0 1 0-7 0c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 8 13Zm10 3a8.38 8.38 0 0 0-1.61.15A5.63 5.63 0 0 1 18 20h6c0-2.21-2.69-4-6-4Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div>
@@ -97,22 +103,24 @@ exports[`AttendeeItem should match snapshot with contacts 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  height: 2.5rem;
-  margin-bottom: 0.5rem;
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-"
+      classname="el-card-list-item-expanded"
     >
       <mock-styled.div>
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-intent-primary el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 14.5a2.49 2.49 0 0 0 2.35-2.35c.094-.545.144-1.097.15-1.65a2.5 2.5 0 0 0-5 0c.006.553.056 1.105.15 1.65A2.49 2.49 0 0 0 18 14.5ZM8 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5Zm0-2a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25a3.5 3.5 0 1 0-7 0c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 8 13Zm10 3a8.38 8.38 0 0 0-1.61.15A5.63 5.63 0 0 1 18 20h6c0-2.21-2.69-4-6-4Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div>
