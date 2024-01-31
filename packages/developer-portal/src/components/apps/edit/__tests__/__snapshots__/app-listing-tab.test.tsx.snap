@@ -316,7 +316,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
                 type="file"
               />
               <mock-styled.input
-                filename="d14a6ed8-d338-4656-9db3-69897206e126"
+                filename="MOCK_UUID"
                 id="test-static-id"
                 value=""
               />
@@ -347,7 +347,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
                 type="file"
               />
               <mock-styled.input
-                filename="726bcaa1-2736-4bcd-973f-22cf3f79e76f"
+                filename="MOCK_UUID"
                 id="test-static-id"
                 value=""
               />
@@ -378,7 +378,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
                 type="file"
               />
               <mock-styled.input
-                filename="fe99ac5c-6154-40fc-9a11-b4c08c3a0bc7"
+                filename="MOCK_UUID"
                 id="test-static-id"
                 value=""
               />
@@ -409,7 +409,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
                 type="file"
               />
               <mock-styled.input
-                filename="f6185820-5289-40b1-a3fe-dfd6eb48d57a"
+                filename="MOCK_UUID"
                 id="test-static-id"
                 value=""
               />
@@ -440,7 +440,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
                 type="file"
               />
               <mock-styled.input
-                filename="3f74e28c-f9b3-49c8-89d5-d80f58d3dd18"
+                filename="MOCK_UUID"
                 id="test-static-id"
                 value=""
               />
@@ -471,7 +471,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
                 type="file"
               />
               <mock-styled.input
-                filename="44e22a80-15d6-47aa-b846-5ca38ea5ad21"
+                filename="MOCK_UUID"
                 id="test-static-id"
                 value=""
               />
@@ -798,7 +798,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
               type="file"
             />
             <mock-styled.input
-              filename="d14a6ed8-d338-4656-9db3-69897206e126"
+              filename="MOCK_UUID"
               id="test-static-id"
               value=""
             />
@@ -829,7 +829,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
               type="file"
             />
             <mock-styled.input
-              filename="726bcaa1-2736-4bcd-973f-22cf3f79e76f"
+              filename="MOCK_UUID"
               id="test-static-id"
               value=""
             />
@@ -860,7 +860,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
               type="file"
             />
             <mock-styled.input
-              filename="fe99ac5c-6154-40fc-9a11-b4c08c3a0bc7"
+              filename="MOCK_UUID"
               id="test-static-id"
               value=""
             />
@@ -891,7 +891,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
               type="file"
             />
             <mock-styled.input
-              filename="f6185820-5289-40b1-a3fe-dfd6eb48d57a"
+              filename="MOCK_UUID"
               id="test-static-id"
               value=""
             />
@@ -922,7 +922,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
               type="file"
             />
             <mock-styled.input
-              filename="3f74e28c-f9b3-49c8-89d5-d80f58d3dd18"
+              filename="MOCK_UUID"
               id="test-static-id"
               value=""
             />
@@ -953,7 +953,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
               type="file"
             />
             <mock-styled.input
-              filename="44e22a80-15d6-47aa-b846-5ca38ea5ad21"
+              filename="MOCK_UUID"
               id="test-static-id"
               value=""
             />
@@ -1522,7 +1522,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 type="file"
               />
               <mock-styled.input
-                filename="c6adecb5-d4d3-410e-a35f-455adef98e16"
+                filename="MOCK_UUID"
                 id="test-static-id"
               />
               <mock-styled.p
@@ -1555,7 +1555,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 type="file"
               />
               <mock-styled.input
-                filename="010f21c3-e6b2-4d6b-965e-9da434689a81"
+                filename="MOCK_UUID"
                 id="test-static-id"
               />
               <mock-styled.p
@@ -1588,7 +1588,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 type="file"
               />
               <mock-styled.input
-                filename="74ee5cad-324c-46aa-8579-e4de042df703"
+                filename="MOCK_UUID"
                 id="test-static-id"
               />
               <mock-styled.p
@@ -1621,7 +1621,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 type="file"
               />
               <mock-styled.input
-                filename="696a8a58-eeeb-4e83-ae13-f7a1946ec684"
+                filename="MOCK_UUID"
                 id="test-static-id"
               />
               <mock-styled.p
@@ -1654,7 +1654,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 type="file"
               />
               <mock-styled.input
-                filename="a1dbac49-f240-4de9-9132-7bff24d60288"
+                filename="MOCK_UUID"
                 id="test-static-id"
               />
               <mock-styled.p
@@ -1687,7 +1687,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 type="file"
               />
               <mock-styled.input
-                filename="8802683c-4b25-450e-89a8-de948cba1093"
+                filename="MOCK_UUID"
                 id="test-static-id"
               />
               <mock-styled.p
@@ -2201,7 +2201,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               type="file"
             />
             <mock-styled.input
-              filename="c6adecb5-d4d3-410e-a35f-455adef98e16"
+              filename="MOCK_UUID"
               id="test-static-id"
             />
             <mock-styled.p
@@ -2234,7 +2234,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               type="file"
             />
             <mock-styled.input
-              filename="010f21c3-e6b2-4d6b-965e-9da434689a81"
+              filename="MOCK_UUID"
               id="test-static-id"
             />
             <mock-styled.p
@@ -2267,7 +2267,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               type="file"
             />
             <mock-styled.input
-              filename="74ee5cad-324c-46aa-8579-e4de042df703"
+              filename="MOCK_UUID"
               id="test-static-id"
             />
             <mock-styled.p
@@ -2300,7 +2300,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               type="file"
             />
             <mock-styled.input
-              filename="696a8a58-eeeb-4e83-ae13-f7a1946ec684"
+              filename="MOCK_UUID"
               id="test-static-id"
             />
             <mock-styled.p
@@ -2333,7 +2333,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               type="file"
             />
             <mock-styled.input
-              filename="a1dbac49-f240-4de9-9132-7bff24d60288"
+              filename="MOCK_UUID"
               id="test-static-id"
             />
             <mock-styled.p
@@ -2366,7 +2366,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               type="file"
             />
             <mock-styled.input
-              filename="8802683c-4b25-450e-89a8-de948cba1093"
+              filename="MOCK_UUID"
               id="test-static-id"
             />
             <mock-styled.p
