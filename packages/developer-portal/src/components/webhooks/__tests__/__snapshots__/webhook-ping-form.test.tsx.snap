@@ -7,14 +7,10 @@ exports[`WebhooksPingForm should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <form
-        class="mock-css.
-  padding: 1.5rem;
-"
+        class="el-p8"
       >
         <mock-styled.h2
-          classname="mock-css.
-  margin-left: 0.5rem;
-"
+          classname="el-ml3"
         >
           Test Webhook Subscription
         </mock-styled.h2>
@@ -25,9 +21,7 @@ exports[`WebhooksPingForm should match a snapshot 1`] = `
             classname=""
           >
             <mock-styled.label
-              classname="mock-css.
-  margin-left: 0.5rem;
-"
+              classname="el-ml3"
             >
               Subscription topics
             </mock-styled.label>
@@ -59,22 +53,20 @@ exports[`WebhooksPingForm should match a snapshot 1`] = `
               </a>
             </mock-styled.p>
             <mock-styled.div
-              classname="mock-css.
-  margin-left: auto;
-"
+              classname="el-ml-auto"
             >
               <mock-styled.div
-                classname="mock-css."
+                classname="el-button-group-align-right"
               >
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                   type="button"
                 >
                   <mock-styled.div />
                   Cancel
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                   type="submit"
                 >
                   <mock-styled.div />
@@ -90,14 +82,10 @@ exports[`WebhooksPingForm should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <form
-      class="mock-css.
-  padding: 1.5rem;
-"
+      class="el-p8"
     >
       <mock-styled.h2
-        classname="mock-css.
-  margin-left: 0.5rem;
-"
+        classname="el-ml3"
       >
         Test Webhook Subscription
       </mock-styled.h2>
@@ -108,9 +96,7 @@ exports[`WebhooksPingForm should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.label
-            classname="mock-css.
-  margin-left: 0.5rem;
-"
+            classname="el-ml3"
           >
             Subscription topics
           </mock-styled.label>
@@ -142,22 +128,20 @@ exports[`WebhooksPingForm should match a snapshot 1`] = `
             </a>
           </mock-styled.p>
           <mock-styled.div
-            classname="mock-css.
-  margin-left: auto;
-"
+            classname="el-ml-auto"
           >
             <mock-styled.div
-              classname="mock-css."
+              classname="el-button-group-align-right"
             >
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
                 type="button"
               >
                 <mock-styled.div />
                 Cancel
               </mock-styled.button>
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
                 type="submit"
               >
                 <mock-styled.div />

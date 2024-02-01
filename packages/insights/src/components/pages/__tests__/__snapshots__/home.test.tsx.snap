@@ -7,9 +7,7 @@ exports[`Home should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
@@ -20,13 +18,52 @@ exports[`Home should match a snapshot 1`] = `
             Reports
           </mock-styled.h1>
           <mock-styled.span
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+            classname="el-mb5 el-icon-size-large"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 80 80"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M67 35.428 40 26l-27 9.428L40 45l27-9.572Z"
+                fill="#9faebc"
+              />
+              <path
+                d="M67 35.428 40 26v19l27-9.572Z"
+                fill="#607890"
+              />
+              <path
+                d="M52.564 12.252C51.958 5.945 46.676 1 40.272 1S28.586 5.945 27.979 12.252c-4.1.588-7.263 4.156-7.263 8.455 0 4.709 3.796 8.54 8.461 8.54h22.19c4.665 0 8.46-3.831 8.46-8.54 0-4.3-3.163-7.867-7.263-8.455Z"
+                fill="#7e9bfa"
+              />
+              <path
+                d="M32.694 19.776a.363.363 0 0 0 .335.228h3.973v9.243h6.525v-9.243h3.987c.146 0 .278-.09.335-.228a.376.376 0 0 0-.078-.403l-7.232-7.4a.36.36 0 0 0-.513 0l-7.253 7.4a.375.375 0 0 0-.079.403ZM43.53 29.247h-6.518c.015 1.8 1.471 3.26 3.26 3.26 1.788 0 3.244-1.46 3.259-3.26Z"
+                fill="#fff"
+              />
+              <path
+                d="M40.272 34.413c-2.775 0-5.04-2.305-5.111-5.166h-7.927c.048.446.113.89.2 1.329.105.535.558.92 1.085.92h2.002c.058.154.12.308.184.46l-1.416 1.47a1.182 1.182 0 0 0-.14 1.446 14.978 14.978 0 0 0 1.84 2.335 14.635 14.635 0 0 0 2.25 1.91c.439.3 1.022.24 1.394-.147l1.416-1.47c.147.068.295.132.444.192v2.078c0 .546.37 1.017.886 1.126a14.011 14.011 0 0 0 5.785 0c.516-.11.887-.58.887-1.126v-2.078c.149-.06.297-.124.443-.191l1.416 1.47c.372.385.955.446 1.394.145a14.638 14.638 0 0 0 2.251-1.909c.688-.713 1.306-1.5 1.84-2.335.29-.456.231-1.06-.14-1.447l-1.417-1.47c.065-.151.126-.305.184-.46h2.002c.527 0 .98-.384 1.085-.92.087-.438.152-.882.2-1.328h-7.926c-.072 2.861-2.337 5.166-5.111 5.166Z"
+                fill="#fff"
+              />
+              <path
+                d="M40 44.566 13 36v33.401L40 78V44.566Z"
+                fill="#607890"
+              />
+              <path
+                d="M67 69.401V35l-27 9.566V78l27-8.599Z"
+                fill="#506478"
+              />
+              <path
+                d="M13.258 35 4 46.03 31.246 56 40 44.475 13.258 35Z"
+                fill="#d8dee4"
+              />
+              <path
+                d="M66.74 35 76 46.03 48.757 56 40 44.475 66.74 35Z"
+                fill="#798da1"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.h2
             classname=""
@@ -34,28 +71,22 @@ exports[`Home should match a snapshot 1`] = `
             Welcome
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             We have provided comprehensive documentation for the Insights Services. Please click below to view before getting started
           </mock-styled.p>
           <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+            classname="el-mb5 el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
           </mock-styled.button>
           <mock-styled.div
-            classname="mock-css.
-  border-radius: 0.25rem;
-"
+            classname="el-border-radius"
           >
             <mock-styled.div>
               <mock-styled.select
-                classname="mock-css.
-  width: 100%;
-"
+                classname="el-wfull"
               >
                 <option>
                   Please Select
@@ -73,9 +104,7 @@ exports[`Home should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.div
-            classname="mock-css.
-  justify-content: space-between;
-"
+            classname="el-flex-justify-between"
           >
             <mock-styled.h1
               classname=""
@@ -84,41 +113,33 @@ exports[`Home should match a snapshot 1`] = `
             </mock-styled.h1>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css. mock-css. mock-css. mock-css."
+            classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
           >
             <div
-              class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+              class="el-pn-icon"
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname="mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-icon-new"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </div>
             <div
-              class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+              class="el-pn-content"
             >
               Please select a report to get started
             </div>
@@ -130,9 +151,7 @@ exports[`Home should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
@@ -143,13 +162,52 @@ exports[`Home should match a snapshot 1`] = `
           Reports
         </mock-styled.h1>
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb5 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M67 35.428 40 26l-27 9.428L40 45l27-9.572Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M67 35.428 40 26v19l27-9.572Z"
+              fill="#607890"
+            />
+            <path
+              d="M52.564 12.252C51.958 5.945 46.676 1 40.272 1S28.586 5.945 27.979 12.252c-4.1.588-7.263 4.156-7.263 8.455 0 4.709 3.796 8.54 8.461 8.54h22.19c4.665 0 8.46-3.831 8.46-8.54 0-4.3-3.163-7.867-7.263-8.455Z"
+              fill="#7e9bfa"
+            />
+            <path
+              d="M32.694 19.776a.363.363 0 0 0 .335.228h3.973v9.243h6.525v-9.243h3.987c.146 0 .278-.09.335-.228a.376.376 0 0 0-.078-.403l-7.232-7.4a.36.36 0 0 0-.513 0l-7.253 7.4a.375.375 0 0 0-.079.403ZM43.53 29.247h-6.518c.015 1.8 1.471 3.26 3.26 3.26 1.788 0 3.244-1.46 3.259-3.26Z"
+              fill="#fff"
+            />
+            <path
+              d="M40.272 34.413c-2.775 0-5.04-2.305-5.111-5.166h-7.927c.048.446.113.89.2 1.329.105.535.558.92 1.085.92h2.002c.058.154.12.308.184.46l-1.416 1.47a1.182 1.182 0 0 0-.14 1.446 14.978 14.978 0 0 0 1.84 2.335 14.635 14.635 0 0 0 2.25 1.91c.439.3 1.022.24 1.394-.147l1.416-1.47c.147.068.295.132.444.192v2.078c0 .546.37 1.017.886 1.126a14.011 14.011 0 0 0 5.785 0c.516-.11.887-.58.887-1.126v-2.078c.149-.06.297-.124.443-.191l1.416 1.47c.372.385.955.446 1.394.145a14.638 14.638 0 0 0 2.251-1.909c.688-.713 1.306-1.5 1.84-2.335.29-.456.231-1.06-.14-1.447l-1.417-1.47c.065-.151.126-.305.184-.46h2.002c.527 0 .98-.384 1.085-.92.087-.438.152-.882.2-1.328h-7.926c-.072 2.861-2.337 5.166-5.111 5.166Z"
+              fill="#fff"
+            />
+            <path
+              d="M40 44.566 13 36v33.401L40 78V44.566Z"
+              fill="#607890"
+            />
+            <path
+              d="M67 69.401V35l-27 9.566V78l27-8.599Z"
+              fill="#506478"
+            />
+            <path
+              d="M13.258 35 4 46.03 31.246 56 40 44.475 13.258 35Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 35 76 46.03 48.757 56 40 44.475 66.74 35Z"
+              fill="#798da1"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.h2
           classname=""
@@ -157,28 +215,22 @@ exports[`Home should match a snapshot 1`] = `
           Welcome
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           We have provided comprehensive documentation for the Insights Services. Please click below to view before getting started
         </mock-styled.p>
         <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+          classname="el-mb5 el-intent-neutral"
         >
           <mock-styled.div />
           View Docs
         </mock-styled.button>
         <mock-styled.div
-          classname="mock-css.
-  border-radius: 0.25rem;
-"
+          classname="el-border-radius"
         >
           <mock-styled.div>
             <mock-styled.select
-              classname="mock-css.
-  width: 100%;
-"
+              classname="el-wfull"
             >
               <option>
                 Please Select
@@ -196,9 +248,7 @@ exports[`Home should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+          classname="el-flex-justify-between"
         >
           <mock-styled.h1
             classname=""
@@ -207,41 +257,33 @@ exports[`Home should match a snapshot 1`] = `
           </mock-styled.h1>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css. mock-css. mock-css. mock-css."
+          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname="mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             Please select a report to get started
           </div>

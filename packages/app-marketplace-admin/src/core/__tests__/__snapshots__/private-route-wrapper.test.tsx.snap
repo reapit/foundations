@@ -13,41 +13,33 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.div
-            classname="mock-css. mock-css. mock-css. mock-css."
+            classname="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
           >
             <div
-              class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+              class="el-pn-icon"
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname="mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-icon-new"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </div>
             <div
-              class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+              class="el-pn-content"
             >
               You do not have permission to view this page.
             </div>
@@ -65,41 +57,33 @@ exports[`PrivateRouter should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.div
-          classname="mock-css. mock-css. mock-css. mock-css."
+          classname="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname="mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             You do not have permission to view this page.
           </div>
@@ -174,41 +158,33 @@ exports[`PrivateRouter should match a snapshot if an employee 1`] = `
           classname=""
         >
           <mock-styled.div
-            classname="mock-css. mock-css. mock-css. mock-css."
+            classname="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
           >
             <div
-              class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+              class="el-pn-icon"
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname="mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-icon-new"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </div>
             <div
-              class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+              class="el-pn-content"
             >
               You do not have permission to view this page.
             </div>
@@ -226,41 +202,33 @@ exports[`PrivateRouter should match a snapshot if an employee 1`] = `
         classname=""
       >
         <mock-styled.div
-          classname="mock-css. mock-css. mock-css. mock-css."
+          classname="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname="mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             You do not have permission to view this page.
           </div>

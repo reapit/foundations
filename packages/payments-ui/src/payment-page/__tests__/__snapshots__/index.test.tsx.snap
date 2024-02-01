@@ -7,29 +7,24 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        class="el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-primary el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div
@@ -48,9 +43,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           , Ref: PAY20000001
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
         >
           <mock-styled.div
             classname=""
@@ -59,24 +52,29 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.625rem;
- mock-css. mock-css.
-  font-size: 1.5rem;
- mock-css.
-  font-size: 2.5rem;
-"
+                classname="el-mr4 el-intent-default el-icon-new el-icon-size-medium"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.988 21.203c-.32 0-.589-.11-.808-.33-.22-.219-.33-.488-.33-.807v-.462c0-.207.047-.396.14-.566.094-.17.219-.305.376-.404a5.088 5.088 0 0 0 1.517-1.512 3.696 3.696 0 0 0 .591-2.056 4.002 4.002 0 0 0-.113-.928H6.81c-.32 0-.589-.11-.809-.33-.22-.22-.329-.489-.329-.808 0-.32.11-.589.33-.808.219-.22.488-.33.808-.33h.428a20.448 20.448 0 0 1-.94-1.704c-.298-.603-.447-1.344-.447-2.224 0-1.573.547-2.906 1.64-3.998 1.092-1.093 2.425-1.64 3.998-1.64 1.06 0 2.015.252 2.864.756a5.81 5.81 0 0 1 2.034 2.01.793.793 0 0 1 .031.795c-.132.27-.344.47-.633.603-.282.116-.56.123-.834.021a1.562 1.562 0 0 1-.696-.52 3.465 3.465 0 0 0-1.192-1.01 3.339 3.339 0 0 0-1.574-.38c-.93 0-1.724.327-2.38.98-.655.654-.983 1.448-.983 2.383 0 .788.187 1.45.559 1.985.372.535.77 1.183 1.195 1.943h3.109c.32 0 .589.11.808.33.22.22.33.489.33.808 0 .32-.11.588-.33.808-.22.22-.489.33-.808.33h-2.314c.03.133.05.28.06.438.01.16.015.322.015.49 0 .793-.135 1.513-.404 2.16a6.57 6.57 0 0 1-1.018 1.702h4.661c.548 0 .997-.131 1.347-.394.351-.263.58-.63.69-1.1.07-.287.198-.53.382-.731.184-.201.427-.302.73-.302.32 0 .584.11.796.327.21.217.316.486.316.805 0 1.06-.467 1.937-1.401 2.63-.934.694-1.887 1.04-2.86 1.04h-7Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
               <div>
                 <mock-styled.h2
-                  classname="mock-css."
+                  classname="el-has-no-margin"
                 >
                   Payment Amount
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css."
+                  classname="el-has-grey-text"
                 >
                   100.00
                 </mock-styled.p>
@@ -90,22 +88,52 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+                classname="el-mr4 el-icon-size-medium"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    clip-path="url(#listInfographic_svg__a)"
+                  >
+                    <path
+                      d="M15.669 0H4.33C3.601 0 3 .578 3 1.28v13.23c0 .702.601 1.28 1.331 1.28h.795C5.255 13.313 7.402 11.33 10 11.33c2.62 0 4.767 1.982 4.874 4.459h.795c.73 0 1.331-.578 1.331-1.28V1.28C17 .578 16.399 0 15.669 0Z"
+                      fill="#d8dee4"
+                    />
+                    <path
+                      d="M10 10c-2.759 0-5 2.241-5 5s2.241 5 5 5 5-2.241 5-5-2.241-5-5-5Zm2.27 4.511-2.414 2.414a.785.785 0 0 1-.546.23.785.785 0 0 1-.546-.23l-1.207-1.207c-.316-.316-.316-.804 0-1.092.316-.316.805-.316 1.092 0l.661.661 1.868-1.868c.316-.316.804-.316 1.092 0 .316.288.316.776 0 1.092Z"
+                      fill="#798da1"
+                    />
+                    <path
+                      d="m12.27 14.511-2.414 2.414a.785.785 0 0 1-.546.23.785.785 0 0 1-.546-.23l-1.207-1.207c-.316-.316-.316-.804 0-1.092.316-.316.805-.316 1.092 0l.661.661 1.868-1.868c.316-.316.804-.316 1.092 0 .316.288.316.776 0 1.092ZM6.77 3.158c-.595 0-1.078.471-1.078 1.053 0 .58.483 1.052 1.077 1.052h6.462c.595 0 1.077-.471 1.077-1.052 0-.582-.482-1.053-1.077-1.053H6.769ZM6.77 6.316c-.595 0-1.078.471-1.078 1.052 0 .582.483 1.053 1.077 1.053h6.462c.595 0 1.077-.471 1.077-1.053 0-.58-.482-1.052-1.077-1.052H6.769Z"
+                      fill="#fff"
+                    />
+                  </g>
+                  <defs>
+                    <clippath
+                      id="listInfographic_svg__a"
+                    >
+                      <path
+                        d="M0 0h20v20H0z"
+                        fill="#fff"
+                        transform="matrix(-1 0 0 1 20 0)"
+                      />
+                    </clippath>
+                  </defs>
+                </svg>
               </mock-styled.span>
               <div>
                 <mock-styled.h2
-                  classname="mock-css."
+                  classname="el-has-no-margin"
                 >
                   Reason For Payment
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css."
+                  classname="el-has-grey-text"
                 >
                   Tenancy Check Fee
                 </mock-styled.p>
@@ -119,23 +147,67 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+                classname="el-mr4 el-icon-size-medium"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    clip-path="url(#applicantInfographic_svg__a)"
+                  >
+                    <circle
+                      cx="10"
+                      cy="10"
+                      fill="#798da1"
+                      r="10"
+                    />
+                    <path
+                      d="M15.43 15.606v1.385a.282.282 0 0 1-.282.282H4.852a.282.282 0 0 1-.282-.282v-1.385a2.63 2.63 0 0 1 2.63-2.63 1.46 1.46 0 0 0 1.226-.664c.261-.402.234-.752.234-1.034l.005-.013A3.491 3.491 0 0 1 6.51 8.04v-.11a.87.87 0 0 1-.881-.866V5.597c-.012-.51.012-2.31 1.311-3.562C8.451.578 10.846.697 12.581 1.477a.07.07 0 0 1-.003.13l-.452.186c-.068.027-.054.127.02.135l.219.024A3.56 3.56 0 0 1 15 3.586a.076.076 0 0 1-.01.087c-.373.395-.582.92-.582 1.466v1.924a.866.866 0 0 1-.865.865h-.052v.11c0 1.456-.89 2.703-2.156 3.227l.005.013c0 .274-.03.628.235 1.034.26.4.712.664 1.225.665a2.63 2.63 0 0 1 2.63 2.63Z"
+                      fill="#fff"
+                    />
+                    <path
+                      d="M15 3.586a.075.075 0 0 1-.01.087c-.373.396-.582.92-.582 1.466v1.924c0 .437-.33.865-.917.865V5.75c0-.935-.758-1.692-1.693-1.692H8.202c-.935 0-1.693.757-1.693 1.692v2.178a.87.87 0 0 1-.882-.865V5.597c-.01-.51.012-2.31 1.312-3.562C8.45.578 10.846.697 12.58 1.477a.07.07 0 0 1-.002.13l-.452.186c-.068.028-.054.127.019.135l.22.024a3.558 3.558 0 0 1 2.634 1.634ZM4.57 18.399v-2.793a2.63 2.63 0 0 1 2.63-2.63 1.46 1.46 0 0 0 1.226-.664 2.42 2.42 0 0 0 3.149 0c.26.4.712.665 1.225.665a2.63 2.63 0 0 1 2.63 2.63v2.791A9.953 9.953 0 0 1 10 20a9.954 9.954 0 0 1-5.43-1.601Z"
+                      fill="#d8dee4"
+                    />
+                    <path
+                      d="M13.49 8.039a3.491 3.491 0 0 1-3.49 3.49c-1.816 0-3.491-1.411-3.491-3.6V5.75c0-.935.758-1.692 1.693-1.692h3.596c.935 0 1.693.757 1.693 1.692V8.04Z"
+                      fill="#fff"
+                    />
+                    <path
+                      d="M8.62 13.829c-.13.04-.27.063-.42.065-1.456.012-2.643 1.164-2.643 2.62v.265a.494.494 0 0 1-.494.494h-.211a.282.282 0 0 1-.282-.282v-1.385a2.63 2.63 0 0 1 2.63-2.63 1.46 1.46 0 0 0 1.226-.664c.104.09.217.17.335.24.52.31.437 1.095-.14 1.277ZM12.578 1.606c-.415.171-.474.209-.617.186-2.316-.359-4.348.6-5.038 2.85a1.685 1.685 0 0 0-.414 1.108v1.323c0 .571-.882.61-.882-.01V5.597c-.01-.51.012-2.31 1.312-3.562C8.45.578 10.845.697 12.58 1.477a.07.07 0 0 1-.002.13Z"
+                      fill="#d8dee4"
+                    />
+                    <path
+                      d="M10 16a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1Z"
+                      fill="#fff"
+                    />
+                  </g>
+                  <defs>
+                    <clippath
+                      id="applicantInfographic_svg__a"
+                    >
+                      <path
+                        d="M0 0h20v20H0z"
+                        fill="#fff"
+                        transform="matrix(-1 0 0 1 20 0)"
+                      />
+                    </clippath>
+                  </defs>
+                </svg>
               </mock-styled.span>
               <div>
                 <mock-styled.h2
-                  classname="mock-css."
+                  classname="el-has-no-margin"
                 >
                   Customer
                   , Ref: OXF12300101
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css."
+                  classname="el-has-grey-text"
                 >
                   Mr John Smith
                 </mock-styled.p>
@@ -149,22 +221,57 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+                classname="el-mr4 el-icon-size-medium"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 40 40"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.126 11.982a.63.63 0 0 0-.81.613v4.632c0 3.312 1.984 6.15 4.803 7.343 5.098 2.163 10.746-1.679 10.746-7.343 0-1.465.015-2.505.02-3.402.016-2.493-2.242-4.442-4.731-3.832-2.228.547-3.002 1.64-5.733 2.248-1.552.344-3.029.14-4.295-.259Z"
+                    fill="#FFE5C7"
+                  />
+                  <path
+                    d="M8.857 28.466c1.144 0 2.15-.602 2.73-1.514.535-.84.529-1.584.523-2.182v-.17l.01-.03c-2.818-1.192-4.801-4.03-4.801-7.343v-.251c-1.13 0-2.042-.936-2.042-2.086v-4.263a4.91 4.91 0 0 0-1.357-3.4.05.05 0 0 1-.008-.058C5.005 5.266 7.195 3.66 9.827 3.373l.49-.054c.161-.018.193-.245.043-.308l-1.008-.424c-.127-.054-.131-.237-.005-.295C13.21.518 18.544.247 21.909 3.562c2.895 2.852 2.947 6.947 2.922 8.109v3.335c0 1.066-.844 1.97-1.963 1.97v.25c0 3.313-1.983 6.152-4.802 7.345l.011.03v.164c-.005.612-.01 1.35.522 2.188.03.046.061.092.093.137a12.658 12.658 0 0 0-.811 4.473C12.109 34 6.2 33 8.857 28.466Z"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M3.914 7.169a.05.05 0 0 0 .008.058 4.914 4.914 0 0 1 1.357 3.4v4.263c0 1.15.911 2.086 2.041 2.086v-4.38c0-.431.407-.74.81-.614 1.266.398 2.743.603 4.295.259 2.73-.607 3.504-1.701 5.732-2.248 2.49-.61 4.747 1.339 4.731 3.832-.004.82-.018 1.843-.02 3.15 1.12 0 1.964-.903 1.964-1.969v-3.335c.025-1.162-.027-5.257-2.921-8.109C18.545.247 13.21.518 9.348 2.292a.162.162 0 0 0 .005.295l1.008.424c.15.064.119.29-.043.308l-.49.054c-2.632.287-4.822 1.893-5.914 3.796Z"
+                    fill="#506478"
+                  />
+                  <path
+                    d="M2.998 32.2v2.205c0 2.343 4.502 5.608 12.27 5.608 8.732 0 11.917-3.252 11.917-5.608V32.2c0-2.313-2.623-4.187-5.857-4.188-1.144 0-2.151-.421-2.73-1.059-2.023 1.236-4.99 1.236-7.013 0-.58.638-1.586 1.059-2.73 1.06-3.235 0-5.857 1.874-5.857 4.187Z"
+                    fill="#798da1"
+                  />
+                  <path
+                    d="M20.107 37a1 1 0 0 0 1 1h12.737a1 1 0 0 0 1-1V26.662l-7.368-5.504-7.369 5.504V37Z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M35.893 28.526c.95 0 1.414-1.205.726-1.886l-8.42-8.338a1.023 1.023 0 0 0-1.451 0l-8.42 8.338c-.687.68-.223 1.886.727 1.886h16.838Z"
+                    fill="#9faebc"
+                  />
+                  <path
+                    d="M24.844 30.632h5.263c.582 0 1.053.47 1.053 1.052V38h-7.368v-6.316c0-.581.47-1.052 1.052-1.052Z"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M25.897 32.21h3.158c.29 0 .526.236.526.527V38h-4.21v-5.263c0-.29.235-.527.526-.527Z"
+                    fill="#9faebc"
+                  />
+                </svg>
               </mock-styled.span>
               <div>
                 <mock-styled.h2
-                  classname="mock-css."
+                  classname="el-has-no-margin"
                 >
                   Customer Address
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css."
+                  classname="el-has-grey-text"
                 >
                   1 Test House Test Lane County of Test Test City A11 2BB
                 </mock-styled.p>
@@ -178,22 +285,33 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+                classname="el-mr4 el-icon-size-medium"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.466 11.791a.794.794 0 0 0 .533.209.795.795 0 0 0 .534-.209L20 4c0-.5-.636-1-.969-1H.97C.636 3 0 3.5 0 4l9.466 7.791Z"
+                    fill="#798da1"
+                  />
+                  <path
+                    d="M11.394 10.792a2.057 2.057 0 0 1-1.393.552 2.057 2.057 0 0 1-1.393-.552L1 3c-.5 0-1 .5-1 1v10.871c0 .607.226 1.188.628 1.616.402.429.946.67 1.515.67h15.714c.569 0 1.114-.241 1.515-.67.402-.428.628-1.01.628-1.615V4c0-.5-.5-1-1-1l-7.606 7.792Z"
+                    fill="#d8dee4"
+                  />
+                </svg>
               </mock-styled.span>
               <div>
                 <mock-styled.h2
-                  classname="mock-css."
+                  classname="el-has-no-margin"
                 >
                   Customer Email
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css."
+                  classname="el-has-grey-text"
                 >
                   <a
                     href="mailto:example@email.com"
@@ -211,23 +329,56 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+                classname="el-mr4 el-icon-size-medium"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    clip-path="url(#houseInfographic_svg__a)"
+                  >
+                    <path
+                      d="M2 20h16V7.882L10 2 2 7.882V20Z"
+                      fill="#d8dee4"
+                    />
+                    <path
+                      d="M1.221 10 10 2.657 18.779 10 20 8.365 10 0 0 8.365 1.221 10Z"
+                      fill="#798da1"
+                    />
+                    <path
+                      d="M6 12h8v8H6v-8Z"
+                      fill="#fff"
+                    />
+                    <path
+                      d="M8 14h4v6H8v-6Z"
+                      fill="#798da1"
+                    />
+                  </g>
+                  <defs>
+                    <clippath
+                      id="houseInfographic_svg__a"
+                    >
+                      <path
+                        d="M0 0h20v20H0z"
+                        fill="#fff"
+                      />
+                    </clippath>
+                  </defs>
+                </svg>
               </mock-styled.span>
               <div>
                 <mock-styled.h2
-                  classname="mock-css."
+                  classname="el-has-no-margin"
                 >
                   Property
                   , Ref: OXF200008
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css."
+                  classname="el-has-grey-text"
                 >
                   15 Example street Solihull West Midlands B91 2XX
                 </mock-styled.p>
@@ -236,21 +387,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <form
-          class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+          class="el-fade-in"
         >
           <mock-styled.h2
             classname=""
@@ -258,7 +395,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             Billing Details
           </mock-styled.h2>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-form-layout-has-margin"
           >
             <mock-styled.div>
               <mock-styled.div>
@@ -1631,64 +1768,50 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             Card Details
           </mock-styled.h2>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
+            classname="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
           >
             <div
-              class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+              class="el-pn-icon"
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname="mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-icon-new"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </div>
             <div
-              class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+              class="el-pn-content"
             >
               Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
             </div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-form-layout-has-margin"
           >
             <mock-styled.div>
               <div
-                class="mock-css.
-  margin-bottom: 0.375rem;
-"
+                class="el-mb2"
               >
                 <mock-styled.label>
                   Card Type
                 </mock-styled.label>
               </div>
               <mock-styled.div
-                classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+                classname="el-mb2"
               >
                 <mock-styled.input
                   classname=""
@@ -1704,9 +1827,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
                 </mock-styled.label>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+                classname="el-mb2"
               >
                 <mock-styled.input
                   classname=""
@@ -1818,7 +1939,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               classname=""
             >
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
                 disabled="true"
                 type="submit"
               >
@@ -1834,29 +1955,24 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      class="el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-intent-primary el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div
@@ -1875,9 +1991,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
         , Ref: PAY20000001
       </mock-styled.h2>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       >
         <mock-styled.div
           classname=""
@@ -1886,24 +2000,29 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.625rem;
- mock-css. mock-css.
-  font-size: 1.5rem;
- mock-css.
-  font-size: 2.5rem;
-"
+              classname="el-mr4 el-intent-default el-icon-new el-icon-size-medium"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.988 21.203c-.32 0-.589-.11-.808-.33-.22-.219-.33-.488-.33-.807v-.462c0-.207.047-.396.14-.566.094-.17.219-.305.376-.404a5.088 5.088 0 0 0 1.517-1.512 3.696 3.696 0 0 0 .591-2.056 4.002 4.002 0 0 0-.113-.928H6.81c-.32 0-.589-.11-.809-.33-.22-.22-.329-.489-.329-.808 0-.32.11-.589.33-.808.219-.22.488-.33.808-.33h.428a20.448 20.448 0 0 1-.94-1.704c-.298-.603-.447-1.344-.447-2.224 0-1.573.547-2.906 1.64-3.998 1.092-1.093 2.425-1.64 3.998-1.64 1.06 0 2.015.252 2.864.756a5.81 5.81 0 0 1 2.034 2.01.793.793 0 0 1 .031.795c-.132.27-.344.47-.633.603-.282.116-.56.123-.834.021a1.562 1.562 0 0 1-.696-.52 3.465 3.465 0 0 0-1.192-1.01 3.339 3.339 0 0 0-1.574-.38c-.93 0-1.724.327-2.38.98-.655.654-.983 1.448-.983 2.383 0 .788.187 1.45.559 1.985.372.535.77 1.183 1.195 1.943h3.109c.32 0 .589.11.808.33.22.22.33.489.33.808 0 .32-.11.588-.33.808-.22.22-.489.33-.808.33h-2.314c.03.133.05.28.06.438.01.16.015.322.015.49 0 .793-.135 1.513-.404 2.16a6.57 6.57 0 0 1-1.018 1.702h4.661c.548 0 .997-.131 1.347-.394.351-.263.58-.63.69-1.1.07-.287.198-.53.382-.731.184-.201.427-.302.73-.302.32 0 .584.11.796.327.21.217.316.486.316.805 0 1.06-.467 1.937-1.401 2.63-.934.694-1.887 1.04-2.86 1.04h-7Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Payment Amount
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 100.00
               </mock-styled.p>
@@ -1917,22 +2036,52 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+              classname="el-mr4 el-icon-size-medium"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  clip-path="url(#listInfographic_svg__a)"
+                >
+                  <path
+                    d="M15.669 0H4.33C3.601 0 3 .578 3 1.28v13.23c0 .702.601 1.28 1.331 1.28h.795C5.255 13.313 7.402 11.33 10 11.33c2.62 0 4.767 1.982 4.874 4.459h.795c.73 0 1.331-.578 1.331-1.28V1.28C17 .578 16.399 0 15.669 0Z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M10 10c-2.759 0-5 2.241-5 5s2.241 5 5 5 5-2.241 5-5-2.241-5-5-5Zm2.27 4.511-2.414 2.414a.785.785 0 0 1-.546.23.785.785 0 0 1-.546-.23l-1.207-1.207c-.316-.316-.316-.804 0-1.092.316-.316.805-.316 1.092 0l.661.661 1.868-1.868c.316-.316.804-.316 1.092 0 .316.288.316.776 0 1.092Z"
+                    fill="#798da1"
+                  />
+                  <path
+                    d="m12.27 14.511-2.414 2.414a.785.785 0 0 1-.546.23.785.785 0 0 1-.546-.23l-1.207-1.207c-.316-.316-.316-.804 0-1.092.316-.316.805-.316 1.092 0l.661.661 1.868-1.868c.316-.316.804-.316 1.092 0 .316.288.316.776 0 1.092ZM6.77 3.158c-.595 0-1.078.471-1.078 1.053 0 .58.483 1.052 1.077 1.052h6.462c.595 0 1.077-.471 1.077-1.052 0-.582-.482-1.053-1.077-1.053H6.769ZM6.77 6.316c-.595 0-1.078.471-1.078 1.052 0 .582.483 1.053 1.077 1.053h6.462c.595 0 1.077-.471 1.077-1.053 0-.58-.482-1.052-1.077-1.052H6.769Z"
+                    fill="#fff"
+                  />
+                </g>
+                <defs>
+                  <clippath
+                    id="listInfographic_svg__a"
+                  >
+                    <path
+                      d="M0 0h20v20H0z"
+                      fill="#fff"
+                      transform="matrix(-1 0 0 1 20 0)"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Reason For Payment
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 Tenancy Check Fee
               </mock-styled.p>
@@ -1946,23 +2095,67 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+              classname="el-mr4 el-icon-size-medium"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  clip-path="url(#applicantInfographic_svg__a)"
+                >
+                  <circle
+                    cx="10"
+                    cy="10"
+                    fill="#798da1"
+                    r="10"
+                  />
+                  <path
+                    d="M15.43 15.606v1.385a.282.282 0 0 1-.282.282H4.852a.282.282 0 0 1-.282-.282v-1.385a2.63 2.63 0 0 1 2.63-2.63 1.46 1.46 0 0 0 1.226-.664c.261-.402.234-.752.234-1.034l.005-.013A3.491 3.491 0 0 1 6.51 8.04v-.11a.87.87 0 0 1-.881-.866V5.597c-.012-.51.012-2.31 1.311-3.562C8.451.578 10.846.697 12.581 1.477a.07.07 0 0 1-.003.13l-.452.186c-.068.027-.054.127.02.135l.219.024A3.56 3.56 0 0 1 15 3.586a.076.076 0 0 1-.01.087c-.373.395-.582.92-.582 1.466v1.924a.866.866 0 0 1-.865.865h-.052v.11c0 1.456-.89 2.703-2.156 3.227l.005.013c0 .274-.03.628.235 1.034.26.4.712.664 1.225.665a2.63 2.63 0 0 1 2.63 2.63Z"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M15 3.586a.075.075 0 0 1-.01.087c-.373.396-.582.92-.582 1.466v1.924c0 .437-.33.865-.917.865V5.75c0-.935-.758-1.692-1.693-1.692H8.202c-.935 0-1.693.757-1.693 1.692v2.178a.87.87 0 0 1-.882-.865V5.597c-.01-.51.012-2.31 1.312-3.562C8.45.578 10.846.697 12.58 1.477a.07.07 0 0 1-.002.13l-.452.186c-.068.028-.054.127.019.135l.22.024a3.558 3.558 0 0 1 2.634 1.634ZM4.57 18.399v-2.793a2.63 2.63 0 0 1 2.63-2.63 1.46 1.46 0 0 0 1.226-.664 2.42 2.42 0 0 0 3.149 0c.26.4.712.665 1.225.665a2.63 2.63 0 0 1 2.63 2.63v2.791A9.953 9.953 0 0 1 10 20a9.954 9.954 0 0 1-5.43-1.601Z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M13.49 8.039a3.491 3.491 0 0 1-3.49 3.49c-1.816 0-3.491-1.411-3.491-3.6V5.75c0-.935.758-1.692 1.693-1.692h3.596c.935 0 1.693.757 1.693 1.692V8.04Z"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M8.62 13.829c-.13.04-.27.063-.42.065-1.456.012-2.643 1.164-2.643 2.62v.265a.494.494 0 0 1-.494.494h-.211a.282.282 0 0 1-.282-.282v-1.385a2.63 2.63 0 0 1 2.63-2.63 1.46 1.46 0 0 0 1.226-.664c.104.09.217.17.335.24.52.31.437 1.095-.14 1.277ZM12.578 1.606c-.415.171-.474.209-.617.186-2.316-.359-4.348.6-5.038 2.85a1.685 1.685 0 0 0-.414 1.108v1.323c0 .571-.882.61-.882-.01V5.597c-.01-.51.012-2.31 1.312-3.562C8.45.578 10.845.697 12.58 1.477a.07.07 0 0 1-.002.13Z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M10 16a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1Z"
+                    fill="#fff"
+                  />
+                </g>
+                <defs>
+                  <clippath
+                    id="applicantInfographic_svg__a"
+                  >
+                    <path
+                      d="M0 0h20v20H0z"
+                      fill="#fff"
+                      transform="matrix(-1 0 0 1 20 0)"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Customer
                 , Ref: OXF12300101
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 Mr John Smith
               </mock-styled.p>
@@ -1976,22 +2169,57 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+              classname="el-mr4 el-icon-size-medium"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 40 40"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.126 11.982a.63.63 0 0 0-.81.613v4.632c0 3.312 1.984 6.15 4.803 7.343 5.098 2.163 10.746-1.679 10.746-7.343 0-1.465.015-2.505.02-3.402.016-2.493-2.242-4.442-4.731-3.832-2.228.547-3.002 1.64-5.733 2.248-1.552.344-3.029.14-4.295-.259Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M8.857 28.466c1.144 0 2.15-.602 2.73-1.514.535-.84.529-1.584.523-2.182v-.17l.01-.03c-2.818-1.192-4.801-4.03-4.801-7.343v-.251c-1.13 0-2.042-.936-2.042-2.086v-4.263a4.91 4.91 0 0 0-1.357-3.4.05.05 0 0 1-.008-.058C5.005 5.266 7.195 3.66 9.827 3.373l.49-.054c.161-.018.193-.245.043-.308l-1.008-.424c-.127-.054-.131-.237-.005-.295C13.21.518 18.544.247 21.909 3.562c2.895 2.852 2.947 6.947 2.922 8.109v3.335c0 1.066-.844 1.97-1.963 1.97v.25c0 3.313-1.983 6.152-4.802 7.345l.011.03v.164c-.005.612-.01 1.35.522 2.188.03.046.061.092.093.137a12.658 12.658 0 0 0-.811 4.473C12.109 34 6.2 33 8.857 28.466Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M3.914 7.169a.05.05 0 0 0 .008.058 4.914 4.914 0 0 1 1.357 3.4v4.263c0 1.15.911 2.086 2.041 2.086v-4.38c0-.431.407-.74.81-.614 1.266.398 2.743.603 4.295.259 2.73-.607 3.504-1.701 5.732-2.248 2.49-.61 4.747 1.339 4.731 3.832-.004.82-.018 1.843-.02 3.15 1.12 0 1.964-.903 1.964-1.969v-3.335c.025-1.162-.027-5.257-2.921-8.109C18.545.247 13.21.518 9.348 2.292a.162.162 0 0 0 .005.295l1.008.424c.15.064.119.29-.043.308l-.49.054c-2.632.287-4.822 1.893-5.914 3.796Z"
+                  fill="#506478"
+                />
+                <path
+                  d="M2.998 32.2v2.205c0 2.343 4.502 5.608 12.27 5.608 8.732 0 11.917-3.252 11.917-5.608V32.2c0-2.313-2.623-4.187-5.857-4.188-1.144 0-2.151-.421-2.73-1.059-2.023 1.236-4.99 1.236-7.013 0-.58.638-1.586 1.059-2.73 1.06-3.235 0-5.857 1.874-5.857 4.187Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M20.107 37a1 1 0 0 0 1 1h12.737a1 1 0 0 0 1-1V26.662l-7.368-5.504-7.369 5.504V37Z"
+                  fill="#d8dee4"
+                />
+                <path
+                  d="M35.893 28.526c.95 0 1.414-1.205.726-1.886l-8.42-8.338a1.023 1.023 0 0 0-1.451 0l-8.42 8.338c-.687.68-.223 1.886.727 1.886h16.838Z"
+                  fill="#9faebc"
+                />
+                <path
+                  d="M24.844 30.632h5.263c.582 0 1.053.47 1.053 1.052V38h-7.368v-6.316c0-.581.47-1.052 1.052-1.052Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M25.897 32.21h3.158c.29 0 .526.236.526.527V38h-4.21v-5.263c0-.29.235-.527.526-.527Z"
+                  fill="#9faebc"
+                />
+              </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Customer Address
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 1 Test House Test Lane County of Test Test City A11 2BB
               </mock-styled.p>
@@ -2005,22 +2233,33 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+              classname="el-mr4 el-icon-size-medium"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.466 11.791a.794.794 0 0 0 .533.209.795.795 0 0 0 .534-.209L20 4c0-.5-.636-1-.969-1H.97C.636 3 0 3.5 0 4l9.466 7.791Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M11.394 10.792a2.057 2.057 0 0 1-1.393.552 2.057 2.057 0 0 1-1.393-.552L1 3c-.5 0-1 .5-1 1v10.871c0 .607.226 1.188.628 1.616.402.429.946.67 1.515.67h15.714c.569 0 1.114-.241 1.515-.67.402-.428.628-1.01.628-1.615V4c0-.5-.5-1-1-1l-7.606 7.792Z"
+                  fill="#d8dee4"
+                />
+              </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Customer Email
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 <a
                   href="mailto:example@email.com"
@@ -2038,23 +2277,56 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+              classname="el-mr4 el-icon-size-medium"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  clip-path="url(#houseInfographic_svg__a)"
+                >
+                  <path
+                    d="M2 20h16V7.882L10 2 2 7.882V20Z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M1.221 10 10 2.657 18.779 10 20 8.365 10 0 0 8.365 1.221 10Z"
+                    fill="#798da1"
+                  />
+                  <path
+                    d="M6 12h8v8H6v-8Z"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M8 14h4v6H8v-6Z"
+                    fill="#798da1"
+                  />
+                </g>
+                <defs>
+                  <clippath
+                    id="houseInfographic_svg__a"
+                  >
+                    <path
+                      d="M0 0h20v20H0z"
+                      fill="#fff"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Property
                 , Ref: OXF200008
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 15 Example street Solihull West Midlands B91 2XX
               </mock-styled.p>
@@ -2063,21 +2335,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <form
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        class="el-fade-in"
       >
         <mock-styled.h2
           classname=""
@@ -2085,7 +2343,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           Billing Details
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -3458,64 +3716,50 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
           Card Details
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
+          classname="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname="mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
           </div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <div
-              class="mock-css.
-  margin-bottom: 0.375rem;
-"
+              class="el-mb2"
             >
               <mock-styled.label>
                 Card Type
               </mock-styled.label>
             </div>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+              classname="el-mb2"
             >
               <mock-styled.input
                 classname=""
@@ -3531,9 +3775,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
               </mock-styled.label>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+              classname="el-mb2"
             >
               <mock-styled.input
                 classname=""
@@ -3645,7 +3887,7 @@ exports[`PaymentPageContent should match a snapshot when has a session 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="true"
               type="submit"
             >
@@ -3718,29 +3960,24 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        class="el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-primary el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div
@@ -3759,9 +3996,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
           , Ref: PAY20000001
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
         >
           <mock-styled.div
             classname=""
@@ -3770,24 +4005,29 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.625rem;
- mock-css. mock-css.
-  font-size: 1.5rem;
- mock-css.
-  font-size: 2.5rem;
-"
+                classname="el-mr4 el-intent-default el-icon-new el-icon-size-medium"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.988 21.203c-.32 0-.589-.11-.808-.33-.22-.219-.33-.488-.33-.807v-.462c0-.207.047-.396.14-.566.094-.17.219-.305.376-.404a5.088 5.088 0 0 0 1.517-1.512 3.696 3.696 0 0 0 .591-2.056 4.002 4.002 0 0 0-.113-.928H6.81c-.32 0-.589-.11-.809-.33-.22-.22-.329-.489-.329-.808 0-.32.11-.589.33-.808.219-.22.488-.33.808-.33h.428a20.448 20.448 0 0 1-.94-1.704c-.298-.603-.447-1.344-.447-2.224 0-1.573.547-2.906 1.64-3.998 1.092-1.093 2.425-1.64 3.998-1.64 1.06 0 2.015.252 2.864.756a5.81 5.81 0 0 1 2.034 2.01.793.793 0 0 1 .031.795c-.132.27-.344.47-.633.603-.282.116-.56.123-.834.021a1.562 1.562 0 0 1-.696-.52 3.465 3.465 0 0 0-1.192-1.01 3.339 3.339 0 0 0-1.574-.38c-.93 0-1.724.327-2.38.98-.655.654-.983 1.448-.983 2.383 0 .788.187 1.45.559 1.985.372.535.77 1.183 1.195 1.943h3.109c.32 0 .589.11.808.33.22.22.33.489.33.808 0 .32-.11.588-.33.808-.22.22-.489.33-.808.33h-2.314c.03.133.05.28.06.438.01.16.015.322.015.49 0 .793-.135 1.513-.404 2.16a6.57 6.57 0 0 1-1.018 1.702h4.661c.548 0 .997-.131 1.347-.394.351-.263.58-.63.69-1.1.07-.287.198-.53.382-.731.184-.201.427-.302.73-.302.32 0 .584.11.796.327.21.217.316.486.316.805 0 1.06-.467 1.937-1.401 2.63-.934.694-1.887 1.04-2.86 1.04h-7Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
               <div>
                 <mock-styled.h2
-                  classname="mock-css."
+                  classname="el-has-no-margin"
                 >
                   Payment Amount
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css."
+                  classname="el-has-grey-text"
                 >
                   100.00
                 </mock-styled.p>
@@ -3801,22 +4041,52 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+                classname="el-mr4 el-icon-size-medium"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    clip-path="url(#listInfographic_svg__a)"
+                  >
+                    <path
+                      d="M15.669 0H4.33C3.601 0 3 .578 3 1.28v13.23c0 .702.601 1.28 1.331 1.28h.795C5.255 13.313 7.402 11.33 10 11.33c2.62 0 4.767 1.982 4.874 4.459h.795c.73 0 1.331-.578 1.331-1.28V1.28C17 .578 16.399 0 15.669 0Z"
+                      fill="#d8dee4"
+                    />
+                    <path
+                      d="M10 10c-2.759 0-5 2.241-5 5s2.241 5 5 5 5-2.241 5-5-2.241-5-5-5Zm2.27 4.511-2.414 2.414a.785.785 0 0 1-.546.23.785.785 0 0 1-.546-.23l-1.207-1.207c-.316-.316-.316-.804 0-1.092.316-.316.805-.316 1.092 0l.661.661 1.868-1.868c.316-.316.804-.316 1.092 0 .316.288.316.776 0 1.092Z"
+                      fill="#798da1"
+                    />
+                    <path
+                      d="m12.27 14.511-2.414 2.414a.785.785 0 0 1-.546.23.785.785 0 0 1-.546-.23l-1.207-1.207c-.316-.316-.316-.804 0-1.092.316-.316.805-.316 1.092 0l.661.661 1.868-1.868c.316-.316.804-.316 1.092 0 .316.288.316.776 0 1.092ZM6.77 3.158c-.595 0-1.078.471-1.078 1.053 0 .58.483 1.052 1.077 1.052h6.462c.595 0 1.077-.471 1.077-1.052 0-.582-.482-1.053-1.077-1.053H6.769ZM6.77 6.316c-.595 0-1.078.471-1.078 1.052 0 .582.483 1.053 1.077 1.053h6.462c.595 0 1.077-.471 1.077-1.053 0-.58-.482-1.052-1.077-1.052H6.769Z"
+                      fill="#fff"
+                    />
+                  </g>
+                  <defs>
+                    <clippath
+                      id="listInfographic_svg__a"
+                    >
+                      <path
+                        d="M0 0h20v20H0z"
+                        fill="#fff"
+                        transform="matrix(-1 0 0 1 20 0)"
+                      />
+                    </clippath>
+                  </defs>
+                </svg>
               </mock-styled.span>
               <div>
                 <mock-styled.h2
-                  classname="mock-css."
+                  classname="el-has-no-margin"
                 >
                   Reason For Payment
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css."
+                  classname="el-has-grey-text"
                 >
                   Tenancy Check Fee
                 </mock-styled.p>
@@ -3830,23 +4100,67 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+                classname="el-mr4 el-icon-size-medium"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    clip-path="url(#applicantInfographic_svg__a)"
+                  >
+                    <circle
+                      cx="10"
+                      cy="10"
+                      fill="#798da1"
+                      r="10"
+                    />
+                    <path
+                      d="M15.43 15.606v1.385a.282.282 0 0 1-.282.282H4.852a.282.282 0 0 1-.282-.282v-1.385a2.63 2.63 0 0 1 2.63-2.63 1.46 1.46 0 0 0 1.226-.664c.261-.402.234-.752.234-1.034l.005-.013A3.491 3.491 0 0 1 6.51 8.04v-.11a.87.87 0 0 1-.881-.866V5.597c-.012-.51.012-2.31 1.311-3.562C8.451.578 10.846.697 12.581 1.477a.07.07 0 0 1-.003.13l-.452.186c-.068.027-.054.127.02.135l.219.024A3.56 3.56 0 0 1 15 3.586a.076.076 0 0 1-.01.087c-.373.395-.582.92-.582 1.466v1.924a.866.866 0 0 1-.865.865h-.052v.11c0 1.456-.89 2.703-2.156 3.227l.005.013c0 .274-.03.628.235 1.034.26.4.712.664 1.225.665a2.63 2.63 0 0 1 2.63 2.63Z"
+                      fill="#fff"
+                    />
+                    <path
+                      d="M15 3.586a.075.075 0 0 1-.01.087c-.373.396-.582.92-.582 1.466v1.924c0 .437-.33.865-.917.865V5.75c0-.935-.758-1.692-1.693-1.692H8.202c-.935 0-1.693.757-1.693 1.692v2.178a.87.87 0 0 1-.882-.865V5.597c-.01-.51.012-2.31 1.312-3.562C8.45.578 10.846.697 12.58 1.477a.07.07 0 0 1-.002.13l-.452.186c-.068.028-.054.127.019.135l.22.024a3.558 3.558 0 0 1 2.634 1.634ZM4.57 18.399v-2.793a2.63 2.63 0 0 1 2.63-2.63 1.46 1.46 0 0 0 1.226-.664 2.42 2.42 0 0 0 3.149 0c.26.4.712.665 1.225.665a2.63 2.63 0 0 1 2.63 2.63v2.791A9.953 9.953 0 0 1 10 20a9.954 9.954 0 0 1-5.43-1.601Z"
+                      fill="#d8dee4"
+                    />
+                    <path
+                      d="M13.49 8.039a3.491 3.491 0 0 1-3.49 3.49c-1.816 0-3.491-1.411-3.491-3.6V5.75c0-.935.758-1.692 1.693-1.692h3.596c.935 0 1.693.757 1.693 1.692V8.04Z"
+                      fill="#fff"
+                    />
+                    <path
+                      d="M8.62 13.829c-.13.04-.27.063-.42.065-1.456.012-2.643 1.164-2.643 2.62v.265a.494.494 0 0 1-.494.494h-.211a.282.282 0 0 1-.282-.282v-1.385a2.63 2.63 0 0 1 2.63-2.63 1.46 1.46 0 0 0 1.226-.664c.104.09.217.17.335.24.52.31.437 1.095-.14 1.277ZM12.578 1.606c-.415.171-.474.209-.617.186-2.316-.359-4.348.6-5.038 2.85a1.685 1.685 0 0 0-.414 1.108v1.323c0 .571-.882.61-.882-.01V5.597c-.01-.51.012-2.31 1.312-3.562C8.45.578 10.845.697 12.58 1.477a.07.07 0 0 1-.002.13Z"
+                      fill="#d8dee4"
+                    />
+                    <path
+                      d="M10 16a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1Z"
+                      fill="#fff"
+                    />
+                  </g>
+                  <defs>
+                    <clippath
+                      id="applicantInfographic_svg__a"
+                    >
+                      <path
+                        d="M0 0h20v20H0z"
+                        fill="#fff"
+                        transform="matrix(-1 0 0 1 20 0)"
+                      />
+                    </clippath>
+                  </defs>
+                </svg>
               </mock-styled.span>
               <div>
                 <mock-styled.h2
-                  classname="mock-css."
+                  classname="el-has-no-margin"
                 >
                   Customer
                   , Ref: OXF12300101
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css."
+                  classname="el-has-grey-text"
                 >
                   Mr John Smith
                 </mock-styled.p>
@@ -3860,22 +4174,57 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+                classname="el-mr4 el-icon-size-medium"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 40 40"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.126 11.982a.63.63 0 0 0-.81.613v4.632c0 3.312 1.984 6.15 4.803 7.343 5.098 2.163 10.746-1.679 10.746-7.343 0-1.465.015-2.505.02-3.402.016-2.493-2.242-4.442-4.731-3.832-2.228.547-3.002 1.64-5.733 2.248-1.552.344-3.029.14-4.295-.259Z"
+                    fill="#FFE5C7"
+                  />
+                  <path
+                    d="M8.857 28.466c1.144 0 2.15-.602 2.73-1.514.535-.84.529-1.584.523-2.182v-.17l.01-.03c-2.818-1.192-4.801-4.03-4.801-7.343v-.251c-1.13 0-2.042-.936-2.042-2.086v-4.263a4.91 4.91 0 0 0-1.357-3.4.05.05 0 0 1-.008-.058C5.005 5.266 7.195 3.66 9.827 3.373l.49-.054c.161-.018.193-.245.043-.308l-1.008-.424c-.127-.054-.131-.237-.005-.295C13.21.518 18.544.247 21.909 3.562c2.895 2.852 2.947 6.947 2.922 8.109v3.335c0 1.066-.844 1.97-1.963 1.97v.25c0 3.313-1.983 6.152-4.802 7.345l.011.03v.164c-.005.612-.01 1.35.522 2.188.03.046.061.092.093.137a12.658 12.658 0 0 0-.811 4.473C12.109 34 6.2 33 8.857 28.466Z"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M3.914 7.169a.05.05 0 0 0 .008.058 4.914 4.914 0 0 1 1.357 3.4v4.263c0 1.15.911 2.086 2.041 2.086v-4.38c0-.431.407-.74.81-.614 1.266.398 2.743.603 4.295.259 2.73-.607 3.504-1.701 5.732-2.248 2.49-.61 4.747 1.339 4.731 3.832-.004.82-.018 1.843-.02 3.15 1.12 0 1.964-.903 1.964-1.969v-3.335c.025-1.162-.027-5.257-2.921-8.109C18.545.247 13.21.518 9.348 2.292a.162.162 0 0 0 .005.295l1.008.424c.15.064.119.29-.043.308l-.49.054c-2.632.287-4.822 1.893-5.914 3.796Z"
+                    fill="#506478"
+                  />
+                  <path
+                    d="M2.998 32.2v2.205c0 2.343 4.502 5.608 12.27 5.608 8.732 0 11.917-3.252 11.917-5.608V32.2c0-2.313-2.623-4.187-5.857-4.188-1.144 0-2.151-.421-2.73-1.059-2.023 1.236-4.99 1.236-7.013 0-.58.638-1.586 1.059-2.73 1.06-3.235 0-5.857 1.874-5.857 4.187Z"
+                    fill="#798da1"
+                  />
+                  <path
+                    d="M20.107 37a1 1 0 0 0 1 1h12.737a1 1 0 0 0 1-1V26.662l-7.368-5.504-7.369 5.504V37Z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M35.893 28.526c.95 0 1.414-1.205.726-1.886l-8.42-8.338a1.023 1.023 0 0 0-1.451 0l-8.42 8.338c-.687.68-.223 1.886.727 1.886h16.838Z"
+                    fill="#9faebc"
+                  />
+                  <path
+                    d="M24.844 30.632h5.263c.582 0 1.053.47 1.053 1.052V38h-7.368v-6.316c0-.581.47-1.052 1.052-1.052Z"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M25.897 32.21h3.158c.29 0 .526.236.526.527V38h-4.21v-5.263c0-.29.235-.527.526-.527Z"
+                    fill="#9faebc"
+                  />
+                </svg>
               </mock-styled.span>
               <div>
                 <mock-styled.h2
-                  classname="mock-css."
+                  classname="el-has-no-margin"
                 >
                   Customer Address
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css."
+                  classname="el-has-grey-text"
                 >
                   1 Test House Test Lane County of Test Test City A11 2BB
                 </mock-styled.p>
@@ -3889,22 +4238,33 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+                classname="el-mr4 el-icon-size-medium"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.466 11.791a.794.794 0 0 0 .533.209.795.795 0 0 0 .534-.209L20 4c0-.5-.636-1-.969-1H.97C.636 3 0 3.5 0 4l9.466 7.791Z"
+                    fill="#798da1"
+                  />
+                  <path
+                    d="M11.394 10.792a2.057 2.057 0 0 1-1.393.552 2.057 2.057 0 0 1-1.393-.552L1 3c-.5 0-1 .5-1 1v10.871c0 .607.226 1.188.628 1.616.402.429.946.67 1.515.67h15.714c.569 0 1.114-.241 1.515-.67.402-.428.628-1.01.628-1.615V4c0-.5-.5-1-1-1l-7.606 7.792Z"
+                    fill="#d8dee4"
+                  />
+                </svg>
               </mock-styled.span>
               <div>
                 <mock-styled.h2
-                  classname="mock-css."
+                  classname="el-has-no-margin"
                 >
                   Customer Email
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css."
+                  classname="el-has-grey-text"
                 >
                   <a
                     href="mailto:example@email.com"
@@ -3922,23 +4282,56 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+                classname="el-mr4 el-icon-size-medium"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    clip-path="url(#houseInfographic_svg__a)"
+                  >
+                    <path
+                      d="M2 20h16V7.882L10 2 2 7.882V20Z"
+                      fill="#d8dee4"
+                    />
+                    <path
+                      d="M1.221 10 10 2.657 18.779 10 20 8.365 10 0 0 8.365 1.221 10Z"
+                      fill="#798da1"
+                    />
+                    <path
+                      d="M6 12h8v8H6v-8Z"
+                      fill="#fff"
+                    />
+                    <path
+                      d="M8 14h4v6H8v-6Z"
+                      fill="#798da1"
+                    />
+                  </g>
+                  <defs>
+                    <clippath
+                      id="houseInfographic_svg__a"
+                    >
+                      <path
+                        d="M0 0h20v20H0z"
+                        fill="#fff"
+                      />
+                    </clippath>
+                  </defs>
+                </svg>
               </mock-styled.span>
               <div>
                 <mock-styled.h2
-                  classname="mock-css."
+                  classname="el-has-no-margin"
                 >
                   Property
                   , Ref: OXF200008
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css."
+                  classname="el-has-grey-text"
                 >
                   15 Example street Solihull West Midlands B91 2XX
                 </mock-styled.p>
@@ -3947,21 +4340,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <form
-          class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+          class="el-fade-in"
         >
           <mock-styled.h2
             classname=""
@@ -3969,7 +4348,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             Billing Details
           </mock-styled.h2>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-form-layout-has-margin"
           >
             <mock-styled.div>
               <mock-styled.div>
@@ -5342,64 +5721,50 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             Card Details
           </mock-styled.h2>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
+            classname="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
           >
             <div
-              class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+              class="el-pn-icon"
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname="mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-icon-new"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </div>
             <div
-              class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+              class="el-pn-content"
             >
               Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
             </div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-form-layout-has-margin"
           >
             <mock-styled.div>
               <div
-                class="mock-css.
-  margin-bottom: 0.375rem;
-"
+                class="el-mb2"
               >
                 <mock-styled.label>
                   Card Type
                 </mock-styled.label>
               </div>
               <mock-styled.div
-                classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+                classname="el-mb2"
               >
                 <mock-styled.input
                   classname=""
@@ -5415,9 +5780,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
                 </mock-styled.label>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+                classname="el-mb2"
               >
                 <mock-styled.input
                   classname=""
@@ -5529,7 +5892,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
               classname=""
             >
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
                 disabled="true"
                 type="submit"
               >
@@ -5545,29 +5908,24 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      class="el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-intent-primary el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div
@@ -5586,9 +5944,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
         , Ref: PAY20000001
       </mock-styled.h2>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       >
         <mock-styled.div
           classname=""
@@ -5597,24 +5953,29 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.625rem;
- mock-css. mock-css.
-  font-size: 1.5rem;
- mock-css.
-  font-size: 2.5rem;
-"
+              classname="el-mr4 el-intent-default el-icon-new el-icon-size-medium"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.988 21.203c-.32 0-.589-.11-.808-.33-.22-.219-.33-.488-.33-.807v-.462c0-.207.047-.396.14-.566.094-.17.219-.305.376-.404a5.088 5.088 0 0 0 1.517-1.512 3.696 3.696 0 0 0 .591-2.056 4.002 4.002 0 0 0-.113-.928H6.81c-.32 0-.589-.11-.809-.33-.22-.22-.329-.489-.329-.808 0-.32.11-.589.33-.808.219-.22.488-.33.808-.33h.428a20.448 20.448 0 0 1-.94-1.704c-.298-.603-.447-1.344-.447-2.224 0-1.573.547-2.906 1.64-3.998 1.092-1.093 2.425-1.64 3.998-1.64 1.06 0 2.015.252 2.864.756a5.81 5.81 0 0 1 2.034 2.01.793.793 0 0 1 .031.795c-.132.27-.344.47-.633.603-.282.116-.56.123-.834.021a1.562 1.562 0 0 1-.696-.52 3.465 3.465 0 0 0-1.192-1.01 3.339 3.339 0 0 0-1.574-.38c-.93 0-1.724.327-2.38.98-.655.654-.983 1.448-.983 2.383 0 .788.187 1.45.559 1.985.372.535.77 1.183 1.195 1.943h3.109c.32 0 .589.11.808.33.22.22.33.489.33.808 0 .32-.11.588-.33.808-.22.22-.489.33-.808.33h-2.314c.03.133.05.28.06.438.01.16.015.322.015.49 0 .793-.135 1.513-.404 2.16a6.57 6.57 0 0 1-1.018 1.702h4.661c.548 0 .997-.131 1.347-.394.351-.263.58-.63.69-1.1.07-.287.198-.53.382-.731.184-.201.427-.302.73-.302.32 0 .584.11.796.327.21.217.316.486.316.805 0 1.06-.467 1.937-1.401 2.63-.934.694-1.887 1.04-2.86 1.04h-7Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Payment Amount
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 100.00
               </mock-styled.p>
@@ -5628,22 +5989,52 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+              classname="el-mr4 el-icon-size-medium"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  clip-path="url(#listInfographic_svg__a)"
+                >
+                  <path
+                    d="M15.669 0H4.33C3.601 0 3 .578 3 1.28v13.23c0 .702.601 1.28 1.331 1.28h.795C5.255 13.313 7.402 11.33 10 11.33c2.62 0 4.767 1.982 4.874 4.459h.795c.73 0 1.331-.578 1.331-1.28V1.28C17 .578 16.399 0 15.669 0Z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M10 10c-2.759 0-5 2.241-5 5s2.241 5 5 5 5-2.241 5-5-2.241-5-5-5Zm2.27 4.511-2.414 2.414a.785.785 0 0 1-.546.23.785.785 0 0 1-.546-.23l-1.207-1.207c-.316-.316-.316-.804 0-1.092.316-.316.805-.316 1.092 0l.661.661 1.868-1.868c.316-.316.804-.316 1.092 0 .316.288.316.776 0 1.092Z"
+                    fill="#798da1"
+                  />
+                  <path
+                    d="m12.27 14.511-2.414 2.414a.785.785 0 0 1-.546.23.785.785 0 0 1-.546-.23l-1.207-1.207c-.316-.316-.316-.804 0-1.092.316-.316.805-.316 1.092 0l.661.661 1.868-1.868c.316-.316.804-.316 1.092 0 .316.288.316.776 0 1.092ZM6.77 3.158c-.595 0-1.078.471-1.078 1.053 0 .58.483 1.052 1.077 1.052h6.462c.595 0 1.077-.471 1.077-1.052 0-.582-.482-1.053-1.077-1.053H6.769ZM6.77 6.316c-.595 0-1.078.471-1.078 1.052 0 .582.483 1.053 1.077 1.053h6.462c.595 0 1.077-.471 1.077-1.053 0-.58-.482-1.052-1.077-1.052H6.769Z"
+                    fill="#fff"
+                  />
+                </g>
+                <defs>
+                  <clippath
+                    id="listInfographic_svg__a"
+                  >
+                    <path
+                      d="M0 0h20v20H0z"
+                      fill="#fff"
+                      transform="matrix(-1 0 0 1 20 0)"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Reason For Payment
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 Tenancy Check Fee
               </mock-styled.p>
@@ -5657,23 +6048,67 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+              classname="el-mr4 el-icon-size-medium"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  clip-path="url(#applicantInfographic_svg__a)"
+                >
+                  <circle
+                    cx="10"
+                    cy="10"
+                    fill="#798da1"
+                    r="10"
+                  />
+                  <path
+                    d="M15.43 15.606v1.385a.282.282 0 0 1-.282.282H4.852a.282.282 0 0 1-.282-.282v-1.385a2.63 2.63 0 0 1 2.63-2.63 1.46 1.46 0 0 0 1.226-.664c.261-.402.234-.752.234-1.034l.005-.013A3.491 3.491 0 0 1 6.51 8.04v-.11a.87.87 0 0 1-.881-.866V5.597c-.012-.51.012-2.31 1.311-3.562C8.451.578 10.846.697 12.581 1.477a.07.07 0 0 1-.003.13l-.452.186c-.068.027-.054.127.02.135l.219.024A3.56 3.56 0 0 1 15 3.586a.076.076 0 0 1-.01.087c-.373.395-.582.92-.582 1.466v1.924a.866.866 0 0 1-.865.865h-.052v.11c0 1.456-.89 2.703-2.156 3.227l.005.013c0 .274-.03.628.235 1.034.26.4.712.664 1.225.665a2.63 2.63 0 0 1 2.63 2.63Z"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M15 3.586a.075.075 0 0 1-.01.087c-.373.396-.582.92-.582 1.466v1.924c0 .437-.33.865-.917.865V5.75c0-.935-.758-1.692-1.693-1.692H8.202c-.935 0-1.693.757-1.693 1.692v2.178a.87.87 0 0 1-.882-.865V5.597c-.01-.51.012-2.31 1.312-3.562C8.45.578 10.846.697 12.58 1.477a.07.07 0 0 1-.002.13l-.452.186c-.068.028-.054.127.019.135l.22.024a3.558 3.558 0 0 1 2.634 1.634ZM4.57 18.399v-2.793a2.63 2.63 0 0 1 2.63-2.63 1.46 1.46 0 0 0 1.226-.664 2.42 2.42 0 0 0 3.149 0c.26.4.712.665 1.225.665a2.63 2.63 0 0 1 2.63 2.63v2.791A9.953 9.953 0 0 1 10 20a9.954 9.954 0 0 1-5.43-1.601Z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M13.49 8.039a3.491 3.491 0 0 1-3.49 3.49c-1.816 0-3.491-1.411-3.491-3.6V5.75c0-.935.758-1.692 1.693-1.692h3.596c.935 0 1.693.757 1.693 1.692V8.04Z"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M8.62 13.829c-.13.04-.27.063-.42.065-1.456.012-2.643 1.164-2.643 2.62v.265a.494.494 0 0 1-.494.494h-.211a.282.282 0 0 1-.282-.282v-1.385a2.63 2.63 0 0 1 2.63-2.63 1.46 1.46 0 0 0 1.226-.664c.104.09.217.17.335.24.52.31.437 1.095-.14 1.277ZM12.578 1.606c-.415.171-.474.209-.617.186-2.316-.359-4.348.6-5.038 2.85a1.685 1.685 0 0 0-.414 1.108v1.323c0 .571-.882.61-.882-.01V5.597c-.01-.51.012-2.31 1.312-3.562C8.45.578 10.845.697 12.58 1.477a.07.07 0 0 1-.002.13Z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M10 16a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1Z"
+                    fill="#fff"
+                  />
+                </g>
+                <defs>
+                  <clippath
+                    id="applicantInfographic_svg__a"
+                  >
+                    <path
+                      d="M0 0h20v20H0z"
+                      fill="#fff"
+                      transform="matrix(-1 0 0 1 20 0)"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Customer
                 , Ref: OXF12300101
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 Mr John Smith
               </mock-styled.p>
@@ -5687,22 +6122,57 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+              classname="el-mr4 el-icon-size-medium"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 40 40"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.126 11.982a.63.63 0 0 0-.81.613v4.632c0 3.312 1.984 6.15 4.803 7.343 5.098 2.163 10.746-1.679 10.746-7.343 0-1.465.015-2.505.02-3.402.016-2.493-2.242-4.442-4.731-3.832-2.228.547-3.002 1.64-5.733 2.248-1.552.344-3.029.14-4.295-.259Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M8.857 28.466c1.144 0 2.15-.602 2.73-1.514.535-.84.529-1.584.523-2.182v-.17l.01-.03c-2.818-1.192-4.801-4.03-4.801-7.343v-.251c-1.13 0-2.042-.936-2.042-2.086v-4.263a4.91 4.91 0 0 0-1.357-3.4.05.05 0 0 1-.008-.058C5.005 5.266 7.195 3.66 9.827 3.373l.49-.054c.161-.018.193-.245.043-.308l-1.008-.424c-.127-.054-.131-.237-.005-.295C13.21.518 18.544.247 21.909 3.562c2.895 2.852 2.947 6.947 2.922 8.109v3.335c0 1.066-.844 1.97-1.963 1.97v.25c0 3.313-1.983 6.152-4.802 7.345l.011.03v.164c-.005.612-.01 1.35.522 2.188.03.046.061.092.093.137a12.658 12.658 0 0 0-.811 4.473C12.109 34 6.2 33 8.857 28.466Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M3.914 7.169a.05.05 0 0 0 .008.058 4.914 4.914 0 0 1 1.357 3.4v4.263c0 1.15.911 2.086 2.041 2.086v-4.38c0-.431.407-.74.81-.614 1.266.398 2.743.603 4.295.259 2.73-.607 3.504-1.701 5.732-2.248 2.49-.61 4.747 1.339 4.731 3.832-.004.82-.018 1.843-.02 3.15 1.12 0 1.964-.903 1.964-1.969v-3.335c.025-1.162-.027-5.257-2.921-8.109C18.545.247 13.21.518 9.348 2.292a.162.162 0 0 0 .005.295l1.008.424c.15.064.119.29-.043.308l-.49.054c-2.632.287-4.822 1.893-5.914 3.796Z"
+                  fill="#506478"
+                />
+                <path
+                  d="M2.998 32.2v2.205c0 2.343 4.502 5.608 12.27 5.608 8.732 0 11.917-3.252 11.917-5.608V32.2c0-2.313-2.623-4.187-5.857-4.188-1.144 0-2.151-.421-2.73-1.059-2.023 1.236-4.99 1.236-7.013 0-.58.638-1.586 1.059-2.73 1.06-3.235 0-5.857 1.874-5.857 4.187Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M20.107 37a1 1 0 0 0 1 1h12.737a1 1 0 0 0 1-1V26.662l-7.368-5.504-7.369 5.504V37Z"
+                  fill="#d8dee4"
+                />
+                <path
+                  d="M35.893 28.526c.95 0 1.414-1.205.726-1.886l-8.42-8.338a1.023 1.023 0 0 0-1.451 0l-8.42 8.338c-.687.68-.223 1.886.727 1.886h16.838Z"
+                  fill="#9faebc"
+                />
+                <path
+                  d="M24.844 30.632h5.263c.582 0 1.053.47 1.053 1.052V38h-7.368v-6.316c0-.581.47-1.052 1.052-1.052Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M25.897 32.21h3.158c.29 0 .526.236.526.527V38h-4.21v-5.263c0-.29.235-.527.526-.527Z"
+                  fill="#9faebc"
+                />
+              </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Customer Address
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 1 Test House Test Lane County of Test Test City A11 2BB
               </mock-styled.p>
@@ -5716,22 +6186,33 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+              classname="el-mr4 el-icon-size-medium"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.466 11.791a.794.794 0 0 0 .533.209.795.795 0 0 0 .534-.209L20 4c0-.5-.636-1-.969-1H.97C.636 3 0 3.5 0 4l9.466 7.791Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M11.394 10.792a2.057 2.057 0 0 1-1.393.552 2.057 2.057 0 0 1-1.393-.552L1 3c-.5 0-1 .5-1 1v10.871c0 .607.226 1.188.628 1.616.402.429.946.67 1.515.67h15.714c.569 0 1.114-.241 1.515-.67.402-.428.628-1.01.628-1.615V4c0-.5-.5-1-1-1l-7.606 7.792Z"
+                  fill="#d8dee4"
+                />
+              </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Customer Email
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 <a
                   href="mailto:example@email.com"
@@ -5749,23 +6230,56 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.625rem;
- mock-css.
-  font-size: 2.5rem;
-"
+              classname="el-mr4 el-icon-size-medium"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  clip-path="url(#houseInfographic_svg__a)"
+                >
+                  <path
+                    d="M2 20h16V7.882L10 2 2 7.882V20Z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M1.221 10 10 2.657 18.779 10 20 8.365 10 0 0 8.365 1.221 10Z"
+                    fill="#798da1"
+                  />
+                  <path
+                    d="M6 12h8v8H6v-8Z"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M8 14h4v6H8v-6Z"
+                    fill="#798da1"
+                  />
+                </g>
+                <defs>
+                  <clippath
+                    id="houseInfographic_svg__a"
+                  >
+                    <path
+                      d="M0 0h20v20H0z"
+                      fill="#fff"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Property
                 , Ref: OXF200008
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 15 Example street Solihull West Midlands B91 2XX
               </mock-styled.p>
@@ -5774,21 +6288,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <form
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        class="el-fade-in"
       >
         <mock-styled.h2
           classname=""
@@ -5796,7 +6296,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
           Billing Details
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -7169,64 +7669,50 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
           Card Details
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css. mock-css. mock-css. mock-css."
+          classname="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname="mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
           </div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <div
-              class="mock-css.
-  margin-bottom: 0.375rem;
-"
+              class="el-mb2"
             >
               <mock-styled.label>
                 Card Type
               </mock-styled.label>
             </div>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+              classname="el-mb2"
             >
               <mock-styled.input
                 classname=""
@@ -7242,9 +7728,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
               </mock-styled.label>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.375rem;
-"
+              classname="el-mb2"
             >
               <mock-styled.input
                 classname=""
@@ -7356,7 +7840,7 @@ exports[`PaymentPageContent should match a snapshot when has no session 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="true"
               type="submit"
             >

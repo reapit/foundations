@@ -7,38 +7,16 @@ exports[`FeaturedAppsCollection should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-fade-in"
       >
         <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+          classname="el-flex-justify-between"
         >
           <mock-styled.div
-            classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+            classname="el-flex-column el-flex-justify-center"
           >
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.25rem;
-"
+              classname="el-mb1"
             >
               <mock-styled.div
                 style="font-size: 1.25em; width: 32px; height: 32px;"
@@ -67,38 +45,16 @@ exports[`FeaturedAppsCollection should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-fade-in"
       >
         <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+          classname="el-flex-justify-between"
         >
           <mock-styled.div
-            classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+            classname="el-flex-column el-flex-justify-center"
           >
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.25rem;
-"
+              classname="el-mb1"
             >
               <mock-styled.div
                 style="font-size: 1.25em; width: 32px; height: 32px;"
@@ -131,38 +87,16 @@ exports[`FeaturedAppsCollection should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-fade-in"
     >
       <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+        classname="el-flex-justify-between"
       >
         <mock-styled.div
-          classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+          classname="el-flex-column el-flex-justify-center"
         >
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.25rem;
-"
+            classname="el-mb1"
           >
             <mock-styled.div
               style="font-size: 1.25em; width: 32px; height: 32px;"
@@ -191,38 +125,16 @@ exports[`FeaturedAppsCollection should match a snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-fade-in"
     >
       <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+        classname="el-flex-justify-between"
       >
         <mock-styled.div
-          classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+          classname="el-flex-column el-flex-justify-center"
         >
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.25rem;
-"
+            classname="el-mb1"
           >
             <mock-styled.div
               style="font-size: 1.25em; width: 32px; height: 32px;"

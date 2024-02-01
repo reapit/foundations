@@ -7,9 +7,7 @@ exports[`AuthOptionsContent should match a snapshot 1`] = `
     <div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <mock-styled.input
             classname=""
@@ -22,7 +20,7 @@ exports[`AuthOptionsContent should match a snapshot 1`] = `
             Login Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -39,7 +37,7 @@ exports[`AuthOptionsContent should match a snapshot 1`] = `
             Logout Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -50,9 +48,7 @@ exports[`AuthOptionsContent should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+        classname="el-mb10"
       >
         <mock-styled.input
           classname=""
@@ -65,7 +61,7 @@ exports[`AuthOptionsContent should match a snapshot 1`] = `
           Login Redirect URI
         </mock-styled.label>
         <mock-styled.span
-          classname="mock-css."
+          classname="el-intent-danger"
         >
           Some error
         </mock-styled.span>
@@ -82,7 +78,7 @@ exports[`AuthOptionsContent should match a snapshot 1`] = `
           Logout Redirect URI
         </mock-styled.label>
         <mock-styled.span
-          classname="mock-css."
+          classname="el-intent-danger"
         >
           Some error
         </mock-styled.span>

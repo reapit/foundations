@@ -4,21 +4,11 @@ exports[`PageSelector should match a snapshot 1`] = `
 <DocumentFragment>
   <mock-styled.div />
   <div
-    class="mock-css.
-  flex: 1 1 0%;
- mock-css.
-  display: flex;
- mock-css.
-  align-items: center;
- mock-css.
-  justify-content: flex-start;
-"
+    class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
   >
     <mock-styled.div>
       <mock-styled.mock-styled.div
-        classname="mock-css.
-  margin: 0.375rem;
-"
+        classname="el-m2"
         isactive="true"
       >
         <svg

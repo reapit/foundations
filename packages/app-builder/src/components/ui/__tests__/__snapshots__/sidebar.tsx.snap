@@ -11,21 +11,13 @@ exports[`Sidebar should match a snapshot 1`] = `
     iscollapsed="false"
   >
     <div
-      class="mock-css.
-  display: flex;
- mock-css.
-  flex-direction: column;
- mock-css.
+      class="el-flex el-flex-column mock-css.
   overflow: auto;
 "
       style="height: calc(100vh - 45px); flex: 1;"
     >
       <mock-styled.div
-        classname="mock-css.
-  display: flex;
- mock-css.
-  flex-direction: column;
-"
+        classname="el-flex el-flex-column"
         expanded="true"
         height="100%"
       >
@@ -34,25 +26,10 @@ exports[`Sidebar should match a snapshot 1`] = `
   cursor: pointer;
  mock-css.
   background: white;
- mock-css.
-  border-bottom: 1px solid var(--color-grey-100, '#dbdbdb');
- mock-css.
-  display: flex;
- mock-css.
-  align-items: center;
- mock-css.
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-"
+ el-border-grey-b el-flex el-flex-align-center el-px3"
         >
           <div
-            class="mock-css.
-  display: flex;
- mock-css.
-  flex: 1 1 0%;
- mock-css.
-  align-items: center;
-"
+            class="el-flex el-flex1 el-flex-align-center"
           >
             <mock-styled.h2
               style="margin-bottom: 0px;"
@@ -74,11 +51,7 @@ exports[`Sidebar should match a snapshot 1`] = `
           </mock-styled.a>
         </mock-styled.div>
         <div
-          class="mock-css.
-  width: 100%;
- mock-css.
-  flex: 1 1 0%;
- mock-css.
+          class="el-wfull el-flex1 mock-css.
   overflow: auto;
 "
         >
@@ -89,27 +62,13 @@ exports[`Sidebar should match a snapshot 1`] = `
             <div
               class="mock-css.
   transition: all 0.3s;
- mock-css.
-  width: 100%;
- mock-css.
-  display: flex;
- mock-css.
-  flex-direction: row;
- mock-css.
-  flex-wrap: wrap;
- mock-css.
-  align-items: flex-start;
- mock-css.
-  justify-content: flex-start;
-"
+ el-w12 el-flex el-flex-row el-flex-wrap el-flex-align-start el-flex-justify-start"
             >
               <mock-styled.div
                 draggable="true"
               >
                 <mock-styled.div
-                  classname="mock-css.
-  margin: 0.5rem;
- mock-css.
+                  classname="el-m3 mock-css.
   display: block;
  mock-css.
   cursor: move;
@@ -198,9 +157,7 @@ exports[`Sidebar should match a snapshot 1`] = `
                 draggable="true"
               >
                 <mock-styled.div
-                  classname="mock-css.
-  margin: 0.5rem;
- mock-css.
+                  classname="el-m3 mock-css.
   display: block;
  mock-css.
   cursor: move;

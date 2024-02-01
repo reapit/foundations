@@ -7,9 +7,7 @@ exports[`SharesTable should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
@@ -32,11 +30,20 @@ exports[`SharesTable should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -45,7 +52,7 @@ exports[`SharesTable should match a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Data Set Name"
@@ -54,7 +61,7 @@ exports[`SharesTable should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Database"
@@ -63,7 +70,7 @@ exports[`SharesTable should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Schema"
@@ -72,7 +79,7 @@ exports[`SharesTable should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Warehouse"
@@ -81,7 +88,7 @@ exports[`SharesTable should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Region"
@@ -93,11 +100,20 @@ exports[`SharesTable should match a snapshot 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-intent-default el-icon-new"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -107,29 +123,29 @@ exports[`SharesTable should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-button-group-align-center"
                 >
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-neutral"
                   >
                     <mock-styled.div />
                     Copy URL
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-neutral"
                   >
                     <mock-styled.div />
                     Copy DSN
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                     disabled="false"
                   >
                     <mock-styled.div />
                     Refresh Share
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-danger"
                     disabled="false"
                   >
                     <mock-styled.div />
@@ -146,9 +162,7 @@ exports[`SharesTable should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
@@ -171,11 +185,20 @@ exports[`SharesTable should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-default el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -184,7 +207,7 @@ exports[`SharesTable should match a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Data Set Name"
@@ -193,7 +216,7 @@ exports[`SharesTable should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Database"
@@ -202,7 +225,7 @@ exports[`SharesTable should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Schema"
@@ -211,7 +234,7 @@ exports[`SharesTable should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Warehouse"
@@ -220,7 +243,7 @@ exports[`SharesTable should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Region"
@@ -232,11 +255,20 @@ exports[`SharesTable should match a snapshot 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -246,29 +278,29 @@ exports[`SharesTable should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-button-group-align-center"
               >
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-neutral"
                 >
                   <mock-styled.div />
                   Copy URL
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-neutral"
                 >
                   <mock-styled.div />
                   Copy DSN
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                   disabled="false"
                 >
                   <mock-styled.div />
                   Refresh Share
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-danger"
                   disabled="false"
                 >
                   <mock-styled.div />

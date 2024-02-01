@@ -19,9 +19,7 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
@@ -44,11 +42,20 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -57,15 +64,25 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.929 12.929a9.962 9.962 0 0 1 3.8-2.384 5.78 5.78 0 0 1-2.51-4.764A5.788 5.788 0 0 1 10 0a5.788 5.788 0 0 1 5.781 5.781c0 1.975-.995 3.721-2.51 4.764a9.962 9.962 0 0 1 3.8 2.384A9.935 9.935 0 0 1 20 20h-1.563c0-4.652-3.785-8.438-8.437-8.438-4.652 0-8.438 3.786-8.438 8.438H0a9.935 9.935 0 0 1 2.929-7.071ZM10 10a4.224 4.224 0 0 0 4.219-4.219A4.224 4.224 0 0 0 10 1.563 4.224 4.224 0 0 0 5.781 5.78 4.224 4.224 0 0 0 10 10Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Name"
@@ -74,28 +91,38 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Status"
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="el-intent-success"
                 />
                  
                 Active
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 20 16"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.125.5H1.875A1.877 1.877 0 0 0 0 2.375v11.25C0 14.659.841 15.5 1.875 15.5h16.25A1.877 1.877 0 0 0 20 13.625V2.375A1.877 1.877 0 0 0 18.125.5Zm0 1.25a.62.62 0 0 1 .24.048L10 9.048l-8.365-7.25a.622.622 0 0 1 .24-.048h16.25Zm0 12.5H1.875a.625.625 0 0 1-.625-.625V3.119l8.34 7.228a.624.624 0 0 0 .82 0l8.34-7.228v10.506c0 .345-.28.625-.625.625Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Email"
@@ -104,7 +131,7 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Role"
@@ -113,7 +140,7 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Main Contact"
@@ -125,11 +152,20 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-intent-default el-icon-new"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -139,10 +175,10 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-button-group-align-center"
                 >
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                     disabled="false"
                   >
                     <mock-styled.div />
@@ -150,27 +186,27 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
                     User
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                     disabled="false"
                   >
                     <mock-styled.div />
                     Invite Again
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                   >
                     <mock-styled.div />
                     Set As Main Contact
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-danger"
                     disabled="false"
                   >
                     <mock-styled.div />
                     Disable
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-danger"
                     disabled="false"
                   >
                     <mock-styled.div />
@@ -188,11 +224,20 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
         <mock-styled.div>
@@ -207,11 +252,20 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
@@ -222,15 +276,24 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
         classname=""
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
@@ -251,9 +314,7 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
@@ -276,11 +337,20 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-default el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -289,15 +359,25 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2.929 12.929a9.962 9.962 0 0 1 3.8-2.384 5.78 5.78 0 0 1-2.51-4.764A5.788 5.788 0 0 1 10 0a5.788 5.788 0 0 1 5.781 5.781c0 1.975-.995 3.721-2.51 4.764a9.962 9.962 0 0 1 3.8 2.384A9.935 9.935 0 0 1 20 20h-1.563c0-4.652-3.785-8.438-8.437-8.438-4.652 0-8.438 3.786-8.438 8.438H0a9.935 9.935 0 0 1 2.929-7.071ZM10 10a4.224 4.224 0 0 0 4.219-4.219A4.224 4.224 0 0 0 10 1.563 4.224 4.224 0 0 0 5.781 5.78 4.224 4.224 0 0 0 10 10Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Name"
@@ -306,28 +386,38 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Status"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-success"
               />
                
               Active
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 20 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.125.5H1.875A1.877 1.877 0 0 0 0 2.375v11.25C0 14.659.841 15.5 1.875 15.5h16.25A1.877 1.877 0 0 0 20 13.625V2.375A1.877 1.877 0 0 0 18.125.5Zm0 1.25a.62.62 0 0 1 .24.048L10 9.048l-8.365-7.25a.622.622 0 0 1 .24-.048h16.25Zm0 12.5H1.875a.625.625 0 0 1-.625-.625V3.119l8.34 7.228a.624.624 0 0 0 .82 0l8.34-7.228v10.506c0 .345-.28.625-.625.625Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Email"
@@ -336,7 +426,7 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Role"
@@ -345,7 +435,7 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Main Contact"
@@ -357,11 +447,20 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -371,10 +470,10 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-button-group-align-center"
               >
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                   disabled="false"
                 >
                   <mock-styled.div />
@@ -382,27 +481,27 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
                   User
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                   disabled="false"
                 >
                   <mock-styled.div />
                   Invite Again
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                 >
                   <mock-styled.div />
                   Set As Main Contact
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-danger"
                   disabled="false"
                 >
                   <mock-styled.div />
                   Disable
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-danger"
                   disabled="false"
                 >
                   <mock-styled.div />
@@ -420,11 +519,20 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
         type="button"
       >
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
       <mock-styled.div>
@@ -439,11 +547,20 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
         type="button"
       >
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
@@ -454,15 +571,24 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
       classname=""
     >
       <mock-styled.button
-        classname="mock-css. mock-css."
+        classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
@@ -545,9 +671,7 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
@@ -570,11 +694,20 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -583,15 +716,25 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.929 12.929a9.962 9.962 0 0 1 3.8-2.384 5.78 5.78 0 0 1-2.51-4.764A5.788 5.788 0 0 1 10 0a5.788 5.788 0 0 1 5.781 5.781c0 1.975-.995 3.721-2.51 4.764a9.962 9.962 0 0 1 3.8 2.384A9.935 9.935 0 0 1 20 20h-1.563c0-4.652-3.785-8.438-8.437-8.438-4.652 0-8.438 3.786-8.438 8.438H0a9.935 9.935 0 0 1 2.929-7.071ZM10 10a4.224 4.224 0 0 0 4.219-4.219A4.224 4.224 0 0 0 10 1.563 4.224 4.224 0 0 0 5.781 5.78 4.224 4.224 0 0 0 10 10Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Name"
@@ -600,28 +743,38 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Status"
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="el-intent-success"
                 />
                  
                 Active
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 20 16"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.125.5H1.875A1.877 1.877 0 0 0 0 2.375v11.25C0 14.659.841 15.5 1.875 15.5h16.25A1.877 1.877 0 0 0 20 13.625V2.375A1.877 1.877 0 0 0 18.125.5Zm0 1.25a.62.62 0 0 1 .24.048L10 9.048l-8.365-7.25a.622.622 0 0 1 .24-.048h16.25Zm0 12.5H1.875a.625.625 0 0 1-.625-.625V3.119l8.34 7.228a.624.624 0 0 0 .82 0l8.34-7.228v10.506c0 .345-.28.625-.625.625Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Email"
@@ -630,7 +783,7 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Role"
@@ -639,7 +792,7 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Main Contact"
@@ -651,11 +804,20 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-intent-default el-icon-new"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -665,10 +827,10 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-button-group-align-center"
                 >
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                     disabled="false"
                   >
                     <mock-styled.div />
@@ -676,27 +838,27 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
                     User
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                     disabled="false"
                   >
                     <mock-styled.div />
                     Invite Again
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                   >
                     <mock-styled.div />
                     Set As Main Contact
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-danger"
                     disabled="false"
                   >
                     <mock-styled.div />
                     Disable
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-danger"
                     disabled="false"
                   >
                     <mock-styled.div />
@@ -714,11 +876,20 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
         <mock-styled.div>
@@ -733,11 +904,20 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
@@ -748,15 +928,24 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
         classname=""
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
@@ -777,9 +966,7 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
@@ -802,11 +989,20 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-default el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -815,15 +1011,25 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2.929 12.929a9.962 9.962 0 0 1 3.8-2.384 5.78 5.78 0 0 1-2.51-4.764A5.788 5.788 0 0 1 10 0a5.788 5.788 0 0 1 5.781 5.781c0 1.975-.995 3.721-2.51 4.764a9.962 9.962 0 0 1 3.8 2.384A9.935 9.935 0 0 1 20 20h-1.563c0-4.652-3.785-8.438-8.437-8.438-4.652 0-8.438 3.786-8.438 8.438H0a9.935 9.935 0 0 1 2.929-7.071ZM10 10a4.224 4.224 0 0 0 4.219-4.219A4.224 4.224 0 0 0 10 1.563 4.224 4.224 0 0 0 5.781 5.78 4.224 4.224 0 0 0 10 10Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Name"
@@ -832,28 +1038,38 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Status"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-success"
               />
                
               Active
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 20 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.125.5H1.875A1.877 1.877 0 0 0 0 2.375v11.25C0 14.659.841 15.5 1.875 15.5h16.25A1.877 1.877 0 0 0 20 13.625V2.375A1.877 1.877 0 0 0 18.125.5Zm0 1.25a.62.62 0 0 1 .24.048L10 9.048l-8.365-7.25a.622.622 0 0 1 .24-.048h16.25Zm0 12.5H1.875a.625.625 0 0 1-.625-.625V3.119l8.34 7.228a.624.624 0 0 0 .82 0l8.34-7.228v10.506c0 .345-.28.625-.625.625Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Email"
@@ -862,7 +1078,7 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Role"
@@ -871,7 +1087,7 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Main Contact"
@@ -883,11 +1099,20 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -897,10 +1122,10 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-button-group-align-center"
               >
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                   disabled="false"
                 >
                   <mock-styled.div />
@@ -908,27 +1133,27 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
                   User
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                   disabled="false"
                 >
                   <mock-styled.div />
                   Invite Again
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                 >
                   <mock-styled.div />
                   Set As Main Contact
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-danger"
                   disabled="false"
                 >
                   <mock-styled.div />
                   Disable
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-danger"
                   disabled="false"
                 >
                   <mock-styled.div />
@@ -946,11 +1171,20 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
         type="button"
       >
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
       <mock-styled.div>
@@ -965,11 +1199,20 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
         type="button"
       >
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
@@ -980,15 +1223,24 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
       classname=""
     >
       <mock-styled.button
-        classname="mock-css. mock-css."
+        classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>

@@ -7,21 +7,19 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/about page 1
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Video
@@ -33,21 +31,19 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/about page 1
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+      classname="el-mb7"
     >
       <mock-styled.div
         classname=""
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           View Docs
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Video
@@ -116,20 +112,14 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  border-radius: 0.25rem;
- mock-css.
+        class="el-border-radius mock-css.
   overflow: hidden;
- mock-css.
-  margin-bottom: 0.75rem;
-"
+ el-mb5"
       >
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.select
-              classname="mock-css.
-  width: 100%;
-"
+              classname="el-wfull"
               name="applicationId"
               value=""
             >
@@ -205,9 +195,7 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.select
-              classname="mock-css.
-  width: 100%;
-"
+              classname="el-wfull"
               name="topicId"
               value=""
             >
@@ -278,21 +266,19 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
         </mock-styled.div>
       </div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Video
@@ -304,20 +290,14 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  border-radius: 0.25rem;
- mock-css.
+      class="el-border-radius mock-css.
   overflow: hidden;
- mock-css.
-  margin-bottom: 0.75rem;
-"
+ el-mb5"
     >
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.select
-            classname="mock-css.
-  width: 100%;
-"
+            classname="el-wfull"
             name="applicationId"
             value=""
           >
@@ -393,9 +373,7 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.select
-            classname="mock-css.
-  width: 100%;
-"
+            classname="el-wfull"
             name="topicId"
             value=""
           >
@@ -466,21 +444,19 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
       </mock-styled.div>
     </div>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+      classname="el-mb7"
     >
       <mock-styled.div
         classname=""
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           View Docs
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Video
@@ -549,20 +525,14 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/manage page 
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  border-radius: 0.25rem;
- mock-css.
+        class="el-border-radius mock-css.
   overflow: hidden;
- mock-css.
-  margin-bottom: 0.75rem;
-"
+ el-mb5"
       >
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.select
-              classname="mock-css.
-  width: 100%;
-"
+              classname="el-wfull"
               name="applicationId"
               value=""
             >
@@ -589,21 +559,19 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/manage page 
         </mock-styled.div>
       </div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Video
@@ -615,20 +583,14 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/manage page 
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  border-radius: 0.25rem;
- mock-css.
+      class="el-border-radius mock-css.
   overflow: hidden;
- mock-css.
-  margin-bottom: 0.75rem;
-"
+ el-mb5"
     >
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.select
-            classname="mock-css.
-  width: 100%;
-"
+            classname="el-wfull"
             name="applicationId"
             value=""
           >
@@ -655,21 +617,19 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/manage page 
       </mock-styled.div>
     </div>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+      classname="el-mb7"
     >
       <mock-styled.div
         classname=""
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           View Docs
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Video
@@ -738,21 +698,19 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/new page 1`]
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Video
@@ -764,21 +722,19 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/new page 1`]
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+      classname="el-mb7"
     >
       <mock-styled.div
         classname=""
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           View Docs
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Video

@@ -7,24 +7,10 @@ exports[`AppsInstalledSuggested should match a snapshot  1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        class="el-fade-in"
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-bold-text"
         >
           Suggested Apps
         </mock-styled.h2>
@@ -50,24 +36,10 @@ exports[`AppsInstalledSuggested should match a snapshot  1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      class="el-fade-in"
     >
       <mock-styled.h2
-        classname="mock-css."
+        classname="el-has-bold-text"
       >
         Suggested Apps
       </mock-styled.h2>

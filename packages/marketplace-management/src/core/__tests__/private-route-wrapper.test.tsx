@@ -5,7 +5,7 @@ import { render } from '../../tests/react-testing'
 
 jest.mock('../../components/ui/nav/nav', () => ({ Nav: () => <div /> }))
 
-export const history: History<any> = createBrowserHistory()
+export const history: History = createBrowserHistory()
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),

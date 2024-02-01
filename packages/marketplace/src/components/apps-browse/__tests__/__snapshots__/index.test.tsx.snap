@@ -16,11 +16,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             AppMarket
           </mock-styled.mock-styled.h1>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  margin-top: 0.5rem;
- mock-css.
+            classname="el-mb5 el-mt3 mock-css.
   display: flex;
 
   , {
@@ -47,11 +43,20 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   &., {
     color: var(--intent-primary);
   }
- mock-css. mock-css.
-  font-size: 1.5rem;
-"
+ el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17 11H7a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2Zm3-5H4a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2Zm-7 10h-2a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
@@ -72,23 +77,28 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   &., {
     color: var(--intent-primary);
   }
- mock-css. mock-css.
-  font-size: 1.5rem;
-"
+ el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  flex-direction: column;
-"
+          classname="el-flex-column"
         />
         <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+          classname="el-flex-justify-between"
         >
           <mock-styled.p
             classname="mock-css.
@@ -97,27 +107,13 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   , {
     display: flex;
   }
- mock-css."
+ el-has-bold-text"
           >
             Browse By
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
+          classname="el-fade-in mock-css.
   width: 100%;
   border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
@@ -138,7 +134,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             value="9"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-chips"
             htmlfor="9"
           >
             Tools
@@ -151,7 +147,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             value="8"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-chips"
             htmlfor="8"
           >
             Social
@@ -164,7 +160,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             value="7"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-chips"
             htmlfor="7"
           >
             Marketing
@@ -177,7 +173,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             value="6"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-chips"
             htmlfor="6"
           >
             Communication
@@ -190,7 +186,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             value="5"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-chips"
             htmlfor="5"
           >
             Media
@@ -203,7 +199,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             value="4"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-chips"
             htmlfor="4"
           >
             Events
@@ -216,7 +212,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             value="3"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-chips"
             htmlfor="3"
           >
             Finance
@@ -229,7 +225,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             value="2"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-chips"
             htmlfor="2"
           >
             Productivity
@@ -242,7 +238,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             value="1"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-chips"
             htmlfor="1"
           >
             Other
@@ -258,9 +254,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
         >
           <mock-styled.div
-            classname="mock-css.
-  align-items: center;
- mock-css.
+            classname="el-flex-align-center mock-css.
   width: 100%;
 
   , {
@@ -275,9 +269,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   , {
     width: 25%;
   }
- mock-css.
-  margin-right: 0.75rem;
-"
+ el-mr5"
           >
             <mock-styled.span
               classname="mock-css.
@@ -294,11 +286,20 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
- mock-css. mock-css.
-  font-size: 1.5rem;
-"
+ el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.input
               placeholder="Search by App or Developer"
@@ -308,9 +309,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  flex-direction: column;
-"
+            classname="el-flex-column"
           >
             <mock-styled.mock-styled.h2>
               New in AppMarket
@@ -322,9 +321,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.div
-                      classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+                      classname="el-mb7"
                       style="font-size: 2.8125em; width: 72px; height: 72px;"
                     >
                       <svg
@@ -359,7 +356,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   , {
     display: block;
   }
- mock-css."
+ el-intent-neutral"
                       style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                     >
                       <mock-styled.div />
@@ -380,7 +377,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   , {
     display: none;
   }
- mock-css."
+ el-intent-neutral"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
                     <mock-styled.div />
@@ -470,9 +467,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                   style="background-color: rgba(0, 97, 168, 0.102);"
                 >
                   <mock-styled.div
-                    classname="mock-css.
-  height: 100%;
- mock-css.
+                    classname="el-hfull mock-css.
   flex-direction: column;
 
   , {
@@ -587,9 +582,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                   style="background-color: rgba(0, 97, 168, 0.102);"
                 >
                   <mock-styled.div
-                    classname="mock-css.
-  height: 100%;
- mock-css.
+                    classname="el-hfull mock-css.
   flex-direction: column;
 
   , {
@@ -648,44 +641,34 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  flex-direction: column;
-"
+          classname="el-flex-column"
         >
           <mock-styled.mock-styled.h2>
             App Collections
           </mock-styled.mock-styled.h2>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+            classname="el-mb11"
           >
             <mock-styled.mock-styled.a
-              classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+              classname="el-fade-in"
             >
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-intent-primary el-icon-new"
                 style="font-size: 0.75em;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 0.75em;"
-                />
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.mock-styled.a>
             <mock-styled.div
@@ -696,26 +679,171 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css.
-  flex-direction: column;
-"
+                    classname="el-flex-column"
                   >
                     <mock-styled.span
-                      classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+                      classname="el-mb5"
                       style="font-size: 80px;"
                     >
                       <svg
+                        fill="none"
+                        height="1em"
                         style="font-size: 80px;"
-                      />
+                        viewBox="0 0 80 80"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g
+                          clip-path="url(#webDeveloperInfographic_svg__a)"
+                        >
+                          <mask
+                            height="80"
+                            id="webDeveloperInfographic_svg__b"
+                            maskUnits="userSpaceOnUse"
+                            style="mask-type: alpha;"
+                            width="81"
+                            x="0"
+                            y="0"
+                          >
+                            <circle
+                              fill="#C4C4C4"
+                              r="40"
+                              transform="matrix(1 0 .00002 1 40 40)"
+                            />
+                          </mask>
+                          <g
+                            mask="url(#webDeveloperInfographic_svg__b)"
+                          >
+                            <path
+                              d="M0 0h80v80H0z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M79.428 80.99s-7.853 0-13.657-4.437c-8.898-3.054-4.85-21.432-4.155-22.111.694-.679 6.878-.06 10.383 1.595 4.822 2.278 4.657 5.695 5.858 9.03 1.743 4.842 1.571 8.413 1.571 8.413 1.328 0-1.062 4.191 0 7.51Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M46.374 58.163C45.99 60.147 38.45 70.076 37.5 81c7.961 8.055 20.958 7.258 30.452 1.926-.777-9.087-3.935-23.146-5.772-27.293-2.552-5.764-8.06-7.065-8.06-7.065s-7.241 6.994-7.746 9.595Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M61.63 54.05c0 2.69-2.757 4.87-6.158 4.87-3.4 0-6.158-2.18-6.158-4.87s2.757-4.87 6.158-4.87c3.4 0 6.158 2.18 6.158 4.87Z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M36.065 90.891s-.175-13.07 6.442-18.002c6.617-4.93 7.198-18.003 6.707-18.76-.49-.758-10.456-.791-13.425 1.7C30.26 60.469 26.318 73.258 24 80c-2.942-1.8 13.125 7.79 12.065 10.891Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M37.5 80.5c.523-3.196 4.45-13.629 4.45-13.629s-1.341 9.02 1.05 13.13c-1.73.572-4.326 1.347-5.5.499ZM69.81 77.835c-.224-3.262-2.167-10.884-2.167-10.884s.597 8.698-2.194 12.603c1.421.011 3.101-.978 4.361-1.72Z"
+                              fill="#d8dee4"
+                            />
+                          </g>
+                          <mask
+                            height="36"
+                            id="webDeveloperInfographic_svg__c"
+                            maskUnits="userSpaceOnUse"
+                            style="mask-type: alpha;"
+                            width="54"
+                            x="0"
+                            y="4"
+                          >
+                            <path
+                              d="M41.465 14.917c-3.693-9.04-13.872-13.315-22.734-9.548-6.06 2.576-10.18 8.415-10.652 15.094-5.12.723-8.698 5.543-7.99 10.767.641 4.727 4.604 8.246 9.282 8.241h32.094c6.647 0 12.035-5.496 12.035-12.277 0-6.78-5.388-12.277-12.035-12.277Z"
+                              fill="#d8dee4"
+                            />
+                          </mask>
+                          <g
+                            mask="url(#webDeveloperInfographic_svg__c)"
+                          >
+                            <path
+                              d="M-7.622-1.717h63.907v49.396H-7.622z"
+                              fill="#9faebc"
+                            />
+                            <path
+                              d="M41.046 58.922 29.074 29.657 0 17.494v41.428h41.046Z"
+                              fill="#506478"
+                            />
+                            <path
+                              d="M58.19 58.921V41.762l-29.145-12.09 12 29.25H58.19Z"
+                              fill="#9faebc"
+                            />
+                            <path
+                              d="M0 17.494 29.045 29.67 17.058.465 0 17.494Z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M58.19 17.494 29.131-11.684l-4.51 4.518L17.045.48l12 29.191L58.19 41.762V17.494Z"
+                              fill="#798da1"
+                            />
+                          </g>
+                          <path
+                            d="M45.763 36.984c.132 2.751-1.842 5.082-4.41 5.206-2.57.123-4.759-2.007-4.891-4.758-.133-2.752 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758ZM76.758 35.212c.132 2.752-1.842 5.082-4.41 5.206-2.57.124-4.759-2.007-4.891-4.758-.133-2.751 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758Z"
+                            fill="#FFE5C7"
+                          />
+                          <path
+                            d="M40.136 34.854S41.813 56.38 57.33 55.633c15.517-.748 16.627-17.606 15.966-23.72 0-8.413-3.855-15.468-3.855-15.468l-13.118-.713-11.39 2.854-5.23 3.517-.176 3.945.608 8.806Z"
+                            fill="#FFE5C7"
+                          />
+                          <path
+                            d="M47.906 27.264c-.026.445.532.349.994.272.96-.158.673-.866 2.696-.884.733-.007 1.931 1.156 2.27.527.962-1.785-5.787-2.968-5.96.085ZM68.755 26.744c-.46-.862-1.985-1.232-3.041-1.115-.885.098-2.365.54-2.302 1.446.02.277.435.227.758.153.501-.114.703-.319 1.188-.363.472-.043.957.037 1.372.225.502.227.859.578 1.492.4.57-.16.764-.314.533-.746ZM66.327 32.101a1.049 1.049 0 0 0-.16-.074c-1.872-.687-2.507 2.277-1.141 2.759 1.972.694 2.472-2.016 1.3-2.685Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M66.096 32.43c-.208-.197-.603-.022-.546.246.029.136.056.245.182.338.192.143.578-.024.562-.25-.01-.148-.09-.232-.198-.334Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M39.55 11.97c1.628-1.216 4.482-1.193 5.633 1.06-2.96 1.289-5.47-.808-7.188 1.844.164-1.142.63-2.213 1.555-2.904Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M42.794 14.941c2.747-3.331.088-8.103 4.65-9.38-4.706.31-7.544 6.919-4.65 9.38Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M43.56 12.431c.767-6.592 8.35-9.366 15.79-7.971 14.563 2.729 19.47 15.483 13.644 27.746-.328-.982-.38-2.177-.437-3.488-.102-2.37-.222-5.122-2.016-7.702-3.383-4.865-6.269-4.314-10.96-3.419-1.177.225-2.469.471-3.91.66a10.236 10.236 0 0 1-3.507-.154c.61 1.216 1.033 2.798 1.073 5.058-1.14-1.662-3.263-2.865-5.254-3.993-.83-.47-1.636-.927-2.34-1.4.001 1.936.582 3.971 1.306 6.073-1.607-.813-2.958-2.039-3.517-3.75a6.021 6.021 0 0 1-.257-1.192c-.249 1.243-.065 2.479.134 3.814.428 2.868.924 6.195-2.661 11.026-2.913-4.905-7.205-19.622 2.912-21.308Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M51.516 31.837a1.155 1.155 0 0 0-.174-.08c-2.028-.745-2.716 2.468-1.236 2.99 2.137.753 2.68-2.185 1.41-2.91Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M51.265 32.193c-.225-.213-.653-.024-.592.267.032.148.061.266.198.367.209.154.626-.026.61-.272-.012-.16-.099-.25-.216-.362Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M42.988 29.465v9.164a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-4.017h3.9v4.017a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-9.164a.63.63 0 0 0-.63-.628h-11.33a.63.63 0 0 0-.63.628v3.891h-3.931v-3.891a.63.63 0 0 0-.63-.628H43.618a.63.63 0 0 0-.63.628Zm18.053 1.547h9.46v6.07h-9.46v-6.07Zm-16.488 0h9.459v6.07h-9.46v-6.07ZM65 45s-3.465 4.962-10 2.885c3.525 2.724 8.674 3.787 10-2.885Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M31.47 52h-6.489c-2.497 0-4.528 2.082-4.528 4.642L15.72 71.356c0 2.56 2.032 4.644 4.529 4.644h11.22c2.497 0 4.53-2.083 4.53-4.644V56.643c0-2.56-2.033-4.644-4.53-4.644Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Zm-15.858 7.386L10.85 64.27l4.237 4.343a.978.978 0 0 1 0 1.359.92.92 0 0 1-1.326 0l-4.9-5.023a.978.978 0 0 1 0-1.359l5.427-5.563a.921.921 0 0 1 1.326 0 .979.979 0 0 1 0 1.359Zm8.195-2.261-4.957 14.39a.931.931 0 0 1-1.197.585.968.968 0 0 1-.572-1.226l4.958-14.39a.932.932 0 0 1 1.196-.585.968.968 0 0 1 .572 1.226Zm7.332 7.284-5.427 5.563a.922.922 0 0 1-1.326 0 .979.979 0 0 1 0-1.359l4.764-4.884-4.237-4.343a.978.978 0 0 1 0-1.359.92.92 0 0 1 1.326 0l4.9 5.023a.978.978 0 0 1 0 1.359Z"
+                            fill="#7e9bfa"
+                          />
+                        </g>
+                        <defs>
+                          <clippath
+                            id="webDeveloperInfographic_svg__a"
+                          >
+                            <path
+                              d="M0 0h80.001v80H0z"
+                              fill="#fff"
+                            />
+                          </clippath>
+                        </defs>
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
-                      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                      classname="el-flex-column el-flex-justify-center"
                     >
                       <mock-styled.mock-styled.h2>
                         Reapit Developed Apps
@@ -730,26 +858,171 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css.
-  flex-direction: column;
-"
+                    classname="el-flex-column"
                   >
                     <mock-styled.span
-                      classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+                      classname="el-mb5"
                       style="font-size: 80px;"
                     >
                       <svg
+                        fill="none"
+                        height="1em"
                         style="font-size: 80px;"
-                      />
+                        viewBox="0 0 80 80"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g
+                          clip-path="url(#webDeveloperInfographic_svg__a)"
+                        >
+                          <mask
+                            height="80"
+                            id="webDeveloperInfographic_svg__b"
+                            maskUnits="userSpaceOnUse"
+                            style="mask-type: alpha;"
+                            width="81"
+                            x="0"
+                            y="0"
+                          >
+                            <circle
+                              fill="#C4C4C4"
+                              r="40"
+                              transform="matrix(1 0 .00002 1 40 40)"
+                            />
+                          </mask>
+                          <g
+                            mask="url(#webDeveloperInfographic_svg__b)"
+                          >
+                            <path
+                              d="M0 0h80v80H0z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M79.428 80.99s-7.853 0-13.657-4.437c-8.898-3.054-4.85-21.432-4.155-22.111.694-.679 6.878-.06 10.383 1.595 4.822 2.278 4.657 5.695 5.858 9.03 1.743 4.842 1.571 8.413 1.571 8.413 1.328 0-1.062 4.191 0 7.51Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M46.374 58.163C45.99 60.147 38.45 70.076 37.5 81c7.961 8.055 20.958 7.258 30.452 1.926-.777-9.087-3.935-23.146-5.772-27.293-2.552-5.764-8.06-7.065-8.06-7.065s-7.241 6.994-7.746 9.595Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M61.63 54.05c0 2.69-2.757 4.87-6.158 4.87-3.4 0-6.158-2.18-6.158-4.87s2.757-4.87 6.158-4.87c3.4 0 6.158 2.18 6.158 4.87Z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M36.065 90.891s-.175-13.07 6.442-18.002c6.617-4.93 7.198-18.003 6.707-18.76-.49-.758-10.456-.791-13.425 1.7C30.26 60.469 26.318 73.258 24 80c-2.942-1.8 13.125 7.79 12.065 10.891Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M37.5 80.5c.523-3.196 4.45-13.629 4.45-13.629s-1.341 9.02 1.05 13.13c-1.73.572-4.326 1.347-5.5.499ZM69.81 77.835c-.224-3.262-2.167-10.884-2.167-10.884s.597 8.698-2.194 12.603c1.421.011 3.101-.978 4.361-1.72Z"
+                              fill="#d8dee4"
+                            />
+                          </g>
+                          <mask
+                            height="36"
+                            id="webDeveloperInfographic_svg__c"
+                            maskUnits="userSpaceOnUse"
+                            style="mask-type: alpha;"
+                            width="54"
+                            x="0"
+                            y="4"
+                          >
+                            <path
+                              d="M41.465 14.917c-3.693-9.04-13.872-13.315-22.734-9.548-6.06 2.576-10.18 8.415-10.652 15.094-5.12.723-8.698 5.543-7.99 10.767.641 4.727 4.604 8.246 9.282 8.241h32.094c6.647 0 12.035-5.496 12.035-12.277 0-6.78-5.388-12.277-12.035-12.277Z"
+                              fill="#d8dee4"
+                            />
+                          </mask>
+                          <g
+                            mask="url(#webDeveloperInfographic_svg__c)"
+                          >
+                            <path
+                              d="M-7.622-1.717h63.907v49.396H-7.622z"
+                              fill="#9faebc"
+                            />
+                            <path
+                              d="M41.046 58.922 29.074 29.657 0 17.494v41.428h41.046Z"
+                              fill="#506478"
+                            />
+                            <path
+                              d="M58.19 58.921V41.762l-29.145-12.09 12 29.25H58.19Z"
+                              fill="#9faebc"
+                            />
+                            <path
+                              d="M0 17.494 29.045 29.67 17.058.465 0 17.494Z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M58.19 17.494 29.131-11.684l-4.51 4.518L17.045.48l12 29.191L58.19 41.762V17.494Z"
+                              fill="#798da1"
+                            />
+                          </g>
+                          <path
+                            d="M45.763 36.984c.132 2.751-1.842 5.082-4.41 5.206-2.57.123-4.759-2.007-4.891-4.758-.133-2.752 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758ZM76.758 35.212c.132 2.752-1.842 5.082-4.41 5.206-2.57.124-4.759-2.007-4.891-4.758-.133-2.751 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758Z"
+                            fill="#FFE5C7"
+                          />
+                          <path
+                            d="M40.136 34.854S41.813 56.38 57.33 55.633c15.517-.748 16.627-17.606 15.966-23.72 0-8.413-3.855-15.468-3.855-15.468l-13.118-.713-11.39 2.854-5.23 3.517-.176 3.945.608 8.806Z"
+                            fill="#FFE5C7"
+                          />
+                          <path
+                            d="M47.906 27.264c-.026.445.532.349.994.272.96-.158.673-.866 2.696-.884.733-.007 1.931 1.156 2.27.527.962-1.785-5.787-2.968-5.96.085ZM68.755 26.744c-.46-.862-1.985-1.232-3.041-1.115-.885.098-2.365.54-2.302 1.446.02.277.435.227.758.153.501-.114.703-.319 1.188-.363.472-.043.957.037 1.372.225.502.227.859.578 1.492.4.57-.16.764-.314.533-.746ZM66.327 32.101a1.049 1.049 0 0 0-.16-.074c-1.872-.687-2.507 2.277-1.141 2.759 1.972.694 2.472-2.016 1.3-2.685Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M66.096 32.43c-.208-.197-.603-.022-.546.246.029.136.056.245.182.338.192.143.578-.024.562-.25-.01-.148-.09-.232-.198-.334Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M39.55 11.97c1.628-1.216 4.482-1.193 5.633 1.06-2.96 1.289-5.47-.808-7.188 1.844.164-1.142.63-2.213 1.555-2.904Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M42.794 14.941c2.747-3.331.088-8.103 4.65-9.38-4.706.31-7.544 6.919-4.65 9.38Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M43.56 12.431c.767-6.592 8.35-9.366 15.79-7.971 14.563 2.729 19.47 15.483 13.644 27.746-.328-.982-.38-2.177-.437-3.488-.102-2.37-.222-5.122-2.016-7.702-3.383-4.865-6.269-4.314-10.96-3.419-1.177.225-2.469.471-3.91.66a10.236 10.236 0 0 1-3.507-.154c.61 1.216 1.033 2.798 1.073 5.058-1.14-1.662-3.263-2.865-5.254-3.993-.83-.47-1.636-.927-2.34-1.4.001 1.936.582 3.971 1.306 6.073-1.607-.813-2.958-2.039-3.517-3.75a6.021 6.021 0 0 1-.257-1.192c-.249 1.243-.065 2.479.134 3.814.428 2.868.924 6.195-2.661 11.026-2.913-4.905-7.205-19.622 2.912-21.308Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M51.516 31.837a1.155 1.155 0 0 0-.174-.08c-2.028-.745-2.716 2.468-1.236 2.99 2.137.753 2.68-2.185 1.41-2.91Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M51.265 32.193c-.225-.213-.653-.024-.592.267.032.148.061.266.198.367.209.154.626-.026.61-.272-.012-.16-.099-.25-.216-.362Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M42.988 29.465v9.164a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-4.017h3.9v4.017a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-9.164a.63.63 0 0 0-.63-.628h-11.33a.63.63 0 0 0-.63.628v3.891h-3.931v-3.891a.63.63 0 0 0-.63-.628H43.618a.63.63 0 0 0-.63.628Zm18.053 1.547h9.46v6.07h-9.46v-6.07Zm-16.488 0h9.459v6.07h-9.46v-6.07ZM65 45s-3.465 4.962-10 2.885c3.525 2.724 8.674 3.787 10-2.885Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M31.47 52h-6.489c-2.497 0-4.528 2.082-4.528 4.642L15.72 71.356c0 2.56 2.032 4.644 4.529 4.644h11.22c2.497 0 4.53-2.083 4.53-4.644V56.643c0-2.56-2.033-4.644-4.53-4.644Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Zm-15.858 7.386L10.85 64.27l4.237 4.343a.978.978 0 0 1 0 1.359.92.92 0 0 1-1.326 0l-4.9-5.023a.978.978 0 0 1 0-1.359l5.427-5.563a.921.921 0 0 1 1.326 0 .979.979 0 0 1 0 1.359Zm8.195-2.261-4.957 14.39a.931.931 0 0 1-1.197.585.968.968 0 0 1-.572-1.226l4.958-14.39a.932.932 0 0 1 1.196-.585.968.968 0 0 1 .572 1.226Zm7.332 7.284-5.427 5.563a.922.922 0 0 1-1.326 0 .979.979 0 0 1 0-1.359l4.764-4.884-4.237-4.343a.978.978 0 0 1 0-1.359.92.92 0 0 1 1.326 0l4.9 5.023a.978.978 0 0 1 0 1.359Z"
+                            fill="#7e9bfa"
+                          />
+                        </g>
+                        <defs>
+                          <clippath
+                            id="webDeveloperInfographic_svg__a"
+                          >
+                            <path
+                              d="M0 0h80.001v80H0z"
+                              fill="#fff"
+                            />
+                          </clippath>
+                        </defs>
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
-                      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                      classname="el-flex-column el-flex-justify-center"
                     >
                       <mock-styled.mock-styled.h2>
                         Reapit Developed Apps
@@ -764,26 +1037,171 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css.
-  flex-direction: column;
-"
+                    classname="el-flex-column"
                   >
                     <mock-styled.span
-                      classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+                      classname="el-mb5"
                       style="font-size: 80px;"
                     >
                       <svg
+                        fill="none"
+                        height="1em"
                         style="font-size: 80px;"
-                      />
+                        viewBox="0 0 80 80"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g
+                          clip-path="url(#webDeveloperInfographic_svg__a)"
+                        >
+                          <mask
+                            height="80"
+                            id="webDeveloperInfographic_svg__b"
+                            maskUnits="userSpaceOnUse"
+                            style="mask-type: alpha;"
+                            width="81"
+                            x="0"
+                            y="0"
+                          >
+                            <circle
+                              fill="#C4C4C4"
+                              r="40"
+                              transform="matrix(1 0 .00002 1 40 40)"
+                            />
+                          </mask>
+                          <g
+                            mask="url(#webDeveloperInfographic_svg__b)"
+                          >
+                            <path
+                              d="M0 0h80v80H0z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M79.428 80.99s-7.853 0-13.657-4.437c-8.898-3.054-4.85-21.432-4.155-22.111.694-.679 6.878-.06 10.383 1.595 4.822 2.278 4.657 5.695 5.858 9.03 1.743 4.842 1.571 8.413 1.571 8.413 1.328 0-1.062 4.191 0 7.51Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M46.374 58.163C45.99 60.147 38.45 70.076 37.5 81c7.961 8.055 20.958 7.258 30.452 1.926-.777-9.087-3.935-23.146-5.772-27.293-2.552-5.764-8.06-7.065-8.06-7.065s-7.241 6.994-7.746 9.595Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M61.63 54.05c0 2.69-2.757 4.87-6.158 4.87-3.4 0-6.158-2.18-6.158-4.87s2.757-4.87 6.158-4.87c3.4 0 6.158 2.18 6.158 4.87Z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M36.065 90.891s-.175-13.07 6.442-18.002c6.617-4.93 7.198-18.003 6.707-18.76-.49-.758-10.456-.791-13.425 1.7C30.26 60.469 26.318 73.258 24 80c-2.942-1.8 13.125 7.79 12.065 10.891Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M37.5 80.5c.523-3.196 4.45-13.629 4.45-13.629s-1.341 9.02 1.05 13.13c-1.73.572-4.326 1.347-5.5.499ZM69.81 77.835c-.224-3.262-2.167-10.884-2.167-10.884s.597 8.698-2.194 12.603c1.421.011 3.101-.978 4.361-1.72Z"
+                              fill="#d8dee4"
+                            />
+                          </g>
+                          <mask
+                            height="36"
+                            id="webDeveloperInfographic_svg__c"
+                            maskUnits="userSpaceOnUse"
+                            style="mask-type: alpha;"
+                            width="54"
+                            x="0"
+                            y="4"
+                          >
+                            <path
+                              d="M41.465 14.917c-3.693-9.04-13.872-13.315-22.734-9.548-6.06 2.576-10.18 8.415-10.652 15.094-5.12.723-8.698 5.543-7.99 10.767.641 4.727 4.604 8.246 9.282 8.241h32.094c6.647 0 12.035-5.496 12.035-12.277 0-6.78-5.388-12.277-12.035-12.277Z"
+                              fill="#d8dee4"
+                            />
+                          </mask>
+                          <g
+                            mask="url(#webDeveloperInfographic_svg__c)"
+                          >
+                            <path
+                              d="M-7.622-1.717h63.907v49.396H-7.622z"
+                              fill="#9faebc"
+                            />
+                            <path
+                              d="M41.046 58.922 29.074 29.657 0 17.494v41.428h41.046Z"
+                              fill="#506478"
+                            />
+                            <path
+                              d="M58.19 58.921V41.762l-29.145-12.09 12 29.25H58.19Z"
+                              fill="#9faebc"
+                            />
+                            <path
+                              d="M0 17.494 29.045 29.67 17.058.465 0 17.494Z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M58.19 17.494 29.131-11.684l-4.51 4.518L17.045.48l12 29.191L58.19 41.762V17.494Z"
+                              fill="#798da1"
+                            />
+                          </g>
+                          <path
+                            d="M45.763 36.984c.132 2.751-1.842 5.082-4.41 5.206-2.57.123-4.759-2.007-4.891-4.758-.133-2.752 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758ZM76.758 35.212c.132 2.752-1.842 5.082-4.41 5.206-2.57.124-4.759-2.007-4.891-4.758-.133-2.751 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758Z"
+                            fill="#FFE5C7"
+                          />
+                          <path
+                            d="M40.136 34.854S41.813 56.38 57.33 55.633c15.517-.748 16.627-17.606 15.966-23.72 0-8.413-3.855-15.468-3.855-15.468l-13.118-.713-11.39 2.854-5.23 3.517-.176 3.945.608 8.806Z"
+                            fill="#FFE5C7"
+                          />
+                          <path
+                            d="M47.906 27.264c-.026.445.532.349.994.272.96-.158.673-.866 2.696-.884.733-.007 1.931 1.156 2.27.527.962-1.785-5.787-2.968-5.96.085ZM68.755 26.744c-.46-.862-1.985-1.232-3.041-1.115-.885.098-2.365.54-2.302 1.446.02.277.435.227.758.153.501-.114.703-.319 1.188-.363.472-.043.957.037 1.372.225.502.227.859.578 1.492.4.57-.16.764-.314.533-.746ZM66.327 32.101a1.049 1.049 0 0 0-.16-.074c-1.872-.687-2.507 2.277-1.141 2.759 1.972.694 2.472-2.016 1.3-2.685Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M66.096 32.43c-.208-.197-.603-.022-.546.246.029.136.056.245.182.338.192.143.578-.024.562-.25-.01-.148-.09-.232-.198-.334Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M39.55 11.97c1.628-1.216 4.482-1.193 5.633 1.06-2.96 1.289-5.47-.808-7.188 1.844.164-1.142.63-2.213 1.555-2.904Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M42.794 14.941c2.747-3.331.088-8.103 4.65-9.38-4.706.31-7.544 6.919-4.65 9.38Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M43.56 12.431c.767-6.592 8.35-9.366 15.79-7.971 14.563 2.729 19.47 15.483 13.644 27.746-.328-.982-.38-2.177-.437-3.488-.102-2.37-.222-5.122-2.016-7.702-3.383-4.865-6.269-4.314-10.96-3.419-1.177.225-2.469.471-3.91.66a10.236 10.236 0 0 1-3.507-.154c.61 1.216 1.033 2.798 1.073 5.058-1.14-1.662-3.263-2.865-5.254-3.993-.83-.47-1.636-.927-2.34-1.4.001 1.936.582 3.971 1.306 6.073-1.607-.813-2.958-2.039-3.517-3.75a6.021 6.021 0 0 1-.257-1.192c-.249 1.243-.065 2.479.134 3.814.428 2.868.924 6.195-2.661 11.026-2.913-4.905-7.205-19.622 2.912-21.308Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M51.516 31.837a1.155 1.155 0 0 0-.174-.08c-2.028-.745-2.716 2.468-1.236 2.99 2.137.753 2.68-2.185 1.41-2.91Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M51.265 32.193c-.225-.213-.653-.024-.592.267.032.148.061.266.198.367.209.154.626-.026.61-.272-.012-.16-.099-.25-.216-.362Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M42.988 29.465v9.164a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-4.017h3.9v4.017a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-9.164a.63.63 0 0 0-.63-.628h-11.33a.63.63 0 0 0-.63.628v3.891h-3.931v-3.891a.63.63 0 0 0-.63-.628H43.618a.63.63 0 0 0-.63.628Zm18.053 1.547h9.46v6.07h-9.46v-6.07Zm-16.488 0h9.459v6.07h-9.46v-6.07ZM65 45s-3.465 4.962-10 2.885c3.525 2.724 8.674 3.787 10-2.885Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M31.47 52h-6.489c-2.497 0-4.528 2.082-4.528 4.642L15.72 71.356c0 2.56 2.032 4.644 4.529 4.644h11.22c2.497 0 4.53-2.083 4.53-4.644V56.643c0-2.56-2.033-4.644-4.53-4.644Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Zm-15.858 7.386L10.85 64.27l4.237 4.343a.978.978 0 0 1 0 1.359.92.92 0 0 1-1.326 0l-4.9-5.023a.978.978 0 0 1 0-1.359l5.427-5.563a.921.921 0 0 1 1.326 0 .979.979 0 0 1 0 1.359Zm8.195-2.261-4.957 14.39a.931.931 0 0 1-1.197.585.968.968 0 0 1-.572-1.226l4.958-14.39a.932.932 0 0 1 1.196-.585.968.968 0 0 1 .572 1.226Zm7.332 7.284-5.427 5.563a.922.922 0 0 1-1.326 0 .979.979 0 0 1 0-1.359l4.764-4.884-4.237-4.343a.978.978 0 0 1 0-1.359.92.92 0 0 1 1.326 0l4.9 5.023a.978.978 0 0 1 0 1.359Z"
+                            fill="#7e9bfa"
+                          />
+                        </g>
+                        <defs>
+                          <clippath
+                            id="webDeveloperInfographic_svg__a"
+                          >
+                            <path
+                              d="M0 0h80.001v80H0z"
+                              fill="#fff"
+                            />
+                          </clippath>
+                        </defs>
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
-                      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                      classname="el-flex-column el-flex-justify-center"
                     >
                       <mock-styled.mock-styled.h2>
                         Reapit Developed Apps
@@ -798,26 +1216,171 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css.
-  flex-direction: column;
-"
+                    classname="el-flex-column"
                   >
                     <mock-styled.span
-                      classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+                      classname="el-mb5"
                       style="font-size: 80px;"
                     >
                       <svg
+                        fill="none"
+                        height="1em"
                         style="font-size: 80px;"
-                      />
+                        viewBox="0 0 80 80"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g
+                          clip-path="url(#webDeveloperInfographic_svg__a)"
+                        >
+                          <mask
+                            height="80"
+                            id="webDeveloperInfographic_svg__b"
+                            maskUnits="userSpaceOnUse"
+                            style="mask-type: alpha;"
+                            width="81"
+                            x="0"
+                            y="0"
+                          >
+                            <circle
+                              fill="#C4C4C4"
+                              r="40"
+                              transform="matrix(1 0 .00002 1 40 40)"
+                            />
+                          </mask>
+                          <g
+                            mask="url(#webDeveloperInfographic_svg__b)"
+                          >
+                            <path
+                              d="M0 0h80v80H0z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M79.428 80.99s-7.853 0-13.657-4.437c-8.898-3.054-4.85-21.432-4.155-22.111.694-.679 6.878-.06 10.383 1.595 4.822 2.278 4.657 5.695 5.858 9.03 1.743 4.842 1.571 8.413 1.571 8.413 1.328 0-1.062 4.191 0 7.51Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M46.374 58.163C45.99 60.147 38.45 70.076 37.5 81c7.961 8.055 20.958 7.258 30.452 1.926-.777-9.087-3.935-23.146-5.772-27.293-2.552-5.764-8.06-7.065-8.06-7.065s-7.241 6.994-7.746 9.595Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M61.63 54.05c0 2.69-2.757 4.87-6.158 4.87-3.4 0-6.158-2.18-6.158-4.87s2.757-4.87 6.158-4.87c3.4 0 6.158 2.18 6.158 4.87Z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M36.065 90.891s-.175-13.07 6.442-18.002c6.617-4.93 7.198-18.003 6.707-18.76-.49-.758-10.456-.791-13.425 1.7C30.26 60.469 26.318 73.258 24 80c-2.942-1.8 13.125 7.79 12.065 10.891Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M37.5 80.5c.523-3.196 4.45-13.629 4.45-13.629s-1.341 9.02 1.05 13.13c-1.73.572-4.326 1.347-5.5.499ZM69.81 77.835c-.224-3.262-2.167-10.884-2.167-10.884s.597 8.698-2.194 12.603c1.421.011 3.101-.978 4.361-1.72Z"
+                              fill="#d8dee4"
+                            />
+                          </g>
+                          <mask
+                            height="36"
+                            id="webDeveloperInfographic_svg__c"
+                            maskUnits="userSpaceOnUse"
+                            style="mask-type: alpha;"
+                            width="54"
+                            x="0"
+                            y="4"
+                          >
+                            <path
+                              d="M41.465 14.917c-3.693-9.04-13.872-13.315-22.734-9.548-6.06 2.576-10.18 8.415-10.652 15.094-5.12.723-8.698 5.543-7.99 10.767.641 4.727 4.604 8.246 9.282 8.241h32.094c6.647 0 12.035-5.496 12.035-12.277 0-6.78-5.388-12.277-12.035-12.277Z"
+                              fill="#d8dee4"
+                            />
+                          </mask>
+                          <g
+                            mask="url(#webDeveloperInfographic_svg__c)"
+                          >
+                            <path
+                              d="M-7.622-1.717h63.907v49.396H-7.622z"
+                              fill="#9faebc"
+                            />
+                            <path
+                              d="M41.046 58.922 29.074 29.657 0 17.494v41.428h41.046Z"
+                              fill="#506478"
+                            />
+                            <path
+                              d="M58.19 58.921V41.762l-29.145-12.09 12 29.25H58.19Z"
+                              fill="#9faebc"
+                            />
+                            <path
+                              d="M0 17.494 29.045 29.67 17.058.465 0 17.494Z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M58.19 17.494 29.131-11.684l-4.51 4.518L17.045.48l12 29.191L58.19 41.762V17.494Z"
+                              fill="#798da1"
+                            />
+                          </g>
+                          <path
+                            d="M45.763 36.984c.132 2.751-1.842 5.082-4.41 5.206-2.57.123-4.759-2.007-4.891-4.758-.133-2.752 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758ZM76.758 35.212c.132 2.752-1.842 5.082-4.41 5.206-2.57.124-4.759-2.007-4.891-4.758-.133-2.751 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758Z"
+                            fill="#FFE5C7"
+                          />
+                          <path
+                            d="M40.136 34.854S41.813 56.38 57.33 55.633c15.517-.748 16.627-17.606 15.966-23.72 0-8.413-3.855-15.468-3.855-15.468l-13.118-.713-11.39 2.854-5.23 3.517-.176 3.945.608 8.806Z"
+                            fill="#FFE5C7"
+                          />
+                          <path
+                            d="M47.906 27.264c-.026.445.532.349.994.272.96-.158.673-.866 2.696-.884.733-.007 1.931 1.156 2.27.527.962-1.785-5.787-2.968-5.96.085ZM68.755 26.744c-.46-.862-1.985-1.232-3.041-1.115-.885.098-2.365.54-2.302 1.446.02.277.435.227.758.153.501-.114.703-.319 1.188-.363.472-.043.957.037 1.372.225.502.227.859.578 1.492.4.57-.16.764-.314.533-.746ZM66.327 32.101a1.049 1.049 0 0 0-.16-.074c-1.872-.687-2.507 2.277-1.141 2.759 1.972.694 2.472-2.016 1.3-2.685Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M66.096 32.43c-.208-.197-.603-.022-.546.246.029.136.056.245.182.338.192.143.578-.024.562-.25-.01-.148-.09-.232-.198-.334Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M39.55 11.97c1.628-1.216 4.482-1.193 5.633 1.06-2.96 1.289-5.47-.808-7.188 1.844.164-1.142.63-2.213 1.555-2.904Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M42.794 14.941c2.747-3.331.088-8.103 4.65-9.38-4.706.31-7.544 6.919-4.65 9.38Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M43.56 12.431c.767-6.592 8.35-9.366 15.79-7.971 14.563 2.729 19.47 15.483 13.644 27.746-.328-.982-.38-2.177-.437-3.488-.102-2.37-.222-5.122-2.016-7.702-3.383-4.865-6.269-4.314-10.96-3.419-1.177.225-2.469.471-3.91.66a10.236 10.236 0 0 1-3.507-.154c.61 1.216 1.033 2.798 1.073 5.058-1.14-1.662-3.263-2.865-5.254-3.993-.83-.47-1.636-.927-2.34-1.4.001 1.936.582 3.971 1.306 6.073-1.607-.813-2.958-2.039-3.517-3.75a6.021 6.021 0 0 1-.257-1.192c-.249 1.243-.065 2.479.134 3.814.428 2.868.924 6.195-2.661 11.026-2.913-4.905-7.205-19.622 2.912-21.308Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M51.516 31.837a1.155 1.155 0 0 0-.174-.08c-2.028-.745-2.716 2.468-1.236 2.99 2.137.753 2.68-2.185 1.41-2.91Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M51.265 32.193c-.225-.213-.653-.024-.592.267.032.148.061.266.198.367.209.154.626-.026.61-.272-.012-.16-.099-.25-.216-.362Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M42.988 29.465v9.164a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-4.017h3.9v4.017a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-9.164a.63.63 0 0 0-.63-.628h-11.33a.63.63 0 0 0-.63.628v3.891h-3.931v-3.891a.63.63 0 0 0-.63-.628H43.618a.63.63 0 0 0-.63.628Zm18.053 1.547h9.46v6.07h-9.46v-6.07Zm-16.488 0h9.459v6.07h-9.46v-6.07ZM65 45s-3.465 4.962-10 2.885c3.525 2.724 8.674 3.787 10-2.885Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M31.47 52h-6.489c-2.497 0-4.528 2.082-4.528 4.642L15.72 71.356c0 2.56 2.032 4.644 4.529 4.644h11.22c2.497 0 4.53-2.083 4.53-4.644V56.643c0-2.56-2.033-4.644-4.53-4.644Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Zm-15.858 7.386L10.85 64.27l4.237 4.343a.978.978 0 0 1 0 1.359.92.92 0 0 1-1.326 0l-4.9-5.023a.978.978 0 0 1 0-1.359l5.427-5.563a.921.921 0 0 1 1.326 0 .979.979 0 0 1 0 1.359Zm8.195-2.261-4.957 14.39a.931.931 0 0 1-1.197.585.968.968 0 0 1-.572-1.226l4.958-14.39a.932.932 0 0 1 1.196-.585.968.968 0 0 1 .572 1.226Zm7.332 7.284-5.427 5.563a.922.922 0 0 1-1.326 0 .979.979 0 0 1 0-1.359l4.764-4.884-4.237-4.343a.978.978 0 0 1 0-1.359.92.92 0 0 1 1.326 0l4.9 5.023a.978.978 0 0 1 0 1.359Z"
+                            fill="#7e9bfa"
+                          />
+                        </g>
+                        <defs>
+                          <clippath
+                            id="webDeveloperInfographic_svg__a"
+                          >
+                            <path
+                              d="M0 0h80.001v80H0z"
+                              fill="#fff"
+                            />
+                          </clippath>
+                        </defs>
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
-                      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                      classname="el-flex-column el-flex-justify-center"
                     >
                       <mock-styled.mock-styled.h2>
                         Reapit Developed Apps
@@ -832,26 +1395,171 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css.
-  flex-direction: column;
-"
+                    classname="el-flex-column"
                   >
                     <mock-styled.span
-                      classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+                      classname="el-mb5"
                       style="font-size: 80px;"
                     >
                       <svg
+                        fill="none"
+                        height="1em"
                         style="font-size: 80px;"
-                      />
+                        viewBox="0 0 80 80"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g
+                          clip-path="url(#webDeveloperInfographic_svg__a)"
+                        >
+                          <mask
+                            height="80"
+                            id="webDeveloperInfographic_svg__b"
+                            maskUnits="userSpaceOnUse"
+                            style="mask-type: alpha;"
+                            width="81"
+                            x="0"
+                            y="0"
+                          >
+                            <circle
+                              fill="#C4C4C4"
+                              r="40"
+                              transform="matrix(1 0 .00002 1 40 40)"
+                            />
+                          </mask>
+                          <g
+                            mask="url(#webDeveloperInfographic_svg__b)"
+                          >
+                            <path
+                              d="M0 0h80v80H0z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M79.428 80.99s-7.853 0-13.657-4.437c-8.898-3.054-4.85-21.432-4.155-22.111.694-.679 6.878-.06 10.383 1.595 4.822 2.278 4.657 5.695 5.858 9.03 1.743 4.842 1.571 8.413 1.571 8.413 1.328 0-1.062 4.191 0 7.51Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M46.374 58.163C45.99 60.147 38.45 70.076 37.5 81c7.961 8.055 20.958 7.258 30.452 1.926-.777-9.087-3.935-23.146-5.772-27.293-2.552-5.764-8.06-7.065-8.06-7.065s-7.241 6.994-7.746 9.595Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M61.63 54.05c0 2.69-2.757 4.87-6.158 4.87-3.4 0-6.158-2.18-6.158-4.87s2.757-4.87 6.158-4.87c3.4 0 6.158 2.18 6.158 4.87Z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M36.065 90.891s-.175-13.07 6.442-18.002c6.617-4.93 7.198-18.003 6.707-18.76-.49-.758-10.456-.791-13.425 1.7C30.26 60.469 26.318 73.258 24 80c-2.942-1.8 13.125 7.79 12.065 10.891Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M37.5 80.5c.523-3.196 4.45-13.629 4.45-13.629s-1.341 9.02 1.05 13.13c-1.73.572-4.326 1.347-5.5.499ZM69.81 77.835c-.224-3.262-2.167-10.884-2.167-10.884s.597 8.698-2.194 12.603c1.421.011 3.101-.978 4.361-1.72Z"
+                              fill="#d8dee4"
+                            />
+                          </g>
+                          <mask
+                            height="36"
+                            id="webDeveloperInfographic_svg__c"
+                            maskUnits="userSpaceOnUse"
+                            style="mask-type: alpha;"
+                            width="54"
+                            x="0"
+                            y="4"
+                          >
+                            <path
+                              d="M41.465 14.917c-3.693-9.04-13.872-13.315-22.734-9.548-6.06 2.576-10.18 8.415-10.652 15.094-5.12.723-8.698 5.543-7.99 10.767.641 4.727 4.604 8.246 9.282 8.241h32.094c6.647 0 12.035-5.496 12.035-12.277 0-6.78-5.388-12.277-12.035-12.277Z"
+                              fill="#d8dee4"
+                            />
+                          </mask>
+                          <g
+                            mask="url(#webDeveloperInfographic_svg__c)"
+                          >
+                            <path
+                              d="M-7.622-1.717h63.907v49.396H-7.622z"
+                              fill="#9faebc"
+                            />
+                            <path
+                              d="M41.046 58.922 29.074 29.657 0 17.494v41.428h41.046Z"
+                              fill="#506478"
+                            />
+                            <path
+                              d="M58.19 58.921V41.762l-29.145-12.09 12 29.25H58.19Z"
+                              fill="#9faebc"
+                            />
+                            <path
+                              d="M0 17.494 29.045 29.67 17.058.465 0 17.494Z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M58.19 17.494 29.131-11.684l-4.51 4.518L17.045.48l12 29.191L58.19 41.762V17.494Z"
+                              fill="#798da1"
+                            />
+                          </g>
+                          <path
+                            d="M45.763 36.984c.132 2.751-1.842 5.082-4.41 5.206-2.57.123-4.759-2.007-4.891-4.758-.133-2.752 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758ZM76.758 35.212c.132 2.752-1.842 5.082-4.41 5.206-2.57.124-4.759-2.007-4.891-4.758-.133-2.751 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758Z"
+                            fill="#FFE5C7"
+                          />
+                          <path
+                            d="M40.136 34.854S41.813 56.38 57.33 55.633c15.517-.748 16.627-17.606 15.966-23.72 0-8.413-3.855-15.468-3.855-15.468l-13.118-.713-11.39 2.854-5.23 3.517-.176 3.945.608 8.806Z"
+                            fill="#FFE5C7"
+                          />
+                          <path
+                            d="M47.906 27.264c-.026.445.532.349.994.272.96-.158.673-.866 2.696-.884.733-.007 1.931 1.156 2.27.527.962-1.785-5.787-2.968-5.96.085ZM68.755 26.744c-.46-.862-1.985-1.232-3.041-1.115-.885.098-2.365.54-2.302 1.446.02.277.435.227.758.153.501-.114.703-.319 1.188-.363.472-.043.957.037 1.372.225.502.227.859.578 1.492.4.57-.16.764-.314.533-.746ZM66.327 32.101a1.049 1.049 0 0 0-.16-.074c-1.872-.687-2.507 2.277-1.141 2.759 1.972.694 2.472-2.016 1.3-2.685Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M66.096 32.43c-.208-.197-.603-.022-.546.246.029.136.056.245.182.338.192.143.578-.024.562-.25-.01-.148-.09-.232-.198-.334Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M39.55 11.97c1.628-1.216 4.482-1.193 5.633 1.06-2.96 1.289-5.47-.808-7.188 1.844.164-1.142.63-2.213 1.555-2.904Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M42.794 14.941c2.747-3.331.088-8.103 4.65-9.38-4.706.31-7.544 6.919-4.65 9.38Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M43.56 12.431c.767-6.592 8.35-9.366 15.79-7.971 14.563 2.729 19.47 15.483 13.644 27.746-.328-.982-.38-2.177-.437-3.488-.102-2.37-.222-5.122-2.016-7.702-3.383-4.865-6.269-4.314-10.96-3.419-1.177.225-2.469.471-3.91.66a10.236 10.236 0 0 1-3.507-.154c.61 1.216 1.033 2.798 1.073 5.058-1.14-1.662-3.263-2.865-5.254-3.993-.83-.47-1.636-.927-2.34-1.4.001 1.936.582 3.971 1.306 6.073-1.607-.813-2.958-2.039-3.517-3.75a6.021 6.021 0 0 1-.257-1.192c-.249 1.243-.065 2.479.134 3.814.428 2.868.924 6.195-2.661 11.026-2.913-4.905-7.205-19.622 2.912-21.308Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M51.516 31.837a1.155 1.155 0 0 0-.174-.08c-2.028-.745-2.716 2.468-1.236 2.99 2.137.753 2.68-2.185 1.41-2.91Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M51.265 32.193c-.225-.213-.653-.024-.592.267.032.148.061.266.198.367.209.154.626-.026.61-.272-.012-.16-.099-.25-.216-.362Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M42.988 29.465v9.164a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-4.017h3.9v4.017a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-9.164a.63.63 0 0 0-.63-.628h-11.33a.63.63 0 0 0-.63.628v3.891h-3.931v-3.891a.63.63 0 0 0-.63-.628H43.618a.63.63 0 0 0-.63.628Zm18.053 1.547h9.46v6.07h-9.46v-6.07Zm-16.488 0h9.459v6.07h-9.46v-6.07ZM65 45s-3.465 4.962-10 2.885c3.525 2.724 8.674 3.787 10-2.885Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M31.47 52h-6.489c-2.497 0-4.528 2.082-4.528 4.642L15.72 71.356c0 2.56 2.032 4.644 4.529 4.644h11.22c2.497 0 4.53-2.083 4.53-4.644V56.643c0-2.56-2.033-4.644-4.53-4.644Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Zm-15.858 7.386L10.85 64.27l4.237 4.343a.978.978 0 0 1 0 1.359.92.92 0 0 1-1.326 0l-4.9-5.023a.978.978 0 0 1 0-1.359l5.427-5.563a.921.921 0 0 1 1.326 0 .979.979 0 0 1 0 1.359Zm8.195-2.261-4.957 14.39a.931.931 0 0 1-1.197.585.968.968 0 0 1-.572-1.226l4.958-14.39a.932.932 0 0 1 1.196-.585.968.968 0 0 1 .572 1.226Zm7.332 7.284-5.427 5.563a.922.922 0 0 1-1.326 0 .979.979 0 0 1 0-1.359l4.764-4.884-4.237-4.343a.978.978 0 0 1 0-1.359.92.92 0 0 1 1.326 0l4.9 5.023a.978.978 0 0 1 0 1.359Z"
+                            fill="#7e9bfa"
+                          />
+                        </g>
+                        <defs>
+                          <clippath
+                            id="webDeveloperInfographic_svg__a"
+                          >
+                            <path
+                              d="M0 0h80.001v80H0z"
+                              fill="#fff"
+                            />
+                          </clippath>
+                        </defs>
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
-                      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                      classname="el-flex-column el-flex-justify-center"
                     >
                       <mock-styled.mock-styled.h2>
                         Reapit Developed Apps
@@ -866,26 +1574,171 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css.
-  flex-direction: column;
-"
+                    classname="el-flex-column"
                   >
                     <mock-styled.span
-                      classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+                      classname="el-mb5"
                       style="font-size: 80px;"
                     >
                       <svg
+                        fill="none"
+                        height="1em"
                         style="font-size: 80px;"
-                      />
+                        viewBox="0 0 80 80"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g
+                          clip-path="url(#webDeveloperInfographic_svg__a)"
+                        >
+                          <mask
+                            height="80"
+                            id="webDeveloperInfographic_svg__b"
+                            maskUnits="userSpaceOnUse"
+                            style="mask-type: alpha;"
+                            width="81"
+                            x="0"
+                            y="0"
+                          >
+                            <circle
+                              fill="#C4C4C4"
+                              r="40"
+                              transform="matrix(1 0 .00002 1 40 40)"
+                            />
+                          </mask>
+                          <g
+                            mask="url(#webDeveloperInfographic_svg__b)"
+                          >
+                            <path
+                              d="M0 0h80v80H0z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M79.428 80.99s-7.853 0-13.657-4.437c-8.898-3.054-4.85-21.432-4.155-22.111.694-.679 6.878-.06 10.383 1.595 4.822 2.278 4.657 5.695 5.858 9.03 1.743 4.842 1.571 8.413 1.571 8.413 1.328 0-1.062 4.191 0 7.51Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M46.374 58.163C45.99 60.147 38.45 70.076 37.5 81c7.961 8.055 20.958 7.258 30.452 1.926-.777-9.087-3.935-23.146-5.772-27.293-2.552-5.764-8.06-7.065-8.06-7.065s-7.241 6.994-7.746 9.595Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M61.63 54.05c0 2.69-2.757 4.87-6.158 4.87-3.4 0-6.158-2.18-6.158-4.87s2.757-4.87 6.158-4.87c3.4 0 6.158 2.18 6.158 4.87Z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M36.065 90.891s-.175-13.07 6.442-18.002c6.617-4.93 7.198-18.003 6.707-18.76-.49-.758-10.456-.791-13.425 1.7C30.26 60.469 26.318 73.258 24 80c-2.942-1.8 13.125 7.79 12.065 10.891Z"
+                              fill="#fff"
+                            />
+                            <path
+                              d="M37.5 80.5c.523-3.196 4.45-13.629 4.45-13.629s-1.341 9.02 1.05 13.13c-1.73.572-4.326 1.347-5.5.499ZM69.81 77.835c-.224-3.262-2.167-10.884-2.167-10.884s.597 8.698-2.194 12.603c1.421.011 3.101-.978 4.361-1.72Z"
+                              fill="#d8dee4"
+                            />
+                          </g>
+                          <mask
+                            height="36"
+                            id="webDeveloperInfographic_svg__c"
+                            maskUnits="userSpaceOnUse"
+                            style="mask-type: alpha;"
+                            width="54"
+                            x="0"
+                            y="4"
+                          >
+                            <path
+                              d="M41.465 14.917c-3.693-9.04-13.872-13.315-22.734-9.548-6.06 2.576-10.18 8.415-10.652 15.094-5.12.723-8.698 5.543-7.99 10.767.641 4.727 4.604 8.246 9.282 8.241h32.094c6.647 0 12.035-5.496 12.035-12.277 0-6.78-5.388-12.277-12.035-12.277Z"
+                              fill="#d8dee4"
+                            />
+                          </mask>
+                          <g
+                            mask="url(#webDeveloperInfographic_svg__c)"
+                          >
+                            <path
+                              d="M-7.622-1.717h63.907v49.396H-7.622z"
+                              fill="#9faebc"
+                            />
+                            <path
+                              d="M41.046 58.922 29.074 29.657 0 17.494v41.428h41.046Z"
+                              fill="#506478"
+                            />
+                            <path
+                              d="M58.19 58.921V41.762l-29.145-12.09 12 29.25H58.19Z"
+                              fill="#9faebc"
+                            />
+                            <path
+                              d="M0 17.494 29.045 29.67 17.058.465 0 17.494Z"
+                              fill="#d8dee4"
+                            />
+                            <path
+                              d="M58.19 17.494 29.131-11.684l-4.51 4.518L17.045.48l12 29.191L58.19 41.762V17.494Z"
+                              fill="#798da1"
+                            />
+                          </g>
+                          <path
+                            d="M45.763 36.984c.132 2.751-1.842 5.082-4.41 5.206-2.57.123-4.759-2.007-4.891-4.758-.133-2.752 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758ZM76.758 35.212c.132 2.752-1.842 5.082-4.41 5.206-2.57.124-4.759-2.007-4.891-4.758-.133-2.751 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758Z"
+                            fill="#FFE5C7"
+                          />
+                          <path
+                            d="M40.136 34.854S41.813 56.38 57.33 55.633c15.517-.748 16.627-17.606 15.966-23.72 0-8.413-3.855-15.468-3.855-15.468l-13.118-.713-11.39 2.854-5.23 3.517-.176 3.945.608 8.806Z"
+                            fill="#FFE5C7"
+                          />
+                          <path
+                            d="M47.906 27.264c-.026.445.532.349.994.272.96-.158.673-.866 2.696-.884.733-.007 1.931 1.156 2.27.527.962-1.785-5.787-2.968-5.96.085ZM68.755 26.744c-.46-.862-1.985-1.232-3.041-1.115-.885.098-2.365.54-2.302 1.446.02.277.435.227.758.153.501-.114.703-.319 1.188-.363.472-.043.957.037 1.372.225.502.227.859.578 1.492.4.57-.16.764-.314.533-.746ZM66.327 32.101a1.049 1.049 0 0 0-.16-.074c-1.872-.687-2.507 2.277-1.141 2.759 1.972.694 2.472-2.016 1.3-2.685Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M66.096 32.43c-.208-.197-.603-.022-.546.246.029.136.056.245.182.338.192.143.578-.024.562-.25-.01-.148-.09-.232-.198-.334Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M39.55 11.97c1.628-1.216 4.482-1.193 5.633 1.06-2.96 1.289-5.47-.808-7.188 1.844.164-1.142.63-2.213 1.555-2.904Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M42.794 14.941c2.747-3.331.088-8.103 4.65-9.38-4.706.31-7.544 6.919-4.65 9.38Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M43.56 12.431c.767-6.592 8.35-9.366 15.79-7.971 14.563 2.729 19.47 15.483 13.644 27.746-.328-.982-.38-2.177-.437-3.488-.102-2.37-.222-5.122-2.016-7.702-3.383-4.865-6.269-4.314-10.96-3.419-1.177.225-2.469.471-3.91.66a10.236 10.236 0 0 1-3.507-.154c.61 1.216 1.033 2.798 1.073 5.058-1.14-1.662-3.263-2.865-5.254-3.993-.83-.47-1.636-.927-2.34-1.4.001 1.936.582 3.971 1.306 6.073-1.607-.813-2.958-2.039-3.517-3.75a6.021 6.021 0 0 1-.257-1.192c-.249 1.243-.065 2.479.134 3.814.428 2.868.924 6.195-2.661 11.026-2.913-4.905-7.205-19.622 2.912-21.308Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M51.516 31.837a1.155 1.155 0 0 0-.174-.08c-2.028-.745-2.716 2.468-1.236 2.99 2.137.753 2.68-2.185 1.41-2.91Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M51.265 32.193c-.225-.213-.653-.024-.592.267.032.148.061.266.198.367.209.154.626-.026.61-.272-.012-.16-.099-.25-.216-.362Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M42.988 29.465v9.164a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-4.017h3.9v4.017a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-9.164a.63.63 0 0 0-.63-.628h-11.33a.63.63 0 0 0-.63.628v3.891h-3.931v-3.891a.63.63 0 0 0-.63-.628H43.618a.63.63 0 0 0-.63.628Zm18.053 1.547h9.46v6.07h-9.46v-6.07Zm-16.488 0h9.459v6.07h-9.46v-6.07ZM65 45s-3.465 4.962-10 2.885c3.525 2.724 8.674 3.787 10-2.885Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M31.47 52h-6.489c-2.497 0-4.528 2.082-4.528 4.642L15.72 71.356c0 2.56 2.032 4.644 4.529 4.644h11.22c2.497 0 4.53-2.083 4.53-4.644V56.643c0-2.56-2.033-4.644-4.53-4.644Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Zm-15.858 7.386L10.85 64.27l4.237 4.343a.978.978 0 0 1 0 1.359.92.92 0 0 1-1.326 0l-4.9-5.023a.978.978 0 0 1 0-1.359l5.427-5.563a.921.921 0 0 1 1.326 0 .979.979 0 0 1 0 1.359Zm8.195-2.261-4.957 14.39a.931.931 0 0 1-1.197.585.968.968 0 0 1-.572-1.226l4.958-14.39a.932.932 0 0 1 1.196-.585.968.968 0 0 1 .572 1.226Zm7.332 7.284-5.427 5.563a.922.922 0 0 1-1.326 0 .979.979 0 0 1 0-1.359l4.764-4.884-4.237-4.343a.978.978 0 0 1 0-1.359.92.92 0 0 1 1.326 0l4.9 5.023a.978.978 0 0 1 0 1.359Z"
+                            fill="#7e9bfa"
+                          />
+                        </g>
+                        <defs>
+                          <clippath
+                            id="webDeveloperInfographic_svg__a"
+                          >
+                            <path
+                              d="M0 0h80.001v80H0z"
+                              fill="#fff"
+                            />
+                          </clippath>
+                        </defs>
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
-                      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                      classname="el-flex-column el-flex-justify-center"
                     >
                       <mock-styled.mock-styled.h2>
                         Reapit Developed Apps
@@ -900,9 +1753,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  align-items: center;
-"
+            classname="el-flex-align-center"
           >
             <mock-styled.mock-styled.h2>
               Indentity Apps
@@ -913,9 +1764,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div />
           <mock-styled.div
-            classname="mock-css.
-  align-items: center;
-"
+            classname="el-flex-align-center"
           >
             <mock-styled.mock-styled.h2>
               Free Apps
@@ -941,11 +1790,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           AppMarket
         </mock-styled.mock-styled.h1>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  margin-top: 0.5rem;
- mock-css.
+          classname="el-mb5 el-mt3 mock-css.
   display: flex;
 
   , {
@@ -972,11 +1817,20 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   &., {
     color: var(--intent-primary);
   }
- mock-css. mock-css.
-  font-size: 1.5rem;
-"
+ el-intent-default el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17 11H7a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2Zm3-5H4a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2Zm-7 10h-2a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -997,23 +1851,28 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   &., {
     color: var(--intent-primary);
   }
- mock-css. mock-css.
-  font-size: 1.5rem;
-"
+ el-intent-default el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
-"
+        classname="el-flex-column"
       />
       <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+        classname="el-flex-justify-between"
       >
         <mock-styled.p
           classname="mock-css.
@@ -1022,27 +1881,13 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   , {
     display: flex;
   }
- mock-css."
+ el-has-bold-text"
         >
           Browse By
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
+        classname="el-fade-in mock-css.
   width: 100%;
   border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
@@ -1063,7 +1908,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           value="9"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="9"
         >
           Tools
@@ -1076,7 +1921,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           value="8"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="8"
         >
           Social
@@ -1089,7 +1934,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           value="7"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="7"
         >
           Marketing
@@ -1102,7 +1947,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           value="6"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="6"
         >
           Communication
@@ -1115,7 +1960,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           value="5"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="5"
         >
           Media
@@ -1128,7 +1973,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           value="4"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="4"
         >
           Events
@@ -1141,7 +1986,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           value="3"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="3"
         >
           Finance
@@ -1154,7 +1999,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           value="2"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="2"
         >
           Productivity
@@ -1167,7 +2012,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           value="1"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="1"
         >
           Other
@@ -1183,9 +2028,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
 "
       >
         <mock-styled.div
-          classname="mock-css.
-  align-items: center;
- mock-css.
+          classname="el-flex-align-center mock-css.
   width: 100%;
 
   , {
@@ -1200,9 +2043,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   , {
     width: 25%;
   }
- mock-css.
-  margin-right: 0.75rem;
-"
+ el-mr5"
         >
           <mock-styled.span
             classname="mock-css.
@@ -1219,11 +2060,20 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
- mock-css. mock-css.
-  font-size: 1.5rem;
-"
+ el-intent-default el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -1233,9 +2083,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  flex-direction: column;
-"
+          classname="el-flex-column"
         >
           <mock-styled.mock-styled.h2>
             New in AppMarket
@@ -1247,9 +2095,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+                    classname="el-mb7"
                     style="font-size: 2.8125em; width: 72px; height: 72px;"
                   >
                     <svg
@@ -1284,7 +2130,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   , {
     display: block;
   }
- mock-css."
+ el-intent-neutral"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
                     <mock-styled.div />
@@ -1305,7 +2151,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
   , {
     display: none;
   }
- mock-css."
+ el-intent-neutral"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
                   <mock-styled.div />
@@ -1395,9 +2241,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                 style="background-color: rgba(0, 97, 168, 0.102);"
               >
                 <mock-styled.div
-                  classname="mock-css.
-  height: 100%;
- mock-css.
+                  classname="el-hfull mock-css.
   flex-direction: column;
 
   , {
@@ -1512,9 +2356,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
                 style="background-color: rgba(0, 97, 168, 0.102);"
               >
                 <mock-styled.div
-                  classname="mock-css.
-  height: 100%;
- mock-css.
+                  classname="el-hfull mock-css.
   flex-direction: column;
 
   , {
@@ -1573,44 +2415,34 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
-"
+        classname="el-flex-column"
       >
         <mock-styled.mock-styled.h2>
           App Collections
         </mock-styled.mock-styled.h2>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
         >
           <mock-styled.mock-styled.a
-            classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+            classname="el-fade-in"
           >
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-primary el-icon-new"
               style="font-size: 0.75em;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 0.75em;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.mock-styled.a>
           <mock-styled.div
@@ -1621,26 +2453,171 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css.
-  flex-direction: column;
-"
+                  classname="el-flex-column"
                 >
                   <mock-styled.span
-                    classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+                    classname="el-mb5"
                     style="font-size: 80px;"
                   >
                     <svg
+                      fill="none"
+                      height="1em"
                       style="font-size: 80px;"
-                    />
+                      viewBox="0 0 80 80"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g
+                        clip-path="url(#webDeveloperInfographic_svg__a)"
+                      >
+                        <mask
+                          height="80"
+                          id="webDeveloperInfographic_svg__b"
+                          maskUnits="userSpaceOnUse"
+                          style="mask-type: alpha;"
+                          width="81"
+                          x="0"
+                          y="0"
+                        >
+                          <circle
+                            fill="#C4C4C4"
+                            r="40"
+                            transform="matrix(1 0 .00002 1 40 40)"
+                          />
+                        </mask>
+                        <g
+                          mask="url(#webDeveloperInfographic_svg__b)"
+                        >
+                          <path
+                            d="M0 0h80v80H0z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M79.428 80.99s-7.853 0-13.657-4.437c-8.898-3.054-4.85-21.432-4.155-22.111.694-.679 6.878-.06 10.383 1.595 4.822 2.278 4.657 5.695 5.858 9.03 1.743 4.842 1.571 8.413 1.571 8.413 1.328 0-1.062 4.191 0 7.51Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M46.374 58.163C45.99 60.147 38.45 70.076 37.5 81c7.961 8.055 20.958 7.258 30.452 1.926-.777-9.087-3.935-23.146-5.772-27.293-2.552-5.764-8.06-7.065-8.06-7.065s-7.241 6.994-7.746 9.595Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M61.63 54.05c0 2.69-2.757 4.87-6.158 4.87-3.4 0-6.158-2.18-6.158-4.87s2.757-4.87 6.158-4.87c3.4 0 6.158 2.18 6.158 4.87Z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M36.065 90.891s-.175-13.07 6.442-18.002c6.617-4.93 7.198-18.003 6.707-18.76-.49-.758-10.456-.791-13.425 1.7C30.26 60.469 26.318 73.258 24 80c-2.942-1.8 13.125 7.79 12.065 10.891Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M37.5 80.5c.523-3.196 4.45-13.629 4.45-13.629s-1.341 9.02 1.05 13.13c-1.73.572-4.326 1.347-5.5.499ZM69.81 77.835c-.224-3.262-2.167-10.884-2.167-10.884s.597 8.698-2.194 12.603c1.421.011 3.101-.978 4.361-1.72Z"
+                            fill="#d8dee4"
+                          />
+                        </g>
+                        <mask
+                          height="36"
+                          id="webDeveloperInfographic_svg__c"
+                          maskUnits="userSpaceOnUse"
+                          style="mask-type: alpha;"
+                          width="54"
+                          x="0"
+                          y="4"
+                        >
+                          <path
+                            d="M41.465 14.917c-3.693-9.04-13.872-13.315-22.734-9.548-6.06 2.576-10.18 8.415-10.652 15.094-5.12.723-8.698 5.543-7.99 10.767.641 4.727 4.604 8.246 9.282 8.241h32.094c6.647 0 12.035-5.496 12.035-12.277 0-6.78-5.388-12.277-12.035-12.277Z"
+                            fill="#d8dee4"
+                          />
+                        </mask>
+                        <g
+                          mask="url(#webDeveloperInfographic_svg__c)"
+                        >
+                          <path
+                            d="M-7.622-1.717h63.907v49.396H-7.622z"
+                            fill="#9faebc"
+                          />
+                          <path
+                            d="M41.046 58.922 29.074 29.657 0 17.494v41.428h41.046Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M58.19 58.921V41.762l-29.145-12.09 12 29.25H58.19Z"
+                            fill="#9faebc"
+                          />
+                          <path
+                            d="M0 17.494 29.045 29.67 17.058.465 0 17.494Z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M58.19 17.494 29.131-11.684l-4.51 4.518L17.045.48l12 29.191L58.19 41.762V17.494Z"
+                            fill="#798da1"
+                          />
+                        </g>
+                        <path
+                          d="M45.763 36.984c.132 2.751-1.842 5.082-4.41 5.206-2.57.123-4.759-2.007-4.891-4.758-.133-2.752 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758ZM76.758 35.212c.132 2.752-1.842 5.082-4.41 5.206-2.57.124-4.759-2.007-4.891-4.758-.133-2.751 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758Z"
+                          fill="#FFE5C7"
+                        />
+                        <path
+                          d="M40.136 34.854S41.813 56.38 57.33 55.633c15.517-.748 16.627-17.606 15.966-23.72 0-8.413-3.855-15.468-3.855-15.468l-13.118-.713-11.39 2.854-5.23 3.517-.176 3.945.608 8.806Z"
+                          fill="#FFE5C7"
+                        />
+                        <path
+                          d="M47.906 27.264c-.026.445.532.349.994.272.96-.158.673-.866 2.696-.884.733-.007 1.931 1.156 2.27.527.962-1.785-5.787-2.968-5.96.085ZM68.755 26.744c-.46-.862-1.985-1.232-3.041-1.115-.885.098-2.365.54-2.302 1.446.02.277.435.227.758.153.501-.114.703-.319 1.188-.363.472-.043.957.037 1.372.225.502.227.859.578 1.492.4.57-.16.764-.314.533-.746ZM66.327 32.101a1.049 1.049 0 0 0-.16-.074c-1.872-.687-2.507 2.277-1.141 2.759 1.972.694 2.472-2.016 1.3-2.685Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M66.096 32.43c-.208-.197-.603-.022-.546.246.029.136.056.245.182.338.192.143.578-.024.562-.25-.01-.148-.09-.232-.198-.334Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M39.55 11.97c1.628-1.216 4.482-1.193 5.633 1.06-2.96 1.289-5.47-.808-7.188 1.844.164-1.142.63-2.213 1.555-2.904Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M42.794 14.941c2.747-3.331.088-8.103 4.65-9.38-4.706.31-7.544 6.919-4.65 9.38Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M43.56 12.431c.767-6.592 8.35-9.366 15.79-7.971 14.563 2.729 19.47 15.483 13.644 27.746-.328-.982-.38-2.177-.437-3.488-.102-2.37-.222-5.122-2.016-7.702-3.383-4.865-6.269-4.314-10.96-3.419-1.177.225-2.469.471-3.91.66a10.236 10.236 0 0 1-3.507-.154c.61 1.216 1.033 2.798 1.073 5.058-1.14-1.662-3.263-2.865-5.254-3.993-.83-.47-1.636-.927-2.34-1.4.001 1.936.582 3.971 1.306 6.073-1.607-.813-2.958-2.039-3.517-3.75a6.021 6.021 0 0 1-.257-1.192c-.249 1.243-.065 2.479.134 3.814.428 2.868.924 6.195-2.661 11.026-2.913-4.905-7.205-19.622 2.912-21.308Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M51.516 31.837a1.155 1.155 0 0 0-.174-.08c-2.028-.745-2.716 2.468-1.236 2.99 2.137.753 2.68-2.185 1.41-2.91Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M51.265 32.193c-.225-.213-.653-.024-.592.267.032.148.061.266.198.367.209.154.626-.026.61-.272-.012-.16-.099-.25-.216-.362Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M42.988 29.465v9.164a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-4.017h3.9v4.017a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-9.164a.63.63 0 0 0-.63-.628h-11.33a.63.63 0 0 0-.63.628v3.891h-3.931v-3.891a.63.63 0 0 0-.63-.628H43.618a.63.63 0 0 0-.63.628Zm18.053 1.547h9.46v6.07h-9.46v-6.07Zm-16.488 0h9.459v6.07h-9.46v-6.07ZM65 45s-3.465 4.962-10 2.885c3.525 2.724 8.674 3.787 10-2.885Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M31.47 52h-6.489c-2.497 0-4.528 2.082-4.528 4.642L15.72 71.356c0 2.56 2.032 4.644 4.529 4.644h11.22c2.497 0 4.53-2.083 4.53-4.644V56.643c0-2.56-2.033-4.644-4.53-4.644Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Zm-15.858 7.386L10.85 64.27l4.237 4.343a.978.978 0 0 1 0 1.359.92.92 0 0 1-1.326 0l-4.9-5.023a.978.978 0 0 1 0-1.359l5.427-5.563a.921.921 0 0 1 1.326 0 .979.979 0 0 1 0 1.359Zm8.195-2.261-4.957 14.39a.931.931 0 0 1-1.197.585.968.968 0 0 1-.572-1.226l4.958-14.39a.932.932 0 0 1 1.196-.585.968.968 0 0 1 .572 1.226Zm7.332 7.284-5.427 5.563a.922.922 0 0 1-1.326 0 .979.979 0 0 1 0-1.359l4.764-4.884-4.237-4.343a.978.978 0 0 1 0-1.359.92.92 0 0 1 1.326 0l4.9 5.023a.978.978 0 0 1 0 1.359Z"
+                          fill="#7e9bfa"
+                        />
+                      </g>
+                      <defs>
+                        <clippath
+                          id="webDeveloperInfographic_svg__a"
+                        >
+                          <path
+                            d="M0 0h80.001v80H0z"
+                            fill="#fff"
+                          />
+                        </clippath>
+                      </defs>
+                    </svg>
                   </mock-styled.span>
                   <mock-styled.div
-                    classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                    classname="el-flex-column el-flex-justify-center"
                   >
                     <mock-styled.mock-styled.h2>
                       Reapit Developed Apps
@@ -1655,26 +2632,171 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css.
-  flex-direction: column;
-"
+                  classname="el-flex-column"
                 >
                   <mock-styled.span
-                    classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+                    classname="el-mb5"
                     style="font-size: 80px;"
                   >
                     <svg
+                      fill="none"
+                      height="1em"
                       style="font-size: 80px;"
-                    />
+                      viewBox="0 0 80 80"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g
+                        clip-path="url(#webDeveloperInfographic_svg__a)"
+                      >
+                        <mask
+                          height="80"
+                          id="webDeveloperInfographic_svg__b"
+                          maskUnits="userSpaceOnUse"
+                          style="mask-type: alpha;"
+                          width="81"
+                          x="0"
+                          y="0"
+                        >
+                          <circle
+                            fill="#C4C4C4"
+                            r="40"
+                            transform="matrix(1 0 .00002 1 40 40)"
+                          />
+                        </mask>
+                        <g
+                          mask="url(#webDeveloperInfographic_svg__b)"
+                        >
+                          <path
+                            d="M0 0h80v80H0z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M79.428 80.99s-7.853 0-13.657-4.437c-8.898-3.054-4.85-21.432-4.155-22.111.694-.679 6.878-.06 10.383 1.595 4.822 2.278 4.657 5.695 5.858 9.03 1.743 4.842 1.571 8.413 1.571 8.413 1.328 0-1.062 4.191 0 7.51Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M46.374 58.163C45.99 60.147 38.45 70.076 37.5 81c7.961 8.055 20.958 7.258 30.452 1.926-.777-9.087-3.935-23.146-5.772-27.293-2.552-5.764-8.06-7.065-8.06-7.065s-7.241 6.994-7.746 9.595Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M61.63 54.05c0 2.69-2.757 4.87-6.158 4.87-3.4 0-6.158-2.18-6.158-4.87s2.757-4.87 6.158-4.87c3.4 0 6.158 2.18 6.158 4.87Z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M36.065 90.891s-.175-13.07 6.442-18.002c6.617-4.93 7.198-18.003 6.707-18.76-.49-.758-10.456-.791-13.425 1.7C30.26 60.469 26.318 73.258 24 80c-2.942-1.8 13.125 7.79 12.065 10.891Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M37.5 80.5c.523-3.196 4.45-13.629 4.45-13.629s-1.341 9.02 1.05 13.13c-1.73.572-4.326 1.347-5.5.499ZM69.81 77.835c-.224-3.262-2.167-10.884-2.167-10.884s.597 8.698-2.194 12.603c1.421.011 3.101-.978 4.361-1.72Z"
+                            fill="#d8dee4"
+                          />
+                        </g>
+                        <mask
+                          height="36"
+                          id="webDeveloperInfographic_svg__c"
+                          maskUnits="userSpaceOnUse"
+                          style="mask-type: alpha;"
+                          width="54"
+                          x="0"
+                          y="4"
+                        >
+                          <path
+                            d="M41.465 14.917c-3.693-9.04-13.872-13.315-22.734-9.548-6.06 2.576-10.18 8.415-10.652 15.094-5.12.723-8.698 5.543-7.99 10.767.641 4.727 4.604 8.246 9.282 8.241h32.094c6.647 0 12.035-5.496 12.035-12.277 0-6.78-5.388-12.277-12.035-12.277Z"
+                            fill="#d8dee4"
+                          />
+                        </mask>
+                        <g
+                          mask="url(#webDeveloperInfographic_svg__c)"
+                        >
+                          <path
+                            d="M-7.622-1.717h63.907v49.396H-7.622z"
+                            fill="#9faebc"
+                          />
+                          <path
+                            d="M41.046 58.922 29.074 29.657 0 17.494v41.428h41.046Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M58.19 58.921V41.762l-29.145-12.09 12 29.25H58.19Z"
+                            fill="#9faebc"
+                          />
+                          <path
+                            d="M0 17.494 29.045 29.67 17.058.465 0 17.494Z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M58.19 17.494 29.131-11.684l-4.51 4.518L17.045.48l12 29.191L58.19 41.762V17.494Z"
+                            fill="#798da1"
+                          />
+                        </g>
+                        <path
+                          d="M45.763 36.984c.132 2.751-1.842 5.082-4.41 5.206-2.57.123-4.759-2.007-4.891-4.758-.133-2.752 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758ZM76.758 35.212c.132 2.752-1.842 5.082-4.41 5.206-2.57.124-4.759-2.007-4.891-4.758-.133-2.751 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758Z"
+                          fill="#FFE5C7"
+                        />
+                        <path
+                          d="M40.136 34.854S41.813 56.38 57.33 55.633c15.517-.748 16.627-17.606 15.966-23.72 0-8.413-3.855-15.468-3.855-15.468l-13.118-.713-11.39 2.854-5.23 3.517-.176 3.945.608 8.806Z"
+                          fill="#FFE5C7"
+                        />
+                        <path
+                          d="M47.906 27.264c-.026.445.532.349.994.272.96-.158.673-.866 2.696-.884.733-.007 1.931 1.156 2.27.527.962-1.785-5.787-2.968-5.96.085ZM68.755 26.744c-.46-.862-1.985-1.232-3.041-1.115-.885.098-2.365.54-2.302 1.446.02.277.435.227.758.153.501-.114.703-.319 1.188-.363.472-.043.957.037 1.372.225.502.227.859.578 1.492.4.57-.16.764-.314.533-.746ZM66.327 32.101a1.049 1.049 0 0 0-.16-.074c-1.872-.687-2.507 2.277-1.141 2.759 1.972.694 2.472-2.016 1.3-2.685Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M66.096 32.43c-.208-.197-.603-.022-.546.246.029.136.056.245.182.338.192.143.578-.024.562-.25-.01-.148-.09-.232-.198-.334Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M39.55 11.97c1.628-1.216 4.482-1.193 5.633 1.06-2.96 1.289-5.47-.808-7.188 1.844.164-1.142.63-2.213 1.555-2.904Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M42.794 14.941c2.747-3.331.088-8.103 4.65-9.38-4.706.31-7.544 6.919-4.65 9.38Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M43.56 12.431c.767-6.592 8.35-9.366 15.79-7.971 14.563 2.729 19.47 15.483 13.644 27.746-.328-.982-.38-2.177-.437-3.488-.102-2.37-.222-5.122-2.016-7.702-3.383-4.865-6.269-4.314-10.96-3.419-1.177.225-2.469.471-3.91.66a10.236 10.236 0 0 1-3.507-.154c.61 1.216 1.033 2.798 1.073 5.058-1.14-1.662-3.263-2.865-5.254-3.993-.83-.47-1.636-.927-2.34-1.4.001 1.936.582 3.971 1.306 6.073-1.607-.813-2.958-2.039-3.517-3.75a6.021 6.021 0 0 1-.257-1.192c-.249 1.243-.065 2.479.134 3.814.428 2.868.924 6.195-2.661 11.026-2.913-4.905-7.205-19.622 2.912-21.308Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M51.516 31.837a1.155 1.155 0 0 0-.174-.08c-2.028-.745-2.716 2.468-1.236 2.99 2.137.753 2.68-2.185 1.41-2.91Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M51.265 32.193c-.225-.213-.653-.024-.592.267.032.148.061.266.198.367.209.154.626-.026.61-.272-.012-.16-.099-.25-.216-.362Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M42.988 29.465v9.164a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-4.017h3.9v4.017a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-9.164a.63.63 0 0 0-.63-.628h-11.33a.63.63 0 0 0-.63.628v3.891h-3.931v-3.891a.63.63 0 0 0-.63-.628H43.618a.63.63 0 0 0-.63.628Zm18.053 1.547h9.46v6.07h-9.46v-6.07Zm-16.488 0h9.459v6.07h-9.46v-6.07ZM65 45s-3.465 4.962-10 2.885c3.525 2.724 8.674 3.787 10-2.885Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M31.47 52h-6.489c-2.497 0-4.528 2.082-4.528 4.642L15.72 71.356c0 2.56 2.032 4.644 4.529 4.644h11.22c2.497 0 4.53-2.083 4.53-4.644V56.643c0-2.56-2.033-4.644-4.53-4.644Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Zm-15.858 7.386L10.85 64.27l4.237 4.343a.978.978 0 0 1 0 1.359.92.92 0 0 1-1.326 0l-4.9-5.023a.978.978 0 0 1 0-1.359l5.427-5.563a.921.921 0 0 1 1.326 0 .979.979 0 0 1 0 1.359Zm8.195-2.261-4.957 14.39a.931.931 0 0 1-1.197.585.968.968 0 0 1-.572-1.226l4.958-14.39a.932.932 0 0 1 1.196-.585.968.968 0 0 1 .572 1.226Zm7.332 7.284-5.427 5.563a.922.922 0 0 1-1.326 0 .979.979 0 0 1 0-1.359l4.764-4.884-4.237-4.343a.978.978 0 0 1 0-1.359.92.92 0 0 1 1.326 0l4.9 5.023a.978.978 0 0 1 0 1.359Z"
+                          fill="#7e9bfa"
+                        />
+                      </g>
+                      <defs>
+                        <clippath
+                          id="webDeveloperInfographic_svg__a"
+                        >
+                          <path
+                            d="M0 0h80.001v80H0z"
+                            fill="#fff"
+                          />
+                        </clippath>
+                      </defs>
+                    </svg>
                   </mock-styled.span>
                   <mock-styled.div
-                    classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                    classname="el-flex-column el-flex-justify-center"
                   >
                     <mock-styled.mock-styled.h2>
                       Reapit Developed Apps
@@ -1689,26 +2811,171 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css.
-  flex-direction: column;
-"
+                  classname="el-flex-column"
                 >
                   <mock-styled.span
-                    classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+                    classname="el-mb5"
                     style="font-size: 80px;"
                   >
                     <svg
+                      fill="none"
+                      height="1em"
                       style="font-size: 80px;"
-                    />
+                      viewBox="0 0 80 80"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g
+                        clip-path="url(#webDeveloperInfographic_svg__a)"
+                      >
+                        <mask
+                          height="80"
+                          id="webDeveloperInfographic_svg__b"
+                          maskUnits="userSpaceOnUse"
+                          style="mask-type: alpha;"
+                          width="81"
+                          x="0"
+                          y="0"
+                        >
+                          <circle
+                            fill="#C4C4C4"
+                            r="40"
+                            transform="matrix(1 0 .00002 1 40 40)"
+                          />
+                        </mask>
+                        <g
+                          mask="url(#webDeveloperInfographic_svg__b)"
+                        >
+                          <path
+                            d="M0 0h80v80H0z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M79.428 80.99s-7.853 0-13.657-4.437c-8.898-3.054-4.85-21.432-4.155-22.111.694-.679 6.878-.06 10.383 1.595 4.822 2.278 4.657 5.695 5.858 9.03 1.743 4.842 1.571 8.413 1.571 8.413 1.328 0-1.062 4.191 0 7.51Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M46.374 58.163C45.99 60.147 38.45 70.076 37.5 81c7.961 8.055 20.958 7.258 30.452 1.926-.777-9.087-3.935-23.146-5.772-27.293-2.552-5.764-8.06-7.065-8.06-7.065s-7.241 6.994-7.746 9.595Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M61.63 54.05c0 2.69-2.757 4.87-6.158 4.87-3.4 0-6.158-2.18-6.158-4.87s2.757-4.87 6.158-4.87c3.4 0 6.158 2.18 6.158 4.87Z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M36.065 90.891s-.175-13.07 6.442-18.002c6.617-4.93 7.198-18.003 6.707-18.76-.49-.758-10.456-.791-13.425 1.7C30.26 60.469 26.318 73.258 24 80c-2.942-1.8 13.125 7.79 12.065 10.891Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M37.5 80.5c.523-3.196 4.45-13.629 4.45-13.629s-1.341 9.02 1.05 13.13c-1.73.572-4.326 1.347-5.5.499ZM69.81 77.835c-.224-3.262-2.167-10.884-2.167-10.884s.597 8.698-2.194 12.603c1.421.011 3.101-.978 4.361-1.72Z"
+                            fill="#d8dee4"
+                          />
+                        </g>
+                        <mask
+                          height="36"
+                          id="webDeveloperInfographic_svg__c"
+                          maskUnits="userSpaceOnUse"
+                          style="mask-type: alpha;"
+                          width="54"
+                          x="0"
+                          y="4"
+                        >
+                          <path
+                            d="M41.465 14.917c-3.693-9.04-13.872-13.315-22.734-9.548-6.06 2.576-10.18 8.415-10.652 15.094-5.12.723-8.698 5.543-7.99 10.767.641 4.727 4.604 8.246 9.282 8.241h32.094c6.647 0 12.035-5.496 12.035-12.277 0-6.78-5.388-12.277-12.035-12.277Z"
+                            fill="#d8dee4"
+                          />
+                        </mask>
+                        <g
+                          mask="url(#webDeveloperInfographic_svg__c)"
+                        >
+                          <path
+                            d="M-7.622-1.717h63.907v49.396H-7.622z"
+                            fill="#9faebc"
+                          />
+                          <path
+                            d="M41.046 58.922 29.074 29.657 0 17.494v41.428h41.046Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M58.19 58.921V41.762l-29.145-12.09 12 29.25H58.19Z"
+                            fill="#9faebc"
+                          />
+                          <path
+                            d="M0 17.494 29.045 29.67 17.058.465 0 17.494Z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M58.19 17.494 29.131-11.684l-4.51 4.518L17.045.48l12 29.191L58.19 41.762V17.494Z"
+                            fill="#798da1"
+                          />
+                        </g>
+                        <path
+                          d="M45.763 36.984c.132 2.751-1.842 5.082-4.41 5.206-2.57.123-4.759-2.007-4.891-4.758-.133-2.752 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758ZM76.758 35.212c.132 2.752-1.842 5.082-4.41 5.206-2.57.124-4.759-2.007-4.891-4.758-.133-2.751 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758Z"
+                          fill="#FFE5C7"
+                        />
+                        <path
+                          d="M40.136 34.854S41.813 56.38 57.33 55.633c15.517-.748 16.627-17.606 15.966-23.72 0-8.413-3.855-15.468-3.855-15.468l-13.118-.713-11.39 2.854-5.23 3.517-.176 3.945.608 8.806Z"
+                          fill="#FFE5C7"
+                        />
+                        <path
+                          d="M47.906 27.264c-.026.445.532.349.994.272.96-.158.673-.866 2.696-.884.733-.007 1.931 1.156 2.27.527.962-1.785-5.787-2.968-5.96.085ZM68.755 26.744c-.46-.862-1.985-1.232-3.041-1.115-.885.098-2.365.54-2.302 1.446.02.277.435.227.758.153.501-.114.703-.319 1.188-.363.472-.043.957.037 1.372.225.502.227.859.578 1.492.4.57-.16.764-.314.533-.746ZM66.327 32.101a1.049 1.049 0 0 0-.16-.074c-1.872-.687-2.507 2.277-1.141 2.759 1.972.694 2.472-2.016 1.3-2.685Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M66.096 32.43c-.208-.197-.603-.022-.546.246.029.136.056.245.182.338.192.143.578-.024.562-.25-.01-.148-.09-.232-.198-.334Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M39.55 11.97c1.628-1.216 4.482-1.193 5.633 1.06-2.96 1.289-5.47-.808-7.188 1.844.164-1.142.63-2.213 1.555-2.904Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M42.794 14.941c2.747-3.331.088-8.103 4.65-9.38-4.706.31-7.544 6.919-4.65 9.38Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M43.56 12.431c.767-6.592 8.35-9.366 15.79-7.971 14.563 2.729 19.47 15.483 13.644 27.746-.328-.982-.38-2.177-.437-3.488-.102-2.37-.222-5.122-2.016-7.702-3.383-4.865-6.269-4.314-10.96-3.419-1.177.225-2.469.471-3.91.66a10.236 10.236 0 0 1-3.507-.154c.61 1.216 1.033 2.798 1.073 5.058-1.14-1.662-3.263-2.865-5.254-3.993-.83-.47-1.636-.927-2.34-1.4.001 1.936.582 3.971 1.306 6.073-1.607-.813-2.958-2.039-3.517-3.75a6.021 6.021 0 0 1-.257-1.192c-.249 1.243-.065 2.479.134 3.814.428 2.868.924 6.195-2.661 11.026-2.913-4.905-7.205-19.622 2.912-21.308Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M51.516 31.837a1.155 1.155 0 0 0-.174-.08c-2.028-.745-2.716 2.468-1.236 2.99 2.137.753 2.68-2.185 1.41-2.91Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M51.265 32.193c-.225-.213-.653-.024-.592.267.032.148.061.266.198.367.209.154.626-.026.61-.272-.012-.16-.099-.25-.216-.362Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M42.988 29.465v9.164a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-4.017h3.9v4.017a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-9.164a.63.63 0 0 0-.63-.628h-11.33a.63.63 0 0 0-.63.628v3.891h-3.931v-3.891a.63.63 0 0 0-.63-.628H43.618a.63.63 0 0 0-.63.628Zm18.053 1.547h9.46v6.07h-9.46v-6.07Zm-16.488 0h9.459v6.07h-9.46v-6.07ZM65 45s-3.465 4.962-10 2.885c3.525 2.724 8.674 3.787 10-2.885Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M31.47 52h-6.489c-2.497 0-4.528 2.082-4.528 4.642L15.72 71.356c0 2.56 2.032 4.644 4.529 4.644h11.22c2.497 0 4.53-2.083 4.53-4.644V56.643c0-2.56-2.033-4.644-4.53-4.644Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Zm-15.858 7.386L10.85 64.27l4.237 4.343a.978.978 0 0 1 0 1.359.92.92 0 0 1-1.326 0l-4.9-5.023a.978.978 0 0 1 0-1.359l5.427-5.563a.921.921 0 0 1 1.326 0 .979.979 0 0 1 0 1.359Zm8.195-2.261-4.957 14.39a.931.931 0 0 1-1.197.585.968.968 0 0 1-.572-1.226l4.958-14.39a.932.932 0 0 1 1.196-.585.968.968 0 0 1 .572 1.226Zm7.332 7.284-5.427 5.563a.922.922 0 0 1-1.326 0 .979.979 0 0 1 0-1.359l4.764-4.884-4.237-4.343a.978.978 0 0 1 0-1.359.92.92 0 0 1 1.326 0l4.9 5.023a.978.978 0 0 1 0 1.359Z"
+                          fill="#7e9bfa"
+                        />
+                      </g>
+                      <defs>
+                        <clippath
+                          id="webDeveloperInfographic_svg__a"
+                        >
+                          <path
+                            d="M0 0h80.001v80H0z"
+                            fill="#fff"
+                          />
+                        </clippath>
+                      </defs>
+                    </svg>
                   </mock-styled.span>
                   <mock-styled.div
-                    classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                    classname="el-flex-column el-flex-justify-center"
                   >
                     <mock-styled.mock-styled.h2>
                       Reapit Developed Apps
@@ -1723,26 +2990,171 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css.
-  flex-direction: column;
-"
+                  classname="el-flex-column"
                 >
                   <mock-styled.span
-                    classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+                    classname="el-mb5"
                     style="font-size: 80px;"
                   >
                     <svg
+                      fill="none"
+                      height="1em"
                       style="font-size: 80px;"
-                    />
+                      viewBox="0 0 80 80"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g
+                        clip-path="url(#webDeveloperInfographic_svg__a)"
+                      >
+                        <mask
+                          height="80"
+                          id="webDeveloperInfographic_svg__b"
+                          maskUnits="userSpaceOnUse"
+                          style="mask-type: alpha;"
+                          width="81"
+                          x="0"
+                          y="0"
+                        >
+                          <circle
+                            fill="#C4C4C4"
+                            r="40"
+                            transform="matrix(1 0 .00002 1 40 40)"
+                          />
+                        </mask>
+                        <g
+                          mask="url(#webDeveloperInfographic_svg__b)"
+                        >
+                          <path
+                            d="M0 0h80v80H0z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M79.428 80.99s-7.853 0-13.657-4.437c-8.898-3.054-4.85-21.432-4.155-22.111.694-.679 6.878-.06 10.383 1.595 4.822 2.278 4.657 5.695 5.858 9.03 1.743 4.842 1.571 8.413 1.571 8.413 1.328 0-1.062 4.191 0 7.51Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M46.374 58.163C45.99 60.147 38.45 70.076 37.5 81c7.961 8.055 20.958 7.258 30.452 1.926-.777-9.087-3.935-23.146-5.772-27.293-2.552-5.764-8.06-7.065-8.06-7.065s-7.241 6.994-7.746 9.595Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M61.63 54.05c0 2.69-2.757 4.87-6.158 4.87-3.4 0-6.158-2.18-6.158-4.87s2.757-4.87 6.158-4.87c3.4 0 6.158 2.18 6.158 4.87Z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M36.065 90.891s-.175-13.07 6.442-18.002c6.617-4.93 7.198-18.003 6.707-18.76-.49-.758-10.456-.791-13.425 1.7C30.26 60.469 26.318 73.258 24 80c-2.942-1.8 13.125 7.79 12.065 10.891Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M37.5 80.5c.523-3.196 4.45-13.629 4.45-13.629s-1.341 9.02 1.05 13.13c-1.73.572-4.326 1.347-5.5.499ZM69.81 77.835c-.224-3.262-2.167-10.884-2.167-10.884s.597 8.698-2.194 12.603c1.421.011 3.101-.978 4.361-1.72Z"
+                            fill="#d8dee4"
+                          />
+                        </g>
+                        <mask
+                          height="36"
+                          id="webDeveloperInfographic_svg__c"
+                          maskUnits="userSpaceOnUse"
+                          style="mask-type: alpha;"
+                          width="54"
+                          x="0"
+                          y="4"
+                        >
+                          <path
+                            d="M41.465 14.917c-3.693-9.04-13.872-13.315-22.734-9.548-6.06 2.576-10.18 8.415-10.652 15.094-5.12.723-8.698 5.543-7.99 10.767.641 4.727 4.604 8.246 9.282 8.241h32.094c6.647 0 12.035-5.496 12.035-12.277 0-6.78-5.388-12.277-12.035-12.277Z"
+                            fill="#d8dee4"
+                          />
+                        </mask>
+                        <g
+                          mask="url(#webDeveloperInfographic_svg__c)"
+                        >
+                          <path
+                            d="M-7.622-1.717h63.907v49.396H-7.622z"
+                            fill="#9faebc"
+                          />
+                          <path
+                            d="M41.046 58.922 29.074 29.657 0 17.494v41.428h41.046Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M58.19 58.921V41.762l-29.145-12.09 12 29.25H58.19Z"
+                            fill="#9faebc"
+                          />
+                          <path
+                            d="M0 17.494 29.045 29.67 17.058.465 0 17.494Z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M58.19 17.494 29.131-11.684l-4.51 4.518L17.045.48l12 29.191L58.19 41.762V17.494Z"
+                            fill="#798da1"
+                          />
+                        </g>
+                        <path
+                          d="M45.763 36.984c.132 2.751-1.842 5.082-4.41 5.206-2.57.123-4.759-2.007-4.891-4.758-.133-2.752 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758ZM76.758 35.212c.132 2.752-1.842 5.082-4.41 5.206-2.57.124-4.759-2.007-4.891-4.758-.133-2.751 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758Z"
+                          fill="#FFE5C7"
+                        />
+                        <path
+                          d="M40.136 34.854S41.813 56.38 57.33 55.633c15.517-.748 16.627-17.606 15.966-23.72 0-8.413-3.855-15.468-3.855-15.468l-13.118-.713-11.39 2.854-5.23 3.517-.176 3.945.608 8.806Z"
+                          fill="#FFE5C7"
+                        />
+                        <path
+                          d="M47.906 27.264c-.026.445.532.349.994.272.96-.158.673-.866 2.696-.884.733-.007 1.931 1.156 2.27.527.962-1.785-5.787-2.968-5.96.085ZM68.755 26.744c-.46-.862-1.985-1.232-3.041-1.115-.885.098-2.365.54-2.302 1.446.02.277.435.227.758.153.501-.114.703-.319 1.188-.363.472-.043.957.037 1.372.225.502.227.859.578 1.492.4.57-.16.764-.314.533-.746ZM66.327 32.101a1.049 1.049 0 0 0-.16-.074c-1.872-.687-2.507 2.277-1.141 2.759 1.972.694 2.472-2.016 1.3-2.685Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M66.096 32.43c-.208-.197-.603-.022-.546.246.029.136.056.245.182.338.192.143.578-.024.562-.25-.01-.148-.09-.232-.198-.334Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M39.55 11.97c1.628-1.216 4.482-1.193 5.633 1.06-2.96 1.289-5.47-.808-7.188 1.844.164-1.142.63-2.213 1.555-2.904Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M42.794 14.941c2.747-3.331.088-8.103 4.65-9.38-4.706.31-7.544 6.919-4.65 9.38Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M43.56 12.431c.767-6.592 8.35-9.366 15.79-7.971 14.563 2.729 19.47 15.483 13.644 27.746-.328-.982-.38-2.177-.437-3.488-.102-2.37-.222-5.122-2.016-7.702-3.383-4.865-6.269-4.314-10.96-3.419-1.177.225-2.469.471-3.91.66a10.236 10.236 0 0 1-3.507-.154c.61 1.216 1.033 2.798 1.073 5.058-1.14-1.662-3.263-2.865-5.254-3.993-.83-.47-1.636-.927-2.34-1.4.001 1.936.582 3.971 1.306 6.073-1.607-.813-2.958-2.039-3.517-3.75a6.021 6.021 0 0 1-.257-1.192c-.249 1.243-.065 2.479.134 3.814.428 2.868.924 6.195-2.661 11.026-2.913-4.905-7.205-19.622 2.912-21.308Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M51.516 31.837a1.155 1.155 0 0 0-.174-.08c-2.028-.745-2.716 2.468-1.236 2.99 2.137.753 2.68-2.185 1.41-2.91Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M51.265 32.193c-.225-.213-.653-.024-.592.267.032.148.061.266.198.367.209.154.626-.026.61-.272-.012-.16-.099-.25-.216-.362Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M42.988 29.465v9.164a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-4.017h3.9v4.017a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-9.164a.63.63 0 0 0-.63-.628h-11.33a.63.63 0 0 0-.63.628v3.891h-3.931v-3.891a.63.63 0 0 0-.63-.628H43.618a.63.63 0 0 0-.63.628Zm18.053 1.547h9.46v6.07h-9.46v-6.07Zm-16.488 0h9.459v6.07h-9.46v-6.07ZM65 45s-3.465 4.962-10 2.885c3.525 2.724 8.674 3.787 10-2.885Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M31.47 52h-6.489c-2.497 0-4.528 2.082-4.528 4.642L15.72 71.356c0 2.56 2.032 4.644 4.529 4.644h11.22c2.497 0 4.53-2.083 4.53-4.644V56.643c0-2.56-2.033-4.644-4.53-4.644Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Zm-15.858 7.386L10.85 64.27l4.237 4.343a.978.978 0 0 1 0 1.359.92.92 0 0 1-1.326 0l-4.9-5.023a.978.978 0 0 1 0-1.359l5.427-5.563a.921.921 0 0 1 1.326 0 .979.979 0 0 1 0 1.359Zm8.195-2.261-4.957 14.39a.931.931 0 0 1-1.197.585.968.968 0 0 1-.572-1.226l4.958-14.39a.932.932 0 0 1 1.196-.585.968.968 0 0 1 .572 1.226Zm7.332 7.284-5.427 5.563a.922.922 0 0 1-1.326 0 .979.979 0 0 1 0-1.359l4.764-4.884-4.237-4.343a.978.978 0 0 1 0-1.359.92.92 0 0 1 1.326 0l4.9 5.023a.978.978 0 0 1 0 1.359Z"
+                          fill="#7e9bfa"
+                        />
+                      </g>
+                      <defs>
+                        <clippath
+                          id="webDeveloperInfographic_svg__a"
+                        >
+                          <path
+                            d="M0 0h80.001v80H0z"
+                            fill="#fff"
+                          />
+                        </clippath>
+                      </defs>
+                    </svg>
                   </mock-styled.span>
                   <mock-styled.div
-                    classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                    classname="el-flex-column el-flex-justify-center"
                   >
                     <mock-styled.mock-styled.h2>
                       Reapit Developed Apps
@@ -1757,26 +3169,171 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css.
-  flex-direction: column;
-"
+                  classname="el-flex-column"
                 >
                   <mock-styled.span
-                    classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+                    classname="el-mb5"
                     style="font-size: 80px;"
                   >
                     <svg
+                      fill="none"
+                      height="1em"
                       style="font-size: 80px;"
-                    />
+                      viewBox="0 0 80 80"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g
+                        clip-path="url(#webDeveloperInfographic_svg__a)"
+                      >
+                        <mask
+                          height="80"
+                          id="webDeveloperInfographic_svg__b"
+                          maskUnits="userSpaceOnUse"
+                          style="mask-type: alpha;"
+                          width="81"
+                          x="0"
+                          y="0"
+                        >
+                          <circle
+                            fill="#C4C4C4"
+                            r="40"
+                            transform="matrix(1 0 .00002 1 40 40)"
+                          />
+                        </mask>
+                        <g
+                          mask="url(#webDeveloperInfographic_svg__b)"
+                        >
+                          <path
+                            d="M0 0h80v80H0z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M79.428 80.99s-7.853 0-13.657-4.437c-8.898-3.054-4.85-21.432-4.155-22.111.694-.679 6.878-.06 10.383 1.595 4.822 2.278 4.657 5.695 5.858 9.03 1.743 4.842 1.571 8.413 1.571 8.413 1.328 0-1.062 4.191 0 7.51Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M46.374 58.163C45.99 60.147 38.45 70.076 37.5 81c7.961 8.055 20.958 7.258 30.452 1.926-.777-9.087-3.935-23.146-5.772-27.293-2.552-5.764-8.06-7.065-8.06-7.065s-7.241 6.994-7.746 9.595Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M61.63 54.05c0 2.69-2.757 4.87-6.158 4.87-3.4 0-6.158-2.18-6.158-4.87s2.757-4.87 6.158-4.87c3.4 0 6.158 2.18 6.158 4.87Z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M36.065 90.891s-.175-13.07 6.442-18.002c6.617-4.93 7.198-18.003 6.707-18.76-.49-.758-10.456-.791-13.425 1.7C30.26 60.469 26.318 73.258 24 80c-2.942-1.8 13.125 7.79 12.065 10.891Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M37.5 80.5c.523-3.196 4.45-13.629 4.45-13.629s-1.341 9.02 1.05 13.13c-1.73.572-4.326 1.347-5.5.499ZM69.81 77.835c-.224-3.262-2.167-10.884-2.167-10.884s.597 8.698-2.194 12.603c1.421.011 3.101-.978 4.361-1.72Z"
+                            fill="#d8dee4"
+                          />
+                        </g>
+                        <mask
+                          height="36"
+                          id="webDeveloperInfographic_svg__c"
+                          maskUnits="userSpaceOnUse"
+                          style="mask-type: alpha;"
+                          width="54"
+                          x="0"
+                          y="4"
+                        >
+                          <path
+                            d="M41.465 14.917c-3.693-9.04-13.872-13.315-22.734-9.548-6.06 2.576-10.18 8.415-10.652 15.094-5.12.723-8.698 5.543-7.99 10.767.641 4.727 4.604 8.246 9.282 8.241h32.094c6.647 0 12.035-5.496 12.035-12.277 0-6.78-5.388-12.277-12.035-12.277Z"
+                            fill="#d8dee4"
+                          />
+                        </mask>
+                        <g
+                          mask="url(#webDeveloperInfographic_svg__c)"
+                        >
+                          <path
+                            d="M-7.622-1.717h63.907v49.396H-7.622z"
+                            fill="#9faebc"
+                          />
+                          <path
+                            d="M41.046 58.922 29.074 29.657 0 17.494v41.428h41.046Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M58.19 58.921V41.762l-29.145-12.09 12 29.25H58.19Z"
+                            fill="#9faebc"
+                          />
+                          <path
+                            d="M0 17.494 29.045 29.67 17.058.465 0 17.494Z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M58.19 17.494 29.131-11.684l-4.51 4.518L17.045.48l12 29.191L58.19 41.762V17.494Z"
+                            fill="#798da1"
+                          />
+                        </g>
+                        <path
+                          d="M45.763 36.984c.132 2.751-1.842 5.082-4.41 5.206-2.57.123-4.759-2.007-4.891-4.758-.133-2.752 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758ZM76.758 35.212c.132 2.752-1.842 5.082-4.41 5.206-2.57.124-4.759-2.007-4.891-4.758-.133-2.751 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758Z"
+                          fill="#FFE5C7"
+                        />
+                        <path
+                          d="M40.136 34.854S41.813 56.38 57.33 55.633c15.517-.748 16.627-17.606 15.966-23.72 0-8.413-3.855-15.468-3.855-15.468l-13.118-.713-11.39 2.854-5.23 3.517-.176 3.945.608 8.806Z"
+                          fill="#FFE5C7"
+                        />
+                        <path
+                          d="M47.906 27.264c-.026.445.532.349.994.272.96-.158.673-.866 2.696-.884.733-.007 1.931 1.156 2.27.527.962-1.785-5.787-2.968-5.96.085ZM68.755 26.744c-.46-.862-1.985-1.232-3.041-1.115-.885.098-2.365.54-2.302 1.446.02.277.435.227.758.153.501-.114.703-.319 1.188-.363.472-.043.957.037 1.372.225.502.227.859.578 1.492.4.57-.16.764-.314.533-.746ZM66.327 32.101a1.049 1.049 0 0 0-.16-.074c-1.872-.687-2.507 2.277-1.141 2.759 1.972.694 2.472-2.016 1.3-2.685Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M66.096 32.43c-.208-.197-.603-.022-.546.246.029.136.056.245.182.338.192.143.578-.024.562-.25-.01-.148-.09-.232-.198-.334Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M39.55 11.97c1.628-1.216 4.482-1.193 5.633 1.06-2.96 1.289-5.47-.808-7.188 1.844.164-1.142.63-2.213 1.555-2.904Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M42.794 14.941c2.747-3.331.088-8.103 4.65-9.38-4.706.31-7.544 6.919-4.65 9.38Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M43.56 12.431c.767-6.592 8.35-9.366 15.79-7.971 14.563 2.729 19.47 15.483 13.644 27.746-.328-.982-.38-2.177-.437-3.488-.102-2.37-.222-5.122-2.016-7.702-3.383-4.865-6.269-4.314-10.96-3.419-1.177.225-2.469.471-3.91.66a10.236 10.236 0 0 1-3.507-.154c.61 1.216 1.033 2.798 1.073 5.058-1.14-1.662-3.263-2.865-5.254-3.993-.83-.47-1.636-.927-2.34-1.4.001 1.936.582 3.971 1.306 6.073-1.607-.813-2.958-2.039-3.517-3.75a6.021 6.021 0 0 1-.257-1.192c-.249 1.243-.065 2.479.134 3.814.428 2.868.924 6.195-2.661 11.026-2.913-4.905-7.205-19.622 2.912-21.308Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M51.516 31.837a1.155 1.155 0 0 0-.174-.08c-2.028-.745-2.716 2.468-1.236 2.99 2.137.753 2.68-2.185 1.41-2.91Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M51.265 32.193c-.225-.213-.653-.024-.592.267.032.148.061.266.198.367.209.154.626-.026.61-.272-.012-.16-.099-.25-.216-.362Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M42.988 29.465v9.164a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-4.017h3.9v4.017a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-9.164a.63.63 0 0 0-.63-.628h-11.33a.63.63 0 0 0-.63.628v3.891h-3.931v-3.891a.63.63 0 0 0-.63-.628H43.618a.63.63 0 0 0-.63.628Zm18.053 1.547h9.46v6.07h-9.46v-6.07Zm-16.488 0h9.459v6.07h-9.46v-6.07ZM65 45s-3.465 4.962-10 2.885c3.525 2.724 8.674 3.787 10-2.885Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M31.47 52h-6.489c-2.497 0-4.528 2.082-4.528 4.642L15.72 71.356c0 2.56 2.032 4.644 4.529 4.644h11.22c2.497 0 4.53-2.083 4.53-4.644V56.643c0-2.56-2.033-4.644-4.53-4.644Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Zm-15.858 7.386L10.85 64.27l4.237 4.343a.978.978 0 0 1 0 1.359.92.92 0 0 1-1.326 0l-4.9-5.023a.978.978 0 0 1 0-1.359l5.427-5.563a.921.921 0 0 1 1.326 0 .979.979 0 0 1 0 1.359Zm8.195-2.261-4.957 14.39a.931.931 0 0 1-1.197.585.968.968 0 0 1-.572-1.226l4.958-14.39a.932.932 0 0 1 1.196-.585.968.968 0 0 1 .572 1.226Zm7.332 7.284-5.427 5.563a.922.922 0 0 1-1.326 0 .979.979 0 0 1 0-1.359l4.764-4.884-4.237-4.343a.978.978 0 0 1 0-1.359.92.92 0 0 1 1.326 0l4.9 5.023a.978.978 0 0 1 0 1.359Z"
+                          fill="#7e9bfa"
+                        />
+                      </g>
+                      <defs>
+                        <clippath
+                          id="webDeveloperInfographic_svg__a"
+                        >
+                          <path
+                            d="M0 0h80.001v80H0z"
+                            fill="#fff"
+                          />
+                        </clippath>
+                      </defs>
+                    </svg>
                   </mock-styled.span>
                   <mock-styled.div
-                    classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                    classname="el-flex-column el-flex-justify-center"
                   >
                     <mock-styled.mock-styled.h2>
                       Reapit Developed Apps
@@ -1791,26 +3348,171 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css.
-  flex-direction: column;
-"
+                  classname="el-flex-column"
                 >
                   <mock-styled.span
-                    classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+                    classname="el-mb5"
                     style="font-size: 80px;"
                   >
                     <svg
+                      fill="none"
+                      height="1em"
                       style="font-size: 80px;"
-                    />
+                      viewBox="0 0 80 80"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g
+                        clip-path="url(#webDeveloperInfographic_svg__a)"
+                      >
+                        <mask
+                          height="80"
+                          id="webDeveloperInfographic_svg__b"
+                          maskUnits="userSpaceOnUse"
+                          style="mask-type: alpha;"
+                          width="81"
+                          x="0"
+                          y="0"
+                        >
+                          <circle
+                            fill="#C4C4C4"
+                            r="40"
+                            transform="matrix(1 0 .00002 1 40 40)"
+                          />
+                        </mask>
+                        <g
+                          mask="url(#webDeveloperInfographic_svg__b)"
+                        >
+                          <path
+                            d="M0 0h80v80H0z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M79.428 80.99s-7.853 0-13.657-4.437c-8.898-3.054-4.85-21.432-4.155-22.111.694-.679 6.878-.06 10.383 1.595 4.822 2.278 4.657 5.695 5.858 9.03 1.743 4.842 1.571 8.413 1.571 8.413 1.328 0-1.062 4.191 0 7.51Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M46.374 58.163C45.99 60.147 38.45 70.076 37.5 81c7.961 8.055 20.958 7.258 30.452 1.926-.777-9.087-3.935-23.146-5.772-27.293-2.552-5.764-8.06-7.065-8.06-7.065s-7.241 6.994-7.746 9.595Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M61.63 54.05c0 2.69-2.757 4.87-6.158 4.87-3.4 0-6.158-2.18-6.158-4.87s2.757-4.87 6.158-4.87c3.4 0 6.158 2.18 6.158 4.87Z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M36.065 90.891s-.175-13.07 6.442-18.002c6.617-4.93 7.198-18.003 6.707-18.76-.49-.758-10.456-.791-13.425 1.7C30.26 60.469 26.318 73.258 24 80c-2.942-1.8 13.125 7.79 12.065 10.891Z"
+                            fill="#fff"
+                          />
+                          <path
+                            d="M37.5 80.5c.523-3.196 4.45-13.629 4.45-13.629s-1.341 9.02 1.05 13.13c-1.73.572-4.326 1.347-5.5.499ZM69.81 77.835c-.224-3.262-2.167-10.884-2.167-10.884s.597 8.698-2.194 12.603c1.421.011 3.101-.978 4.361-1.72Z"
+                            fill="#d8dee4"
+                          />
+                        </g>
+                        <mask
+                          height="36"
+                          id="webDeveloperInfographic_svg__c"
+                          maskUnits="userSpaceOnUse"
+                          style="mask-type: alpha;"
+                          width="54"
+                          x="0"
+                          y="4"
+                        >
+                          <path
+                            d="M41.465 14.917c-3.693-9.04-13.872-13.315-22.734-9.548-6.06 2.576-10.18 8.415-10.652 15.094-5.12.723-8.698 5.543-7.99 10.767.641 4.727 4.604 8.246 9.282 8.241h32.094c6.647 0 12.035-5.496 12.035-12.277 0-6.78-5.388-12.277-12.035-12.277Z"
+                            fill="#d8dee4"
+                          />
+                        </mask>
+                        <g
+                          mask="url(#webDeveloperInfographic_svg__c)"
+                        >
+                          <path
+                            d="M-7.622-1.717h63.907v49.396H-7.622z"
+                            fill="#9faebc"
+                          />
+                          <path
+                            d="M41.046 58.922 29.074 29.657 0 17.494v41.428h41.046Z"
+                            fill="#506478"
+                          />
+                          <path
+                            d="M58.19 58.921V41.762l-29.145-12.09 12 29.25H58.19Z"
+                            fill="#9faebc"
+                          />
+                          <path
+                            d="M0 17.494 29.045 29.67 17.058.465 0 17.494Z"
+                            fill="#d8dee4"
+                          />
+                          <path
+                            d="M58.19 17.494 29.131-11.684l-4.51 4.518L17.045.48l12 29.191L58.19 41.762V17.494Z"
+                            fill="#798da1"
+                          />
+                        </g>
+                        <path
+                          d="M45.763 36.984c.132 2.751-1.842 5.082-4.41 5.206-2.57.123-4.759-2.007-4.891-4.758-.133-2.752 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758ZM76.758 35.212c.132 2.752-1.842 5.082-4.41 5.206-2.57.124-4.759-2.007-4.891-4.758-.133-2.751 1.842-5.082 4.41-5.206 2.569-.124 4.758 2.007 4.89 4.758Z"
+                          fill="#FFE5C7"
+                        />
+                        <path
+                          d="M40.136 34.854S41.813 56.38 57.33 55.633c15.517-.748 16.627-17.606 15.966-23.72 0-8.413-3.855-15.468-3.855-15.468l-13.118-.713-11.39 2.854-5.23 3.517-.176 3.945.608 8.806Z"
+                          fill="#FFE5C7"
+                        />
+                        <path
+                          d="M47.906 27.264c-.026.445.532.349.994.272.96-.158.673-.866 2.696-.884.733-.007 1.931 1.156 2.27.527.962-1.785-5.787-2.968-5.96.085ZM68.755 26.744c-.46-.862-1.985-1.232-3.041-1.115-.885.098-2.365.54-2.302 1.446.02.277.435.227.758.153.501-.114.703-.319 1.188-.363.472-.043.957.037 1.372.225.502.227.859.578 1.492.4.57-.16.764-.314.533-.746ZM66.327 32.101a1.049 1.049 0 0 0-.16-.074c-1.872-.687-2.507 2.277-1.141 2.759 1.972.694 2.472-2.016 1.3-2.685Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M66.096 32.43c-.208-.197-.603-.022-.546.246.029.136.056.245.182.338.192.143.578-.024.562-.25-.01-.148-.09-.232-.198-.334Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M39.55 11.97c1.628-1.216 4.482-1.193 5.633 1.06-2.96 1.289-5.47-.808-7.188 1.844.164-1.142.63-2.213 1.555-2.904Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M42.794 14.941c2.747-3.331.088-8.103 4.65-9.38-4.706.31-7.544 6.919-4.65 9.38Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M43.56 12.431c.767-6.592 8.35-9.366 15.79-7.971 14.563 2.729 19.47 15.483 13.644 27.746-.328-.982-.38-2.177-.437-3.488-.102-2.37-.222-5.122-2.016-7.702-3.383-4.865-6.269-4.314-10.96-3.419-1.177.225-2.469.471-3.91.66a10.236 10.236 0 0 1-3.507-.154c.61 1.216 1.033 2.798 1.073 5.058-1.14-1.662-3.263-2.865-5.254-3.993-.83-.47-1.636-.927-2.34-1.4.001 1.936.582 3.971 1.306 6.073-1.607-.813-2.958-2.039-3.517-3.75a6.021 6.021 0 0 1-.257-1.192c-.249 1.243-.065 2.479.134 3.814.428 2.868.924 6.195-2.661 11.026-2.913-4.905-7.205-19.622 2.912-21.308Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M51.516 31.837a1.155 1.155 0 0 0-.174-.08c-2.028-.745-2.716 2.468-1.236 2.99 2.137.753 2.68-2.185 1.41-2.91Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M51.265 32.193c-.225-.213-.653-.024-.592.267.032.148.061.266.198.367.209.154.626-.026.61-.272-.012-.16-.099-.25-.216-.362Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M42.988 29.465v9.164a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-4.017h3.9v4.017a.63.63 0 0 0 .629.628h11.33a.63.63 0 0 0 .63-.628v-9.164a.63.63 0 0 0-.63-.628h-11.33a.63.63 0 0 0-.63.628v3.891h-3.931v-3.891a.63.63 0 0 0-.63-.628H43.618a.63.63 0 0 0-.63.628Zm18.053 1.547h9.46v6.07h-9.46v-6.07Zm-16.488 0h9.459v6.07h-9.46v-6.07ZM65 45s-3.465 4.962-10 2.885c3.525 2.724 8.674 3.787 10-2.885Z"
+                          fill="#506478"
+                        />
+                        <path
+                          d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M31.47 52h-6.489c-2.497 0-4.528 2.082-4.528 4.642L15.72 71.356c0 2.56 2.032 4.644 4.529 4.644h11.22c2.497 0 4.53-2.083 4.53-4.644V56.643c0-2.56-2.033-4.644-4.53-4.644Z"
+                          fill="#fff"
+                        />
+                        <path
+                          d="M31.471 52H8.53C6.032 52 4 54.081 4 56.642v14.714C4 73.916 6.032 76 8.529 76H31.47C33.968 76 36 73.916 36 71.355V56.643c0-2.56-2.032-4.644-4.529-4.644Zm-15.858 7.386L10.85 64.27l4.237 4.343a.978.978 0 0 1 0 1.359.92.92 0 0 1-1.326 0l-4.9-5.023a.978.978 0 0 1 0-1.359l5.427-5.563a.921.921 0 0 1 1.326 0 .979.979 0 0 1 0 1.359Zm8.195-2.261-4.957 14.39a.931.931 0 0 1-1.197.585.968.968 0 0 1-.572-1.226l4.958-14.39a.932.932 0 0 1 1.196-.585.968.968 0 0 1 .572 1.226Zm7.332 7.284-5.427 5.563a.922.922 0 0 1-1.326 0 .979.979 0 0 1 0-1.359l4.764-4.884-4.237-4.343a.978.978 0 0 1 0-1.359.92.92 0 0 1 1.326 0l4.9 5.023a.978.978 0 0 1 0 1.359Z"
+                          fill="#7e9bfa"
+                        />
+                      </g>
+                      <defs>
+                        <clippath
+                          id="webDeveloperInfographic_svg__a"
+                        >
+                          <path
+                            d="M0 0h80.001v80H0z"
+                            fill="#fff"
+                          />
+                        </clippath>
+                      </defs>
+                    </svg>
                   </mock-styled.span>
                   <mock-styled.div
-                    classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+                    classname="el-flex-column el-flex-justify-center"
                   >
                     <mock-styled.mock-styled.h2>
                       Reapit Developed Apps
@@ -1825,9 +3527,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  align-items: center;
-"
+          classname="el-flex-align-center"
         >
           <mock-styled.mock-styled.h2>
             Indentity Apps
@@ -1838,9 +3538,7 @@ exports[`AppsBrowsePage should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div />
         <mock-styled.div
-          classname="mock-css.
-  align-items: center;
-"
+          classname="el-flex-align-center"
         >
           <mock-styled.mock-styled.h2>
             Free Apps

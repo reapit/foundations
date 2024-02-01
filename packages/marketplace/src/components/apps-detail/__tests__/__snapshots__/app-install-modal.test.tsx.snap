@@ -7,12 +7,10 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           As an organisation admin, you have control over 
           enabling
@@ -32,14 +30,12 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           Desktop Integration
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </mock-styled.p>
         <div
-          class="mock-css.
-  margin-bottom: 1rem;
-"
+          class="el-mb6"
         >
           <mock-styled.div>
             Launchable from the applicant screen
@@ -49,7 +45,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           </mock-styled.div>
         </div>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           For more information regarding Desktop Integration types, please
            
@@ -68,7 +64,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           Pricing Information
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Will Test DevCo
            have specified that there is a cost for using this 
@@ -88,7 +84,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           .
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You will not be charged by Reapit Ltd for any costs associated with using this
            
@@ -101,14 +97,14 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           Data Permissions
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Information about your organisation and the names/email addresses of your users
         </mock-styled.p>
@@ -124,16 +120,16 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
       </div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Cancel
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
             type="button"
           >
@@ -147,12 +143,10 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         As an organisation admin, you have control over 
         enabling
@@ -172,14 +166,12 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         Desktop Integration
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
       <div
-        class="mock-css.
-  margin-bottom: 1rem;
-"
+        class="el-mb6"
       >
         <mock-styled.div>
           Launchable from the applicant screen
@@ -189,7 +181,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         </mock-styled.div>
       </div>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -208,7 +200,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         Pricing Information
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Will Test DevCo
          have specified that there is a cost for using this 
@@ -228,7 +220,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         .
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You will not be charged by Reapit Ltd for any costs associated with using this
          
@@ -241,14 +233,14 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         Data Permissions
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Information about your organisation and the names/email addresses of your users
       </mock-styled.p>
@@ -264,16 +256,16 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
     </div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-center"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Cancel
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="false"
           type="button"
         >
@@ -344,12 +336,10 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           As an organisation admin, you have control over 
           enabling
@@ -369,14 +359,12 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           Desktop Integration
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </mock-styled.p>
         <div
-          class="mock-css.
-  margin-bottom: 1rem;
-"
+          class="el-mb6"
         >
           <mock-styled.div>
             Launchable from the applicant screen
@@ -386,7 +374,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           </mock-styled.div>
         </div>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           For more information regarding Desktop Integration types, please
            
@@ -405,7 +393,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           Pricing Information
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Will Test DevCo
            have specified that there is a cost for using this 
@@ -425,7 +413,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           .
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You will not be charged by Reapit Ltd for any costs associated with using this
            
@@ -438,14 +426,14 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           Data Permissions
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Information about your organisation and the names/email addresses of your users
         </mock-styled.p>
@@ -461,16 +449,16 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
       </div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Cancel
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
             type="button"
           >
@@ -484,12 +472,10 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         As an organisation admin, you have control over 
         enabling
@@ -509,14 +495,12 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         Desktop Integration
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
       <div
-        class="mock-css.
-  margin-bottom: 1rem;
-"
+        class="el-mb6"
       >
         <mock-styled.div>
           Launchable from the applicant screen
@@ -526,7 +510,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         </mock-styled.div>
       </div>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -545,7 +529,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         Pricing Information
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Will Test DevCo
          have specified that there is a cost for using this 
@@ -565,7 +549,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         .
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You will not be charged by Reapit Ltd for any costs associated with using this
          
@@ -578,14 +562,14 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         Data Permissions
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Information about your organisation and the names/email addresses of your users
       </mock-styled.p>
@@ -601,16 +585,16 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
     </div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-center"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Cancel
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="false"
           type="button"
         >
@@ -681,12 +665,10 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You are about to 
           enable
@@ -704,14 +686,12 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
           Desktop Integration
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </mock-styled.p>
         <div
-          class="mock-css.
-  margin-bottom: 1rem;
-"
+          class="el-mb6"
         >
           <mock-styled.div>
             Launchable from the applicant screen
@@ -721,7 +701,7 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
           </mock-styled.div>
         </div>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           For more information regarding Desktop Integration types, please
            
@@ -740,7 +720,7 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
           Pricing Information
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Will Test DevCo
            have specified there is no cost for using this 
@@ -753,14 +733,14 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
           Data Permissions
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Information about your organisation and the names/email addresses of your users
         </mock-styled.p>
@@ -776,16 +756,16 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
       </div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Cancel
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
             type="button"
           >
@@ -799,12 +779,10 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You are about to 
         enable
@@ -822,14 +800,12 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
         Desktop Integration
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
       <div
-        class="mock-css.
-  margin-bottom: 1rem;
-"
+        class="el-mb6"
       >
         <mock-styled.div>
           Launchable from the applicant screen
@@ -839,7 +815,7 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
         </mock-styled.div>
       </div>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -858,7 +834,7 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
         Pricing Information
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Will Test DevCo
          have specified there is no cost for using this 
@@ -871,14 +847,14 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
         Data Permissions
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Information about your organisation and the names/email addresses of your users
       </mock-styled.p>
@@ -894,16 +870,16 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
     </div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-center"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Cancel
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="false"
           type="button"
         >
@@ -974,12 +950,10 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You are about to 
           enable
@@ -995,14 +969,12 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           Desktop Integration
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </mock-styled.p>
         <div
-          class="mock-css.
-  margin-bottom: 1rem;
-"
+          class="el-mb6"
         >
           <mock-styled.div>
             Launchable from the applicant screen
@@ -1012,7 +984,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           </mock-styled.div>
         </div>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           For more information regarding Desktop Integration types, please
            
@@ -1031,7 +1003,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           Pricing Information
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Will Test DevCo
            have specified that there is a cost for using this 
@@ -1051,7 +1023,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           .
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You will not be charged by Reapit Ltd for any costs associated with using this
            
@@ -1064,14 +1036,14 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           Data Permissions
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Information about your organisation and the names/email addresses of your users
         </mock-styled.p>
@@ -1087,16 +1059,16 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
       </div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Cancel
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
             type="button"
           >
@@ -1110,12 +1082,10 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You are about to 
         enable
@@ -1131,14 +1101,12 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         Desktop Integration
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
       <div
-        class="mock-css.
-  margin-bottom: 1rem;
-"
+        class="el-mb6"
       >
         <mock-styled.div>
           Launchable from the applicant screen
@@ -1148,7 +1116,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         </mock-styled.div>
       </div>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -1167,7 +1135,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         Pricing Information
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Will Test DevCo
          have specified that there is a cost for using this 
@@ -1187,7 +1155,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         .
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You will not be charged by Reapit Ltd for any costs associated with using this
          
@@ -1200,14 +1168,14 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         Data Permissions
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Information about your organisation and the names/email addresses of your users
       </mock-styled.p>
@@ -1223,16 +1191,16 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
     </div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-center"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Cancel
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="false"
           type="button"
         >
@@ -1303,12 +1271,10 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You are about to 
           enable
@@ -1326,14 +1292,12 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
           Desktop Integration
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </mock-styled.p>
         <div
-          class="mock-css.
-  margin-bottom: 1rem;
-"
+          class="el-mb6"
         >
           <mock-styled.div>
             Launchable from the applicant screen
@@ -1343,7 +1307,7 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
           </mock-styled.div>
         </div>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           For more information regarding Desktop Integration types, please
            
@@ -1362,7 +1326,7 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
           Pricing Information
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           There may be a cost associated to using this 
           integration
@@ -1378,14 +1342,14 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
           Data Permissions
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Information about your organisation and the names/email addresses of your users
         </mock-styled.p>
@@ -1401,16 +1365,16 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
       </div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Cancel
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
             type="button"
           >
@@ -1424,12 +1388,10 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You are about to 
         enable
@@ -1447,14 +1409,12 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
         Desktop Integration
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
       <div
-        class="mock-css.
-  margin-bottom: 1rem;
-"
+        class="el-mb6"
       >
         <mock-styled.div>
           Launchable from the applicant screen
@@ -1464,7 +1424,7 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
         </mock-styled.div>
       </div>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -1483,7 +1443,7 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
         Pricing Information
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         There may be a cost associated to using this 
         integration
@@ -1499,14 +1459,14 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
         Data Permissions
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Information about your organisation and the names/email addresses of your users
       </mock-styled.p>
@@ -1522,16 +1482,16 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
     </div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-center"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Cancel
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="false"
           type="button"
         >
@@ -1602,12 +1562,10 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You are about to 
           enable
@@ -1625,14 +1583,12 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
           Desktop Integration
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </mock-styled.p>
         <div
-          class="mock-css.
-  margin-bottom: 1rem;
-"
+          class="el-mb6"
         >
           <mock-styled.div>
             Launchable from the applicant screen
@@ -1642,7 +1598,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
           </mock-styled.div>
         </div>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           For more information regarding Desktop Integration types, please
            
@@ -1661,7 +1617,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
           Pricing Information
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Will Test DevCo
            have specified that there is a cost for using this 
@@ -1681,7 +1637,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
           .
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You will not be charged by Reapit Ltd for any costs associated with using this
            
@@ -1694,14 +1650,14 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
           Data Permissions
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Information about your organisation and the names/email addresses of your users
         </mock-styled.p>
@@ -1717,16 +1673,16 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
       </div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Cancel
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
             type="button"
           >
@@ -1740,12 +1696,10 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You are about to 
         enable
@@ -1763,14 +1717,12 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         Desktop Integration
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
       <div
-        class="mock-css.
-  margin-bottom: 1rem;
-"
+        class="el-mb6"
       >
         <mock-styled.div>
           Launchable from the applicant screen
@@ -1780,7 +1732,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         </mock-styled.div>
       </div>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -1799,7 +1751,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         Pricing Information
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Will Test DevCo
          have specified that there is a cost for using this 
@@ -1819,7 +1771,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         .
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You will not be charged by Reapit Ltd for any costs associated with using this
          
@@ -1832,14 +1784,14 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         Data Permissions
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Information about your organisation and the names/email addresses of your users
       </mock-styled.p>
@@ -1855,16 +1807,16 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
     </div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-center"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Cancel
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="false"
           type="button"
         >

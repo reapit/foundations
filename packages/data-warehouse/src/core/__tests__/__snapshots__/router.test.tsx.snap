@@ -13,7 +13,7 @@ exports[`RoutesComponent should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.div
-            classname="mock-css."
+            classname="el-is-full-page"
           >
             <mock-styled.div>
               <mock-styled.div />
@@ -32,7 +32,7 @@ exports[`RoutesComponent should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.div
-          classname="mock-css."
+          classname="el-is-full-page"
         >
           <mock-styled.div>
             <mock-styled.div />

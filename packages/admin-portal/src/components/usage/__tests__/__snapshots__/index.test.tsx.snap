@@ -16,7 +16,7 @@ exports[`UsagePage should match a snapshot 1`] = `
         </mock-styled.h1>
         <form>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-form-layout-has-margin"
           >
             <mock-styled.div>
               <mock-styled.h2
@@ -25,18 +25,14 @@ exports[`UsagePage should match a snapshot 1`] = `
                 Filters
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css."
+                classname="el-has-grey-text"
               >
                 Apply a filter to get started. Developer and month are required by default.
               </mock-styled.p>
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.label
-                classname="mock-css.
-  display: flex;
- mock-css.
-  margin-bottom: 0.5rem;
-"
+                classname="el-flex el-mb3"
                 htmlfor="developer-search-box"
               >
                 Company
@@ -50,14 +46,22 @@ exports[`UsagePage should match a snapshot 1`] = `
                 />
                 <mock-styled.div>
                   <mock-styled.span
-                    classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                    classname="el-intent-default el-icon-new"
                     style="font-size: 1rem;"
                   >
                     <svg
+                      fill="none"
+                      height="1em"
                       style="font-size: 1rem;"
-                    />
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                   </mock-styled.span>
                 </mock-styled.div>
                 <mock-styled.div
@@ -120,16 +124,14 @@ exports[`UsagePage should match a snapshot 1`] = `
           </mock-styled.div>
         </form>
         <div
-          class="mock-css.
-  margin-bottom: 2.5rem;
-"
+          class="el-mb11"
         >
           <mock-styled.div>
             <mock-styled.div
               classname=""
             >
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
                 type="button"
               >
                 <mock-styled.div />
@@ -140,41 +142,33 @@ exports[`UsagePage should match a snapshot 1`] = `
         </div>
         <div>
           <mock-styled.div
-            classname="mock-css. mock-css. mock-css. mock-css."
+            classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
           >
             <div
-              class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+              class="el-pn-icon"
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname="mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-icon-new"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </div>
             <div
-              class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+              class="el-pn-content"
             >
               No results found for your selected filters
             </div>
@@ -195,7 +189,7 @@ exports[`UsagePage should match a snapshot 1`] = `
       </mock-styled.h1>
       <form>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.h2
@@ -204,18 +198,14 @@ exports[`UsagePage should match a snapshot 1`] = `
               Filters
             </mock-styled.h2>
             <mock-styled.p
-              classname="mock-css."
+              classname="el-has-grey-text"
             >
               Apply a filter to get started. Developer and month are required by default.
             </mock-styled.p>
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.label
-              classname="mock-css.
-  display: flex;
- mock-css.
-  margin-bottom: 0.5rem;
-"
+              classname="el-flex el-mb3"
               htmlfor="developer-search-box"
             >
               Company
@@ -229,14 +219,22 @@ exports[`UsagePage should match a snapshot 1`] = `
               />
               <mock-styled.div>
                 <mock-styled.span
-                  classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                  classname="el-intent-default el-icon-new"
                   style="font-size: 1rem;"
                 >
                   <svg
+                    fill="none"
+                    height="1em"
                     style="font-size: 1rem;"
-                  />
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
               <mock-styled.div
@@ -299,16 +297,14 @@ exports[`UsagePage should match a snapshot 1`] = `
         </mock-styled.div>
       </form>
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div>
           <mock-styled.div
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="button"
             >
               <mock-styled.div />
@@ -319,41 +315,33 @@ exports[`UsagePage should match a snapshot 1`] = `
       </div>
       <div>
         <mock-styled.div
-          classname="mock-css. mock-css. mock-css. mock-css."
+          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname="mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             No results found for your selected filters
           </div>

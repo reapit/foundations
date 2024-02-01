@@ -6,8 +6,7 @@
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
-      "@/*": ["src/*"],
-      "@reapit/elements": ["../elements/src"]
+      "@/*": ["src/*"]
     },
     "declaration": true
   },
