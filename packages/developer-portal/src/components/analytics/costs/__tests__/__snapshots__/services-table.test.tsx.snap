@@ -6,9 +6,7 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="4"
@@ -28,11 +26,20 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -41,17 +48,25 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-intent-default el-icon-new"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 20c-1.517 0-2.813-.525-3.888-1.575C1.537 17.375 1 16.092 1 14.575c0-1.3.392-2.458 1.175-3.475S3.983 9.433 5.25 9.15c.417-1.533 1.25-2.775 2.5-3.725C9 4.475 10.417 4 12 4c1.95 0 3.604.68 4.962 2.037C18.322 7.396 19 9.05 19 11c1.15.133 2.104.63 2.863 1.488A4.407 4.407 0 0 1 23 15.5c0 1.25-.438 2.313-1.313 3.188S19.75 20 18.5 20h-12Zm0-2h12c.7 0 1.292-.242 1.775-.725.483-.483.725-1.075.725-1.775s-.242-1.292-.725-1.775C19.792 13.242 19.2 13 18.5 13H17v-2c0-1.383-.488-2.563-1.463-3.537C14.563 6.487 13.383 6 12 6s-2.563.487-3.537 1.463C7.488 8.437 7 9.617 7 11h-.5c-.967 0-1.792.342-2.475 1.025A3.372 3.372 0 0 0 3 14.5c0 .967.342 1.792 1.025 2.475A3.372 3.372 0 0 0 6.5 18Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Service Name"
@@ -60,7 +75,7 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Total Number Service Items"
@@ -69,7 +84,7 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Total Number Services"
@@ -78,17 +93,25 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-intent-default el-icon-new"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.988 21.203c-.32 0-.589-.11-.808-.33-.22-.219-.33-.488-.33-.807v-.462c0-.207.047-.396.14-.566.094-.17.219-.305.376-.404a5.088 5.088 0 0 0 1.517-1.512 3.696 3.696 0 0 0 .591-2.056 4.002 4.002 0 0 0-.113-.928H6.81c-.32 0-.589-.11-.809-.33-.22-.22-.329-.489-.329-.808 0-.32.11-.589.33-.808.219-.22.488-.33.808-.33h.428a20.448 20.448 0 0 1-.94-1.704c-.298-.603-.447-1.344-.447-2.224 0-1.573.547-2.906 1.64-3.998 1.092-1.093 2.425-1.64 3.998-1.64 1.06 0 2.015.252 2.864.756a5.81 5.81 0 0 1 2.034 2.01.793.793 0 0 1 .031.795c-.132.27-.344.47-.633.603-.282.116-.56.123-.834.021a1.562 1.562 0 0 1-.696-.52 3.465 3.465 0 0 0-1.192-1.01 3.339 3.339 0 0 0-1.574-.38c-.93 0-1.724.327-2.38.98-.655.654-.983 1.448-.983 2.383 0 .788.187 1.45.559 1.985.372.535.77 1.183 1.195 1.943h3.109c.32 0 .589.11.808.33.22.22.33.489.33.808 0 .32-.11.588-.33.808-.22.22-.489.33-.808.33h-2.314c.03.133.05.28.06.438.01.16.015.322.015.49 0 .793-.135 1.513-.404 2.16a6.57 6.57 0 0 1-1.018 1.702h4.661c.548 0 .997-.131 1.347-.394.351-.263.58-.63.69-1.1.07-.287.198-.53.382-.731.184-.201.427-.302.73-.302.32 0 .584.11.796.327.21.217.316.486.316.805 0 1.06-.467 1.937-1.401 2.63-.934.694-1.887 1.04-2.86 1.04h-7Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Total Service Cost"
@@ -100,11 +123,20 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-intent-default el-icon-new"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -137,21 +169,21 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
 "
                   >
                     <mock-styled.div
-                      classname="mock-css."
+                      classname="el-table-cell-has-dark-text"
                     >
                       <mock-styled.div>
                         DW Usage
                       </mock-styled.div>
                     </mock-styled.div>
                     <mock-styled.div
-                      classname="mock-css."
+                      classname="el-table-cell-has-dark-text"
                     >
                       <mock-styled.div>
                         157
                       </mock-styled.div>
                     </mock-styled.div>
                     <mock-styled.div
-                      classname="mock-css."
+                      classname="el-table-cell-has-dark-text"
                     >
                       <mock-styled.div>
                         £1.96
@@ -168,9 +200,7 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+      classname="el-mb7"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="4"
@@ -190,11 +220,20 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-default el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -203,17 +242,25 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.5 20c-1.517 0-2.813-.525-3.888-1.575C1.537 17.375 1 16.092 1 14.575c0-1.3.392-2.458 1.175-3.475S3.983 9.433 5.25 9.15c.417-1.533 1.25-2.775 2.5-3.725C9 4.475 10.417 4 12 4c1.95 0 3.604.68 4.962 2.037C18.322 7.396 19 9.05 19 11c1.15.133 2.104.63 2.863 1.488A4.407 4.407 0 0 1 23 15.5c0 1.25-.438 2.313-1.313 3.188S19.75 20 18.5 20h-12Zm0-2h12c.7 0 1.292-.242 1.775-.725.483-.483.725-1.075.725-1.775s-.242-1.292-.725-1.775C19.792 13.242 19.2 13 18.5 13H17v-2c0-1.383-.488-2.563-1.463-3.537C14.563 6.487 13.383 6 12 6s-2.563.487-3.537 1.463C7.488 8.437 7 9.617 7 11h-.5c-.967 0-1.792.342-2.475 1.025A3.372 3.372 0 0 0 3 14.5c0 .967.342 1.792 1.025 2.475A3.372 3.372 0 0 0 6.5 18Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Service Name"
@@ -222,7 +269,7 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Total Number Service Items"
@@ -231,7 +278,7 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Total Number Services"
@@ -240,17 +287,25 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
               style="font-size: 1.25rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1.25rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.988 21.203c-.32 0-.589-.11-.808-.33-.22-.219-.33-.488-.33-.807v-.462c0-.207.047-.396.14-.566.094-.17.219-.305.376-.404a5.088 5.088 0 0 0 1.517-1.512 3.696 3.696 0 0 0 .591-2.056 4.002 4.002 0 0 0-.113-.928H6.81c-.32 0-.589-.11-.809-.33-.22-.22-.329-.489-.329-.808 0-.32.11-.589.33-.808.219-.22.488-.33.808-.33h.428a20.448 20.448 0 0 1-.94-1.704c-.298-.603-.447-1.344-.447-2.224 0-1.573.547-2.906 1.64-3.998 1.092-1.093 2.425-1.64 3.998-1.64 1.06 0 2.015.252 2.864.756a5.81 5.81 0 0 1 2.034 2.01.793.793 0 0 1 .031.795c-.132.27-.344.47-.633.603-.282.116-.56.123-.834.021a1.562 1.562 0 0 1-.696-.52 3.465 3.465 0 0 0-1.192-1.01 3.339 3.339 0 0 0-1.574-.38c-.93 0-1.724.327-2.38.98-.655.654-.983 1.448-.983 2.383 0 .788.187 1.45.559 1.985.372.535.77 1.183 1.195 1.943h3.109c.32 0 .589.11.808.33.22.22.33.489.33.808 0 .32-.11.588-.33.808-.22.22-.489.33-.808.33h-2.314c.03.133.05.28.06.438.01.16.015.322.015.49 0 .793-.135 1.513-.404 2.16a6.57 6.57 0 0 1-1.018 1.702h4.661c.548 0 .997-.131 1.347-.394.351-.263.58-.63.69-1.1.07-.287.198-.53.382-.731.184-.201.427-.302.73-.302.32 0 .584.11.796.327.21.217.316.486.316.805 0 1.06-.467 1.937-1.401 2.63-.934.694-1.887 1.04-2.86 1.04h-7Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Total Service Cost"
@@ -262,11 +317,20 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -299,21 +363,21 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
 "
                 >
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div>
                       DW Usage
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div>
                       157
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div>
                       £1.96

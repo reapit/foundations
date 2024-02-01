@@ -16,9 +16,7 @@ exports[`Customers should render component when loading 1`] = `
         </mock-styled.h1>
         <form>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+            classname="el-mb11"
           >
             <mock-styled.div>
               <mock-styled.div>
@@ -74,9 +72,7 @@ exports[`Customers should render component when loading 1`] = `
       </mock-styled.h1>
       <form>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -189,9 +185,7 @@ exports[`Customers should render component with data 1`] = `
         </mock-styled.h1>
         <form>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+            classname="el-mb11"
           >
             <mock-styled.div>
               <mock-styled.div>
@@ -226,9 +220,7 @@ exports[`Customers should render component with data 1`] = `
           </mock-styled.div>
         </form>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="5"
@@ -251,11 +243,20 @@ exports[`Customers should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-intent-default el-icon-new"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -264,15 +265,51 @@ exports[`Customers should render component with data 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="el-intent-default"
                   style="font-size: 1.25rem;"
                 >
                   <svg
+                    fill="none"
+                    height="1em"
                     style="font-size: 1.25rem;"
-                  />
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#flatInfographic_svg__a)"
+                    >
+                      <path
+                        d="M20 20h-9V4h9v16Z"
+                        fill="#d8dee4"
+                      />
+                      <path
+                        d="M13 2h-1v18h1V2ZM1.28 0v1.787H0V20h12V0H1.28Z"
+                        fill="#798da1"
+                      />
+                      <path
+                        d="M5.149 4.505H3.617V6.38H5.15V4.505ZM8.962 4.505H7.43V6.38h1.532V4.505ZM3.617 8.255H5.15v1.875H3.617V8.255ZM8.962 8.255H7.43v1.875h1.532V8.255ZM3.617 12.006H5.15v1.875H3.617v-1.875ZM8.962 12.006H7.43v1.875h1.532v-1.875ZM3.617 15.756H5.15v1.875H3.617v-1.875ZM8.962 15.756H7.43v1.875h1.532v-1.875Z"
+                        fill="#fff"
+                      />
+                      <path
+                        d="M16.281 8.255h-1.532v1.875h1.532V8.255ZM16.281 12.006h-1.532v1.875h1.532v-1.875Z"
+                        fill="#798da1"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="flatInfographic_svg__a"
+                      >
+                        <path
+                          d="M0 0h20v20H0z"
+                          fill="#fff"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
                 </mock-styled.span>
                 <mock-styled.div
                   data-narrow-label="Customer Name"
@@ -281,7 +318,7 @@ exports[`Customers should render component with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Agency Cloud Id"
@@ -290,7 +327,7 @@ exports[`Customers should render component with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Customer Id"
@@ -299,7 +336,7 @@ exports[`Customers should render component with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Customer Billing Reference"
@@ -308,7 +345,7 @@ exports[`Customers should render component with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Customer Address"
@@ -320,11 +357,20 @@ exports[`Customers should render component with data 1`] = `
                 classname=""
               >
                 <mock-styled.span
-                  classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                  classname="el-intent-default el-icon-new"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -334,10 +380,10 @@ exports[`Customers should render component with data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-button-group-align-center"
                   >
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-primary"
                     >
                       <mock-styled.div />
                       Fetch Office Groups
@@ -354,11 +400,20 @@ exports[`Customers should render component with data 1`] = `
             type="button"
           >
             <mock-styled.span
-              classname="mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.button>
           <mock-styled.div>
@@ -373,11 +428,20 @@ exports[`Customers should render component with data 1`] = `
             type="button"
           >
             <mock-styled.span
-              classname="mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.button>
         </mock-styled.div>
@@ -396,9 +460,7 @@ exports[`Customers should render component with data 1`] = `
       </mock-styled.h1>
       <form>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -433,9 +495,7 @@ exports[`Customers should render component with data 1`] = `
         </mock-styled.div>
       </form>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
@@ -458,11 +518,20 @@ exports[`Customers should render component with data 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -471,15 +540,51 @@ exports[`Customers should render component with data 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1.25rem;"
-                />
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    clip-path="url(#flatInfographic_svg__a)"
+                  >
+                    <path
+                      d="M20 20h-9V4h9v16Z"
+                      fill="#d8dee4"
+                    />
+                    <path
+                      d="M13 2h-1v18h1V2ZM1.28 0v1.787H0V20h12V0H1.28Z"
+                      fill="#798da1"
+                    />
+                    <path
+                      d="M5.149 4.505H3.617V6.38H5.15V4.505ZM8.962 4.505H7.43V6.38h1.532V4.505ZM3.617 8.255H5.15v1.875H3.617V8.255ZM8.962 8.255H7.43v1.875h1.532V8.255ZM3.617 12.006H5.15v1.875H3.617v-1.875ZM8.962 12.006H7.43v1.875h1.532v-1.875ZM3.617 15.756H5.15v1.875H3.617v-1.875ZM8.962 15.756H7.43v1.875h1.532v-1.875Z"
+                      fill="#fff"
+                    />
+                    <path
+                      d="M16.281 8.255h-1.532v1.875h1.532V8.255ZM16.281 12.006h-1.532v1.875h1.532v-1.875Z"
+                      fill="#798da1"
+                    />
+                  </g>
+                  <defs>
+                    <clippath
+                      id="flatInfographic_svg__a"
+                    >
+                      <path
+                        d="M0 0h20v20H0z"
+                        fill="#fff"
+                      />
+                    </clippath>
+                  </defs>
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Customer Name"
@@ -488,7 +593,7 @@ exports[`Customers should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Agency Cloud Id"
@@ -497,7 +602,7 @@ exports[`Customers should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Customer Id"
@@ -506,7 +611,7 @@ exports[`Customers should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Customer Billing Reference"
@@ -515,7 +620,7 @@ exports[`Customers should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Customer Address"
@@ -527,11 +632,20 @@ exports[`Customers should render component with data 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-intent-default el-icon-new"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -541,10 +655,10 @@ exports[`Customers should render component with data 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-button-group-align-center"
                 >
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                   >
                     <mock-styled.div />
                     Fetch Office Groups
@@ -561,11 +675,20 @@ exports[`Customers should render component with data 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
         <mock-styled.div>
@@ -580,11 +703,20 @@ exports[`Customers should render component with data 1`] = `
           type="button"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>

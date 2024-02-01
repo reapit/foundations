@@ -11,12 +11,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
         Desktop Integration
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -29,9 +29,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
         </a>
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       >
         <mock-styled.div
           classname=""
@@ -45,12 +43,10 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
         Pricing Information
       </mock-styled.h2>
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
           APP_DEVELOPER
@@ -65,7 +61,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
         Data Permissions
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         By installing this app, you are granting the following permissions to your data:
       </mock-styled.p>
@@ -79,12 +75,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
       Desktop Integration
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
     </mock-styled.p>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       For more information regarding Desktop Integration types, please
        
@@ -97,9 +93,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
       </a>
     </mock-styled.p>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
     >
       <mock-styled.div
         classname=""
@@ -113,12 +107,10 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
       Pricing Information
     </mock-styled.h2>
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
         APP_DEVELOPER
@@ -133,7 +125,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
       Data Permissions
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       By installing this app, you are granting the following permissions to your data:
     </mock-styled.p>
@@ -204,12 +196,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         Desktop Integration
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -222,9 +214,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         </a>
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       >
         <mock-styled.div
           classname=""
@@ -238,12 +228,10 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         Pricing Information
       </mock-styled.h2>
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           APP_DEVELOPER
            have specified that there is a cost for using this App/Integration, please
@@ -261,7 +249,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
           .
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
         </mock-styled.p>
@@ -272,7 +260,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         Data Permissions
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         By installing this app, you are granting the following permissions to your data:
       </mock-styled.p>
@@ -286,12 +274,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       Desktop Integration
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
     </mock-styled.p>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       For more information regarding Desktop Integration types, please
        
@@ -304,9 +292,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       </a>
     </mock-styled.p>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
     >
       <mock-styled.div
         classname=""
@@ -320,12 +306,10 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       Pricing Information
     </mock-styled.h2>
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         APP_DEVELOPER
          have specified that there is a cost for using this App/Integration, please
@@ -343,7 +327,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         .
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
       </mock-styled.p>
@@ -354,7 +338,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       Data Permissions
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       By installing this app, you are granting the following permissions to your data:
     </mock-styled.p>
@@ -425,12 +409,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         Desktop Integration
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -443,9 +427,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         </a>
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       >
         <mock-styled.div
           classname=""
@@ -459,12 +441,10 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         Pricing Information
       </mock-styled.h2>
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           APP_DEVELOPER
            have specified that there is a cost for using this App/Integration, please
@@ -482,7 +462,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
           .
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
         </mock-styled.p>
@@ -493,7 +473,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         Data Permissions
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         By installing this app, you are granting the following permissions to your data:
       </mock-styled.p>
@@ -507,12 +487,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       Desktop Integration
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
     </mock-styled.p>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       For more information regarding Desktop Integration types, please
        
@@ -525,9 +505,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       </a>
     </mock-styled.p>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
     >
       <mock-styled.div
         classname=""
@@ -541,12 +519,10 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       Pricing Information
     </mock-styled.h2>
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         APP_DEVELOPER
          have specified that there is a cost for using this App/Integration, please
@@ -564,7 +540,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         .
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
       </mock-styled.p>
@@ -575,7 +551,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       Data Permissions
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       By installing this app, you are granting the following permissions to your data:
     </mock-styled.p>
@@ -646,12 +622,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
         Desktop Integration
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -664,9 +640,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
         </a>
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       >
         <mock-styled.div
           classname=""
@@ -680,12 +654,10 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
         Pricing Information
       </mock-styled.h2>
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
           APP_DEVELOPER
@@ -700,7 +672,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
         Data Permissions
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         By installing this app, you are granting the following permissions to your data:
       </mock-styled.p>
@@ -714,12 +686,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
       Desktop Integration
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
     </mock-styled.p>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       For more information regarding Desktop Integration types, please
        
@@ -732,9 +704,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
       </a>
     </mock-styled.p>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
     >
       <mock-styled.div
         classname=""
@@ -748,12 +718,10 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
       Pricing Information
     </mock-styled.h2>
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
         APP_DEVELOPER
@@ -768,7 +736,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
       Data Permissions
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       By installing this app, you are granting the following permissions to your data:
     </mock-styled.p>

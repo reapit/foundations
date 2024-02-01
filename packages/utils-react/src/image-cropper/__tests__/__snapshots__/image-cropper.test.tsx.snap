@@ -7,14 +7,10 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 1
     <div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  align-items: center;
-"
+          classname="el-flex-align-center"
         >
           <mock-styled.button
-            classname="mock-css.
-  margin-right: 0.625rem;
- mock-css."
+            classname="el-mr4 el-intent-neutral"
             type="button"
           >
             <mock-styled.div />
@@ -29,7 +25,7 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 1
             name="inputImage"
           />
           <mock-styled.p
-            classname="mock-css. mock-css."
+            classname="el-has-grey-text el-has-no-margin"
           >
             Upload File
           </mock-styled.p>
@@ -40,14 +36,10 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 1
   "container": <div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  align-items: center;
-"
+        classname="el-flex-align-center"
       >
         <mock-styled.button
-          classname="mock-css.
-  margin-right: 0.625rem;
- mock-css."
+          classname="el-mr4 el-intent-neutral"
           type="button"
         >
           <mock-styled.div />
@@ -62,7 +54,7 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 1
           name="inputImage"
         />
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           Upload File
         </mock-styled.p>
@@ -130,14 +122,10 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
     <div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  align-items: center;
-"
+          classname="el-flex-align-center"
         >
           <mock-styled.button
-            classname="mock-css.
-  margin-right: 0.625rem;
- mock-css."
+            classname="el-mr4 el-intent-neutral"
             type="button"
           >
             <mock-styled.div />
@@ -152,7 +140,7 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
             name="inputImage"
           />
           <mock-styled.p
-            classname="mock-css. mock-css."
+            classname="el-has-grey-text el-has-no-margin"
           >
             Upload File
           </mock-styled.p>
@@ -162,14 +150,10 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
     <div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  align-items: center;
-"
+          classname="el-flex-align-center"
         >
           <mock-styled.button
-            classname="mock-css.
-  margin-right: 0.625rem;
- mock-css."
+            classname="el-mr4 el-intent-neutral"
             type="button"
           >
             <mock-styled.div />
@@ -184,7 +168,7 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
             name="inputImage"
           />
           <mock-styled.p
-            classname="mock-css. mock-css."
+            classname="el-has-grey-text el-has-no-margin"
           >
             Upload File
           </mock-styled.p>
@@ -195,14 +179,10 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
   "container": <div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  align-items: center;
-"
+        classname="el-flex-align-center"
       >
         <mock-styled.button
-          classname="mock-css.
-  margin-right: 0.625rem;
- mock-css."
+          classname="el-mr4 el-intent-neutral"
           type="button"
         >
           <mock-styled.div />
@@ -217,7 +197,7 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
           name="inputImage"
         />
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           Upload File
         </mock-styled.p>

@@ -8,24 +8,20 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
       <mock-styled.div />
        
       <div
-        class="mock-css.
-  margin-bottom: 1rem;
-"
+        class="el-mb6"
       >
         <mock-styled.p
-          classname="mock-css.
-  text-align: center;
-"
+          classname="el-text-center"
         >
           Are you sure you want to cancel this appointment?
         </mock-styled.p>
       </div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
             disabled="false"
             type="button"
           >
@@ -33,7 +29,7 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
             No
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-danger"
             type="button"
           >
             <mock-styled.div />
@@ -47,24 +43,20 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
     <mock-styled.div />
      
     <div
-      class="mock-css.
-  margin-bottom: 1rem;
-"
+      class="el-mb6"
     >
       <mock-styled.p
-        classname="mock-css.
-  text-align: center;
-"
+        classname="el-text-center"
       >
         Are you sure you want to cancel this appointment?
       </mock-styled.p>
     </div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-right"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
           disabled="false"
           type="button"
         >
@@ -72,7 +64,7 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
           No
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-danger"
           type="button"
         >
           <mock-styled.div />

@@ -8,16 +8,14 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
       <mock-styled.div />
       <form>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
         >
           <mock-styled.div>
             <mock-styled.label>
               Update Developer Status
             </mock-styled.label>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-has-grey-bg"
             >
               <mock-styled.input
                 id="option-status-incomplete"
@@ -26,7 +24,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
                 value="incomplete"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-bg"
                 htmlfor="option-status-incomplete"
               >
                 <mock-styled.span>
@@ -40,7 +38,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
                 value="pending"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-bg"
                 htmlfor="option-status-pending"
               >
                 <mock-styled.span>
@@ -54,7 +52,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
                 value="confirmed"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-bg"
                 htmlfor="option-status-confirmed"
               >
                 <mock-styled.span>
@@ -68,7 +66,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
                 value="underReview"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-bg"
                 htmlfor="option-status-underReview"
               >
                 <mock-styled.span>
@@ -82,7 +80,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
                 value="removed"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-bg"
                 htmlfor="option-status-removed"
               >
                 <mock-styled.span>
@@ -123,16 +121,16 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-right"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               Cancel
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="submit"
             >
               <mock-styled.div />
@@ -147,16 +145,14 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
     <mock-styled.div />
     <form>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       >
         <mock-styled.div>
           <mock-styled.label>
             Update Developer Status
           </mock-styled.label>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-has-grey-bg"
           >
             <mock-styled.input
               id="option-status-incomplete"
@@ -165,7 +161,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
               value="incomplete"
             />
             <mock-styled.label
-              classname="mock-css."
+              classname="el-has-grey-bg"
               htmlfor="option-status-incomplete"
             >
               <mock-styled.span>
@@ -179,7 +175,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
               value="pending"
             />
             <mock-styled.label
-              classname="mock-css."
+              classname="el-has-grey-bg"
               htmlfor="option-status-pending"
             >
               <mock-styled.span>
@@ -193,7 +189,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
               value="confirmed"
             />
             <mock-styled.label
-              classname="mock-css."
+              classname="el-has-grey-bg"
               htmlfor="option-status-confirmed"
             >
               <mock-styled.span>
@@ -207,7 +203,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
               value="underReview"
             />
             <mock-styled.label
-              classname="mock-css."
+              classname="el-has-grey-bg"
               htmlfor="option-status-underReview"
             >
               <mock-styled.span>
@@ -221,7 +217,7 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
               value="removed"
             />
             <mock-styled.label
-              classname="mock-css."
+              classname="el-has-grey-bg"
               htmlfor="option-status-removed"
             >
               <mock-styled.span>
@@ -262,16 +258,16 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Cancel
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="submit"
           >
             <mock-styled.div />

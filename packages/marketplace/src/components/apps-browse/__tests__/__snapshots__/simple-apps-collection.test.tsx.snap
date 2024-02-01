@@ -8,16 +8,10 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
       <mock-styled.div />
       <mock-styled.mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+          classname="el-flex-justify-between"
         >
           <mock-styled.div
-            classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+            classname="el-flex-column el-flex-justify-center"
           >
             <mock-styled.div
               classname=""
@@ -50,16 +44,10 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
       </mock-styled.mock-styled.div>
       <mock-styled.mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
-"
+          classname="el-flex-justify-between"
         >
           <mock-styled.div
-            classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+            classname="el-flex-column el-flex-justify-center"
           >
             <mock-styled.div
               classname=""
@@ -96,16 +84,10 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
     <mock-styled.div />
     <mock-styled.mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+        classname="el-flex-justify-between"
       >
         <mock-styled.div
-          classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+          classname="el-flex-column el-flex-justify-center"
         >
           <mock-styled.div
             classname=""
@@ -138,16 +120,10 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
     </mock-styled.mock-styled.div>
     <mock-styled.mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+        classname="el-flex-justify-between"
       >
         <mock-styled.div
-          classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: center;
-"
+          classname="el-flex-column el-flex-justify-center"
         >
           <mock-styled.div
             classname=""

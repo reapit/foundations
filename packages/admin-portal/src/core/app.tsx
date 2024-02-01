@@ -1,3 +1,4 @@
+import '@reapit/elements/dist/index.css'
 import React, { StrictMode } from 'react'
 import Router from './router'
 import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'

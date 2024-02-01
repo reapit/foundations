@@ -21,7 +21,6 @@
       "packages/data-warehouse",
       "packages/deployment-service",
       "packages/developer-portal",
-      "packages/elements",
       "packages/foundations-ts-definitions",
       "packages/geo-diary",
       "packages/graphql-server",

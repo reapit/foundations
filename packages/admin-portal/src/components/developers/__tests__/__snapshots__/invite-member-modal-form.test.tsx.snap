@@ -8,7 +8,7 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
       <mock-styled.div />
       <form>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -74,16 +74,16 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-right"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               Close
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="submit"
             >
               <mock-styled.div />
@@ -98,7 +98,7 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
     <mock-styled.div />
     <form>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -164,16 +164,16 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Close
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="submit"
           >
             <mock-styled.div />

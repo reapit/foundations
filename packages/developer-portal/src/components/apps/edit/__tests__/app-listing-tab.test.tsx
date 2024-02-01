@@ -4,6 +4,9 @@ import { render } from '../../../../tests/react-testing'
 import { AppListingTab } from '../app-listing-tab'
 import { AppEditFormSchema } from '../form-schema/form-fields'
 
+jest.mock('uuid', () => ({
+  v4: jest.fn(() => 'MOCK_UUID'),
+}))
 jest.mock('../../state/use-app-state')
 jest.mock('react-hook-form', () => ({
   Controller: ({ children }) => <div>{children}</div>,

@@ -13,7 +13,7 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
       </mock-styled.h1>
       <form>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -69,7 +69,7 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="submit"
             >
               <mock-styled.div />
@@ -85,15 +85,24 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
         classname=""
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
@@ -108,7 +117,7 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
     </mock-styled.h1>
     <form>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -164,7 +173,7 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="submit"
           >
             <mock-styled.div />
@@ -180,15 +189,24 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
       classname=""
     >
       <mock-styled.button
-        classname="mock-css. mock-css."
+        classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
@@ -265,7 +283,7 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
       </mock-styled.h1>
       <form>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -321,7 +339,7 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="submit"
             >
               <mock-styled.div />
@@ -337,15 +355,24 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
         classname=""
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
@@ -360,7 +387,7 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
     </mock-styled.h1>
     <form>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -416,7 +443,7 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="submit"
           >
             <mock-styled.div />
@@ -432,15 +459,24 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
       classname=""
     >
       <mock-styled.button
-        classname="mock-css. mock-css."
+        classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>

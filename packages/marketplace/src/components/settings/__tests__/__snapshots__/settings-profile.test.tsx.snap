@@ -12,25 +12,23 @@ exports[`SettingsProfile should match snapshot 1`] = `
         Profile
       </mock-styled.h1>
       <mock-styled.h2
-        classname="mock-css."
+        classname="el-has-bold-text"
       >
         Your Details
       </mock-styled.h2>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-no-margin"
           >
             Name
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css. mock-css."
+            classname="el-has-grey-text el-has-no-margin"
           >
             MOCK_NAME
           </mock-styled.p>
@@ -39,12 +37,12 @@ exports[`SettingsProfile should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-no-margin"
           >
             Email
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css. mock-css."
+            classname="el-has-grey-text el-has-no-margin"
           >
             foo@example.com
           </mock-styled.p>
@@ -53,12 +51,12 @@ exports[`SettingsProfile should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-no-margin"
           >
             Company Name
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css. mock-css."
+            classname="el-has-grey-text el-has-no-margin"
           >
             MOCK_ORG_NAME
           </mock-styled.p>
@@ -67,12 +65,12 @@ exports[`SettingsProfile should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-no-margin"
           >
             Customer Code
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css. mock-css."
+            classname="el-has-grey-text el-has-no-margin"
           >
             MOCK_CLIENT_ID
           </mock-styled.p>
@@ -81,7 +79,7 @@ exports[`SettingsProfile should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-no-margin"
           >
             Roles
           </mock-styled.h2>
@@ -91,17 +89,15 @@ exports[`SettingsProfile should match snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.h2
-        classname="mock-css."
+        classname="el-has-bold-text"
       >
         Update Your Password
       </mock-styled.h2>
       <form
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -157,7 +153,7 @@ exports[`SettingsProfile should match snapshot 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="submit"
             >
               <mock-styled.div />
@@ -167,12 +163,12 @@ exports[`SettingsProfile should match snapshot 1`] = `
         </mock-styled.div>
       </form>
       <mock-styled.h2
-        classname="mock-css."
+        classname="el-has-bold-text"
       >
         Update Tracking Consent
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
       </mock-styled.p>
@@ -185,7 +181,7 @@ exports[`SettingsProfile should match snapshot 1`] = `
             type="checkbox"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-bg"
             htmlfor="tracking-consent"
           >
             <mock-styled.span>
@@ -207,25 +203,23 @@ exports[`SettingsProfile should match snapshot 1`] = `
       Profile
     </mock-styled.h1>
     <mock-styled.h2
-      classname="mock-css."
+      classname="el-has-bold-text"
     >
       Your Details
     </mock-styled.h2>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
     >
       <mock-styled.div
         classname=""
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-no-margin"
         >
           Name
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           MOCK_NAME
         </mock-styled.p>
@@ -234,12 +228,12 @@ exports[`SettingsProfile should match snapshot 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-no-margin"
         >
           Email
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           foo@example.com
         </mock-styled.p>
@@ -248,12 +242,12 @@ exports[`SettingsProfile should match snapshot 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-no-margin"
         >
           Company Name
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           MOCK_ORG_NAME
         </mock-styled.p>
@@ -262,12 +256,12 @@ exports[`SettingsProfile should match snapshot 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-no-margin"
         >
           Customer Code
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           MOCK_CLIENT_ID
         </mock-styled.p>
@@ -276,7 +270,7 @@ exports[`SettingsProfile should match snapshot 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-no-margin"
         >
           Roles
         </mock-styled.h2>
@@ -286,17 +280,15 @@ exports[`SettingsProfile should match snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.h2
-      classname="mock-css."
+      classname="el-has-bold-text"
     >
       Update Your Password
     </mock-styled.h2>
     <form
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -352,7 +344,7 @@ exports[`SettingsProfile should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="submit"
           >
             <mock-styled.div />
@@ -362,12 +354,12 @@ exports[`SettingsProfile should match snapshot 1`] = `
       </mock-styled.div>
     </form>
     <mock-styled.h2
-      classname="mock-css."
+      classname="el-has-bold-text"
     >
       Update Tracking Consent
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
     </mock-styled.p>
@@ -380,7 +372,7 @@ exports[`SettingsProfile should match snapshot 1`] = `
           type="checkbox"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-bg"
           htmlfor="tracking-consent"
         >
           <mock-styled.span>
@@ -459,25 +451,23 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
         Profile
       </mock-styled.h1>
       <mock-styled.h2
-        classname="mock-css."
+        classname="el-has-bold-text"
       >
         Your Details
       </mock-styled.h2>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-no-margin"
           >
             Name
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css. mock-css."
+            classname="el-has-grey-text el-has-no-margin"
           >
             MOCK_NAME
           </mock-styled.p>
@@ -486,12 +476,12 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-no-margin"
           >
             Email
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css. mock-css."
+            classname="el-has-grey-text el-has-no-margin"
           >
             foo@example.com
           </mock-styled.p>
@@ -500,12 +490,12 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-no-margin"
           >
             Company Name
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css. mock-css."
+            classname="el-has-grey-text el-has-no-margin"
           >
             MOCK_ORG_NAME
           </mock-styled.p>
@@ -514,12 +504,12 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-no-margin"
           >
             Customer Code
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css. mock-css."
+            classname="el-has-grey-text el-has-no-margin"
           >
             MOCK_CLIENT_ID
           </mock-styled.p>
@@ -528,7 +518,7 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-no-margin"
           >
             Roles
           </mock-styled.h2>
@@ -538,17 +528,15 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.h2
-        classname="mock-css."
+        classname="el-has-bold-text"
       >
         Update Your Password
       </mock-styled.h2>
       <form
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -604,7 +592,7 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="submit"
             >
               <mock-styled.div />
@@ -614,12 +602,12 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
         </mock-styled.div>
       </form>
       <mock-styled.h2
-        classname="mock-css."
+        classname="el-has-bold-text"
       >
         Update Tracking Consent
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
       </mock-styled.p>
@@ -632,7 +620,7 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
             type="checkbox"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-bg"
             htmlfor="tracking-consent"
           >
             <mock-styled.span>
@@ -654,25 +642,23 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
       Profile
     </mock-styled.h1>
     <mock-styled.h2
-      classname="mock-css."
+      classname="el-has-bold-text"
     >
       Your Details
     </mock-styled.h2>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
     >
       <mock-styled.div
         classname=""
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-no-margin"
         >
           Name
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           MOCK_NAME
         </mock-styled.p>
@@ -681,12 +667,12 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-no-margin"
         >
           Email
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           foo@example.com
         </mock-styled.p>
@@ -695,12 +681,12 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-no-margin"
         >
           Company Name
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           MOCK_ORG_NAME
         </mock-styled.p>
@@ -709,12 +695,12 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-no-margin"
         >
           Customer Code
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           MOCK_CLIENT_ID
         </mock-styled.p>
@@ -723,7 +709,7 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-no-margin"
         >
           Roles
         </mock-styled.h2>
@@ -733,17 +719,15 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.h2
-      classname="mock-css."
+      classname="el-has-bold-text"
     >
       Update Your Password
     </mock-styled.h2>
     <form
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -799,7 +783,7 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="submit"
           >
             <mock-styled.div />
@@ -809,12 +793,12 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
       </mock-styled.div>
     </form>
     <mock-styled.h2
-      classname="mock-css."
+      classname="el-has-bold-text"
     >
       Update Tracking Consent
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
     </mock-styled.p>
@@ -827,7 +811,7 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
           type="checkbox"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-bg"
           htmlfor="tracking-consent"
         >
           <mock-styled.span>

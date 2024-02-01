@@ -5,7 +5,7 @@ import { RoutePaths } from '../constants/routes'
 import { catchChunkError } from '@reapit/utils-react'
 import { PageContainer, PersistentNotification } from '@reapit/elements'
 
-export const history: History<any> = createBrowserHistory()
+export const history: History = createBrowserHistory()
 
 const PaymentPage = React.lazy(() => catchChunkError(() => import('../components/payment')))
 

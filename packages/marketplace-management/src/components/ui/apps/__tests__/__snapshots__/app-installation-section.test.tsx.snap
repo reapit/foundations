@@ -11,18 +11,16 @@ exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GRO
         Installation
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css. mock-css."
+        classname="el-has-grey-text el-has-section-margin"
       >
         Please select the type of installation you require for this app:
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+            classname="el-mb5"
           >
             <mock-styled.input
               checked="false"
@@ -44,9 +42,7 @@ exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GRO
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+            classname="el-mb5"
           >
             <mock-styled.input
               checked="true"
@@ -68,15 +64,13 @@ exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GRO
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
           >
             <mock-styled.div />
@@ -93,18 +87,16 @@ exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GRO
       Installation
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css. mock-css."
+      classname="el-has-grey-text el-has-section-margin"
     >
       Please select the type of installation you require for this app:
     </mock-styled.p>
     <mock-styled.div
-      classname="mock-css."
+      classname="el-form-layout-has-margin"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+          classname="el-mb5"
         >
           <mock-styled.input
             checked="false"
@@ -126,9 +118,7 @@ exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GRO
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+          classname="el-mb5"
         >
           <mock-styled.input
             checked="true"
@@ -150,15 +140,13 @@ exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GRO
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+      classname="el-mb7"
     >
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-right"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="false"
         >
           <mock-styled.div />
@@ -232,18 +220,16 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
         Installation
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css. mock-css."
+        classname="el-has-grey-text el-has-section-margin"
       >
         Please select the type of installation you require for this app:
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+            classname="el-mb5"
           >
             <mock-styled.input
               checked="true"
@@ -265,9 +251,7 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+            classname="el-mb5"
           >
             <mock-styled.input
               checked="false"
@@ -289,15 +273,13 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="true"
           >
             <mock-styled.div />
@@ -314,18 +296,16 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
       Installation
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css. mock-css."
+      classname="el-has-grey-text el-has-section-margin"
     >
       Please select the type of installation you require for this app:
     </mock-styled.p>
     <mock-styled.div
-      classname="mock-css."
+      classname="el-form-layout-has-margin"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+          classname="el-mb5"
         >
           <mock-styled.input
             checked="true"
@@ -347,9 +327,7 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+          classname="el-mb5"
         >
           <mock-styled.input
             checked="false"
@@ -371,15 +349,13 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+      classname="el-mb7"
     >
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-right"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="true"
         >
           <mock-styled.div />

@@ -16,9 +16,7 @@ exports[`HeroAppsCollection should match a snapshot 1`] = `
           style="background-color: rgba(0, 97, 168, 0.102);"
         >
           <mock-styled.div
-            classname="mock-css.
-  height: 100%;
- mock-css.
+            classname="el-hfull mock-css.
   flex-direction: column;
 
   , {
@@ -42,21 +40,7 @@ exports[`HeroAppsCollection should match a snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.img
                   alt="will-test-dev-co-voracious-person"
-                  classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                  classname="el-fade-in"
                   src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                 />
                 <mock-styled.div>
@@ -144,9 +128,7 @@ exports[`HeroAppsCollection should match a snapshot 1`] = `
         style="background-color: rgba(0, 97, 168, 0.102);"
       >
         <mock-styled.div
-          classname="mock-css.
-  height: 100%;
- mock-css.
+          classname="el-hfull mock-css.
   flex-direction: column;
 
   , {
@@ -170,21 +152,7 @@ exports[`HeroAppsCollection should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.img
                 alt="will-test-dev-co-voracious-person"
-                classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                classname="el-fade-in"
                 src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
               />
               <mock-styled.div>
@@ -329,9 +297,7 @@ exports[`HeroAppsCollection should match a snapshot when loading 1`] = `
           style="background-color: rgba(0, 97, 168, 0.102);"
         >
           <mock-styled.div
-            classname="mock-css.
-  height: 100%;
- mock-css.
+            classname="el-hfull mock-css.
   flex-direction: column;
 
   , {
@@ -450,9 +416,7 @@ exports[`HeroAppsCollection should match a snapshot when loading 1`] = `
         style="background-color: rgba(0, 97, 168, 0.102);"
       >
         <mock-styled.div
-          classname="mock-css.
-  height: 100%;
- mock-css.
+          classname="el-hfull mock-css.
   flex-direction: column;
 
   , {

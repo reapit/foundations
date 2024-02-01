@@ -7,50 +7,28 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+        classname="el-mb5"
       >
         <mock-styled.div>
           <mock-styled.img
             alt="will-test-dev-co-voracious-person"
-            classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+            classname="el-fade-in"
             src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
           />
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: space-between;
-"
+          classname="el-flex-column el-flex-justify-between"
         >
           <mock-styled.div
-            classname="mock-css.
-  flex-direction: column;
-"
+            classname="el-flex-column"
           >
             <mock-styled.h1
-              classname="mock-css."
+              classname="el-has-no-margin"
             >
               will-test-dev-co-voracious-person
             </mock-styled.h1>
             <mock-styled.p
-              classname="mock-css."
+              classname="el-has-grey-text"
             >
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
             </mock-styled.p>
@@ -59,18 +37,25 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.75rem;
- mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-mr5 el-intent-success el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.p
-              classname="mock-css.
-  margin-right: 0.75rem;
- mock-css."
+              classname="el-mr5 el-has-no-margin"
             >
               Verified by Reapit
             </mock-styled.p>
@@ -79,30 +64,14 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
             >
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                  classname="el-fade-in"
                 >
                   Category
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.p
-              classname="mock-css.
-  margin-right: 0.75rem;
- mock-css. mock-css."
+              classname="el-mr5 el-has-bold-text el-has-no-margin"
             >
               Integration
             </mock-styled.p>
@@ -114,50 +83,28 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+      classname="el-mb5"
     >
       <mock-styled.div>
         <mock-styled.img
           alt="will-test-dev-co-voracious-person"
-          classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+          classname="el-fade-in"
           src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
         />
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: space-between;
-"
+        classname="el-flex-column el-flex-justify-between"
       >
         <mock-styled.div
-          classname="mock-css.
-  flex-direction: column;
-"
+          classname="el-flex-column"
         >
           <mock-styled.h1
-            classname="mock-css."
+            classname="el-has-no-margin"
           >
             will-test-dev-co-voracious-person
           </mock-styled.h1>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
           </mock-styled.p>
@@ -166,18 +113,25 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
           classname=""
         >
           <mock-styled.span
-            classname="mock-css.
-  margin-right: 0.75rem;
- mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-mr5 el-intent-success el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname="mock-css.
-  margin-right: 0.75rem;
- mock-css."
+            classname="el-mr5 el-has-no-margin"
           >
             Verified by Reapit
           </mock-styled.p>
@@ -186,30 +140,14 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                classname="el-fade-in"
               >
                 Category
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.p
-            classname="mock-css.
-  margin-right: 0.75rem;
- mock-css. mock-css."
+            classname="el-mr5 el-has-bold-text el-has-no-margin"
           >
             Integration
           </mock-styled.p>
@@ -278,25 +216,13 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+        classname="el-mb5"
       >
         <mock-styled.div
-          classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: space-between;
-"
+          classname="el-flex-column el-flex-justify-between"
         >
           <mock-styled.div
-            classname="mock-css.
-  justify-content: space-between;
- mock-css.
-  align-items: flex-end;
- mock-css.
-  margin-bottom: 0.5rem;
-"
+            classname="el-flex-justify-between el-flex-align-end el-mb3"
           >
             <mock-styled.h2
               classname="mock-css.
@@ -304,7 +230,7 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
- mock-css. mock-css."
+ el-has-bold-text el-has-no-margin"
             >
               will-test-dev-co-voracious-person
             </mock-styled.h2>
@@ -312,23 +238,30 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css.
-  margin-right: 0.375rem;
- mock-css. mock-css.
-  font-size: 1.5rem;
-"
+                classname="el-mr2 el-intent-success el-icon-new"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.p
-                classname="mock-css.
-  margin-right: 0.375rem;
- mock-css.
+                classname="el-mr2 mock-css.
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
- mock-css."
+ el-has-no-margin"
               >
                 Verified by Reapit
               </mock-styled.p>
@@ -340,26 +273,12 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
             <mock-styled.div>
               <mock-styled.img
                 alt="will-test-dev-co-voracious-person"
-                classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                classname="el-fade-in"
                 src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
               />
             </mock-styled.div>
             <mock-styled.p
-              classname="mock-css."
+              classname="el-has-grey-text"
             >
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
             </mock-styled.p>
@@ -372,30 +291,14 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
             >
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                  classname="el-fade-in"
                 >
                   Category
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.p
-              classname="mock-css.
-  margin-right: 0.75rem;
- mock-css. mock-css."
+              classname="el-mr5 el-has-bold-text el-has-no-margin"
             >
               Integration
             </mock-styled.p>
@@ -407,25 +310,13 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+      classname="el-mb5"
     >
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  justify-content: space-between;
-"
+        classname="el-flex-column el-flex-justify-between"
       >
         <mock-styled.div
-          classname="mock-css.
-  justify-content: space-between;
- mock-css.
-  align-items: flex-end;
- mock-css.
-  margin-bottom: 0.5rem;
-"
+          classname="el-flex-justify-between el-flex-align-end el-mb3"
         >
           <mock-styled.h2
             classname="mock-css.
@@ -433,7 +324,7 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
- mock-css. mock-css."
+ el-has-bold-text el-has-no-margin"
           >
             will-test-dev-co-voracious-person
           </mock-styled.h2>
@@ -441,23 +332,30 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css.
-  margin-right: 0.375rem;
- mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-mr2 el-intent-success el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.p
-              classname="mock-css.
-  margin-right: 0.375rem;
- mock-css.
+              classname="el-mr2 mock-css.
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
- mock-css."
+ el-has-no-margin"
             >
               Verified by Reapit
             </mock-styled.p>
@@ -469,26 +367,12 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
           <mock-styled.div>
             <mock-styled.img
               alt="will-test-dev-co-voracious-person"
-              classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+              classname="el-fade-in"
               src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
             />
           </mock-styled.div>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
           </mock-styled.p>
@@ -501,30 +385,14 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                classname="el-fade-in"
               >
                 Category
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.p
-            classname="mock-css.
-  margin-right: 0.75rem;
- mock-css. mock-css."
+            classname="el-mr5 el-has-bold-text el-has-no-margin"
           >
             Integration
           </mock-styled.p>

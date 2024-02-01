@@ -7,9 +7,7 @@ exports[`AppRevisionComparison should render a component with approval props and
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-top: 0.75rem;
-"
+        class="el-mt5"
       >
         <mock-styled.h2
           classname=""
@@ -18,12 +16,10 @@ exports[`AppRevisionComparison should render a component with approval props and
            Revision Diff
         </mock-styled.h2>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Name
           </mock-styled.p>
@@ -56,12 +52,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Home page
           </mock-styled.p>
@@ -94,12 +88,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Launch URI
           </mock-styled.p>
@@ -132,12 +124,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Support Email
           </mock-styled.p>
@@ -170,12 +160,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Telephone
           </mock-styled.p>
@@ -201,12 +189,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Summary
           </mock-styled.p>
@@ -239,12 +225,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Description
           </mock-styled.p>
@@ -316,12 +300,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Redirect URIs
           </mock-styled.p>
@@ -354,12 +336,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Signout URIs
           </mock-styled.p>
@@ -392,12 +372,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Private Apps
           </mock-styled.p>
@@ -430,12 +408,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Integration Type
           </mock-styled.p>
@@ -459,12 +435,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Products
           </mock-styled.p>
@@ -497,12 +471,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Privacy Policy
           </mock-styled.p>
@@ -535,12 +507,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Terms & Conditions
           </mock-styled.p>
@@ -573,12 +543,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Pricing Info
           </mock-styled.p>
@@ -611,12 +579,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Categories
           </mock-styled.p>
@@ -649,12 +615,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read applicants
           </mock-styled.p>
@@ -719,12 +683,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write applicants
           </mock-styled.p>
@@ -789,12 +751,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read appointments
           </mock-styled.p>
@@ -830,12 +790,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write appointments
           </mock-styled.p>
@@ -871,12 +829,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write areas
           </mock-styled.p>
@@ -912,12 +868,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read companies
           </mock-styled.p>
@@ -953,12 +907,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write companies
           </mock-styled.p>
@@ -994,12 +946,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read contacts
           </mock-styled.p>
@@ -1035,12 +985,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write contacts
           </mock-styled.p>
@@ -1076,12 +1024,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read conveyancing
           </mock-styled.p>
@@ -1117,12 +1063,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write conveyancing
           </mock-styled.p>
@@ -1158,12 +1102,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read documents
           </mock-styled.p>
@@ -1199,12 +1141,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write documents
           </mock-styled.p>
@@ -1240,12 +1180,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read enquiries
           </mock-styled.p>
@@ -1281,12 +1219,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write enquiries
           </mock-styled.p>
@@ -1322,12 +1258,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read events
           </mock-styled.p>
@@ -1363,12 +1297,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write events
           </mock-styled.p>
@@ -1404,12 +1336,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read identity checks
           </mock-styled.p>
@@ -1445,12 +1375,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write identity checks
           </mock-styled.p>
@@ -1486,12 +1414,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read property images
           </mock-styled.p>
@@ -1527,12 +1453,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write property images
           </mock-styled.p>
@@ -1568,12 +1492,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read journal entries
           </mock-styled.p>
@@ -1609,12 +1531,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write journal entries
           </mock-styled.p>
@@ -1650,12 +1570,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read property key data
           </mock-styled.p>
@@ -1691,12 +1609,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write property key data
           </mock-styled.p>
@@ -1732,12 +1648,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read landlords
           </mock-styled.p>
@@ -1773,12 +1687,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write landlords
           </mock-styled.p>
@@ -1814,12 +1726,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read negotiators
           </mock-styled.p>
@@ -1855,12 +1765,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write negotiators
           </mock-styled.p>
@@ -1896,12 +1804,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read offers
           </mock-styled.p>
@@ -1937,12 +1843,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write offers
           </mock-styled.p>
@@ -1978,12 +1882,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read offices
           </mock-styled.p>
@@ -2019,12 +1921,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write offices
           </mock-styled.p>
@@ -2060,12 +1960,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read payments
           </mock-styled.p>
@@ -2101,12 +1999,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write payments
           </mock-styled.p>
@@ -2142,12 +2038,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read properties
           </mock-styled.p>
@@ -2183,12 +2077,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write properties
           </mock-styled.p>
@@ -2224,12 +2116,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read referrals
           </mock-styled.p>
@@ -2265,12 +2155,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write referrals
           </mock-styled.p>
@@ -2306,12 +2194,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write sources
           </mock-styled.p>
@@ -2347,12 +2233,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read tasks
           </mock-styled.p>
@@ -2388,12 +2272,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write tasks
           </mock-styled.p>
@@ -2429,12 +2311,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read tenancies
           </mock-styled.p>
@@ -2470,12 +2350,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write tenancies
           </mock-styled.p>
@@ -2511,12 +2389,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read transactions
           </mock-styled.p>
@@ -2552,12 +2428,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read vendors
           </mock-styled.p>
@@ -2593,12 +2467,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write vendors
           </mock-styled.p>
@@ -2634,12 +2506,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read works orders
           </mock-styled.p>
@@ -2675,12 +2545,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write works orders
           </mock-styled.p>
@@ -2716,12 +2584,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Is listed
           </mock-styled.p>
@@ -2757,12 +2623,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Is Free
           </mock-styled.p>
@@ -2827,12 +2691,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Is Integration
           </mock-styled.p>
@@ -2897,12 +2759,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Is Delete Protected
           </mock-styled.p>
@@ -2938,12 +2798,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             icon
              
@@ -3021,12 +2879,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             icon
              
@@ -3111,12 +2967,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             image
              
@@ -3201,24 +3055,24 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-center"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-danger"
               disabled="true"
             >
               <mock-styled.div />
               Decline Revision
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="true"
             >
               <mock-styled.div />
               Approve Revision
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="true"
             >
               <mock-styled.div />
@@ -3232,9 +3086,7 @@ exports[`AppRevisionComparison should render a component with approval props and
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-top: 0.75rem;
-"
+      class="el-mt5"
     >
       <mock-styled.h2
         classname=""
@@ -3243,12 +3095,10 @@ exports[`AppRevisionComparison should render a component with approval props and
          Revision Diff
       </mock-styled.h2>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Name
         </mock-styled.p>
@@ -3281,12 +3131,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Home page
         </mock-styled.p>
@@ -3319,12 +3167,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Launch URI
         </mock-styled.p>
@@ -3357,12 +3203,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Support Email
         </mock-styled.p>
@@ -3395,12 +3239,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Telephone
         </mock-styled.p>
@@ -3426,12 +3268,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Summary
         </mock-styled.p>
@@ -3464,12 +3304,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Description
         </mock-styled.p>
@@ -3541,12 +3379,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Redirect URIs
         </mock-styled.p>
@@ -3579,12 +3415,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Signout URIs
         </mock-styled.p>
@@ -3617,12 +3451,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Private Apps
         </mock-styled.p>
@@ -3655,12 +3487,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Integration Type
         </mock-styled.p>
@@ -3684,12 +3514,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Products
         </mock-styled.p>
@@ -3722,12 +3550,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Privacy Policy
         </mock-styled.p>
@@ -3760,12 +3586,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Terms & Conditions
         </mock-styled.p>
@@ -3798,12 +3622,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Pricing Info
         </mock-styled.p>
@@ -3836,12 +3658,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Categories
         </mock-styled.p>
@@ -3874,12 +3694,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read applicants
         </mock-styled.p>
@@ -3944,12 +3762,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write applicants
         </mock-styled.p>
@@ -4014,12 +3830,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read appointments
         </mock-styled.p>
@@ -4055,12 +3869,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write appointments
         </mock-styled.p>
@@ -4096,12 +3908,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write areas
         </mock-styled.p>
@@ -4137,12 +3947,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read companies
         </mock-styled.p>
@@ -4178,12 +3986,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write companies
         </mock-styled.p>
@@ -4219,12 +4025,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read contacts
         </mock-styled.p>
@@ -4260,12 +4064,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write contacts
         </mock-styled.p>
@@ -4301,12 +4103,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read conveyancing
         </mock-styled.p>
@@ -4342,12 +4142,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write conveyancing
         </mock-styled.p>
@@ -4383,12 +4181,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read documents
         </mock-styled.p>
@@ -4424,12 +4220,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write documents
         </mock-styled.p>
@@ -4465,12 +4259,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read enquiries
         </mock-styled.p>
@@ -4506,12 +4298,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write enquiries
         </mock-styled.p>
@@ -4547,12 +4337,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read events
         </mock-styled.p>
@@ -4588,12 +4376,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write events
         </mock-styled.p>
@@ -4629,12 +4415,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read identity checks
         </mock-styled.p>
@@ -4670,12 +4454,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write identity checks
         </mock-styled.p>
@@ -4711,12 +4493,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read property images
         </mock-styled.p>
@@ -4752,12 +4532,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write property images
         </mock-styled.p>
@@ -4793,12 +4571,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read journal entries
         </mock-styled.p>
@@ -4834,12 +4610,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write journal entries
         </mock-styled.p>
@@ -4875,12 +4649,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read property key data
         </mock-styled.p>
@@ -4916,12 +4688,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write property key data
         </mock-styled.p>
@@ -4957,12 +4727,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read landlords
         </mock-styled.p>
@@ -4998,12 +4766,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write landlords
         </mock-styled.p>
@@ -5039,12 +4805,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read negotiators
         </mock-styled.p>
@@ -5080,12 +4844,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write negotiators
         </mock-styled.p>
@@ -5121,12 +4883,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read offers
         </mock-styled.p>
@@ -5162,12 +4922,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write offers
         </mock-styled.p>
@@ -5203,12 +4961,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read offices
         </mock-styled.p>
@@ -5244,12 +5000,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write offices
         </mock-styled.p>
@@ -5285,12 +5039,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read payments
         </mock-styled.p>
@@ -5326,12 +5078,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write payments
         </mock-styled.p>
@@ -5367,12 +5117,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read properties
         </mock-styled.p>
@@ -5408,12 +5156,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write properties
         </mock-styled.p>
@@ -5449,12 +5195,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read referrals
         </mock-styled.p>
@@ -5490,12 +5234,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write referrals
         </mock-styled.p>
@@ -5531,12 +5273,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write sources
         </mock-styled.p>
@@ -5572,12 +5312,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read tasks
         </mock-styled.p>
@@ -5613,12 +5351,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write tasks
         </mock-styled.p>
@@ -5654,12 +5390,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read tenancies
         </mock-styled.p>
@@ -5695,12 +5429,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write tenancies
         </mock-styled.p>
@@ -5736,12 +5468,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read transactions
         </mock-styled.p>
@@ -5777,12 +5507,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read vendors
         </mock-styled.p>
@@ -5818,12 +5546,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write vendors
         </mock-styled.p>
@@ -5859,12 +5585,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read works orders
         </mock-styled.p>
@@ -5900,12 +5624,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write works orders
         </mock-styled.p>
@@ -5941,12 +5663,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Is listed
         </mock-styled.p>
@@ -5982,12 +5702,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Is Free
         </mock-styled.p>
@@ -6052,12 +5770,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Is Integration
         </mock-styled.p>
@@ -6122,12 +5838,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Is Delete Protected
         </mock-styled.p>
@@ -6163,12 +5877,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           icon
            
@@ -6246,12 +5958,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           icon
            
@@ -6336,12 +6046,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           image
            
@@ -6426,24 +6134,24 @@ exports[`AppRevisionComparison should render a component with approval props and
       </div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-danger"
             disabled="true"
           >
             <mock-styled.div />
             Decline Revision
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="true"
           >
             <mock-styled.div />
             Approve Revision
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="true"
           >
             <mock-styled.div />
@@ -6514,9 +6222,7 @@ exports[`AppRevisionComparison should render a component with approval props and
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-top: 0.75rem;
-"
+        class="el-mt5"
       >
         <mock-styled.h2
           classname=""
@@ -6525,12 +6231,10 @@ exports[`AppRevisionComparison should render a component with approval props and
            Revision Diff
         </mock-styled.h2>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Name
           </mock-styled.p>
@@ -6556,12 +6260,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Home page
           </mock-styled.p>
@@ -6587,12 +6289,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Launch URI
           </mock-styled.p>
@@ -6618,12 +6318,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Support Email
           </mock-styled.p>
@@ -6649,12 +6347,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Telephone
           </mock-styled.p>
@@ -6680,12 +6376,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Summary
           </mock-styled.p>
@@ -6711,12 +6405,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Description
           </mock-styled.p>
@@ -6784,12 +6476,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Redirect URIs
           </mock-styled.p>
@@ -6815,12 +6505,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Signout URIs
           </mock-styled.p>
@@ -6846,12 +6534,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Private Apps
           </mock-styled.p>
@@ -6877,12 +6563,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Integration Type
           </mock-styled.p>
@@ -6906,12 +6590,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Products
           </mock-styled.p>
@@ -6937,12 +6619,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Privacy Policy
           </mock-styled.p>
@@ -6968,12 +6648,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Terms & Conditions
           </mock-styled.p>
@@ -6999,12 +6677,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Pricing Info
           </mock-styled.p>
@@ -7030,12 +6706,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Categories
           </mock-styled.p>
@@ -7061,12 +6735,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read applicants
           </mock-styled.p>
@@ -7102,12 +6774,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write applicants
           </mock-styled.p>
@@ -7144,12 +6814,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read appointments
           </mock-styled.p>
@@ -7185,12 +6853,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write appointments
           </mock-styled.p>
@@ -7226,12 +6892,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write areas
           </mock-styled.p>
@@ -7267,12 +6931,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read companies
           </mock-styled.p>
@@ -7308,12 +6970,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write companies
           </mock-styled.p>
@@ -7349,12 +7009,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read contacts
           </mock-styled.p>
@@ -7390,12 +7048,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write contacts
           </mock-styled.p>
@@ -7431,12 +7087,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read conveyancing
           </mock-styled.p>
@@ -7472,12 +7126,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write conveyancing
           </mock-styled.p>
@@ -7513,12 +7165,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read documents
           </mock-styled.p>
@@ -7554,12 +7204,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write documents
           </mock-styled.p>
@@ -7595,12 +7243,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read enquiries
           </mock-styled.p>
@@ -7636,12 +7282,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write enquiries
           </mock-styled.p>
@@ -7677,12 +7321,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read events
           </mock-styled.p>
@@ -7718,12 +7360,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write events
           </mock-styled.p>
@@ -7759,12 +7399,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read identity checks
           </mock-styled.p>
@@ -7800,12 +7438,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write identity checks
           </mock-styled.p>
@@ -7841,12 +7477,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read property images
           </mock-styled.p>
@@ -7882,12 +7516,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write property images
           </mock-styled.p>
@@ -7923,12 +7555,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read journal entries
           </mock-styled.p>
@@ -7964,12 +7594,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write journal entries
           </mock-styled.p>
@@ -8005,12 +7633,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read property key data
           </mock-styled.p>
@@ -8046,12 +7672,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write property key data
           </mock-styled.p>
@@ -8087,12 +7711,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read landlords
           </mock-styled.p>
@@ -8128,12 +7750,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write landlords
           </mock-styled.p>
@@ -8169,12 +7789,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read negotiators
           </mock-styled.p>
@@ -8210,12 +7828,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write negotiators
           </mock-styled.p>
@@ -8251,12 +7867,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read offers
           </mock-styled.p>
@@ -8292,12 +7906,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write offers
           </mock-styled.p>
@@ -8333,12 +7945,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read offices
           </mock-styled.p>
@@ -8374,12 +7984,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write offices
           </mock-styled.p>
@@ -8415,12 +8023,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read payments
           </mock-styled.p>
@@ -8456,12 +8062,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write payments
           </mock-styled.p>
@@ -8497,12 +8101,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read properties
           </mock-styled.p>
@@ -8538,12 +8140,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write properties
           </mock-styled.p>
@@ -8579,12 +8179,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read referrals
           </mock-styled.p>
@@ -8620,12 +8218,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write referrals
           </mock-styled.p>
@@ -8661,12 +8257,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write sources
           </mock-styled.p>
@@ -8702,12 +8296,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read tasks
           </mock-styled.p>
@@ -8743,12 +8335,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write tasks
           </mock-styled.p>
@@ -8784,12 +8374,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read tenancies
           </mock-styled.p>
@@ -8825,12 +8413,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write tenancies
           </mock-styled.p>
@@ -8866,12 +8452,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read transactions
           </mock-styled.p>
@@ -8907,12 +8491,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read vendors
           </mock-styled.p>
@@ -8948,12 +8530,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write vendors
           </mock-styled.p>
@@ -8989,12 +8569,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read works orders
           </mock-styled.p>
@@ -9030,12 +8608,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write works orders
           </mock-styled.p>
@@ -9071,12 +8647,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Is listed
           </mock-styled.p>
@@ -9112,12 +8686,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Is Free
           </mock-styled.p>
@@ -9153,12 +8725,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Is Integration
           </mock-styled.p>
@@ -9194,12 +8764,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Is Delete Protected
           </mock-styled.p>
@@ -9235,12 +8803,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             icon
              
@@ -9318,12 +8884,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             image
              
@@ -9402,24 +8966,24 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-center"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-danger"
               disabled="true"
             >
               <mock-styled.div />
               Decline Revision
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="true"
             >
               <mock-styled.div />
               Approve Revision
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="true"
             >
               <mock-styled.div />
@@ -9433,9 +8997,7 @@ exports[`AppRevisionComparison should render a component with approval props and
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-top: 0.75rem;
-"
+      class="el-mt5"
     >
       <mock-styled.h2
         classname=""
@@ -9444,12 +9006,10 @@ exports[`AppRevisionComparison should render a component with approval props and
          Revision Diff
       </mock-styled.h2>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Name
         </mock-styled.p>
@@ -9475,12 +9035,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Home page
         </mock-styled.p>
@@ -9506,12 +9064,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Launch URI
         </mock-styled.p>
@@ -9537,12 +9093,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Support Email
         </mock-styled.p>
@@ -9568,12 +9122,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Telephone
         </mock-styled.p>
@@ -9599,12 +9151,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Summary
         </mock-styled.p>
@@ -9630,12 +9180,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Description
         </mock-styled.p>
@@ -9703,12 +9251,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Redirect URIs
         </mock-styled.p>
@@ -9734,12 +9280,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Signout URIs
         </mock-styled.p>
@@ -9765,12 +9309,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Private Apps
         </mock-styled.p>
@@ -9796,12 +9338,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Integration Type
         </mock-styled.p>
@@ -9825,12 +9365,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Products
         </mock-styled.p>
@@ -9856,12 +9394,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Privacy Policy
         </mock-styled.p>
@@ -9887,12 +9423,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Terms & Conditions
         </mock-styled.p>
@@ -9918,12 +9452,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Pricing Info
         </mock-styled.p>
@@ -9949,12 +9481,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Categories
         </mock-styled.p>
@@ -9980,12 +9510,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read applicants
         </mock-styled.p>
@@ -10021,12 +9549,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write applicants
         </mock-styled.p>
@@ -10063,12 +9589,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read appointments
         </mock-styled.p>
@@ -10104,12 +9628,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write appointments
         </mock-styled.p>
@@ -10145,12 +9667,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write areas
         </mock-styled.p>
@@ -10186,12 +9706,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read companies
         </mock-styled.p>
@@ -10227,12 +9745,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write companies
         </mock-styled.p>
@@ -10268,12 +9784,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read contacts
         </mock-styled.p>
@@ -10309,12 +9823,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write contacts
         </mock-styled.p>
@@ -10350,12 +9862,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read conveyancing
         </mock-styled.p>
@@ -10391,12 +9901,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write conveyancing
         </mock-styled.p>
@@ -10432,12 +9940,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read documents
         </mock-styled.p>
@@ -10473,12 +9979,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write documents
         </mock-styled.p>
@@ -10514,12 +10018,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read enquiries
         </mock-styled.p>
@@ -10555,12 +10057,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write enquiries
         </mock-styled.p>
@@ -10596,12 +10096,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read events
         </mock-styled.p>
@@ -10637,12 +10135,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write events
         </mock-styled.p>
@@ -10678,12 +10174,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read identity checks
         </mock-styled.p>
@@ -10719,12 +10213,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write identity checks
         </mock-styled.p>
@@ -10760,12 +10252,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read property images
         </mock-styled.p>
@@ -10801,12 +10291,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write property images
         </mock-styled.p>
@@ -10842,12 +10330,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read journal entries
         </mock-styled.p>
@@ -10883,12 +10369,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write journal entries
         </mock-styled.p>
@@ -10924,12 +10408,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read property key data
         </mock-styled.p>
@@ -10965,12 +10447,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write property key data
         </mock-styled.p>
@@ -11006,12 +10486,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read landlords
         </mock-styled.p>
@@ -11047,12 +10525,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write landlords
         </mock-styled.p>
@@ -11088,12 +10564,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read negotiators
         </mock-styled.p>
@@ -11129,12 +10603,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write negotiators
         </mock-styled.p>
@@ -11170,12 +10642,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read offers
         </mock-styled.p>
@@ -11211,12 +10681,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write offers
         </mock-styled.p>
@@ -11252,12 +10720,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read offices
         </mock-styled.p>
@@ -11293,12 +10759,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write offices
         </mock-styled.p>
@@ -11334,12 +10798,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read payments
         </mock-styled.p>
@@ -11375,12 +10837,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write payments
         </mock-styled.p>
@@ -11416,12 +10876,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read properties
         </mock-styled.p>
@@ -11457,12 +10915,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write properties
         </mock-styled.p>
@@ -11498,12 +10954,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read referrals
         </mock-styled.p>
@@ -11539,12 +10993,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write referrals
         </mock-styled.p>
@@ -11580,12 +11032,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write sources
         </mock-styled.p>
@@ -11621,12 +11071,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read tasks
         </mock-styled.p>
@@ -11662,12 +11110,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write tasks
         </mock-styled.p>
@@ -11703,12 +11149,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read tenancies
         </mock-styled.p>
@@ -11744,12 +11188,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write tenancies
         </mock-styled.p>
@@ -11785,12 +11227,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read transactions
         </mock-styled.p>
@@ -11826,12 +11266,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read vendors
         </mock-styled.p>
@@ -11867,12 +11305,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write vendors
         </mock-styled.p>
@@ -11908,12 +11344,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read works orders
         </mock-styled.p>
@@ -11949,12 +11383,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write works orders
         </mock-styled.p>
@@ -11990,12 +11422,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Is listed
         </mock-styled.p>
@@ -12031,12 +11461,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Is Free
         </mock-styled.p>
@@ -12072,12 +11500,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Is Integration
         </mock-styled.p>
@@ -12113,12 +11539,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Is Delete Protected
         </mock-styled.p>
@@ -12154,12 +11578,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           icon
            
@@ -12237,12 +11659,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           image
            
@@ -12321,24 +11741,24 @@ exports[`AppRevisionComparison should render a component with approval props and
       </div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-danger"
             disabled="true"
           >
             <mock-styled.div />
             Decline Revision
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="true"
           >
             <mock-styled.div />
             Approve Revision
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="true"
           >
             <mock-styled.div />
@@ -12409,9 +11829,7 @@ exports[`AppRevisionComparison should render a component with approval props and
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-top: 0.75rem;
-"
+        class="el-mt5"
       >
         <mock-styled.h2
           classname=""
@@ -12420,12 +11838,10 @@ exports[`AppRevisionComparison should render a component with approval props and
            Revision Diff
         </mock-styled.h2>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Name
           </mock-styled.p>
@@ -12458,12 +11874,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Home page
           </mock-styled.p>
@@ -12496,12 +11910,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Launch URI
           </mock-styled.p>
@@ -12534,12 +11946,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Support Email
           </mock-styled.p>
@@ -12572,12 +11982,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Telephone
           </mock-styled.p>
@@ -12603,12 +12011,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Summary
           </mock-styled.p>
@@ -12641,12 +12047,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Description
           </mock-styled.p>
@@ -12718,12 +12122,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Redirect URIs
           </mock-styled.p>
@@ -12756,12 +12158,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Signout URIs
           </mock-styled.p>
@@ -12794,12 +12194,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Private Apps
           </mock-styled.p>
@@ -12832,12 +12230,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Integration Type
           </mock-styled.p>
@@ -12861,12 +12257,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Products
           </mock-styled.p>
@@ -12899,12 +12293,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Privacy Policy
           </mock-styled.p>
@@ -12937,12 +12329,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Terms & Conditions
           </mock-styled.p>
@@ -12975,12 +12365,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Pricing Info
           </mock-styled.p>
@@ -13013,12 +12401,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Categories
           </mock-styled.p>
@@ -13051,12 +12437,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read applicants
           </mock-styled.p>
@@ -13121,12 +12505,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write applicants
           </mock-styled.p>
@@ -13191,12 +12573,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read appointments
           </mock-styled.p>
@@ -13232,12 +12612,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write appointments
           </mock-styled.p>
@@ -13273,12 +12651,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write areas
           </mock-styled.p>
@@ -13314,12 +12690,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read companies
           </mock-styled.p>
@@ -13355,12 +12729,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write companies
           </mock-styled.p>
@@ -13396,12 +12768,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read contacts
           </mock-styled.p>
@@ -13437,12 +12807,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write contacts
           </mock-styled.p>
@@ -13478,12 +12846,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read conveyancing
           </mock-styled.p>
@@ -13519,12 +12885,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write conveyancing
           </mock-styled.p>
@@ -13560,12 +12924,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read documents
           </mock-styled.p>
@@ -13601,12 +12963,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write documents
           </mock-styled.p>
@@ -13642,12 +13002,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read enquiries
           </mock-styled.p>
@@ -13683,12 +13041,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write enquiries
           </mock-styled.p>
@@ -13724,12 +13080,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read events
           </mock-styled.p>
@@ -13765,12 +13119,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write events
           </mock-styled.p>
@@ -13806,12 +13158,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read identity checks
           </mock-styled.p>
@@ -13847,12 +13197,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write identity checks
           </mock-styled.p>
@@ -13888,12 +13236,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read property images
           </mock-styled.p>
@@ -13929,12 +13275,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write property images
           </mock-styled.p>
@@ -13970,12 +13314,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read journal entries
           </mock-styled.p>
@@ -14011,12 +13353,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write journal entries
           </mock-styled.p>
@@ -14052,12 +13392,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read property key data
           </mock-styled.p>
@@ -14093,12 +13431,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write property key data
           </mock-styled.p>
@@ -14134,12 +13470,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read landlords
           </mock-styled.p>
@@ -14175,12 +13509,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write landlords
           </mock-styled.p>
@@ -14216,12 +13548,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read negotiators
           </mock-styled.p>
@@ -14257,12 +13587,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write negotiators
           </mock-styled.p>
@@ -14298,12 +13626,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read offers
           </mock-styled.p>
@@ -14339,12 +13665,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write offers
           </mock-styled.p>
@@ -14380,12 +13704,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read offices
           </mock-styled.p>
@@ -14421,12 +13743,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write offices
           </mock-styled.p>
@@ -14462,12 +13782,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read payments
           </mock-styled.p>
@@ -14503,12 +13821,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write payments
           </mock-styled.p>
@@ -14544,12 +13860,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read properties
           </mock-styled.p>
@@ -14585,12 +13899,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write properties
           </mock-styled.p>
@@ -14626,12 +13938,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read referrals
           </mock-styled.p>
@@ -14667,12 +13977,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write referrals
           </mock-styled.p>
@@ -14708,12 +14016,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write sources
           </mock-styled.p>
@@ -14749,12 +14055,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read tasks
           </mock-styled.p>
@@ -14790,12 +14094,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write tasks
           </mock-styled.p>
@@ -14831,12 +14133,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read tenancies
           </mock-styled.p>
@@ -14872,12 +14172,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write tenancies
           </mock-styled.p>
@@ -14913,12 +14211,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read transactions
           </mock-styled.p>
@@ -14954,12 +14250,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read vendors
           </mock-styled.p>
@@ -14995,12 +14289,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write vendors
           </mock-styled.p>
@@ -15036,12 +14328,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Read works orders
           </mock-styled.p>
@@ -15077,12 +14367,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Write works orders
           </mock-styled.p>
@@ -15118,12 +14406,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Is listed
           </mock-styled.p>
@@ -15159,12 +14445,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Is Free
           </mock-styled.p>
@@ -15229,12 +14513,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Is Integration
           </mock-styled.p>
@@ -15299,12 +14581,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Is Delete Protected
           </mock-styled.p>
@@ -15340,12 +14620,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             icon
              
@@ -15423,12 +14701,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             icon
              
@@ -15513,12 +14789,10 @@ exports[`AppRevisionComparison should render a component with approval props and
           </div>
         </div>
         <div
-          class="mock-css.
-  margin-bottom: 0.75rem;
-"
+          class="el-mb5"
         >
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             image
              
@@ -15603,24 +14877,24 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-center"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-danger"
               disabled="true"
             >
               <mock-styled.div />
               Decline Revision
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="true"
             >
               <mock-styled.div />
               Approve Revision
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="true"
             >
               <mock-styled.div />
@@ -15634,9 +14908,7 @@ exports[`AppRevisionComparison should render a component with approval props and
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-top: 0.75rem;
-"
+      class="el-mt5"
     >
       <mock-styled.h2
         classname=""
@@ -15645,12 +14917,10 @@ exports[`AppRevisionComparison should render a component with approval props and
          Revision Diff
       </mock-styled.h2>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Name
         </mock-styled.p>
@@ -15683,12 +14953,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Home page
         </mock-styled.p>
@@ -15721,12 +14989,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Launch URI
         </mock-styled.p>
@@ -15759,12 +15025,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Support Email
         </mock-styled.p>
@@ -15797,12 +15061,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Telephone
         </mock-styled.p>
@@ -15828,12 +15090,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Summary
         </mock-styled.p>
@@ -15866,12 +15126,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Description
         </mock-styled.p>
@@ -15943,12 +15201,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Redirect URIs
         </mock-styled.p>
@@ -15981,12 +15237,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Signout URIs
         </mock-styled.p>
@@ -16019,12 +15273,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Private Apps
         </mock-styled.p>
@@ -16057,12 +15309,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Integration Type
         </mock-styled.p>
@@ -16086,12 +15336,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Products
         </mock-styled.p>
@@ -16124,12 +15372,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Privacy Policy
         </mock-styled.p>
@@ -16162,12 +15408,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Terms & Conditions
         </mock-styled.p>
@@ -16200,12 +15444,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Pricing Info
         </mock-styled.p>
@@ -16238,12 +15480,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Categories
         </mock-styled.p>
@@ -16276,12 +15516,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read applicants
         </mock-styled.p>
@@ -16346,12 +15584,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write applicants
         </mock-styled.p>
@@ -16416,12 +15652,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read appointments
         </mock-styled.p>
@@ -16457,12 +15691,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write appointments
         </mock-styled.p>
@@ -16498,12 +15730,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write areas
         </mock-styled.p>
@@ -16539,12 +15769,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read companies
         </mock-styled.p>
@@ -16580,12 +15808,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write companies
         </mock-styled.p>
@@ -16621,12 +15847,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read contacts
         </mock-styled.p>
@@ -16662,12 +15886,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write contacts
         </mock-styled.p>
@@ -16703,12 +15925,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read conveyancing
         </mock-styled.p>
@@ -16744,12 +15964,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write conveyancing
         </mock-styled.p>
@@ -16785,12 +16003,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read documents
         </mock-styled.p>
@@ -16826,12 +16042,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write documents
         </mock-styled.p>
@@ -16867,12 +16081,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read enquiries
         </mock-styled.p>
@@ -16908,12 +16120,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write enquiries
         </mock-styled.p>
@@ -16949,12 +16159,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read events
         </mock-styled.p>
@@ -16990,12 +16198,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write events
         </mock-styled.p>
@@ -17031,12 +16237,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read identity checks
         </mock-styled.p>
@@ -17072,12 +16276,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write identity checks
         </mock-styled.p>
@@ -17113,12 +16315,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read property images
         </mock-styled.p>
@@ -17154,12 +16354,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write property images
         </mock-styled.p>
@@ -17195,12 +16393,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read journal entries
         </mock-styled.p>
@@ -17236,12 +16432,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write journal entries
         </mock-styled.p>
@@ -17277,12 +16471,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read property key data
         </mock-styled.p>
@@ -17318,12 +16510,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write property key data
         </mock-styled.p>
@@ -17359,12 +16549,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read landlords
         </mock-styled.p>
@@ -17400,12 +16588,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write landlords
         </mock-styled.p>
@@ -17441,12 +16627,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read negotiators
         </mock-styled.p>
@@ -17482,12 +16666,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write negotiators
         </mock-styled.p>
@@ -17523,12 +16705,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read offers
         </mock-styled.p>
@@ -17564,12 +16744,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write offers
         </mock-styled.p>
@@ -17605,12 +16783,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read offices
         </mock-styled.p>
@@ -17646,12 +16822,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write offices
         </mock-styled.p>
@@ -17687,12 +16861,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read payments
         </mock-styled.p>
@@ -17728,12 +16900,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write payments
         </mock-styled.p>
@@ -17769,12 +16939,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read properties
         </mock-styled.p>
@@ -17810,12 +16978,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write properties
         </mock-styled.p>
@@ -17851,12 +17017,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read referrals
         </mock-styled.p>
@@ -17892,12 +17056,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write referrals
         </mock-styled.p>
@@ -17933,12 +17095,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write sources
         </mock-styled.p>
@@ -17974,12 +17134,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read tasks
         </mock-styled.p>
@@ -18015,12 +17173,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write tasks
         </mock-styled.p>
@@ -18056,12 +17212,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read tenancies
         </mock-styled.p>
@@ -18097,12 +17251,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write tenancies
         </mock-styled.p>
@@ -18138,12 +17290,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read transactions
         </mock-styled.p>
@@ -18179,12 +17329,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read vendors
         </mock-styled.p>
@@ -18220,12 +17368,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write vendors
         </mock-styled.p>
@@ -18261,12 +17407,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Read works orders
         </mock-styled.p>
@@ -18302,12 +17446,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Write works orders
         </mock-styled.p>
@@ -18343,12 +17485,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Is listed
         </mock-styled.p>
@@ -18384,12 +17524,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Is Free
         </mock-styled.p>
@@ -18454,12 +17592,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Is Integration
         </mock-styled.p>
@@ -18524,12 +17660,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Is Delete Protected
         </mock-styled.p>
@@ -18565,12 +17699,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           icon
            
@@ -18648,12 +17780,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           icon
            
@@ -18738,12 +17868,10 @@ exports[`AppRevisionComparison should render a component with approval props and
         </div>
       </div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           image
            
@@ -18828,24 +17956,24 @@ exports[`AppRevisionComparison should render a component with approval props and
       </div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-danger"
             disabled="true"
           >
             <mock-styled.div />
             Decline Revision
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="true"
           >
             <mock-styled.div />
             Approve Revision
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="true"
           >
             <mock-styled.div />
@@ -18916,43 +18044,33 @@ exports[`AppRevisionComparison should render a component with no approvals or da
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
- mock-css. mock-css. mock-css. mock-css."
+        classname="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
             style="font-size: 1.25rem;"
           >
             <svg
+              fill="none"
+              height="1em"
               style="font-size: 1.25rem;"
-            />
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </div>
         <div
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           Data not returned to complete this request
         </div>
@@ -18962,43 +18080,33 @@ exports[`AppRevisionComparison should render a component with no approvals or da
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
- mock-css. mock-css. mock-css. mock-css."
+      classname="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
     >
       <div
-        class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+        class="el-pn-icon"
         data-testid="close-icon"
       >
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
           style="font-size: 1.25rem;"
         >
           <svg
+            fill="none"
+            height="1em"
             style="font-size: 1.25rem;"
-          />
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </div>
       <div
-        class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+        class="el-pn-content"
       >
         Data not returned to complete this request
       </div>

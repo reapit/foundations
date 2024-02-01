@@ -6,9 +6,7 @@ exports[`OrgIdSelect should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mock-css.
-  margin-bottom: 0.75rem;
-"
+        class="el-mb5"
       >
         <mock-styled.p
           classname=""
@@ -16,20 +14,16 @@ exports[`OrgIdSelect should match a snapshot 1`] = `
           Organisations
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
         </mock-styled.p>
         <mock-styled.div
-          classname="mock-css.
-  border-radius: 0.25rem;
-"
+          classname="el-border-radius"
         >
           <mock-styled.div>
             <mock-styled.select
-              classname="mock-css.
-  width: 100%;
-"
+              classname="el-wfull"
               value="SOME_ID"
             >
               <option
@@ -60,9 +54,7 @@ exports[`OrgIdSelect should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mock-css.
-  margin-bottom: 0.75rem;
-"
+      class="el-mb5"
     >
       <mock-styled.p
         classname=""
@@ -70,20 +62,16 @@ exports[`OrgIdSelect should match a snapshot 1`] = `
         Organisations
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css.
-  border-radius: 0.25rem;
-"
+        classname="el-border-radius"
       >
         <mock-styled.div>
           <mock-styled.select
-            classname="mock-css.
-  width: 100%;
-"
+            classname="el-wfull"
             value="SOME_ID"
           >
             <option

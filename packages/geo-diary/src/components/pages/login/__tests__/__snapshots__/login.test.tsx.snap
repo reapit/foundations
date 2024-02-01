@@ -107,31 +107,27 @@ exports[`Login should match a snapshot 1`] = `
             src="[object Object]"
           />
           <mock-styled.div
-            classname="mock-css.
-  flex-direction: column;
-"
+            classname="el-flex-column"
           >
             <mock-styled.h1
-              classname="mock-css. mock-css."
+              classname="el-has-no-margin el-has-centered-text"
             >
               Welcome
             </mock-styled.h1>
             <mock-styled.h2
-              classname="mock-css."
+              classname="el-has-centered-text"
             >
               to Geo Diary
             </mock-styled.h2>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 3rem;
-"
+            classname="el-mb12"
           >
             <mock-styled.div
-              classname="mock-css."
+              classname="el-button-group-align-center"
             >
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
               >
                 <mock-styled.div />
                 Login With Reapit
@@ -139,7 +135,7 @@ exports[`Login should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           />
         </mock-styled.div>
       </mock-styled.div>
@@ -248,31 +244,27 @@ exports[`Login should match a snapshot 1`] = `
           src="[object Object]"
         />
         <mock-styled.div
-          classname="mock-css.
-  flex-direction: column;
-"
+          classname="el-flex-column"
         >
           <mock-styled.h1
-            classname="mock-css. mock-css."
+            classname="el-has-no-margin el-has-centered-text"
           >
             Welcome
           </mock-styled.h1>
           <mock-styled.h2
-            classname="mock-css."
+            classname="el-has-centered-text"
           >
             to Geo Diary
           </mock-styled.h2>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 3rem;
-"
+          classname="el-mb12"
         >
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-center"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
             >
               <mock-styled.div />
               Login With Reapit
@@ -280,7 +272,7 @@ exports[`Login should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         />
       </mock-styled.div>
     </mock-styled.div>

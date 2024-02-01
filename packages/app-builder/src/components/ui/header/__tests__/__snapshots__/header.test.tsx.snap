@@ -3,9 +3,7 @@
 exports[`Header should match a snapshot 1`] = `
 <DocumentFragment>
   <mock-styled.div
-    classname="mock-css.
-  justify-content: center;
- mock-css.
+    classname="el-flex-justify-center mock-css.
   background: #fff;
   /* height: 52px; */
   padding-top: 12px;
@@ -14,17 +12,7 @@ exports[`Header should match a snapshot 1`] = `
 "
   >
     <mock-styled.div
-      classname="mock-css.
-  justify-content: flex-end;
- mock-css.
-  align-items: center;
- mock-css.
-  flex: 1 1 0%;
- mock-css.
-  margin-top: auto;
- mock-css.
-  margin-bottom: auto;
-"
+      classname="el-flex-justify-end el-flex-align-center el-flex1 el-mt-auto el-mb-auto"
       style="padding-left: 17px; padding-right: 17px;"
     >
       <mock-styled.div
@@ -67,21 +55,11 @@ exports[`Header should match a snapshot 1`] = `
         <mock-styled.input />
       </mock-styled.div>
       <div
-        class="mock-css.
-  flex: 1 1 0%;
- mock-css.
-  display: flex;
- mock-css.
-  align-items: center;
- mock-css.
-  justify-content: flex-start;
-"
+        class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
       >
         <mock-styled.div>
           <mock-styled.mock-styled.div
-            classname="mock-css.
-  margin: 0.375rem;
-"
+            classname="el-m2"
             isactive="true"
           >
             <svg

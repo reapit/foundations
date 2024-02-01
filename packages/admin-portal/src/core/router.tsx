@@ -6,7 +6,7 @@ import { createBrowserHistory, History } from 'history'
 import { PageContainer, PersistentNotification } from '@reapit/elements'
 import { reapitConnectBrowserSession } from './connect-session'
 
-export const history: History<any> = createBrowserHistory()
+export const history: History = createBrowserHistory()
 
 const PrivateRouteWrapper = React.lazy(() => catchChunkError(() => import('./private-route-wrapper')))
 const ApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/approvals')))

@@ -11,9 +11,7 @@ exports[`appointment-time AppointmentTime should match snapshot 1`] = `
         classname="mock-css."
       >
         <mock-styled.div
-          classname="mock-css.
-  margin: 0 auto;
-"
+          classname="el-mx-auto"
         >
           <mock-styled.input
             id="today"
@@ -68,9 +66,7 @@ exports[`appointment-time AppointmentTime should match snapshot 1`] = `
       classname="mock-css."
     >
       <mock-styled.div
-        classname="mock-css.
-  margin: 0 auto;
-"
+        classname="el-mx-auto"
       >
         <mock-styled.input
           id="today"

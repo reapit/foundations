@@ -12,10 +12,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
         New Pipeline
       </mock-styled.h1>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname="el-tabs-full-width"
       >
         <mock-styled.div>
           <mock-styled.input
@@ -28,20 +25,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
             htmlfor="deployments"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Deployments
             </span>
@@ -56,20 +40,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
             htmlfor="configure"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Configure
             </span>
@@ -84,40 +55,24 @@ exports[`PipelineNew Should match snapshot 1`] = `
             htmlfor="environment"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Environment Variables
             </span>
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+          classname="el-tabs-full-width"
         />
       </mock-styled.div>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
       </mock-styled.p>
       <form>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -211,15 +166,24 @@ exports[`PipelineNew Should match snapshot 1`] = `
         classname=""
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
@@ -233,10 +197,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
       New Pipeline
     </mock-styled.h1>
     <mock-styled.div
-      classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+      classname="el-tabs-full-width"
     >
       <mock-styled.div>
         <mock-styled.input
@@ -249,20 +210,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
           htmlfor="deployments"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Deployments
           </span>
@@ -277,20 +225,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
           htmlfor="configure"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Configure
           </span>
@@ -305,40 +240,24 @@ exports[`PipelineNew Should match snapshot 1`] = `
           htmlfor="environment"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Environment Variables
           </span>
         </mock-styled.label>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname="el-tabs-full-width"
       />
     </mock-styled.div>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
     </mock-styled.p>
     <form>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -432,15 +351,24 @@ exports[`PipelineNew Should match snapshot 1`] = `
       classname=""
     >
       <mock-styled.button
-        classname="mock-css. mock-css."
+        classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
@@ -516,10 +444,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
         New Pipeline
       </mock-styled.h1>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname="el-tabs-full-width"
       >
         <mock-styled.div>
           <mock-styled.input
@@ -532,20 +457,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
             htmlfor="deployments"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Deployments
             </span>
@@ -560,20 +472,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
             htmlfor="configure"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Configure
             </span>
@@ -588,40 +487,24 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
             htmlfor="environment"
           >
             <span
-              class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+              class="el-tabs-item"
             >
               Environment Variables
             </span>
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+          classname="el-tabs-full-width"
         />
       </mock-styled.div>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
       </mock-styled.p>
       <form>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -715,15 +598,24 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
         classname=""
       >
         <mock-styled.button
-          classname="mock-css. mock-css."
+          classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
@@ -737,10 +629,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
       New Pipeline
     </mock-styled.h1>
     <mock-styled.div
-      classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+      classname="el-tabs-full-width"
     >
       <mock-styled.div>
         <mock-styled.input
@@ -753,20 +642,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
           htmlfor="deployments"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Deployments
           </span>
@@ -781,20 +657,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
           htmlfor="configure"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Configure
           </span>
@@ -809,40 +672,24 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
           htmlfor="environment"
         >
           <span
-            class="mock-css.
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid var(--color-white);
-  white-space: nowrap;
-  font-size: var(--font-size-default);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
-"
+            class="el-tabs-item"
           >
             Environment Variables
           </span>
         </mock-styled.label>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname="el-tabs-full-width"
       />
     </mock-styled.div>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
     </mock-styled.p>
     <form>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -936,15 +783,24 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
       classname=""
     >
       <mock-styled.button
-        classname="mock-css. mock-css."
+        classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem;
-"
+          classname="el-icon-new"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>

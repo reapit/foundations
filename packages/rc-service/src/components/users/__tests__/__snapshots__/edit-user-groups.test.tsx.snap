@@ -13,26 +13,12 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
           Edit User Groups
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Please use the section below to manage which groups this user belongs to:
         </mock-styled.p>
         <mock-styled.div
-          classname="mock-css. mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+          classname="el-form-layout-has-margin el-fade-in"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -48,10 +34,10 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-right"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="false"
               type="submit"
             >
@@ -72,26 +58,12 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
         Edit User Groups
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Please use the section below to manage which groups this user belongs to:
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css. mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-form-layout-has-margin el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -107,10 +79,10 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
             type="submit"
           >

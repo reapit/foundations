@@ -6,9 +6,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <form
-        class="mock-css.
-  padding: 1.5rem;
-"
+        class="el-p8"
       >
         <mock-styled.h2
           classname=""
@@ -16,26 +14,12 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
           Edit Office Group
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-section-margin"
         >
           To manage offices associated to this group, you can search and select users from the ‘Offices’ section below:
         </mock-styled.p>
         <mock-styled.div
-          classname="mock-css. mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+          classname="el-form-layout-has-margin el-fade-in"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -62,7 +46,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
               type="checkbox"
             />
             <mock-styled.label
-              classname="mock-css."
+              classname="el-has-grey-bg"
               htmlfor="status-edit-toggle-23299392-dfb0-48c5-ab2b-34135f82e44e"
             >
               <mock-styled.span>
@@ -75,9 +59,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 0.5rem;
-"
+              classname="el-mb3"
             >
               <mock-styled.input
                 classname=""
@@ -89,8 +71,18 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 style="font-size: 1rem;"
               >
                 <svg
+                  fill="none"
+                  height="1em"
                   style="font-size: 1rem;"
-                />
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
               <mock-styled.label
                 htmlfor="test-static-id"
@@ -114,7 +106,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   create new office 5
@@ -124,7 +116,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   8eck1r06k6ti0c3hm6tdml
@@ -134,7 +126,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   aa Create new one
@@ -144,7 +136,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   aa Create new one
@@ -154,7 +146,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   aa Create new one
@@ -164,7 +156,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   aa Create new one
@@ -174,7 +166,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   aa Create new one
@@ -184,7 +176,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   aa Create new one
@@ -194,7 +186,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   aa Create new one
@@ -204,7 +196,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   aa Create new one
@@ -214,7 +206,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   aa create office
@@ -224,7 +216,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   AA Test 11
@@ -235,17 +227,17 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-right"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-danger"
               type="button"
             >
               <mock-styled.div />
               Delete
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="submit"
             >
               <mock-styled.div />
@@ -258,9 +250,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <form
-      class="mock-css.
-  padding: 1.5rem;
-"
+      class="el-p8"
     >
       <mock-styled.h2
         classname=""
@@ -268,26 +258,12 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
         Edit Office Group
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css. mock-css."
+        classname="el-has-grey-text el-has-section-margin"
       >
         To manage offices associated to this group, you can search and select users from the ‘Offices’ section below:
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css. mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-form-layout-has-margin el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -314,7 +290,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
             type="checkbox"
           />
           <mock-styled.label
-            classname="mock-css."
+            classname="el-has-grey-bg"
             htmlfor="status-edit-toggle-23299392-dfb0-48c5-ab2b-34135f82e44e"
           >
             <mock-styled.span>
@@ -327,9 +303,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.5rem;
-"
+            classname="el-mb3"
           >
             <mock-styled.input
               classname=""
@@ -341,8 +315,18 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
               style="font-size: 1rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1rem;"
-              />
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.label
               htmlfor="test-static-id"
@@ -366,7 +350,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 create new office 5
@@ -376,7 +360,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 8eck1r06k6ti0c3hm6tdml
@@ -386,7 +370,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 aa Create new one
@@ -396,7 +380,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 aa Create new one
@@ -406,7 +390,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 aa Create new one
@@ -416,7 +400,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 aa Create new one
@@ -426,7 +410,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 aa Create new one
@@ -436,7 +420,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 aa Create new one
@@ -446,7 +430,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 aa Create new one
@@ -456,7 +440,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 aa Create new one
@@ -466,7 +450,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 aa create office
@@ -476,7 +460,7 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 AA Test 11
@@ -487,17 +471,17 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-danger"
             type="button"
           >
             <mock-styled.div />
             Delete
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="submit"
           >
             <mock-styled.div />

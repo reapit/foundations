@@ -7,38 +7,20 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
       </div>
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+            classname="el-mb5"
           >
             <mock-styled.input
               classname=""
@@ -46,14 +28,22 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
               placeholder="Search"
             />
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
               style="font-size: 1rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.label
               htmlfor="test-static-id"
@@ -61,7 +51,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
               Subscription Topics
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
             >
               Search to get started
             </mock-styled.span>
@@ -81,38 +71,20 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css. mock-css."
+        classname="el-has-grey-text el-has-no-margin"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
       </mock-styled.p>
     </div>
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+          classname="el-mb5"
         >
           <mock-styled.input
             classname=""
@@ -120,14 +92,22 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
             placeholder="Search"
           />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-default el-icon-new"
             style="font-size: 1rem;"
           >
             <svg
+              fill="none"
+              height="1em"
               style="font-size: 1rem;"
-            />
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.label
             htmlfor="test-static-id"
@@ -135,7 +115,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
             Subscription Topics
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-default"
           >
             Search to get started
           </mock-styled.span>
@@ -212,38 +192,20 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
       </div>
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+            classname="el-mb5"
           >
             <mock-styled.input
               classname=""
@@ -251,14 +213,22 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
               placeholder="Search"
             />
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+              classname="el-intent-default el-icon-new"
               style="font-size: 1rem;"
             >
               <svg
+                fill="none"
+                height="1em"
                 style="font-size: 1rem;"
-              />
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.label
               htmlfor="test-static-id"
@@ -266,7 +236,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
               Subscription Topics
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
             >
               Search to get started
             </mock-styled.span>
@@ -286,38 +256,20 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css. mock-css."
+        classname="el-has-grey-text el-has-no-margin"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
       </mock-styled.p>
     </div>
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+          classname="el-mb5"
         >
           <mock-styled.input
             classname=""
@@ -325,14 +277,22 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
             placeholder="Search"
           />
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem;
-"
+            classname="el-intent-default el-icon-new"
             style="font-size: 1rem;"
           >
             <svg
+              fill="none"
+              height="1em"
               style="font-size: 1rem;"
-            />
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.label
             htmlfor="test-static-id"
@@ -340,7 +300,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
             Subscription Topics
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-default"
           >
             Search to get started
           </mock-styled.span>

@@ -11,9 +11,7 @@ exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
         Key Number
       </mock-styled.label>
       <p
-        class="mock-css.
-  margin-bottom: 0.5rem;
-"
+        class="el-mb3"
       >
         123
       </p>
@@ -21,9 +19,7 @@ exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
         Keys in set
       </mock-styled.label>
       <div
-        class="mock-css.
-  margin-bottom: 0.5rem;
-"
+        class="el-mb3"
       >
         <p>
           Front door key
@@ -33,9 +29,7 @@ exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
         Office
       </mock-styled.label>
       <p
-        class="mock-css.
-  margin-bottom: 0.5rem;
-"
+        class="el-mb3"
       >
         Camberwell
       </p>
@@ -43,9 +37,7 @@ exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
         Status
       </mock-styled.label>
       <p
-        class="mock-css.
-  margin-bottom: 0.5rem;
-"
+        class="el-mb3"
       >
         Checked in at 13/01/2022 10:50
       </p>
@@ -58,9 +50,7 @@ exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
       Key Number
     </mock-styled.label>
     <p
-      class="mock-css.
-  margin-bottom: 0.5rem;
-"
+      class="el-mb3"
     >
       123
     </p>
@@ -68,9 +58,7 @@ exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
       Keys in set
     </mock-styled.label>
     <div
-      class="mock-css.
-  margin-bottom: 0.5rem;
-"
+      class="el-mb3"
     >
       <p>
         Front door key
@@ -80,9 +68,7 @@ exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
       Office
     </mock-styled.label>
     <p
-      class="mock-css.
-  margin-bottom: 0.5rem;
-"
+      class="el-mb3"
     >
       Camberwell
     </p>
@@ -90,9 +76,7 @@ exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
       Status
     </mock-styled.label>
     <p
-      class="mock-css.
-  margin-bottom: 0.5rem;
-"
+      class="el-mb3"
     >
       Checked in at 13/01/2022 10:50
     </p>
@@ -169,7 +153,7 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
 "
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-no-margin"
         >
           Property Information
         </mock-styled.h2>
@@ -419,9 +403,7 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
                   Key Number
                 </mock-styled.label>
                 <p
-                  class="mock-css.
-  margin-bottom: 0.5rem;
-"
+                  class="el-mb3"
                 >
                   123
                 </p>
@@ -429,9 +411,7 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
                   Keys in set
                 </mock-styled.label>
                 <div
-                  class="mock-css.
-  margin-bottom: 0.5rem;
-"
+                  class="el-mb3"
                 >
                   <p>
                     Front door key
@@ -441,9 +421,7 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
                   Office
                 </mock-styled.label>
                 <p
-                  class="mock-css.
-  margin-bottom: 0.5rem;
-"
+                  class="el-mb3"
                 >
                   Camberwell
                 </p>
@@ -451,9 +429,7 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
                   Status
                 </mock-styled.label>
                 <p
-                  class="mock-css.
-  margin-bottom: 0.5rem;
-"
+                  class="el-mb3"
                 >
                   Checked in at 13/01/2022 10:50
                 </p>
@@ -478,7 +454,7 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
 "
     >
       <mock-styled.h2
-        classname="mock-css."
+        classname="el-has-no-margin"
       >
         Property Information
       </mock-styled.h2>
@@ -728,9 +704,7 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
                 Key Number
               </mock-styled.label>
               <p
-                class="mock-css.
-  margin-bottom: 0.5rem;
-"
+                class="el-mb3"
               >
                 123
               </p>
@@ -738,9 +712,7 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
                 Keys in set
               </mock-styled.label>
               <div
-                class="mock-css.
-  margin-bottom: 0.5rem;
-"
+                class="el-mb3"
               >
                 <p>
                   Front door key
@@ -750,9 +722,7 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
                 Office
               </mock-styled.label>
               <p
-                class="mock-css.
-  margin-bottom: 0.5rem;
-"
+                class="el-mb3"
               >
                 Camberwell
               </p>
@@ -760,9 +730,7 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
                 Status
               </mock-styled.label>
               <p
-                class="mock-css.
-  margin-bottom: 0.5rem;
-"
+                class="el-mb3"
               >
                 Checked in at 13/01/2022 10:50
               </p>

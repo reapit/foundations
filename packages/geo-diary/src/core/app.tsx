@@ -1,3 +1,4 @@
+import '@reapit/elements/dist/index.css'
 import * as React from 'react'
 import Router from './router'
 import './__styles__'
