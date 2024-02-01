@@ -1809,6 +1809,10 @@ export interface AppointmentModel {
     }[]
   }
   /**
+   * The attendance status of the appointment (notSet/noShow/attended)
+   */
+  attended?: string
+  /**
    * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
    */
   accompanied?: boolean
@@ -2011,6 +2015,10 @@ export interface AppointmentModelPagedResult {
         fromArchive?: boolean
       }[]
     }
+    /**
+     * The attendance status of the appointment (notSet/noShow/attended)
+     */
+    attended?: string
     /**
      * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
      */
@@ -5165,6 +5173,10 @@ export interface CreateAppointmentModel {
    */
   isRepeat?: boolean
   /**
+   * The attendance status of the appointment (notSet/noShow/attended)
+   */
+  attended?: string
+  /**
    * Details of an appointment's recurrence pattern
    */
   recurrence?: {
@@ -7987,23 +7999,23 @@ export interface CreateReferralModel {
   /**
    * The unique identifier of the referral type
    */
-  referralTypeId?: string
+  referralTypeId: string
   /**
-   * The unique identifier of the Negotiator
+   * The unique identifier of the negotiator creating the referral
    */
   negotiatorId?: string
   /**
-   * The unique identifier of the Property
+   * The unique identifier of the property
    */
   propertyId?: string
   /**
-   * The unique identifier of the Applicant
+   * The unique identifier of the applicant
    */
   applicantId?: string
   /**
-   * The unique identifier of the Contact
+   * The unique identifier of the contact that has been referred
    */
-  contactId?: string
+  contactId: string
   /**
    * The amount paid to the agent for the referral
    */
@@ -16551,6 +16563,10 @@ export interface StaffModel {
    * The staff member's email
    */
   email?: string
+  /**
+   * The staff member's preferred salutation
+   */
+  salutation?: string
 }
 export interface StaffModelPagedResult {
   _embedded?: {
@@ -16578,6 +16594,10 @@ export interface StaffModelPagedResult {
      * The staff member's email
      */
     email?: string
+    /**
+     * The staff member's preferred salutation
+     */
+    salutation?: string
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -20434,6 +20454,10 @@ export interface UpdateAppointmentModel {
    * A flag denoting whether or not the property and/or property's vendor has confirmed their attendance
    */
   propertyConfirmed?: boolean
+  /**
+   * The attendance status of the appointment (notSet/noShow/attended)
+   */
+  attended?: string
   /**
    * Represents the follow up information on a single appointment
    */
