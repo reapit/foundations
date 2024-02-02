@@ -12,7 +12,10 @@ export class IdTokenGuard implements CanActivate {
   protected authProviders: AuthProviderInterface<any>[] = []
   protected idTokenProvider: IdTokenProvider | undefined = undefined
 
-  constructor(private readonly moduleContainer: ModulesContainer, private readonly moduleRef: ModuleRef) {}
+  constructor(
+    private readonly moduleContainer: ModulesContainer,
+    private readonly moduleRef: ModuleRef,
+  ) {}
 
   onModuleInit() {
     const unsortedProviders: { provider: AuthProviderInterface<any>; priority: number }[] = []

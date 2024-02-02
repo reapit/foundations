@@ -33,8 +33,8 @@ export const PipelinePage: FC = () => {
   const tab: PipelineTabs = pathname.includes('configure')
     ? 'configure'
     : pathname.includes('environment')
-    ? 'environment'
-    : 'deployments'
+      ? 'environment'
+      : 'deployments'
 
   return (
     <>

@@ -157,8 +157,8 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
               pipeline.packageManager === PackageManagerEnum.YARN_BERRY
                 ? 'yarn'
                 : pipeline.packageManager === PackageManagerEnum.YARN
-                ? PackageManagerEnum.YARN
-                : `${pipeline.packageManager} install`,
+                  ? PackageManagerEnum.YARN
+                  : `${pipeline.packageManager} install`,
             ],
           },
           build: {
@@ -167,8 +167,8 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
                 pipeline.packageManager === PackageManagerEnum.NPM
                   ? `${pipeline.packageManager} run`
                   : pipeline.packageManager?.includes(PackageManagerEnum.YARN)
-                  ? 'yarn'
-                  : pipeline.packageManager
+                    ? 'yarn'
+                    : pipeline.packageManager
               } ${pipeline.buildCommand}`,
             ],
           },

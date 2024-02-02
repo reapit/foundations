@@ -176,8 +176,8 @@ export const ManageTableExpandableContent: FC<ManageTableExpandableContentProps>
             {configItem.filters?.isFeatured === undefined
               ? 'Not Applied'
               : configItem.filters?.isFeatured
-              ? 'Yes'
-              : 'No'}
+                ? 'Yes'
+                : 'No'}
           </BodyText>
         </Col>
       </Grid>
@@ -373,10 +373,10 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
                   {item.live.isLive
                     ? 'Live'
                     : item.live.timeFrom && new Date(item.live.timeFrom).getTime() > new Date().getTime()
-                    ? `Going Live ${dayjs(item.live.timeFrom).format('DD-MM-YYYY HH:mm')}`
-                    : item.live.timeTo && new Date(item.live.timeTo).getTime() > new Date().getTime()
-                    ? `Completing ${dayjs(item.live.timeTo).format('DD-MM-YYYY HH:mm')}`
-                    : 'Not Live'}
+                      ? `Going Live ${dayjs(item.live.timeFrom).format('DD-MM-YYYY HH:mm')}`
+                      : item.live.timeTo && new Date(item.live.timeTo).getTime() > new Date().getTime()
+                        ? `Completing ${dayjs(item.live.timeTo).format('DD-MM-YYYY HH:mm')}`
+                        : 'Not Live'}
                 </>
               ),
             },

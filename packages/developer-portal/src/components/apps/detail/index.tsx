@@ -66,12 +66,12 @@ export const getAppStatus = ({ isListed, pendingRevisions, limitToClientIds }: A
   return isListed && !pendingRevisions && !isPrivateApp
     ? 'Your app is live and public in the AppMarket'
     : isListed && !pendingRevisions && isPrivateApp
-    ? 'Your app is live in the AppMarket but private to selected customers'
-    : isListed && pendingRevisions && !isPrivateApp
-    ? 'Your app is live and public in the AppMarket with a pending revision under review'
-    : isListed && pendingRevisions && isPrivateApp
-    ? 'Your app is live and private to selected customers with a pending revision under review'
-    : 'Your app is not live and in development only'
+      ? 'Your app is live in the AppMarket but private to selected customers'
+      : isListed && pendingRevisions && !isPrivateApp
+        ? 'Your app is live and public in the AppMarket with a pending revision under review'
+        : isListed && pendingRevisions && isPrivateApp
+          ? 'Your app is live and private to selected customers with a pending revision under review'
+          : 'Your app is not live and in development only'
 }
 
 export const getIntegrationType = ({ isDirectApi, authFlow, desktopIntegrationTypeIds }: AppDetailModel) => {
@@ -80,10 +80,10 @@ export const getIntegrationType = ({ isDirectApi, authFlow, desktopIntegrationTy
   return authFlow === 'clientCredentials'
     ? 'Your app is a server-side only integration or data feed'
     : isDirectApi
-    ? 'You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM'
-    : isAcIntegrated
-    ? 'You have a client side authenticated integration that will replace a screen or launch from within the AgencyCloud desktop CRM'
-    : 'You have a client side authenticated integration that will render within the AgencyCloud desktop CRM'
+      ? 'You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM'
+      : isAcIntegrated
+        ? 'You have a client side authenticated integration that will replace a screen or launch from within the AgencyCloud desktop CRM'
+        : 'You have a client side authenticated integration that will render within the AgencyCloud desktop CRM'
 }
 
 export const handleSetShouldFetchSecret = (setShouldFetchSecret: Dispatch<SetStateAction<boolean>>) => () => {
@@ -217,8 +217,8 @@ export const AppDetail: FC = () => {
                     {appSecret?.clientSecret && isAdmin
                       ? '*********************************'
                       : !isAdmin
-                      ? 'You need to be an admin to view this secret'
-                      : 'Click to load client secret'}
+                        ? 'You need to be an admin to view this secret'
+                        : 'Click to load client secret'}
                   </BodyText>
                 </div>
               </FlexContainer>
@@ -278,8 +278,8 @@ export const AppDetail: FC = () => {
                         {appSecret?.rotatingClientSecret && isAdmin
                           ? '*********************************'
                           : !isAdmin
-                          ? 'You need to be an admin to view this secret'
-                          : 'Click to load client secret'}
+                            ? 'You need to be an admin to view this secret'
+                            : 'Click to load client secret'}
                       </BodyText>
                     </div>
                   </FlexContainer>
@@ -388,9 +388,7 @@ export const AppDetail: FC = () => {
         {Boolean(scopes?.length) && (
           <Col>
             <Subtitle hasNoMargin>Permissions</Subtitle>
-            {scopes?.map(({ name, description }) => (
-              <PermissionChip key={name}>{description}</PermissionChip>
-            ))}
+            {scopes?.map(({ name, description }) => <PermissionChip key={name}>{description}</PermissionChip>)}
           </Col>
         )}
       </Grid>
