@@ -46,7 +46,7 @@ export const getInstallationsForWholeOrg = (
             terminatedReason: TERMINATION_REASON,
             terminatedBy,
           },
-        } as TerminationParams),
+        }) as TerminationParams,
     )
 }
 

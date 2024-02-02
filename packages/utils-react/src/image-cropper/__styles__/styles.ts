@@ -41,7 +41,9 @@ export const reactImageCropGlobalStyles = css`
   }
   .ReactCrop--circular-crop .ReactCrop__crop-selection {
     border-radius: 50%;
-    box-shadow: 0px 0px 1px 1px white, 0 0 0 9999em rgba(0, 0, 0, 0.5);
+    box-shadow:
+      0px 0px 1px 1px white,
+      0 0 0 9999em rgba(0, 0, 0, 0.5);
   }
   .ReactCrop--invisible-crop .ReactCrop__crop-selection {
     display: none;
@@ -281,7 +283,9 @@ export const imageCropperCropPanelWrapper = css`
 `
 
 export const imageCropperCropPanel = css`
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
 `
 
 export const imageCropperPreviewWrapper = css`
@@ -296,5 +300,7 @@ export const imageCropperPreviewWrapper = css`
 export const imageCropperPreview = css`
   width: 100%;
   height: auto;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
 `

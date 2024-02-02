@@ -9,7 +9,10 @@ import { ModuleRef, ModulesContainer } from '@nestjs/core'
 export class WorkflowHandlerProvider implements OnModuleInit {
   private readonly workflows: AbstractWorkflow<any>[] = []
 
-  constructor(private readonly moduleContainer: ModulesContainer, private readonly moduleRef: ModuleRef) {}
+  constructor(
+    private readonly moduleContainer: ModulesContainer,
+    private readonly moduleRef: ModuleRef,
+  ) {}
 
   onModuleInit() {
     ;[...this.moduleContainer.values()].forEach(({ metatype }) => {

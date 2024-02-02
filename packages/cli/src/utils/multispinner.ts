@@ -65,16 +65,16 @@ export class Multispinner {
             this.lines[lineKey] === SpinnerState.IN_PROGRESS
               ? `${frame} `
               : this.lines[lineKey] === SpinnerState.SUCCESS
-              ? '🚀'
-              : '  '
+                ? '🚀'
+                : '  '
           } ${lineKey} ${chalk[
             this.lines[lineKey] === SpinnerState.FAIL
               ? 'red'
               : this.lines[lineKey] === SpinnerState.IN_PROGRESS
-              ? 'yellow'
-              : this.lines[lineKey] === SpinnerState.SUCCESS
-              ? 'green'
-              : 'grey'
+                ? 'yellow'
+                : this.lines[lineKey] === SpinnerState.SUCCESS
+                  ? 'green'
+                  : 'grey'
           ](this.lines[lineKey])}`,
       )
       .join('\n')

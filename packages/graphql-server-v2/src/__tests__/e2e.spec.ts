@@ -31,17 +31,15 @@ describe('GQL schema is generated', () => {
 
     const { data } = await request<any>(server)
       .set('authorization', 'my token')
-      .query(
-        gql`
-          query {
-            get_applicants_ {
-              _embedded {
-                id
-              }
+      .query(gql`
+        query {
+          get_applicants_ {
+            _embedded {
+              id
             }
           }
-        `,
-      )
+        }
+      `)
       .expectNoErrors()
 
     expect(data.get_applicants_).toBeDefined()

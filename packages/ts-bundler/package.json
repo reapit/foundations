@@ -4,12 +4,12 @@
   "dependencies": {
     "fast-glob": "^3.3.2",
     "fs-extra": "^10.1.0",
-    "ts-node": "^10.9.1",
-    "typescript": "5.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "5.3.3",
     "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "eslint": "8.54.0"
+    "eslint": "8.56.0"
   },
   "scripts": {
     "start": "echo '...skipping...'",

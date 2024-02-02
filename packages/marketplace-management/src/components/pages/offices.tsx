@@ -57,8 +57,8 @@ const OfficesPage: FC = () => {
           {pathname === RoutePaths.OFFICES
             ? 'This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Groups’ page.'
             : pathname === RoutePaths.OFFICES_GROUPS
-            ? 'This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Office Groups’ page.'
-            : 'You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.'}
+              ? 'This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Office Groups’ page.'
+              : 'You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.'}
         </BodyText>
         {pathname === RoutePaths.OFFICES_GROUPS && (
           <>

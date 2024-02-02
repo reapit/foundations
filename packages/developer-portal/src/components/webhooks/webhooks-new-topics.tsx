@@ -55,10 +55,10 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
     !filteredTopics.length && !search
       ? 'Search to get started'
       : (!filteredTopics.length || filteredTopics.length === selectedTopics.length) && search
-      ? 'No topics found for your search.'
-      : errors.topicIds && search
-      ? errors.topicIds.message
-      : ''
+        ? 'No topics found for your search.'
+        : errors.topicIds && search
+          ? errors.topicIds.message
+          : ''
 
   return (
     <>

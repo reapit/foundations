@@ -46,7 +46,7 @@ export const FetchAuthenticators: FC<FetchAuthenticatorsProps> = ({ userId }) =>
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getUserAuthenticators],
     uriParams: { userId },
-    fetchWhenTrue: [userId, shouldFetch],
+    fetchWhenTrue: [userId, shouldFetch.authenticators],
   })
 
   const [userPasswordLoading, , deleteUserPassword] = useReapitUpdate<void, boolean>({

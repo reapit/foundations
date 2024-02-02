@@ -140,8 +140,8 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
     ? primaryAddress.buildingName && primaryAddress.line1
       ? `${primaryAddress.buildingName} ${primaryAddress.line1}`
       : primaryAddress.buildingNumber && primaryAddress.line1
-      ? `${primaryAddress.buildingNumber} ${primaryAddress.line1}`
-      : primaryAddress.buildingName || primaryAddress.buildingNumber || primaryAddress.line1 || ''
+        ? `${primaryAddress.buildingNumber} ${primaryAddress.line1}`
+        : primaryAddress.buildingName || primaryAddress.buildingNumber || primaryAddress.line1 || ''
     : ''
 
   const {

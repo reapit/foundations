@@ -30,8 +30,8 @@ export const AnalyticsCalls: FC = () => {
   const appsQuery = appId
     ? appId
     : apps?.data
-    ? listToBatchQuery<AppSummaryModel>(apps.data, 'id', 'applicationId')
-    : null
+      ? listToBatchQuery<AppSummaryModel>(apps.data, 'id', 'applicationId')
+      : null
 
   const customerQuery = clientId ? { customerId: clientId } : {}
 
