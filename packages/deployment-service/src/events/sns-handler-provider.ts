@@ -9,7 +9,10 @@ import { SNSEventRecord } from 'aws-lambda'
 export class SnsHandlerProvider implements OnModuleInit {
   handlers: AbstractSnsHandler[] = []
 
-  constructor(private readonly moduleContainer: ModulesContainer, private readonly moduleRef: ModuleRef) {}
+  constructor(
+    private readonly moduleContainer: ModulesContainer,
+    private readonly moduleRef: ModuleRef,
+  ) {}
 
   findHandler(topicArn: string) {
     return this.handlers.find((handler) => handler.topicArn === topicArn)

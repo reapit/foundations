@@ -200,7 +200,9 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                   </div>
                   <mock-styled.div
                     classname="mock-css.
-  transition: height 0.3s linear, width 0.3s linear;
+  transition:
+    height 0.3s linear,
+    width 0.3s linear;
   height: 13em;
   width: 15rem;
 "
@@ -534,7 +536,9 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 </div>
                 <mock-styled.div
                   classname="mock-css.
-  transition: height 0.3s linear, width 0.3s linear;
+  transition:
+    height 0.3s linear,
+    width 0.3s linear;
   height: 13em;
   width: 15rem;
 "

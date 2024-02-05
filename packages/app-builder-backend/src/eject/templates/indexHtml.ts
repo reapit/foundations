@@ -1,7 +1,7 @@
 import { html } from './js'
 
 export const generateIndexHtml = () => html`
-  <!DOCTYPE html>
+  <!doctype html>
   <html lang="en">
     <head>
       <meta charset="utf-8" />

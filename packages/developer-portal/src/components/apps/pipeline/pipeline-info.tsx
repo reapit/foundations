@@ -100,10 +100,10 @@ export const PipelineInfo: FC = () => {
                           ? 'success'
                           : 'critical'
                         : isBitbucket
-                        ? hasBitbucketApp
-                          ? 'success'
-                          : 'critical'
-                        : 'danger'
+                          ? hasBitbucketApp
+                            ? 'success'
+                            : 'critical'
+                          : 'danger'
                     }
                   />
                 </div>

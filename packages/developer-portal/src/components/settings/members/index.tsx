@@ -26,10 +26,10 @@ export const getIntentFromStatus = (status: string) => {
   return status === 'active'
     ? 'success'
     : status === 'rejected'
-    ? 'danger'
-    : status === 'pending'
-    ? 'pending'
-    : 'default'
+      ? 'danger'
+      : status === 'pending'
+        ? 'pending'
+        : 'default'
 }
 
 export const handleRefreshMembers =

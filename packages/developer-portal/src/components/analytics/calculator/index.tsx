@@ -28,7 +28,7 @@ export const prepareInitialValues = (endpointsUsed: string, apiCalls: string) =>
   ({
     endpointsUsed,
     apiCalls,
-  } as CostCalculatorFormValues)
+  }) as CostCalculatorFormValues
 
 export const handleOnSubmit =
   (setEndpointsUsed: (endpointsUsed: string) => void, setApiCalls: (apiCalls: string) => void) =>

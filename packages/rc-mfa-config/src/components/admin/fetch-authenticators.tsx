@@ -46,7 +46,7 @@ export const FetchAuthenticators: FC<FetchAuthenticatorsProps> = ({ userId }) =>
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getUserAuthenticators],
     uriParams: { userId },
-    fetchWhenTrue: [userId, shouldFetch],
+    fetchWhenTrue: [userId, shouldFetch.authenticators],
   })
 
   const [userPasswordLoading, , deleteUserPassword] = useReapitUpdate<void, boolean>({
@@ -79,7 +79,7 @@ export const FetchAuthenticators: FC<FetchAuthenticatorsProps> = ({ userId }) =>
         <Loader />
       ) : activeAuthenticator ? (
         <ActiveAuthenticator activeAuthenticator={activeAuthenticator} refreshAuthenticators={refreshAuthenticators} />
-      ) : shouldFetch ? (
+      ) : shouldFetch.authenticators ? (
         <PersistentNotification isFullWidth isExpanded isInline intent="primary">
           No authenticators configured for this user.
         </PersistentNotification>

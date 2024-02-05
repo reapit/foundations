@@ -175,9 +175,7 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
         <Col>
           <Subtitle>Groups</Subtitle>
           <BodyText hasGreyText>
-            {user?.groups?.sort().map((group, index) => (
-              <DisplayChip key={index}>{group!}</DisplayChip>
-            ))}
+            {user?.groups?.sort().map((group, index) => <DisplayChip key={index}>{group!}</DisplayChip>)}
           </BodyText>
         </Col>
         <Col>

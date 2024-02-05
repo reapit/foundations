@@ -105,8 +105,8 @@ export const Invite: FC = () => {
     inviteState === 'ACCEPT_SUCCESS'
       ? 'Invite Accepted'
       : inviteState === 'REJECT_SUCCESS'
-      ? 'Invite Rejected'
-      : 'Reapit Foundations Invitation'
+        ? 'Invite Rejected'
+        : 'Reapit Foundations Invitation'
 
   return (
     <Modal title={title} isOpen={true} onModalClose={console.log}>
