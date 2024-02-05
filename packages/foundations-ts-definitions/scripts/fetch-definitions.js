@@ -25,7 +25,7 @@ const fetchDefinitionsForSchema = async (schemaConfig) => {
 
     const cookedDefinitions = convertedDefinitions.replace(/\[name[^;]+}/g, '[name: string]:any')
 
-    const formatDefinitions = prettifyCode(cookedDefinitions)
+    const formatDefinitions = await prettifyCode(cookedDefinitions)
 
     // Write interfaces to file
     fs.writeFileSync(
@@ -92,4 +92,4 @@ const fetchSchema = async (apiVersion) => {
 
 fetchSchema()
   .then(createIndexFile)
-  .catch(error => console.error(error))
+  .catch((error) => console.error(error))

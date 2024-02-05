@@ -931,6 +931,7 @@ export interface Organisations {
   id?: string[]
   agencyCloudId?: string[]
   claim?: string[]
+  claimValue?: string
   marketplaceId?: string[]
   name?: string
   instanceType?: ('dev' | 'prod' | 'test' | 'uat')[]
