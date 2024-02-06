@@ -112,7 +112,7 @@ export const SettingsSubscriptionsPage: FC = () => {
             {
               label: 'Start Date',
               value: dayjs(subscription.created).format('DD MMM YYYY'),
-              icon: 'calendarSystem',
+              icon: 'calendar',
               cellHasDarkText: true,
               narrowTable: {
                 showLabel: true,
@@ -121,7 +121,7 @@ export const SettingsSubscriptionsPage: FC = () => {
             {
               label: 'Renewal Date',
               value: dayjs(subscription.renews).format('DD MMM YYYY'),
-              icon: 'calendarSystem',
+              icon: 'calendar',
               cellHasDarkText: true,
               narrowTable: {
                 showLabel: true,
@@ -140,7 +140,7 @@ export const SettingsSubscriptionsPage: FC = () => {
             {
               label: 'Cost',
               value: `£${subscription.cost}`,
-              icon: 'paymentSystem',
+              icon: 'pound',
               cellHasDarkText: true,
               narrowTable: {
                 showLabel: true,
@@ -161,7 +161,7 @@ export const SettingsSubscriptionsPage: FC = () => {
             },
           ],
           ctaContent: {
-            icon: 'trashSystem',
+            icon: 'trash',
             headerContent: 'Cancel Subscription',
             isCallToAction: true,
             onClick: handleSetSubscriptionId(setSubscriptionId, subscription.id ?? null),

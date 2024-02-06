@@ -59,7 +59,7 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
         <SecondaryNavContainer>
           <Icon className={elMb5} icon="leadGenerationInfographic" iconSize="large" />
           <SmallText hasGreyText>
-            This app will allow Reapit Employees to manage Reapit Connect user accounts. Specially, you can see
+            This app will allow Reapit Employees to manage Reapit Connect user accounts. Specifically, you can see
             information about users (Org and User Claims), change the active status and can also reset passwords.
           </SmallText>
           <SmallText hasGreyText className={elMt5}>

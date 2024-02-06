@@ -8,7 +8,7 @@ exports[`ResendConfirmButton should match a snapshot 1`] = `
       <mock-styled.div />
       <form>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -60,15 +60,13 @@ exports[`ResendConfirmButton should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+          classname="el-mb7"
         >
           <mock-styled.div
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="false"
               type="submit"
             >
@@ -84,7 +82,7 @@ exports[`ResendConfirmButton should match a snapshot 1`] = `
     <mock-styled.div />
     <form>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -136,15 +134,13 @@ exports[`ResendConfirmButton should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
             type="submit"
           >

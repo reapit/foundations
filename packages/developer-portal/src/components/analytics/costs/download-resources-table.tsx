@@ -61,7 +61,7 @@ export const DownloadResourcesTable: FC<DownloadResourcesTableProps> = ({ billin
               {
                 label: 'Type',
                 value: 'Cost and Usage',
-                icon: 'cloudSolidSystem',
+                icon: 'cloud',
                 cellHasDarkText: true,
                 narrowTable: {
                   showLabel: true,
@@ -80,7 +80,7 @@ export const DownloadResourcesTable: FC<DownloadResourcesTableProps> = ({ billin
             ],
             ctaContent: {
               onClick: handleDownloadCSV(billing, error),
-              icon: 'downloadSolidSystem',
+              icon: 'fileDownload',
               headerContent: 'Download',
             },
           },
@@ -89,7 +89,7 @@ export const DownloadResourcesTable: FC<DownloadResourcesTableProps> = ({ billin
               {
                 label: 'Type',
                 value: 'Transaction History',
-                icon: 'cloudSolidSystem' as IconNames,
+                icon: 'cloud' as IconNames,
                 cellHasDarkText: true,
                 narrowTable: {
                   showLabel: true,
@@ -108,7 +108,7 @@ export const DownloadResourcesTable: FC<DownloadResourcesTableProps> = ({ billin
               onClick: appId
                 ? handleDownloadTransactions(analyticsFilterState, requestMonth, error, developerId)
                 : undefined,
-              icon: (appId ? 'downloadSolidSystem' : 'closeSolidSystem') as IconNames,
+              icon: (appId ? 'fileDownload' : 'close') as IconNames,
               headerContent: 'Download',
             },
           })),

@@ -19,8 +19,11 @@ exports[`TableCell Component should match a snapshot with full props 1`] = `
       >
         <mock-styled.span
           classname="mock-css."
+          style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
         <mock-styled.div
           data-narrow-label="Label"
@@ -43,8 +46,11 @@ exports[`TableCell Component should match a snapshot with full props 1`] = `
     >
       <mock-styled.span
         classname="mock-css."
+        style="font-size: 1.25rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 1.25rem;"
+        />
       </mock-styled.span>
       <mock-styled.div
         data-narrow-label="Label"
@@ -339,11 +345,8 @@ exports[`TableCtaTriggerCell Component should match a snapshot with no children 
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css."
-            style="font-size: 1.2rem;"
           >
-            <svg
-              style="font-size: 1.2rem;"
-            />
+            <svg />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -354,11 +357,8 @@ exports[`TableCtaTriggerCell Component should match a snapshot with no children 
       <mock-styled.div>
         <mock-styled.span
           classname="mock-css."
-          style="font-size: 1.2rem;"
         >
-          <svg
-            style="font-size: 1.2rem;"
-          />
+          <svg />
         </mock-styled.span>
       </mock-styled.div>
     </mock-styled.div>
@@ -714,7 +714,9 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
         classname=""
       >
         <mock-styled.span
-          classname="mock-css."
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -726,7 +728,9 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
       classname=""
     >
       <mock-styled.span
-        classname="mock-css."
+        classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
       >
         <svg />
       </mock-styled.span>
@@ -800,7 +804,9 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
 "
       >
         <mock-styled.span
-          classname="mock-css."
+          classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
         >
           <svg />
         </mock-styled.span>
@@ -817,7 +823,9 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
 "
     >
       <mock-styled.span
-        classname="mock-css."
+        classname="mock-css. mock-css.
+  font-size: 1.5rem;
+"
       >
         <svg />
       </mock-styled.span>

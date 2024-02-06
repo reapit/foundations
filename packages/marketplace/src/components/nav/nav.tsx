@@ -14,7 +14,7 @@ import { navigateExternal, navigateRoute } from '../../utils/navigation'
 // import { styled } from '@linaria/react'
 import { useNavigate } from 'react-router'
 import { getAvatarInitials } from '@reapit/utils-react'
-import { selectIsAdmin } from '../../utils/auth'
+import { selectIsAdmin, selectIsDeveloper } from '../../utils/auth'
 
 export const getDefaultNavIndex = (pathname: string) => {
   if (pathname.includes('apps')) return 1
@@ -63,7 +63,7 @@ export const getDefaultNavIndex = (pathname: string) => {
 export const Nav: FC = () => {
   const { connectIsDesktop, connectSession, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const navigate = useNavigate()
-  const isAdmin = selectIsAdmin(connectSession)
+  const isDevOrAdmin = selectIsAdmin(connectSession) || selectIsDeveloper(connectSession)
 
   const navOptions: NavResponsiveOption[] = [
     {
@@ -97,29 +97,27 @@ export const Nav: FC = () => {
               {
                 text: 'DevPortal',
                 callback: navigateExternal(process.env.developerPortalUrl),
-                iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+                iconUrl: <Icon icon="reapitLogoSmall" />,
               },
             ]
           : undefined
       }
       avatarText={getAvatarInitials(connectSession)}
       avatarOptions={
-        !connectIsDesktop
-          ? ([
-              {
-                callback: navigateRoute(navigate, RoutePaths.SETTINGS_PROFILE),
-                text: 'Profile',
-              },
-              isAdmin && {
-                callback: navigateRoute(navigate, RoutePaths.SETTINGS_INSTALLED),
-                text: 'Installed',
-              },
-              {
-                callback: connectLogoutRedirect,
-                text: 'Logout',
-              },
-            ].filter(Boolean) as NavResponsiveAvatarOption[])
-          : undefined
+        [
+          {
+            callback: navigateRoute(navigate, RoutePaths.SETTINGS_PROFILE),
+            text: 'Profile',
+          },
+          isDevOrAdmin && {
+            callback: navigateRoute(navigate, RoutePaths.SETTINGS_INSTALLED),
+            text: 'Installed',
+          },
+          !connectIsDesktop && {
+            callback: connectLogoutRedirect,
+            text: 'Logout',
+          },
+        ].filter(Boolean) as NavResponsiveAvatarOption[]
       }
     />
   )

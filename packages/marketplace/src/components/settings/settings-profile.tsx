@@ -6,7 +6,6 @@ import {
   Col,
   elMb11,
   ElToggleItem,
-  FlexContainer,
   FormLayout,
   Grid,
   InputGroup,
@@ -14,7 +13,6 @@ import {
   Subtitle,
   Title,
   Toggle,
-  useMediaQuery,
   UseSnack,
   useSnack,
 } from '@reapit/elements'
@@ -25,7 +23,6 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchemaChangePassword } from './validation-schema'
 import { changePasswordService } from '../../services/cognito-identity'
 import { RolesChip } from './__styles__'
-import { handleLogout } from '.'
 import { trackEventHandler, trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 import { UpdateUserModel, UserModel } from '@reapit/foundations-ts-definitions'
@@ -74,9 +71,8 @@ export const handleUserUpdate =
 
 export const SettingsProfile: FC = () => {
   const { currentUserState, refreshCurrentUser } = useAppsBrowseState()
-  const { connectSession, connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const snacks = useSnack()
-  const { isMobile } = useMediaQuery()
   const loginIdentity = connectSession?.loginIdentity ?? ({} as LoginIdentity)
   const email = connectSession?.loginIdentity.email ?? ''
   const userId = email ? window.btoa(email).replace(/=/g, '') : null
@@ -105,7 +101,6 @@ export const SettingsProfile: FC = () => {
 
   useEffect(trackEventHandler(TrackingEvent.LoadProfile, true), [])
 
-  const logoutUser = useCallback(handleLogout(connectLogoutRedirect), [connectLogoutRedirect])
   const userUpdate = useCallback(handleUserUpdate(updateUser, currentUserState, refreshCurrentUser), [
     currentUserState,
     updateUser,
@@ -116,16 +111,7 @@ export const SettingsProfile: FC = () => {
 
   return (
     <>
-      <FlexContainer isFlexJustifyBetween>
-        <Title>Profile</Title>
-        {isMobile && (
-          <ButtonGroup alignment="right">
-            <Button onClick={logoutUser} intent="primary" chevronRight>
-              Logout
-            </Button>
-          </ButtonGroup>
-        )}
-      </FlexContainer>
+      <Title>Profile</Title>
       <Subtitle hasBoldText>Your Details</Subtitle>
       <Grid className={elMb11}>
         {name && (
@@ -181,7 +167,7 @@ export const SettingsProfile: FC = () => {
                   label="Current Password"
                   placeholder="Current Password"
                   errorMessage={errors?.password?.message}
-                  icon={errors?.password?.message ? 'asteriskSystem' : null}
+                  icon={errors?.password?.message ? 'asterisk' : null}
                   intent="danger"
                 />
               </InputWrap>
@@ -192,7 +178,7 @@ export const SettingsProfile: FC = () => {
                   label="New Password"
                   placeholder="New Password"
                   errorMessage={errors?.newPassword?.message}
-                  icon={errors?.newPassword?.message ? 'asteriskSystem' : null}
+                  icon={errors?.newPassword?.message ? 'asterisk' : null}
                   intent="danger"
                 />
               </InputWrap>
@@ -203,7 +189,7 @@ export const SettingsProfile: FC = () => {
                   label="Confirm New Password"
                   placeholder="Confirm New Password"
                   errorMessage={errors?.confirmPassword?.message}
-                  icon={errors?.confirmPassword?.message ? 'asteriskSystem' : null}
+                  icon={errors?.confirmPassword?.message ? 'asterisk' : null}
                   intent="danger"
                 />
               </InputWrap>

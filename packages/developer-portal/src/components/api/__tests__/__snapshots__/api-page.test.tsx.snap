@@ -7,9 +7,7 @@ exports[`ApiPage should match a snapshot for the /desktop page 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
@@ -38,9 +36,7 @@ exports[`ApiPage should match a snapshot for the /desktop page 1`] = `
           </mock-styled.div>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         />
       </mock-styled.div>
     </div>
@@ -48,9 +44,7 @@ exports[`ApiPage should match a snapshot for the /desktop page 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
@@ -79,9 +73,7 @@ exports[`ApiPage should match a snapshot for the /desktop page 1`] = `
         </mock-styled.div>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       />
     </mock-styled.div>
   </div>,
@@ -146,9 +138,7 @@ exports[`ApiPage should match a snapshot for the /graphql page 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
@@ -177,9 +167,7 @@ exports[`ApiPage should match a snapshot for the /graphql page 1`] = `
           </mock-styled.div>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         />
       </mock-styled.div>
     </div>
@@ -187,9 +175,7 @@ exports[`ApiPage should match a snapshot for the /graphql page 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
@@ -218,9 +204,7 @@ exports[`ApiPage should match a snapshot for the /graphql page 1`] = `
         </mock-styled.div>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       />
     </mock-styled.div>
   </div>,
@@ -285,9 +269,7 @@ exports[`ApiPage should match a snapshot for the /swagger page 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
@@ -316,9 +298,7 @@ exports[`ApiPage should match a snapshot for the /swagger page 1`] = `
           </mock-styled.div>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         />
       </mock-styled.div>
     </div>
@@ -326,9 +306,7 @@ exports[`ApiPage should match a snapshot for the /swagger page 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
@@ -357,9 +335,7 @@ exports[`ApiPage should match a snapshot for the /swagger page 1`] = `
         </mock-styled.div>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       />
     </mock-styled.div>
   </div>,
@@ -424,9 +400,7 @@ exports[`ApiPage should match a snapshot for the /webhooks page 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
@@ -455,9 +429,7 @@ exports[`ApiPage should match a snapshot for the /webhooks page 1`] = `
           </mock-styled.div>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         />
       </mock-styled.div>
     </div>
@@ -465,9 +437,7 @@ exports[`ApiPage should match a snapshot for the /webhooks page 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
@@ -496,9 +466,7 @@ exports[`ApiPage should match a snapshot for the /webhooks page 1`] = `
         </mock-styled.div>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       />
     </mock-styled.div>
   </div>,
@@ -563,9 +531,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/about page 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
@@ -594,9 +560,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/about page 1`] = `
           </mock-styled.div>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         />
       </mock-styled.div>
     </div>
@@ -604,9 +568,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/about page 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
@@ -635,9 +597,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/about page 1`] = `
         </mock-styled.div>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       />
     </mock-styled.div>
   </div>,
@@ -702,9 +662,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/logs page 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
@@ -733,9 +691,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/logs page 1`] = `
           </mock-styled.div>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         />
       </mock-styled.div>
     </div>
@@ -743,9 +699,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/logs page 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
@@ -774,9 +728,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/logs page 1`] = `
         </mock-styled.div>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       />
     </mock-styled.div>
   </div>,
@@ -841,9 +793,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/manage page 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
@@ -872,9 +822,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/manage page 1`] = `
           </mock-styled.div>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         />
       </mock-styled.div>
     </div>
@@ -882,9 +830,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/manage page 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
@@ -913,9 +859,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/manage page 1`] = `
         </mock-styled.div>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       />
     </mock-styled.div>
   </div>,
@@ -980,9 +924,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/new page 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
@@ -1011,9 +953,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/new page 1`] = `
           </mock-styled.div>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         />
       </mock-styled.div>
     </div>
@@ -1021,9 +961,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/new page 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
@@ -1052,9 +990,7 @@ exports[`ApiPage should match a snapshot for the /webhooks/new page 1`] = `
         </mock-styled.div>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       />
     </mock-styled.div>
   </div>,

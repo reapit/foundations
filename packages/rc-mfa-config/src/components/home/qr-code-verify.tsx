@@ -20,7 +20,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { object, string } from 'yup'
 import { cx } from '@linaria/core'
 import { CreateAuthenticatorReturnType } from '.'
-import { nativeSessionWrapper } from '../../core/connect-session-native'
+import { actionOverride, useRCAPI } from '@/utils/action-override'
 
 interface QrCodeVerifyProps {
   refreshAuthenticators: () => void
@@ -79,7 +79,7 @@ export const handleRefresh =
   }
 
 export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrCode, setQrCode }) => {
-  const { connectSession } = useReapitConnect(nativeSessionWrapper(reapitConnectBrowserSession))
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal, modalIsOpen } = useModal()
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const email = connectSession?.loginIdentity.email
@@ -99,8 +99,9 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
 
   const [qrCodeVerifyLoading, , verifyQrCode, hasVerified] = useReapitUpdate<VerifyQrCodeType, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions[UpdateActionNames.verifyUserAuthenticator],
+    action: actionOverride(updateActions[UpdateActionNames.verifyUserAuthenticator]),
     method: 'POST',
+    withCredentials: useRCAPI,
     uriParams: {
       userId,
       authenticatorId: qrCode?.id,
@@ -135,7 +136,7 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
               label="Authenticator Code"
               {...register('code')}
               errorMessage={errors?.code?.message}
-              icon={errors?.code?.message ? 'asteriskSystem' : null}
+              icon={errors?.code?.message ? 'asterisk' : null}
               intent="danger"
             />
           </InputWrapFull>

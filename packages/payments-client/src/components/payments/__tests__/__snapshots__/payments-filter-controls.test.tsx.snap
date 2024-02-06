@@ -7,13 +7,9 @@ exports[`PaymentsFilterControls should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  border-radius: 0.25rem;
- mock-css.
+        class="el-border-radius mock-css.
   overflow: hidden;
- mock-css.
-  margin-bottom: 0.75rem;
-"
+ el-mb5"
       >
         <form>
           <mock-styled.div>
@@ -65,9 +61,7 @@ exports[`PaymentsFilterControls should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.select
-                classname="mock-css.
-  width: 100%;
-"
+                classname="el-wfull"
                 name="status"
               >
                 <option
@@ -129,13 +123,9 @@ exports[`PaymentsFilterControls should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  border-radius: 0.25rem;
- mock-css.
+      class="el-border-radius mock-css.
   overflow: hidden;
- mock-css.
-  margin-bottom: 0.75rem;
-"
+ el-mb5"
     >
       <form>
         <mock-styled.div>
@@ -187,9 +177,7 @@ exports[`PaymentsFilterControls should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.select
-              classname="mock-css.
-  width: 100%;
-"
+              classname="el-wfull"
               name="status"
             >
               <option

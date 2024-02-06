@@ -7,21 +7,78 @@ exports[`Data should match a snapshot with data 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
         >
           <mock-styled.span
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+            classname="el-mb5 el-icon-size-large"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 80 80"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M66.74 34.076 39.997 24.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+                fill="#9faebc"
+              />
+              <path
+                d="M66.74 34.076 39.999 24.65v18.992l26.74-9.567Z"
+                fill="#607890"
+              />
+              <path
+                d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+                fill="#d8dee4"
+              />
+              <path
+                d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+                fill="#d8dee4"
+              />
+              <path
+                d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+                fill="#506478"
+              />
+              <path
+                d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+                fill="#d8dee4"
+              />
+              <path
+                d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+                fill="#9faebc"
+              />
+              <path
+                d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+                fill="#798da1"
+              />
+              <path
+                d="m39.998 43.67-26.74-9.595v34.501l26.74 8.624V43.67Z"
+                fill="#607890"
+              />
+              <path
+                d="M66.74 68.576v-34.5l-26.741 9.593V77.2l26.74-8.624Z"
+                fill="#506478"
+              />
+              <path
+                d="M13.257 34.076 4 45.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+                fill="#d8dee4"
+              />
+              <path
+                d="M66.74 34.075 76 45.214 48.756 55.28l-8.757-11.638 26.74-9.568Z"
+                fill="#798da1"
+              />
+              <path
+                d="M41 9a7 7 0 0 1 7-7h11a7 7 0 1 1 0 14H48a7 7 0 0 1-7-7Z"
+                fill="#9faebc"
+              />
+              <path
+                d="M72.084 17.688c-.461-1.78-2.297-2.803-4-2.088-.439-1.694-2.15-2.77-3.885-2.126V9.106c-.001-4.138-5.998-4.145-6 0v16.112l-2.879-3.006a2.913 2.913 0 0 0-4.242 0c-1.169 1.218-1.173 3.206 0 4.43l7.93 8.28c1.89 1.971 4.45 3.078 7.12 3.078C71.692 38 76.2 33.293 76.2 27.485v-6.894c0-2.201-2.13-3.736-4.116-2.903Z"
+                fill="#7e9bfa"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.p
             classname=""
@@ -29,7 +86,7 @@ exports[`Data should match a snapshot with data 1`] = `
             Support
           </mock-styled.p>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Please see our
              
@@ -44,32 +101,26 @@ exports[`Data should match a snapshot with data 1`] = `
             for further information on how to use these details to connect a number of popular BI applications.
           </mock-styled.p>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Please see below for more resources.
           </mock-styled.p>
           <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+            classname="el-mb5 el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
           </mock-styled.button>
           <div>
             <mock-styled.button
-              classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+              classname="el-mb5 el-intent-neutral"
             >
               <mock-styled.div />
               Video
             </mock-styled.button>
           </div>
           <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+            classname="el-mb5 el-intent-neutral"
           >
             <mock-styled.div />
             Help
@@ -84,12 +135,12 @@ exports[`Data should match a snapshot with data 1`] = `
             Sharing Data
           </mock-styled.h1>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Our data warehouse solution can provide access to your data in a number of different formats. To get immediate access to your data in a particular format, click ‘Create Share’. The data will be published into your data warehouse and connectivity information will then be presented to you.
           </mock-styled.p>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Please note that creating a data share is a long running process and can take 30 seconds or more to complete.
           </mock-styled.p>
@@ -99,9 +150,7 @@ exports[`Data should match a snapshot with data 1`] = `
             Available Data
           </mock-styled.h2>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+            classname="el-mb11"
             data-has-call-to-action="false"
             data-has-expandable-action="true"
             data-num-columns-excl-action-col="3"
@@ -118,12 +167,20 @@ exports[`Data should match a snapshot with data 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname="mock-css."
-                  style="font-size: 1.2rem;"
+                  classname="el-intent-default el-icon-new"
                 >
                   <svg
-                    style="font-size: 1.2rem;"
-                  />
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -132,7 +189,7 @@ exports[`Data should match a snapshot with data 1`] = `
             >
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-table-cell-has-dark-text"
                 >
                   <mock-styled.div
                     data-narrow-label="Name"
@@ -141,7 +198,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-table-cell-has-dark-text"
                 >
                   <mock-styled.div
                     data-narrow-label="Provider"
@@ -150,7 +207,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-table-cell-has-dark-text"
                 >
                   <mock-styled.div
                     data-narrow-label="Description"
@@ -162,9 +219,20 @@ exports[`Data should match a snapshot with data 1`] = `
                   classname=""
                 >
                   <mock-styled.span
-                    classname="mock-css."
+                    classname="el-intent-default el-icon-new"
                   >
-                    <svg />
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                   </mock-styled.span>
                 </mock-styled.div>
               </mock-styled.div>
@@ -174,10 +242,10 @@ exports[`Data should match a snapshot with data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.div
-                      classname="mock-css."
+                      classname="el-button-group-align-center"
                     >
                       <mock-styled.button
-                        classname="mock-css."
+                        classname="el-intent-primary"
                         disabled="false"
                       >
                         <mock-styled.div />
@@ -193,7 +261,7 @@ exports[`Data should match a snapshot with data 1`] = `
             >
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-table-cell-has-dark-text"
                 >
                   <mock-styled.div
                     data-narrow-label="Name"
@@ -202,7 +270,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-table-cell-has-dark-text"
                 >
                   <mock-styled.div
                     data-narrow-label="Provider"
@@ -211,7 +279,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-table-cell-has-dark-text"
                 >
                   <mock-styled.div
                     data-narrow-label="Description"
@@ -223,9 +291,20 @@ exports[`Data should match a snapshot with data 1`] = `
                   classname=""
                 >
                   <mock-styled.span
-                    classname="mock-css."
+                    classname="el-intent-default el-icon-new"
                   >
-                    <svg />
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                   </mock-styled.span>
                 </mock-styled.div>
               </mock-styled.div>
@@ -235,10 +314,10 @@ exports[`Data should match a snapshot with data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.div
-                      classname="mock-css."
+                      classname="el-button-group-align-center"
                     >
                       <mock-styled.button
-                        classname="mock-css."
+                        classname="el-intent-primary"
                         disabled="false"
                       >
                         <mock-styled.div />
@@ -256,9 +335,7 @@ exports[`Data should match a snapshot with data 1`] = `
             Data Shares
           </mock-styled.h2>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+            classname="el-mb11"
             data-has-call-to-action="false"
             data-has-expandable-action="true"
             data-num-columns-excl-action-col="5"
@@ -281,12 +358,20 @@ exports[`Data should match a snapshot with data 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname="mock-css."
-                  style="font-size: 1.2rem;"
+                  classname="el-intent-default el-icon-new"
                 >
                   <svg
-                    style="font-size: 1.2rem;"
-                  />
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -295,7 +380,7 @@ exports[`Data should match a snapshot with data 1`] = `
             >
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-table-cell-has-dark-text"
                 >
                   <mock-styled.div
                     data-narrow-label="Data Set Name"
@@ -304,7 +389,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-table-cell-has-dark-text"
                 >
                   <mock-styled.div
                     data-narrow-label="Database"
@@ -313,7 +398,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-table-cell-has-dark-text"
                 >
                   <mock-styled.div
                     data-narrow-label="Schema"
@@ -322,7 +407,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-table-cell-has-dark-text"
                 >
                   <mock-styled.div
                     data-narrow-label="Warehouse"
@@ -331,7 +416,7 @@ exports[`Data should match a snapshot with data 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-table-cell-has-dark-text"
                 >
                   <mock-styled.div
                     data-narrow-label="Region"
@@ -343,9 +428,20 @@ exports[`Data should match a snapshot with data 1`] = `
                   classname=""
                 >
                   <mock-styled.span
-                    classname="mock-css."
+                    classname="el-intent-default el-icon-new"
                   >
-                    <svg />
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                   </mock-styled.span>
                 </mock-styled.div>
               </mock-styled.div>
@@ -355,29 +451,29 @@ exports[`Data should match a snapshot with data 1`] = `
                 <mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.div
-                      classname="mock-css."
+                      classname="el-button-group-align-center"
                     >
                       <mock-styled.button
-                        classname="mock-css."
+                        classname="el-intent-neutral"
                       >
                         <mock-styled.div />
                         Copy URL
                       </mock-styled.button>
                       <mock-styled.button
-                        classname="mock-css."
+                        classname="el-intent-neutral"
                       >
                         <mock-styled.div />
                         Copy DSN
                       </mock-styled.button>
                       <mock-styled.button
-                        classname="mock-css."
+                        classname="el-intent-primary"
                         disabled="false"
                       >
                         <mock-styled.div />
                         Refresh Share
                       </mock-styled.button>
                       <mock-styled.button
-                        classname="mock-css."
+                        classname="el-intent-danger"
                         disabled="false"
                       >
                         <mock-styled.div />
@@ -396,21 +492,78 @@ exports[`Data should match a snapshot with data 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb5 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M66.74 34.076 39.997 24.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M66.74 34.076 39.999 24.65v18.992l26.74-9.567Z"
+              fill="#607890"
+            />
+            <path
+              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              fill="#506478"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              fill="#798da1"
+            />
+            <path
+              d="m39.998 43.67-26.74-9.595v34.501l26.74 8.624V43.67Z"
+              fill="#607890"
+            />
+            <path
+              d="M66.74 68.576v-34.5l-26.741 9.593V77.2l26.74-8.624Z"
+              fill="#506478"
+            />
+            <path
+              d="M13.257 34.076 4 45.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 34.075 76 45.214 48.756 55.28l-8.757-11.638 26.74-9.568Z"
+              fill="#798da1"
+            />
+            <path
+              d="M41 9a7 7 0 0 1 7-7h11a7 7 0 1 1 0 14H48a7 7 0 0 1-7-7Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M72.084 17.688c-.461-1.78-2.297-2.803-4-2.088-.439-1.694-2.15-2.77-3.885-2.126V9.106c-.001-4.138-5.998-4.145-6 0v16.112l-2.879-3.006a2.913 2.913 0 0 0-4.242 0c-1.169 1.218-1.173 3.206 0 4.43l7.93 8.28c1.89 1.971 4.45 3.078 7.12 3.078C71.692 38 76.2 33.293 76.2 27.485v-6.894c0-2.201-2.13-3.736-4.116-2.903Z"
+              fill="#7e9bfa"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -418,7 +571,7 @@ exports[`Data should match a snapshot with data 1`] = `
           Support
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Please see our
            
@@ -433,32 +586,26 @@ exports[`Data should match a snapshot with data 1`] = `
           for further information on how to use these details to connect a number of popular BI applications.
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Please see below for more resources.
         </mock-styled.p>
         <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+          classname="el-mb5 el-intent-neutral"
         >
           <mock-styled.div />
           View Docs
         </mock-styled.button>
         <div>
           <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+            classname="el-mb5 el-intent-neutral"
           >
             <mock-styled.div />
             Video
           </mock-styled.button>
         </div>
         <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+          classname="el-mb5 el-intent-neutral"
         >
           <mock-styled.div />
           Help
@@ -473,12 +620,12 @@ exports[`Data should match a snapshot with data 1`] = `
           Sharing Data
         </mock-styled.h1>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Our data warehouse solution can provide access to your data in a number of different formats. To get immediate access to your data in a particular format, click ‘Create Share’. The data will be published into your data warehouse and connectivity information will then be presented to you.
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Please note that creating a data share is a long running process and can take 30 seconds or more to complete.
         </mock-styled.p>
@@ -488,9 +635,7 @@ exports[`Data should match a snapshot with data 1`] = `
           Available Data
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="3"
@@ -507,12 +652,20 @@ exports[`Data should match a snapshot with data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css."
-                style="font-size: 1.2rem;"
+                classname="el-intent-default el-icon-new"
               >
                 <svg
-                  style="font-size: 1.2rem;"
-                />
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -521,7 +674,7 @@ exports[`Data should match a snapshot with data 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Name"
@@ -530,7 +683,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Provider"
@@ -539,7 +692,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Description"
@@ -551,9 +704,20 @@ exports[`Data should match a snapshot with data 1`] = `
                 classname=""
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="el-intent-default el-icon-new"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -563,10 +727,10 @@ exports[`Data should match a snapshot with data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-button-group-align-center"
                   >
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-primary"
                       disabled="false"
                     >
                       <mock-styled.div />
@@ -582,7 +746,7 @@ exports[`Data should match a snapshot with data 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Name"
@@ -591,7 +755,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Provider"
@@ -600,7 +764,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Description"
@@ -612,9 +776,20 @@ exports[`Data should match a snapshot with data 1`] = `
                 classname=""
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="el-intent-default el-icon-new"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -624,10 +799,10 @@ exports[`Data should match a snapshot with data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-button-group-align-center"
                   >
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-primary"
                       disabled="false"
                     >
                       <mock-styled.div />
@@ -645,9 +820,7 @@ exports[`Data should match a snapshot with data 1`] = `
           Data Shares
         </mock-styled.h2>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="5"
@@ -670,12 +843,20 @@ exports[`Data should match a snapshot with data 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css."
-                style="font-size: 1.2rem;"
+                classname="el-intent-default el-icon-new"
               >
                 <svg
-                  style="font-size: 1.2rem;"
-                />
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -684,7 +865,7 @@ exports[`Data should match a snapshot with data 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Data Set Name"
@@ -693,7 +874,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Database"
@@ -702,7 +883,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Schema"
@@ -711,7 +892,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Warehouse"
@@ -720,7 +901,7 @@ exports[`Data should match a snapshot with data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Region"
@@ -732,9 +913,20 @@ exports[`Data should match a snapshot with data 1`] = `
                 classname=""
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="el-intent-default el-icon-new"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -744,29 +936,29 @@ exports[`Data should match a snapshot with data 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-button-group-align-center"
                   >
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-neutral"
                     >
                       <mock-styled.div />
                       Copy URL
                     </mock-styled.button>
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-neutral"
                     >
                       <mock-styled.div />
                       Copy DSN
                     </mock-styled.button>
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-primary"
                       disabled="false"
                     >
                       <mock-styled.div />
                       Refresh Share
                     </mock-styled.button>
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-danger"
                       disabled="false"
                     >
                       <mock-styled.div />
@@ -842,21 +1034,78 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
         >
           <mock-styled.span
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+            classname="el-mb5 el-icon-size-large"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 80 80"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M66.74 34.076 39.997 24.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+                fill="#9faebc"
+              />
+              <path
+                d="M66.74 34.076 39.999 24.65v18.992l26.74-9.567Z"
+                fill="#607890"
+              />
+              <path
+                d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+                fill="#d8dee4"
+              />
+              <path
+                d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+                fill="#d8dee4"
+              />
+              <path
+                d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+                fill="#506478"
+              />
+              <path
+                d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+                fill="#d8dee4"
+              />
+              <path
+                d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+                fill="#9faebc"
+              />
+              <path
+                d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+                fill="#798da1"
+              />
+              <path
+                d="m39.998 43.67-26.74-9.595v34.501l26.74 8.624V43.67Z"
+                fill="#607890"
+              />
+              <path
+                d="M66.74 68.576v-34.5l-26.741 9.593V77.2l26.74-8.624Z"
+                fill="#506478"
+              />
+              <path
+                d="M13.257 34.076 4 45.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+                fill="#d8dee4"
+              />
+              <path
+                d="M66.74 34.075 76 45.214 48.756 55.28l-8.757-11.638 26.74-9.568Z"
+                fill="#798da1"
+              />
+              <path
+                d="M41 9a7 7 0 0 1 7-7h11a7 7 0 1 1 0 14H48a7 7 0 0 1-7-7Z"
+                fill="#9faebc"
+              />
+              <path
+                d="M72.084 17.688c-.461-1.78-2.297-2.803-4-2.088-.439-1.694-2.15-2.77-3.885-2.126V9.106c-.001-4.138-5.998-4.145-6 0v16.112l-2.879-3.006a2.913 2.913 0 0 0-4.242 0c-1.169 1.218-1.173 3.206 0 4.43l7.93 8.28c1.89 1.971 4.45 3.078 7.12 3.078C71.692 38 76.2 33.293 76.2 27.485v-6.894c0-2.201-2.13-3.736-4.116-2.903Z"
+                fill="#7e9bfa"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.p
             classname=""
@@ -864,7 +1113,7 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
             Support
           </mock-styled.p>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Please see our
              
@@ -879,32 +1128,26 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
             for further information on how to use these details to connect a number of popular BI applications.
           </mock-styled.p>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Please see below for more resources.
           </mock-styled.p>
           <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+            classname="el-mb5 el-intent-neutral"
           >
             <mock-styled.div />
             View Docs
           </mock-styled.button>
           <div>
             <mock-styled.button
-              classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+              classname="el-mb5 el-intent-neutral"
             >
               <mock-styled.div />
               Video
             </mock-styled.button>
           </div>
           <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+            classname="el-mb5 el-intent-neutral"
           >
             <mock-styled.div />
             Help
@@ -919,12 +1162,12 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
             Sharing Data
           </mock-styled.h1>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Our data warehouse solution can provide access to your data in a number of different formats. To get immediate access to your data in a particular format, click ‘Create Share’. The data will be published into your data warehouse and connectivity information will then be presented to you.
           </mock-styled.p>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Please note that creating a data share is a long running process and can take 30 seconds or more to complete.
           </mock-styled.p>
@@ -937,9 +1180,7 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
             classname=""
           >
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+              classname="el-mb11"
             >
               <mock-styled.div />
             </mock-styled.div>
@@ -963,21 +1204,78 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb5 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M66.74 34.076 39.997 24.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M66.74 34.076 39.999 24.65v18.992l26.74-9.567Z"
+              fill="#607890"
+            />
+            <path
+              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              fill="#506478"
+            />
+            <path
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              fill="#798da1"
+            />
+            <path
+              d="m39.998 43.67-26.74-9.595v34.501l26.74 8.624V43.67Z"
+              fill="#607890"
+            />
+            <path
+              d="M66.74 68.576v-34.5l-26.741 9.593V77.2l26.74-8.624Z"
+              fill="#506478"
+            />
+            <path
+              d="M13.257 34.076 4 45.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              fill="#d8dee4"
+            />
+            <path
+              d="M66.74 34.075 76 45.214 48.756 55.28l-8.757-11.638 26.74-9.568Z"
+              fill="#798da1"
+            />
+            <path
+              d="M41 9a7 7 0 0 1 7-7h11a7 7 0 1 1 0 14H48a7 7 0 0 1-7-7Z"
+              fill="#9faebc"
+            />
+            <path
+              d="M72.084 17.688c-.461-1.78-2.297-2.803-4-2.088-.439-1.694-2.15-2.77-3.885-2.126V9.106c-.001-4.138-5.998-4.145-6 0v16.112l-2.879-3.006a2.913 2.913 0 0 0-4.242 0c-1.169 1.218-1.173 3.206 0 4.43l7.93 8.28c1.89 1.971 4.45 3.078 7.12 3.078C71.692 38 76.2 33.293 76.2 27.485v-6.894c0-2.201-2.13-3.736-4.116-2.903Z"
+              fill="#7e9bfa"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.p
           classname=""
@@ -985,7 +1283,7 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
           Support
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Please see our
            
@@ -1000,32 +1298,26 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
           for further information on how to use these details to connect a number of popular BI applications.
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Please see below for more resources.
         </mock-styled.p>
         <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+          classname="el-mb5 el-intent-neutral"
         >
           <mock-styled.div />
           View Docs
         </mock-styled.button>
         <div>
           <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+            classname="el-mb5 el-intent-neutral"
           >
             <mock-styled.div />
             Video
           </mock-styled.button>
         </div>
         <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+          classname="el-mb5 el-intent-neutral"
         >
           <mock-styled.div />
           Help
@@ -1040,12 +1332,12 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
           Sharing Data
         </mock-styled.h1>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Our data warehouse solution can provide access to your data in a number of different formats. To get immediate access to your data in a particular format, click ‘Create Share’. The data will be published into your data warehouse and connectivity information will then be presented to you.
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Please note that creating a data share is a long running process and can take 30 seconds or more to complete.
         </mock-styled.p>
@@ -1058,9 +1350,7 @@ exports[`Data should match a snapshot with no data and loading 1`] = `
           classname=""
         >
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+            classname="el-mb11"
           >
             <mock-styled.div />
           </mock-styled.div>

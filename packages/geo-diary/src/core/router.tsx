@@ -6,7 +6,7 @@ import PrivateRouteWrapper from './private-route-wrapper'
 import { FC } from 'react'
 import { reapitConnectBrowserSession } from './connect-session'
 
-export const history: History<any> = createBrowserHistory()
+export const history: History = createBrowserHistory()
 
 const Appointment = React.lazy(() => catchChunkError(() => import('../components/pages/appointment')))
 

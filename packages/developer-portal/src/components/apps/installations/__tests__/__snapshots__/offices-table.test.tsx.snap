@@ -7,9 +7,7 @@ exports[`OfficesTable should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-top: 0.75rem;
-"
+        class="el-mt5"
       >
         <mock-styled.h2
           classname=""
@@ -17,14 +15,12 @@ exports[`OfficesTable should match a snapshot 1`] = `
           Total Offices
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           1
         </mock-styled.p>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
           data-has-expandable-action="false"
           data-num-columns-excl-action-col="2"
         >
@@ -42,14 +38,14 @@ exports[`OfficesTable should match a snapshot 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div>
                   BAR
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div>
                   FOO
@@ -64,9 +60,7 @@ exports[`OfficesTable should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-top: 0.75rem;
-"
+      class="el-mt5"
     >
       <mock-styled.h2
         classname=""
@@ -74,14 +68,12 @@ exports[`OfficesTable should match a snapshot 1`] = `
         Total Offices
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         1
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="2"
       >
@@ -99,14 +91,14 @@ exports[`OfficesTable should match a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div>
                 BAR
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div>
                 FOO

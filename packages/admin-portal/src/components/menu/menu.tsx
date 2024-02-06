@@ -107,12 +107,12 @@ export const Menu: FC = () => {
         {
           text: 'AppMarket',
           callback: openNewPage(process.env.appMarketUri),
-          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+          iconUrl: <Icon icon="reapitLogoSmall" />,
         },
         {
           text: 'DevPortal',
           callback: openNewPage(process.env.developerPortalUri),
-          iconUrl: <Icon icon="reapitLogoSmallInfographic" />,
+          iconUrl: <Icon icon="reapitLogoSmall" />,
         },
       ]}
       avatarText={getAvatarInitials(connectSession)}

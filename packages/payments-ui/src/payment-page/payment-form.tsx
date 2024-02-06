@@ -6,6 +6,7 @@ import {
   ButtonGroup,
   elFadeIn,
   ElIcon,
+  elMb2,
   elMb7,
   FormLayout,
   Input,
@@ -20,7 +21,7 @@ import {
 } from '@reapit/elements'
 import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { formatCardExpires, formatCardNumber, getCardType } from './payment-card-helpers'
+import { CardType, formatCardExpires, formatCardNumber } from './payment-card-helpers'
 import { FaCreditCard, FaCcVisa, FaCcMastercard, FaCcAmex } from 'react-icons/fa'
 import { COUNTRY_OPTIONS } from './payment-card-country-options'
 import { paymentValidationSchema } from './payment-validation-schema'
@@ -48,6 +49,7 @@ export interface CardDetails {
   country: string
   cardholderName: string
   cardNumber: string
+  cardType?: CardType
   expiryDate: string
   securityCode: string
   cardIdentifier: string
@@ -128,6 +130,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
   const [cachedTransaction, setCachedTransaction] = useState<CachedTransaction | null>(null)
   const [threeDSecureMessage, setThreeDSecureMessage] = useState<string | null>(null)
   const { openModal, closeModal, modalIsOpen, Modal } = useModal()
+  const { openModal: openTimeoutModal, Modal: TimeoutModal } = useModal()
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const { payment, config, getMerchantKey } = paymentProvider
   const paymentStatus = payment.status
@@ -137,8 +140,8 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
     ? primaryAddress.buildingName && primaryAddress.line1
       ? `${primaryAddress.buildingName} ${primaryAddress.line1}`
       : primaryAddress.buildingNumber && primaryAddress.line1
-      ? `${primaryAddress.buildingNumber} ${primaryAddress.line1}`
-      : primaryAddress.buildingName || primaryAddress.buildingNumber || primaryAddress.line1 || ''
+        ? `${primaryAddress.buildingNumber} ${primaryAddress.line1}`
+        : primaryAddress.buildingName || primaryAddress.buildingNumber || primaryAddress.line1 || ''
     : ''
 
   const {
@@ -159,6 +162,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
       country: primaryAddress?.countryId ?? '',
       cardholderName: '',
       cardNumber: '',
+      cardType: undefined,
       expiryDate: '',
       securityCode: '',
       cardIdentifier: '',
@@ -166,7 +170,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
     },
   })
 
-  const cardType = getCardType(watch().cardNumber)
+  const cardType = watch().cardType
 
   useEffect(handleSetIframeContent(iframeRef, cachedTransaction, config, modalIsOpen, setThreeDSecureMessage), [
     iframeRef,
@@ -192,26 +196,6 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
 
   return (
     <>
-      {threeDSecureMessage === 'failure' && (
-        <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isInline isExpanded isFullWidth>
-          Your bank has rejected the 3D Secure transaction. Please check your credentials and try again.
-        </PersistentNotification>
-      )}
-      {paymentStatus === 'rejected' && (
-        <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isInline isExpanded isFullWidth>
-          This payment has failed. Please check the details submitted are correct and try again.
-        </PersistentNotification>
-      )}
-      {paymentStatus === 'posted' && (
-        <>
-          <PersistentNotification className={cx(elMb7, elFadeIn)} intent="success" isInline isExpanded isFullWidth>
-            This payment has been successfully submitted and confirmation of payment has been emailed to the address
-            supplied. If no email was received, you can send again by clicking the button below.
-          </PersistentNotification>
-          {payment && <ResendConfirmButton paymentFormValues={getValues()} paymentProvider={paymentProvider} />}
-        </>
-      )}
-
       <Modal
         title="3D Secure Check Required"
         onModalClose={() => null /**I don't want a user to dismiss the modal accidentally during the 3d secure flow */}
@@ -222,7 +206,13 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
         <form
           className={elFadeIn}
           onSubmit={handleSubmit(
-            handleTransaction(paymentProvider, setTransactionProcessing, setCachedTransaction, setThreeDSecureMessage),
+            handleTransaction(
+              paymentProvider,
+              setTransactionProcessing,
+              setCachedTransaction,
+              setThreeDSecureMessage,
+              openTimeoutModal,
+            ),
           )}
         >
           <Subtitle>Billing Details</Subtitle>
@@ -303,8 +293,42 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
               </InputGroup>
             </InputWrap>
           </FormLayout>
-          <Subtitle>Card Details - UK Debit Cards Only</Subtitle>
+          <Subtitle>Card Details</Subtitle>
+          <PersistentNotification className={elMb7} isInline isExpanded isFullWidth intent="primary">
+            Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American
+            Express.
+          </PersistentNotification>
+          {(threeDSecureMessage === 'failure' || paymentStatus === 'rejected') && (
+            <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isInline isExpanded isFullWidth>
+              Transaction Failed. If you have sufficient funds, and you have checked your card details are correct, this
+              could be because you have used an incorrect card type (we accept Visa and Mastercard debit only) or your
+              session has expired. Please check your card details again and if the problem persists, refresh the page
+              and try again.
+            </PersistentNotification>
+          )}
+          {paymentStatus === 'posted' && (
+            <>
+              <PersistentNotification className={cx(elMb7, elFadeIn)} intent="success" isInline isExpanded isFullWidth>
+                This payment has been successfully submitted and confirmation of payment has been emailed to the address
+                supplied. If no email was received, you can send again by clicking the button below.
+              </PersistentNotification>
+              {payment && <ResendConfirmButton paymentFormValues={getValues()} paymentProvider={paymentProvider} />}
+            </>
+          )}
           <FormLayout hasMargin>
+            <InputWrap>
+              <div className={elMb2}>
+                <Label>Card Type</Label>
+              </div>
+              <InputGroup className={elMb2} type="radio" {...register('cardType')} label="Visa Debit" value="visa" />
+              <InputGroup
+                className={elMb2}
+                type="radio"
+                {...register('cardType')}
+                label="Mastercard Debit"
+                value="mastercard"
+              />
+            </InputWrap>
             <InputWrap>
               <Controller
                 control={control}
@@ -314,7 +338,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
                     <Input
                       id="cardNumber"
                       onChange={(event) => onChange(formatCardNumber(event.target.value))}
-                      disabled={Boolean(cachedTransaction)}
+                      disabled={Boolean(cachedTransaction || !cardType)}
                       type="text"
                       inputMode="numeric"
                       autoComplete="cardNumber"
@@ -342,7 +366,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
             <InputWrap>
               <InputGroup
                 {...register('cardholderName')}
-                disabled={Boolean(cachedTransaction)}
+                disabled={Boolean(cachedTransaction || !cardType)}
                 type="text"
                 label="Card Holder Name"
                 placeholder="Name as appears on the card"
@@ -358,7 +382,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
                     <Input
                       id="expiryDate"
                       onChange={(event) => onChange(formatCardExpires(event.target.value))}
-                      disabled={Boolean(cachedTransaction)}
+                      disabled={Boolean(cachedTransaction || !cardType)}
                       type="text"
                       inputMode="numeric"
                       autoComplete="expiryDate"
@@ -375,7 +399,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
             <InputWrap>
               <InputGroup
                 {...register('securityCode')}
-                disabled={Boolean(cachedTransaction)}
+                disabled={Boolean(cachedTransaction || !cardType)}
                 type="text"
                 label="Security Code"
                 placeholder="CSV on the back of card"
@@ -389,13 +413,24 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
               intent="primary"
               type="submit"
               loading={transactionProcessing}
-              disabled={transactionProcessing || Boolean(cachedTransaction)}
+              disabled={transactionProcessing || Boolean(cachedTransaction || !cardType)}
             >
               Make Payment
             </Button>
           </ButtonGroup>
         </form>
       )}
+      <TimeoutModal title="Payment Session Timeout" onModalClose={() => window.location.reload()}>
+        <PersistentNotification isInline isFullWidth isExpanded intent="danger" className={elMb7}>
+          Your transaction has timed out before you completed the details. For security reasons, please refresh the page
+          to re-start your session.
+        </PersistentNotification>
+        <ButtonGroup alignment="right">
+          <Button intent="primary" onClick={() => window.location.reload()}>
+            Refresh
+          </Button>
+        </ButtonGroup>
+      </TimeoutModal>
     </>
   )
 }

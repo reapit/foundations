@@ -7,21 +7,7 @@ exports[`AppCard should match a snapshot for a regular user 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
+        classname="el-fade-in mock-css.
   cursor: pointer;
 "
       >
@@ -47,7 +33,7 @@ exports[`AppCard should match a snapshot for a regular user 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-card-sub-heading-wrap-avatar"
           >
             <mock-styled.h5>
               will-test-dev-co-voracious-person
@@ -66,21 +52,7 @@ exports[`AppCard should match a snapshot for a regular user 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
+      classname="el-fade-in mock-css.
   cursor: pointer;
 "
     >
@@ -106,7 +78,7 @@ exports[`AppCard should match a snapshot for a regular user 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-card-sub-heading-wrap-avatar"
         >
           <mock-styled.h5>
             will-test-dev-co-voracious-person
@@ -182,21 +154,7 @@ exports[`AppCard should match a snapshot for an admin 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
+        classname="el-fade-in mock-css.
   cursor: pointer;
 "
       >
@@ -222,7 +180,7 @@ exports[`AppCard should match a snapshot for an admin 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-card-sub-heading-wrap-avatar"
           >
             <mock-styled.h5>
               will-test-dev-co-voracious-person
@@ -241,21 +199,7 @@ exports[`AppCard should match a snapshot for an admin 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
+      classname="el-fade-in mock-css.
   cursor: pointer;
 "
     >
@@ -281,7 +225,7 @@ exports[`AppCard should match a snapshot for an admin 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-card-sub-heading-wrap-avatar"
         >
           <mock-styled.h5>
             will-test-dev-co-voracious-person
@@ -357,21 +301,7 @@ exports[`AppCard should match a snapshot for an admin with delete protection 1`]
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
+        classname="el-fade-in mock-css.
   cursor: pointer;
 "
       >
@@ -397,7 +327,7 @@ exports[`AppCard should match a snapshot for an admin with delete protection 1`]
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-card-sub-heading-wrap-avatar"
           >
             <mock-styled.h5>
               will-test-dev-co-voracious-person
@@ -416,21 +346,7 @@ exports[`AppCard should match a snapshot for an admin with delete protection 1`]
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
+      classname="el-fade-in mock-css.
   cursor: pointer;
 "
     >
@@ -456,7 +372,7 @@ exports[`AppCard should match a snapshot for an admin with delete protection 1`]
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-card-sub-heading-wrap-avatar"
         >
           <mock-styled.h5>
             will-test-dev-co-voracious-person

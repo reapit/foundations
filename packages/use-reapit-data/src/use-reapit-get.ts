@@ -31,6 +31,7 @@ export interface ReapitGetParams extends Pick<UseQueryOptions, 'refetchOnWindowF
   uriParams?: Object
   headers?: StringMap
   fetchWhenTrue?: any[]
+  withCredentials?: boolean
   onSuccess?: (message: string) => void
   onError?: (message: string) => void
 }
@@ -46,6 +47,7 @@ export const useReapitGet = <DataType>({
   onError,
   refetchOnWindowFocus,
   retry,
+  withCredentials,
 }: ReapitGetParams): ReapitGetState<DataType> => {
   const { success: successSnack, error: errorSnack } = useSnack()
   const queryClient = useQueryClient()
@@ -64,6 +66,7 @@ export const useReapitGet = <DataType>({
 
       const req = await axios.get<DataType>(url, {
         headers: reqHeaders,
+        withCredentials,
       })
       return req.data
     },

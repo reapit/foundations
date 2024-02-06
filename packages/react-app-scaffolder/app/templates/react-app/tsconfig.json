@@ -5,7 +5,6 @@
     "sourceRoot": "/",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/elements": ["../elements/src"],
       "@reapit/utils-common": ["../utils-common/src"],
       "@reapit/utils-react": ["../utils-react/src"],
       "@reapit/connect-session": ["../connect-session/src"]

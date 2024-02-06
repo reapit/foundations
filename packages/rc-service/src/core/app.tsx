@@ -1,3 +1,4 @@
+import '@reapit/elements/dist/index.css'
 import React, { FC } from 'react'
 import Router from './router'
 import ErrorBoundary from '../components/error-boundary'

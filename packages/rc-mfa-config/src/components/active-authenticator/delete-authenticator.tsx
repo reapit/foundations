@@ -2,7 +2,6 @@ import React, { FC, useEffect } from 'react'
 import { Button } from '@reapit/elements'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { nativeSessionWrapper } from '../../core/connect-session-native'
 
 interface DeleteAuthenticatorProps {
   authenticatorId?: string
@@ -26,7 +25,7 @@ export const DeleteAuthenticator: FC<DeleteAuthenticatorProps> = ({
   refreshAuthenticators,
 }) => {
   const [deleteAuthenticatorLoading, , deleteAuthenticator, hasDeleted] = useReapitUpdate<void, boolean>({
-    reapitConnectBrowserSession: nativeSessionWrapper(reapitConnectBrowserSession),
+    reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.deleteUserAuthenticator],
     method: 'DELETE',
     uriParams: {

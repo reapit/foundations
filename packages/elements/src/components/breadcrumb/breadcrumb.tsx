@@ -32,7 +32,7 @@ export const BreadCrumb: FC<BreadCrumbProps> = ({ items, defaultActiveIndex = 0,
 
         return (
           <FlexContainer isFlexAlignCenter key={index}>
-            {Boolean(index) && <Icon className={elMr2} icon="nextSystem" fontSize="12px" />}
+            {Boolean(index) && <Icon className={elMr2} icon="chevronRight" intent="default" fontSize="12px" />}
             <ElBreadCrumbItem onClick={handleNext(setActive, onClick, index)}>{text}</ElBreadCrumbItem>
           </FlexContainer>
         )

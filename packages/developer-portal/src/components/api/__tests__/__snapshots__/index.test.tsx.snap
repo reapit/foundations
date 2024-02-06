@@ -7,9 +7,7 @@ exports[`Api should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
@@ -38,9 +36,7 @@ exports[`Api should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         />
       </mock-styled.div>
     </div>
@@ -48,9 +44,7 @@ exports[`Api should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
@@ -79,9 +73,7 @@ exports[`Api should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       />
     </mock-styled.div>
   </div>,

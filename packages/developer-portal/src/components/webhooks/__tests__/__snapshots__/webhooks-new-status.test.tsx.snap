@@ -7,32 +7,16 @@ exports[`WebhooksNewStatus should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
         </mock-styled.p>
       </div>
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -41,9 +25,7 @@ exports[`WebhooksNewStatus should match a snapshot 1`] = `
               type="checkbox"
             />
             <mock-styled.label
-              classname="mock-css.
-  margin-top: 0.25rem;
- mock-css."
+              classname="el-mt1 el-has-grey-bg"
               htmlfor="status-toggle"
             >
               <mock-styled.span>
@@ -83,32 +65,16 @@ exports[`WebhooksNewStatus should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css. mock-css."
+        classname="el-has-grey-text el-has-no-margin"
       >
         Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
       </mock-styled.p>
     </div>
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div>
@@ -117,9 +83,7 @@ exports[`WebhooksNewStatus should match a snapshot 1`] = `
             type="checkbox"
           />
           <mock-styled.label
-            classname="mock-css.
-  margin-top: 0.25rem;
- mock-css."
+            classname="el-mt1 el-has-grey-bg"
             htmlfor="status-toggle"
           >
             <mock-styled.span>

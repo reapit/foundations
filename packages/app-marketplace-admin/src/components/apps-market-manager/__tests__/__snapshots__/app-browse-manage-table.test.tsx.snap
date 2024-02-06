@@ -7,29 +7,27 @@ exports[`AppBrowseManageTable should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.h2
-          classname="mock-css."
+          classname="el-has-capitalised-text"
         >
           featured apps
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
         </mock-styled.p>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
         </mock-styled.p>
         <mock-styled.div />
         <br />
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
         >
           <mock-styled.div />
           Add
@@ -40,29 +38,27 @@ exports[`AppBrowseManageTable should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.h2
-        classname="mock-css."
+        classname="el-has-capitalised-text"
       >
         featured apps
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
       </mock-styled.p>
       <mock-styled.div />
       <br />
       <mock-styled.button
-        classname="mock-css."
+        classname="el-intent-primary"
       >
         <mock-styled.div />
         Add

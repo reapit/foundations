@@ -6,31 +6,11 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <mock-styled.input
               classname=""
@@ -43,7 +23,7 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
               Login Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -60,7 +40,7 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
               Logout Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -71,31 +51,11 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <mock-styled.input
             classname=""
@@ -108,7 +68,7 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
             Login Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -125,7 +85,7 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
             Logout Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -193,31 +153,11 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <mock-styled.input
               classname=""
@@ -230,7 +170,7 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
               Login Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -247,7 +187,7 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
               Logout Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -258,31 +198,11 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <mock-styled.input
             classname=""
@@ -295,7 +215,7 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
             Login Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -312,7 +232,7 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
             Logout Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -380,31 +300,11 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <mock-styled.input
               classname=""
@@ -417,7 +317,7 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
               Login Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -434,7 +334,7 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
               Logout Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -445,31 +345,11 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <mock-styled.input
             classname=""
@@ -482,7 +362,7 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
             Login Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -499,7 +379,7 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
             Logout Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -567,31 +447,11 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <mock-styled.input
               classname=""
@@ -604,7 +464,7 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
               Login Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -621,7 +481,7 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
               Logout Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -632,31 +492,11 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <mock-styled.input
             classname=""
@@ -669,7 +509,7 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
             Login Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -686,7 +526,7 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
             Logout Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -754,31 +594,11 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <mock-styled.input
               classname=""
@@ -791,7 +611,7 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
               Login Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -808,7 +628,7 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
               Logout Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -819,31 +639,11 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <mock-styled.input
             classname=""
@@ -856,7 +656,7 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
             Login Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -873,7 +673,7 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
             Logout Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -941,31 +741,11 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <mock-styled.input
               classname=""
@@ -978,7 +758,7 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
               Login Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -995,7 +775,7 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
               Logout Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -1006,31 +786,11 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <mock-styled.input
             classname=""
@@ -1043,7 +803,7 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
             Login Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -1060,7 +820,7 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
             Logout Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -1128,31 +888,11 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <mock-styled.input
               classname=""
@@ -1165,7 +905,7 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
               Login Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -1182,7 +922,7 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
               Logout Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -1193,31 +933,11 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <mock-styled.input
             classname=""
@@ -1230,7 +950,7 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
             Login Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -1247,7 +967,7 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
             Logout Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -1315,31 +1035,11 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <mock-styled.input
               classname=""
@@ -1352,7 +1052,7 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
               Login Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -1369,7 +1069,7 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
               Logout Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -1380,31 +1080,11 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <mock-styled.input
             classname=""
@@ -1417,7 +1097,7 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
             Login Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -1434,7 +1114,7 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
             Logout Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -1502,31 +1182,11 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <mock-styled.input
               classname=""
@@ -1539,7 +1199,7 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
               Login Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -1556,7 +1216,7 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
               Logout Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -1567,31 +1227,11 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <mock-styled.input
             classname=""
@@ -1604,7 +1244,7 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
             Login Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -1621,7 +1261,7 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
             Logout Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -1689,31 +1329,11 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <mock-styled.input
               classname=""
@@ -1726,7 +1346,7 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
               Login Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -1743,7 +1363,7 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
               Logout Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -1754,31 +1374,11 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <mock-styled.input
             classname=""
@@ -1791,7 +1391,7 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
             Login Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -1808,7 +1408,7 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
             Logout Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -1876,31 +1476,11 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+            classname="el-mb10"
           >
             <mock-styled.input
               classname=""
@@ -1913,7 +1493,7 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
               Login Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -1930,7 +1510,7 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
               Logout Redirect URI
             </mock-styled.label>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-danger"
             >
               Some error
             </mock-styled.span>
@@ -1941,31 +1521,11 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
- mock-css.
-  width: 100%;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.25rem;
-"
+          classname="el-mb10"
         >
           <mock-styled.input
             classname=""
@@ -1978,7 +1538,7 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
             Login Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>
@@ -1995,7 +1555,7 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
             Logout Redirect URI
           </mock-styled.label>
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-danger"
           >
             Some error
           </mock-styled.span>

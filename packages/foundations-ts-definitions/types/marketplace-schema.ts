@@ -649,6 +649,10 @@ export interface ApprovalModel {
    * Gets the date the revision was created
    */
   readonly created?: string // date-time
+  /**
+   * Gets the email of the user who created the revision
+   */
+  readonly createdBy?: string
 }
 /**
  * Model to handle paged data and information
@@ -1804,6 +1808,11 @@ export interface MemberModel {
    */
   sandboxId?: string
   /**
+   * The id of the negotiator account to use when signing into Developer Edition
+   * assuming a valid subscription exists
+   */
+  developerEditionId?: string
+  /**
    * A flag specifying if the member has access to agency cloud
    */
   agencyCloudAccess?: boolean
@@ -2264,6 +2273,11 @@ export interface UpdateMemberModel {
    * The identifier of the sandbox environment to use (AUS/GBR)
    */
   sandboxId?: string
+  /**
+   * The id of the negotiator account to use when signing into Developer Edition
+   * assuming a valid subscription exists
+   */
+  developerEditionId?: string
   /**
    * The github username for this member
    */

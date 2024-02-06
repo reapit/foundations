@@ -126,6 +126,12 @@ export const ImageCropperFileInput: ImageCropperWithInputPropsWrapped = forwardR
 
     useEffect(handleSetNativeInput(inputId, [fileUrl]), [fileUrl])
 
+    useEffect(() => {
+      if (defaultValue) {
+        setFileName(defaultValue)
+      }
+    }, [defaultValue])
+
     const isImageCropped = Boolean(completedCrop?.width && completedCrop.height)
 
     return (
@@ -150,14 +156,16 @@ export const ImageCropperFileInput: ImageCropperWithInputPropsWrapped = forwardR
                     onClick={handleFileView(onFileView, fileUrl)}
                     className={elMr4}
                     intent="primary"
-                    icon="viewSolidSystem"
+                    icon="view"
+                    fontSize="1rem"
                   />
                 )}
                 <Icon
                   onClick={handleFileClear(setFileName)}
                   className={elMr4}
                   intent="primary"
-                  icon="cancelSolidSystem"
+                  icon="close"
+                  fontSize="1rem"
                 />
               </ElFileInputIconContainer>
             ) : (

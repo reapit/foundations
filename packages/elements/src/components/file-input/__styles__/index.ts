@@ -59,3 +59,8 @@ export const ElFileInputHidden = styled.input`
   visibility: hidden;
   padding: 0;
 `
+
+export const ElFilePreviewImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+`

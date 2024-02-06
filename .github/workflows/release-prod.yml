@@ -71,9 +71,8 @@ jobs:
           yarn workspace ${{ steps.tagName.outputs.package }} run build
 
       - name: Package Version Bump
-        uses: ./packages/auto-bump
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} version ${{ steps.tagName.outputs.version }}
 
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v4

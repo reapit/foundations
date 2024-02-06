@@ -56,7 +56,7 @@ export const ChangePasswordForm: FC = () => {
             label="Current Password"
             placeholder="Current Password"
             errorMessage={errors?.password?.message}
-            icon={errors?.password?.message ? 'asteriskSystem' : null}
+            icon={errors?.password?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -67,7 +67,7 @@ export const ChangePasswordForm: FC = () => {
             label="New Password"
             placeholder="New Password"
             errorMessage={errors?.newPassword?.message}
-            icon={errors?.newPassword?.message ? 'asteriskSystem' : null}
+            icon={errors?.newPassword?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -78,7 +78,7 @@ export const ChangePasswordForm: FC = () => {
             label="Confirm New Password"
             placeholder="Confirm New Password"
             errorMessage={errors?.confirmPassword?.message}
-            icon={errors?.confirmPassword?.message ? 'asteriskSystem' : null}
+            icon={errors?.confirmPassword?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>

@@ -141,7 +141,7 @@ export const TableCell: FC<TableCellProps> = ({
   )
   return (
     <ElTableCell className={combinedClassname} {...rest}>
-      {icon && <Icon intent="default" icon={icon} />}
+      {icon && <Icon intent="default" icon={icon} fontSize="1.25rem" />}
       <ElTableCellContent data-narrow-label={narrowLabel}>{children}</ElTableCellContent>
     </ElTableCell>
   )
@@ -159,7 +159,7 @@ export const TableExpandableRowTriggerCell: FC<TableExpandableRowTriggerCellProp
       className={cx(className, narrowIsFullWidth && elTableNarrowCellIsFullWidth)}
       {...rest}
     >
-      {children ? children : <Icon intent={isOpen ? 'primary' : 'default'} icon="moreSolidSystem" />}
+      {children ? children : <Icon intent={isOpen ? 'primary' : 'default'} icon="more" />}
     </ElTableExpandableRowTriggerCell>
   )
 }
@@ -171,7 +171,7 @@ export const TableCtaTriggerCell: FC<TableCtaTriggerCellProps> = ({ icon, childr
         children
       ) : icon ? (
         <ElTableCtaIconContainer>
-          <Icon icon={icon} fontSize="1.2rem" intent="default" />
+          <Icon icon={icon} intent="default" />
         </ElTableCtaIconContainer>
       ) : (
         ''
@@ -202,7 +202,10 @@ export const TableSortHeader: FC<TableSortHeaderProps> = ({ children, ...rest })
     <ElTableSortHeader {...rest}>
       <FlexContainer isFlexAlignCenter isFlexJustifyBetween>
         {children}
-        <Icon icon="sortSolidSystem" intent="default" />
+        <FlexContainer>
+          <Icon icon="sortAscend" intent="default" />
+          <Icon icon="sortDescend" intent="default" />
+        </FlexContainer>
       </FlexContainer>
     </ElTableSortHeader>
   )

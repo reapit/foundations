@@ -40,7 +40,7 @@ export const MobileControls: FC<MobileControlsProps> = ({
   const [active, setActive] = useState<boolean>(false)
   return (
     <>
-      <ElMobileControlsBg className={cx(active && elIsActive)} />
+      <ElMobileControlsBg className={cx(active && elIsActive)} onClick={clickEventHandler(setActive, buttonOnClick)} />
       <ElMobileControls
         className={cx(isVisible && elMobileControlsVisible)}
         onClick={clickEventHandler(setActive, buttonOnClick)}
@@ -56,7 +56,7 @@ export const MobileControls: FC<MobileControlsProps> = ({
             {label}
           </ElMobileControlItem>
         ))}
-        <FloatingButton intent="primary" icon={buttonIcon ? buttonIcon : 'filterSystem'} />
+        <FloatingButton intent="primary" icon={buttonIcon ? buttonIcon : 'menu'} />
       </ElMobileControls>
     </>
   )

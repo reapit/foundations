@@ -47,9 +47,9 @@ export const KeyValueContent: FC<KeyValueContentProps> = ({
       {icon ? (
         icon
       ) : iconName ? (
-        <Icon fontSize="20px" intent={intent ?? 'primary'} icon={iconName} />
+        <Icon intent={intent ?? 'primary'} icon={iconName} />
       ) : (
-        <Icon fontSize="20px" icon="placeholderSmall" />
+        <Icon icon="placeholderSmall" />
       )}
     </KeyValueIconWrap>
     <FlexContainer isFlexColumn>

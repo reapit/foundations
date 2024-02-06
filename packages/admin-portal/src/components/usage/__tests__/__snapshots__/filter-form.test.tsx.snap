@@ -8,7 +8,7 @@ exports[`FilterForm should render component with data 1`] = `
       <mock-styled.div />
       <form>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.h2
@@ -17,18 +17,14 @@ exports[`FilterForm should render component with data 1`] = `
               Filters
             </mock-styled.h2>
             <mock-styled.p
-              classname="mock-css."
+              classname="el-has-grey-text"
             >
               Apply a filter to get started. Developer and month are required by default.
             </mock-styled.p>
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.label
-              classname="mock-css.
-  display: flex;
- mock-css.
-  margin-bottom: 0.5rem;
-"
+              classname="el-flex el-mb3"
               htmlfor="developer-search-box"
             >
               Company
@@ -42,9 +38,22 @@ exports[`FilterForm should render component with data 1`] = `
               />
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="el-intent-default el-icon-new"
+                  style="font-size: 1rem;"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    style="font-size: 1rem;"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
               <mock-styled.div
@@ -125,7 +134,7 @@ exports[`FilterForm should render component with data 1`] = `
     <mock-styled.div />
     <form>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.h2
@@ -134,18 +143,14 @@ exports[`FilterForm should render component with data 1`] = `
             Filters
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Apply a filter to get started. Developer and month are required by default.
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.label
-            classname="mock-css.
-  display: flex;
- mock-css.
-  margin-bottom: 0.5rem;
-"
+            classname="el-flex el-mb3"
             htmlfor="developer-search-box"
           >
             Company
@@ -159,9 +164,22 @@ exports[`FilterForm should render component with data 1`] = `
             />
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="el-intent-default el-icon-new"
+                style="font-size: 1rem;"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  style="font-size: 1rem;"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div
@@ -299,7 +317,7 @@ exports[`FilterForm should render component with no data 1`] = `
       <mock-styled.div />
       <form>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-form-layout-has-margin"
         >
           <mock-styled.div>
             <mock-styled.h2
@@ -308,18 +326,14 @@ exports[`FilterForm should render component with no data 1`] = `
               Filters
             </mock-styled.h2>
             <mock-styled.p
-              classname="mock-css."
+              classname="el-has-grey-text"
             >
               Apply a filter to get started. Developer and month are required by default.
             </mock-styled.p>
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.label
-              classname="mock-css.
-  display: flex;
- mock-css.
-  margin-bottom: 0.5rem;
-"
+              classname="el-flex el-mb3"
               htmlfor="developer-search-box"
             >
               Company
@@ -333,9 +347,22 @@ exports[`FilterForm should render component with no data 1`] = `
               />
               <mock-styled.div>
                 <mock-styled.span
-                  classname=""
+                  classname="el-intent-default el-icon-new"
+                  style="font-size: 1rem;"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    style="font-size: 1rem;"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
               <mock-styled.div
@@ -403,7 +430,7 @@ exports[`FilterForm should render component with no data 1`] = `
     <mock-styled.div />
     <form>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.h2
@@ -412,18 +439,14 @@ exports[`FilterForm should render component with no data 1`] = `
             Filters
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             Apply a filter to get started. Developer and month are required by default.
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.label
-            classname="mock-css.
-  display: flex;
- mock-css.
-  margin-bottom: 0.5rem;
-"
+            classname="el-flex el-mb3"
             htmlfor="developer-search-box"
           >
             Company
@@ -437,9 +460,22 @@ exports[`FilterForm should render component with no data 1`] = `
             />
             <mock-styled.div>
               <mock-styled.span
-                classname=""
+                classname="el-intent-default el-icon-new"
+                style="font-size: 1rem;"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  style="font-size: 1rem;"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div

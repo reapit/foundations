@@ -26,7 +26,10 @@ export type recurseDirProps = {
 
 @Injectable()
 export class DeployProvider {
-  constructor(private readonly s3Provider: S3Provider, private readonly cloudfrontClient: CloudFrontClient) {}
+  constructor(
+    private readonly s3Provider: S3Provider,
+    private readonly cloudfrontClient: CloudFrontClient,
+  ) {}
 
   protected getFromVersionS3(location: string) {
     return this.s3Provider.getObject({

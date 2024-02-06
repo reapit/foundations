@@ -43,7 +43,7 @@ export const ElPersistentNotification = styled.div`
   position: absolute;
   max-width: 50%;
   right: 0;
-  transform: translateX(calc(100% - 2.25rem));
+  transform: translateX(calc(100% - 2.5rem));
   transition: 0.5s;
   z-index: 10;
   font-size: var(--font-size-default);

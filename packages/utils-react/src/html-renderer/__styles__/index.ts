@@ -12,6 +12,7 @@ export const HtmlContentWrap = styled.div`
 
   * {
     float: none;
+    line-height: 1.75rem;
   }
 
   p,

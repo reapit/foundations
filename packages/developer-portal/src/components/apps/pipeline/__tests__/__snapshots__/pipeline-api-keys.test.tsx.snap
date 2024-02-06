@@ -7,17 +7,17 @@ exports[`ApiKeys should match snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         Manage your API keys here for use with the Reapit CLI tool. The CLI allows you to deploy your application as a zip folder from a local build on the command line, rather than having to grant access to your private repos.
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         You only need an API key to use the Reapit CLI. If you prefer to use the web UI to manage your deployments, you can pass on this page.
       </mock-styled.p>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         For more on the Reapit CLI visit 
         <a>
@@ -25,9 +25,7 @@ exports[`ApiKeys should match snapshot 1`] = `
         </a>
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="2"
@@ -48,7 +46,7 @@ exports[`ApiKeys should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="API Key"
@@ -57,14 +55,12 @@ exports[`ApiKeys should match snapshot 1`] = `
                   classname=""
                 >
                   <span
-                    class="mock-css.
-  margin-right: 0.5rem;
-"
+                    class="el-mr3"
                   >
                     MOCK_KEY
                   </span>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-neutral"
                   >
                     <mock-styled.div />
                     Copy
@@ -73,7 +69,7 @@ exports[`ApiKeys should match snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Expires"
@@ -84,12 +80,26 @@ exports[`ApiKeys should match snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname="mock-css."
-                  style="font-size: 1.2rem;"
+                  classname="el-intent-default el-icon-new"
                 >
                   <svg
-                    style="font-size: 1.2rem;"
-                  />
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0v-6ZM13 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0v-6Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M18 5h3a1 1 0 1 1 0 2h-.06l-.69 11.31a5 5 0 0 1-5 4.69H8.77a5 5 0 0 1-5-4.69L3.06 7H3a1 1 0 1 1 0-2h3V4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v1ZM9 3a1 1 0 0 0-1 1v1h8V4a1 1 0 0 0-1-1H9Zm6.24 18a3 3 0 0 0 3-2.81L18.94 7H5.06l.7 11.19a3 3 0 0 0 3 2.81h6.48Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -98,17 +108,17 @@ exports[`ApiKeys should match snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
             disabled="false"
           >
             <mock-styled.div />
             Close
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
           >
             <mock-styled.div />
@@ -121,17 +131,17 @@ exports[`ApiKeys should match snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       Manage your API keys here for use with the Reapit CLI tool. The CLI allows you to deploy your application as a zip folder from a local build on the command line, rather than having to grant access to your private repos.
     </mock-styled.p>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       You only need an API key to use the Reapit CLI. If you prefer to use the web UI to manage your deployments, you can pass on this page.
     </mock-styled.p>
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       For more on the Reapit CLI visit 
       <a>
@@ -139,9 +149,7 @@ exports[`ApiKeys should match snapshot 1`] = `
       </a>
     </mock-styled.p>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="2"
@@ -162,7 +170,7 @@ exports[`ApiKeys should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="API Key"
@@ -171,14 +179,12 @@ exports[`ApiKeys should match snapshot 1`] = `
                 classname=""
               >
                 <span
-                  class="mock-css.
-  margin-right: 0.5rem;
-"
+                  class="el-mr3"
                 >
                   MOCK_KEY
                 </span>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-neutral"
                 >
                   <mock-styled.div />
                   Copy
@@ -187,7 +193,7 @@ exports[`ApiKeys should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Expires"
@@ -198,12 +204,26 @@ exports[`ApiKeys should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css."
-                style="font-size: 1.2rem;"
+                classname="el-intent-default el-icon-new"
               >
                 <svg
-                  style="font-size: 1.2rem;"
-                />
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0v-6ZM13 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0v-6Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    clip-rule="evenodd"
+                    d="M18 5h3a1 1 0 1 1 0 2h-.06l-.69 11.31a5 5 0 0 1-5 4.69H8.77a5 5 0 0 1-5-4.69L3.06 7H3a1 1 0 1 1 0-2h3V4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v1ZM9 3a1 1 0 0 0-1 1v1h8V4a1 1 0 0 0-1-1H9Zm6.24 18a3 3 0 0 0 3-2.81L18.94 7H5.06l.7 11.19a3 3 0 0 0 3 2.81h6.48Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -212,17 +232,17 @@ exports[`ApiKeys should match snapshot 1`] = `
     </mock-styled.div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-right"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
           disabled="false"
         >
           <mock-styled.div />
           Close
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="false"
         >
           <mock-styled.div />
