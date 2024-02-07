@@ -8848,6 +8848,10 @@ export interface CreateWorksOrderItemModel {
    * The cost of the vat associated with the work
    */
   vatAmount?: number // double
+  /**
+   * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+   */
+  reserveAmount?: number // double
 }
 /**
  * Request body used to create a new works order
@@ -8937,6 +8941,10 @@ export interface CreateWorksOrderModel {
      * The cost of the vat associated with the work
      */
     vatAmount?: number // double
+    /**
+     * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+     */
+    reserveAmount?: number // double
   }[]
   /**
    * App specific metadata to set against the works order
@@ -24044,6 +24052,10 @@ export interface UpdateWorksOrderItemModel {
    * The cost of the vat associated with the work
    */
   vatAmount?: number // double
+  /**
+   * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+   */
+  reserveAmount?: number // double
 }
 /**
  * Request body used to update an existing works order
@@ -25126,6 +25138,10 @@ export interface WorksOrderItemModel {
    */
   grossAmount?: number // double
   /**
+   * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+   */
+  reserveAmount?: number // double
+  /**
    * The unique identifier of the nominal account the works order financial transactions are allocated to
    */
   nominalAccountId?: string
@@ -25192,6 +25208,10 @@ export interface WorksOrderItemModelPagedResult {
      * The gross cost of the work to be carried out
      */
     grossAmount?: number // double
+    /**
+     * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+     */
+    reserveAmount?: number // double
     /**
      * The unique identifier of the nominal account the works order financial transactions are allocated to
      */
@@ -25366,6 +25386,10 @@ export interface WorksOrderModel {
      * The gross cost of the work to be carried out
      */
     grossAmount?: number // double
+    /**
+     * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+     */
+    reserveAmount?: number // double
     /**
      * The unique identifier of the nominal account the works order financial transactions are allocated to
      */
@@ -25544,6 +25568,10 @@ export interface WorksOrderModelPagedResult {
        * The gross cost of the work to be carried out
        */
       grossAmount?: number // double
+      /**
+       * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+       */
+      reserveAmount?: number // double
       /**
        * The unique identifier of the nominal account the works order financial transactions are allocated to
        */
