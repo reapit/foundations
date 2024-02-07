@@ -29,6 +29,7 @@ export interface UserFilters {
   email?: string
   name?: string
   organisationName?: string
+  agencyCloudId?: string
   active?: string
   groupId?: string
   mfaEnabled?: string
@@ -113,6 +114,15 @@ export const UsersPage: FC = () => {
               </Select>
               <Label htmlFor="myId">Select User Group</Label>
             </InputGroup>
+          </InputWrap>
+          <InputWrap>
+            <InputGroup
+              {...register('agencyCloudId')}
+              type="search"
+              icon="search"
+              placeholder="Search by Negotiator"
+              label="Negotiator"
+            />
           </InputWrap>
           <InputWrap>
             <Label>User Active</Label>
