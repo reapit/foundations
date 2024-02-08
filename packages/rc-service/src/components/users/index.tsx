@@ -120,8 +120,8 @@ export const UsersPage: FC = () => {
               {...register('agencyCloudId')}
               type="search"
               icon="search"
-              placeholder="Search by Negotiator"
-              label="Negotiator"
+              placeholder="Search by Negotiator ID"
+              label="Negotiator ID"
             />
           </InputWrap>
           <InputWrap>
