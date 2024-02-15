@@ -1,6 +1,6 @@
 {
   "name": "payments-service",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "Payments Proxy Service To API Platform",
   "main": "index.js",
   "repository": "git@github.com:reapit/foundations.git",
