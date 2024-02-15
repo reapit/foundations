@@ -98,7 +98,7 @@ exports[`PipelineConfigure Should match snapshot 1`] = `
               </mock-styled.label>
               <mock-styled.input
                 classname=""
-                name="repository"
+                name="repository.repositoryUrl"
                 placeholder="https://github.com/org/repo"
               />
             </mock-styled.div>
@@ -250,7 +250,7 @@ exports[`PipelineConfigure Should match snapshot 1`] = `
             </mock-styled.label>
             <mock-styled.input
               classname=""
-              name="repository"
+              name="repository.repositoryUrl"
               placeholder="https://github.com/org/repo"
             />
           </mock-styled.div>

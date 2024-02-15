@@ -17,6 +17,7 @@ import { pipelineBranch1645524699376 } from './1645524699376-pipelineBranch'
 import { installationId1645008177818 } from './1645008177818-installationId'
 import { pipelineBitbucketRelation1654693666828 } from './1654693666828-pipelineBitbucketRelation'
 import { pipelineRepositoryNullable1655394853865 } from './1655394853865-pipelineRepositoryNullable'
+import { githubRepository1697724871099 } from './1697724871099-github-repository'
 
 export default [
   pipelines1625758770110,
@@ -38,4 +39,5 @@ export default [
   installationId1645008177818,
   pipelineBitbucketRelation1654693666828,
   pipelineRepositoryNullable1655394853865,
+  githubRepository1697724871099,
 ]

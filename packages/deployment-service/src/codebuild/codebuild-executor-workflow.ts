@@ -57,7 +57,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     event?: BitBucketEvent
   }) {
     try {
-      const repoLocation = pipeline.repository?.includes('github')
+      const repoLocation = pipeline.repository?.repositoryUrl?.includes('github')
         ? await this.sourceProvider.downloadGithubSourceToS3(pipeline, pipelineRunner)
         : await this.sourceProvider.downloadBitbucketSourceToS3({
             pipeline,

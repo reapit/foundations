@@ -1,9 +1,26 @@
 import { PackageManagerEnum } from '@reapit/foundations-ts-definitions/deployment-schema'
-import { IsString, IsNotEmpty, IsOptional, IsEnum, MaxLength, IsUUID, Matches, IsUrl } from 'class-validator'
+import { Type } from 'class-transformer'
+import {
+  IsString,
+  IsNotEmpty,
+  IsOptional,
+  IsEnum,
+  MaxLength,
+  IsUUID,
+  Matches,
+  IsUrl,
+  ValidateNested,
+} from 'class-validator'
 
 export enum AppTypeEnum {
   REACT = 'react',
   NODE = 'node',
+}
+
+export class GithubRepositoryDto {
+  @IsOptional()
+  @IsUrl()
+  repositoryUrl?: string
 }
 
 export class PipelineDto {
@@ -12,8 +29,9 @@ export class PipelineDto {
   name?: string
 
   @IsOptional()
-  @IsUrl()
-  repository?: string
+  @Type(() => GithubRepositoryDto)
+  @ValidateNested()
+  repository?: GithubRepositoryDto
 
   @IsEnum(AppTypeEnum)
   @IsNotEmpty()

@@ -42,17 +42,19 @@ type PipelineModelSchema = Omit<
 const schema: SchemaOf<PipelineModelSchema> = object().shape({
   name: string().required('Required - defaults to your app name').test(specialCharsTest),
   branch: string().required('Required - eg "main", "master"').test(specialCharsTest),
-  repository: string()
-    .trim()
-    .test({
-      name: 'isValidDescription',
-      message: 'Should be a secure https url if supplied',
-      test: (value) => {
-        if (!value) return true
-        return httpsUrlRegex.test(value)
-      },
-    })
-    .test(specialCharsTest),
+  repository: object().shape({
+    repositoryUrl: string()
+      .trim()
+      .test({
+        name: 'isValidDescription',
+        message: 'Should be a secure https url if supplied',
+        test: (value) => {
+          if (!value) return true
+          return httpsUrlRegex.test(value)
+        },
+      })
+      .test(specialCharsTest),
+  }),
   buildCommand: string().trim().required('A build command is required eg "build" or "bundle"').test(specialCharsTest),
   packageManager: string().required('Required - Please select a package manager'),
   outDir: string().required('Required eg "dist" or "public').test(specialCharsTest),
@@ -195,8 +197,10 @@ export const PipelineConfigure: FC = () => {
           <InputWrap>
             <InputGroup>
               <Label>Github Repository</Label>
-              <Input {...register('repository')} placeholder="https://github.com/org/repo" />
-              {errors.repository?.message && <InputError message={errors.repository.message} />}
+              <Input {...register('repository.repositoryUrl')} placeholder="https://github.com/org/repo" />
+              {errors.repository?.repositoryUrl?.message && (
+                <InputError message={errors.repository?.repositoryUrl.message} />
+              )}
             </InputGroup>
           </InputWrap>
           <InputWrap>

@@ -15,12 +15,14 @@ import { PipelineSetupWorkflow } from './pipeline-setup-workflow'
 import { ParameterProvider } from './parameter-provider'
 import { ParameterController } from './parameter-controller'
 import { AwsModule } from '../aws'
+import { RepositoryProvider } from './repository.provider'
+import { RepositoryEntity } from '../entities/repository.entity'
 
 @Module({
   imports: [
     EventModule,
     AuthModule,
-    TypeOrmModule.forFeature([PipelineEntity, PipelineRunnerEntity, TaskEntity]),
+    TypeOrmModule.forFeature([PipelineEntity, PipelineRunnerEntity, TaskEntity, RepositoryEntity]),
     S3Module,
     forwardRef(() => PipelineRunnerModule),
     AwsModule,
@@ -31,8 +33,9 @@ import { AwsModule } from '../aws'
     PipelineTearDownWorkflow,
     PipelineSetupWorkflow,
     ParameterProvider,
+    RepositoryProvider,
   ],
   controllers: [PipelineController, ParameterController],
-  exports: [PipelineProvider, ParameterProvider],
+  exports: [PipelineProvider, ParameterProvider, RepositoryProvider],
 })
 export class PipelineModule {}

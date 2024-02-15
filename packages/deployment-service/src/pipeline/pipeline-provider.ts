@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { PipelineEntity } from '../entities/pipeline.entity'
-import { In, Repository, UpdateResult } from 'typeorm'
+import { In, Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { paginate, Pagination } from 'nestjs-typeorm-paginate'
 import { BitbucketClientEntity } from '../entities/bitbucket-client.entity'
@@ -17,15 +17,17 @@ export class PipelineProvider {
   }
 
   async paginate(page: number, developerId?: string, appId?: string): Promise<Pagination<PipelineEntity>> {
-    const qb = this.repository.createQueryBuilder()
+    const qb = this.repository.createQueryBuilder('p')
     if (developerId) {
-      qb.where('developerId = :developerId', { developerId })
+      qb.where('p.developerId = :developerId', { developerId })
     }
 
-    qb.addOrderBy('created', 'DESC')
+    qb.leftJoinAndMapOne('p.repository', 'repositories', 'rp', 'p.repositoryId = rp.id')
+
+    qb.addOrderBy('p.created', 'DESC')
 
     if (appId) {
-      qb.where('appId = :appId', { appId })
+      qb.where('p.appId = :appId', { appId })
     }
 
     return paginate(qb, { limit: 10, page })
@@ -54,15 +56,18 @@ export class PipelineProvider {
     })
   }
 
-  async findByRepo(repository: string): Promise<PipelineEntity | null> {
-    return this.repository.findOne({ where: { repository } })
+  async findByRepo(repositoryUrl: string): Promise<PipelineEntity | null> {
+    return this.repository.findOne({ where: { repository: { repositoryUrl } } })
   }
 
   async findByRepos(repositories: string[]): Promise<PipelineEntity[]> {
     return this.repository.find({
       where: {
-        repository: In(repositories),
+        repository: {
+          repositoryUrl: In(repositories),
+        },
       },
+      relations: ['repository'],
     })
   }
 
@@ -74,7 +79,7 @@ export class PipelineProvider {
     await this.repository
       .createQueryBuilder()
       .update()
-      .set({ bitbucketClient: undefined })
+      .set({ bitbucketClient: null })
       .where('bitbucketClientId = :bitbucketClientId', {
         bitbucketClientId: bitbucketClient.id,
       })
@@ -84,27 +89,33 @@ export class PipelineProvider {
   async findByRepositoryId(repositoryId: number): Promise<PipelineEntity | null> {
     return this.repository.findOne({
       where: {
-        repositoryId,
+        repository: {
+          repositoryId,
+        },
       },
+      relations: ['repository'],
+    })
+  }
+
+  async findPipelinesByRepositoryUrl(repositoryUrl: string): Promise<PipelineEntity[]> {
+    return this.repository.find({
+      where: {
+        repository: {
+          repositoryUrl,
+        },
+      },
+      relations: ['repository'],
     })
   }
 
   async findPipelinesByRepositoryId(repositoryId: number): Promise<PipelineEntity[]> {
     return this.repository.find({
       where: {
-        repositoryId,
+        repository: {
+          repositoryId,
+        },
       },
+      relations: ['repository'],
     })
-  }
-
-  async updatePipelinesWithRepo(repository, data: Partial<PipelineEntity>): Promise<UpdateResult> {
-    return this.repository
-      .createQueryBuilder()
-      .update()
-      .set(data)
-      .where('repository = :repository', {
-        repository,
-      })
-      .execute()
   }
 }
