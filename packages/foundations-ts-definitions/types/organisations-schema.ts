@@ -83,44 +83,6 @@ export interface CreateGroupModel {
   description: string
 }
 /**
- * Request body used to create a new identity source
- */
-export interface CreateIdentitySourceModel {
-  /**
-   * The external identifier of the identity source in the third party IdP
-   * For AWS identity federation, this must match the "Provider Name" exactly
-   * When not provided, a sanitized version of the organisation name will be used
-   * to setup the identity provider in the third party IdP
-   */
-  externalId?: string
-  /**
-   * The identifier of the organisation to associate with the identity source
-   */
-  organisationId?: string
-  /**
-   * The issuer of tokens in third party IdP. Used to setup identity provider
-   */
-  tokenIssuerUrl?: string
-  /**
-   * The id of the client in the organisation's own identity provider
-   */
-  clientId?: string
-  /**
-   * The secret associated with the OIDC client in the organisation's own identity provider. This is not stored but is passed through to Reapit Connect
-   */
-  clientSecret?: string
-  /**
-   * The email domains used by the organisation associated to this identity provider when signing in
-   */
-  domainIdentifiers?: string[]
-  /**
-   * The OAuth client ids that this identity source should be immediately attached to
-   * If not specified (null), the configured whitelist will be used if there is one
-   * If an empty collection is specified ( [] ), the identity source will not be attached to any OAuth clients
-   */
-  attachedClients?: string[]
-}
-/**
  * Request body used to create a new office group
  * example:
  * [object Object]
@@ -278,6 +240,10 @@ export interface CreateOrganisationModel {
    * Any claims to associate with this organisation
    */
   claims?: CreateOrganisationClaimModel[]
+  /**
+   * Identifies the type of instance to which this organisation belongs (dev/prod/test/uat)
+   */
+  instanceType?: string
 }
 /**
  * Model to create a new product
@@ -292,9 +258,9 @@ export interface CreateProductModel {
    */
   name: string
   /**
-   * The grant type associated to the product (authorizationCode/clientCredentials)
+   * The grant type associated to the product (authorisationCode/clientCredentials)
    */
-  grant?: string
+  grant: string
   /**
    * A list of callback urls
    */
@@ -303,6 +269,10 @@ export interface CreateProductModel {
    * A list of signout urls
    */
   signoutUrls?: string[]
+  /**
+   * A list of scopes to assign to the app
+   */
+  scopes?: string[]
   /**
    * Flag indicating whether or not the product has user admin capabilities
    * that require an additional scope to be set on the OAuth client
@@ -321,6 +291,10 @@ export interface CreateUserAuthenticatorModel {
    * The type of authenticator (sms/softwareToken)
    */
   type?: string
+  /**
+   * The access token of the user to create the software token for (When not provided, service will use the token from the request context instead)
+   */
+  authToken?: string
 }
 /**
  * Request body used to create a new user claim
@@ -597,66 +571,6 @@ export interface IdentityClientUserInfoModel {
    * where this information is available
    */
   authEvents?: string[]
-}
-/**
- * Representation of an external identity source, used for federated identity login
- */
-export interface IdentitySourceModel {
-  /**
-   * The unique identifier of the identity source
-   */
-  id?: string
-  /**
-   * The date and time when the identity source was created
-   * example:
-   * 2019-08-14T12:30:02.0000000Z
-   */
-  created?: string // date-time
-  /**
-   * The date and time when the identity source was last modified
-   * example:
-   * 2019-08-14T12:30:02.0000000Z
-   */
-  modified?: string // date-time
-  /**
-   * The external identifier of the identity source in the third party identity provider
-   */
-  externalId?: string
-  /**
-   * The unique identifier of the organisation that the identity source is associated with
-   */
-  organisationId?: string
-  /**
-   * The issuer of tokens in third party IdP. Used to setup identity provider
-   */
-  tokenIssuerUrl?: string
-  /**
-   * The id of the client in the organisation's own identity provider
-   */
-  clientId?: string
-  /**
-   * The email domains used by the organisation associated to this identity provider when signing in
-   */
-  domainIdentifiers?: string[]
-  organisation?: OrganisationModel
-}
-export interface IdentitySourceModelPagedResult {
-  _embedded?: IdentitySourceModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalPageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: PagingLinkModel
-  }
-}
-export interface IdentitySources {
-  pageSize?: number
-  pageNumber?: number
-  agencyCloudId?: string
-  organisationId?: string
-  externalId?: string
 }
 export interface MigrationsKeys {
   applicationId?: string
@@ -995,6 +909,10 @@ export interface OrganisationModel {
    * A collection of claims associated to the organisation, which are optionally included in tokens generated by the identity provider for users belonging to the organisation
    */
   claims?: ClaimModel[]
+  /**
+   * Identifies the type of instance to which this organisation belongs (dev/prod/test/uat)
+   */
+  instanceType?: string
 }
 export interface OrganisationModelPagedResult {
   _embedded?: OrganisationModel[]
@@ -1013,8 +931,10 @@ export interface Organisations {
   id?: string[]
   agencyCloudId?: string[]
   claim?: string[]
+  claimValue?: string
   marketplaceId?: string[]
   name?: string
+  instanceType?: ('dev' | 'prod' | 'test' | 'uat')[]
   includeUserData?: boolean
 }
 export interface PagingLinkModel {
@@ -1068,6 +988,10 @@ export interface ProductModel {
    * The auth flow of the product (authorisationCode/clientCredentials)
    */
   authFlow?: string
+  /**
+   * The scopes the product has
+   */
+  scopes?: string[]
   /**
    * A flag to determine if the products app is for internal use only
    */
@@ -1257,6 +1181,10 @@ export interface UpdateOrganisationModel {
    */
   product?: string
   address?: UpdateOrganisationAddressModel
+  /**
+   * Identifies the type of instance to which this organisation belongs (dev/prod/test/uat)
+   */
+  instanceType?: string
 }
 /**
  * Model to update platform configuration
@@ -1270,6 +1198,32 @@ export interface UpdatePlatformConfigurationModel {
    * A list of semi structured fields that can be requested via the Platform APIs
    */
   extrasWhitelist?: string
+}
+/**
+ * Model to update a product
+ */
+export interface UpdateProductModel {
+  /**
+   * The name of this product
+   */
+  name: string
+  /**
+   * A list of callback urls
+   */
+  callbackUrls?: string[]
+  /**
+   * A list of signout urls
+   */
+  signoutUrls?: string[]
+  /**
+   * A list of scopes to assign to the app
+   */
+  scopes?: string[]
+  /**
+   * Flag indicating whether or not the product has user admin capabilities
+   * that require an additional scope to be set on the OAuth client
+   */
+  requiresUserAdmin?: boolean
 }
 /**
  * Model to update an existing user claim
@@ -1329,6 +1283,12 @@ export interface UpdateUserModel {
    * Flag indicating whether or not the user has provided consent for their actions to be tracked in Reapit's products
    */
   consentToTrack?: boolean
+  /**
+   * The date and time at which the user first logged in
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  firstLoginDate?: string // date-time
 }
 /**
  * Request body used to update a user's password to a specific value
@@ -1553,6 +1513,12 @@ export interface UserModel {
    */
   consentToTrackModified?: string // date-time
   /**
+   * The date and time at which the user first logged in
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  firstLoginDate?: string // date-time
+  /**
    * A collection of groups that the user belongs to
    */
   groups?: string[]
@@ -1721,6 +1687,8 @@ export interface Users {
   mfaEnabled?: boolean
   createdFrom?: string
   createdTo?: string
+  firstLoginDateFrom?: string
+  firstLoginDateTo?: string
   active?: boolean
 }
 export interface UsersInfo {
@@ -1735,4 +1703,8 @@ export interface VerifyUserAuthenticatorModel {
    * The code to verify the authenticator
    */
   code?: string
+  /**
+   * The access token of the user to verify the software token for (When not provided, service will use the token from the request context instead)
+   */
+  authToken?: string
 }

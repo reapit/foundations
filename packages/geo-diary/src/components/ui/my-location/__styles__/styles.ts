@@ -32,7 +32,7 @@ export const MyLocationIconContainer = styled.div`
   svg {
     font-size: 1.4rem;
     color: var(--intent-primary);
-    margin: 0 0.25rem;
+    margin: 0.125rem;
   }
 `
 

@@ -7,16 +7,14 @@ exports[`Statistics should render component with apps 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div>
           <mock-styled.div
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="button"
             >
               <mock-styled.div />
@@ -30,16 +28,14 @@ exports[`Statistics should render component with apps 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div>
         <mock-styled.div
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="button"
           >
             <mock-styled.div />
@@ -110,16 +106,14 @@ exports[`Statistics should render component with billing 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div>
           <mock-styled.div
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="button"
             >
               <mock-styled.div />
@@ -133,16 +127,14 @@ exports[`Statistics should render component with billing 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div>
         <mock-styled.div
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="button"
           >
             <mock-styled.div />

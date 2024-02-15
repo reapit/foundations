@@ -78,7 +78,7 @@ export const handleSortTableData = (logs: WebhookLogModel[], topics: TopicModel[
       },
     ],
     ctaContent: {
-      icon: 'downloadSystem',
+      icon: 'fileDownload',
       headerContent: 'Download Payload',
       isCallToAction: true,
       onClick: handleDownloadPayload(log.payload, log.timeStamp),

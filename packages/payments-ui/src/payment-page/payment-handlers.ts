@@ -5,6 +5,7 @@ import { unformatCard, unformatCardExpires } from './payment-card-helpers'
 import { PaymentProvider } from '../payment-provider'
 import { ThreeDSecureResponse } from '../types/opayo'
 import { logger } from '@reapit/utils-react'
+import dayjs from 'dayjs'
 
 export const onUpdateStatus = async (
   transactionStatus: PaymentStatusType,
@@ -147,10 +148,17 @@ export const handleTransaction =
     setTransactionProcessing: Dispatch<SetStateAction<boolean>>,
     setThreeDSecureRes: Dispatch<SetStateAction<CachedTransaction | null>>,
     setThreeDSecureMessage: Dispatch<SetStateAction<string | null>>,
+    openTimeoutModal: () => void,
   ) =>
   (cardDetails: CardDetails) => {
     const { merchantKey } = paymentProvider
     const { cardholderName, cardNumber, expiryDate, securityCode } = cardDetails
+
+    // Mechant session key is about to expire, user will need to refresh the page and session
+    if (dayjs().add(30, 'seconds').isAfter(dayjs(merchantKey.expiry))) {
+      return openTimeoutModal()
+    }
+
     setTransactionProcessing(true)
     setThreeDSecureRes(null)
     setThreeDSecureMessage(null)

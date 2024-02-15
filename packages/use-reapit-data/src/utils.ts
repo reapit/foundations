@@ -49,14 +49,14 @@ export const handleReapitError = (error: AxiosError<any>, defaultMessage?: strin
   const messageString = description
     ? description
     : title
-    ? title
-    : message
-    ? message
-    : error?.message
-    ? error.message
-    : defaultMessage
-    ? defaultMessage
-    : 'An unknown error has occurred, please refresh the page and try again.'
+      ? title
+      : message
+        ? message
+        : error?.message
+          ? error.message
+          : defaultMessage
+            ? defaultMessage
+            : 'An unknown error has occurred, please refresh the page and try again.'
   const fieldErrors = Array.isArray(errors) ? errors?.map(({ field, message }) => `"${field}: ${message}"`) : null
   const fieldString = fieldErrors ? fieldErrors.join(', ') : ''
 

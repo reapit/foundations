@@ -19,6 +19,19 @@ export const ElNavBg = styled.div`
   }
 `
 
+export const ElNavControlsBg = styled.div`
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  &.${elIsActive} {
+    display: block;
+    position: fixed;
+  }
+`
+
 export const ElNavContainer = styled.nav`
   display: flex;
   flex-direction: row;
@@ -72,11 +85,6 @@ export const ElNavItem = styled.a`
   flex: 1 0 100%;
   width: 100%;
   border-left: 3px solid var(--color-white);
-
-  svg {
-    height: 2rem;
-    width: 2rem;
-  }
 
   &:hover {
     color: var(--color-grey-500);
@@ -225,10 +233,6 @@ export const elNavItemHideDesktop = css`
     visibility: hidden;
     padding: 0 !important;
     margin: 0 !important;
-  }
-
-  svg {
-    height: 1.2rem;
   }
 `
 

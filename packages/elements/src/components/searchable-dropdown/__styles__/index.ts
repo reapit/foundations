@@ -13,17 +13,23 @@ export const ElSearchableDropdownContainer = styled.div`
 `
 
 export const ElSearchableDropdownResult = styled.div`
-  padding: 0.5rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 2rem;
   font-size: var(--font-size-small);
+
   :hover {
-    color: var(--intent-primary);
+    background-color: var(--intent-primary);
+    color: var(--color-white);
     cursor: pointer;
   }
 `
 
 export const ElSearchableDropdownResultsContainer = styled.div`
   position: absolute;
-  top: 100%;
+  top: calc(100% + 0.25rem);
   left: 0;
   z-index: 11;
   width: 100%;
@@ -32,18 +38,21 @@ export const ElSearchableDropdownResultsContainer = styled.div`
   background: #fff;
   border: 1px solid #ccc;
   border-top: none;
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background: var(--color-white);
+  box-shadow: 0px 4px 16px 0px rgba(34, 43, 51, 0.16);
 `
 
 export const ElSearchableDropdownSearchInputAddOn = styled(InputAddOn)`
   position: absolute;
-  margin-top: 8px;
-  padding-left: 8px;
+  margin-top: 10px;
+  padding-left: 10px;
 `
 
 export const ElSearchableDropdownCloseButton = styled(Icon)`
   position: absolute;
+  font-size: 1rem;
+  color: var(--intent-default);
   right: 0;
   padding: 9px;
   cursor: pointer;

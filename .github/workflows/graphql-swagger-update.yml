@@ -10,11 +10,13 @@ jobs:
     name: Update
     runs-on: ubuntu-latest
     steps:
-      - name: checks out repository to $GITHUB_WORKSPACE
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Setup Node Environment
-        uses: actions/setup-node@v1
+      - name: Set Node
+        uses: actions/setup-node@v3
         with:
           node-version: '18.x'
 
@@ -44,7 +46,7 @@ jobs:
           branch: chore/gql-swagger-update-timestamp-${{ steps.time.outputs.time }}
           title: 'chore:  Update GQL platform swagger'
           body: |
-             Update GQL platform swagger
+            Update GQL platform swagger
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

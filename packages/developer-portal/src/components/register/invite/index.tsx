@@ -105,8 +105,8 @@ export const Invite: FC = () => {
     inviteState === 'ACCEPT_SUCCESS'
       ? 'Invite Accepted'
       : inviteState === 'REJECT_SUCCESS'
-      ? 'Invite Rejected'
-      : 'Reapit Foundations Invitation'
+        ? 'Invite Rejected'
+        : 'Reapit Foundations Invitation'
 
   return (
     <Modal title={title} isOpen={true} onModalClose={console.log}>
@@ -127,7 +127,7 @@ export const Invite: FC = () => {
                   {...register('name')}
                   label="Name"
                   errorMessage={errors.name?.message}
-                  icon={errors.name?.message ? 'asteriskSystem' : null}
+                  icon={errors.name?.message ? 'asterisk' : null}
                   intent="danger"
                 />
               </InputWrap>
@@ -136,7 +136,7 @@ export const Invite: FC = () => {
                   {...register('jobTitle')}
                   label="Job Title"
                   errorMessage={errors.jobTitle?.message}
-                  icon={errors.jobTitle?.message ? 'asteriskSystem' : null}
+                  icon={errors.jobTitle?.message ? 'asterisk' : null}
                   intent="danger"
                 />
               </InputWrap>

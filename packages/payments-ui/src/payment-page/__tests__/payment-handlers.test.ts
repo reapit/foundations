@@ -29,11 +29,13 @@ describe('handleTransaction', () => {
   const setTransactionProcessing = jest.fn()
   const setThreeDSecureRes = jest.fn()
   const setThreeDSecureMessage = jest.fn()
+  const openTimeoutModal = jest.fn()
   const curried = Handlers.handleTransaction(
     paymentProvider,
     setTransactionProcessing,
     setThreeDSecureRes,
     setThreeDSecureMessage,
+    openTimeoutModal,
   )
 
   it('should correctly call the opayo method', () => {

@@ -7,32 +7,16 @@ exports[`WebhooksNewCustomers should match a snapshot where there are customers 
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
       </div>
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -51,7 +35,7 @@ exports[`WebhooksNewCustomers should match a snapshot where there are customers 
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   All Customers
@@ -61,7 +45,7 @@ exports[`WebhooksNewCustomers should match a snapshot where there are customers 
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   Sandbox Estates
@@ -71,7 +55,7 @@ exports[`WebhooksNewCustomers should match a snapshot where there are customers 
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   Reapit Sales
@@ -81,7 +65,7 @@ exports[`WebhooksNewCustomers should match a snapshot where there are customers 
                   type="checkbox"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-chips"
                   htmlfor="test-static-id"
                 >
                   Foo Bar
@@ -99,32 +83,16 @@ exports[`WebhooksNewCustomers should match a snapshot where there are customers 
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.p
-        classname="mock-css. mock-css."
+        classname="el-has-grey-text el-has-no-margin"
       >
         Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
       </mock-styled.p>
     </div>
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+      classname="el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div>
@@ -143,7 +111,7 @@ exports[`WebhooksNewCustomers should match a snapshot where there are customers 
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 All Customers
@@ -153,7 +121,7 @@ exports[`WebhooksNewCustomers should match a snapshot where there are customers 
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 Sandbox Estates
@@ -163,7 +131,7 @@ exports[`WebhooksNewCustomers should match a snapshot where there are customers 
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 Reapit Sales
@@ -173,7 +141,7 @@ exports[`WebhooksNewCustomers should match a snapshot where there are customers 
                 type="checkbox"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-chips"
                 htmlfor="test-static-id"
               >
                 Foo Bar

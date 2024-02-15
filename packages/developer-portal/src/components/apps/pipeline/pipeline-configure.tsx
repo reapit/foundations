@@ -74,8 +74,8 @@ export const handlePipelineUpdate =
         values.packageManager === PackageManagerEnum.YARN_BERRY
           ? PackageManagerEnum.YARN_BERRY
           : values.packageManager === PackageManagerEnum.YARN
-          ? PackageManagerEnum.YARN
-          : PackageManagerEnum.NPM,
+            ? PackageManagerEnum.YARN
+            : PackageManagerEnum.NPM,
       appId: appId ?? '',
       appType: AppTypeEnum.REACT, // TODO make this an option
     }

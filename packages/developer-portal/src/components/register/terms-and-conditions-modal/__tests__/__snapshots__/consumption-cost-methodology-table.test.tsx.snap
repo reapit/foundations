@@ -12,9 +12,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
         Calculation of Total Consumption Cost - Methodology (On last day of monthly billing period):
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="false"
       >
@@ -49,7 +47,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Month API Call"
@@ -58,7 +56,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="First 1,000"
@@ -67,7 +65,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="1,001 - 2,500"
@@ -76,7 +74,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="2,501 - 5,000"
@@ -85,7 +83,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="5,001 - 10,000"
@@ -94,7 +92,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="10,001 - 25,000"
@@ -103,7 +101,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="25,001 - 50,000"
@@ -112,7 +110,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="above 50,000"
@@ -127,7 +125,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Month API Call"
@@ -136,7 +134,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="First 1,000"
@@ -145,7 +143,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="1,001 - 2,500"
@@ -154,7 +152,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="2,501 - 5,000"
@@ -163,7 +161,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="5,001 - 10,000"
@@ -172,7 +170,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="10,001 - 25,000"
@@ -181,7 +179,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="25,001 - 50,000"
@@ -190,7 +188,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="above 50,000"
@@ -205,7 +203,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Month API Call"
@@ -214,7 +212,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="First 1,000"
@@ -223,7 +221,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="1,001 - 2,500"
@@ -232,7 +230,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="2,501 - 5,000"
@@ -241,7 +239,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="5,001 - 10,000"
@@ -250,7 +248,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="10,001 - 25,000"
@@ -259,7 +257,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="25,001 - 50,000"
@@ -268,7 +266,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="above 50,000"
@@ -283,7 +281,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Month API Call"
@@ -292,7 +290,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="First 1,000"
@@ -301,7 +299,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="1,001 - 2,500"
@@ -310,7 +308,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="2,501 - 5,000"
@@ -319,7 +317,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="5,001 - 10,000"
@@ -328,7 +326,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="10,001 - 25,000"
@@ -337,7 +335,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="25,001 - 50,000"
@@ -346,7 +344,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="above 50,000"
@@ -361,7 +359,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Month API Call"
@@ -370,7 +368,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="First 1,000"
@@ -379,7 +377,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="1,001 - 2,500"
@@ -388,7 +386,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="2,501 - 5,000"
@@ -397,7 +395,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="5,001 - 10,000"
@@ -406,7 +404,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="10,001 - 25,000"
@@ -415,7 +413,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="25,001 - 50,000"
@@ -424,7 +422,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="above 50,000"
@@ -439,7 +437,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Month API Call"
@@ -448,7 +446,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="First 1,000"
@@ -457,7 +455,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="1,001 - 2,500"
@@ -466,7 +464,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="2,501 - 5,000"
@@ -475,7 +473,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="5,001 - 10,000"
@@ -484,7 +482,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="10,001 - 25,000"
@@ -493,7 +491,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="25,001 - 50,000"
@@ -502,7 +500,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="above 50,000"
@@ -517,7 +515,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Month API Call"
@@ -526,7 +524,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="First 1,000"
@@ -535,7 +533,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="1,001 - 2,500"
@@ -544,7 +542,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="2,501 - 5,000"
@@ -553,7 +551,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="5,001 - 10,000"
@@ -562,7 +560,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="10,001 - 25,000"
@@ -571,7 +569,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="25,001 - 50,000"
@@ -580,7 +578,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="above 50,000"
@@ -601,9 +599,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
       Calculation of Total Consumption Cost - Methodology (On last day of monthly billing period):
     </mock-styled.p>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+      classname="el-mb11"
       data-has-call-to-action="false"
       data-has-expandable-action="false"
     >
@@ -638,7 +634,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Month API Call"
@@ -647,7 +643,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="First 1,000"
@@ -656,7 +652,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="1,001 - 2,500"
@@ -665,7 +661,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="2,501 - 5,000"
@@ -674,7 +670,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="5,001 - 10,000"
@@ -683,7 +679,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="10,001 - 25,000"
@@ -692,7 +688,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="25,001 - 50,000"
@@ -701,7 +697,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="above 50,000"
@@ -716,7 +712,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Month API Call"
@@ -725,7 +721,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="First 1,000"
@@ -734,7 +730,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="1,001 - 2,500"
@@ -743,7 +739,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="2,501 - 5,000"
@@ -752,7 +748,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="5,001 - 10,000"
@@ -761,7 +757,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="10,001 - 25,000"
@@ -770,7 +766,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="25,001 - 50,000"
@@ -779,7 +775,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="above 50,000"
@@ -794,7 +790,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Month API Call"
@@ -803,7 +799,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="First 1,000"
@@ -812,7 +808,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="1,001 - 2,500"
@@ -821,7 +817,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="2,501 - 5,000"
@@ -830,7 +826,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="5,001 - 10,000"
@@ -839,7 +835,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="10,001 - 25,000"
@@ -848,7 +844,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="25,001 - 50,000"
@@ -857,7 +853,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="above 50,000"
@@ -872,7 +868,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Month API Call"
@@ -881,7 +877,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="First 1,000"
@@ -890,7 +886,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="1,001 - 2,500"
@@ -899,7 +895,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="2,501 - 5,000"
@@ -908,7 +904,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="5,001 - 10,000"
@@ -917,7 +913,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="10,001 - 25,000"
@@ -926,7 +922,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="25,001 - 50,000"
@@ -935,7 +931,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="above 50,000"
@@ -950,7 +946,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Month API Call"
@@ -959,7 +955,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="First 1,000"
@@ -968,7 +964,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="1,001 - 2,500"
@@ -977,7 +973,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="2,501 - 5,000"
@@ -986,7 +982,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="5,001 - 10,000"
@@ -995,7 +991,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="10,001 - 25,000"
@@ -1004,7 +1000,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="25,001 - 50,000"
@@ -1013,7 +1009,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="above 50,000"
@@ -1028,7 +1024,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Month API Call"
@@ -1037,7 +1033,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="First 1,000"
@@ -1046,7 +1042,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="1,001 - 2,500"
@@ -1055,7 +1051,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="2,501 - 5,000"
@@ -1064,7 +1060,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="5,001 - 10,000"
@@ -1073,7 +1069,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="10,001 - 25,000"
@@ -1082,7 +1078,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="25,001 - 50,000"
@@ -1091,7 +1087,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="above 50,000"
@@ -1106,7 +1102,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Month API Call"
@@ -1115,7 +1111,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="First 1,000"
@@ -1124,7 +1120,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="1,001 - 2,500"
@@ -1133,7 +1129,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="2,501 - 5,000"
@@ -1142,7 +1138,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="5,001 - 10,000"
@@ -1151,7 +1147,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="10,001 - 25,000"
@@ -1160,7 +1156,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="25,001 - 50,000"
@@ -1169,7 +1165,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="above 50,000"

@@ -7,9 +7,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
-"
+        classname="el-flex-column"
       >
         <mock-styled.p
           classname="mock-css.
@@ -21,15 +19,13 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
   , {
     display: none;
   }
- mock-css."
+ el-has-no-margin"
         >
           Browse By
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+        classname="el-flex-justify-between"
       >
         <mock-styled.p
           classname="mock-css.
@@ -38,27 +34,13 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
   , {
     display: flex;
   }
- mock-css."
+ el-has-bold-text"
         >
           Browse By
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
+        classname="el-fade-in mock-css.
   width: 100%;
   border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
@@ -73,7 +55,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
           value="9"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="9"
         >
           Tools
@@ -86,7 +68,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
           value="8"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="8"
         >
           Social
@@ -99,7 +81,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
           value="7"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="7"
         >
           Marketing
@@ -112,7 +94,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
           value="6"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="6"
         >
           Communication
@@ -125,7 +107,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
           value="5"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="5"
         >
           Media
@@ -138,7 +120,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
           value="4"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="4"
         >
           Events
@@ -151,7 +133,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
           value="3"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="3"
         >
           Finance
@@ -164,7 +146,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
           value="2"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="2"
         >
           Productivity
@@ -177,7 +159,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
           value="1"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="1"
         >
           Other
@@ -193,9 +175,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
 "
       >
         <mock-styled.div
-          classname="mock-css.
-  align-items: center;
- mock-css.
+          classname="el-flex-align-center mock-css.
   width: 100%;
 
   , {
@@ -210,9 +190,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
   , {
     width: 25%;
   }
- mock-css.
-  margin-right: 0.75rem;
-"
+ el-mr5"
         >
           <mock-styled.span
             classname="mock-css.
@@ -229,12 +207,20 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
-"
-            style="font-size: 1.25rem;"
+ el-intent-default el-icon-new"
           >
             <svg
-              style="font-size: 1.25rem;"
-            />
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -247,9 +233,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
-"
+      classname="el-flex-column"
     >
       <mock-styled.p
         classname="mock-css.
@@ -261,15 +245,13 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
   , {
     display: none;
   }
- mock-css."
+ el-has-no-margin"
       >
         Browse By
       </mock-styled.p>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
+      classname="el-flex-justify-between"
     >
       <mock-styled.p
         classname="mock-css.
@@ -278,27 +260,13 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
   , {
     display: flex;
   }
- mock-css."
+ el-has-bold-text"
       >
         Browse By
       </mock-styled.p>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
+      classname="el-fade-in mock-css.
   width: 100%;
   border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
@@ -313,7 +281,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
         value="9"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="9"
       >
         Tools
@@ -326,7 +294,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
         value="8"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="8"
       >
         Social
@@ -339,7 +307,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
         value="7"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="7"
       >
         Marketing
@@ -352,7 +320,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
         value="6"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="6"
       >
         Communication
@@ -365,7 +333,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
         value="5"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="5"
       >
         Media
@@ -378,7 +346,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
         value="4"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="4"
       >
         Events
@@ -391,7 +359,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
         value="3"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="3"
       >
         Finance
@@ -404,7 +372,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
         value="2"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="2"
       >
         Productivity
@@ -417,7 +385,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
         value="1"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="1"
       >
         Other
@@ -433,9 +401,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
 "
     >
       <mock-styled.div
-        classname="mock-css.
-  align-items: center;
- mock-css.
+        classname="el-flex-align-center mock-css.
   width: 100%;
 
   , {
@@ -450,9 +416,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
   , {
     width: 25%;
   }
- mock-css.
-  margin-right: 0.75rem;
-"
+ el-mr5"
       >
         <mock-styled.span
           classname="mock-css.
@@ -469,12 +433,20 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
-"
-          style="font-size: 1.25rem;"
+ el-intent-default el-icon-new"
         >
           <svg
-            style="font-size: 1.25rem;"
-          />
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.input
           placeholder="Search by App or Developer"
@@ -544,17 +516,13 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
-"
+        classname="el-flex-column"
       >
         <mock-styled.div
           classname="mock-css."
         >
           <mock-styled.div
-            classname="mock-css.
-  align-items: center;
- mock-css.
+            classname="el-flex-align-center mock-css.
   width: 100%;
 
   , {
@@ -586,12 +554,20 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
-"
-              style="font-size: 1.25rem;"
+ el-intent-default el-icon-new"
             >
               <svg
-                style="font-size: 1.25rem;"
-              />
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
             <mock-styled.input
               placeholder="Search by App or Developer"
@@ -601,9 +577,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  justify-content: space-between;
-"
+        classname="el-flex-justify-between"
       >
         <mock-styled.p
           classname="mock-css.
@@ -612,27 +586,13 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   , {
     display: flex;
   }
- mock-css."
+ el-has-bold-text"
         >
           Browse By
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
+        classname="el-fade-in mock-css.
   width: 100%;
   border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
@@ -653,7 +613,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
           value="9"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="9"
         >
           Tools
@@ -666,7 +626,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
           value="8"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="8"
         >
           Social
@@ -679,7 +639,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
           value="7"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="7"
         >
           Marketing
@@ -692,7 +652,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
           value="6"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="6"
         >
           Communication
@@ -705,7 +665,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
           value="5"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="5"
         >
           Media
@@ -718,7 +678,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
           value="4"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="4"
         >
           Events
@@ -731,7 +691,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
           value="3"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="3"
         >
           Finance
@@ -744,7 +704,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
           value="2"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="2"
         >
           Productivity
@@ -757,7 +717,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
           value="1"
         />
         <mock-styled.label
-          classname="mock-css."
+          classname="el-has-grey-chips"
           htmlfor="1"
         >
           Other
@@ -770,15 +730,13 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   , {
     display: none;
   }
- mock-css.
-  margin-bottom: 0.75rem;
-"
+ el-mb5"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Clear Search Filters
@@ -795,9 +753,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
 "
       >
         <mock-styled.div
-          classname="mock-css.
-  align-items: center;
- mock-css.
+          classname="el-flex-align-center mock-css.
   width: 100%;
 
   , {
@@ -812,9 +768,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   , {
     width: 25%;
   }
- mock-css.
-  margin-right: 0.75rem;
-"
+ el-mr5"
         >
           <mock-styled.span
             classname="mock-css.
@@ -831,12 +785,20 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
-"
-            style="font-size: 1.25rem;"
+ el-intent-default el-icon-new"
           >
             <svg
-              style="font-size: 1.25rem;"
-            />
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -844,7 +806,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
           />
         </mock-styled.div>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Clear Search Filters
@@ -855,17 +817,13 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex-direction: column;
-"
+      classname="el-flex-column"
     >
       <mock-styled.div
         classname="mock-css."
       >
         <mock-styled.div
-          classname="mock-css.
-  align-items: center;
- mock-css.
+          classname="el-flex-align-center mock-css.
   width: 100%;
 
   , {
@@ -897,12 +855,20 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
-"
-            style="font-size: 1.25rem;"
+ el-intent-default el-icon-new"
           >
             <svg
-              style="font-size: 1.25rem;"
-            />
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
           <mock-styled.input
             placeholder="Search by App or Developer"
@@ -912,9 +878,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  justify-content: space-between;
-"
+      classname="el-flex-justify-between"
     >
       <mock-styled.p
         classname="mock-css.
@@ -923,27 +887,13 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   , {
     display: flex;
   }
- mock-css."
+ el-has-bold-text"
       >
         Browse By
       </mock-styled.p>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css.
+      classname="el-fade-in mock-css.
   width: 100%;
   border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
@@ -964,7 +914,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         value="9"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="9"
       >
         Tools
@@ -977,7 +927,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         value="8"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="8"
       >
         Social
@@ -990,7 +940,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         value="7"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="7"
       >
         Marketing
@@ -1003,7 +953,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         value="6"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="6"
       >
         Communication
@@ -1016,7 +966,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         value="5"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="5"
       >
         Media
@@ -1029,7 +979,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         value="4"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="4"
       >
         Events
@@ -1042,7 +992,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         value="3"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="3"
       >
         Finance
@@ -1055,7 +1005,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         value="2"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="2"
       >
         Productivity
@@ -1068,7 +1018,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         value="1"
       />
       <mock-styled.label
-        classname="mock-css."
+        classname="el-has-grey-chips"
         htmlfor="1"
       >
         Other
@@ -1081,15 +1031,13 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   , {
     display: none;
   }
- mock-css.
-  margin-bottom: 0.75rem;
-"
+ el-mb5"
     >
       <mock-styled.div
         classname=""
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-neutral"
         >
           <mock-styled.div />
           Clear Search Filters
@@ -1106,9 +1054,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
 "
     >
       <mock-styled.div
-        classname="mock-css.
-  align-items: center;
- mock-css.
+        classname="el-flex-align-center mock-css.
   width: 100%;
 
   , {
@@ -1123,9 +1069,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   , {
     width: 25%;
   }
- mock-css.
-  margin-right: 0.75rem;
-"
+ el-mr5"
       >
         <mock-styled.span
           classname="mock-css.
@@ -1142,12 +1086,20 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
-"
-          style="font-size: 1.25rem;"
+ el-intent-default el-icon-new"
         >
           <svg
-            style="font-size: 1.25rem;"
-          />
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
         <mock-styled.input
           placeholder="Search by App or Developer"
@@ -1155,7 +1107,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
         />
       </mock-styled.div>
       <mock-styled.button
-        classname="mock-css."
+        classname="el-intent-neutral"
       >
         <mock-styled.div />
         Clear Search Filters

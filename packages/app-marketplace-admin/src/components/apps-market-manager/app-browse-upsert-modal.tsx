@@ -149,8 +149,8 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
           defaultValues.filters?.isFeatured === false
             ? 'notFeatured'
             : defaultValues.filters?.isFeatured === true
-            ? 'isFeatured'
-            : 'notApplied',
+              ? 'isFeatured'
+              : 'notApplied',
         category: defaultValues.filters?.category?.join(',') || '',
       },
       live: {

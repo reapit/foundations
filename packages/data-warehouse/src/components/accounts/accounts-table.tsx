@@ -42,7 +42,7 @@ export const AccountsTable: FC = () => {
               {
                 label: 'User Name',
                 value: username,
-                icon: 'userInfographic',
+                icon: 'contact',
                 cellHasDarkText: true,
                 narrowTable: {
                   showLabel: true,

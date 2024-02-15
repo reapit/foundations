@@ -7,9 +7,7 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.h2
           classname=""
@@ -17,7 +15,7 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
           Current Installations
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
         </mock-styled.p>
@@ -27,9 +25,7 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.h2
         classname=""
@@ -37,7 +33,7 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
         Current Installations
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
       </mock-styled.p>
@@ -104,9 +100,7 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.h2
           classname=""
@@ -114,7 +108,7 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
           Current Installations
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This app is currently installed for 
           1 group
@@ -122,10 +116,10 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
         </mock-styled.p>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-right"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="false"
             >
               <mock-styled.div />
@@ -139,9 +133,7 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.h2
         classname=""
@@ -149,7 +141,7 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
         Current Installations
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app is currently installed for 
         1 group
@@ -157,10 +149,10 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
       </mock-styled.p>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
           >
             <mock-styled.div />
@@ -231,9 +223,7 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.h2
           classname=""
@@ -241,7 +231,7 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
           Current Installations
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This app is currently installed for 
           your whole orgainsation
@@ -249,10 +239,10 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
         </mock-styled.p>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-right"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="false"
             >
               <mock-styled.div />
@@ -266,9 +256,7 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.h2
         classname=""
@@ -276,7 +264,7 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
         Current Installations
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app is currently installed for 
         your whole orgainsation
@@ -284,10 +272,10 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
       </mock-styled.p>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
           >
             <mock-styled.div />
@@ -358,9 +346,7 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.h2
           classname=""
@@ -368,7 +354,7 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
           Current Installations
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This app is currently installed for 
           2 groups
@@ -376,10 +362,10 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
         </mock-styled.p>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-right"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               disabled="false"
             >
               <mock-styled.div />
@@ -393,9 +379,7 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.h2
         classname=""
@@ -403,7 +387,7 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
         Current Installations
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app is currently installed for 
         2 groups
@@ -411,10 +395,10 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
       </mock-styled.p>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
           >
             <mock-styled.div />

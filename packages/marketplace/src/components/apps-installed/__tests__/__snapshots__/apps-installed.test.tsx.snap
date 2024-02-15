@@ -97,21 +97,7 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+              classname="el-fade-in"
             >
               <mock-styled.div>
                 <mock-styled.div
@@ -136,21 +122,7 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+              classname="el-fade-in"
             >
               <mock-styled.div>
                 <mock-styled.div
@@ -214,21 +186,7 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+            classname="el-fade-in"
           >
             <mock-styled.div>
               <mock-styled.div
@@ -253,21 +211,7 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+            classname="el-fade-in"
           >
             <mock-styled.div>
               <mock-styled.div

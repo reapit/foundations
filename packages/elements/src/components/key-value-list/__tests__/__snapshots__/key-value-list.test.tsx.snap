@@ -13,11 +13,8 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css."
-            style="font-size: 20px;"
           >
-            <svg
-              style="font-size: 20px;"
-            />
+            <svg />
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div
@@ -45,11 +42,8 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css."
-            style="font-size: 20px;"
           >
-            <svg
-              style="font-size: 20px;"
-            />
+            <svg />
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div
@@ -77,11 +71,8 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css."
-            style="font-size: 20px;"
           >
-            <svg
-              style="font-size: 20px;"
-            />
+            <svg />
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div
@@ -109,11 +100,8 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css."
-            style="font-size: 20px;"
           >
-            <svg
-              style="font-size: 20px;"
-            />
+            <svg />
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div
@@ -141,11 +129,8 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css."
-            style="font-size: 20px;"
           >
-            <svg
-              style="font-size: 20px;"
-            />
+            <svg />
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div
@@ -181,11 +166,8 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css."
-            style="font-size: 20px;"
           >
-            <svg
-              style="font-size: 20px;"
-            />
+            <svg />
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div
@@ -216,11 +198,8 @@ exports[`KeyValueList component should match a snapshot 1`] = `
       >
         <mock-styled.span
           classname="mock-css."
-          style="font-size: 20px;"
         >
-          <svg
-            style="font-size: 20px;"
-          />
+          <svg />
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div
@@ -248,11 +227,8 @@ exports[`KeyValueList component should match a snapshot 1`] = `
       >
         <mock-styled.span
           classname="mock-css."
-          style="font-size: 20px;"
         >
-          <svg
-            style="font-size: 20px;"
-          />
+          <svg />
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div
@@ -280,11 +256,8 @@ exports[`KeyValueList component should match a snapshot 1`] = `
       >
         <mock-styled.span
           classname="mock-css."
-          style="font-size: 20px;"
         >
-          <svg
-            style="font-size: 20px;"
-          />
+          <svg />
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div
@@ -312,11 +285,8 @@ exports[`KeyValueList component should match a snapshot 1`] = `
       >
         <mock-styled.span
           classname="mock-css."
-          style="font-size: 20px;"
         >
-          <svg
-            style="font-size: 20px;"
-          />
+          <svg />
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div
@@ -344,11 +314,8 @@ exports[`KeyValueList component should match a snapshot 1`] = `
       >
         <mock-styled.span
           classname="mock-css."
-          style="font-size: 20px;"
         >
-          <svg
-            style="font-size: 20px;"
-          />
+          <svg />
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div
@@ -384,11 +351,8 @@ exports[`KeyValueList component should match a snapshot 1`] = `
       >
         <mock-styled.span
           classname="mock-css."
-          style="font-size: 20px;"
         >
-          <svg
-            style="font-size: 20px;"
-          />
+          <svg />
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div
@@ -482,11 +446,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
-                style="font-size: 20px;"
               >
-                <svg
-                  style="font-size: 20px;"
-                />
+                <svg />
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div
@@ -518,11 +479,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
-                style="font-size: 20px;"
               >
-                <svg
-                  style="font-size: 20px;"
-                />
+                <svg />
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div
@@ -554,11 +512,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
-                style="font-size: 20px;"
               >
-                <svg
-                  style="font-size: 20px;"
-                />
+                <svg />
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div
@@ -590,11 +545,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
-                style="font-size: 20px;"
               >
-                <svg
-                  style="font-size: 20px;"
-                />
+                <svg />
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div
@@ -626,11 +578,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
-                style="font-size: 20px;"
               >
-                <svg
-                  style="font-size: 20px;"
-                />
+                <svg />
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div
@@ -670,11 +619,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
-                style="font-size: 20px;"
               >
-                <svg
-                  style="font-size: 20px;"
-                />
+                <svg />
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div
@@ -713,11 +659,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              style="font-size: 20px;"
             >
-              <svg
-                style="font-size: 20px;"
-              />
+              <svg />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div
@@ -749,11 +692,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              style="font-size: 20px;"
             >
-              <svg
-                style="font-size: 20px;"
-              />
+              <svg />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div
@@ -785,11 +725,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              style="font-size: 20px;"
             >
-              <svg
-                style="font-size: 20px;"
-              />
+              <svg />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div
@@ -821,11 +758,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              style="font-size: 20px;"
             >
-              <svg
-                style="font-size: 20px;"
-              />
+              <svg />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div
@@ -857,11 +791,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              style="font-size: 20px;"
             >
-              <svg
-                style="font-size: 20px;"
-              />
+              <svg />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div
@@ -901,11 +832,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              style="font-size: 20px;"
             >
-              <svg
-                style="font-size: 20px;"
-              />
+              <svg />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div

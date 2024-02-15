@@ -33,8 +33,8 @@ export const KeyInfo: FC<KeyInfoProps> = ({ keyModel }) => {
               lastMovement?.checkOutToNegotiator?.name
                 ? lastMovement.checkOutToNegotiator?.name
                 : lastMovement?.checkInNegotiator?.name
-                ? lastMovement?.checkInNegotiator?.name
-                : ''
+                  ? lastMovement?.checkInNegotiator?.name
+                  : ''
             }`
           : ''
       }`
@@ -45,11 +45,7 @@ export const KeyInfo: FC<KeyInfoProps> = ({ keyModel }) => {
       <Label>Key Number</Label>
       <p className={cx(elMb3)}>{number}</p>
       <Label>Keys in set</Label>
-      <div className={cx(elMb3)}>
-        {keysInSet?.map((set) => (
-          <p key={set.name}>{set.name}</p>
-        ))}
-      </div>
+      <div className={cx(elMb3)}>{keysInSet?.map((set) => <p key={set.name}>{set.name}</p>)}</div>
       {office && (
         <>
           <Label>Office</Label>
@@ -77,8 +73,8 @@ export const PropertyDrawer: FC = () => {
   const displayPrice = selling?.price
     ? `£${selling.price}`
     : letting?.rent
-    ? `£${letting.rent} ${letting.rentFrequency ? `/ ${letting.rentFrequency}` : ''}`
-    : null
+      ? `£${letting.rent} ${letting.rentFrequency ? `/ ${letting.rentFrequency}` : ''}`
+      : null
 
   return (
     <>

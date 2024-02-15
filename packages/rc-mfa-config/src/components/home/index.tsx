@@ -34,7 +34,7 @@ import { AuthenticatorModel } from '@reapit/foundations-ts-definitions'
 import { QrCodeVerify } from './qr-code-verify'
 import { ActiveAuthenticator } from '../active-authenticator'
 import { cx } from '@linaria/core'
-import { nativeSessionWrapper } from '../../core/connect-session-native'
+import { actionOverride, useRCAPI } from '@/utils/action-override'
 
 export interface CreateAuthenticatorReturnType {
   secret: string
@@ -69,14 +69,13 @@ export const handleRefresh =
   }
 
 export const HomePage: FC = () => {
-  const nativeBrowserSession = nativeSessionWrapper(reapitConnectBrowserSession)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [qrCode, setQrCode] = useState<CreateAuthenticatorReturnType>()
   const email = connectSession?.loginIdentity.email
   const userId = email ? window.btoa(email.toLowerCase()).replace(/=/g, '') : null
 
   const [authenticators, authenticatorsLoading, , refreshAuthenticators] = useReapitGet<AuthenticatorModel[]>({
-    reapitConnectBrowserSession: nativeBrowserSession,
+    reapitConnectBrowserSession,
     action: getActions[GetActionNames.getUserAuthenticators],
     uriParams: { userId },
     fetchWhenTrue: [userId],
@@ -86,11 +85,12 @@ export const HomePage: FC = () => {
     CreateAuthenticatorType,
     CreateAuthenticatorReturnType
   >({
-    reapitConnectBrowserSession: nativeBrowserSession,
+    reapitConnectBrowserSession,
     action: {
-      ...updateActions[UpdateActionNames.createUserAuthenticator],
+      ...actionOverride(updateActions[UpdateActionNames.createUserAuthenticator]),
       successMessage: undefined, // no need for success toast
     },
+    withCredentials: useRCAPI,
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
     uriParams: {
@@ -117,7 +117,7 @@ export const HomePage: FC = () => {
           intent="neutral"
           onClick={openNewPage(
             window.location?.hostname?.includes('.au.')
-              ? 'https://reapit-mfa-documentation.au.dev.rc.reapit.cloud'
+              ? 'https://help.agentboxcrm.com.au/reapit-connect'
               : 'https://reapit-1.gitbook.io/reapit-connect-mfa/',
           )}
         >

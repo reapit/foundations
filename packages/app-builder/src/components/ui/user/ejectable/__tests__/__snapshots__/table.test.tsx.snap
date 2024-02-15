@@ -5,13 +5,7 @@ exports[`Table should match a snapshot 1`] = `
   <mock-styled.div />
   <mock-styled.div>
     <div
-      class="mock-css.
-  display: flex;
- mock-css.
-  flex: 1 1 0%;
-, mock-css.
-  flex-direction: column;
-"
+      class="el-flex el-flex1, el-flex-column"
     >
       <div>
         Select a type from the sidebar.

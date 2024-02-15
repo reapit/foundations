@@ -198,7 +198,7 @@ export const ApiKeys: FC<ApiKeysProps> = ({ closeModal }) => {
                   },
                 ],
                 ctaContent: {
-                  icon: 'trashSystem',
+                  icon: 'trash',
                   headerContent: 'Delete Key',
                   isCallToAction: true,
                   onClick: handleSetApikey(setApiKeyId, item.id),

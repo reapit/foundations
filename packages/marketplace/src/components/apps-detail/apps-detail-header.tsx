@@ -1,5 +1,6 @@
 import { cx } from '@linaria/core'
 import {
+  BadgeGroup,
   BodyText,
   elFadeIn,
   elMb3,
@@ -40,13 +41,13 @@ export const AppsDetailHeader: FC<AppsDetailHeaderProps> = ({ app }) => {
             <FlexContainer>
               {isInstalled && (
                 <>
-                  <Icon icon="checkSolidSystem" className={elMr2} intent="success" />
+                  <Icon icon="check" className={elMr2} intent="success" />
                   <SmallText className={cx(elMr2, appDetailInfoLineAdjust)} hasNoMargin>
                     {isDirectApi ? 'Integration Enabled' : 'App Installed'}
                   </SmallText>
                 </>
               )}
-              <Icon icon="checkSolidSystem" className={elMr2} intent="success" />
+              <Icon icon="check" className={elMr2} intent="success" />
               <SmallText className={cx(elMr2, appDetailInfoLineAdjust)} hasNoMargin>
                 Verified by Reapit
               </SmallText>
@@ -63,12 +64,15 @@ export const AppsDetailHeader: FC<AppsDetailHeaderProps> = ({ app }) => {
             <SmallText hasGreyText>{summary}</SmallText>
           </FlexContainer>
           <FlexContainer>
-            {Boolean(categories?.length) &&
-              categories?.map((category) => (
-                <AppDetailCategoryChip className={elFadeIn} key={category?.id}>
-                  {category.name}
-                </AppDetailCategoryChip>
-              ))}
+            {Boolean(categories?.length) && (
+              <BadgeGroup>
+                {categories?.map((category) => (
+                  <AppDetailCategoryChip className={elFadeIn} key={category?.id}>
+                    {category.name}
+                  </AppDetailCategoryChip>
+                ))}
+              </BadgeGroup>
+            )}
             {isDirectApi && (
               <SmallText className={elMr5} hasBoldText hasNoMargin>
                 Integration
@@ -98,22 +102,25 @@ export const AppsDetailHeader: FC<AppsDetailHeaderProps> = ({ app }) => {
         <FlexContainer>
           {isInstalled && (
             <>
-              <Icon icon="checkSolidSystem" className={elMr5} intent="success" />
+              <Icon icon="check" className={elMr5} intent="success" />
               <SmallText className={elMr5} hasNoMargin>
                 {isDirectApi ? 'Integration Enabled' : 'App Installed'}
               </SmallText>
             </>
           )}
-          <Icon icon="checkSolidSystem" className={elMr5} intent="success" />
+          <Icon icon="check" className={elMr5} intent="success" />
           <SmallText className={elMr5} hasNoMargin>
             Verified by Reapit
           </SmallText>
-          {Boolean(categories?.length) &&
-            categories?.map((category) => (
-              <AppDetailCategoryChip className={elFadeIn} key={category?.id}>
-                {category.name}
-              </AppDetailCategoryChip>
-            ))}
+          {Boolean(categories?.length) && (
+            <BadgeGroup>
+              {categories?.map((category) => (
+                <AppDetailCategoryChip className={elFadeIn} key={category?.id}>
+                  {category.name}
+                </AppDetailCategoryChip>
+              ))}
+            </BadgeGroup>
+          )}
           {isDirectApi && (
             <SmallText className={elMr5} hasBoldText hasNoMargin>
               Integration

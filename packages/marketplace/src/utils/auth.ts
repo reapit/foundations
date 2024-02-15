@@ -5,9 +5,20 @@ export const COGNITO_GROUP_ADMIN_USERS = 'MarketplaceAdmin'
 export const COGNITO_GROUP_ADMIN_USERS_LEGACY = 'ReapitUserAdmin'
 export const COGNITO_GROUP_USERS = 'ReapitUser'
 export const COGNITO_GROUP_ORGANISATION_ADMIN = 'OrganisationAdmin'
+export const COGNITO_GROUP_DEVELOPER_ADMIN = 'FoundationsDeveloperAdmin'
+export const COGNITO_GROUP_DEVELOPER = 'FoundationsDeveloper'
 
 export const selectIsAdmin = (state: ReapitConnectSession | null): boolean => {
   return selectIsOffGroupingAdmin(state) || selectIsNonOffGroupingAdmin(state)
+}
+
+export const selectIsDeveloper = (state: ReapitConnectSession | null): boolean => {
+  const loginIdentity = selectLoginIdentity(state)
+  return (
+    (Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_DEVELOPER_ADMIN)) ||
+      Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_DEVELOPER))) &&
+    !loginIdentity?.groups?.includes(COGNITO_GROUP_USERS)
+  )
 }
 
 export const selectIsOffGroupingAdmin = (state: ReapitConnectSession | null): boolean => {

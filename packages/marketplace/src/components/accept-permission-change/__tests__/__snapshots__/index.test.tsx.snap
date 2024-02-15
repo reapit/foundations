@@ -9,17 +9,17 @@ exports[`AcceptPermissionChangePage should match snapshot  1`] = `
     >
       <div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-is-active"
         />
         <mock-styled.div
-          classname="mock-css."
+          classname="el-is-active"
         >
           <mock-styled.div>
             Requested Permissions
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.p
-              classname="mock-css."
+              classname="el-has-grey-text"
             >
               To accept the permissions as requested by 
               will-test-dev-co-voracious-person
@@ -27,16 +27,16 @@ exports[`AcceptPermissionChangePage should match snapshot  1`] = `
             </mock-styled.p>
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-button-group-align-center"
               >
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-neutral"
                 >
                   <mock-styled.div />
                   Ignore
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                 >
                   <mock-styled.div />
                   Accept

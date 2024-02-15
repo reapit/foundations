@@ -7,21 +7,112 @@ exports[`HomePage should render component when loading 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
         >
           <mock-styled.span
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+            classname="el-mb5 el-icon-size-large"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 80 80"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                clip-path="url(#userAuthInfographic_svg__a)"
+              >
+                <mask
+                  height="80"
+                  id="userAuthInfographic_svg__b"
+                  maskUnits="userSpaceOnUse"
+                  style="mask-type: alpha;"
+                  width="80"
+                  x="0"
+                  y="0"
+                >
+                  <ellipse
+                    fill="#C4C4C4"
+                    rx="39.978"
+                    ry="40"
+                    transform="matrix(1 0 .00055 1 40 40)"
+                  />
+                </mask>
+                <g
+                  mask="url(#userAuthInfographic_svg__b)"
+                >
+                  <path
+                    d="M0 0h79.956v80H0z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                    fill="#798da1"
+                  />
+                  <path
+                    d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                    fill="#9faebc"
+                  />
+                </g>
+                <path
+                  d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                  fill="#9faebc"
+                />
+                <path
+                  d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                  fill="#506478"
+                />
+                <path
+                  d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                  fill="#506478"
+                />
+                <path
+                  d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                  fill="#506478"
+                />
+                <path
+                  d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                  fill="#7e9bfa"
+                />
+                <path
+                  d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                  fill="#fff"
+                />
+              </g>
+              <defs>
+                <clippath
+                  id="userAuthInfographic_svg__a"
+                >
+                  <path
+                    d="M0 0h80v80H0z"
+                    fill="#fff"
+                  />
+                </clippath>
+              </defs>
+            </svg>
           </mock-styled.span>
           <mock-styled.h2
             classname=""
@@ -29,23 +120,19 @@ exports[`HomePage should render component when loading 1`] = `
             Your MFA Config
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
           </mock-styled.p>
           <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+            classname="el-mb5 el-intent-neutral"
           >
             <mock-styled.div />
             Docs
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         >
           <mock-styled.h1
             classname=""
@@ -56,9 +143,7 @@ exports[`HomePage should render component when loading 1`] = `
             classname=""
           >
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+              classname="el-mb11"
             >
               <mock-styled.div />
             </mock-styled.div>
@@ -70,21 +155,112 @@ exports[`HomePage should render component when loading 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb5 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              clip-path="url(#userAuthInfographic_svg__a)"
+            >
+              <mask
+                height="80"
+                id="userAuthInfographic_svg__b"
+                maskUnits="userSpaceOnUse"
+                style="mask-type: alpha;"
+                width="80"
+                x="0"
+                y="0"
+              >
+                <ellipse
+                  fill="#C4C4C4"
+                  rx="39.978"
+                  ry="40"
+                  transform="matrix(1 0 .00055 1 40 40)"
+                />
+              </mask>
+              <g
+                mask="url(#userAuthInfographic_svg__b)"
+              >
+                <path
+                  d="M0 0h79.956v80H0z"
+                  fill="#d8dee4"
+                />
+                <path
+                  d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                  fill="#9faebc"
+                />
+              </g>
+              <path
+                d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                fill="#798da1"
+              />
+              <path
+                d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                fill="#798da1"
+              />
+              <path
+                d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                fill="#9faebc"
+              />
+              <path
+                d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                fill="#FFE5C7"
+              />
+              <path
+                d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                fill="#506478"
+              />
+              <path
+                d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                fill="#fff"
+              />
+              <path
+                d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                fill="#506478"
+              />
+              <path
+                d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                fill="#fff"
+              />
+              <path
+                d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                fill="#506478"
+              />
+              <path
+                d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                fill="#7e9bfa"
+              />
+              <path
+                d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                fill="#fff"
+              />
+            </g>
+            <defs>
+              <clippath
+                id="userAuthInfographic_svg__a"
+              >
+                <path
+                  d="M0 0h80v80H0z"
+                  fill="#fff"
+                />
+              </clippath>
+            </defs>
+          </svg>
         </mock-styled.span>
         <mock-styled.h2
           classname=""
@@ -92,23 +268,19 @@ exports[`HomePage should render component when loading 1`] = `
           Your MFA Config
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
         </mock-styled.p>
         <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+          classname="el-mb5 el-intent-neutral"
         >
           <mock-styled.div />
           Docs
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       >
         <mock-styled.h1
           classname=""
@@ -119,9 +291,7 @@ exports[`HomePage should render component when loading 1`] = `
           classname=""
         >
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+            classname="el-mb11"
           >
             <mock-styled.div />
           </mock-styled.div>
@@ -190,21 +360,112 @@ exports[`HomePage should render component with data 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
         >
           <mock-styled.span
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+            classname="el-mb5 el-icon-size-large"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 80 80"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                clip-path="url(#userAuthInfographic_svg__a)"
+              >
+                <mask
+                  height="80"
+                  id="userAuthInfographic_svg__b"
+                  maskUnits="userSpaceOnUse"
+                  style="mask-type: alpha;"
+                  width="80"
+                  x="0"
+                  y="0"
+                >
+                  <ellipse
+                    fill="#C4C4C4"
+                    rx="39.978"
+                    ry="40"
+                    transform="matrix(1 0 .00055 1 40 40)"
+                  />
+                </mask>
+                <g
+                  mask="url(#userAuthInfographic_svg__b)"
+                >
+                  <path
+                    d="M0 0h79.956v80H0z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                    fill="#798da1"
+                  />
+                  <path
+                    d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                    fill="#9faebc"
+                  />
+                </g>
+                <path
+                  d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                  fill="#9faebc"
+                />
+                <path
+                  d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                  fill="#506478"
+                />
+                <path
+                  d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                  fill="#506478"
+                />
+                <path
+                  d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                  fill="#506478"
+                />
+                <path
+                  d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                  fill="#7e9bfa"
+                />
+                <path
+                  d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                  fill="#fff"
+                />
+              </g>
+              <defs>
+                <clippath
+                  id="userAuthInfographic_svg__a"
+                >
+                  <path
+                    d="M0 0h80v80H0z"
+                    fill="#fff"
+                  />
+                </clippath>
+              </defs>
+            </svg>
           </mock-styled.span>
           <mock-styled.h2
             classname=""
@@ -212,23 +473,19 @@ exports[`HomePage should render component with data 1`] = `
             Your MFA Config
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
           </mock-styled.p>
           <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+            classname="el-mb5 el-intent-neutral"
           >
             <mock-styled.div />
             Docs
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         >
           <mock-styled.h1
             classname=""
@@ -236,85 +493,50 @@ exports[`HomePage should render component with data 1`] = `
             Configure MFA Authenticator
           </mock-styled.h1>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css. mock-css. mock-css. mock-css."
+            classname="el-mb7 el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
           >
             <div
-              class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+              class="el-pn-icon"
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname=""
+                classname="el-icon-new"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  style="font-size: 1.25rem;"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </div>
             <div
-              class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+              class="el-pn-content"
             >
               You have an active authenticator registered for your account. If you want to re-configure, click the ‘Reset Authenticator’ button below.
             </div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 2.5rem;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+            classname="el-mb11 el-fade-in"
           >
             <mock-styled.div
               classname=""
             >
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Authenticator Type
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css. mock-css."
+                classname="el-has-grey-text el-has-no-margin"
               >
                 Authenticator App
               </mock-styled.p>
@@ -323,12 +545,12 @@ exports[`HomePage should render component with data 1`] = `
               classname=""
             >
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Status
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css. mock-css."
+                classname="el-has-grey-text el-has-no-margin"
               >
                 Active
               </mock-styled.p>
@@ -337,12 +559,12 @@ exports[`HomePage should render component with data 1`] = `
               classname=""
             >
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Created
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css. mock-css."
+                classname="el-has-grey-text el-has-no-margin"
               >
                 11/11/2022 11:03
               </mock-styled.p>
@@ -351,19 +573,19 @@ exports[`HomePage should render component with data 1`] = `
               classname=""
             >
               <mock-styled.h2
-                classname="mock-css."
+                classname="el-has-no-margin"
               >
                 Last Updated
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css. mock-css."
+                classname="el-has-grey-text el-has-no-margin"
               >
                 11/11/2022 11:03
               </mock-styled.p>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
           >
             <mock-styled.div />
             Reset Authenticator
@@ -375,21 +597,112 @@ exports[`HomePage should render component with data 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb5 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              clip-path="url(#userAuthInfographic_svg__a)"
+            >
+              <mask
+                height="80"
+                id="userAuthInfographic_svg__b"
+                maskUnits="userSpaceOnUse"
+                style="mask-type: alpha;"
+                width="80"
+                x="0"
+                y="0"
+              >
+                <ellipse
+                  fill="#C4C4C4"
+                  rx="39.978"
+                  ry="40"
+                  transform="matrix(1 0 .00055 1 40 40)"
+                />
+              </mask>
+              <g
+                mask="url(#userAuthInfographic_svg__b)"
+              >
+                <path
+                  d="M0 0h79.956v80H0z"
+                  fill="#d8dee4"
+                />
+                <path
+                  d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                  fill="#9faebc"
+                />
+              </g>
+              <path
+                d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                fill="#798da1"
+              />
+              <path
+                d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                fill="#798da1"
+              />
+              <path
+                d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                fill="#9faebc"
+              />
+              <path
+                d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                fill="#FFE5C7"
+              />
+              <path
+                d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                fill="#506478"
+              />
+              <path
+                d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                fill="#fff"
+              />
+              <path
+                d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                fill="#506478"
+              />
+              <path
+                d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                fill="#fff"
+              />
+              <path
+                d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                fill="#506478"
+              />
+              <path
+                d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                fill="#7e9bfa"
+              />
+              <path
+                d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                fill="#fff"
+              />
+            </g>
+            <defs>
+              <clippath
+                id="userAuthInfographic_svg__a"
+              >
+                <path
+                  d="M0 0h80v80H0z"
+                  fill="#fff"
+                />
+              </clippath>
+            </defs>
+          </svg>
         </mock-styled.span>
         <mock-styled.h2
           classname=""
@@ -397,23 +710,19 @@ exports[`HomePage should render component with data 1`] = `
           Your MFA Config
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
         </mock-styled.p>
         <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+          classname="el-mb5 el-intent-neutral"
         >
           <mock-styled.div />
           Docs
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       >
         <mock-styled.h1
           classname=""
@@ -421,85 +730,50 @@ exports[`HomePage should render component with data 1`] = `
           Configure MFA Authenticator
         </mock-styled.h1>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css. mock-css. mock-css. mock-css."
+          classname="el-mb7 el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="el-icon-new"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                style="font-size: 1.25rem;"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             You have an active authenticator registered for your account. If you want to re-configure, click the ‘Reset Authenticator’ button below.
           </div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+          classname="el-mb11 el-fade-in"
         >
           <mock-styled.div
             classname=""
           >
             <mock-styled.h2
-              classname="mock-css."
+              classname="el-has-no-margin"
             >
               Authenticator Type
             </mock-styled.h2>
             <mock-styled.p
-              classname="mock-css. mock-css."
+              classname="el-has-grey-text el-has-no-margin"
             >
               Authenticator App
             </mock-styled.p>
@@ -508,12 +782,12 @@ exports[`HomePage should render component with data 1`] = `
             classname=""
           >
             <mock-styled.h2
-              classname="mock-css."
+              classname="el-has-no-margin"
             >
               Status
             </mock-styled.h2>
             <mock-styled.p
-              classname="mock-css. mock-css."
+              classname="el-has-grey-text el-has-no-margin"
             >
               Active
             </mock-styled.p>
@@ -522,12 +796,12 @@ exports[`HomePage should render component with data 1`] = `
             classname=""
           >
             <mock-styled.h2
-              classname="mock-css."
+              classname="el-has-no-margin"
             >
               Created
             </mock-styled.h2>
             <mock-styled.p
-              classname="mock-css. mock-css."
+              classname="el-has-grey-text el-has-no-margin"
             >
               11/11/2022 11:03
             </mock-styled.p>
@@ -536,19 +810,19 @@ exports[`HomePage should render component with data 1`] = `
             classname=""
           >
             <mock-styled.h2
-              classname="mock-css."
+              classname="el-has-no-margin"
             >
               Last Updated
             </mock-styled.h2>
             <mock-styled.p
-              classname="mock-css. mock-css."
+              classname="el-has-grey-text el-has-no-margin"
             >
               11/11/2022 11:03
             </mock-styled.p>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
         >
           <mock-styled.div />
           Reset Authenticator
@@ -617,21 +891,112 @@ exports[`HomePage should render component with no data 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css.
-  flex: 1 1 auto;
-"
+        classname="el-flex-auto"
       >
         <mock-styled.aside
           classname=""
         >
           <mock-styled.span
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+            classname="el-mb5 el-icon-size-large"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 80 80"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                clip-path="url(#userAuthInfographic_svg__a)"
+              >
+                <mask
+                  height="80"
+                  id="userAuthInfographic_svg__b"
+                  maskUnits="userSpaceOnUse"
+                  style="mask-type: alpha;"
+                  width="80"
+                  x="0"
+                  y="0"
+                >
+                  <ellipse
+                    fill="#C4C4C4"
+                    rx="39.978"
+                    ry="40"
+                    transform="matrix(1 0 .00055 1 40 40)"
+                  />
+                </mask>
+                <g
+                  mask="url(#userAuthInfographic_svg__b)"
+                >
+                  <path
+                    d="M0 0h79.956v80H0z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                    fill="#798da1"
+                  />
+                  <path
+                    d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                    fill="#9faebc"
+                  />
+                </g>
+                <path
+                  d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                  fill="#9faebc"
+                />
+                <path
+                  d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                  fill="#506478"
+                />
+                <path
+                  d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                  fill="#506478"
+                />
+                <path
+                  d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                  fill="#506478"
+                />
+                <path
+                  d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                  fill="#7e9bfa"
+                />
+                <path
+                  d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                  fill="#fff"
+                />
+              </g>
+              <defs>
+                <clippath
+                  id="userAuthInfographic_svg__a"
+                >
+                  <path
+                    d="M0 0h80v80H0z"
+                    fill="#fff"
+                  />
+                </clippath>
+              </defs>
+            </svg>
           </mock-styled.span>
           <mock-styled.h2
             classname=""
@@ -639,23 +1004,19 @@ exports[`HomePage should render component with no data 1`] = `
             Your MFA Config
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css."
+            classname="el-has-grey-text"
           >
             This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
           </mock-styled.p>
           <mock-styled.button
-            classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+            classname="el-mb5 el-intent-neutral"
           >
             <mock-styled.div />
             Docs
           </mock-styled.button>
         </mock-styled.aside>
         <mock-styled.section
-          classname="mock-css.
-  height: 100%;
-"
+          classname="el-hfull"
         >
           <mock-styled.h1
             classname=""
@@ -663,52 +1024,33 @@ exports[`HomePage should render component with no data 1`] = `
             Configure MFA Authenticator
           </mock-styled.h1>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css. mock-css. mock-css. mock-css."
+            classname="el-mb7 el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
           >
             <div
-              class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+              class="el-pn-icon"
               data-testid="close-icon"
             >
               <mock-styled.span
-                classname=""
+                classname="el-icon-new"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  style="font-size: 1.25rem;"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </div>
             <div
-              class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+              class="el-pn-content"
             >
               No authenticators configured for your user account. Please use the button below to configure one.
             </div>
@@ -718,7 +1060,7 @@ exports[`HomePage should render component with no data 1`] = `
               classname=""
             >
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
               >
                 <mock-styled.div />
                 Configure MFA Device
@@ -732,21 +1074,112 @@ exports[`HomePage should render component with no data 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css.
-  flex: 1 1 auto;
-"
+      classname="el-flex-auto"
     >
       <mock-styled.aside
         classname=""
       >
         <mock-styled.span
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css.
-  font-size: 5rem;
-"
+          classname="el-mb5 el-icon-size-large"
         >
-          <svg />
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              clip-path="url(#userAuthInfographic_svg__a)"
+            >
+              <mask
+                height="80"
+                id="userAuthInfographic_svg__b"
+                maskUnits="userSpaceOnUse"
+                style="mask-type: alpha;"
+                width="80"
+                x="0"
+                y="0"
+              >
+                <ellipse
+                  fill="#C4C4C4"
+                  rx="39.978"
+                  ry="40"
+                  transform="matrix(1 0 .00055 1 40 40)"
+                />
+              </mask>
+              <g
+                mask="url(#userAuthInfographic_svg__b)"
+              >
+                <path
+                  d="M0 0h79.956v80H0z"
+                  fill="#d8dee4"
+                />
+                <path
+                  d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                  fill="#798da1"
+                />
+                <path
+                  d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                  fill="#9faebc"
+                />
+              </g>
+              <path
+                d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                fill="#798da1"
+              />
+              <path
+                d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                fill="#798da1"
+              />
+              <path
+                d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                fill="#9faebc"
+              />
+              <path
+                d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                fill="#FFE5C7"
+              />
+              <path
+                d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                fill="#506478"
+              />
+              <path
+                d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                fill="#fff"
+              />
+              <path
+                d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                fill="#506478"
+              />
+              <path
+                d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                fill="#fff"
+              />
+              <path
+                d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                fill="#506478"
+              />
+              <path
+                d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                fill="#7e9bfa"
+              />
+              <path
+                d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                fill="#fff"
+              />
+            </g>
+            <defs>
+              <clippath
+                id="userAuthInfographic_svg__a"
+              >
+                <path
+                  d="M0 0h80v80H0z"
+                  fill="#fff"
+                />
+              </clippath>
+            </defs>
+          </svg>
         </mock-styled.span>
         <mock-styled.h2
           classname=""
@@ -754,23 +1187,19 @@ exports[`HomePage should render component with no data 1`] = `
           Your MFA Config
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
         </mock-styled.p>
         <mock-styled.button
-          classname="mock-css.
-  margin-bottom: 0.75rem;
- mock-css."
+          classname="el-mb5 el-intent-neutral"
         >
           <mock-styled.div />
           Docs
         </mock-styled.button>
       </mock-styled.aside>
       <mock-styled.section
-        classname="mock-css.
-  height: 100%;
-"
+        classname="el-hfull"
       >
         <mock-styled.h1
           classname=""
@@ -778,52 +1207,33 @@ exports[`HomePage should render component with no data 1`] = `
           Configure MFA Authenticator
         </mock-styled.h1>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
- mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
- mock-css. mock-css. mock-css. mock-css."
+          classname="el-mb7 el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="el-icon-new"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                style="font-size: 1.25rem;"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             No authenticators configured for your user account. Please use the button below to configure one.
           </div>
@@ -833,7 +1243,7 @@ exports[`HomePage should render component with no data 1`] = `
             classname=""
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
             >
               <mock-styled.div />
               Configure MFA Device

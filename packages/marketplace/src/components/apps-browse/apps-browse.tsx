@@ -180,7 +180,7 @@ export const AppsBrowse: FC = () => {
     <PageContainer>
       {hasFilters && (
         <AppDetailBackButton onClick={clearFilters}>
-          <Icon icon="backSolidSystem" intent="primary" />
+          <Icon icon="chevronLeft" intent="primary" />
         </AppDetailBackButton>
       )}
       <AppSearchFiltersWrap>
@@ -191,14 +191,14 @@ export const AppsBrowse: FC = () => {
           <Icon
             className={cx(appsSearchMobileIcon, mobileControlsState === 'filters' && appsSearchMobileIconActive)}
             onClick={mobileControlsFilters}
-            icon="filterSystem"
-            fontSize="1.25rem"
+            icon="filter"
+            intent="default"
           />
           <Icon
             className={cx(appsSearchMobileIcon, mobileControlsState === 'search' && appsSearchMobileIconActive)}
             onClick={mobileControlsSearch}
-            icon="searchSystem"
-            fontSize="1.25rem"
+            icon="search"
+            intent="default"
           />
         </FlexContainer>
       </AppSearchFiltersWrap>

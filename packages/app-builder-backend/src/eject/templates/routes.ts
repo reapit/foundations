@@ -10,8 +10,8 @@ export const generateRoutes = (pages: Pages) =>
       .map(
         (page) => js`
       import ${slugToCamel(page.id === '~' ? 'index' : page.id)} from '${page.fileLoc
-          .replace('src', '.')
-          .replace('.tsx', '')}'
+        .replace('src', '.')
+        .replace('.tsx', '')}'
     `,
       )
       .join('\n')}

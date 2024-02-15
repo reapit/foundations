@@ -131,11 +131,12 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
       'CACHE_FOLDER=$(find . -maxdepth 1 -mindepth 1 -type d)',
       'echo $CACHE_FOLDER',
       'mv $CACHE_FOLDER/* ./',
+      'mv $CACHE_FOLDER/.[^.]* ./',
       'rm -rf $CACHE_FOLDER',
     ]
 
     if (pipeline.packageManager && pipeline.packageManager === PackageManagerEnum.YARN_BERRY) {
-      setupCommands.push('yarn set version berry')
+      setupCommands.push('yarn --version')
       setupCommands.push('yarn config set nodeLinker node-modules')
     }
 
@@ -156,8 +157,8 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
               pipeline.packageManager === PackageManagerEnum.YARN_BERRY
                 ? 'yarn'
                 : pipeline.packageManager === PackageManagerEnum.YARN
-                ? PackageManagerEnum.YARN
-                : `${pipeline.packageManager} install`,
+                  ? PackageManagerEnum.YARN
+                  : `${pipeline.packageManager} install`,
             ],
           },
           build: {
@@ -166,8 +167,8 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
                 pipeline.packageManager === PackageManagerEnum.NPM
                   ? `${pipeline.packageManager} run`
                   : pipeline.packageManager?.includes(PackageManagerEnum.YARN)
-                  ? 'yarn'
-                  : pipeline.packageManager
+                    ? 'yarn'
+                    : pipeline.packageManager
               } ${pipeline.buildCommand}`,
             ],
           },
